@@ -1,0 +1,79 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "known",
+        "value_json": "[\"BOM:build-plate/heating-element-plate\"]",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-028/drawing/title",
+          "D-028/drawing/notes",
+          "D-028/drawing/material",
+          "BOM:build-plate/heating-element-plate"
+        ],
+        "reason": "The drawing title 'Varmeelement Plade' is Danish for 'Heating element plate', which matches the BOM row 'Heating element plate' (BOM:build-plate/heating-element-plate) by name. The material also agrees: the drawing notes say 'Aluminium.' and the material field gives '3.3315 (EN-AW 5005)', an aluminium alloy, while the BOM row lists 'Aluminium'. No other BOM row has a similar name. I marked this unsure for two reasons. First, the drawing's section is 'Z-axis' but the BOM row's section is 'Build-plate', and nothing in the evidence says these sections are equivalent. Second, the BOM row has no datasheet to tie it to the source file VarmeElementPlade.pdf, so the match rests on translating the title.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 5984,
+      "cache_read_input_tokens": 2540,
+      "output_tokens": 711,
+      "output_tokens_details": {
+        "thinking_tokens": 274
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 5984,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 711,
+        "cacheReadInputTokens": 2540,
+        "cacheCreationInputTokens": 5984,
+        "webSearchRequests": 0,
+        "costUSD": 0.062608,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 274,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 5984,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.062608,
+    "duration_ms": 6998,
+    "is_error": false
+  },
+  "latency_ms": 21453,
+  "cache_key": "d49d08b7253aab9a333fcefb9fe565494ffb3fe120397480e2f1aa6edd8095be",
+  "cache_hit": false,
+  "job": "link:D-028",
+  "error": null
+}

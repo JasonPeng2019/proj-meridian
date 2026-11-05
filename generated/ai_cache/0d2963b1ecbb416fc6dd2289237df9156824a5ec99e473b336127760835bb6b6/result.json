@@ -1,0 +1,153 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "title",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-001/drawing/title"
+        ],
+        "reason": "The TITLE/DESCRIPTION box is blank in the crop.",
+        "changed_because": ""
+      },
+      {
+        "key": "material",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-001/drawing/material"
+        ],
+        "reason": "The MATERIAL: field is blank. 'aluminium' appears only in the NOTE box and is not copied here.",
+        "changed_because": ""
+      },
+      {
+        "key": "weight_g",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-001/drawing/weight_g"
+        ],
+        "reason": "The WEIGHT [g]: field is blank.",
+        "changed_because": ""
+      },
+      {
+        "key": "notes",
+        "state": "known",
+        "value_json": "\"Door - x2\\n3mm aluminium\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-001/drawing/notes"
+        ],
+        "reason": "The NOTE box clearly shows 'Door - x2' and '3mm aluminium' on two lines.",
+        "changed_because": ""
+      },
+      {
+        "key": "date",
+        "state": "known",
+        "value_json": "\"21/12/2023\"",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-001/drawing/date"
+        ],
+        "reason": "The DATE cell looks like '21/12/2023', but the small text is blurry, especially the last digit.",
+        "changed_because": ""
+      },
+      {
+        "key": "company",
+        "state": "known",
+        "value_json": "\"DTU MPP\"",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-001/drawing/company"
+        ],
+        "reason": "The logo cell reads 'DTU MPP' next to the DTU logo. The cell has no company label, and nearby there is also a person's name and email (Magnus Bolt Kjer, mbokj@mek.dtu.dk).",
+        "changed_because": ""
+      },
+      {
+        "key": "scale",
+        "state": "known",
+        "value_json": "\"1:5\"",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-001/drawing/scale"
+        ],
+        "reason": "The cell reads 'SCALE:1:5'. The text is small and slightly blurry.",
+        "changed_because": ""
+      },
+      {
+        "key": "drawn",
+        "state": "known",
+        "value_json": "\"MBOKJ\"",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-001/drawing/drawn"
+        ],
+        "reason": "The DRAWN cell reads 'MBOKJ'. The text is small and slightly blurry, but it matches the 'mbokj' email shown in the header.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 3650,
+      "cache_read_input_tokens": 7669,
+      "output_tokens": 1195,
+      "output_tokens_details": {
+        "thinking_tokens": 164
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 3650,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 1195,
+        "cacheReadInputTokens": 7669,
+        "cacheCreationInputTokens": 3650,
+        "webSearchRequests": 0,
+        "costUSD": 0.0546498,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 164,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 3650,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.0546498,
+    "duration_ms": 10858,
+    "is_error": false
+  },
+  "latency_ms": 83672,
+  "cache_key": "0d2963b1ecbb416fc6dd2289237df9156824a5ec99e473b336127760835bb6b6",
+  "cache_hit": false,
+  "job": "scan:D-001",
+  "error": null
+}

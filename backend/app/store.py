@@ -1,0 +1,425 @@
+"""Immutable extraction plus append-only, fingerprint-bound review decisions."""
+from __future__ import annotations
+
+import copy
+import hashlib
+import json
+import re
+import uuid
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any
+
+import yaml
+
+from backend.paths import ROOT, inside
+
+AI_METHODS = {"ai_read", "ai_agreed", "ai_agreed_after_retry"}
+
+def now() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+def read_json(path: Path, default: Any) -> Any:
+    return json.loads(path.read_text(encoding="utf-8")) if path.exists() else copy.deepcopy(default)
+
+def settings() -> dict:
+    return yaml.safe_load((ROOT / "ai_settings.yaml").read_text(encoding="utf-8"))
+
+def normalized(value: Any) -> str:
+    return re.sub(r"[^\w]", "", str(value or "").casefold())
+
+class Store:
+    def __init__(self, root: Path = ROOT):
+        self.root = inside(root)
+        self.generated = self.root / "generated"
+        self.decisions_dir = self.root / "decisions"
+        self.reload()
+
+    def reload(self, rebuild: bool = False) -> None:
+        if rebuild or not (self.generated / "records.json").exists():
+            if self.root == ROOT:
+                from backend.loader import build_records
+                build_records()
+        self.records = read_json(self.generated / "records.json", [])
+        self.ai = read_json(self.generated / "ai_results.json", {})
+        self.templates = copy.deepcopy(self.ai.get("templates", {}))
+        for part in self.records:
+            if isinstance(part.get("template"), dict):
+                self.templates.setdefault(part["drawing"]["id"], part["template"])
+        self.mappings = copy.deepcopy(self.ai.get("mappings", []))
+        self.models = read_json(self.generated / "models" / "manifest.json", {})
+        self.rows = {r["name"]: r for r in read_json(self.generated / "bom.json", [])}
+        for part in self.records:
+            for row in part.get("bom", []):
+                self.rows.setdefault(row["name"], row)
+        self.parts = {p["key"]: p for p in self.records}
+        self.by_id = {p["id"]: p for p in self.records}
+        self.fields: dict[str, dict] = {}
+        self.owners: dict[str, dict] = {}
+        self.raw_fields: dict[str, dict] = {}
+        self.events = []
+        if self.decisions_dir.exists():
+            self.events = sorted((read_json(p, {}) for p in self.decisions_dir.glob("*.json")), key=lambda e: (e.get("at", ""), e.get("decision_id", "")))
+        self.changed = []
+        self._index()
+        for passage in read_json(self.generated / "readme.json", []):
+            self.fields[passage["name"]] = passage
+        self.raw_fields = copy.deepcopy(self.fields)
+        for event in self.events:
+            self._apply(event)
+        # Link decisions rebuild the part index; keep machine-context citations
+        # available even when that projection was refreshed during replay.
+        for passage in read_json(self.generated / "readme.json", []):
+            self.fields[passage["name"]] = passage
+        self.revision = hashlib.sha256(json.dumps(self.events, sort_keys=True).encode()).hexdigest()[:16]
+        for part in self.records:
+            drawing = part.get("drawing")
+            if drawing:
+                did = drawing["id"]
+                part["template"] = self.templates.get(did)
+                part["model"] = self.models.get(did)
+                model = part.get("model") or {}
+                part["has_3d"] = bool(model.get("examples"))
+                part["examples"] = model.get("examples", [])
+                part["weight_check"] = model.get("weight_check")
+                tpl = self.templates.get(did, {})
+                thickness = tpl.get("thickness", {})
+                if thickness.get("selected") is not None:
+                    opts = [o.get("value") if isinstance(o, dict) else o for o in thickness.get("options", [])]
+                    if thickness["selected"] in opts:
+                        part["preferred_example"] = chr(65 + opts.index(thickness["selected"]))
+            part["review_status"] = self.part_review_status(part)
+
+    def _index(self) -> None:
+        self.fields = {}
+        self.owners = {}
+        def visit(value: Any, part: dict, prefix: str = "") -> Any:
+            if isinstance(value, dict):
+                if "state" in value and not value.get("name") and prefix:
+                    value["name"] = prefix
+                name = value.get("name")
+                if name and any(k in value for k in ("value", "original", "state")):
+                    if name in self.fields:
+                        return self.fields[name]
+                    self.fields[name] = value
+                    self.owners[name] = part
+                for key, child in list(value.items()):
+                    if key not in {"readers", "review", "correction"}:
+                        value[key] = visit(child, part, f"{prefix}/{key}" if prefix else "")
+            elif isinstance(value, list):
+                for i, child in enumerate(value):
+                    value[i] = visit(child, part, f"{prefix}/{i}" if prefix else "")
+            return value
+        for part in self.records:
+            visit(part.get("drawing"), part)
+            part["bom"] = [self.rows.get(row["name"], row) for row in part.get("bom", [])]
+            for row in part.get("bom", []):
+                visit(row.get("fields"), part)
+            drawing = part.get("drawing")
+            if drawing:
+                did = drawing["id"]
+                if did in self.templates:
+                    visit(self.templates[did], part, f"{did}/template")
+                link = part.setdefault("link", {"method": "unresolved"})
+                link.setdefault("name", f"{did}/link")
+                link.setdefault("value", [r["name"] for r in part.get("bom", [])])
+                link.setdefault("confidence", "sure" if link.get("method") != "unresolved" else "unsure")
+                self.fields[link["name"]] = link
+                self.owners[link["name"]] = part
+            self.fields[part["id"]] = {"name": part["id"], "value": part["display_name"], "method": "parsed", "confidence": "sure"}
+            self.owners[part["id"]] = part
+
+    def _refresh_link_view(self) -> None:
+        """Project current links without touching the immutable extraction files."""
+        from backend.loader.records import connections
+        drawings = [part for part in self.records if part.get("drawing")]
+        old_bom_parts = {part["bom"][0]["name"]: part for part in self.records if not part.get("drawing") and part.get("bom")}
+        linked = set()
+        for part in drawings:
+            link = part.get("link") or {}
+            names = link.get("value", link.get("bom_rows", []))
+            if link.get("method") == "unresolved" or link.get("review", {}).get("status") == "human_rejected":
+                names = []
+            part["bom"] = [self.rows[name] for name in names if name in self.rows]
+            linked.update(row["name"] for row in part["bom"])
+            part["connections"] = [c for row in part["bom"] for c in connections(row, list(self.rows.values()))]
+        standalone = []
+        for name, row in self.rows.items():
+            if name in linked:
+                continue
+            family, slug = name[4:].split("/", 1)
+            part = old_bom_parts.get(name) or {
+                "id": name + "/part", "key": f"bom/{family}/{slug}", "display_name": row["display_name"],
+                "section": row["section"], "has_drawing": False, "has_3d": False,
+                "examples": [], "drawing": None, "link": None, "template": None,
+                "models": {}, "weight_check": None, "mappings": self.mappings,
+            }
+            part["bom"] = [row]
+            part["connections"] = connections(row, list(self.rows.values()))
+            standalone.append(part)
+        self.records = drawings + standalone
+        self.parts = {p["key"]: p for p in self.records}
+        self.by_id = {p["id"]: p for p in self.records}
+        self._index()
+        for passage in read_json(self.generated / "readme.json", []):
+            self.fields[passage["name"]] = passage
+        self.raw_fields = {name: self.raw_fields.get(name, copy.deepcopy(field)) for name, field in self.fields.items()}
+
+    def fingerprint(self, target: str) -> str:
+        if target.startswith("names/"):
+            mapping = next((m for m in self.ai.get("mappings", []) if m.get("name") == target), {})
+            return hashlib.sha256(json.dumps({k: v for k, v in mapping.items() if k != "review"}, sort_keys=True).encode()).hexdigest()
+        part = self.owners.get(target)
+        if target.startswith("BOM:"):
+            row = next((r for n, r in self.rows.items() if target == n or target.startswith(n + "/")), {})
+            return row.get("sha256", "")
+        return (part.get("drawing") or {}).get("sha256", "") if part else ""
+
+    def _apply(self, event: dict) -> None:
+        target = event.get("applies_to", "")
+        fingerprint = event.get("based_on", {}).get("sha256")
+        if fingerprint and fingerprint != self.fingerprint(target):
+            if event.get("status") != "pending":
+                self.changed.append(event)
+            return
+        kind, status = event.get("type"), event.get("status")
+        field = self.fields.get(target)
+        owner = self.owners.get(target)
+        if owner and owner.get("design_review") and kind in {"correction", "set_value", "choose_option", "link", "reject"} and status == "accepted":
+            owner["previous_design_review"] = owner.pop("design_review")
+        if kind == "name_mapping" and status in {"accepted", "rejected"}:
+            mapping = next((m for m in self.mappings if m.get("name") == target), None)
+            if mapping:
+                value = event.get("value")
+                if status == "accepted":
+                    mapping["relationship"] = value.get("relationship") if isinstance(value, dict) else value
+                mapping["review"] = {"status": "human_confirmed" if status == "accepted" else "human_rejected", "by": event["by"], "at": event["at"]}
+        elif kind == "link" and status == "accepted" and field:
+            value = event.get("value") or []
+            values = value if isinstance(value, list) else [value]
+            part = self.owners[target]
+            field.update(value=values, bom_rows=values, method="human_decision", confidence="sure",
+                         review={"status": "human_confirmed", "by": event["by"], "at": event["at"]},
+                         correction={"original": field.get("value"), "corrected": values, "by": event["by"], "at": event["at"]})
+            self._refresh_link_view()
+        elif kind in {"correction", "set_value", "choose_option"} and status == "accepted" and field:
+            old = field.get("original", field.get("value"))
+            value = event.get("value")
+            if kind == "choose_option":
+                field["selected"] = value
+            elif isinstance(value, dict) and "state" in value:
+                field.update(value)
+            else:
+                field["value"] = value
+                if "state" in field:
+                    field["state"] = "known"
+            field.update(method="human_decision", confidence="sure", correction={"original": old, "corrected": value, "by": event["by"], "at": event["at"]})
+            field.pop("review", None)
+            if target.endswith("/drawing/title"):
+                part = self.owners[target]
+                part["display_name"] = str(value)
+                self.fields[part["id"]]["value"] = str(value)
+        elif kind in {"confirm", "reject"} and field:
+            field["review"] = {"status": "human_confirmed" if kind == "confirm" else "human_rejected", "by": event["by"], "at": event["at"]}
+            if kind == "reject":
+                field["confidence"] = "unsure"
+                if target.endswith("/link"):
+                    field.update(method="unresolved", value=[], bom_rows=[], reason="The previous link was rejected; choose a BOM row or no match.")
+                    field.pop("review", None)
+                    self._refresh_link_view()
+                elif "/template/" in target:
+                    field["state"] = "unknown"
+                    field.pop("selected", None)
+        elif kind == "approve_design":
+            part = self.by_id.get(target)
+            if part:
+                part["design_review"] = {"by": event["by"], "at": event["at"], "note": event.get("note", "")}
+
+    def part(self, key: str) -> dict:
+        part = self.parts.get(key) or self.by_id.get(key)
+        if not part:
+            raise KeyError("Part not found")
+        return part
+
+    def part_review_status(self, part: dict) -> str:
+        if any(self.owners.get(e.get("applies_to")) is part for e in self.pending_changed()):
+            return "source_changed"
+        if part.get("design_review"):
+            return "reviewed"
+        return "not_reviewed" if any(f.get("method") in AI_METHODS for n, f in self.fields.items() if self.owners.get(n) is part) else "source_evidence"
+
+    def pending_changed(self) -> list[dict]:
+        return [old for old in self.changed if not any(
+            event.get("applies_to") == old.get("applies_to") and event.get("at", "") > old.get("at", "")
+            and event.get("status") == "accepted" and event.get("based_on", {}).get("sha256") == self.fingerprint(old["applies_to"])
+            for event in self.events)]
+
+    def append(self, target: str, kind: str, value: Any = None, status: str = "accepted", note: str = "", **extra: Any) -> dict:
+        self.decisions_dir.mkdir(parents=True, exist_ok=True)
+        event = {"decision_id": "HD-" + uuid.uuid4().hex, "applies_to": target, "type": kind,
+                 "value": value, "status": status, "note": note, "by": settings().get("reviewer_name", "Jason Peng"),
+                 "at": now(), "based_on": {"sha256": self.fingerprint(target)}, **extra}
+        path = self.decisions_dir / (event["decision_id"] + ".json")
+        with path.open("x", encoding="utf-8") as handle:
+            json.dump(event, handle, ensure_ascii=False, indent=2)
+        self.reload()
+        return event
+
+    def propose(self, target: str, value: Any, reason: str) -> dict:
+        if target not in self.fields:
+            raise ValueError("Correction target was not found")
+        part = self.owners[target]
+        evidence = " ".join(str(f.get("original", f.get("value", ""))) for n, f in self.raw_fields.items() if self.owners.get(n) is part)
+        matched = normalized(value) in normalized(evidence)
+        check = {"exact_text_match": matched, "message": "Proposed text occurs in the extracted evidence." if matched else "No exact text match. Review the original drawing and linked BOM evidence before accepting.", "evidence_excerpt": evidence[:1800]}
+        return self.append(target, "correction", value, "pending", reason, old_value=self.fields[target].get("original", self.fields[target].get("value")), check_result=check, proposed_by="chat user")
+
+    def pending_corrections(self) -> list[dict]:
+        resolved = {e.get("proposal_id") for e in self.events if e.get("proposal_id") and e.get("status") in {"accepted", "rejected"}}
+        return [e for e in self.events if e.get("type") == "correction" and e.get("status") == "pending" and e["decision_id"] not in resolved]
+
+    def review_items(self) -> list[dict]:
+        items = []
+        def item(target: str, kind: str, field: dict, **extra: Any) -> dict:
+            part = self.owners.get(target)
+            return {"id": target, "target": target, "type": kind, "part_key": part.get("key") if part else None,
+                    "title": target, "value": field.get("value"), "original": field.get("original"),
+                    "status": field.get("review", {}).get("status", "pending"), "readers": field.get("readers", {}),
+                    "method": field.get("method"), "options": field.get("options", []),
+                    "evidence": self.evidence_for(target), **extra}
+        for proposal in self.pending_corrections():
+            target = proposal["applies_to"]
+            items.append(item(target, "correction", self.fields.get(target, {}), id=proposal["decision_id"], value=proposal["value"], original=proposal.get("old_value"), reason=proposal.get("note"), check_result=proposal.get("check_result")))
+        for mapping in self.mappings:
+            items.append({"id": mapping["name"], "target": mapping["name"], "type": "name_mapping", "title": f"{mapping.get('left')} → {mapping.get('right')}", "value": mapping.get("relationship"), "status": mapping.get("review", {}).get("status", "pending"), "readers": mapping.get("readers", {}), "evidence": mapping.get("evidence"), "kind": mapping.get("kind"), "options": ["same", "kind_of", "different", "no_equivalent"]})
+        for target, original in self.raw_fields.items():
+            current = self.fields[target]
+            if target.endswith("/link") and current.get("method") == "unresolved":
+                candidates = original.get("candidates", original.get("readers", {}))
+                items.append(item(target, "link", current, reason=current.get("reason", "Drawing-to-BOM link is unresolved"), candidates=candidates, rows=[{"name": n, "display_name": r.get("display_name"), "section": r.get("section")} for n, r in self.rows.items() if r.get("fields", {}).get("type", {}).get("value") == "Custom"]))
+            elif "/template/" in target and current.get("state") == "unknown" and current.get("method") != "human_decision":
+                items.append(item(target, "template", current, reason="Waiting for human input"))
+            elif original.get("method") in AI_METHODS:
+                items.append(item(target, "ai_interpretation", current))
+            if current.get("state") == "options":
+                items.append(item(target, "possible_reading", current, id="options:" + target, selected=current.get("selected")))
+        for part in self.records:
+            if part.get("has_3d"):
+                weight = part.get("weight_check") or {}
+                state = str(weight.get("state", weight.get("status", ""))).lower()
+                items.append(item(part["id"], "ai_interpretation", {}, id="design:" + part["id"], title=part["display_name"] + " — whole design", weight_check=weight, status="human_confirmed" if part.get("design_review") else "not_reviewed"))
+                if state in {"failed", "flagged", "flagged_for_review"}:
+                    items.append(item(part["id"], "weight", {}, id="weight:" + part["id"], title=part["display_name"] + " — weight check", weight_check=weight, status="human_confirmed" if part.get("design_review") else "pending"))
+        for event in self.pending_changed():
+            items.append(item(event["applies_to"], "source_changed", {}, id="changed:" + event["decision_id"], value=event.get("value"), reason="Source changed since approval", previous_decision=event))
+        return items
+
+    def evidence_for(self, target: str) -> dict:
+        part = self.owners.get(target)
+        field = self.fields.get(target, {})
+        if not part:
+            return {}
+        return {"part_key": part["key"], "drawing": part.get("drawing"), "bom": part.get("bom", []), "page": field.get("page", 1), "box": field.get("box"), "says": field.get("original", field.get("value"))}
+
+    def act(self, item_id: str, action: str, value: Any = None, note: str = "") -> dict:
+        found = next((i for i in self.review_items() if i["id"] == item_id), None)
+        if not found:
+            raise KeyError("Review item not found")
+        target, kind = found["target"], found["type"]
+        if kind == "correction":
+            if action not in {"accept", "reject"}:
+                raise ValueError("A correction must be accepted or rejected")
+            event = self.append(target, "correction", found["value"], "accepted" if action == "accept" else "rejected", note, proposal_id=item_id, old_value=found.get("original"), check_result=found.get("check_result"))
+        elif kind == "source_changed" and action in {"accept", "set_value"}:
+            previous = found["previous_decision"]
+            if target not in self.fields and not any(m["name"] == target for m in self.mappings):
+                raise ValueError("The original target no longer exists in the current evidence")
+            chosen = previous.get("value") if action == "accept" else value
+            if previous["type"] == "approve_design":
+                self.validate_design(self.owners[target], note)
+            event = self.append(target, previous["type"], chosen, note=note or "Re-approved against changed source evidence", previous_decision_id=previous["decision_id"])
+            if "/template/" in target:
+                self.rebuild_models()
+        elif kind == "name_mapping" and action == "reject":
+            event = self.append(target, "name_mapping", found["value"], "rejected", note)
+        elif action == "approve_mapping" and kind == "name_mapping":
+            value = value or found["value"]
+            if value not in {"same", "kind_of", "different", "no_equivalent"}:
+                raise ValueError("Choose a valid relationship")
+            event = self.append(target, "name_mapping", value, note=note)
+        elif action == "approve_design":
+            part = self.owners[target]
+            self.validate_design(part, note)
+            targets = [n for n, f in self.raw_fields.items() if self.owners.get(n) is part and f.get("method") in AI_METHODS]
+            for name in targets:
+                self.append(name, "confirm", note=note)
+            event = self.append(part["id"], "approve_design", note=note)
+        elif kind == "link" and action in {"accept", "set_value"}:
+            values = value if isinstance(value, list) else ([value] if value else [])
+            if any(v not in self.rows for v in values):
+                raise ValueError("Unknown BOM row")
+            event = self.append(target, "link", values, note=note)
+        elif action in {"confirm", "reject"}:
+            event = self.append(target, action, note=note)
+            if action == "reject" and "/template/" in target:
+                self.rebuild_models()
+        elif action in {"set_value", "choose_option"}:
+            if action == "choose_option":
+                options = [o.get("value") if isinstance(o, dict) else o for o in self.fields[target].get("options", [])]
+                if value not in options:
+                    raise ValueError("Value is not one of the printed options")
+            event = self.append(target, action, value, note=note)
+            if "/template/" in target:
+                self.rebuild_models()
+        else:
+            raise ValueError("Action is not valid for this item")
+        return {"decision": event, "revision": self.revision, "status": "saved"}
+
+    def validate_design(self, part: dict, note: str) -> None:
+        waiting = [n for n, f in self.fields.items() if self.owners.get(n) is part and "/template/" in n and f.get("state") == "unknown" and (f.get("method") != "human_decision" or n.endswith(("/thickness", "/outline")))]
+        if (part.get("link") or {}).get("method") == "unresolved":
+            waiting.append("drawing-to-BOM link")
+        if waiting:
+            raise ValueError("Fields still need input: " + ", ".join(waiting))
+        weight = part.get("weight_check") or {}
+        if str(weight.get("state", weight.get("status", ""))).lower() == "failed" and not note.strip():
+            raise ValueError("Approving a FAILED weight check requires a note")
+
+    def rebuild_models(self) -> None:
+        try:
+            from backend.cad.builder import build_all
+            for part in self.records:
+                drawing = part.get("drawing") or {}
+                template = self.templates.get(drawing.get("id"))
+                if template is not None:
+                    template["bom_materials"] = [row["fields"]["material"] for row in part.get("bom", []) if row.get("fields", {}).get("material")]
+            build_all(self.templates)
+            self.reload()
+        except ImportError:
+            for part in self.records:
+                if part.get("model"):
+                    part["model"]["stale"] = True
+                    part["model"]["stale_message"] = "Model out of date: rebuild needed. Showing the version from before this change."
+
+    def history(self, key: str, fact: str | None = None) -> list[dict]:
+        part = self.part(key)
+        originals = [{"type": "extraction", "applies_to": n, "value": f.get("original", f.get("value")), "method": f.get("method"), "source": self.evidence_for(n)} for n, f in self.raw_fields.items() if self.owners.get(n) is part and (not fact or n == fact)]
+        events = [e for e in self.events if self.owners.get(e.get("applies_to")) is part and (not fact or e["applies_to"] == fact)]
+        return originals + events + [{"type": "source_changed", "applies_to": e["applies_to"], "at": e.get("at"), "message": "Source changed since approval"} for e in self.changed if self.owners.get(e.get("applies_to")) is part and (not fact or e["applies_to"] == fact)]
+
+    def accuracy(self) -> dict:
+        latest = {}
+        for event in self.events:
+            if event.get("type") in {"confirm", "reject"} and "automated" not in event.get("by", "").lower():
+                key = (event["applies_to"], event.get("based_on", {}).get("sha256"))
+                latest[key] = event
+        jobs = {job: {"confirmed": 0, "rejected": 0} for job in ("scans", "matching", "templates")}
+        for event in latest.values():
+            name = event["applies_to"]
+            raw = self.raw_fields.get(name, {})
+            if raw.get("method") not in AI_METHODS:
+                continue
+            job = "templates" if "/template/" in name else "matching" if name.endswith("/link") else "scans"
+            jobs[job]["confirmed" if event["type"] == "confirm" else "rejected"] += 1
+        total = sum(sum(v.values()) for v in jobs.values())
+        return {"jobs": jobs, "reviewed": total, "accuracy": sum(v["confirmed"] for v in jobs.values()) / total if total else None, "note": "Human review accuracy is not measured until a person checks AI items." if not total else "Counts refer to original AI predictions, not corrected replacements.", "prep": self.ai.get("metrics", {})}

@@ -1,0 +1,119 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "outline_type",
+        "state": "known",
+        "value_json": "\"circle\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-026",
+          "D-026/drawing/n/250.0@1-1"
+        ],
+        "reason": "The front view shows a circular outline dimensioned Ø250,0.",
+        "changed_because": ""
+      },
+      {
+        "key": "length",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-026"
+        ],
+        "reason": "Length is not applicable to the circular outline.",
+        "changed_because": ""
+      },
+      {
+        "key": "width",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-026"
+        ],
+        "reason": "Width is not applicable to the circular outline.",
+        "changed_because": ""
+      },
+      {
+        "key": "outer_diameter",
+        "state": "known",
+        "value_json": "250",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-026/drawing/n/250.0@1-1"
+        ],
+        "reason": "The outside diameter is dimensioned Ø250,0; drawing dimensions are in millimetres.",
+        "changed_because": ""
+      },
+      {
+        "key": "inner_diameter",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-026"
+        ],
+        "reason": "No central opening is shown. R105,0 locates the hole centers; it is not an inner boundary.",
+        "changed_because": ""
+      },
+      {
+        "key": "thickness",
+        "state": "options",
+        "value_json": "[15,25]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-026/drawing/n/15.0@1-1",
+          "D-026/drawing/n/25.0@1-1"
+        ],
+        "reason": "The side view gives stacked thickness alternatives 25,0 and 15,0, in millimetres.",
+        "changed_because": ""
+      },
+      {
+        "key": "features",
+        "state": "unknown",
+        "value_json": "[{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-105,\"fact_ids\":[\"D-026/drawing/n/105.0@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-026\"]},\"diameter\":{\"state\":\"known\",\"value\":5.3,\"fact_ids\":[\"D-026/drawing/n/5.3@1-1\"]},\"through\":true,\"hole_type\":\"counterbored\",\"counterbore_diameter\":{\"state\":\"known\",\"value\":10,\"fact_ids\":[\"D-026/drawing/n/10.0@1-1\"]},\"counterbore_depth\":{\"state\":\"known\",\"value\":15.4,\"fact_ids\":[\"D-026/drawing/n/15.4@1-1\"]}}]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-026",
+          "D-026/drawing/n/3.0@1-1",
+          "D-026/drawing/n/105.0@1-1",
+          "D-026/drawing/n/5.3@1-1",
+          "D-026/drawing/n/10.0@1-1",
+          "D-026/drawing/n/15.4@1-1",
+          "D-026/drawing/callout/p1-2"
+        ],
+        "reason": "The callout specifies 3 x Ø5,3 THRU ALL with counterbores Ø10,0, depth 15,4. The left hole is on the horizontal centerline at R105,0, establishing (-105,0). The other two holes lack angular dimensions, so their positions cannot be determined and they are omitted; equal spacing is not dimensioned.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 17791,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2097,
+          "reasoning_output_tokens": 1335
+        }
+      }
+    ]
+  },
+  "latency_ms": 44344,
+  "cache_key": "a9cdc078f45bc1eca7b3085a4fede091b6ee7706c1e1ebe91a9903e676a5fd7a",
+  "cache_hit": false,
+  "job": "template:D-026",
+  "error": null
+}

@@ -1,0 +1,47 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-022/drawing/notes",
+          "D-022/drawing/title",
+          "BOM:gas-flow/gas-flow-inlet-geometry"
+        ],
+        "reason": "The notes identify 'Inlet Box' and 'Stainless'. 'Gas flow inlet geometry' is a plausible candidate, but its different name and absent material/datasheet do not establish identity. The unavailable drawing title leaves the match unresolved.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 15483,
+          "cached_input_tokens": 10112,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 993,
+          "reasoning_output_tokens": 870
+        }
+      }
+    ]
+  },
+  "latency_ms": 31906,
+  "cache_key": "5a2998b8f4a7d0e3fd5f208339ea35ea22b30528d650cbe3bbe3fa4d18a90e67",
+  "cache_hit": false,
+  "job": "link:D-022",
+  "error": null
+}

@@ -1,0 +1,43 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "relationship",
+        "state": "known",
+        "value_json": "\"kind_of\"",
+        "confidence": "sure",
+        "fact_ids": [],
+        "reason": "6061 Alloy is a specific alloy of Aluminium; based on general engineering knowledge, not the dataset. This suggestion requires actual human approval before use.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 12817,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 277,
+          "reasoning_output_tokens": 199
+        }
+      }
+    ]
+  },
+  "latency_ms": 9328,
+  "cache_key": "7d5d27280afde8fa6da7b974a1dee64b0afdb9f14d7338708bd2db67c6e013e1",
+  "cache_hit": false,
+  "job": "mapping:names/material/6061-alloy -> aluminium",
+  "error": null
+}

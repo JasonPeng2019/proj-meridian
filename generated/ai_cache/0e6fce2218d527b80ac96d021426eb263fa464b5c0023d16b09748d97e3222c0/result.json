@@ -1,0 +1,82 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-029/drawing/notes",
+          "D-029/drawing/material",
+          "D-029/drawing/title",
+          "BOM:build-plate/motor-plate",
+          "BOM:build-plate/build-base",
+          "BOM:sensorgantry/z-axis-stepper-bracket",
+          "BOM:sensorgantry/z-axis-linear-rod"
+        ],
+        "reason": "The drawing D-029 (Z-axis_BottomPlate.pdf, section 'Z-axis') says only 'Z-axis BottomPlate / Aluminium'. No BOM row has a 'Z-axis' section or a 'Bottom Plate' name. The nearest candidates are only partial matches. 'Motor plate' and 'Build base' are aluminium rows in the Build-plate section, which may be the Z-axis build platform drive, but neither name says bottom plate. 'Z axis stepper bracket' and 'Z axis linear rod' are in the SensorGantry section, have no material given, and are not plates. None of these rows has a datasheet that links to Z-axis_BottomPlate.pdf. A match is plausible, but the evidence doesn't decide it, so the link is unknown and not an empty list.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 5968,
+      "cache_read_input_tokens": 2540,
+      "output_tokens": 633,
+      "output_tokens_details": {
+        "thinking_tokens": 153
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 5968,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 633,
+        "cacheReadInputTokens": 2540,
+        "cacheCreationInputTokens": 5968,
+        "webSearchRequests": 0,
+        "costUSD": 0.06092,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 153,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 5968,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.06092,
+    "duration_ms": 5751,
+    "is_error": false
+  },
+  "latency_ms": 11813,
+  "cache_key": "0e6fce2218d527b80ac96d021426eb263fa464b5c0023d16b09748d97e3222c0",
+  "cache_hit": false,
+  "job": "link:D-029",
+  "error": null
+}

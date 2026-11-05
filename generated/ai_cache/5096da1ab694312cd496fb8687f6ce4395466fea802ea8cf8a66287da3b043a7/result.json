@@ -1,0 +1,122 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "title",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-030/drawing/title"
+        ],
+        "reason": "The TITLE/DESCRIPTION field is blank.",
+        "changed_because": ""
+      },
+      {
+        "key": "material",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-030/drawing/material"
+        ],
+        "reason": "The MATERIAL field is blank. Aluminium appears in the NOTE field.",
+        "changed_because": ""
+      },
+      {
+        "key": "weight_g",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-030/drawing/weight_g"
+        ],
+        "reason": "The WEIGHT [g] field is blank.",
+        "changed_because": ""
+      },
+      {
+        "key": "notes",
+        "state": "known",
+        "value_json": "\"Z-axis MotorPlate\\nAluminium\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-030/drawing/notes"
+        ],
+        "reason": "These two lines are printed in the NOTE field.",
+        "changed_because": ""
+      },
+      {
+        "key": "date",
+        "state": "known",
+        "value_json": "\"24-01-2024\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-030/drawing/date"
+        ],
+        "reason": "The DATE entry reads 24-01-2024.",
+        "changed_because": ""
+      },
+      {
+        "key": "company",
+        "state": "known",
+        "value_json": "\"DTU MPP\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-030/drawing/company"
+        ],
+        "reason": "DTU MPP is printed beside the logo.",
+        "changed_because": ""
+      },
+      {
+        "key": "scale",
+        "state": "known",
+        "value_json": "\"1:3\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-030/drawing/scale"
+        ],
+        "reason": "The SCALE entry reads 1:3.",
+        "changed_because": ""
+      },
+      {
+        "key": "drawn",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-030/drawing/drawn"
+        ],
+        "reason": "The DRAWN entry is too blurred to transcribe character by character.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 14583,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2261,
+          "reasoning_output_tokens": 1833
+        }
+      }
+    ]
+  },
+  "latency_ms": 55718,
+  "cache_key": "5096da1ab694312cd496fb8687f6ce4395466fea802ea8cf8a66287da3b043a7",
+  "cache_hit": false,
+  "job": "scan:D-030",
+  "error": null
+}

@@ -1,0 +1,78 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "known",
+        "value_json": "[\"BOM:optics/silicone-gasket-f-theta-ring\"]",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-019/drawing/material",
+          "D-019/drawing/notes",
+          "BOM:optics/silicone-gasket-f-theta-ring"
+        ],
+        "reason": "The source filename 'SiliconePakningfTheta.pdf' and the note '1mm silicone pakning' describe a silicone gasket ('pakning' is Danish for gasket) for the f-theta lens. That matches the BOM row 'Silicone gasket f-theta ring'. No other row is a silicone part in the optics area. 'Recoater Blade' is also silicone, but it is in the Recoater section and has its own datasheet (Silicone270mm_1mm_x2.pdf), so it is not a candidate. The confidence is unsure because the wording differs: the drawing says section 'Optical' while the BOM says 'Optics', and the drawing material is 'Silicon Rubber' while the BOM material is 'Silicone'. These are not confirmed as equivalent. The BOM row also lists no datasheet that would tie it to this file, and the drawing title is null.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 5965,
+      "cache_read_input_tokens": 2540,
+      "output_tokens": 676,
+      "output_tokens_details": {
+        "thinking_tokens": 215
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 5965,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 676,
+        "cacheReadInputTokens": 2540,
+        "cacheCreationInputTokens": 5965,
+        "webSearchRequests": 0,
+        "costUSD": 0.061756,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 215,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 5965,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.061756,
+    "duration_ms": 6523,
+    "is_error": false
+  },
+  "latency_ms": 26109,
+  "cache_key": "9f601c012eafada2bb7ac019ebab4378674f5dc52bcfb940d137e307ac930838",
+  "cache_hit": false,
+  "job": "link:D-019",
+  "error": null
+}

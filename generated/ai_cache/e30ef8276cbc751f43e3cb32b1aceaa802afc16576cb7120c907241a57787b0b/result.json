@@ -1,0 +1,87 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "notes",
+        "state": "known",
+        "value_json": "\"Note: All threaded holes are blind.\\n20mm thick aluminium plate.\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-003/drawing/notes"
+        ],
+        "reason": "In the supplied crop, the NOTE box (D-003/drawing/notes) is legible. It shows two separate printed lines: 'Note: All threaded holes are blind.' and '20mm thick aluminium plate.' The text is unchanged, including the spelling 'aluminium'.",
+        "changed_because": "My first answer joined the two printed lines with a space. The image shows them on separate lines, so a line break is the more faithful copy. I did not change any wording."
+      },
+      {
+        "key": "date",
+        "state": "known",
+        "value_json": "\"26/10/2023\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-003/drawing/date"
+        ],
+        "reason": "The DATE cell (D-003/drawing/date), next to DRAWN MBOKJ, reads 26/10/2023. On re-inspection, the second digit has the closed lower loop of a 6, not the open shape of a 4, so I do not accept the other reader's 24/10/2023.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 6740,
+      "cache_read_input_tokens": 5642,
+      "output_tokens": 751,
+      "output_tokens_details": {
+        "thinking_tokens": 166
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 6740,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 751,
+        "cacheReadInputTokens": 5642,
+        "cacheCreationInputTokens": 6740,
+        "webSearchRequests": 0,
+        "costUSD": 0.0700844,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 166,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 6740,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.0700844,
+    "duration_ms": 8299,
+    "is_error": false
+  },
+  "latency_ms": 9813,
+  "cache_key": "e30ef8276cbc751f43e3cb32b1aceaa802afc16576cb7120c907241a57787b0b",
+  "cache_hit": false,
+  "job": "scan:D-003:retry",
+  "error": null
+}

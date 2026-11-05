@@ -1,0 +1,77 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "relationship",
+        "state": "known",
+        "value_json": "\"kind_of\"",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-015/drawing/source",
+          "BOM:recoater/recoater-blade"
+        ],
+        "reason": "The supplied links connect the drawing source D-015 with the BOM recoater blade item, but they do not state how the materials relate. Based on general engineering knowledge, not the dataset: 'Silicon Rubber' looks like a common misspelling of 'silicone rubber'. Silicone rubber is an elastomer within the broader silicone family, which also includes silicone oils, resins and gels. That makes LEFT more specific than RIGHT (kind_of). This is unsure because the spelling 'Silicon' is not confirmed in the evidence, and the BOM may simply mean the same blade material. Human approval is required.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 3971,
+      "output_tokens": 596,
+      "output_tokens_details": {
+        "thinking_tokens": 259
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 596,
+        "cacheReadInputTokens": 3971,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.0127222,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 259,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 0,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.0127222,
+    "duration_ms": 6411,
+    "is_error": false
+  },
+  "latency_ms": 35000,
+  "cache_key": "a093060e6af154840b92c66c235a108a4558d718e83b78cfe8b1988351953763",
+  "cache_hit": false,
+  "job": "mapping:names/material/silicon-rubber -> silicone",
+  "error": null
+}

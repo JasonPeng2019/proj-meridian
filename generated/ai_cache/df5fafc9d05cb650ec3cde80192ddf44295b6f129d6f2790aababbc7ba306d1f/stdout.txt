@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a1aa95-b39a-7cd3-9648-f515688df919"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"items\":[{\"key\":\"relationship\",\"state\":\"known\",\"value_json\":\"\\\"same\\\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-020/drawing/source\",\"BOM:optics/f-theta-seal-ring\"],\"reason\":\"The supplied established links support mapping the represented drawing section \\\"Optical\\\" to the \\\"Optics\\\" BOM section. This suggestion requires actual human approval before use.\",\"changed_because\":\"\"}]}"}}
+{"type":"turn.completed","usage":{"input_tokens":12802,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":488,"reasoning_output_tokens":389}}

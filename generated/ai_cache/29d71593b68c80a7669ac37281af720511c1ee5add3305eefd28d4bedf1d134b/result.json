@@ -1,0 +1,79 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "known",
+        "value_json": "[\"BOM:build-plate/build-cylinder-clamp-ring\"]",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-027/drawing/title",
+          "D-027/drawing/material",
+          "D-027/drawing/notes",
+          "BOM:build-plate/build-cylinder-clamp-ring"
+        ],
+        "reason": "The drawing title 'Cylinder Spænd Ring' is Danish and translates to 'cylinder clamp ring'. That matches the BOM row 'Build cylinder clamp ring' and no other row. The drawing material, 6063-T6, is an aluminium alloy, and the notes allow EN AW-6000/2000/7000 series aluminium. Both are consistent with the BOM material 'Aluminium'. Confidence is unsure for three reasons. First, the drawing section is 'Z-axis' but the BOM row is in 'Build-plate', and these have not been approved as equivalent. Second, the match depends on translating the title rather than an exact name match. Third, the BOM row lists no datasheet that could confirm the source file 'CylinderSpændRing.PDF'.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 5999,
+      "cache_read_input_tokens": 2540,
+      "output_tokens": 642,
+      "output_tokens_details": {
+        "thinking_tokens": 201
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 5999,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 642,
+        "cacheReadInputTokens": 2540,
+        "cacheCreationInputTokens": 5999,
+        "webSearchRequests": 0,
+        "costUSD": 0.061348,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 201,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 5999,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.061348,
+    "duration_ms": 6138,
+    "is_error": false
+  },
+  "latency_ms": 14360,
+  "cache_key": "29d71593b68c80a7669ac37281af720511c1ee5add3305eefd28d4bedf1d134b",
+  "cache_hit": false,
+  "job": "link:D-027",
+  "error": null
+}

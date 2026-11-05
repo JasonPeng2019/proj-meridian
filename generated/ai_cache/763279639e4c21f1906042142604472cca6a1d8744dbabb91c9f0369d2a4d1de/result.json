@@ -1,0 +1,49 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-024",
+          "D-024/drawing/title",
+          "D-024/drawing/material",
+          "D-024/drawing/notes",
+          "BOM:build-plate/build-base"
+        ],
+        "reason": "“ByggeBase” suggests “Build base”, and the drawing notes specify “Aluminium.”, consistent with the candidate's “Aluminium”. However, the drawing section “Z-axis” differs from “Build-plate”; no supplied evidence establishes their equivalence, and the candidate has no datasheet reference. The match remains unresolved.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 15483,
+          "cached_input_tokens": 10112,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 867,
+          "reasoning_output_tokens": 718
+        }
+      }
+    ]
+  },
+  "latency_ms": 36406,
+  "cache_key": "763279639e4c21f1906042142604472cca6a1d8744dbabb91c9f0369d2a4d1de",
+  "cache_hit": false,
+  "job": "link:D-024",
+  "error": null
+}

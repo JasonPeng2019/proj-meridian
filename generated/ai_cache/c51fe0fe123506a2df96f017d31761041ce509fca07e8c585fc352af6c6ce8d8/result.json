@@ -1,0 +1,43 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "relationship",
+        "state": "known",
+        "value_json": "\"kind_of\"",
+        "confidence": "sure",
+        "fact_ids": [],
+        "reason": "AISI 316 Stainless Steel Sheet (SS) is a specific grade and form of stainless steel, which is steel; based on general engineering knowledge, not the dataset. This suggestion requires actual human approval before use.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 12811,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 262,
+          "reasoning_output_tokens": 170
+        }
+      }
+    ]
+  },
+  "latency_ms": 8109,
+  "cache_key": "c51fe0fe123506a2df96f017d31761041ce509fca07e8c585fc352af6c6ce8d8",
+  "cache_hit": false,
+  "job": "mapping:names/material/aisi-316-stainless-steel-sheet-ss -> stainless-steel-steel",
+  "error": null
+}

@@ -1,0 +1,153 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "title",
+        "state": "known",
+        "value_json": "\"SealRing\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-020/drawing/title"
+        ],
+        "reason": "The TITLE/DESCRIPTION box clearly reads 'SealRing' in the cropped image.",
+        "changed_because": ""
+      },
+      {
+        "key": "material",
+        "state": "known",
+        "value_json": "\"6061 Alloy\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-020/drawing/material"
+        ],
+        "reason": "The MATERIAL field clearly reads '6061 Alloy'.",
+        "changed_because": ""
+      },
+      {
+        "key": "weight_g",
+        "state": "known",
+        "value_json": "107.4",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-020/drawing/weight_g"
+        ],
+        "reason": "The field is labelled 'WEIGHT [g]:' and reads 107.4, so the unit is printed as grams.",
+        "changed_because": ""
+      },
+      {
+        "key": "notes",
+        "state": "known",
+        "value_json": "\"Ring with o-ring groove\\nAluminium\"",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-020/drawing/notes"
+        ],
+        "reason": "The NOTE box contains two legible lines: 'Ring with o-ring groove' and 'Aluminium'. Both lines are inside the notes area, but it is not certain that the second line is meant as part of the note.",
+        "changed_because": ""
+      },
+      {
+        "key": "date",
+        "state": "known",
+        "value_json": "\"06/01/2022\"",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-020/drawing/date"
+        ],
+        "reason": "The DATE cell appears to read '06/01/2022', but the text is small and slightly blurry.",
+        "changed_because": ""
+      },
+      {
+        "key": "company",
+        "state": "known",
+        "value_json": "\"DTU MPP\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-020/drawing/company"
+        ],
+        "reason": "The COMPANY box clearly reads 'DTU MPP'.",
+        "changed_because": ""
+      },
+      {
+        "key": "scale",
+        "state": "known",
+        "value_json": "\"1:2\"",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-020/drawing/scale"
+        ],
+        "reason": "The scale cell appears to read 'SCALE:1:2', but the text is small.",
+        "changed_because": ""
+      },
+      {
+        "key": "drawn",
+        "state": "known",
+        "value_json": "\"MBOKJ\"",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-020/drawing/drawn"
+        ],
+        "reason": "The DRAWN cell appears to read 'MBOKJ', but the text is small and blurry.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 3662,
+      "cache_read_input_tokens": 7678,
+      "output_tokens": 1188,
+      "output_tokens_details": {
+        "thinking_tokens": 167
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 3662,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 1188,
+        "cacheReadInputTokens": 7678,
+        "cacheCreationInputTokens": 3662,
+        "webSearchRequests": 0,
+        "costUSD": 0.0546076,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 167,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 3662,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.0546076,
+    "duration_ms": 10607,
+    "is_error": false
+  },
+  "latency_ms": 33078,
+  "cache_key": "0aaf032068fd4458c65781ab5943ab7c061eb3e89d27ade3430a9718e9abc8f1",
+  "cache_hit": false,
+  "job": "scan:D-020",
+  "error": null
+}

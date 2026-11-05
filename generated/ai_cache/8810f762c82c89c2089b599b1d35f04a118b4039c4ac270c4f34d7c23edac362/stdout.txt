@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a1aa92-532b-71c3-add5-fb0415047820"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"items\":[{\"key\":\"link\",\"state\":\"unknown\",\"value_json\":\"null\",\"confidence\":\"unsure\",\"fact_ids\":[\"D-001/drawing/notes\",\"D-001/drawing/title\",\"BOM:box/front-door\",\"BOM:box/back-door\"],\"reason\":\"The notes “Door - x2\\n3mm aluminium” and section “Box” fit both “Front Door” and “Back Door”, each listed as “Aluminium”. The title is unavailable, and neither row lists a datasheet. “x2” does not explicitly establish that this drawing represents both rows, so the match is ambiguous.\",\"changed_because\":\"\"}]}"}}
+{"type":"turn.completed","usage":{"input_tokens":15463,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":511,"reasoning_output_tokens":366}}

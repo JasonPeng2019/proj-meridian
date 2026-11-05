@@ -1,0 +1,48 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-023",
+          "D-023/drawing/title",
+          "D-023/drawing/material",
+          "BOM:build-plate/build-cylinder"
+        ],
+        "reason": "ByggeCylinder and BuildCylinder_v2.pdf suggest Build cylinder. However, drawing section Z-axis differs from BOM section Build-plate, and material EN AW-6082 differs from Aluminium. The supplied evidence does not establish these as approved equivalents, so the link remains undetermined.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 15520,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 761,
+          "reasoning_output_tokens": 631
+        }
+      }
+    ]
+  },
+  "latency_ms": 29265,
+  "cache_key": "c35631f6ffb60e02bc18dd9b62790deeca9c0d914fe25f482cd00247b2bd1986",
+  "cache_hit": false,
+  "job": "link:D-023",
+  "error": null
+}

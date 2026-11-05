@@ -1,0 +1,74 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "relationship",
+        "state": "known",
+        "value_json": "\"kind_of\"",
+        "confidence": "unsure",
+        "fact_ids": [],
+        "reason": "Based on general engineering knowledge, not the dataset: material number 3.3315 is EN AW-5005, a wrought Al-Mg aluminium alloy. That makes it a specific kind of the general material Aluminium, so LEFT is more specific than RIGHT. None of the supplied established links (D-012, D-014 and the recoater BOM items) say what material either name refers to, so no fact IDs are cited and confidence is unsure. A human must approve this before it is used.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 1467,
+      "cache_read_input_tokens": 2542,
+      "output_tokens": 441,
+      "output_tokens_details": {
+        "thinking_tokens": 176
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 1467,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 441,
+        "cacheReadInputTokens": 2542,
+        "cacheCreationInputTokens": 1467,
+        "webSearchRequests": 0,
+        "costUSD": 0.021072399999999998,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 176,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 1467,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.021072399999999998,
+    "duration_ms": 5083,
+    "is_error": false
+  },
+  "latency_ms": 12656,
+  "cache_key": "35b843f81517baf85cc00ba712637842ea82396ada069bbf238f86118d02deac",
+  "cache_hit": false,
+  "job": "mapping:names/material/3-3315-en-aw-5005 -> aluminium",
+  "error": null
+}

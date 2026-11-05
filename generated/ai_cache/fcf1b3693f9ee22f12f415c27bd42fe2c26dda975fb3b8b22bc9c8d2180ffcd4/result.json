@@ -1,0 +1,127 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "outline_type",
+        "state": "known",
+        "value_json": "\"rectangle\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-013"
+        ],
+        "reason": "Rectangular plate with small, undimensioned corner chamfers.",
+        "changed_because": ""
+      },
+      {
+        "key": "length",
+        "state": "known",
+        "value_json": "270",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-013/drawing/n/270.0@1-1"
+        ],
+        "reason": "Overall X dimension is 270,0 mm.",
+        "changed_because": ""
+      },
+      {
+        "key": "width",
+        "state": "known",
+        "value_json": "25",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-013/drawing/n/25.0@1-1"
+        ],
+        "reason": "Overall Y dimension is 25,0 mm.",
+        "changed_because": ""
+      },
+      {
+        "key": "outer_diameter",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-013"
+        ],
+        "reason": "Not applicable to the rectangular outline.",
+        "changed_because": ""
+      },
+      {
+        "key": "inner_diameter",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-013"
+        ],
+        "reason": "The part is not a ring.",
+        "changed_because": ""
+      },
+      {
+        "key": "thickness",
+        "state": "options",
+        "value_json": "[3,6]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-013/drawing/n/3.0@1-1",
+          "D-013/drawing/n/6.0@1-1"
+        ],
+        "reason": "The side view gives stacked thickness alternatives 6,0 and 3,0 mm.",
+        "changed_because": ""
+      },
+      {
+        "key": "features",
+        "state": "unknown",
+        "value_json": "[{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-82,\"fact_ids\":[\"D-013/drawing/n/82.0@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":4.5,\"fact_ids\":[\"D-013/drawing/n/4.5@1-1\"]},\"diameter\":{\"state\":\"known\",\"value\":4.2,\"fact_ids\":[\"D-013/drawing/n/4.2@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M5 - 6H\",\"fact_ids\":[\"D-013/drawing/callout/p1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":17.9,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\"]},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"fact_ids\":[\"D-013/drawing/callout/p1-2\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":53.6,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"n0+n1\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"fact_ids\":[\"D-013/drawing/callout/p1-2\"]},{\"kind\":\"slot\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":123,\"fact_ids\":[\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\"],\"expression\":\"n0+n1\"},\"y\":{\"state\":\"known\",\"value\":4.55,\"fact_ids\":[\"D-013/drawing/n/2.3@1-1\",\"D-013/drawing/n/10.0@1-1\",\"D-013/drawing/n/5.5@1-1\"],\"expression\":\"n0+(n1-n2)/2\"},\"width\":{\"state\":\"known\",\"value\":5.5,\"fact_ids\":[\"D-013/drawing/n/5.5@1-1\"]},\"length\":{\"state\":\"known\",\"value\":10,\"fact_ids\":[\"D-013/drawing/n/10.0@1-1\"]},\"through\":true,\"hole_type\":\"plain\",\"fact_ids\":[\"D-013/drawing/callout/p1-3\"]}]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-013",
+          "D-013/drawing/callout/p1-1",
+          "D-013/drawing/callout/p1-2",
+          "D-013/drawing/callout/p1-3",
+          "D-013/drawing/n/82.0@1-1",
+          "D-013/drawing/n/4.5@1-1",
+          "D-013/drawing/n/4.2@1-1",
+          "D-013/drawing/n/17.9@1-1",
+          "D-013/drawing/n/35.7@1-1",
+          "D-013/drawing/n/7.5@1-1",
+          "D-013/drawing/n/2.5@1-1",
+          "D-013/drawing/n/41.0@1-1",
+          "D-013/drawing/n/82.0@1-2",
+          "D-013/drawing/n/2.3@1-1",
+          "D-013/drawing/n/10.0@1-1",
+          "D-013/drawing/n/5.5@1-1"
+        ],
+        "reason": "Included only fully located features. Omitted one M5 hole, six M3 holes, and three slots because their complete positions require undimensioned symmetry, alignment, or repetition. The 35,7 dimension locates one adjacent M3 hole; it does not explicitly specify every interval. For the rightmost slot, 2,3 locates the lower end-arc center above Y=0, giving overall center Y=2.3+(10-5.5)/2=4.55 mm from the printed dimensions.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 19029,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 6157,
+          "reasoning_output_tokens": 4533
+        }
+      }
+    ]
+  },
+  "latency_ms": 122969,
+  "cache_key": "fcf1b3693f9ee22f12f415c27bd42fe2c26dda975fb3b8b22bc9c8d2180ffcd4",
+  "cache_hit": false,
+  "job": "template:D-013",
+  "error": null
+}

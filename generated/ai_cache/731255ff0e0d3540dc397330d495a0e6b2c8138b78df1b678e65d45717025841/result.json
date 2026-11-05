@@ -1,0 +1,80 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-017/drawing/title",
+          "D-017/drawing/notes",
+          "D-017/drawing/material",
+          "BOM:optics/sunny-galvo-adapter-plate",
+          "BOM:optics/galvo-box-bracket"
+        ],
+        "reason": "The drawing is titled 'Galvo Montage Plade' (galvo mount plate). Its notes say 'Galvo Collimator Plade\\nAlu' and its material is '7075-T6, Plate (SS)', so it is an aluminium galvo mounting plate. Two Optics BOM rows fit: 'Sunny Galvo Adapter Plate' (Aluminium, a plate) and 'Galvo box bracket' (Aluminium, with notes saying the galvo mount was changed completely). Neither row has a datasheet that would tie it to GalvoMountPlate.pdf. Neither row mentions a collimator. The drawing's section 'Optical' does not exactly match the BOM section 'Optics', and I was told not to assume they are equivalent. The '(SS)' in the material field is unclear and could also point to stainless rows such as 'Galve support bracket', although the notes say 'Alu'. Because the evidence fits more than one row, I cannot pick one with confidence.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 5985,
+      "cache_read_input_tokens": 2540,
+      "output_tokens": 710,
+      "output_tokens_details": {
+        "thinking_tokens": 208
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 5985,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 710,
+        "cacheReadInputTokens": 2540,
+        "cacheCreationInputTokens": 5985,
+        "webSearchRequests": 0,
+        "costUSD": 0.062596,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 208,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 5985,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.062596,
+    "duration_ms": 6605,
+    "is_error": false
+  },
+  "latency_ms": 12016,
+  "cache_key": "731255ff0e0d3540dc397330d495a0e6b2c8138b78df1b678e65d45717025841",
+  "cache_hit": false,
+  "job": "link:D-017",
+  "error": null
+}

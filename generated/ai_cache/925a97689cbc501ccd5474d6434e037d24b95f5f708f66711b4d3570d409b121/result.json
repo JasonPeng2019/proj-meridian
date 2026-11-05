@@ -1,0 +1,81 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-009/drawing/notes",
+          "D-009/drawing/title",
+          "D-009/drawing/material",
+          "BOM:powder/powder-hopper",
+          "BOM:powder/powder-inlet",
+          "BOM:powder/powder-valve-fitting"
+        ],
+        "reason": "The drawing (PowderCanister.pdf, section Powder) is degraded. Its title and material fields are null. Its notes describe a 'Powder canister', 'Non-magnetic stainless', with thin walls, and say it 'Must be powder tight'. No BOM row is named 'canister' and no BOM row lists PowderCanister.pdf as a datasheet. The closest candidate is BOM:powder/powder-hopper. It is in the Powder section, is Stainless steel, and its note about welds would fit a sheet-metal container. However, 'hopper' and 'canister' are different names, and nothing says they refer to the same part. BOM:powder/powder-inlet has no material listed and is also a plausible powder-handling part. BOM:powder/powder-valve-fitting is Aluminium, which conflicts with the stainless requirement. Because no equivalence is documented, I can't choose one row with confidence.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 5987,
+      "cache_read_input_tokens": 2540,
+      "output_tokens": 737,
+      "output_tokens_details": {
+        "thinking_tokens": 257
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 5987,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 737,
+        "cacheReadInputTokens": 2540,
+        "cacheCreationInputTokens": 5987,
+        "webSearchRequests": 0,
+        "costUSD": 0.063152,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 257,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 5987,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.063152,
+    "duration_ms": 7210,
+    "is_error": false
+  },
+  "latency_ms": 11438,
+  "cache_key": "925a97689cbc501ccd5474d6434e037d24b95f5f708f66711b4d3570d409b121",
+  "cache_hit": false,
+  "job": "link:D-009",
+  "error": null
+}

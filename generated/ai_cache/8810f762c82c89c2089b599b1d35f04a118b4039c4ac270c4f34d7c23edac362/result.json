@@ -1,0 +1,48 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-001/drawing/notes",
+          "D-001/drawing/title",
+          "BOM:box/front-door",
+          "BOM:box/back-door"
+        ],
+        "reason": "The notes “Door - x2\n3mm aluminium” and section “Box” fit both “Front Door” and “Back Door”, each listed as “Aluminium”. The title is unavailable, and neither row lists a datasheet. “x2” does not explicitly establish that this drawing represents both rows, so the match is ambiguous.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 15463,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 511,
+          "reasoning_output_tokens": 366
+        }
+      }
+    ]
+  },
+  "latency_ms": 18578,
+  "cache_key": "8810f762c82c89c2089b599b1d35f04a118b4039c4ac270c4f34d7c23edac362",
+  "cache_hit": false,
+  "job": "link:D-001",
+  "error": null
+}

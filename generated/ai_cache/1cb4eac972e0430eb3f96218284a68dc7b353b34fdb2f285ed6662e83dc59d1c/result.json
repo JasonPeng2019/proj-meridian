@@ -1,0 +1,74 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "relationship",
+        "state": "known",
+        "value_json": "\"no_equivalent\"",
+        "confidence": "sure",
+        "fact_ids": [],
+        "reason": "Left is empty (null), which means no drawing section is represented. Per the instructions, an empty left maps to no_equivalent. There are no established links that tie 'Raw Materials' to any drawing section (Box, Gas Flow, Optical, Powder, Recoater, Z-axis).",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 1399,
+      "cache_read_input_tokens": 2542,
+      "output_tokens": 204,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 1399,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 204,
+        "cacheReadInputTokens": 2542,
+        "cacheCreationInputTokens": 1399,
+        "webSearchRequests": 0,
+        "costUSD": 0.0157884,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 1399,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.0157884,
+    "duration_ms": 2382,
+    "is_error": false
+  },
+  "latency_ms": 8891,
+  "cache_key": "1cb4eac972e0430eb3f96218284a68dc7b353b34fdb2f285ed6662e83dc59d1c",
+  "cache_hit": false,
+  "job": "mapping:names/section/ -> raw-materials",
+  "error": null
+}

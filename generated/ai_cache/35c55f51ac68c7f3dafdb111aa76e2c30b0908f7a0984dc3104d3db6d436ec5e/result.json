@@ -1,0 +1,77 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "relationship",
+        "state": "known",
+        "value_json": "\"same\"",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-020/drawing/source",
+          "BOM:optics/f-theta-seal-ring"
+        ],
+        "reason": "The established links connect drawing source D-020 to the BOM item optics/f-theta-seal-ring, an F-theta lens seal ring, which is an optical-path part. 'Optical' is the only drawing section that matches 'Optics'; the other sections are Box, Gas Flow, Powder, Recoater and Z-axis. The names differ only in word form, so the two sections are probably the same. The evidence does not say directly which section D-020 belongs to, so this is marked unsure. This is only a suggestion and needs human approval.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 1426,
+      "cache_read_input_tokens": 2542,
+      "output_tokens": 513,
+      "output_tokens_details": {
+        "thinking_tokens": 206
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 1426,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 513,
+        "cacheReadInputTokens": 2542,
+        "cacheCreationInputTokens": 1426,
+        "webSearchRequests": 0,
+        "costUSD": 0.0221844,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 206,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 1426,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.0221844,
+    "duration_ms": 5172,
+    "is_error": false
+  },
+  "latency_ms": 11172,
+  "cache_key": "35c55f51ac68c7f3dafdb111aa76e2c30b0908f7a0984dc3104d3db6d436ec5e",
+  "cache_hit": false,
+  "job": "mapping:names/section/optical -> optics",
+  "error": null
+}

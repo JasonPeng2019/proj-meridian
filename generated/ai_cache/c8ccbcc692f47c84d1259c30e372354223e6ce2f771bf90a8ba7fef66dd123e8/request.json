@@ -1,0 +1,84 @@
+{
+  "protocol": 2,
+  "reader": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "prompt": "You are an independent, read-only engineering evidence reader. Do not edit files,\nrun commands, use other agents, browse the web, or inspect any evidence beyond the supplied inputs.\nReturn the requested JSON schema. Every requested key must appear exactly once. value_json is a\nJSON-encoded value (e.g. a string as \"\\\"text\\\"\", a number as \"5\", an array as \"[3,6]\",\nunknown as \"null\"). State known means one determined value; options means genuinely documented\nalternatives; unknown means the evidence does not determine it. confidence is only sure or unsure.\nUse sure only for a reading supported by the supplied evidence. Copy original spelling and units.\nNever invent evidence IDs. fact_ids must be exact supplied source IDs supporting that item.\nReasons must explain the evidence; changed_because is empty on the independent first reading.\n\nRead ONLY the supplied cropped title block, not measurements. Copy each field character by character. Do not translate, correct spelling, or fill blanks. Unreadable or absent fields are unknown/null/unsure. Weight must be a numeric gram value only if printed unambiguously in grams; other fields are exact strings. Do not infer names from filenames. Fields: title, material, weight_g, notes, date, company, scale, drawn\n{\"drawing_id\":\"D-011\",\"field_evidence\":{\"company\":{\"box\":[968.877,653.399,102.988,59.03],\"confidence\":\"sure\",\"fact_ids\":[\"D-011/drawing/company\"],\"field_box\":[968.877,653.399,102.988,59.03],\"label_box\":null,\"method\":\"ai_read\",\"name\":\"D-011/drawing/company\",\"note\":\"The COMPANY box reads 'DTU MPP'. The contact details in the next cell are not part of the company field.\",\"original\":null,\"page\":1,\"readers\":{\"claude\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-011/drawing/company\"],\"key\":\"company\",\"reason\":\"The COMPANY box reads 'DTU MPP'. The contact details in the next cell are not part of the company field.\",\"state\":\"known\",\"value_json\":\"\\\"DTU MPP\\\"\"},\"cache_key\":\"7069fd51f7d641a99bedc8770aa25ebbc71af4cd0ab93f4350769a375309a85a\",\"settings\":{\"fast_mode\":false,\"mode\":\"regular\",\"model\":\"opus\",\"reader\":\"claude\"},\"valid\":true}]},\"codex\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-011/drawing/company\"],\"key\":\"company\",\"reason\":\"The company field reads “DTU MPP”.\",\"state\":\"known\",\"value_json\":\"\\\"DTU MPP\\\"\"},\"cache_key\":\"061c67b2d8d9d6bee07c73bb2484bce8a057113c3fe69ff0d4483b2710b52efd\",\"settings\":{\"model\":\"gpt-6.1-sol\",\"reader\":\"codex\",\"reasoning_effort\":\"xhigh\",\"service_tier\":\"fast\"},\"valid\":true}]}},\"review\":{\"status\":\"not_reviewed\"},\"source_quality\":\"degraded\",\"state\":\"known\",\"value\":\"DTU MPP\"},\"date\":{\"box\":[889.887,797.486,86.99,21.007],\"confidence\":\"sure\",\"fact_ids\":[\"D-011/drawing/date\"],\"field_box\":[889.887,797.486,86.99,21.007],\"label_box\":null,\"method\":\"ai_read\",\"name\":\"D-011/drawing/date\",\"note\":\"The DATE cell reads '24/11/2021'. The text is small but legible.\",\"original\":null,\"page\":1,\"readers\":{\"claude\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-011/drawing/date\"],\"key\":\"date\",\"reason\":\"The DATE cell reads '24/11/2021'. The text is small but legible.\",\"state\":\"known\",\"value_json\":\"\\\"24/11/2021\\\"\"},\"cache_key\":\"7069fd51f7d641a99bedc8770aa25ebbc71af4cd0ab93f4350769a375309a85a\",\"settings\":{\"fast_mode\":false,\"mode\":\"regular\",\"model\":\"opus\",\"reader\":\"claude\"},\"valid\":true}]},\"codex\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-011/drawing/date\"],\"key\":\"date\",\"reason\":\"The date field reads “24/11/2021”.\",\"state\":\"known\",\"value_json\":\"\\\"24/11/2021\\\"\"},\"cache_key\":\"061c67b2d8d9d6bee07c73bb2484bce8a057113c3fe69ff0d4483b2710b52efd\",\"settings\":{\"model\":\"gpt-6.1-sol\",\"reader\":\"codex\",\"reasoning_effort\":\"xhigh\",\"service_tier\":\"fast\"},\"valid\":true}]}},\"review\":{\"status\":\"not_reviewed\"},\"source_quality\":\"degraded\",\"state\":\"known\",\"value\":\"24/11/2021\"},\"drawn\":{\"box\":[884.888,785.479,91.99,21.007],\"confidence\":\"sure\",\"fact_ids\":[\"D-011/drawing/drawn\"],\"field_box\":[884.888,785.479,91.99,21.007],\"label_box\":null,\"method\":\"ai_read\",\"name\":\"D-011/drawing/drawn\",\"note\":\"The DRAWN cell reads 'MBOKJ'.\",\"original\":null,\"page\":1,\"readers\":{\"claude\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-011/drawing/drawn\"],\"key\":\"drawn\",\"reason\":\"The DRAWN cell reads 'MBOKJ'.\",\"state\":\"known\",\"value_json\":\"\\\"MBOKJ\\\"\"},\"cache_key\":\"7069fd51f7d641a99bedc8770aa25ebbc71af4cd0ab93f4350769a375309a85a\",\"settings\":{\"fast_mode\":false,\"mode\":\"regular\",\"model\":\"opus\",\"reader\":\"claude\"},\"valid\":true}]},\"codex\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-011/drawing/drawn\"],\"key\":\"drawn\",\"reason\":\"The drawn field reads “MBOKJ”.\",\"state\":\"known\",\"value_json\":\"\\\"MBOKJ\\\"\"},\"cache_key\":\"061c67b2d8d9d6bee07c73bb2484bce8a057113c3fe69ff0d4483b2710b52efd\",\"settings\":{\"model\":\"gpt-6.1-sol\",\"reader\":\"codex\",\"reasoning_effort\":\"xhigh\",\"service_tier\":\"fast\"},\"valid\":true}]}},\"review\":{\"status\":\"not_reviewed\"},\"source_quality\":\"degraded\",\"state\":\"known\",\"value\":\"MBOKJ\"},\"material\":{\"box\":[738.906,766.467,145.983,24.008],\"confidence\":\"sure\",\"fact_ids\":[\"D-011/drawing/material\"],\"field_box\":[738.906,766.467,145.983,24.008],\"label_box\":null,\"method\":\"ai_read\",\"name\":\"D-011/drawing/material\",\"note\":\"The MATERIAL field clearly reads '7075-T6, Plate (SS)'.\",\"original\":null,\"page\":1,\"readers\":{\"claude\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-011/drawing/material\"],\"key\":\"material\",\"reason\":\"The MATERIAL field clearly reads '7075-T6, Plate (SS)'.\",\"state\":\"known\",\"value_json\":\"\\\"7075-T6, Plate (SS)\\\"\"},\"cache_key\":\"7069fd51f7d641a99bedc8770aa25ebbc71af4cd0ab93f4350769a375309a85a\",\"settings\":{\"fast_mode\":false,\"mode\":\"regular\",\"model\":\"opus\",\"reader\":\"claude\"},\"valid\":true}]},\"codex\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-011/drawing/material\"],\"key\":\"material\",\"reason\":\"The material field reads “7075-T6, Plate (SS)”.\",\"state\":\"known\",\"value_json\":\"\\\"7075-T6, Plate (SS)\\\"\"},\"cache_key\":\"061c67b2d8d9d6bee07c73bb2484bce8a057113c3fe69ff0d4483b2710b52efd\",\"settings\":{\"model\":\"gpt-6.1-sol\",\"reader\":\"codex\",\"reasoning_effort\":\"xhigh\",\"service_tier\":\"fast\"},\"valid\":true}]}},\"review\":{\"status\":\"not_reviewed\"},\"source_quality\":\"degraded\",\"state\":\"known\",\"value\":\"7075-T6, Plate (SS)\"},\"notes\":{\"box\":[734.907,653.399,242.971,121.067],\"confidence\":\"unsure\",\"fact_ids\":[],\"field_box\":[734.907,653.399,242.971,121.067],\"label_box\":null,\"method\":\"ai_unsure\",\"name\":\"D-011/drawing/notes\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"readers\":{\"claude\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"unsure\",\"fact_ids\":[\"D-011/drawing/notes\"],\"key\":\"notes\",\"reason\":\"The NOTE box has two lines: 'Alu.' and 'Arm til linær føring'. The ligature in 'linær' could be æ or œ in this font, so I marked this unsure.\",\"state\":\"known\",\"value_json\":\"\\\"Alu.\\\\nArm til linær føring\\\"\"},\"cache_key\":\"7069fd51f7d641a99bedc8770aa25ebbc71af4cd0ab93f4350769a375309a85a\",\"settings\":{\"fast_mode\":false,\"mode\":\"regular\",\"model\":\"opus\",\"reader\":\"claude\"},\"valid\":true}]},\"codex\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-011/drawing/notes\"],\"key\":\"notes\",\"reason\":\"The notes field contains “Alu.” and “Arm til linær føring” on separate lines.\",\"state\":\"known\",\"value_json\":\"\\\"Alu.\\\\nArm til linær føring\\\"\"},\"cache_key\":\"061c67b2d8d9d6bee07c73bb2484bce8a057113c3fe69ff0d4483b2710b52efd\",\"settings\":{\"model\":\"gpt-6.1-sol\",\"reader\":\"codex\",\"reasoning_effort\":\"xhigh\",\"service_tier\":\"fast\"},\"valid\":true}]}},\"review\":{\"status\":\"not_reviewed\"},\"source_quality\":\"degraded\",\"state\":\"unknown\",\"value\":null},\"scale\":{\"box\":[1066.865,797.486,59.994,22.007],\"confidence\":\"sure\",\"fact_ids\":[\"D-011/drawing/scale\"],\"field_box\":[1066.865,797.486,59.994,22.007],\"label_box\":null,\"method\":\"ai_read\",\"name\":\"D-011/drawing/scale\",\"note\":\"The scale cell reads 'SCALE:1:2'.\",\"original\":null,\"page\":1,\"readers\":{\"claude\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-011/drawing/scale\"],\"key\":\"scale\",\"reason\":\"The scale cell reads 'SCALE:1:2'.\",\"state\":\"known\",\"value_json\":\"\\\"1:2\\\"\"},\"cache_key\":\"7069fd51f7d641a99bedc8770aa25ebbc71af4cd0ab93f4350769a375309a85a\",\"settings\":{\"fast_mode\":false,\"mode\":\"regular\",\"model\":\"opus\",\"reader\":\"claude\"},\"valid\":true}]},\"codex\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-011/drawing/scale\"],\"key\":\"scale\",\"reason\":\"The scale field reads “1:2”.\",\"state\":\"known\",\"value_json\":\"\\\"1:2\\\"\"},\"cache_key\":\"061c67b2d8d9d6bee07c73bb2484bce8a057113c3fe69ff0d4483b2710b52efd\",\"settings\":{\"model\":\"gpt-6.1-sol\",\"reader\":\"codex\",\"reasoning_effort\":\"xhigh\",\"service_tier\":\"fast\"},\"valid\":true}]}},\"review\":{\"status\":\"not_reviewed\"},\"source_quality\":\"degraded\",\"state\":\"known\",\"value\":\"1:2\"},\"title\":{\"box\":[968.877,705.43,193.977,69.036],\"confidence\":\"sure\",\"fact_ids\":[\"D-011/drawing/title\"],\"field_box\":[968.877,705.43,193.977,69.036],\"label_box\":null,\"method\":\"ai_read\",\"name\":\"D-011/drawing/title\",\"note\":\"The TITLE/DESCRIPTION box clearly reads 'Recoater Arm'.\",\"original\":null,\"page\":1,\"readers\":{\"claude\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-011/drawing/title\"],\"key\":\"title\",\"reason\":\"The TITLE/DESCRIPTION box clearly reads 'Recoater Arm'.\",\"state\":\"known\",\"value_json\":\"\\\"Recoater Arm\\\"\"},\"cache_key\":\"7069fd51f7d641a99bedc8770aa25ebbc71af4cd0ab93f4350769a375309a85a\",\"settings\":{\"fast_mode\":false,\"mode\":\"regular\",\"model\":\"opus\",\"reader\":\"claude\"},\"valid\":true}]},\"codex\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-011/drawing/title\"],\"key\":\"title\",\"reason\":\"The title field reads “Recoater Arm”.\",\"state\":\"known\",\"value_json\":\"\\\"Recoater Arm\\\"\"},\"cache_key\":\"061c67b2d8d9d6bee07c73bb2484bce8a057113c3fe69ff0d4483b2710b52efd\",\"settings\":{\"model\":\"gpt-6.1-sol\",\"reader\":\"codex\",\"reasoning_effort\":\"xhigh\",\"service_tier\":\"fast\"},\"valid\":true}]}},\"review\":{\"status\":\"not_reviewed\"},\"source_quality\":\"degraded\",\"state\":\"known\",\"value\":\"Recoater Arm\"},\"weight_g\":{\"box\":[874.889,766.467,102.988,24.008],\"confidence\":\"sure\",\"fact_ids\":[\"D-011/drawing/weight_g\"],\"field_box\":[874.889,766.467,102.988,24.008],\"label_box\":null,\"method\":\"ai_read\",\"name\":\"D-011/drawing/weight_g\",\"note\":\"The field is labeled 'WEIGHT [g]:' and shows 415.3, so the unit is grams.\",\"original\":null,\"page\":1,\"readers\":{\"claude\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-011/drawing/weight_g\"],\"key\":\"weight_g\",\"reason\":\"The field is labeled 'WEIGHT [g]:' and shows 415.3, so the unit is grams.\",\"state\":\"known\",\"value_json\":\"415.3\"},\"cache_key\":\"7069fd51f7d641a99bedc8770aa25ebbc71af4cd0ab93f4350769a375309a85a\",\"settings\":{\"fast_mode\":false,\"mode\":\"regular\",\"model\":\"opus\",\"reader\":\"claude\"},\"valid\":true}]},\"codex\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-011/drawing/weight_g\"],\"key\":\"weight_g\",\"reason\":\"The weight field prints 415.3 with the label WEIGHT [g].\",\"state\":\"known\",\"value_json\":\"415.3\"},\"cache_key\":\"061c67b2d8d9d6bee07c73bb2484bce8a057113c3fe69ff0d4483b2710b52efd\",\"settings\":{\"model\":\"gpt-6.1-sol\",\"reader\":\"codex\",\"reasoning_effort\":\"xhigh\",\"service_tier\":\"fast\"},\"valid\":true}]}},\"review\":{\"status\":\"not_reviewed\"},\"source_quality\":\"degraded\",\"state\":\"known\",\"value\":415.3}},\"source_ids\":[\"D-011\",\"D-011/drawing/company\",\"D-011/drawing/date\",\"D-011/drawing/drawn\",\"D-011/drawing/material\",\"D-011/drawing/notes\",\"D-011/drawing/scale\",\"D-011/drawing/source\",\"D-011/drawing/title\",\"D-011/drawing/weight_g\"]}",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string",
+              "enum": [
+                "title",
+                "material",
+                "weight_g",
+                "notes",
+                "date",
+                "company",
+                "scale",
+                "drawn"
+              ]
+            },
+            "state": {
+              "type": "string",
+              "enum": [
+                "known",
+                "options",
+                "unknown"
+              ]
+            },
+            "value_json": {
+              "type": "string"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "sure",
+                "unsure"
+              ]
+            },
+            "fact_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "reason": {
+              "type": "string"
+            },
+            "changed_because": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "key",
+            "state",
+            "value_json",
+            "confidence",
+            "fact_ids",
+            "reason",
+            "changed_because"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "items"
+    ],
+    "additionalProperties": false
+  },
+  "images": [
+    "c4c77d108dcdab12bf5941e91b2388aa5eae04dfa92842a36d091a729db6fe84"
+  ],
+  "job": "scan:D-011"
+}

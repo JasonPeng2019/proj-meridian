@@ -1,0 +1,74 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "relationship",
+        "state": "known",
+        "value_json": "\"no_equivalent\"",
+        "confidence": "sure",
+        "fact_ids": [],
+        "reason": "The left side is null, so no drawing section is given for this mapping. The instructions say an empty left must be no_equivalent. No established links were supplied. A drawing section called 'Gas Flow' does exist in all_drawing_sections, so a reviewer may want to check whether it should have been the left side here. This is only a suggestion and needs human approval.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 1398,
+      "cache_read_input_tokens": 2542,
+      "output_tokens": 303,
+      "output_tokens_details": {
+        "thinking_tokens": 81
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 1398,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 303,
+        "cacheReadInputTokens": 2542,
+        "cacheCreationInputTokens": 1398,
+        "webSearchRequests": 0,
+        "costUSD": 0.0177604,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 81,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 1398,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.0177604,
+    "duration_ms": 3253,
+    "is_error": false
+  },
+  "latency_ms": 19703,
+  "cache_key": "2f40f430563f36c52bf0849dca8c6a671fdb8a66719e7115042b9655f370815e",
+  "cache_hit": false,
+  "job": "mapping:names/section/ -> gas-flow",
+  "error": null
+}

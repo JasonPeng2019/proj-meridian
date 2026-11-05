@@ -1,0 +1,64 @@
+{
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "enum": [
+              "notes",
+              "date"
+            ]
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "known",
+              "options",
+              "unknown"
+            ]
+          },
+          "value_json": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "string",
+            "enum": [
+              "sure",
+              "unsure"
+            ]
+          },
+          "fact_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "reason": {
+            "type": "string"
+          },
+          "changed_because": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "key",
+          "state",
+          "value_json",
+          "confidence",
+          "fact_ids",
+          "reason",
+          "changed_because"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "items"
+  ],
+  "additionalProperties": false
+}

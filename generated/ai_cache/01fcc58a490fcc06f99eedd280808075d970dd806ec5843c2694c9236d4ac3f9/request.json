@@ -1,0 +1,84 @@
+{
+  "protocol": 2,
+  "reader": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "prompt": "You are an independent, read-only engineering evidence reader. Do not edit files,\nrun commands, use other agents, browse the web, or inspect any evidence beyond the supplied inputs.\nReturn the requested JSON schema. Every requested key must appear exactly once. value_json is a\nJSON-encoded value (e.g. a string as \"\\\"text\\\"\", a number as \"5\", an array as \"[3,6]\",\nunknown as \"null\"). State known means one determined value; options means genuinely documented\nalternatives; unknown means the evidence does not determine it. confidence is only sure or unsure.\nUse sure only for a reading supported by the supplied evidence. Copy original spelling and units.\nNever invent evidence IDs. fact_ids must be exact supplied source IDs supporting that item.\nReasons must explain the evidence; changed_because is empty on the independent first reading.\n\nRead ONLY the supplied cropped title block, not measurements. Copy each field character by character. Do not translate, correct spelling, or fill blanks. Unreadable or absent fields are unknown/null/unsure. Weight must be a numeric gram value only if printed unambiguously in grams; other fields are exact strings. Do not infer names from filenames. Fields: title, material, weight_g, notes, date, company, scale, drawn\n{\"drawing_id\":\"D-020\",\"field_evidence\":{\"company\":{\"box\":[968.877,653.399,102.988,59.03],\"confidence\":\"sure\",\"fact_ids\":[\"D-020/drawing/company\"],\"field_box\":[968.877,653.399,102.988,59.03],\"label_box\":null,\"method\":\"ai_read\",\"name\":\"D-020/drawing/company\",\"note\":\"The COMPANY box clearly reads 'DTU MPP'.\",\"original\":null,\"page\":1,\"readers\":{\"claude\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-020/drawing/company\"],\"key\":\"company\",\"reason\":\"The COMPANY box clearly reads 'DTU MPP'.\",\"state\":\"known\",\"value_json\":\"\\\"DTU MPP\\\"\"},\"cache_key\":\"0aaf032068fd4458c65781ab5943ab7c061eb3e89d27ade3430a9718e9abc8f1\",\"settings\":{\"fast_mode\":false,\"mode\":\"regular\",\"model\":\"opus\",\"reader\":\"claude\"},\"valid\":true}]},\"codex\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-020/drawing/company\"],\"key\":\"company\",\"reason\":\"The COMPANY field reads “DTU MPP”.\",\"state\":\"known\",\"value_json\":\"\\\"DTU MPP\\\"\"},\"cache_key\":\"14ab690e1765898be2daa038c39aa231d3bec9178a27473a60e89bf5c009f6f7\",\"settings\":{\"model\":\"gpt-6.1-sol\",\"reader\":\"codex\",\"reasoning_effort\":\"xhigh\",\"service_tier\":\"fast\"},\"valid\":true}]}},\"review\":{\"status\":\"not_reviewed\"},\"source_quality\":\"degraded\",\"state\":\"known\",\"value\":\"DTU MPP\"},\"date\":{\"box\":[889.887,797.486,86.99,21.007],\"confidence\":\"unsure\",\"fact_ids\":[],\"field_box\":[889.887,797.486,86.99,21.007],\"label_box\":null,\"method\":\"ai_unsure\",\"name\":\"D-020/drawing/date\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"readers\":{\"claude\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"unsure\",\"fact_ids\":[\"D-020/drawing/date\"],\"key\":\"date\",\"reason\":\"The DATE cell appears to read '06/01/2022', but the text is small and slightly blurry.\",\"state\":\"known\",\"value_json\":\"\\\"06/01/2022\\\"\"},\"cache_key\":\"0aaf032068fd4458c65781ab5943ab7c061eb3e89d27ade3430a9718e9abc8f1\",\"settings\":{\"fast_mode\":false,\"mode\":\"regular\",\"model\":\"opus\",\"reader\":\"claude\"},\"valid\":true}]},\"codex\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"unsure\",\"fact_ids\":[\"D-020/drawing/date\"],\"key\":\"date\",\"reason\":\"The date is too blurred to transcribe every character reliably.\",\"state\":\"unknown\",\"value_json\":\"null\"},\"cache_key\":\"14ab690e1765898be2daa038c39aa231d3bec9178a27473a60e89bf5c009f6f7\",\"settings\":{\"model\":\"gpt-6.1-sol\",\"reader\":\"codex\",\"reasoning_effort\":\"xhigh\",\"service_tier\":\"fast\"},\"valid\":true}]}},\"review\":{\"status\":\"not_reviewed\"},\"source_quality\":\"degraded\",\"state\":\"unknown\",\"value\":null},\"drawn\":{\"box\":[884.888,785.479,91.99,21.007],\"confidence\":\"unsure\",\"fact_ids\":[],\"field_box\":[884.888,785.479,91.99,21.007],\"label_box\":null,\"method\":\"ai_unsure\",\"name\":\"D-020/drawing/drawn\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"readers\":{\"claude\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"unsure\",\"fact_ids\":[\"D-020/drawing/drawn\"],\"key\":\"drawn\",\"reason\":\"The DRAWN cell appears to read 'MBOKJ', but the text is small and blurry.\",\"state\":\"known\",\"value_json\":\"\\\"MBOKJ\\\"\"},\"cache_key\":\"0aaf032068fd4458c65781ab5943ab7c061eb3e89d27ade3430a9718e9abc8f1\",\"settings\":{\"fast_mode\":false,\"mode\":\"regular\",\"model\":\"opus\",\"reader\":\"claude\"},\"valid\":true}]},\"codex\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"unsure\",\"fact_ids\":[\"D-020/drawing/drawn\"],\"key\":\"drawn\",\"reason\":\"The DRAWN entry is too blurred to transcribe every character reliably.\",\"state\":\"unknown\",\"value_json\":\"null\"},\"cache_key\":\"14ab690e1765898be2daa038c39aa231d3bec9178a27473a60e89bf5c009f6f7\",\"settings\":{\"model\":\"gpt-6.1-sol\",\"reader\":\"codex\",\"reasoning_effort\":\"xhigh\",\"service_tier\":\"fast\"},\"valid\":true}]}},\"review\":{\"status\":\"not_reviewed\"},\"source_quality\":\"degraded\",\"state\":\"unknown\",\"value\":null},\"material\":{\"box\":[738.906,766.467,145.983,24.008],\"confidence\":\"sure\",\"fact_ids\":[\"D-020/drawing/material\"],\"field_box\":[738.906,766.467,145.983,24.008],\"label_box\":null,\"method\":\"ai_read\",\"name\":\"D-020/drawing/material\",\"note\":\"The MATERIAL field clearly reads '6061 Alloy'.\",\"original\":null,\"page\":1,\"readers\":{\"claude\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-020/drawing/material\"],\"key\":\"material\",\"reason\":\"The MATERIAL field clearly reads '6061 Alloy'.\",\"state\":\"known\",\"value_json\":\"\\\"6061 Alloy\\\"\"},\"cache_key\":\"0aaf032068fd4458c65781ab5943ab7c061eb3e89d27ade3430a9718e9abc8f1\",\"settings\":{\"fast_mode\":false,\"mode\":\"regular\",\"model\":\"opus\",\"reader\":\"claude\"},\"valid\":true}]},\"codex\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-020/drawing/material\"],\"key\":\"material\",\"reason\":\"The MATERIAL field reads “6061 Alloy”.\",\"state\":\"known\",\"value_json\":\"\\\"6061 Alloy\\\"\"},\"cache_key\":\"14ab690e1765898be2daa038c39aa231d3bec9178a27473a60e89bf5c009f6f7\",\"settings\":{\"model\":\"gpt-6.1-sol\",\"reader\":\"codex\",\"reasoning_effort\":\"xhigh\",\"service_tier\":\"fast\"},\"valid\":true}]}},\"review\":{\"status\":\"not_reviewed\"},\"source_quality\":\"degraded\",\"state\":\"known\",\"value\":\"6061 Alloy\"},\"notes\":{\"box\":[734.907,653.399,242.971,121.067],\"confidence\":\"unsure\",\"fact_ids\":[],\"field_box\":[734.907,653.399,242.971,121.067],\"label_box\":null,\"method\":\"ai_unsure\",\"name\":\"D-020/drawing/notes\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"readers\":{\"claude\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"unsure\",\"fact_ids\":[\"D-020/drawing/notes\"],\"key\":\"notes\",\"reason\":\"The NOTE box contains two legible lines: 'Ring with o-ring groove' and 'Aluminium'. Both lines are inside the notes area, but it is not certain that the second line is meant as part of the note.\",\"state\":\"known\",\"value_json\":\"\\\"Ring with o-ring groove\\\\nAluminium\\\"\"},\"cache_key\":\"0aaf032068fd4458c65781ab5943ab7c061eb3e89d27ade3430a9718e9abc8f1\",\"settings\":{\"fast_mode\":false,\"mode\":\"regular\",\"model\":\"opus\",\"reader\":\"claude\"},\"valid\":true}]},\"codex\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-020/drawing/notes\"],\"key\":\"notes\",\"reason\":\"The NOTE field reads “Ring with o-ring groove” followed by “Aluminium”.\",\"state\":\"known\",\"value_json\":\"\\\"Ring with o-ring groove\\\\nAluminium\\\"\"},\"cache_key\":\"14ab690e1765898be2daa038c39aa231d3bec9178a27473a60e89bf5c009f6f7\",\"settings\":{\"model\":\"gpt-6.1-sol\",\"reader\":\"codex\",\"reasoning_effort\":\"xhigh\",\"service_tier\":\"fast\"},\"valid\":true}]}},\"review\":{\"status\":\"not_reviewed\"},\"source_quality\":\"degraded\",\"state\":\"unknown\",\"value\":null},\"scale\":{\"box\":[1066.865,797.486,59.994,22.007],\"confidence\":\"unsure\",\"fact_ids\":[],\"field_box\":[1066.865,797.486,59.994,22.007],\"label_box\":null,\"method\":\"ai_unsure\",\"name\":\"D-020/drawing/scale\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"readers\":{\"claude\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"unsure\",\"fact_ids\":[\"D-020/drawing/scale\"],\"key\":\"scale\",\"reason\":\"The scale cell appears to read 'SCALE:1:2', but the text is small.\",\"state\":\"known\",\"value_json\":\"\\\"1:2\\\"\"},\"cache_key\":\"0aaf032068fd4458c65781ab5943ab7c061eb3e89d27ade3430a9718e9abc8f1\",\"settings\":{\"fast_mode\":false,\"mode\":\"regular\",\"model\":\"opus\",\"reader\":\"claude\"},\"valid\":true}]},\"codex\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-020/drawing/scale\"],\"key\":\"scale\",\"reason\":\"The SCALE field reads “1:2”.\",\"state\":\"known\",\"value_json\":\"\\\"1:2\\\"\"},\"cache_key\":\"14ab690e1765898be2daa038c39aa231d3bec9178a27473a60e89bf5c009f6f7\",\"settings\":{\"model\":\"gpt-6.1-sol\",\"reader\":\"codex\",\"reasoning_effort\":\"xhigh\",\"service_tier\":\"fast\"},\"valid\":true}]}},\"review\":{\"status\":\"not_reviewed\"},\"source_quality\":\"degraded\",\"state\":\"unknown\",\"value\":null},\"title\":{\"box\":[968.877,705.43,193.977,69.036],\"confidence\":\"sure\",\"fact_ids\":[\"D-020/drawing/title\"],\"field_box\":[968.877,705.43,193.977,69.036],\"label_box\":null,\"method\":\"ai_read\",\"name\":\"D-020/drawing/title\",\"note\":\"The TITLE/DESCRIPTION box clearly reads 'SealRing' in the cropped image.\",\"original\":null,\"page\":1,\"readers\":{\"claude\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-020/drawing/title\"],\"key\":\"title\",\"reason\":\"The TITLE/DESCRIPTION box clearly reads 'SealRing' in the cropped image.\",\"state\":\"known\",\"value_json\":\"\\\"SealRing\\\"\"},\"cache_key\":\"0aaf032068fd4458c65781ab5943ab7c061eb3e89d27ade3430a9718e9abc8f1\",\"settings\":{\"fast_mode\":false,\"mode\":\"regular\",\"model\":\"opus\",\"reader\":\"claude\"},\"valid\":true}]},\"codex\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-020/drawing/title\"],\"key\":\"title\",\"reason\":\"The title field reads “SealRing”.\",\"state\":\"known\",\"value_json\":\"\\\"SealRing\\\"\"},\"cache_key\":\"14ab690e1765898be2daa038c39aa231d3bec9178a27473a60e89bf5c009f6f7\",\"settings\":{\"model\":\"gpt-6.1-sol\",\"reader\":\"codex\",\"reasoning_effort\":\"xhigh\",\"service_tier\":\"fast\"},\"valid\":true}]}},\"review\":{\"status\":\"not_reviewed\"},\"source_quality\":\"degraded\",\"state\":\"known\",\"value\":\"SealRing\"},\"weight_g\":{\"box\":[874.889,766.467,102.988,24.008],\"confidence\":\"sure\",\"fact_ids\":[\"D-020/drawing/weight_g\"],\"field_box\":[874.889,766.467,102.988,24.008],\"label_box\":null,\"method\":\"ai_read\",\"name\":\"D-020/drawing/weight_g\",\"note\":\"The field is labelled 'WEIGHT [g]:' and reads 107.4, so the unit is printed as grams.\",\"original\":null,\"page\":1,\"readers\":{\"claude\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-020/drawing/weight_g\"],\"key\":\"weight_g\",\"reason\":\"The field is labelled 'WEIGHT [g]:' and reads 107.4, so the unit is printed as grams.\",\"state\":\"known\",\"value_json\":\"107.4\"},\"cache_key\":\"0aaf032068fd4458c65781ab5943ab7c061eb3e89d27ade3430a9718e9abc8f1\",\"settings\":{\"fast_mode\":false,\"mode\":\"regular\",\"model\":\"opus\",\"reader\":\"claude\"},\"valid\":true}]},\"codex\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-020/drawing/weight_g\"],\"key\":\"weight_g\",\"reason\":\"The WEIGHT [g] field prints 107.4.\",\"state\":\"known\",\"value_json\":\"107.4\"},\"cache_key\":\"14ab690e1765898be2daa038c39aa231d3bec9178a27473a60e89bf5c009f6f7\",\"settings\":{\"model\":\"gpt-6.1-sol\",\"reader\":\"codex\",\"reasoning_effort\":\"xhigh\",\"service_tier\":\"fast\"},\"valid\":true}]}},\"review\":{\"status\":\"not_reviewed\"},\"source_quality\":\"degraded\",\"state\":\"known\",\"value\":107.4}},\"source_ids\":[\"D-020\",\"D-020/drawing/company\",\"D-020/drawing/date\",\"D-020/drawing/drawn\",\"D-020/drawing/material\",\"D-020/drawing/notes\",\"D-020/drawing/scale\",\"D-020/drawing/source\",\"D-020/drawing/title\",\"D-020/drawing/weight_g\"]}",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string",
+              "enum": [
+                "title",
+                "material",
+                "weight_g",
+                "notes",
+                "date",
+                "company",
+                "scale",
+                "drawn"
+              ]
+            },
+            "state": {
+              "type": "string",
+              "enum": [
+                "known",
+                "options",
+                "unknown"
+              ]
+            },
+            "value_json": {
+              "type": "string"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "sure",
+                "unsure"
+              ]
+            },
+            "fact_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "reason": {
+              "type": "string"
+            },
+            "changed_because": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "key",
+            "state",
+            "value_json",
+            "confidence",
+            "fact_ids",
+            "reason",
+            "changed_because"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "items"
+    ],
+    "additionalProperties": false
+  },
+  "images": [
+    "7f5b159568a157e556607cfbdedbf39426c69fca319b62349ce45ef6b3b28082"
+  ],
+  "job": "scan:D-020"
+}

@@ -1,0 +1,49 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-028/drawing/title",
+          "D-028/drawing/material",
+          "D-028/drawing/notes",
+          "D-028",
+          "BOM:build-plate/heating-element-plate"
+        ],
+        "reason": "“Varmeelement Plade” suggests “Heating element plate”, and the drawing notes specify “Aluminium.”, consistent with the BOM material “Aluminium”. However, the drawing section “Z-axis” differs from “Build-plate”; no supplied evidence establishes their equivalence, and the BOM row has no datasheet link. The match remains unresolved.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 15478,
+          "cached_input_tokens": 15232,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 661,
+          "reasoning_output_tokens": 505
+        }
+      }
+    ]
+  },
+  "latency_ms": 33094,
+  "cache_key": "211f72386235dca2bffdede7532fd97de3d2182c4bade1dabaff8b271a696649",
+  "cache_hit": false,
+  "job": "link:D-028",
+  "error": null
+}

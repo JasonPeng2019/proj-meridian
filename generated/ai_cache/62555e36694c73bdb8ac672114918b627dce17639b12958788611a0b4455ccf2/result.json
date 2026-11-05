@@ -1,0 +1,43 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "relationship",
+        "state": "known",
+        "value_json": "\"kind_of\"",
+        "confidence": "unsure",
+        "fact_ids": [],
+        "reason": "Interpreting 'Silicon Rubber' as silicone rubber, LEFT is a specific form of 'Silicone', based on general engineering knowledge, not the dataset. The spelling makes this uncertain. Actual human approval is required before use.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 12803,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 521,
+          "reasoning_output_tokens": 425
+        }
+      }
+    ]
+  },
+  "latency_ms": 21016,
+  "cache_key": "62555e36694c73bdb8ac672114918b627dce17639b12958788611a0b4455ccf2",
+  "cache_hit": false,
+  "job": "mapping:names/material/silicon-rubber -> silicone",
+  "error": null
+}

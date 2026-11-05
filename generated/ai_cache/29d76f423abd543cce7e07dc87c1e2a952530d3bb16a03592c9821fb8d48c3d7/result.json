@@ -1,0 +1,74 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "relationship",
+        "state": "known",
+        "value_json": "\"kind_of\"",
+        "confidence": "sure",
+        "fact_ids": [],
+        "reason": "Based on general engineering knowledge, not the dataset: AISI 316 is a specific austenitic stainless steel grade, and here it comes in sheet form. RIGHT names the broader category 'Stainless steel, Steel'. That makes LEFT a more specific kind of RIGHT. None of the supplied evidence IDs covers this material, so fact_ids is empty. This is only a suggestion and needs human approval before use.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 1447,
+      "cache_read_input_tokens": 2542,
+      "output_tokens": 358,
+      "output_tokens_details": {
+        "thinking_tokens": 109
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 1447,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 358,
+        "cacheReadInputTokens": 2542,
+        "cacheCreationInputTokens": 1447,
+        "webSearchRequests": 0,
+        "costUSD": 0.0192524,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 109,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 1447,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.0192524,
+    "duration_ms": 4320,
+    "is_error": false
+  },
+  "latency_ms": 14937,
+  "cache_key": "29d76f423abd543cce7e07dc87c1e2a952530d3bb16a03592c9821fb8d48c3d7",
+  "cache_hit": false,
+  "job": "mapping:names/material/aisi-316-stainless-steel-sheet-ss -> stainless-steel-steel",
+  "error": null
+}

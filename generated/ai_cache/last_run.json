@@ -1,0 +1,103 @@
+{
+  "metrics": {
+    "agreed": 45,
+    "agreed_after_retry": 3,
+    "sent_to_review": 27,
+    "scan_undetermined": 31,
+    "mapping_approvals_required": 11,
+    "mapping_suggestions_unsure": 6,
+    "status_counts": {
+      "unsure": 63,
+      "agreed": 45,
+      "agreed_after_retry": 3,
+      "disagree": 1
+    },
+    "by_job": {
+      "scan": {
+        "unsure": 30,
+        "agreed": 30,
+        "agreed_after_retry": 3,
+        "disagree": 1
+      },
+      "template": {
+        "agreed": 10,
+        "unsure": 4
+      },
+      "link": {
+        "unsure": 23
+      },
+      "mapping": {
+        "agreed": 5,
+        "unsure": 6
+      }
+    },
+    "jobs": 45,
+    "exact_links": 7,
+    "reader_calls": 96,
+    "cache_hits": 96,
+    "provider_calls": 0,
+    "latency_ms_total": 2831860,
+    "configured_readers": {
+      "claude": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "codex": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      }
+    },
+    "wall_time_ms": 2735
+  },
+  "jobs": [
+    "scan:D-001",
+    "template:D-026",
+    "template:D-013",
+    "template:D-025",
+    "scan:D-003",
+    "scan:D-009",
+    "scan:D-011",
+    "scan:D-020",
+    "scan:D-022",
+    "scan:D-030",
+    "scan:D-023",
+    "link:D-002",
+    "link:D-003",
+    "link:D-001",
+    "link:D-004",
+    "link:D-006",
+    "link:D-008",
+    "link:D-007",
+    "link:D-009",
+    "link:D-010",
+    "link:D-013",
+    "link:D-017",
+    "link:D-016",
+    "link:D-019",
+    "link:D-018",
+    "link:D-021",
+    "link:D-022",
+    "link:D-024",
+    "link:D-023",
+    "link:D-025",
+    "link:D-027",
+    "link:D-028",
+    "link:D-029",
+    "link:D-030",
+    "mapping:names/material/aisi-316-stainless-steel-sheet-ss -> stainless-steel-steel",
+    "mapping:names/material/6061-alloy -> aluminium",
+    "mapping:names/material/3-3315-en-aw-5005 -> aluminium",
+    "mapping:names/material/7075-t6-plate-ss -> aluminium",
+    "mapping:names/material/silicon-rubber -> silicone",
+    "mapping:names/section/ -> electric",
+    "mapping:names/section/ -> raw-materials",
+    "mapping:names/section/ -> sensorgantry",
+    "mapping:names/section/ -> support",
+    "mapping:names/section/optical -> optics",
+    "mapping:names/section/z-axis -> build-plate"
+  ]
+}

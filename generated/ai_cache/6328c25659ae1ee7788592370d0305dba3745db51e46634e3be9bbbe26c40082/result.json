@@ -1,0 +1,43 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "relationship",
+        "state": "known",
+        "value_json": "\"kind_of\"",
+        "confidence": "sure",
+        "fact_ids": [],
+        "reason": "3.3315 (EN-AW 5005) is an aluminium alloy, more specific than Aluminium, based on general engineering knowledge, not the dataset. This suggestion requires actual human approval before use.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 12833,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 304,
+          "reasoning_output_tokens": 214
+        }
+      }
+    ]
+  },
+  "latency_ms": 10797,
+  "cache_key": "6328c25659ae1ee7788592370d0305dba3745db51e46634e3be9bbbe26c40082",
+  "cache_hit": false,
+  "job": "mapping:names/material/3-3315-en-aw-5005 -> aluminium",
+  "error": null
+}

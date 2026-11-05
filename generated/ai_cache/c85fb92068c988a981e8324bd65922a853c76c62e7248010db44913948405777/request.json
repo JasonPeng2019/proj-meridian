@@ -1,0 +1,75 @@
+{
+  "protocol": 2,
+  "reader": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "prompt": "You are an independent, read-only engineering evidence reader. Do not edit files,\nrun commands, use other agents, browse the web, or inspect any evidence beyond the supplied inputs.\nReturn the requested JSON schema. Every requested key must appear exactly once. value_json is a\nJSON-encoded value (e.g. a string as \"\\\"text\\\"\", a number as \"5\", an array as \"[3,6]\",\nunknown as \"null\"). State known means one determined value; options means genuinely documented\nalternatives; unknown means the evidence does not determine it. confidence is only sure or unsure.\nUse sure only for a reading supported by the supplied evidence. Copy original spelling and units.\nNever invent evidence IDs. fact_ids must be exact supplied source IDs supporting that item.\nReasons must explain the evidence; changed_because is empty on the independent first reading.\n\nMatch this drawing to the custom BOM rows using names, notes, section as written, material and datasheet. Do not assume differing section/material names have already been approved as equivalent. Key link value is a JSON array of EXACT BOM row canonical names, or [] when no match. Usually one row. Multiple rows only if evidence explicitly supports this drawing representing all of them; ambiguity means unknown/unsure. Cite drawing field IDs and BOM row IDs in fact_ids. Explain ambiguity in reason.\n{\"custom_bom\":[{\"datasheet\":[],\"display_name\":\"Left Side Box\",\"material\":[\"Stainless steel\"],\"name\":\"BOM:box/left-side-box\",\"notes\":\"Holes along top bend are off which makes the side bow outwards in a v-shape. They were drilled by hand and should be fixed by being laser cut the next time\",\"section\":\"Box\"},{\"datasheet\":[],\"display_name\":\"Front Door\",\"material\":[\"Aluminium\"],\"name\":\"BOM:box/front-door\",\"notes\":\"Holes were without threads. Drawings are correct. Could be stiffer\",\"section\":\"Box\"},{\"datasheet\":[],\"display_name\":\"Back Box\",\"material\":[\"Stainless steel\"],\"name\":\"BOM:box/back-box\",\"notes\":null,\"section\":\"Box\"},{\"datasheet\":[],\"display_name\":\"Print Platform\",\"material\":[\"Aluminium\"],\"name\":\"BOM:box/print-platform\",\"notes\":null,\"section\":\"Box\"},{\"datasheet\":[],\"display_name\":\"Top Side\",\"material\":[\"Stainless steel\"],\"name\":\"BOM:box/top-side\",\"notes\":null,\"section\":\"Box\"},{\"datasheet\":[],\"display_name\":\"Front Side Box\",\"material\":[\"Stainless steel\"],\"name\":\"BOM:box/front-side-box\",\"notes\":\"Good, but not stiff enough towards the top when closing the door with the seals\",\"section\":\"Box\"},{\"datasheet\":[],\"display_name\":\"Window Frame\",\"material\":[\"Aluminium\"],\"name\":\"BOM:box/window-frame\",\"notes\":null,\"section\":\"Box\"},{\"datasheet\":[],\"display_name\":\"Back Door\",\"material\":[\"Aluminium\"],\"name\":\"BOM:box/back-door\",\"notes\":\"Holes were without threads. Drawings are correct. Could be stiffer\",\"section\":\"Box\"},{\"datasheet\":[],\"display_name\":\"Right Box\",\"material\":[\"Stainless steel\"],\"name\":\"BOM:box/right-box\",\"notes\":null,\"section\":\"Box\"},{\"datasheet\":[],\"display_name\":\"Top Side Bracing\",\"material\":[\"Stainless steel\"],\"name\":\"BOM:box/top-side-bracing\",\"notes\":null,\"section\":\"Box\"},{\"datasheet\":[],\"display_name\":\"Top Side Powder Bracing\",\"material\":[\"Stainless steel\"],\"name\":\"BOM:box/top-side-powder-bracing\",\"notes\":null,\"section\":\"Box\"},{\"datasheet\":[\"Silicone270mm_1mm_x2.pdf\"],\"display_name\":\"Recoater Blade\",\"material\":[\"Silicone\"],\"name\":\"BOM:recoater/recoater-blade\",\"notes\":null,\"section\":\"Recoater\"},{\"datasheet\":[\"RecoaterPlate.pdf\"],\"display_name\":\"Recoater head\",\"material\":[\"Aluminium\"],\"name\":\"BOM:recoater/recoater-head\",\"notes\":null,\"section\":\"Recoater\"},{\"datasheet\":[\"RecoaterSiliconeClamp.pdf\"],\"display_name\":\"Recoater Clamp\",\"material\":[\"Aluminium\"],\"name\":\"BOM:recoater/recoater-clamp\",\"notes\":null,\"section\":\"Recoater\"},{\"datasheet\":[\"RecoaterArm.PDF\"],\"display_name\":\"Recoater Arm\",\"material\":[\"Aluminium\"],\"name\":\"BOM:recoater/recoater-arm\",\"notes\":null,\"section\":\"Recoater\"},{\"datasheet\":[\"RecoaterPlate.pdf\"],\"display_name\":\"Recoater stage plate\",\"material\":[\"Aluminium\"],\"name\":\"BOM:recoater/recoater-stage-plate\",\"notes\":null,\"section\":\"Recoater\"},{\"datasheet\":[\"RecoaterMountBlock.PDF\"],\"display_name\":\"Recoater mount block\",\"material\":[\"Aluminium\"],\"name\":\"BOM:recoater/recoater-mount-block\",\"notes\":null,\"section\":\"Recoater\"},{\"datasheet\":[\"RecoaterWall.pdf\",\"RecoaterWallSvejse.pdf\"],\"display_name\":\"Recoater Wall\",\"material\":[\"Stainless steel\"],\"name\":\"BOM:recoater/recoater-wall\",\"notes\":\"End stop bracket mount holes had to be moved due to new limit switch. Could be fixed by making a new bracket instead.\\nThe bends are not perfect and for sufficient alignment the support brackets must be used\",\"section\":\"Recoater\"},{\"datasheet\":[\"EndstopBracket.pdf\"],\"display_name\":\"Recoater End stop bracket\",\"material\":[\"Stainless steel\"],\"name\":\"BOM:recoater/recoater-end-stop-bracket\",\"notes\":\"New limit switch needed to be closer to the recoater arm. New holes were drilled in recoater wall. Bracket could be redesigned to give more freedom\",\"section\":\"Recoater\"},{\"datasheet\":[],\"display_name\":\"Build cylinder\",\"material\":[\"Aluminium\"],\"name\":\"BOM:build-plate/build-cylinder\",\"notes\":null,\"section\":\"Build-plate\"},{\"datasheet\":[],\"display_name\":\"Build base\",\"material\":[\"Aluminium\"],\"name\":\"BOM:build-plate/build-base\",\"notes\":\"The hole for thermo couple was below spec and had to be drilled bigger\",\"section\":\"Build-plate\"},{\"datasheet\":[],\"display_name\":\"Build Plate\",\"material\":[\"Stainless steel\",\"Steel\"],\"name\":\"BOM:build-plate/build-plate\",\"notes\":null,\"section\":\"Build-plate\"},{\"datasheet\":[],\"display_name\":\"Motor plate\",\"material\":[\"Aluminium\"],\"name\":\"BOM:build-plate/motor-plate\",\"notes\":null,\"section\":\"Build-plate\"},{\"datasheet\":[],\"display_name\":\"Build cylinder clamp ring\",\"material\":[\"Aluminium\"],\"name\":\"BOM:build-plate/build-cylinder-clamp-ring\",\"notes\":null,\"section\":\"Build-plate\"},{\"datasheet\":[],\"display_name\":\"Heating element plate\",\"material\":[\"Aluminium\"],\"name\":\"BOM:build-plate/heating-element-plate\",\"notes\":null,\"section\":\"Build-plate\"},{\"datasheet\":[],\"display_name\":\"Thermocouple plate\",\"material\":[\"Aluminium\"],\"name\":\"BOM:build-plate/thermocouple-plate\",\"notes\":\"Through-hole too small to accommodate reinforced braided cable.\",\"section\":\"Build-plate\"},{\"datasheet\":[],\"display_name\":\"Seal clamp plate\",\"material\":[\"Aluminium\"],\"name\":\"BOM:build-plate/seal-clamp-plate\",\"notes\":\"ID of clamp plate was too small. Filed to enlargen. Check specs.\",\"section\":\"Build-plate\"},{\"datasheet\":[],\"display_name\":\"Ceramic build base seal\",\"material\":[\"Ceramic paper\"],\"name\":\"BOM:build-plate/ceramic-build-base-seal\",\"notes\":\"Excellent. Have been running hundreds of hours without needing to be changed\",\"section\":\"Build-plate\"},{\"datasheet\":[],\"display_name\":\"Gas flow end duct\",\"material\":[\"Polymer\"],\"name\":\"BOM:gas-flow/gas-flow-end-duct\",\"notes\":null,\"section\":\"Gas flow\"},{\"datasheet\":[],\"display_name\":\"Gas flow inlet geometry\",\"material\":null,\"name\":\"BOM:gas-flow/gas-flow-inlet-geometry\",\"notes\":null,\"section\":\"Gas flow\"},{\"datasheet\":[],\"display_name\":\"Sunny Galvo Adapter Plate\",\"material\":[\"Aluminium\"],\"name\":\"BOM:optics/sunny-galvo-adapter-plate\",\"notes\":null,\"section\":\"Optics\"},{\"datasheet\":[],\"display_name\":\"F-theta seal ring\",\"material\":[\"Aluminium\"],\"name\":\"BOM:optics/f-theta-seal-ring\",\"notes\":\"Oring fit is a bit too tight due to small bump prior to intended mating surface\",\"section\":\"Optics\"},{\"datasheet\":[],\"display_name\":\"Galvo box bracket\",\"material\":[\"Aluminium\"],\"name\":\"BOM:optics/galvo-box-bracket\",\"notes\":\"Changed galvo mount completely to allow for adjustments. Tolerences are slightly too tight and it bind a bit if left assembled for a while\\n\\nBefore: Galvo too far down. f-theta does not screw in enough so it sticks down\",\"section\":\"Optics\"},{\"datasheet\":[],\"display_name\":\"Galve support bracket\",\"material\":[\"Stainless steel\",\"Steel\"],\"name\":\"BOM:optics/galve-support-bracket\",\"notes\":null,\"section\":\"Optics\"},{\"datasheet\":[],\"display_name\":\"Silicone gasket f-theta ring\",\"material\":[\"Silicone\"],\"name\":\"BOM:optics/silicone-gasket-f-theta-ring\",\"notes\":null,\"section\":\"Optics\"},{\"datasheet\":[],\"display_name\":\"Powder hopper\",\"material\":[\"Stainless steel\"],\"name\":\"BOM:powder/powder-hopper\",\"notes\":\"A few welds had to be filed down\",\"section\":\"Powder\"},{\"datasheet\":[],\"display_name\":\"Powder roller\",\"material\":[\"Aluminium\"],\"name\":\"BOM:powder/powder-roller\",\"notes\":\"Now all slots have same size and rounded by worker.\\n\\nBefore: The slots were too sharp, had to be filed down. Next version should include fillets or chamfers\",\"section\":\"Powder\"},{\"datasheet\":[],\"display_name\":\"Powder handling mount bracket\",\"material\":[\"Stainless steel\"],\"name\":\"BOM:powder/powder-handling-mount-bracket\",\"notes\":null,\"section\":\"Powder\"},{\"datasheet\":[],\"display_name\":\"Powder roller housing\",\"material\":[\"Aluminium\"],\"name\":\"BOM:powder/powder-roller-housing\",\"notes\":null,\"section\":\"Powder\"},{\"datasheet\":[],\"display_name\":\"Powder stepper bracket\",\"material\":[\"Stainless steel\"],\"name\":\"BOM:powder/powder-stepper-bracket\",\"notes\":null,\"section\":\"Powder\"},{\"datasheet\":[],\"display_name\":\"Powder roller ceramic gasket\",\"material\":null,\"name\":\"BOM:powder/powder-roller-ceramic-gasket\",\"notes\":\"Nice fit\",\"section\":\"Powder\"},{\"datasheet\":[],\"display_name\":\"Powder Valve Fitting\",\"material\":[\"Aluminium\"],\"name\":\"BOM:powder/powder-valve-fitting\",\"notes\":null,\"section\":\"Powder\"},{\"datasheet\":[],\"display_name\":\"Powder Inlet\",\"material\":null,\"name\":\"BOM:powder/powder-inlet\",\"notes\":null,\"section\":\"Powder\"},{\"datasheet\":[],\"display_name\":\"GLAMS\",\"material\":null,\"name\":\"BOM:electric/glams\",\"notes\":null,\"section\":\"Electric\"},{\"datasheet\":[],\"display_name\":\"Y axis stepper bracket\",\"material\":null,\"name\":\"BOM:sensorgantry/y-axis-stepper-bracket\",\"notes\":null,\"section\":\"SensorGantry\"},{\"datasheet\":[],\"display_name\":\"Y axis idler plate\",\"material\":null,\"name\":\"BOM:sensorgantry/y-axis-idler-plate\",\"notes\":null,\"section\":\"SensorGantry\"},{\"datasheet\":[],\"display_name\":\"X axis top bracket\",\"material\":null,\"name\":\"BOM:sensorgantry/x-axis-top-bracket\",\"notes\":null,\"section\":\"SensorGantry\"},{\"datasheet\":[],\"display_name\":\"X axis bottom bracket\",\"material\":null,\"name\":\"BOM:sensorgantry/x-axis-bottom-bracket\",\"notes\":null,\"section\":\"SensorGantry\"},{\"datasheet\":[],\"display_name\":\"X axis idler bracket\",\"material\":null,\"name\":\"BOM:sensorgantry/x-axis-idler-bracket\",\"notes\":null,\"section\":\"SensorGantry\"},{\"datasheet\":[],\"display_name\":\"Z axis linear rod\",\"material\":null,\"name\":\"BOM:sensorgantry/z-axis-linear-rod\",\"notes\":null,\"section\":\"SensorGantry\"},{\"datasheet\":[],\"display_name\":\"Z axis stepper bracket\",\"material\":null,\"name\":\"BOM:sensorgantry/z-axis-stepper-bracket\",\"notes\":null,\"section\":\"SensorGantry\"},{\"datasheet\":[],\"display_name\":\"Sensor bracket\",\"material\":null,\"name\":\"BOM:sensorgantry/sensor-bracket\",\"notes\":null,\"section\":\"SensorGantry\"},{\"datasheet\":[],\"display_name\":\"19\\\" Rack plates\",\"material\":[\"Steel\",\"Stainless steel\"],\"name\":\"BOM:support/19-rack-plates\",\"notes\":\"A tiny bit too wide. Corners need rounding and the bend flaps could be shorter so as to not go over 4040 profile sides\",\"section\":\"Support\"},{\"datasheet\":[],\"display_name\":\"Cover plates w/door\",\"material\":null,\"name\":\"BOM:support/cover-plates-w-door\",\"notes\":null,\"section\":\"Support\"},{\"datasheet\":[],\"display_name\":\"Cover plates\",\"material\":null,\"name\":\"BOM:support/cover-plates\",\"notes\":null,\"section\":\"Support\"},{\"datasheet\":[],\"display_name\":\"Desktop\",\"material\":null,\"name\":\"BOM:support/desktop\",\"notes\":\"Desktop in front of PC screen\",\"section\":\"Support\"}],\"drawing\":{\"degraded\":false,\"fields\":{\"material\":{\"confidence\":\"unsure\",\"name\":\"D-021/drawing/material\",\"value\":null},\"notes\":{\"confidence\":\"sure\",\"name\":\"D-021/drawing/notes\",\"value\":\"Blower Outlet\\nNon-magnetic stainless\\nSheet thickness is free, as thin\\nas practical\\nAll joints should be welded\"},\"title\":{\"confidence\":\"unsure\",\"name\":\"D-021/drawing/title\",\"value\":null}},\"id\":\"D-021\",\"section\":\"Gas Flow\",\"source_filename\":\"BlowerOutlet.pdf\"}}",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string",
+              "enum": [
+                "link"
+              ]
+            },
+            "state": {
+              "type": "string",
+              "enum": [
+                "known",
+                "options",
+                "unknown"
+              ]
+            },
+            "value_json": {
+              "type": "string"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "sure",
+                "unsure"
+              ]
+            },
+            "fact_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "reason": {
+              "type": "string"
+            },
+            "changed_because": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "key",
+            "state",
+            "value_json",
+            "confidence",
+            "fact_ids",
+            "reason",
+            "changed_because"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "items"
+    ],
+    "additionalProperties": false
+  },
+  "images": [],
+  "job": "link:D-021"
+}

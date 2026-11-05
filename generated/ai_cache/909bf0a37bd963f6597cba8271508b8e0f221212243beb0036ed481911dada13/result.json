@@ -1,0 +1,34 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "visible_text": "Geared stepper actuator",
+    "image_seen": true
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 14183,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 118,
+          "reasoning_output_tokens": 91
+        }
+      }
+    ]
+  },
+  "latency_ms": 7938,
+  "cache_key": "909bf0a37bd963f6597cba8271508b8e0f221212243beb0036ed481911dada13",
+  "cache_hit": false,
+  "job": "preflight",
+  "error": null
+}

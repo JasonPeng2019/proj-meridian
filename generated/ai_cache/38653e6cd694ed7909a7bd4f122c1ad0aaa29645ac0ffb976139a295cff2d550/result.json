@@ -1,0 +1,79 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "known",
+        "value_json": "[\"BOM:box/top-side\"]",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-004/drawing/notes",
+          "BOM:box/top-side",
+          "BOM:box/top-side-bracing",
+          "BOM:box/top-side-powder-bracing"
+        ],
+        "reason": "The drawing is in the Box section, its source file is TopPlate.pdf, and its notes say \"Top Plate / 3 mm non-magnetic stainless / M5 weld nuts on inside of flanges\". The closest custom BOM row is BOM:box/top-side (\"Top Side\", Box, Stainless steel). The section and material family match, and a flanged 3 mm top plate fits a box top panel. The names are not identical, though: the drawing says \"Top Plate\" and the BOM says \"Top Side\". No BOM row has a datasheet that confirms the link, and the drawing's title and material fields are empty. BOM:box/top-side-bracing and BOM:box/top-side-powder-bracing are also stainless Box parts named for the top side. Nothing in the drawing points to bracing, but this evidence does not fully rule them out, so the match is marked unsure.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 5971,
+      "cache_read_input_tokens": 2540,
+      "output_tokens": 666,
+      "output_tokens_details": {
+        "thinking_tokens": 208
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 5971,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 666,
+        "cacheReadInputTokens": 2540,
+        "cacheCreationInputTokens": 5971,
+        "webSearchRequests": 0,
+        "costUSD": 0.061604,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 208,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 5971,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.061604,
+    "duration_ms": 6505,
+    "is_error": false
+  },
+  "latency_ms": 23094,
+  "cache_key": "38653e6cd694ed7909a7bd4f122c1ad0aaa29645ac0ffb976139a295cff2d550",
+  "cache_hit": false,
+  "job": "link:D-004",
+  "error": null
+}

@@ -1,0 +1,43 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "relationship",
+        "state": "known",
+        "value_json": "\"no_equivalent\"",
+        "confidence": "sure",
+        "fact_ids": [],
+        "reason": "LEFT is null, indicating no represented drawing section; the instructions specify no_equivalent for an empty LEFT. This suggestion requires actual human approval before use.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 12782,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 227,
+          "reasoning_output_tokens": 147
+        }
+      }
+    ]
+  },
+  "latency_ms": 13281,
+  "cache_key": "fc35b50074e97f3b5b82641b05ebb330137aeb1ce17d82ee7e4329ed0a2809d7",
+  "cache_hit": false,
+  "job": "mapping:names/section/ -> powder",
+  "error": null
+}

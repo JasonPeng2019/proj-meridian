@@ -1,0 +1,46 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "relationship",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-026/drawing/source",
+          "BOM:build-plate/build-plate"
+        ],
+        "reason": "Z-axis is a represented drawing section, but the supplied established links do not specify its relationship to Build-plate.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 12801,
+          "cached_input_tokens": 10112,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1083,
+          "reasoning_output_tokens": 996
+        }
+      }
+    ]
+  },
+  "latency_ms": 33813,
+  "cache_key": "2b81a6d910a720f02f9c0c71b56bc231e5dcdd3e36db6c533d80f5938cd1b79d",
+  "cache_hit": false,
+  "job": "mapping:names/section/z-axis -> build-plate",
+  "error": null
+}

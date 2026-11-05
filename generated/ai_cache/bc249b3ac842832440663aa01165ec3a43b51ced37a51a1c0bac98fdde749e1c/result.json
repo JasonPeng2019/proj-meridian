@@ -1,0 +1,153 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "outline_type",
+        "state": "known",
+        "value_json": "\"rectangle\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-013/drawing/n/270.0@1-1",
+          "D-013/drawing/n/25.0@1-1"
+        ],
+        "reason": "The front view shows a rectangular bar with an overall length of 270,0 and an overall height of 25,0. It has small corner chamfers that are not dimensioned.",
+        "changed_because": ""
+      },
+      {
+        "key": "length",
+        "state": "known",
+        "value_json": "270.0",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-013/drawing/n/270.0@1-1"
+        ],
+        "reason": "The overall horizontal dimension is 270,0.",
+        "changed_because": ""
+      },
+      {
+        "key": "width",
+        "state": "known",
+        "value_json": "25.0",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-013/drawing/n/25.0@1-1"
+        ],
+        "reason": "The overall vertical dimension on the right side is 25,0.",
+        "changed_because": ""
+      },
+      {
+        "key": "outer_diameter",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [],
+        "reason": "This dimension does not apply because the part is rectangular.",
+        "changed_because": ""
+      },
+      {
+        "key": "inner_diameter",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [],
+        "reason": "This dimension does not apply because the part is rectangular.",
+        "changed_because": ""
+      },
+      {
+        "key": "thickness",
+        "state": "options",
+        "value_json": "[3.0,6.0]",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-013/drawing/n/3.0@1-1",
+          "D-013/drawing/n/6.0@1-1"
+        ],
+        "reason": "The side view has a single thickness dimension with 6,0 and 3,0 stacked on it. As instructed, these are reported as alternatives. The drawing does not say which one applies. The 87.5 g weight does not clearly match either value.",
+        "changed_because": ""
+      },
+      {
+        "key": "features",
+        "state": "unknown",
+        "value_json": "[{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-82.0,\"fact_ids\":[\"D-013/drawing/n/82.0@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":4.5,\"fact_ids\":[\"D-013/drawing/n/4.5@1-1\"]},\"diameter\":{\"state\":\"known\",\"value\":4.2,\"fact_ids\":[\"D-013/drawing/n/4.2@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M5 - 6H\",\"fact_ids\":[\"D-013/drawing/callout/p1-2\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":17.9,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\"]},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"fact_ids\":[\"D-013/drawing/callout/p1-4\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":53.6,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"n0+n1\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"fact_ids\":[\"D-013/drawing/callout/p1-4\"]},{\"kind\":\"slot\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":41.0,\"fact_ids\":[\"D-013/drawing/n/41.0@1-1\"]},\"y\":{\"state\":\"known\",\"value\":4.5,\"fact_ids\":[\"D-013/drawing/n/4.5@1-1\"]},\"width\":{\"state\":\"known\",\"value\":5.5,\"fact_ids\":[\"D-013/drawing/n/5.5@1-1\"]},\"length\":{\"state\":\"known\",\"value\":10.0,\"fact_ids\":[\"D-013/drawing/n/10.0@1-1\"]},\"through\":true,\"fact_ids\":[\"D-013/drawing/callout/p1-5\"]},{\"kind\":\"slot\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":123.0,\"fact_ids\":[\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\"],\"expression\":\"n0+n1\"},\"y\":{\"state\":\"known\",\"value\":4.5,\"fact_ids\":[\"D-013/drawing/n/4.5@1-1\"]},\"width\":{\"state\":\"known\",\"value\":5.5,\"fact_ids\":[\"D-013/drawing/n/5.5@1-1\"]},\"length\":{\"state\":\"known\",\"value\":10.0,\"fact_ids\":[\"D-013/drawing/n/10.0@1-1\"]},\"through\":true,\"fact_ids\":[\"D-013/drawing/callout/p1-5\"]}]",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-013/drawing/callout/p1-2",
+          "D-013/drawing/callout/p1-4",
+          "D-013/drawing/callout/p1-5",
+          "D-013/drawing/n/82.0@1-1",
+          "D-013/drawing/n/82.0@1-2",
+          "D-013/drawing/n/41.0@1-1",
+          "D-013/drawing/n/17.9@1-1",
+          "D-013/drawing/n/35.7@1-1",
+          "D-013/drawing/n/4.5@1-1",
+          "D-013/drawing/n/7.5@1-1",
+          "D-013/drawing/n/4.2@1-1",
+          "D-013/drawing/n/2.5@1-1",
+          "D-013/drawing/n/5.5@1-1",
+          "D-013/drawing/n/10.0@1-1"
+        ],
+        "reason": "The callouts specify 2 x Ø4,2 M5-6H through holes, 8 x Ø2,5 M3-6H through holes and 4 x 5,5 X 10,0 through slots. The slots run along Y. X is measured from the vertical centre line. The dimensions place one M5 hole at 82,0 to the left, the slots at 41,0 and 41,0+82,0, and the M3 holes at 17,9 and 17,9+35,7. For Y, the upper hole/slot row is taken as 4,5 above the horizontal centre line and the M3 row as 7,5 below it. These Y readings are uncertain because a 2,3 dimension on the right is unexplained, and the 4,5 extension may not start at the centre line. The other features are omitted because their positions would only come from symmetry or an assumed equal spacing, which is not dimensioned: the second M5 hole, the two left slots and the other six M3 holes. As a result, the features list is incomplete.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 9106,
+      "cache_read_input_tokens": 10756,
+      "output_tokens": 5908,
+      "output_tokens_details": {
+        "thinking_tokens": 3002
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 9106,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 5908,
+        "cacheReadInputTokens": 10756,
+        "cacheCreationInputTokens": 9106,
+        "webSearchRequests": 0,
+        "costUSD": 0.1931752,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 3002,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 9106,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.1931752,
+    "duration_ms": 53637,
+    "is_error": false
+  },
+  "latency_ms": 121641,
+  "cache_key": "bc249b3ac842832440663aa01165ec3a43b51ced37a51a1c0bac98fdde749e1c",
+  "cache_hit": false,
+  "job": "template:D-013",
+  "error": null
+}

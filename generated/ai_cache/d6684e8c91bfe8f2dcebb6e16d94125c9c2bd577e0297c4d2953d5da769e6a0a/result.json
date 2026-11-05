@@ -1,0 +1,43 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "relationship",
+        "state": "known",
+        "value_json": "\"no_equivalent\"",
+        "confidence": "sure",
+        "fact_ids": [],
+        "reason": "LEFT is null, so no drawing section is represented; the supplied rule requires no_equivalent.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 12781,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 187,
+          "reasoning_output_tokens": 118
+        }
+      }
+    ]
+  },
+  "latency_ms": 13609,
+  "cache_key": "d6684e8c91bfe8f2dcebb6e16d94125c9c2bd577e0297c4d2953d5da769e6a0a",
+  "cache_hit": false,
+  "job": "mapping:names/section/ -> electric",
+  "error": null
+}

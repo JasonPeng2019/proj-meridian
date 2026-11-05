@@ -1,0 +1,20 @@
+{
+  "decision_id": "HD-879363d2b6584dc197048862d5c25089",
+  "applies_to": "D-008/template/thickness",
+  "type": "set_value",
+  "value": 2,
+  "status": "accepted",
+  "note": "",
+  "by": "Jason Peng",
+  "at": "2026-11-05T16:25:20.530610+00:00",
+  "based_on": {
+    "sha256": "2642be4f1d3471cc440aa7830166adfa298a8e1a31cef90911662bb2b4a26448"
+  },
+  "input_parser": {
+    "original_input": "2 mm\n\n",
+    "model": "gpt-6-luna",
+    "response_id": "resp_0c905e63e3ced4d1016aecadedc37887d1a9307676e5464c70",
+    "request_id": "req_43e1a4c8b0e84d20a1999759ae6cb0e4",
+    "purpose": "format_only"
+  }
+}

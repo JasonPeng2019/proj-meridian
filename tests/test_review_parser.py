@@ -73,6 +73,7 @@ def test_anthropic_review_input_uses_selected_model_and_preserves_preview_contro
     parser = ReviewParser()
     result = parse(parser, store)
     assert result["status"] == "ready" and result["value"] == 4.5
+    assert result["model"] == "claude-sonnet-5-5"
     assert provider[1][0]["model"] == "claude-sonnet-5-5" and len(provider[1]) == 1
     value, provenance = parser.resolve(store, "D-TEST/template/thickness", result["receipt"], None)
     assert value == 4.5 and provenance["model"] == "claude-sonnet-5-5"
@@ -84,6 +85,7 @@ def test_single_strict_luna_request_and_preview_never_saves(store, provider):
     before = copy.deepcopy(store.fields)
     result = parse(ReviewParser(), store)
     assert result["status"] == "ready" and result["value"] == 4.5 and result["receipt"]
+    assert result["model"] == "gpt-6-luna"
     assert store.fields == before and store.saved == []
     assert len(calls) == 1 and calls[0]["model"] == "gpt-6-luna"
     assert calls[0]["store"] is False and calls[0]["text"]["format"]["strict"] is True

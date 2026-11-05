@@ -200,6 +200,12 @@ def test_specific_thread_query_uses_only_that_explicit_callout(summary_store):
     assert tools.get_field("D-001", "slots")["facts"][0]["display"]["value"]["count"] == 2
 
 
+def test_part_lookup_tolerates_measurement_words_without_losing_exact_name(summary_store):
+    tools = KnowledgeTools(summary_store)
+    assert tools.find_part("Plate 1 M4 holes tightening torque")["parts"][0]["key"] == "D-001"
+    assert tools.find_part("show drawing D-002 width")["parts"][0]["key"] == "D-002"
+
+
 def test_unknown_dimension_exposes_boxes_without_assigning_an_edge(summary_store):
     tools = KnowledgeTools(summary_store)
     summary_store.fields["D-002/drawing/n/42"]["box"] = [1, 2, 3, 4]

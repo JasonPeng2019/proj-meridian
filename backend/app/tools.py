@@ -209,12 +209,14 @@ class KnowledgeTools:
             drawing = part.get("drawing") or {}
             aliases += [str(drawing.get("source_path", ""))]
             aliases += [r.get("display_name", "") for r in part.get("bom", [])]
-            if drawing.get("id") and normalized(drawing["id"]) == query:
+            if drawing.get("id") and re.search(r"(?<!\w)" + re.escape(drawing["id"]) + r"(?!\w)", text, re.I):
                 score = 100
             elif any(normalized(a) == query for a in aliases):
                 score = 90
             elif any(query and query in normalized(a) for a in aliases):
                 score = 70
+            elif any(len(normalized(a)) >= 5 and normalized(a) in query for a in aliases):
+                score = 65
             else:
                 words = set(re.findall(r"[\w]+", " ".join(aliases).casefold()))
                 score = len(tokens & words) / max(len(tokens), 1) * 40

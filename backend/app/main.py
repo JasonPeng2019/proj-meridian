@@ -16,7 +16,7 @@ from fastapi.responses import FileResponse, Response
 from pydantic import BaseModel
 
 from backend.paths import ROOT, configure_environment, inside
-from backend.app.chat import Chat, MODEL, api_key
+from backend.app.chat import Chat, api_key
 from backend.app.providers import model_name, provider_name
 from backend.app.store import Store, read_json, settings
 from backend.app.tools import KnowledgeTools

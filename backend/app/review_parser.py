@@ -11,7 +11,7 @@ import time
 
 from openai import AsyncOpenAI
 
-from backend.app.chat import MODEL, api_key
+from backend.app.chat import api_key
 from backend.app.providers import AnthropicClient, model_name, provider_name
 from backend.app.review_values import NUMBER, SIZE, validate_review_value
 

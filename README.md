@@ -14,7 +14,8 @@ its parts, engineering drawings, source evidence, and available 3D reconstructio
 
 ## Setup
 
-You need **Git, uv, and Python 3.12**. Prepared records, drawings, 3D files, and
+You need **uv and Python 3.12**. Use Git to clone, or download the repository ZIP.
+Prepared records, drawings, 3D files, and
 the built frontend are included. You do not need Node, a database server, CAD
 tools, or prep agents. First launch needs internet access to install Python
 dependencies. Chat also needs internet access and an OpenAI or Anthropic API key.

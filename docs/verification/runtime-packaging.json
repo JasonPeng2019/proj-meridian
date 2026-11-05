@@ -17,5 +17,21 @@
   "purpose": "Only shipped UI; verified remote Embedder bundle promoted to frontend/dist",
   "default_port": 8001,
   "preview_artifacts_required": false,
-  "local_build": false
+  "local_build": false,
+  "served_asset_hashes_verified": 9,
+  "launch": "uv run --locked --no-sync meridian --debug-ui",
+  "chat_provider": "openai",
+  "chat_model": "gpt-6-luna",
+  "live_openai_smoke": {
+    "answer_received": true,
+    "latency_ms": 5903,
+    "fixture_deleted": true
+  },
+  "anthropic_live_check": "Not run: no Anthropic API key configured; native transport covered with mocked HTTP.",
+  "api_contract_sources": [
+    "https://developers.openai.com/api/docs/guides/function-calling",
+    "https://platform.claude.com/docs/en/models/overview",
+    "https://platform.claude.com/docs/en/api/messages/create",
+    "https://platform.claude.com/docs/en/build-with-claude/structured-outputs"
+  ]
 }

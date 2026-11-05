@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import json
-import os
 import re
 import time
 import uuid
@@ -11,7 +10,6 @@ from urllib.parse import quote
 
 from openai import AsyncOpenAI
 
-from backend.paths import ROOT, inside
 from backend.app.conversations import Conversations, MAX_QUESTION
 from backend.app.store import Store
 from backend.app.tools import KnowledgeTools, api_tools

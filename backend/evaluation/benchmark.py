@@ -158,8 +158,8 @@ def matching_counts(text: str, expected_parts: list[dict]) -> list[dict]:
             remainder = "".join(lines)
             explicit_remainder = bool(re.search(r"\b(?:more|additional|remaining|other)\b", MARKER.sub("", remainder), re.I))
             total_claim = bool(re.search(r"\b(?:total|altogether|in all)\b", heading, re.I))
-            if (not total_claim and count == len(bullets) == len(listed)
-                    and all(len(group) == 1 for group in groups)
+            if (not total_claim and count == len(listed)
+                    and groups and all(groups)
                     and explicit_remainder and expected - listed
                     and expected - listed <= identities(remainder)):
                 row.update(scope="enumerated_group_with_explicit_remainder", expected=len(listed), passed=True)

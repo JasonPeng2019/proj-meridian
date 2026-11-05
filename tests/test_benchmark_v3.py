@@ -13,16 +13,17 @@ def cases():
     return {c["id"]: c for c in compile_draft(ROOT / "docs/Question-benchmark/benchmark_draft.md")["cases"]}
 
 
-def captured(cid):
-    return json.loads((ROOT / f"docs/benchmark/run-42078885361/pass-1/{cid}.json").read_text(encoding="utf-8"))
+def captured(cid, run=1):
+    return json.loads((ROOT / f"docs/benchmark/run-42078885361/pass-{run}/{cid}.json").read_text(encoding="utf-8"))
 
 
 def check(result, name):
     return next(c for c in result["checks"] if c["rule"] == name)
 
 
-def test_complete_captured_partition_has_30_main_and_two_additional_entries(cases):
-    execution = captured("Q08")
+@pytest.mark.parametrize("run", [1, 2])
+def test_complete_captured_partition_has_30_main_and_two_additional_entries(cases, run):
+    execution = captured("Q08", run)
     result = score_rules(cases["Q08"], execution["response"], reference=execution["evaluation_reference"])
     assert result["status"] == "pass"
     counts = check(result, "consistent_matching_count")["detail"]["counts"]

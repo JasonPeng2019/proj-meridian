@@ -1,13 +1,13 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {Box, FileText, List, History, ZoomIn, ZoomOut, Scan, ChevronLeft, ChevronRight, X, Maximize2, ArrowUpRight, Link2, Layers, Fingerprint, Info, Download} from 'lucide-react';
 import ReaderAnswers from '../ReaderAnswers';
-import {useDebug} from '../debug';
+import {useDebug, sourceBadge} from '../debug';
 import Viewer3D, {Weight} from '../viewer3d/Viewer3D.jsx';
 import {api, imageURL, partKey, pathKey, textValue, titleCase, partURL, reviewURL} from '../api';
 import {englishText, englishName, translated} from '../language';
 import {Loading, ErrorMessage, StatusBadge, WeightBadge, Value, JsonDetails, SafeLink} from '../components';
 
-export function FactBadge({fact, onClick}) { return <button className={`fact-badge ${fact?.review?.status === 'human_confirmed' ? 'confirmed' : fact?.badge?.toLowerCase().includes('ai') ? 'ai' : ''}`} onClick={onClick} title="View this fact's full history">{fact?.badge || 'Source record'}{fact?.review?.status==='human_confirmed' && ' · reviewed'}</button>; }
+export function FactBadge({fact, onClick}) { const debug=useDebug();return <button className={`fact-badge ${fact?.review?.status === 'human_confirmed' ? 'confirmed' : fact?.badge?.toLowerCase().includes('ai') ? 'ai' : ''}`} onClick={onClick} title={debug?"View this fact's full history":"View source"}>{sourceBadge(fact?.badge,debug)}{debug&&fact?.review?.status==='human_confirmed' && ' · reviewed'}</button>; }
 
 function evidenceFact(part,id) {
   const fields=[...Object.values(part.drawing?.fields||{}),...(part.drawing?.numbers||[]),...(part.drawing?.callouts||[])];

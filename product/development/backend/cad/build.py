@@ -609,8 +609,11 @@ def build_template(template: c.FlatTemplate, output_dir: Path, *, previous: c.Mo
 
 def _record_binding(record: c.PartRecord, template: c.FlatTemplate) -> None:
     drawing = record.drawing
+    # M11 AI templates bind the complete drawing snapshot supplied to prep.
+    # The original PDF identity stays on DrawingEvidence; human templates use it.
+    expected = (c.contract_digest(drawing) if template.provenance else drawing.source_sha256) if drawing else None
     if (record.id != c.drawing_part_name(template.part) or drawing is None or
-            drawing.id != template.part or drawing.source_sha256 != template.source_sha256):
+            drawing.id != template.part or expected != template.source_sha256):
         raise _BuildIssue("Effective template is not bound to this record's current drawing/source hash.")
     if record.synthetic != template.synthetic or record.fixture != template.fixture:
         raise _BuildIssue("Synthetic templates and actual source records cannot share model evidence.")

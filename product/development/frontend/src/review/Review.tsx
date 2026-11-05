@@ -1,6 +1,6 @@
 import { useEffect, useId, useRef, useState } from "react";
 import type {
-  CorrectionCheck, FactSource, JsonValue, ReviewAction, ReviewActionResponse,
+  CorrectionCheck, FactSource, JsonValue, ReviewAction, ReviewActionRequest, ReviewActionResponse,
   ReviewItem, ReviewListRequest, ReviewProps,
 } from "../contracts";
 import { MethodBadge } from "../chat/Evidence";
@@ -84,13 +84,13 @@ function ReviewPanel({ api, debug, reviewer_name, on_open_part, on_open_source,
     return () => { active = false; };
   }, [api, filter, attempt, requestedId]);
 
-  async function act(action: ReviewAction) {
+  async function act(action: ReviewAction, fields: Pick<ReviewActionRequest, "value" | "source_ids"> = {}) {
     if (!selected || submitting.current || loading || loadError || uncertain ||
         selected.status !== "pending" || !selected.allowed_actions.includes(action)) return;
     const item = selected;
     submitting.current = true; setBusy(true); setActionError(null); setFollowupWarning(null);
     try {
-      const saved = await api.review_action({ item_id: item.id }, { action, note: notes[item.id] ?? null });
+      const saved = await api.review_action({ item_id: item.id }, { action, note: notes[item.id] ?? null, ...fields });
       // A real saved response is the only trigger for parent-state refresh.
       try { on_reviewed?.(saved); } catch {
         if (mounted.current) setFollowupWarning("Decision saved. Reopen the part to refresh the surrounding view.");
@@ -116,7 +116,7 @@ function ReviewPanel({ api, debug, reviewer_name, on_open_part, on_open_source,
   return <section className="meridian-review" aria-label="Debug review">
     <ReviewStyles />
     <header className="mr-header"><div><p className="mr-eyebrow">Debug</p><h1>Review</h1>
-      <p className="mr-muted">Inspect source evidence before accepting or rejecting a correction.</p></div>
+      <p className="mr-muted">Inspect original evidence, resolve missing inputs, and record explicit review decisions.</p></div>
       <button type="button" disabled={busy || loading} onClick={() => setAttempt(current => current + 1)}>Reload review</button>
     </header>
     <div className="mr-toolbar"><label htmlFor={filterId}>Show</label>
@@ -158,13 +158,13 @@ function ReviewPanel({ api, debug, reviewer_name, on_open_part, on_open_source,
           {debug.on_open_history && <button type="button" onClick={() => debug.on_open_history?.(selected.applies_to)}>Open decision history</button>}
         </div>
         <dl className="mr-values"><div><dt>Value when proposed</dt><dd>{valueText(selected.current_value ?? null)}</dd></div>
-          <div><dt>Proposed correction</dt><dd>{valueText(selected.proposed_value ?? null)}</dd></div></dl>
+          <div><dt>{selected.kind === "correction" ? "Proposed correction" : "Prepared proposal"}</dt><dd>{valueText(selected.proposed_value ?? null)}</dd></div></dl>
         <h3>Reason{selected.status !== "pending" ? " and review note" : ""}</h3><p className="mr-verbatim">{publicText(selected.message)}</p>
         <p className="mr-muted">Proposed <time dateTime={selected.created_at}>{publicText(selected.created_at)}</time></p>
         {selected.review && <p>Review: {publicText(selected.review.status ?? "not_reviewed")}
           {selected.review.by && <> · {publicText(selected.review.by)}</>}
           {selected.review.at && <> · <time dateTime={selected.review.at}>{publicText(selected.review.at)}</time></>}</p>}
-        {selected.status === "source_changed" && <p className="mr-alert">The saved source binding is no longer current. Propose a new correction against the current source before reviewing.</p>}
+        {selected.status === "source_changed" && <p className="mr-alert">The saved source binding is no longer current. Reload current prepared evidence; a new source-bound proposal is required before review.</p>}
         <CheckEvidence check={selected.check_result} sources={selected.sources ?? []} on_open_source={on_open_source} />
         <section><h3>Original source evidence</h3>
           {(selected.sources ?? []).length === 0 && <p>No navigable source evidence is available.</p>}
@@ -192,18 +192,14 @@ function ReviewPanel({ api, debug, reviewer_name, on_open_part, on_open_source,
             <div key={name}><dt>{publicText(name)}</dt><dd className="mr-break">{hash}</dd></div>)}</dl>
         </details>
         {selected.status === "pending" && <section className="mr-decision"><h3>Review decision</h3>
-          {selected.allowed_actions.some(action => action === "accept" || action === "reject") ? <>
-            <p>Only an explicit action below records a decision by {publicText(reviewer_name)}. Pending proposals leave effective facts unchanged.</p>
+          {selected.allowed_actions.length > 0 ? <>
+            <p>Only an explicit action below records a decision by {publicText(reviewer_name)}. Pending corrections and mapping proposals do not change effective facts.</p>
             <label htmlFor={noteId}>Review note (optional)</label>
             <textarea id={noteId} rows={3} value={notes[selected.id] ?? ""} disabled={busy}
               onChange={event => setNotes(current => ({ ...current, [selected.id]: event.target.value }))} />
-            <div className="mr-actions">
-              {selected.allowed_actions.includes("accept") && <button type="button" className="mr-accept" disabled={!canAct}
-                onClick={() => { void act("accept"); }}>Accept correction</button>}
-              {selected.allowed_actions.includes("reject") && <button type="button" disabled={!canAct}
-                onClick={() => { void act("reject"); }}>Reject correction</button>}
-            </div>
-          </> : <p>This item can be inspected here. Its value, option or mapping actions are unavailable in this correction slice.</p>}
+            <M1Actions key={selected.id} item={selected} disabled={!canAct}
+              on_action={(action, fields) => { void act(action, fields); }} />
+          </> : <p>This item has no supported action in its current state.</p>}
           {busy && <p role="status">Saving decision…</p>}
         </section>}
         {actionResult && <section className="mr-saved" aria-label="Saved decision result"><h3>Decision saved</h3>
@@ -223,6 +219,99 @@ function ReviewPanel({ api, debug, reviewer_name, on_open_part, on_open_source,
       </article>}
     </div></div>
   </section>;
+}
+
+function M1Actions({ item, disabled, on_action }: {
+  item: ReviewItem; disabled: boolean;
+  on_action: (action: ReviewAction, fields?: Pick<ReviewActionRequest, "value" | "source_ids">) => void;
+}) {
+  const [draft, setDraft] = useState("");
+  const [choice, setChoice] = useState("");
+  const [sourceIds, setSourceIds] = useState<string[]>([]);
+  const [rows, setRows] = useState<string[]>([]);
+  const [error, setError] = useState<string | null>(null);
+  const valueId = useId();
+  const options = item.options ?? [];
+  const isTemplate = item.kind === "template_field";
+  const isComposite = isTemplate && (item.applies_to.endsWith("/outline") || /\/feature-[^/]+$/.test(item.applies_to));
+  const isText = item.kind === "scan_reading" || /\/(?:material|thread_size)$/.test(item.applies_to);
+  const evidence = [...new Map((item.sources ?? []).filter(source => source.target.kind === "drawing")
+    .map(source => [source.name, source] as const)).values()];
+  const linkRows = [...new Set(options.flatMap(option => option && typeof option === "object" && !Array.isArray(option)
+    && Array.isArray(option.bom_rows) ? option.bom_rows.filter((row): row is string => typeof row === "string") : []))];
+  const allowed = (action: ReviewAction) => item.allowed_actions.includes(action);
+
+  function sendValue() {
+    setError(null);
+    if (!draft.trim()) { setError("Enter a value before recording the decision."); return; }
+    let value: JsonValue;
+    if (isComposite) {
+      try { value = JSON.parse(draft) as JsonValue; } catch { setError("Enter valid JSON for the structured value."); return; }
+      if (!value || typeof value !== "object" || Array.isArray(value)) {
+        setError("An outline or feature needs a structured object."); return;
+      }
+    } else if (isText) value = draft;
+    else {
+      value = Number(draft);
+      if (!Number.isFinite(value)) { setError("Enter a finite numeric value."); return; }
+    }
+    if (isTemplate && !isText && sourceIds.length === 0) {
+      setError("Select the drawing evidence supporting the numeric values."); return;
+    }
+    on_action("set_value", { value, ...(isTemplate ? { source_ids: sourceIds } : {}) });
+  }
+
+  return <div className="mr-value-form">
+    {item.mapping && <p>Recorded relationship: {publicText(item.mapping.from_name)} → {publicText(item.mapping.to_name ?? "No equivalent")}
+      {" · "}{publicText(item.mapping.relationship)}</p>}
+    {allowed("choose_option") && <fieldset disabled={disabled}><legend>Printed alternatives</legend>
+      <label htmlFor={valueId}>Choose the printed value</label>
+      <select id={valueId} value={choice} onChange={event => setChoice(event.target.value)}>
+        <option value="">Select an option</option>{options.map((option, index) =>
+          <option key={index} value={index}>{valueText(option)}</option>)}
+      </select>
+      <button type="button" disabled={choice === ""} onClick={() => on_action("choose_option", { value: options[Number(choice)] })}>Use printed option</button>
+    </fieldset>}
+    {allowed("set_value") && item.kind === "link" && <fieldset disabled={disabled}><legend>Recorded BOM candidates</legend>
+      {linkRows.length === 0 && <p>No eligible candidate rows are recorded.</p>}
+      {linkRows.map(row => <label key={row} className="mr-choice"><input type="checkbox" checked={rows.includes(row)}
+        onChange={event => setRows(current => event.target.checked ? [...current, row] : current.filter(value => value !== row))} />
+        <span>{publicText(row)}</span></label>)}
+      <div className="mr-actions"><button type="button" disabled={rows.length === 0}
+        onClick={() => on_action("set_value", { value: { drawing_id: item.applies_to.split("/")[0], bom_rows: rows } })}>Set selected link</button>
+        <button type="button" onClick={() => on_action("set_value", { value: { drawing_id: item.applies_to.split("/")[0], bom_rows: [] } })}>Record no matching row</button></div>
+    </fieldset>}
+    {allowed("set_value") && item.kind === "name_mapping" && <fieldset disabled={disabled}><legend>Recorded name pair</legend>
+      <label htmlFor={valueId}>Relationship</label><select id={valueId} value={choice} onChange={event => setChoice(event.target.value)}>
+        <option value="">Select a relationship</option>{options.map((option, index) => <option key={index} value={index}>{valueText(option)}</option>)}
+      </select><button type="button" disabled={choice === ""} onClick={() => on_action("set_value", { value: options[Number(choice)] })}>Set relationship</button>
+    </fieldset>}
+    {allowed("set_value") && (isTemplate || item.kind === "scan_reading") && <fieldset disabled={disabled}>
+      <legend>{isTemplate ? "Source-backed value" : "Read the original scan"}</legend>
+      <label htmlFor={valueId}>{isComposite ? "Structured value (JSON)" : isText ? "Text value" : "Numeric value"}</label>
+      {isComposite || isText ? <textarea id={valueId} rows={isComposite ? 5 : 2} value={draft} onChange={event => setDraft(event.target.value)} />
+        : <input id={valueId} type="number" step="any" value={draft} onChange={event => setDraft(event.target.value)} />}
+      {item.proposed_value != null && <button type="button" onClick={() => setDraft(isComposite
+        ? JSON.stringify(item.proposed_value, null, 2) : typeof item.proposed_value === "string" ? item.proposed_value : JSON.stringify(item.proposed_value))}>Use saved proposal as draft</button>}
+      {isComposite && <p className="mr-muted">Enter semantic outline or feature values. Cite the printed numbers for its numeric fields; the server supplies field identities.</p>}
+      {isTemplate && <details className="mr-source" open><summary>Supporting drawing evidence</summary>
+        <p className="mr-muted">Select one matching printed number per numeric value, and the drawing location supporting the shape or text.</p>
+        {evidence.map(source => <label key={source.name} className="mr-choice"><input type="checkbox" checked={sourceIds.includes(source.name)}
+          onChange={event => setSourceIds(current => event.target.checked ? [...current, source.name] : current.filter(name => name !== source.name))} />
+          <span>{publicText(source.name)}{typeof source.says === "string" ? ` · ${publicText(source.says)}` : ""}</span></label>)}
+      </details>}
+      <button type="button" onClick={sendValue}>Set value</button>
+    </fieldset>}
+    {error && <p role="alert" className="mr-alert">{error}</p>}
+    <div className="mr-actions">
+      {allowed("accept") && <button type="button" className="mr-accept" disabled={disabled} onClick={() => on_action("accept")}>
+        {item.kind === "correction" ? "Accept correction" : item.kind === "link" ? "Accept proposed link" : item.kind === "scan_reading" ? "Accept reading" : "Accept prepared value"}</button>}
+      {allowed("approve_mapping") && <button type="button" className="mr-accept" disabled={disabled}
+        onClick={() => on_action("approve_mapping")}>Approve recorded mapping</button>}
+      {allowed("reject") && <button type="button" disabled={disabled} onClick={() => on_action("reject")}>
+        {item.kind === "correction" ? "Reject correction" : "Reject prepared interpretation"}</button>}
+    </div>
+  </div>;
 }
 
 function CheckEvidence({ check, sources, on_open_source }: {
@@ -254,7 +343,7 @@ function ReviewStyles() {
     .meridian-review h3 { font-size: 15px; margin: 20px 0 8px; }
     .meridian-review h4 { font-size: 13px; margin: 12px 0 6px; }
     .meridian-review p { margin: 6px 0 12px; }
-    .meridian-review button, .meridian-review select, .meridian-review textarea { font: inherit; color: inherit; border: 1px solid #b9c9d1; border-radius: 6px; padding: 7px 11px; background: #fff; }
+    .meridian-review button, .meridian-review select, .meridian-review textarea, .meridian-review input { font: inherit; color: inherit; border: 1px solid #b9c9d1; border-radius: 6px; padding: 7px 11px; background: #fff; }
     .meridian-review button, .meridian-review summary, .meridian-review select { cursor: pointer; }
     .meridian-review button:hover { background: #edf4f6; }
     .meridian-review button:disabled, .meridian-review select:disabled { opacity: .55; cursor: default; }
@@ -293,6 +382,11 @@ function ReviewStyles() {
     .meridian-review .mr-saved { margin-top: 22px; border-top: 1px solid #d9e1e7; }
     .meridian-review .mr-history { padding-left: 20px; }
     .meridian-review .mr-history li { padding: 8px 0; }
+    .meridian-review .mr-value-form { display: grid; gap: 12px; }
+    .meridian-review fieldset { min-width: 0; display: grid; gap: 10px; border: 1px solid #d9e1e7; border-radius: 6px; padding: 14px; }
+    .meridian-review legend { padding: 0 5px; font-weight: 600; }
+    .meridian-review .mr-choice { display: flex; align-items: flex-start; gap: 9px; overflow-wrap: anywhere; }
+    .meridian-review .mr-choice input { margin-top: 5px; flex: none; }
     @media (max-width: 720px) { .meridian-review .mr-layout { grid-template-columns: 1fr; gap: 20px; } .meridian-review .mr-values { grid-template-columns: 1fr; } }
   `}</style>;
 }

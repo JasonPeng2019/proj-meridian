@@ -36,6 +36,7 @@ from ..contracts import (
     EvidenceField, JsonValue, ReviewState, ReviewStatus, bom_fact_name,
     bom_part_name, bom_row_name, drawing_fact_name, drawing_number_name,
     drawing_part_name, mapping_name, readme_name, template_fact_name,
+    normalize_component, ReviewItem, contract_digest,
 )
 
 
@@ -59,7 +60,10 @@ def _item_id(name: str) -> str:
         if parts[0].startswith("D-"):
             owner = drawing_part_name(parts[0])
             canonical = owner
-            if len(parts) == 3 and parts[1] in {"drawing", "template"}:
+            if len(parts) >= 3 and parts[1] == "template":
+                # Native templates give nested scalar fields stable path names.
+                canonical = "/".join([parts[0], "template", *[normalize_component(part) for part in parts[2:]]])
+            elif len(parts) == 3 and parts[1] == "drawing":
                 builder = drawing_fact_name if parts[1] == "drawing" else template_fact_name
                 canonical = builder(parts[0], parts[2])
             elif len(parts) == 4 and parts[1:3] == ["drawing", "n"]:
@@ -104,6 +108,16 @@ def _check_references(event: Decision, earlier: list[Decision]) -> None:
     elif (len(proposals) != 1 or proposals[0].applies_to != event.applies_to
           or proposals[0].based_on != event.based_on):
         raise JournalError("A review must reference its saved proposal and exact evidence hashes")
+    elif any(saved.status != "pending" and saved.proposal_id == event.proposal_id for saved in earlier):
+        raise JournalError("This proposal already has a terminal review decision")
+
+
+def prepared_proposal_id(item: ReviewItem) -> str:
+    """Same immutable prepared item/source snapshot in M12 and M16, no I/O."""
+    return item.proposal_id or "prepared-" + contract_digest({
+        "id": item.id, "kind": item.kind, "applies_to": item.applies_to,
+        "source_hashes": item.source_hashes,
+    })
 
 
 class DecisionStore:

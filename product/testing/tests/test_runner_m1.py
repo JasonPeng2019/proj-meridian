@@ -26,6 +26,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "development"))
 
 from backend.ai.runner import (  # noqa: E402
+    _answer,
     CliReservation, EvidenceBundle, EvidenceError, EvidenceInput, JobDefinition,
     Runner, RunnerError, SerialQueue, with_field_validation,
 )
@@ -40,6 +41,30 @@ REFERENCES = {LENGTH: "SYNTHETIC/number/length", WIDTH: "SYNTHETIC/number/width"
 PEER = ROOT / "testing/fixtures/runner/scripted_cli.py"
 PNG = base64.b64decode("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aXioAAAAASUVORK5CYII=")
 NOTE = "Invented runner fixture. No real drawing, model execution or engineering review."
+
+
+def test_codex_progress_is_not_mistaken_for_the_final_json(workspace):
+    answer = {"fields": {LENGTH: raw_field()}}
+    messages = [
+        {"type": "item.completed", "item": {"type": "agent_message", "text": "Inspecting the attached evidence."}},
+        {"type": "item.completed", "item": {"type": "agent_message", "text": json.dumps(answer)}},
+    ]
+    final = workspace / "final.json"
+    write(final, answer)
+    assert _answer(messages, "determination", final) == answer
+    assert _answer(messages, "determination", workspace / "missing.json") == answer
+    messages[-1]["item"]["text"] = "Malformed final {"
+    with pytest.raises(ValueError):
+        _answer(messages, "determination", final)
+
+
+def test_codex_final_event_must_match_its_last_message_file(workspace):
+    answer = {"fields": {LENGTH: raw_field()}}
+    final = workspace / "final.json"
+    write(final, {"fields": {LENGTH: raw_field(9)}})
+    with pytest.raises(ValueError, match="differ"):
+        _answer([{"type": "item.completed", "item": {"type": "agent_message", "text": json.dumps(answer)}}],
+                "determination", final)
 
 
 def read(path):
@@ -192,6 +217,11 @@ def test_exact_order_candidate_original_evidence_null_and_partial_observations(w
     for call, reservation in zip(case.calls, case.budget.entries):
         assert reservation[0] <= call["start"] <= call["end"] <= reservation[1]
         field = call["schema"]["properties"]["fields"]["properties"][LENGTH]
+        assert call["schema"]["$defs"]["SourceId"]["enum"] == [REFERENCES[LENGTH]]
+        assert field["properties"]["source_ids"]["items"] == {"$ref": "#/$defs/SourceId"}
+        if call["role"] == "verification":
+            alternative = field["properties"]["alternative"]["anyOf"][0]
+            assert alternative["properties"]["source_ids"]["items"] == {"$ref": "#/$defs/SourceId"}
         assert "candidate_sha256" not in call["schema"]["properties"]
         assert "evidence_valid" not in field["properties"]
     assert all(item["actual_cli_invocations"] == 1 for item in case.receipts())

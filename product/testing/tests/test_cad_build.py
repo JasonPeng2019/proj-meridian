@@ -333,6 +333,43 @@ def _forbid_cad(monkeypatch):
     monkeypatch.setattr(build, "import_module", unexpected)
 
 
+@pytest.mark.parametrize("changed", [None, "pdf", "numbers"])
+def test_prepared_template_binds_drawing_snapshot_and_original_pdf(changed, monkeypatch, output_dir):
+    from backend.ai.runner import Runner, JobDefinition, EvidenceBundle, EvidenceInput
+    from backend.settings import load_settings
+
+    template = _template()
+    record = _record(template)
+    snapshot = record.drawing.model_dump(mode="json")
+    digest = c.contract_digest(snapshot)
+    source = c.PrepSourceIdentity(inputs={"drawing": digest}, source_ids={f"{PART}/source": "drawing"})
+    definition = JobDefinition(job="SYNTHETIC-cad-binding", determination_instructions=FIXTURE_NOTE,
+        verification_instructions=FIXTURE_NOTE, value_schemas={f"{PART}/template/thickness": {"type": "number"}},
+        evidence=lambda request: EvidenceBundle({"drawing": EvidenceInput(value=snapshot)}),
+        validate_candidate=lambda candidate, source: candidate, validation_version="synthetic-binding/v1")
+    runner = Runner(jobs={definition.job: definition}, prep_settings=load_settings().data["prep"],
+        workspace_root=ROOT, runtime_root=output_dir / "unused-runner", reserve_cli_slot=lambda: pytest.fail("No CLI allowed"))
+    job = definition.request("SYNTHETIC-cad-binding", source)
+    attempt = runner._invalid(c.DeterminationRequest(job=job, round=1), "Synthetic unreviewed provenance; no model call.")
+    provenance = runner._provenance(job, [c.PrepRound(round=1, determination=attempt, verification=None)])
+    template = c.FlatTemplate.model_validate({**template.model_dump(mode="json"), "source_sha256": digest,
+        "filled_by": "determine_verify", "provenance": provenance.model_dump(mode="json")})
+    if changed == "pdf":
+        record.drawing.source_sha256 = c.contract_digest("SYNTHETIC replacement PDF")
+    elif changed == "numbers":
+        record.drawing.numbers[0].value += 1
+    called = []
+    sentinel = c.ModelStatus(state="blocked", message="SYNTHETIC source boundary reached; no CAD execution.")
+    monkeypatch.setattr(build, "build_template", lambda *args, **kwargs: called.append(args) or sentinel)
+    _forbid_cad(monkeypatch)
+    result = build.create_model_rebuilder(output_dir)(record, template)
+    if changed is None:
+        assert called and result == sentinel
+    else:
+        assert not called and result.state == "blocked" and not result.examples
+        assert "bound" in result.message
+
+
 def test_module_reload_and_factory_never_import_cad(monkeypatch, output_dir):
     original = builtins.__import__
     requested = []

@@ -118,7 +118,7 @@ def server_check(live=False, debug=False):
         env["MERIDIAN_NO_KEY"] = "1"
         env.pop("OPENAI_API_KEY", None)
     with (OUT / ("live-server.log" if live else "debug-server.log" if debug else "browser-server.log")).open("w", encoding="utf-8") as log:
-        proc = subprocess.Popen([sys.executable, "-m", "backend.app.main"], cwd=ROOT, env=env, stdout=log, stderr=log,
+        proc = subprocess.Popen([sys.executable, "-m", "backend.app.main", "--port", "8000"], cwd=ROOT, env=env, stdout=log, stderr=log,
                                 start_new_session=os.name != "nt", creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
         try:
             deadline = time.monotonic() + 120

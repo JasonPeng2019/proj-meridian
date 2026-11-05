@@ -123,7 +123,8 @@ def test_retains_complete_recent_turns_and_serializes_writers(chats, monkeypatch
     assert not (chats.directory / f"{OTHER}.json").exists()
 
 
-def test_reopened_chat_refetches_tools_without_replaying_saved_evidence(chats, monkeypatch):
+@pytest.mark.parametrize("selected_provider", ["openai", "anthropic"])
+def test_reopened_chat_refetches_tools_without_replaying_saved_evidence(chats, monkeypatch, selected_provider):
     import backend.app.chat as chat_module
     chats.append_turn(SID, "Previous question", answer(), create=True)
     requests, tools_called = [], []
@@ -147,6 +148,8 @@ def test_reopened_chat_refetches_tools_without_replaying_saved_evidence(chats, m
             return SimpleNamespace(usage=None, output=[], output_text="Current answer.")
     monkeypatch.setattr(chat_module, "api_key", lambda: "offline-test-key")
     monkeypatch.setattr(chat_module, "AsyncOpenAI", FakeClient)
+    monkeypatch.setattr(chat_module, "AnthropicClient", FakeClient)
+    monkeypatch.setattr(chat_module, "provider_name", lambda: selected_provider)
     monkeypatch.setattr(chat_module, "KnowledgeTools", FakeTools)
     monkeypatch.setattr(chat_module, "api_tools", lambda: [{"name": "find_part"}])
     store = SimpleNamespace(fields={}, revision="fresh-revision")
@@ -156,7 +159,7 @@ def test_reopened_chat_refetches_tools_without_replaying_saved_evidence(chats, m
     assert requests[0]["input"] == [{"role": "user", "content": "Previous question"},
                                     {"role": "assistant", "content": "Saved answer."},
                                     {"role": "user", "content": "Follow-up"}]
-    assert requests[0]["model"] == "gpt-6-luna"
+    assert requests[0]["model"] == ("gpt-6-luna" if selected_provider == "openai" else "claude-sonnet-5-5")
     assert "Steel" not in str(requests[0]["input"])
     assert len(chats.get(SID)["messages"]) == 4
     fresh = asyncio.run(chat_module.Chat(chats).answer(store, "Start another chat"))

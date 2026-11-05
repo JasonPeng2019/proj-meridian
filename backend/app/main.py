@@ -17,6 +17,7 @@ from pydantic import BaseModel
 
 from backend.paths import ROOT, configure_environment, inside
 from backend.app.chat import Chat, MODEL, api_key
+from backend.app.providers import model_name, provider_name
 from backend.app.store import Store, read_json, settings
 from backend.app.tools import KnowledgeTools
 from backend.app.review_sources import source_record
@@ -80,7 +81,7 @@ async def value_error(request, exc):
 @app.get("/api/status")
 def status():
     store = get_store()
-    return {"chat_available": bool(api_key()), "chat_model": MODEL, "debug_ui": os.environ.get("MERIDIAN_DEBUG_UI", "").lower() in {"1", "true", "yes"}, "revision": store.revision,
+    return {"chat_available": bool(api_key()), "chat_model": model_name(), "chat_provider": provider_name(), "debug_ui": os.environ.get("MERIDIAN_DEBUG_UI", "").lower() in {"1", "true", "yes"}, "revision": store.revision,
             "parts": len(store.records), "drawings": sum(bool(p.get("drawing")) for p in store.records),
             "models": sum(bool(p.get("has_3d")) for p in store.records), "reviewer_name": settings().get("reviewer_name", "Jason Peng")}
 
@@ -283,7 +284,7 @@ def cli():
     configure_environment()
     parser = argparse.ArgumentParser(description="Meridian local evidence workbench")
     parser.add_argument("command", nargs="?", choices=["serve", "rebuild", "prep", "models"], default="serve")
-    parser.add_argument("--port", type=int, default=8000)
+    parser.add_argument("--port", type=int, default=8001)
     debug = parser.add_mutually_exclusive_group()
     debug.add_argument("--debug-ui", action="store_true", help="Show the engineering Debug tab")
     debug.add_argument("--hide-debug", action="store_true", help="Hide Debug, including when enabled by the environment")

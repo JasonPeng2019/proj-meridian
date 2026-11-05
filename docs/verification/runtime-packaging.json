@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "commit": "fb463807553567530298511e9ed1a6766cbe97c0",
+  "source_sha256": "342704bdaafb6141ca241156a4d76b8c6a30cbece9027063e313a09a47b68594",
+  "run_id": "42056816065",
+  "files": {
+    "assets/geist-cyrillic-ext-wght-normal-DjL33-gN.woff2": "2317fa4bb293c9c0b110e18315d529235c47a0ddd3338cea3d8c7955e927899e",
+    "assets/geist-cyrillic-wght-normal-BEAKL7Jp.woff2": "6894439694946a589d157ece003086960a6a4013d74a813dab7602efdb3d8c09",
+    "assets/geist-latin-ext-wght-normal-DC-KSUi6.woff2": "824f485b5d26e2f2da3c2b236132ece1bc8e4e43373452950bb0e40548b4313f",
+    "assets/geist-latin-wght-normal-BgDaEnEv.woff2": "19f9c92546aa300c312235e3125af1b81394d8db9a4bc4a425cd5b641d2d54e1",
+    "assets/geist-vietnamese-wght-normal-6IgcOCM7.woff2": "8fa40e5d248247735eb97a0bd593b8852440430600d6ba01364c31fe0abc1fe1",
+    "assets/index-B7tszZ-5.js": "1436b54192aa6af0750fac74a2f1835ec07d7ced524d97f69d97ab7011410268",
+    "assets/index-BeU9WzGe.css": "7927e3461f04b4f5afcaabf866cbe55c948066afa2724de618f2dccafaf54d9a",
+    "index.html": "423f33b548741398f5bb8faf67991fb19fb847fcc21b0b87b6ba28e98e4c12dc",
+    "licenses/Geist-OFL.txt": "d13775b2801a4675cdfefc76dea5b417f033ac4bb8ff6c098a2ef61bc2bfc0a8"
+  },
+  "purpose": "Only shipped UI; verified remote Embedder bundle promoted to frontend/dist",
+  "default_port": 8001,
+  "preview_artifacts_required": false,
+  "local_build": false
+}

@@ -12,6 +12,7 @@ import time
 from openai import AsyncOpenAI
 
 from backend.app.chat import MODEL, api_key
+from backend.app.providers import AnthropicClient, model_name, provider_name
 from backend.app.review_values import NUMBER, SIZE, validate_review_value
 
 MAX_INPUT = 12000
@@ -173,12 +174,15 @@ class ReviewParser:
         binding = _binding(store, item)
         key = api_key()
         if not key:
-            raise ParserUnavailable("Add an OpenAI API key to interpret review input.")
+            raise ParserUnavailable("Add an OpenAI or Anthropic API key to interpret review input.")
+        provider = provider_name()
+        model = model_name(provider)
         try:
             async with self._semaphore:
-                async with AsyncOpenAI(api_key=key, max_retries=0, timeout=45) as client:
+                client_type = AsyncOpenAI if provider == "openai" else AnthropicClient
+                async with client_type(api_key=key, max_retries=0, timeout=45) as client:
                     response = await client.responses.create(
-                        model=MODEL, reasoning={"effort": "low"}, service_tier="default", store=False,
+                        model=model, reasoning={"effort": "low"}, service_tier="default", store=False,
                         instructions=INSTRUCTIONS, max_output_tokens=2400,
                         input=[{"role": "user", "content": json.dumps({"context": _context(store, item), "reviewed_statement": raw_input})}],
                         text={"format": {"type": "json_schema", "name": "review_input", "strict": True, "schema": SCHEMA}})
@@ -212,7 +216,7 @@ class ReviewParser:
             return {"status": "needs_clarification", "summary": "The interpreted input needs more detail before it can be saved.", "questions": [str(exc)]}
         token = secrets.token_urlsafe(32)
         receipt = {"item_id": item_id, "binding": binding, "value": value, "original_input": raw_input,
-                   "model": MODEL, "response_id": getattr(response, "id", None), "request_id": getattr(response, "_request_id", None),
+                   "model": model, "response_id": getattr(response, "id", None), "request_id": getattr(response, "_request_id", None),
                    "expires": time.monotonic() + PREVIEW_SECONDS}
         with self._lock:
             self._previews = {key: preview for key, preview in self._previews.items() if preview["expires"] > time.monotonic()}

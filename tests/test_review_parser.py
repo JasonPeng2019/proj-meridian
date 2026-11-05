@@ -67,6 +67,18 @@ def parse(parser, store, statement="four and a half millimetres thick"):
     return asyncio.run(parser.parse(store, "D-TEST/template/thickness", statement))
 
 
+def test_anthropic_review_input_uses_selected_model_and_preserves_preview_controls(store, provider, monkeypatch):
+    monkeypatch.setattr(parser_module, "provider_name", lambda: "anthropic")
+    monkeypatch.setattr(parser_module, "AnthropicClient", parser_module.AsyncOpenAI)
+    parser = ReviewParser()
+    result = parse(parser, store)
+    assert result["status"] == "ready" and result["value"] == 4.5
+    assert provider[1][0]["model"] == "claude-sonnet-5-5" and len(provider[1]) == 1
+    value, provenance = parser.resolve(store, "D-TEST/template/thickness", result["receipt"], None)
+    assert value == 4.5 and provenance["model"] == "claude-sonnet-5-5"
+    assert provenance["purpose"] == "format_only" and store.saved == []
+
+
 def test_single_strict_luna_request_and_preview_never_saves(store, provider):
     response, calls, constructors = provider
     before = copy.deepcopy(store.fields)

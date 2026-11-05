@@ -1,4 +1,4 @@
-"""Luna tool loop with source links and the model answer returned unchanged."""
+"""Provider tool loop with source links and the model answer returned unchanged."""
 from __future__ import annotations
 
 import json
@@ -9,15 +9,15 @@ import uuid
 from typing import Any
 from urllib.parse import quote
 
-from dotenv import load_dotenv
 from openai import AsyncOpenAI
 
 from backend.paths import ROOT, inside
 from backend.app.conversations import Conversations, MAX_QUESTION
 from backend.app.store import Store
 from backend.app.tools import KnowledgeTools, api_tools
+from backend.app.providers import AnthropicClient, api_key, model_name, provider_name, OPENAI_MODEL
 
-MODEL = "gpt-6-luna"
+MODEL = OPENAI_MODEL
 SYSTEM = """You are Meridian, an engineering assistant for the pinned OpenLPBF v2 evidence.
 Answer ONLY from returned structured tool evidence, never from memory or raw PDFs.
 Write in English. Translate non-English descriptive names and notes for readability while preserving literal material grades, source IDs and technical designations; a display translation is not a correction or an approved mapping.
@@ -46,20 +46,6 @@ The user can propose a correction, but only a human in the separate Review UI ca
 If ambiguous, ask a short clarification. If unsupported, abstain. Be concise and useful.
 """
 
-def api_key() -> str | None:
-    if os.environ.get("MERIDIAN_NO_KEY") == "1":
-        return None
-    load_dotenv(ROOT / ".env", override=False)
-    key = os.environ.get("OPENAI_API_KEY", "").strip()
-    if key:
-        return key
-    path = inside(".codex/.secrets/OpenAI_API_Keys.txt")
-    if path.exists():
-        matches = re.findall(r"sk-[A-Za-z0-9_-]+", path.read_text(encoding="utf-8-sig"))
-        if len(matches) == 1:
-            return matches[0]
-    return None
-
 def collect_evidence(result: Any, ledger: dict, tools: KnowledgeTools) -> None:
     if isinstance(result, dict):
         if "fact" in result and "display" in result:
@@ -83,7 +69,7 @@ def collect_evidence(result: Any, ledger: dict, tools: KnowledgeTools) -> None:
             collect_evidence(value, ledger, tools)
 
 def resolve_answer_evidence(text: str, ledger: dict, store: Store, single_matches: list[str] | None = None) -> dict:
-    """Attach known source references without grading or rewriting Luna's answer."""
+    """Attach known source references without grading or rewriting the model answer."""
     parts = []
     for raw in re.findall(r"\[(?:cite|undetermined):\s*([^\]]+)\]", text):
         for name in (value.strip() for value in raw.split(",")):
@@ -117,6 +103,8 @@ class Chat:
         key = api_key()
         if not key:
             raise ValueError("Add an API key to use the chat.")
+        provider = provider_name()
+        model = model_name(provider)
         sid = session_id if session_id is not None else uuid.uuid4().hex
         # Previous turns carry only dialogue, not stale accepted evidence. Every new
         # factual answer fetches current tool values after any review action.
@@ -128,9 +116,10 @@ class Chat:
         tools = KnowledgeTools(store)
         token_totals = {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}
         started = time.perf_counter()
-        async with AsyncOpenAI(api_key=key, max_retries=0, timeout=90) as client:
+        client_type = AsyncOpenAI if provider == "openai" else AnthropicClient
+        async with client_type(api_key=key, max_retries=0, timeout=90) as client:
             for _ in range(10):
-                response = await client.responses.create(model=MODEL, reasoning={"effort": "low"}, service_tier="default", store=False,
+                response = await client.responses.create(model=model, reasoning={"effort": "low"}, service_tier="default", store=False,
                     instructions=SYSTEM, tools=api_tools(), input=history + current, max_output_tokens=6000)
                 usage = response.usage
                 if usage:
@@ -143,7 +132,7 @@ class Chat:
                     if not text:
                         raise ValueError("The model returned no final answer.")
                     result = resolve_answer_evidence(text, ledger, store, single_matches)
-                    result.update(session_id=sid, model=MODEL, usage=token_totals, latency_ms=round((time.perf_counter() - started) * 1000), tool_trace=tool_trace, revision=store.revision)
+                    result.update(session_id=sid, model=model, usage=token_totals, latency_ms=round((time.perf_counter() - started) * 1000), tool_trace=tool_trace, revision=store.revision)
                     self.conversations.append_turn(sid, message, result, create=session_id is None)
                     return result
                 for call in calls:

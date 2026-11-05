@@ -146,7 +146,7 @@ export default function PartPage({partKey: key, initialTab, factId, example:init
     <header className="part-header">
       <div className="part-title">
         <div className="eyebrow"><span className="part-identifier">{part.drawing?.id || key}</span><span className="part-title-divider">/</span><span>{englishText(part.section || 'Parts list')}</span></div>
-        <div className="part-title-line"><h2>{englishName(part.display_name)}</h2><Badge variant="outline" className={`part-review-badge ${part.design_review?'human':''}`}><span/>{reconstructionLabel}</Badge></div>
+        <div className="part-title-line"><h2>{englishName(part.display_name)}</h2><Badge variant="outline" className={`part-review-badge ${part.design_review?'human':''}`}>{reconstructionLabel}</Badge></div>
       </div>
       <div className="row">
         {compact&&<Button variant="ghost" size="icon" className="icon-button" title="Open full page" aria-label="Open full page" onClick={()=>navigate(partURL(key,current,{...(factId?{fact:factId}:{})}))}><Maximize2 size={17}/></Button>}

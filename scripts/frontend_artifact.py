@@ -13,7 +13,7 @@ from pathlib import Path
 from backend.paths import ROOT, configure_environment, inside
 
 REPO = "JasonPeng2019/proj-meridian"
-SOURCES = ["frontend/src", "frontend/index.html", "frontend/package.json", "frontend/package-lock.json", "frontend/vite.config.js"]
+SOURCES = ["frontend/src", "frontend/public", "frontend/components.json", "frontend/jsconfig.json", "frontend/index.html", "frontend/package.json", "frontend/package-lock.json", "frontend/vite.config.js"]
 
 
 def git(*args):

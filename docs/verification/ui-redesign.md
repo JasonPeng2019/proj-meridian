@@ -1,29 +1,34 @@
 # Meridian UI redesign
 
-The interface uses adapted shadcn/ui New York components with Radix primitives,
-React and Vite. The shared theme uses neutral surfaces, dark readable text,
-restrained teal accents and consistent controls. No external font requests or
-new application service is required.
+Meridian follows the visual design of the **public homepage at
+https://embedder.com/**, as Jason explicitly selected on 2026-11-05. The reference
+HTML and both stylesheets were downloaded for inspection under the ignored
+`.verification/design-reference/embedder` directory. Their palette, typography
+scale, slim navigation, two-tone heading, fine rules and small corner radii guide
+the implementation. Embedder branding, marketing text, photographs and proprietary
+fonts are not shipped. The striped hero uses Meridian's original D-014 drawing;
+clicking it opens that evidence. Geist is self-hosted with its open font license.
 
-Customer screens retain chat, saved conversations, citations, source previews,
-part attachments, the full searchable/filterable catalog, drawings and their
-pan/zoom/sheet controls, 3D examples and downloads, source facts, and translated
-notes. Engineering reviews, receipts, checks and history remain in Debug.
-Existing source and review behavior is preserved. No extraction, CAD generation,
-model choice, approval policy or source evidence changed for this redesign.
+React/Vite and adapted shadcn/Radix controls preserve the existing application.
+The theme is obsidian `#15151d`, warm linen `#ede5d3`, pale mint `#a6c9c0` and
+ivory `#fffdf7`. A horizontal navigation bar replaces the sidebar. Parts use a
+compact table on desktop and readable metadata rows on phones; additional filters
+stay collapsed. Detail uses understated standard sections. Engineering evidence,
+review controls, receipts, checks and history stay in Debug.
 
-The parts catalog is a compact table instead of a collection of large cards.
-Additional filters remain collapsed. Part details retain their standard summary
-sections. Real keyboard-accessible tabs select the existing viewers. Chat history
-uses a focus-trapping dialog with Escape and focus restoration.
+The existing customer/Debug browser suite is retained. Additional checks cover
+message submission, source/attachment navigation, Back retaining the conversation,
+copying, dialog keyboard behavior, keyboard part tabs, drawing zoom/fit, asset
+filtering/reset and screenshots at desktop, laptop and mobile sizes. The new chat
+interaction check mocks its HTTP transport; it makes no paid API or answer-quality
+claim. Existing history checks still exercise persistence, reload and deletion
+against the backend. No engineering reviews are submitted by the browser suite.
 
-Verification uses the existing customer/Debug browser suite, plus interaction
-checks for sending a message, source/attachment navigation, conversation retained
-on Back, copying, dialog keyboard behavior, keyboard part tabs, drawing zoom/fit,
-asset filtering/reset and screenshots at desktop, laptop and mobile sizes. The
-new chat interaction check mocks only its HTTP transport; it makes no paid API
-or answer-quality claim. Existing history checks still exercise persistence,
-reload and deletion against the backend. Builds and browsers run on Actions,
-in sequence; a matching hash-verified static bundle is downloaded for local use.
+Builds and browsers run on Actions in sequence. `scripts/serve_ui_preview.py`
+serves a hash-verified, pinned remote frontend artifact on port 8001 without Node
+or a local build. Port 8000 remains the existing main app. The preview initially
+hides Debug; its `--debug-ui` option enables the engineering interface. Both use
+the existing local backend data. The preview refuses missing prepared data and
+does not regenerate CAD.
 
-Run results and screenshots are recorded after integration verification.
+Final run results and screenshots are recorded after integration verification.

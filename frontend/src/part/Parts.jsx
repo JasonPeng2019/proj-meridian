@@ -31,7 +31,7 @@ export default function Parts({parts,selected,navigate}) {
 
   return <div className="parts-workspace library-catalog"><section className="parts-browser" aria-labelledby="parts-library-heading">
     <header className="parts-browser-header">
-      <div className="library-heading"><div><span className="library-kicker">WORKSPACE / PARTS</span><h2 id="parts-library-heading">Parts library</h2><p>Explore drawings, models and their source evidence.</p></div><span className="library-total"><Box size={16}/>{parts.length} parts</span></div>
+      <div className="library-heading"><div><span className="library-kicker">WORKSPACE / PARTS</span><h2 id="parts-library-heading">Parts library</h2><p>Explore drawings, models and their source evidence.</p></div><span className="library-total">{parts.length} parts</span></div>
       <div className="library-toolbar">
         <div className="search-field library-search"><Search size={16}/><Input aria-label="Search parts" value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search part or material…"/>{query&&<Button variant="ghost" size="icon" aria-label="Clear search" onClick={()=>setQuery('')}><X size={14}/></Button>}</div>
         <details className="parts-filters">
@@ -57,11 +57,11 @@ export default function Parts({parts,selected,navigate}) {
         const label=reviewStatus(p)==='source_changed'?'Unavailable':human?'Human reviewed':available?'AI reviewed':'Unavailable';
         const materialLabel=materials(p).map(englishText).join(' / ');
         return <tr key={key} className="library-part-row" onClick={()=>navigate(partURL(key))}>
-          <td><Button variant="ghost" className="part-result" onClick={e=>{e.stopPropagation();navigate(partURL(key))}}><span className="library-part-icon"><Icon size={17}/></span><span className="library-part-name"><strong>{englishName(p.display_name)}</strong><small>{key}</small></span></Button></td>
-          <td className="library-section">{p.section?englishText(p.section):<span className="library-missing">Unassigned</span>}</td>
-          <td className="library-material">{materialLabel||<span className="library-missing">—</span>}</td>
-          <td><span className="library-view"><Icon size={13}/>{p.has_3d?'2D + 3D':p.has_drawing?'2D drawing':'Parts list'}</span></td>
-          <td><Badge variant="outline" className={`library-review ${human&&label!=='Unavailable'?'human':label==='Unavailable'?'unavailable':''}`}><span/>{label}</Badge></td>
+          <td><Button variant="ghost" className="part-result" onClick={e=>{e.stopPropagation();navigate(partURL(key))}}><span className="library-part-name"><strong>{englishName(p.display_name)}</strong><small>{key}</small></span></Button></td>
+          <td className="library-section" data-label="Section">{p.section?englishText(p.section):<span className="library-missing">Unassigned</span>}</td>
+          <td className="library-material" data-label="Material">{materialLabel||<span className="library-missing">—</span>}</td>
+          <td data-label="Views"><span className="library-view"><Icon size={13}/>{p.has_3d?'2D + 3D':p.has_drawing?'2D drawing':'Parts list'}</span></td>
+          <td data-label="Status"><Badge variant="outline" className={`library-review ${human&&label!=='Unavailable'?'human':label==='Unavailable'?'unavailable':''}`}>{label}</Badge></td>
           <td className="library-open"><ChevronRight size={15}/></td>
         </tr>;
       })}

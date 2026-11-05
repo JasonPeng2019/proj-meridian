@@ -23,3 +23,8 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
+The self-hosted Geist font is provided by `@fontsource-variable/geist`, under
+the SIL Open Font License 1.1. Upstream: https://github.com/vercel/geist-font .
+The public Embedder homepage was inspected as a visual reference. Its HTML,
+stylesheets, images and proprietary fonts are not shipped in this app.

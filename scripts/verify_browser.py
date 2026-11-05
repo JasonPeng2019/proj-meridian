@@ -324,6 +324,9 @@ def verify_redesign(context, errors):
                                   ('drawing','/part/D-003/2d','.drawing-paper')]:
             page.goto(BASE+path)
             page.locator(ready).first.wait_for()
+            page.evaluate('document.fonts.ready')
+            expect(page.locator('.app-topbar')).to_be_visible()
+            assert page.evaluate('getComputedStyle(document.body).backgroundColor') == 'rgb(21, 21, 29)'
             if page.evaluate('document.documentElement.scrollWidth > innerWidth'):
                 page.screenshot(path=str(OUT/f'redesign-overflow-{label}-{name}.png'))
                 overflow = page.evaluate('''() => [...document.querySelectorAll('*')].map(el => ({tag:el.tagName,cls:el.className,left:el.getBoundingClientRect().left,right:el.getBoundingClientRect().right,width:el.getBoundingClientRect().width,scroll:el.scrollWidth,client:el.clientWidth})).filter(el => el.right>innerWidth || el.left<0)''')
@@ -343,6 +346,19 @@ def verify_redesign(context, errors):
             page.screenshot(path=str(OUT/f'redesign-{label}-{name}.png'))
             responsive.append({'viewport':label,'screen':name,'no_page_overflow':True})
     page.close()
+    # Optional visual reference only. Its availability never gates app tests.
+    reference = context.new_page()
+    reference.set_viewport_size({'width':1600,'height':1000})
+    try:
+        reference.emulate_media(reduced_motion='reduce')
+        reference.goto('https://embedder.com',wait_until='domcontentloaded',timeout=25000)
+        reference.locator('#main-heading').wait_for(timeout=10000)
+        reference.wait_for_timeout(1200)
+        reference.screenshot(path=str(OUT/'embedder-public-reference.png'))
+    except Exception as error:
+        (OUT/'embedder-reference-capture.json').write_text(json.dumps({'captured':False,'error_type':type(error).__name__}),encoding='utf-8')
+    finally:
+        reference.close()
     (OUT/'redesign-browser-check.json').write_text(json.dumps({
         'chat_reply': 'mocked transport; no paid API or answer-quality claim',
         'send_enter_clear': True, 'citations_and_attached_parts': True,

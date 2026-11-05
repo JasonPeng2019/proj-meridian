@@ -3,7 +3,7 @@ import {englishName,englishText} from '../language';
 import {useDebug, sourceBadge} from '../debug';
 import React, {useEffect, useLayoutEffect, useRef, useState} from 'react';
 import {createPortal} from 'react-dom';
-import {ArrowUp, ArrowUpRight, Box, FileText, Plus, AlertTriangle, Check, Copy, Layers, Search, History, LoaderCircle} from 'lucide-react';
+import {ArrowUp, ArrowUpRight, Box, FileText, Plus, AlertTriangle, Check, Copy, Layers, History, LoaderCircle} from 'lucide-react';
 import {Button} from '../components/ui/button';
 import {api, pathKey, partKey, partURL, imageURL, reviewURL, textValue} from '../api';
 import {ErrorMessage, JsonDetails} from '../components';
@@ -70,7 +70,7 @@ function Message({message,navigate}) {
   </article>;
 }
 
-const prompts=[{icon:Box,title:'Explore a part',question:'What is the recoater plate made of?'},{icon:Search,title:'Check the evidence',question:'What do the sources say about the build plate material?'},{icon:FileText,title:'Review a drawing',question:'What is D-019? Show the original title and note.'}];
+const prompts=[{title:'Explore a part',question:'What is the recoater plate made of?'},{title:'Check the evidence',question:'What do the sources say about the build plate material?'},{title:'Review a drawing',question:'What is D-019? Show the original title and note.'}];
 export default function Chat({status,parts,navigate,messages,setMessages,session,setSession,resetChat,compact,openChat,loading}) {
   const [input,setInput]=useState(''),[busy,setBusy]=useState(false),[error,setError]=useState(''),[historyOpen,setHistoryOpen]=useState(false);
   const live=useRef(true);
@@ -81,7 +81,7 @@ export default function Chat({status,parts,navigate,messages,setMessages,session
   useEffect(()=>{bottom.current?.scrollIntoView({behavior:'smooth'})},[messages,busy]);
   const send=async text=>{const question=(text||input).trim();if(!question||busy||loading)return;setInput('');setError('');setMessages(m=>[...m,{role:'user',text:question}]);setBusy(true);try{const result=await api('/api/chat',{message:question,...(session?{session_id:session}:{})});if(!live.current)return;setSession(result.session_id);setMessages(m=>[...m,{role:'assistant',...result}]);}catch(e){if(live.current){setError(e.message);setInput(question)}}finally{if(live.current){setBusy(false);textarea.current?.focus()}}};
   const noKey=status?.chat_available===false;
-  return <div className={`chat-page workspace-chat ${compact?'chat-split':''}`}>
+  return <div className={`chat-page workspace-chat ${messages.length===0&&!loading?'chat-empty':''} ${compact?'chat-split':''}`}>
     <header className="workspace-header">
       <div><h1>Engineering chat</h1><p className="chat-project-name">OpenLPBF v2</p></div>
       <div className="chat-header-actions">
@@ -92,11 +92,16 @@ export default function Chat({status,parts,navigate,messages,setMessages,session
     {historyOpen&&<ChatHistory current={session} onOpen={openChat} onClose={closeHistory} onDeleted={id=>{if(id===session)resetChat()}}/>}
     <div className="chat-scroll" aria-busy={busy||loading}>
       {loading?<div className="empty-state" role="status"><LoaderCircle className="chat-spinner" size={20}/>Opening conversation…</div>:messages.length===0?<div className="chat-welcome">
-        <div className="welcome-symbol" aria-hidden="true"><Layers size={24}/></div>
-        <h2>Ask about your machine.</h2>
-        <p>Find part details and trace answers to the original drawings.</p>
-        <div className="welcome-context"><FileText size={14}/>OpenLPBF v2 drawings & parts list</div>
-        <div className="starter-prompts">{prompts.map(({icon:Icon,title,question})=><Button variant="outline" disabled={noKey||busy} key={title} onClick={()=>send(question)}><Icon size={18}/><strong>{title}</strong><span>{question}</span><ArrowUpRight size={15}/></Button>)}</div>
+        <div className="welcome-copy">
+          <div className="welcome-context"><span className="welcome-index">01 /</span>OPENLPBF V2 · ENGINEERING LIBRARY</div>
+          <h2>Meet Meridian, your<br/><span>engineering workspace.</span></h2>
+          <p>Explore the parts, read the drawings, and find answers grounded in the original evidence.</p>
+          <div className="starter-prompts">{prompts.map(({title,question},index)=><Button variant="ghost" disabled={noKey||busy} key={title} onClick={()=>send(question)}><span className="prompt-index">0{index+1}</span><span className="prompt-copy"><strong>{title}</strong><span>{question}</span></span><ArrowUpRight size={15}/></Button>)}</div>
+        </div>
+        <button className="welcome-drawing" onClick={()=>navigate(partURL('D-014','2d'),{panel:true})} aria-label="View original drawing D-014">
+          <span className="welcome-drawing-image"><img src={imageURL('D-014',1)} alt="" aria-hidden="true"/></span>
+          <span className="welcome-drawing-caption"><span>D-014 / ORIGINAL DRAWING</span><ArrowUpRight size={14}/></span>
+        </button>
       </div>:<div className="message-column">
         {messages.map((m,i)=><Message key={i} message={m} navigate={navigate}/>)}
         {busy&&<div className="assistant-message" role="status"><div className="assistant-avatar" aria-hidden="true"><Layers size={17}/></div><div className="thinking"><LoaderCircle className="chat-spinner" size={15}/>Checking source evidence…</div></div>}

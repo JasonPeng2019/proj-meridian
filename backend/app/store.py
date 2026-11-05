@@ -242,12 +242,19 @@ class Store:
             value = event.get("value")
             if kind == "choose_option":
                 field["selected"] = value
-            elif isinstance(value, dict) and "state" in value:
-                field.update(value)
             else:
-                field["value"] = value
-                if "state" in field:
-                    field["state"] = "known"
+                # A replacement reading cannot inherit an earlier choice or
+                # incompatible bounds. The original lives in raw_fields/history.
+                for previous_key in ("selected", "options", "bounds", "min", "max", "minimum", "maximum", "lower", "upper"):
+                    field.pop(previous_key, None)
+                if isinstance(value, dict) and "state" in value:
+                    if value["state"] in {"options", "bounds"}:
+                        field.pop("value", None)
+                    field.update(value)
+                else:
+                    field["value"] = value
+                    if "state" in field:
+                        field["state"] = "known"
             field.update(method="human_decision", confidence="sure", correction={"original": old, "corrected": value, "by": event["by"], "at": event["at"]})
             field["review"] = {"status": "human_confirmed", "by": event["by"], "at": event["at"]}
             if target.endswith("/drawing/title"):

@@ -9,6 +9,15 @@ import re
 
 SIZE = re.compile(r"(?:^|_)(thickness|length|width|diameter|radius|depth)$")
 NUMBER = re.compile(r"(?:^|_)(thickness|length|width|diameter|radius|depth|offset|x|y|z|angle|count)$")
+OPTION_DIMENSIONS = {"thickness", "length", "width", "outer_diameter", "inner_diameter"}
+
+
+def supports_review_options(target):
+    """Match the pipeline's scalar template sizes, including outline dimensions."""
+    pieces = target.split("/")
+    return (len(pieces) in (3, 4) and pieces[1] == "template" and
+            (len(pieces) == 3 or pieces[2] == "outline" and pieces[-1] != "thickness") and
+            pieces[-1] in OPTION_DIMENSIONS)
 
 
 def _number(value, name, *, positive=False, integer=False):
@@ -229,7 +238,7 @@ def _features(value, source, template):
     return result
 
 
-def validate_review_value(target, value, current_field, template=None):
+def validate_review_value(target, value, current_field, template=None, *, strict_options=False):
     """Return a safe typed set_value payload; never called when replaying history."""
     try:
         json.dumps(value, allow_nan=False)
@@ -242,15 +251,25 @@ def validate_review_value(target, value, current_field, template=None):
         return _outline(value, source)
     if tail == "features_review":
         return _features(value, source, template)
-    # Legacy API clients can still submit reviewed thickness alternatives.
-    if tail == "thickness" and isinstance(value, dict) and value.get("state") == "options":
+    if isinstance(value, dict) and value.get("state") == "options":
+        if not supports_review_options(target) or type(current) is bool:
+            raise ValueError("Two alternatives are supported only for scalar template dimensions, not text, booleans, links or feature geometry")
+        if set(value) != {"state", "options"}:
+            raise ValueError("Unresolved alternatives must contain only state and options; do not select a value or supply bounds")
         choices = value.get("options")
-        if not isinstance(choices, list) or not choices or len(choices) > 4:
-            raise ValueError("Thickness options must contain one to four positive numbers")
-        result = copy.deepcopy(value)
+        legacy = tail == "thickness" and not strict_options
+        allowed_count = isinstance(choices, list) and (1 <= len(choices) <= 4 if legacy else len(choices) == 2)
+        if not allowed_count:
+            raise ValueError("Thickness options must contain one to four positive numbers" if legacy else
+                             "Supply exactly two distinct unresolved alternatives")
+        result = []
         for choice in choices:
-            _number(_unwrap(choice, "Thickness option"), "Thickness option", positive=True)
-        return result
+            if legacy:
+                choice = _unwrap(choice, "Thickness option")
+            result.append(_number(choice, f"{tail} alternative", positive=True, integer=tail.endswith("count")))
+        if len(set(result)) != len(result):
+            raise ValueError("The two alternatives must be distinct; duplicate values do not express alternatives")
+        return {"state": "options", "options": sorted(result)}
     if type(current) is bool or tail == "features_complete":
         if type(value) is not bool:
             raise ValueError("Choose true or false")

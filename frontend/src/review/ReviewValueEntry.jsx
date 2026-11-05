@@ -4,6 +4,9 @@ import ReviewValueInput from './ReviewValueInput';
 
 const unwrap = value => value && typeof value === 'object' && 'value' in value ? value.value : value;
 function readable(value, target) {
+  if (value?.state === 'options' && Array.isArray(value.options)) {
+    return `${value.options.join(' mm or ')} mm — neither selected`;
+  }
   if (target.endsWith('/template/outline') && value && typeof value === 'object') {
     const shape = unwrap(value.type);
     if (shape === 'rectangle') return `Rectangle: ${unwrap(value.length)} × ${unwrap(value.width)} mm`;
@@ -24,6 +27,7 @@ function guidance(item) {
   if (tail === 'outline') return ['Choose rectangle, square, circle or ring, and describe its dimensions. Use mm or state another unit.', 'A rectangle, 80 mm long and 40 mm wide.'];
   if (tail === 'features_review') return ['Describe holes or slots, their sizes, top/bottom face, centre positions and whether they pass through. Missing positions need clarification.', 'One plain through hole on the top face, diameter 4.5 mm, centre x = 0 mm and y = 0 mm.'];
   if (tail === 'features_complete') return ['Say whether the complete feature inventory has been checked: true or false.', 'False — the side holes still need checking.'];
+  if (/^D-\d+\/template\/(?:outline\/)?(?:thickness|length|width|outer_diameter|inner_diameter)$/.test(item.target || '')) return ['Enter one value, or two unresolved alternatives. Neither alternative is selected automatically. State units; ranges and tolerances need clarification.', '3 mm or 6 mm; keep both possible.'];
   return ['Use ordinary words, numbers and units. You do not need to write JSON or match the internal format.', `The reviewed ${titleCase(tail).toLowerCase()} is …`];
 }
 

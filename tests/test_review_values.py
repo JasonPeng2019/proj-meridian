@@ -17,6 +17,52 @@ def test_sizes_require_actual_positive_finite_numbers(value):
         validate("thickness", value)
 
 
+@pytest.mark.parametrize("field", ["thickness", "length", "width", "outer_diameter", "inner_diameter", "outline/length", "outline/width"])
+def test_scalar_template_alternatives_are_distinct_positive_values_without_selection(field):
+    original = {"state": "options", "options": [6, 3]}
+    result = validate_review_value("D-TEST/template/" + field, original, {"value": 4}, strict_options=True)
+    assert result == {"state": "options", "options": [3, 6]}
+    assert original == {"state": "options", "options": [6, 3]}
+
+
+@pytest.mark.parametrize("value", [
+    {"state": "options", "options": [3]}, {"state": "options", "options": [3, 6, 9]},
+    {"state": "options", "options": [3, 3.0]}, {"state": "options", "options": [3, -6]},
+    {"state": "options", "options": [0, 6]}, {"state": "options", "options": [3, True]},
+    {"state": "options", "options": [3, "6"]}, {"state": "options", "options": [3, [6]]},
+    {"state": "options", "options": [3, {"value": 6}]},
+    {"state": "options", "options": [3, float("inf")]},
+    {"state": "options", "options": [3, 6], "selected": 3},
+    {"state": "options", "options": [3, 6], "value": 3},
+    {"state": "options", "options": [3, 6], "bounds": [3, 6]},
+    [3, 6],
+])
+def test_new_formatter_alternatives_reject_invalid_shapes_values_and_fake_selection(value):
+    with pytest.raises(ValueError):
+        validate_review_value("D-TEST/template/thickness", value, {"value": 4}, strict_options=True)
+
+
+@pytest.mark.parametrize("target,current", [
+    ("D-TEST/drawing/material", "Steel"), ("D-TEST/link", []),
+    ("D-TEST/template/features_complete", True), ("D-TEST/template/count", 2),
+    ("D-TEST/template/features/0/diameter", 3), ("D-TEST/template/outline", {}),
+    ("D-TEST/template/features_review", []),
+])
+def test_alternatives_do_not_expand_to_text_links_booleans_or_structured_geometry(target, current):
+    with pytest.raises(ValueError):
+        validate_review_value(target, {"state": "options", "options": [3, 6]}, {"value": current}, strict_options=True)
+
+
+@pytest.mark.parametrize("choices", [[3], [3, 6], [3, 6, 9], [3, 6, 9, 12]])
+def test_legacy_thickness_api_keeps_one_to_four_alternatives(choices):
+    assert validate("thickness", {"state": "options", "options": choices}) == {"state": "options", "options": choices}
+
+
+def test_legacy_thickness_api_preserves_known_wrapped_readings():
+    value = {"state": "options", "options": [{"state": "known", "value": 3}, {"state": "known", "value": 6}]}
+    assert validate("thickness", value) == {"state": "options", "options": [3, 6]}
+
+
 def test_signed_coordinates_counts_and_booleans():
     assert validate("x", -12.5) == -12.5
     assert validate("offset", 0) == 0

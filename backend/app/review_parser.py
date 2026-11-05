@@ -5,6 +5,7 @@ import asyncio
 import copy
 import hashlib
 import json
+import re
 import secrets
 import threading
 import time
@@ -13,10 +14,12 @@ from openai import AsyncOpenAI
 
 from backend.app.chat import api_key
 from backend.app.providers import AnthropicClient, model_name, provider_name
-from backend.app.review_values import NUMBER, SIZE, validate_review_value
+from backend.app.review_values import NUMBER, SIZE, supports_review_options, validate_review_value
 
 MAX_INPUT = 12000
 PREVIEW_SECONDS = 15 * 60
+RANGE_OR_TOLERANCE = re.compile(r"\d+(?:[.,]\d+)?\s*(?:mm|cm|in(?:ch(?:es)?)?)?\s*(?:[-–—]|\bto\b|\bthrough\b|±|\+/-)\s*\d", re.IGNORECASE)
+EXPLICIT_LIMIT = re.compile(r"\b(?:(?:lower|upper)\s+limit|minimum|maximum|min|max)\b", re.IGNORECASE)
 SCHEMA = {
     "type": "object", "additionalProperties": False,
     "properties": {
@@ -47,6 +50,17 @@ Outline: {state:'known',type:'rectangle',length:{state:'known',value:number},wid
 or circle with outer_diameter, ring with outer_diameter+inner_diameter. Square means
 rectangle with equal dimensions. Only flat rectangle/square/circle/ring are supported.
 Thickness is separate and must not be included in an outline. Positive sizes only.
+For a scalar template dimension whose context permits alternatives, preserve TWO
+explicit unresolved alternatives, such as '3 mm or 6 mm', as exactly
+{"state":"options","options":[3,6]}. Keep the two distinct positive numeric
+values sorted; convert each stated unit to mm. Neither value is selected or
+claimed correct. The preview summary must say both remain unresolved alternatives.
+Do not add value, selected, bounds or any other keys. Do not return a bare array.
+A numeric range, tolerance, or upper/lower limits (such as 9.8–10.2 mm or 10 ±0.2 mm)
+is NOT two alternatives: ask for clarification instead of converting endpoints to
+choices or selecting a midpoint. Ask if more than two alternatives are supplied.
+Alternatives are unsupported for material/text, booleans, links, whole outlines,
+or feature arrays/objects; do not invent alternate geometry or alternate designs.
 Reviewed features: JSON array, hole/slot/corner_chamfer. Top/bottom holes and slots use explicit centre x/y,
 through boolean; blind cuts require depth. Holes require diameter and hole_type
 plain/threaded/counterbored/countersunk; an explicitly ordinary hole is plain.
@@ -150,6 +164,8 @@ def _context(store, item):
         expected = "object"
     else:
         expected = "non-empty plain text string"
+    if supports_review_options(target) and type(current) is not bool:
+        expected += "; one scalar value OR exactly two distinct unresolved positive alternatives in mm as {state:'options',options:[first,second]}, neither selected; ranges/tolerances require clarification"
     return {"field": target, "expected": expected}
 
 
@@ -211,7 +227,9 @@ class ReviewParser:
         try:
             if target.endswith("/features_review"):
                 parsed = _normalize_feature_format(parsed)
-            value = validate_review_value(target, parsed, store.fields.get(target, {}), store.templates.get(target.split("/")[0]))
+            if supports_review_options(target) and (RANGE_OR_TOLERANCE.search(raw_input) or EXPLICIT_LIMIT.search(raw_input)):
+                raise ValueError("A range or tolerance is not two unresolved alternatives. State two separate possible values, or clarify the required nominal value.")
+            value = validate_review_value(target, parsed, store.fields.get(target, {}), store.templates.get(target.split("/")[0]), strict_options=True)
         except ValueError as exc:
             return {"status": "needs_clarification", "summary": "The interpreted input needs more detail before it can be saved.", "questions": [str(exc)]}
         token = secrets.token_urlsafe(32)

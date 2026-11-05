@@ -216,6 +216,8 @@ def verify_debug():
             parse_requests.append(payload)
             if payload['input']=='A ring, about forty across.':
                 route.fulfill(json={'status':'needs_clarification','summary':'The inner diameter is missing.','questions':['What is the inner diameter in mm?']})
+            elif payload['input']=='3 mm or 6 mm; keep both possible.':
+                route.fulfill(json={'status':'ready','value':{'state':'options','options':[3,6]},'summary':'Two unresolved alternatives; neither is selected.','questions':[],'receipt':'browser-options-fixture'})
             else:
                 route.fulfill(json={'status':'ready','value':{'state':'known','type':'rectangle','length':{'state':'known','value':80},'width':{'state':'known','value':40}},'summary':'Rectangle, 80 mm long and 40 mm wide.','questions':[],'receipt':'browser-parser-fixture'})
         page.route('**/api/review-parse',parse_review_input)
@@ -246,6 +248,19 @@ def verify_debug():
         assert len(save_requests)==1 and save_requests[0]['parser_token']=='browser-parser-fixture'
         assert 'value' not in save_requests[0]
         assert parse_requests[0]['item_id']=='D-001/template/outline'
+        page.goto(BASE+'/review/ai/D-014/template/outline/length?part=D-014')
+        expect(page.get_by_text('Enter one value, or two unresolved alternatives.',exact=False)).to_be_visible()
+        page.get_by_role('textbox',name='Your reviewed value',exact=True).fill('3 mm or 6 mm; keep both possible.')
+        expect(save).to_be_disabled()
+        parse_input.click()
+        expect(page.get_by_text('3 mm or 6 mm \u2014 neither selected',exact=True)).to_be_visible()
+        expect(save).to_be_enabled()
+        page.locator('.review-value-example > summary').click()
+        formatted=json.loads(page.locator('.review-value-example code').inner_text())
+        assert formatted=={'state':'options','options':[3,6]}
+        assert len(save_requests)==1  # A preview must never save a decision.
+        page.locator('.set-value').scroll_into_view_if_needed()
+        page.screenshot(path=str(OUT/'review-input-two-alternatives.png'))
         assert not errors,errors
         browser.close()
     (OUT/'debug-browser-check.json').write_text(json.dumps({'debug_launch':True,'calculations':True,'history':True,'raw_sources':True,'laptop_scrollbars':metrics,'searchable_parts':True,'global_awaiting_review_queue':len(unsettled),'human_input_and_review_separate':True,'source_drawing_region_and_pdf':True,'mapping_original_bom_row':True,'source_modal_retains_review':True,'typed_review_formats_and_validation':True,'natural_language_review_parse_preview_and_clarification':True,'review_save_uses_parser_receipt':True,'part_scoped_review_counts':True,'scope_refresh_back_navigation':True,'independent_review_scroll':True,'design_approval_controls_retained':True,'page_errors':errors},indent=2),encoding='utf-8')

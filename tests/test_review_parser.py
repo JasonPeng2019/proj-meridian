@@ -93,6 +93,56 @@ def test_single_strict_luna_request_and_preview_never_saves(store, provider):
     assert "four and a half" in calls[0]["input"][0]["content"]
 
 
+def test_two_explicit_reviewed_alternatives_are_one_unsaved_format_preview(store, provider):
+    provider[0].output_text = json.dumps({"status": "ready", "value_json": json.dumps({"state": "options", "options": [3, 6]}),
+                                        "summary": "3 mm or 6 mm remain unresolved alternatives; neither is selected.", "questions": []})
+    parser = ReviewParser()
+    statement = "3 mm or 6 mm; keep both possible, I cannot select one."
+    result = parse(parser, store, statement)
+    assert result["status"] == "ready" and result["value"] == {"state": "options", "options": [3, 6]}
+    assert not store.saved and len(provider[1]) == 1
+    context = json.loads(provider[1][0]["input"][0]["content"])["context"]
+    assert "exactly two" in context["expected"] and "neither selected" in context["expected"]
+    value, provenance = parser.resolve(store, "D-TEST/template/thickness", result["receipt"])
+    assert value == result["value"] and provenance["original_input"] == statement
+    assert provenance["purpose"] == "format_only"
+
+
+def test_alternative_units_are_converted_individually_in_the_reviewable_preview(store, provider):
+    provider[0].output_text = json.dumps({"status": "ready", "value_json": json.dumps({"state": "options", "options": [3, 6]}),
+                                        "summary": "0.3 cm converted to 3 mm; the other reading is 6 mm. Neither is selected.", "questions": []})
+    parser = ReviewParser()
+    statement = "Either 0.3 cm or 6 mm; preserve both readings."
+    result = parse(parser, store, statement)
+    assert result["value"] == {"state": "options", "options": [3, 6]} and "converted" in result["summary"]
+    assert "convert each stated unit to mm" in provider[1][0]["instructions"].lower()
+    _, provenance = parser.resolve(store, "D-TEST/template/thickness", result["receipt"])
+    assert provenance["original_input"] == statement and not store.saved
+
+
+@pytest.mark.parametrize("statement", ["9.8–10.2 mm", "9.8 - 10.2 mm", "9.8 to 10.2 mm", "10 ±0.2 mm", "10 +/- 0.2 mm", "Lower limit 9.8 mm and upper limit 10.2 mm"])
+def test_parser_does_not_turn_ranges_or_tolerances_into_two_options(store, provider, statement):
+    provider[0].output_text = json.dumps({"status": "ready", "value_json": json.dumps({"state": "options", "options": [9.8, 10.2]}),
+                                        "summary": "Interpreted endpoints.", "questions": []})
+    result = parse(ReviewParser(), store, statement)
+    assert result["status"] == "needs_clarification" and "receipt" not in result
+    assert "range or tolerance" in result["questions"][0] and not store.saved
+
+
+@pytest.mark.parametrize("choices", [[3], [3, 6, 9], [3, 3]])
+def test_new_formatter_requires_exactly_two_distinct_alternatives(store, provider, choices):
+    provider[0].output_text = json.dumps({"status": "ready", "value_json": json.dumps({"state": "options", "options": choices}),
+                                        "summary": "Possible thickness readings.", "questions": []})
+    result = parse(ReviewParser(), store, "Keep these possible readings unresolved.")
+    assert result["status"] == "needs_clarification" and "receipt" not in result and not store.saved
+
+
+def test_parser_cannot_silently_choose_a_range_midpoint(store, provider):
+    provider[0].output_text = json.dumps({"status": "ready", "value_json": "10", "summary": "Thickness 10 mm.", "questions": []})
+    result = parse(ReviewParser(), store, "Thickness range 9.8–10.2 mm")
+    assert result["status"] == "needs_clarification" and not store.saved and "receipt" not in result
+
+
 @pytest.mark.parametrize("field", ["weight_g", "mass_g"])
 def test_mass_context_and_explicit_conversion_preserve_original_input(store, provider, field):
     target = f"D-TEST/drawing/{field}"
@@ -260,6 +310,51 @@ def test_endpoints_preview_then_save_source_provenance_under_actual_reviewer(sto
     assert event["input_parser"] == {"original_input": "four and a half millimetres thick", "model": "gpt-6-luna", "response_id": "response-fixture", "request_id": "request-fixture", "purpose": "format_only"}
     repeated = client.post("/api/review/D-TEST/template/thickness", json={"action": "set_value", "parser_token": token})
     assert repeated.status_code == 400 and len(store.saved) == 1
+
+
+def test_options_preview_save_and_restart_preserve_both_values_and_prior_receipts(tmp_path, provider, monkeypatch):
+    from backend.app import main
+    from backend.app.tools import KnowledgeTools
+
+    monkeypatch.setattr("backend.app.store.settings", lambda: {"reviewer_name": "Automated options fixture reviewer"})
+    generated = tmp_path / "generated"
+    generated.mkdir()
+    target = "D-TEST/template/thickness"
+    template = {"thickness": {"state": "options", "value": 4, "selected": 4, "options": [4, 8],
+                               "bounds": [3.9, 4.1], "lower": 3.9, "upper": 4.1, "method": "ai_verified"}}
+    part = {"id": "D-TEST/part", "key": "D-TEST", "display_name": "Options fixture", "bom": [],
+            "drawing": {"id": "D-TEST", "sha256": "fixture-source", "fields": {}, "page_sizes": [[100, 200]]},
+            "link": {"method": "exact_match", "value": []}}
+    for name, data in {"records.json": [part], "ai_results.json": {"templates": {"D-TEST": template}}}.items():
+        (generated / name).write_text(json.dumps(data), encoding="utf-8")
+    live = Store(tmp_path)
+    prior = live.append(target, "choose_option", 4, by="Automated options fixture reviewer")
+    old_receipt_path = live.decisions_dir / (prior["decision_id"] + ".json")
+    old_receipt_bytes = old_receipt_path.read_bytes()
+    monkeypatch.setattr(live, "rebuild_models", lambda: None)
+    monkeypatch.setattr(main, "get_store", lambda: live)
+    monkeypatch.setattr(main, "review_parser", ReviewParser())
+    provider[0].output_text = json.dumps({"status": "ready", "value_json": json.dumps({"state": "options", "options": [3, 6]}),
+                                        "summary": "3 mm or 6 mm remain alternatives; neither selected.", "questions": []})
+    client = TestClient(main.app)
+    item_id = "options:" + target
+    statement = "Keep 3 mm or 6 mm as two unresolved alternatives."
+    preview = client.post("/api/review-parse", json={"item_id": item_id, "input": statement})
+    assert preview.status_code == 200 and preview.json()["status"] == "ready"
+    assert len(live.events) == 1 and live.fields[target]["selected"] == 4
+    saved = client.post("/api/review/" + item_id, json={"action": "set_value", "parser_token": preview.json()["receipt"]})
+    assert saved.status_code == 200
+    restarted = Store(tmp_path)
+    field = restarted.fields[target]
+    assert field["state"] == "options" and field["options"] == [3, 6]
+    assert not ({"value", "selected", "bounds", "lower", "upper"} & set(field))
+    assert KnowledgeTools(restarted).display(target)["display"] == {"state": "options", "values": [3, 6]}
+    item = next(item for item in restarted.review_items() if item["id"] == item_id)
+    assert item["type"] == "possible_reading" and item.get("selected") is None
+    assert len(restarted.events) == 2 and old_receipt_path.read_bytes() == old_receipt_bytes
+    new_event = next(event for event in restarted.events if event["type"] == "set_value")
+    assert new_event["input_parser"]["original_input"] == statement
+    assert new_event["input_parser"]["purpose"] == "format_only" and len(provider[1]) == 1
 
 
 def test_endpoint_provider_failure_has_clear_error_and_no_save(store, provider, monkeypatch):

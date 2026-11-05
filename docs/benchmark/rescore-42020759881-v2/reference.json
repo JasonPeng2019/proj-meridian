@@ -1,0 +1,483 @@
+{
+  "Q02": {
+    "bom_row_count": 10,
+    "bom_rows": [
+      {
+        "row_id": "BOM:optics/sunny-galvo-adapter-plate",
+        "name": "Sunny Galvo Adapter Plate",
+        "linked_drawing_ids": []
+      },
+      {
+        "row_id": "BOM:optics/f-theta-seal-ring",
+        "name": "F-theta seal ring",
+        "linked_drawing_ids": [
+          "D-020"
+        ]
+      },
+      {
+        "row_id": "BOM:optics/galvo-box-bracket",
+        "name": "Galvo box bracket",
+        "linked_drawing_ids": []
+      },
+      {
+        "row_id": "BOM:optics/galve-support-bracket",
+        "name": "Galve support bracket",
+        "linked_drawing_ids": []
+      },
+      {
+        "row_id": "BOM:optics/silicone-gasket-f-theta-ring",
+        "name": "Silicone gasket f-theta ring",
+        "linked_drawing_ids": []
+      },
+      {
+        "row_id": "BOM:optics/laser-source",
+        "name": "Laser source",
+        "linked_drawing_ids": []
+      },
+      {
+        "row_id": "BOM:optics/collimator",
+        "name": "Collimator",
+        "linked_drawing_ids": []
+      },
+      {
+        "row_id": "BOM:optics/sunny-galvo",
+        "name": "Sunny Galvo",
+        "linked_drawing_ids": []
+      },
+      {
+        "row_id": "BOM:optics/f-theta",
+        "name": "F-Theta",
+        "linked_drawing_ids": []
+      },
+      {
+        "row_id": "BOM:optics/water-chiller-for-collimator",
+        "name": "Water chiller for collimator",
+        "linked_drawing_ids": []
+      }
+    ]
+  },
+  "Q08": {
+    "scope": "current exact/approved-mapping catalog matches, not verified physical identities",
+    "parts": [
+      {
+        "id": "D-003/part",
+        "key": "D-003",
+        "display_name": "MainPlatform_Loop2.PDF",
+        "bom_rows": [
+          "BOM:box/print-platform"
+        ],
+        "material_sources": [
+          "BOM:box/print-platform/material"
+        ]
+      },
+      {
+        "id": "D-005/part",
+        "key": "D-005",
+        "display_name": "Window Clamp Frame",
+        "bom_rows": [
+          "BOM:box/window-frame"
+        ],
+        "material_sources": [
+          "BOM:box/window-frame/material"
+        ]
+      },
+      {
+        "id": "D-007/part",
+        "key": "D-007",
+        "display_name": "Dispenser Shaft v6",
+        "bom_rows": [
+          "BOM:powder/powder-roller"
+        ],
+        "material_sources": [
+          "BOM:powder/powder-roller/material"
+        ]
+      },
+      {
+        "id": "D-011/part",
+        "key": "D-011",
+        "display_name": "Recoater Arm",
+        "bom_rows": [
+          "BOM:recoater/recoater-arm"
+        ],
+        "material_sources": [
+          "BOM:recoater/recoater-arm/material"
+        ]
+      },
+      {
+        "id": "D-012/part",
+        "key": "D-012",
+        "display_name": "Recoater Mount Block",
+        "bom_rows": [
+          "BOM:recoater/recoater-mount-block"
+        ],
+        "material_sources": [
+          "D-012/drawing/material",
+          "BOM:recoater/recoater-mount-block/material"
+        ]
+      },
+      {
+        "id": "D-013/part",
+        "key": "D-013",
+        "display_name": "Recoater Plate",
+        "bom_rows": [],
+        "material_sources": [
+          "D-013/drawing/material"
+        ]
+      },
+      {
+        "id": "D-014/part",
+        "key": "D-014",
+        "display_name": "Recoater Linear Plate",
+        "bom_rows": [
+          "BOM:recoater/recoater-stage-plate"
+        ],
+        "material_sources": [
+          "D-014/drawing/material",
+          "BOM:recoater/recoater-stage-plate/material"
+        ]
+      },
+      {
+        "id": "D-020/part",
+        "key": "D-020",
+        "display_name": "SealRing",
+        "bom_rows": [
+          "BOM:optics/f-theta-seal-ring"
+        ],
+        "material_sources": [
+          "BOM:optics/f-theta-seal-ring/material"
+        ]
+      },
+      {
+        "id": "D-024/part",
+        "key": "D-024",
+        "display_name": "ByggeBase",
+        "bom_rows": [],
+        "material_sources": [
+          "D-024/drawing/material"
+        ]
+      },
+      {
+        "id": "D-025/part",
+        "key": "D-025",
+        "display_name": "Bygge Base Ring",
+        "bom_rows": [],
+        "material_sources": [
+          "D-025/drawing/material"
+        ]
+      },
+      {
+        "id": "D-028/part",
+        "key": "D-028",
+        "display_name": "Varmeelement Plade",
+        "bom_rows": [],
+        "material_sources": [
+          "D-028/drawing/material"
+        ]
+      },
+      {
+        "id": "BOM:box/front-door/part",
+        "key": "bom/box/front-door",
+        "display_name": "Front Door",
+        "bom_rows": [
+          "BOM:box/front-door"
+        ],
+        "material_sources": [
+          "BOM:box/front-door/material"
+        ]
+      },
+      {
+        "id": "BOM:box/back-door/part",
+        "key": "bom/box/back-door",
+        "display_name": "Back Door",
+        "bom_rows": [
+          "BOM:box/back-door"
+        ],
+        "material_sources": [
+          "BOM:box/back-door/material"
+        ]
+      },
+      {
+        "id": "BOM:box/2020-internal-profile/part",
+        "key": "bom/box/2020-internal-profile",
+        "display_name": "2020 internal profile",
+        "bom_rows": [
+          "BOM:box/2020-internal-profile"
+        ],
+        "material_sources": [
+          "BOM:box/2020-internal-profile/material"
+        ]
+      },
+      {
+        "id": "BOM:box/2020-angle-bracket/part",
+        "key": "bom/box/2020-angle-bracket",
+        "display_name": "2020 angle bracket",
+        "bom_rows": [
+          "BOM:box/2020-angle-bracket"
+        ],
+        "material_sources": [
+          "BOM:box/2020-angle-bracket/material"
+        ]
+      },
+      {
+        "id": "BOM:recoater/recoater-head/part",
+        "key": "bom/recoater/recoater-head",
+        "display_name": "Recoater head",
+        "bom_rows": [
+          "BOM:recoater/recoater-head"
+        ],
+        "material_sources": [
+          "BOM:recoater/recoater-head/material"
+        ]
+      },
+      {
+        "id": "BOM:recoater/recoater-clamp/part",
+        "key": "bom/recoater/recoater-clamp",
+        "display_name": "Recoater Clamp",
+        "bom_rows": [
+          "BOM:recoater/recoater-clamp"
+        ],
+        "material_sources": [
+          "BOM:recoater/recoater-clamp/material"
+        ]
+      },
+      {
+        "id": "BOM:recoater/timing-pulley-o6-35-t5/part",
+        "key": "bom/recoater/timing-pulley-o6-35-t5",
+        "display_name": "Timing pulley Ø6.35 T5",
+        "bom_rows": [
+          "BOM:recoater/timing-pulley-o6-35-t5"
+        ],
+        "material_sources": [
+          "BOM:recoater/timing-pulley-o6-35-t5/material"
+        ]
+      },
+      {
+        "id": "BOM:recoater/timing-belt-idler-o8-t5/part",
+        "key": "bom/recoater/timing-belt-idler-o8-t5",
+        "display_name": "Timing belt idler Ø8 T5",
+        "bom_rows": [
+          "BOM:recoater/timing-belt-idler-o8-t5"
+        ],
+        "material_sources": [
+          "BOM:recoater/timing-belt-idler-o8-t5/material"
+        ]
+      },
+      {
+        "id": "BOM:recoater/timing-belt-clamp-plate/part",
+        "key": "bom/recoater/timing-belt-clamp-plate",
+        "display_name": "Timing belt clamp plate",
+        "bom_rows": [
+          "BOM:recoater/timing-belt-clamp-plate"
+        ],
+        "material_sources": [
+          "BOM:recoater/timing-belt-clamp-plate/material"
+        ]
+      },
+      {
+        "id": "BOM:build-plate/build-cylinder/part",
+        "key": "bom/build-plate/build-cylinder",
+        "display_name": "Build cylinder",
+        "bom_rows": [
+          "BOM:build-plate/build-cylinder"
+        ],
+        "material_sources": [
+          "BOM:build-plate/build-cylinder/material"
+        ]
+      },
+      {
+        "id": "BOM:build-plate/build-base/part",
+        "key": "bom/build-plate/build-base",
+        "display_name": "Build base",
+        "bom_rows": [
+          "BOM:build-plate/build-base"
+        ],
+        "material_sources": [
+          "BOM:build-plate/build-base/material"
+        ]
+      },
+      {
+        "id": "BOM:build-plate/motor-plate/part",
+        "key": "bom/build-plate/motor-plate",
+        "display_name": "Motor plate",
+        "bom_rows": [
+          "BOM:build-plate/motor-plate"
+        ],
+        "material_sources": [
+          "BOM:build-plate/motor-plate/material"
+        ]
+      },
+      {
+        "id": "BOM:build-plate/build-cylinder-clamp-ring/part",
+        "key": "bom/build-plate/build-cylinder-clamp-ring",
+        "display_name": "Build cylinder clamp ring",
+        "bom_rows": [
+          "BOM:build-plate/build-cylinder-clamp-ring"
+        ],
+        "material_sources": [
+          "BOM:build-plate/build-cylinder-clamp-ring/material"
+        ]
+      },
+      {
+        "id": "BOM:build-plate/heating-element-plate/part",
+        "key": "bom/build-plate/heating-element-plate",
+        "display_name": "Heating element plate",
+        "bom_rows": [
+          "BOM:build-plate/heating-element-plate"
+        ],
+        "material_sources": [
+          "BOM:build-plate/heating-element-plate/material"
+        ]
+      },
+      {
+        "id": "BOM:build-plate/thermocouple-plate/part",
+        "key": "bom/build-plate/thermocouple-plate",
+        "display_name": "Thermocouple plate",
+        "bom_rows": [
+          "BOM:build-plate/thermocouple-plate"
+        ],
+        "material_sources": [
+          "BOM:build-plate/thermocouple-plate/material"
+        ]
+      },
+      {
+        "id": "BOM:build-plate/seal-clamp-plate/part",
+        "key": "bom/build-plate/seal-clamp-plate",
+        "display_name": "Seal clamp plate",
+        "bom_rows": [
+          "BOM:build-plate/seal-clamp-plate"
+        ],
+        "material_sources": [
+          "BOM:build-plate/seal-clamp-plate/material"
+        ]
+      },
+      {
+        "id": "BOM:gas-flow/gas-blower/part",
+        "key": "bom/gas-flow/gas-blower",
+        "display_name": "Gas blower",
+        "bom_rows": [
+          "BOM:gas-flow/gas-blower"
+        ],
+        "material_sources": [
+          "BOM:gas-flow/gas-blower/material"
+        ]
+      },
+      {
+        "id": "BOM:optics/sunny-galvo-adapter-plate/part",
+        "key": "bom/optics/sunny-galvo-adapter-plate",
+        "display_name": "Sunny Galvo Adapter Plate",
+        "bom_rows": [
+          "BOM:optics/sunny-galvo-adapter-plate"
+        ],
+        "material_sources": [
+          "BOM:optics/sunny-galvo-adapter-plate/material"
+        ]
+      },
+      {
+        "id": "BOM:optics/galvo-box-bracket/part",
+        "key": "bom/optics/galvo-box-bracket",
+        "display_name": "Galvo box bracket",
+        "bom_rows": [
+          "BOM:optics/galvo-box-bracket"
+        ],
+        "material_sources": [
+          "BOM:optics/galvo-box-bracket/material"
+        ]
+      },
+      {
+        "id": "BOM:powder/powder-roller-housing/part",
+        "key": "bom/powder/powder-roller-housing",
+        "display_name": "Powder roller housing",
+        "bom_rows": [
+          "BOM:powder/powder-roller-housing"
+        ],
+        "material_sources": [
+          "BOM:powder/powder-roller-housing/material"
+        ]
+      },
+      {
+        "id": "BOM:powder/powder-valve-fitting/part",
+        "key": "bom/powder/powder-valve-fitting",
+        "display_name": "Powder Valve Fitting",
+        "bom_rows": [
+          "BOM:powder/powder-valve-fitting"
+        ],
+        "material_sources": [
+          "BOM:powder/powder-valve-fitting/material"
+        ]
+      },
+      {
+        "id": "BOM:powder/dispenser-drum-coupling/part",
+        "key": "bom/powder/dispenser-drum-coupling",
+        "display_name": "Dispenser drum coupling",
+        "bom_rows": [
+          "BOM:powder/dispenser-drum-coupling"
+        ],
+        "material_sources": [
+          "BOM:powder/dispenser-drum-coupling/material"
+        ]
+      }
+    ]
+  },
+  "Q09": {
+    "parts": [
+      {
+        "id": "D-012/part",
+        "key": "D-012",
+        "display_name": "Recoater Mount Block",
+        "bom_rows": [
+          "BOM:recoater/recoater-mount-block"
+        ],
+        "material_sources": [
+          "D-012/drawing/material"
+        ]
+      },
+      {
+        "id": "D-013/part",
+        "key": "D-013",
+        "display_name": "Recoater Plate",
+        "bom_rows": [],
+        "material_sources": [
+          "D-013/drawing/material"
+        ]
+      },
+      {
+        "id": "D-014/part",
+        "key": "D-014",
+        "display_name": "Recoater Linear Plate",
+        "bom_rows": [
+          "BOM:recoater/recoater-stage-plate"
+        ],
+        "material_sources": [
+          "D-014/drawing/material"
+        ]
+      },
+      {
+        "id": "D-024/part",
+        "key": "D-024",
+        "display_name": "ByggeBase",
+        "bom_rows": [],
+        "material_sources": [
+          "D-024/drawing/material"
+        ]
+      },
+      {
+        "id": "D-025/part",
+        "key": "D-025",
+        "display_name": "Bygge Base Ring",
+        "bom_rows": [],
+        "material_sources": [
+          "D-025/drawing/material"
+        ]
+      },
+      {
+        "id": "D-028/part",
+        "key": "D-028",
+        "display_name": "Varmeelement Plade",
+        "bom_rows": [],
+        "material_sources": [
+          "D-028/drawing/material"
+        ]
+      }
+    ]
+  }
+}

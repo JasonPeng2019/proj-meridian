@@ -1,0 +1,53 @@
+{
+  "evaluation_version": 2,
+  "focused_benchmark_tests": {
+    "passed": 65,
+    "command": "python -m pytest tests/test_benchmark.py tests/test_benchmark_v2.py tests/test_benchmark_asset_copy.py -q"
+  },
+  "focused_review_source_tests": {
+    "passed": 9,
+    "command": "python -m pytest tests/test_review_sources.py tests/test_store_links.py -q"
+  },
+  "remote_checks": {
+    "run_id": 42040692711,
+    "commit": "5ce3c2572c30dcf04b2319b1806f3abc1b0949bf",
+    "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42040692711",
+    "conclusion": "success",
+    "pytest": {
+      "tests": 236,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 15,
+      "passed": 221
+    },
+    "frontend_build": "success",
+    "source_audit": "success",
+    "cad_regeneration": false,
+    "browser_checks": false
+  },
+  "valid_failure_preserved": {
+    "run_id": 42040360475,
+    "test": "tests/test_store_links.py::StoreLinkChecks::test_reject_link_removes_linked_claims_and_restores_standalone",
+    "cause": "Debug source lookup called .get on a missing reader answer",
+    "fix_commit": "68f8961de56373ffb5996136a5d830d99f9cb849",
+    "test_deleted": false
+  },
+  "semantic_controls": {
+    "passed": 17,
+    "total": 17,
+    "incorrect_rejected": 14,
+    "correct_negations_accepted": 3
+  },
+  "additional_judge_cli_metadata": {
+    "judgments": 59,
+    "reported_list_basis_cost_usd": 19.513322,
+    "note": "CLI-reported list-basis metadata, not an invoice or verified billed amount."
+  },
+  "credential_scan": {
+    "actual_secret_strings": 6,
+    "files_scanned": 18,
+    "matches": 0
+  },
+  "new_human_approvals": 0,
+  "human_judge_spot_checks": 0
+}

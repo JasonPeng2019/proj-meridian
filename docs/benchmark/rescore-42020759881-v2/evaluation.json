@@ -1,0 +1,351 @@
+{
+  "evaluation_version": 2,
+  "capture": "docs/benchmark/run-42020759881",
+  "capture_hashes": {
+    "cases.json": "5f6a810bde66c7de27cf0cbbbcf8817259794c56d73920d907becf1275023ff7",
+    "manifest.json": "bb6d81ce966c71c64beb4323528556873a0afd0cd2e0388364e9a3b5a59baa08",
+    "benchmark_draft.md": "62098867c412942326997b292999c7208b1b7ec00652a2b8657c210f71921fe5",
+    "executions.jsonl": "f03fb00e4b29e956a4f33d00a55f8fe75330532f4b8fb099cbb4168092b134c6",
+    "report.json": "dd1869ef455f4d2dc1e18424417f248bc88a6eb9e3c53bd41aa5f8be60e2a389",
+    "judge-results.jsonl": "161415e62f729fd2a0132522f0578630ce85da425650d1f7b2182d978bfe017b"
+  },
+  "reference_input_hashes": {
+    "generated/records.json": "548a9600d2f291330367f6e1b3434aa77258648aa9943aa1de91d8d462c7acb0",
+    "generated/bom.json": "f75cb84d9555f77c642f58c5e9729c48835acea05de3647b99a7a7b286ebfd53",
+    "generated/ai_results.json": "2d24d1277d75737d6da5360080ad341a145aa6651ac685e5ab3af827d0bcf274",
+    "generated/models/manifest.json": "12880196d983f024e28abe6cbf0714ec6349963a8beb28c8af94cad036dc7088",
+    "generated/readme.json": "be1adeac5099204600b93f3a3d0ae8e4e6772022ea00665091c07ced0c8eccde",
+    "decisions/HD-156ca4ef74714ddcb83c9ed98165aa6c.json": "77ee059bb85b4939486f58d1b9e9eb319cc9fa3ff714111fce041c7c27f74355",
+    "decisions/HD-6532a09332a04a35b2dcf6593773e0db.json": "ced57eb92c83a3c9b82f9d429bb4ec544b08e01b35d64dd1eb1d359bd5607c64"
+  },
+  "reference_sha256": "fd4ce6fce8f006e190f2d6d328b22e3971289ff5317ed1f0b9c420186dbb3b28",
+  "oracle_code_hashes": {
+    "backend/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "backend/ai/__init__.py": "5adac570ba6d003a147a8552ab4c82adf92b9aa44b79282d5197449e261d665b",
+    "backend/ai/pipeline.py": "30cfd23f20761e28b694d721d65b517517537215a30b49e2d599fa973fe150c9",
+    "backend/ai/runner.py": "45f31380d54a095a636e78a2d4088ef16c45dc51cce1549c7230e144b154aefb",
+    "backend/app/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "backend/app/chat.py": "bab167103d85d19891006e0b9aab9903160e69fca0adf0f609f01445a5b50936",
+    "backend/app/conversations.py": "9dee1814a5e170c8b5053492b377682a4bb24ac3b2b83379276d9939060ed550",
+    "backend/app/main.py": "f2ae9bae53784ce66e30a831c0f6f2f9a934e13a5d2e7ca0bf2dea153d1400aa",
+    "backend/app/review_queue.py": "07543340d3f4645f392fdcd01cf945d71f8febbeb22bc88cddd6e5a542958629",
+    "backend/app/review_sources.py": "55f6ae16ce4217709da11ed70952190abc3a179962859f7011722cd189b6b99b",
+    "backend/app/store.py": "f7d70d77c0e796bfb3dc955e4ef80b7c4c019e1a5bb7939c7fdc5deadc45eaa4",
+    "backend/app/tools.py": "f4d68527b1d81908ac9fdecc013ab3e473551c15802d3c667ab45d9d1c459cd3",
+    "backend/cad/__init__.py": "549cf5c92c444c96a7e8b040c1899b9baf39da2f4d0b4efa4534c32c534717cd",
+    "backend/cad/builder.py": "baca16fde86237a942d2a776dc6db7b5a74c0051eb3da4c36cb7d3d7129ff9ae",
+    "backend/cad/verification.py": "67a30ffc15b63b3ba26da5bcb5684d6388c6f570fa23a8eaba94f9672c764c8b",
+    "backend/contracts.py": "033242941f29ed6b881d2412c2e4febeabdbb54dad003f4cea5282fee65768dc",
+    "backend/evaluation/__init__.py": "6590c5651a8e1a074200b46230addd036f6297d283f97ebd91a7e930da9ce398",
+    "backend/evaluation/benchmark.py": "f89c9921f9ec52f5af6cc5f2ca1533e2746547a8c348d43f302836b651b441ac",
+    "backend/evaluation/contracts.py": "5e0f41290831107e1ef75584330de52fa8eb4bf8e7bc3f7dd6ed8b8ae44c7b28",
+    "backend/loader/__init__.py": "2c641ccb6ec4c5284070ae9c142b361acf47732594b3f8af20d6fa758a878139",
+    "backend/loader/build.py": "6a614b6a9e65511e7f4576743e582b2e01edf42cbaefaf37677ed5edb3541283",
+    "backend/loader/drawings.py": "35a0efbb04b469e3017ba356791bb8083b70b504ad7e6307496d406c154b55e7",
+    "backend/loader/records.py": "872cc0ddf742b4121ac6e26e7300aeff55177e2503db5bdb61200c1270d101f0",
+    "backend/paths.py": "7d627ad7a02f511c4fd51736a0f39a465bc6d352d7d139e6f639f3f09126c41a"
+  },
+  "evaluation_code_hashes": {
+    "backend/evaluation/benchmark.py": "f89c9921f9ec52f5af6cc5f2ca1533e2746547a8c348d43f302836b651b441ac",
+    "backend/evaluation/contracts.py": "5e0f41290831107e1ef75584330de52fa8eb4bf8e7bc3f7dd6ed8b8ae44c7b28",
+    "scripts/rescore_benchmark.py": "642ec60b5bd76a4d36d4f8b7e57202adb84849eb37aa0b621c9938badc4d3d0d",
+    "scripts/judge_benchmark.py": "35d6a9efdf6506d1e2a739437729f20de88e8850cba70d739aa5742b7e9fcfe5"
+  },
+  "contracts": {
+    "Q01": {
+      "version": 2,
+      "policy": [
+        "Answer the actual question using the captured evidence and its current review state.",
+        "Equivalent wording, faithful English translations and equivalent units are allowed. Preserve exact alloy grades.",
+        "A citation is evidence, not a substitute for an answer. A named, source-linked part card can identify a list item.",
+        "Unknown values, unresolved links and unapproved mappings must not become known facts or human approvals.",
+        "Customer answers may be concise. Do not demand unsolicited diagnostics, review warnings, UI tutorials or a weight table.",
+        "Explicit questions about model accuracy still require a truthful assessment of its limits. Any extra claim must be supported.",
+        "Negative statements such as 'not free' or 'cannot establish whether it is in stock' are not positive claims.",
+        "Judge factual correctness and substantive completeness. Awkward style alone does not fail a correct answer."
+      ],
+      "intent": "Give 30 drawings and all six section counts from the drawing inventory. Do not merge differently named BOM sections without approval."
+    },
+    "Q02": {
+      "version": 2,
+      "policy": [
+        "Answer the actual question using the captured evidence and its current review state.",
+        "Equivalent wording, faithful English translations and equivalent units are allowed. Preserve exact alloy grades.",
+        "A citation is evidence, not a substitute for an answer. A named, source-linked part card can identify a list item.",
+        "Unknown values, unresolved links and unapproved mappings must not become known facts or human approvals.",
+        "Customer answers may be concise. Do not demand unsolicited diagnostics, review warnings, UI tutorials or a weight table.",
+        "Explicit questions about model accuracy still require a truthful assessment of its limits. Any extra claim must be supported.",
+        "Negative statements such as 'not free' or 'cannot establish whether it is in stock' are not positive claims.",
+        "Judge factual correctness and substantive completeness. Awkward style alone does not fail a correct answer."
+      ],
+      "intent": "Identify all ten canonical Optics BOM rows, including F-theta seal ring. Any stated total must be ten and consistent throughout. Drawing titles must not replace different BOM row identities."
+    },
+    "Q03": {
+      "version": 2,
+      "policy": [
+        "Answer the actual question using the captured evidence and its current review state.",
+        "Equivalent wording, faithful English translations and equivalent units are allowed. Preserve exact alloy grades.",
+        "A citation is evidence, not a substitute for an answer. A named, source-linked part card can identify a list item.",
+        "Unknown values, unresolved links and unapproved mappings must not become known facts or human approvals.",
+        "Customer answers may be concise. Do not demand unsolicited diagnostics, review warnings, UI tutorials or a weight table.",
+        "Explicit questions about model accuracy still require a truthful assessment of its limits. Any extra claim must be supported.",
+        "Negative statements such as 'not free' or 'cannot establish whether it is in stock' are not positive claims.",
+        "Judge factual correctness and substantive completeness. Awkward style alone does not fail a correct answer."
+      ],
+      "intent": "Use the captured section-mapping status: confirm equivalence only if approved as same; otherwise explain it is not established. Correct pending/rejected behavior passes; approval coverage is reported separately."
+    },
+    "Q04": {
+      "version": 2,
+      "policy": [
+        "Answer the actual question using the captured evidence and its current review state.",
+        "Equivalent wording, faithful English translations and equivalent units are allowed. Preserve exact alloy grades.",
+        "A citation is evidence, not a substitute for an answer. A named, source-linked part card can identify a list item.",
+        "Unknown values, unresolved links and unapproved mappings must not become known facts or human approvals.",
+        "Customer answers may be concise. Do not demand unsolicited diagnostics, review warnings, UI tutorials or a weight table.",
+        "Explicit questions about model accuracy still require a truthful assessment of its limits. Any extra claim must be supported.",
+        "Negative statements such as 'not free' or 'cannot establish whether it is in stock' are not positive claims.",
+        "Judge factual correctness and substantive completeness. Awkward style alone does not fail a correct answer."
+      ],
+      "intent": "Report the drawing's literal EN-AW 5005 grade. An unresolved link does not prevent this answer. Do not invent a BOM match or material-family approval."
+    },
+    "Q05": {
+      "version": 2,
+      "policy": [
+        "Answer the actual question using the captured evidence and its current review state.",
+        "Equivalent wording, faithful English translations and equivalent units are allowed. Preserve exact alloy grades.",
+        "A citation is evidence, not a substitute for an answer. A named, source-linked part card can identify a list item.",
+        "Unknown values, unresolved links and unapproved mappings must not become known facts or human approvals.",
+        "Customer answers may be concise. Do not demand unsolicited diagnostics, review warnings, UI tutorials or a weight table.",
+        "Explicit questions about model accuracy still require a truthful assessment of its limits. Any extra claim must be supported.",
+        "Negative statements such as 'not free' or 'cannot establish whether it is in stock' are not positive claims.",
+        "Judge factual correctness and substantive completeness. Awkward style alone does not fail a correct answer."
+      ],
+      "intent": "Name DTU as the recorded supplier and identify the price as missing/unknown, rather than free or an actual zero price. Snapshot wording must make clear this is recorded information, not a live supplier quote. Valid Undetermined markers on missing costs are correct."
+    },
+    "Q06": {
+      "version": 2,
+      "policy": [
+        "Answer the actual question using the captured evidence and its current review state.",
+        "Equivalent wording, faithful English translations and equivalent units are allowed. Preserve exact alloy grades.",
+        "A citation is evidence, not a substitute for an answer. A named, source-linked part card can identify a list item.",
+        "Unknown values, unresolved links and unapproved mappings must not become known facts or human approvals.",
+        "Customer answers may be concise. Do not demand unsolicited diagnostics, review warnings, UI tutorials or a weight table.",
+        "Explicit questions about model accuracy still require a truthful assessment of its limits. Any extra claim must be supported.",
+        "Negative statements such as 'not free' or 'cannot establish whether it is in stock' are not positive claims.",
+        "Judge factual correctness and substantive completeness. Awkward style alone does not fail a correct answer."
+      ],
+      "intent": "Identify Front Door and Front Side Box as the recorded hinge connections. Availability claims may use captured part-card flags; do not infer a drawing or model exists from a whole-part citation alone."
+    },
+    "Q07": {
+      "version": 2,
+      "policy": [
+        "Answer the actual question using the captured evidence and its current review state.",
+        "Equivalent wording, faithful English translations and equivalent units are allowed. Preserve exact alloy grades.",
+        "A citation is evidence, not a substitute for an answer. A named, source-linked part card can identify a list item.",
+        "Unknown values, unresolved links and unapproved mappings must not become known facts or human approvals.",
+        "Customer answers may be concise. Do not demand unsolicited diagnostics, review warnings, UI tutorials or a weight table.",
+        "Explicit questions about model accuracy still require a truthful assessment of its limits. Any extra claim must be supported.",
+        "Negative statements such as 'not free' or 'cannot establish whether it is in stock' are not positive claims.",
+        "Judge factual correctness and substantive completeness. Awkward style alone does not fail a correct answer."
+      ],
+      "intent": "Report both Steel and Elastomer as recorded materials. Do not present Steel as the sole material or infer the belt's construction from a material list."
+    },
+    "Q08": {
+      "version": 2,
+      "policy": [
+        "Answer the actual question using the captured evidence and its current review state.",
+        "Equivalent wording, faithful English translations and equivalent units are allowed. Preserve exact alloy grades.",
+        "A citation is evidence, not a substitute for an answer. A named, source-linked part card can identify a list item.",
+        "Unknown values, unresolved links and unapproved mappings must not become known facts or human approvals.",
+        "Customer answers may be concise. Do not demand unsolicited diagnostics, review warnings, UI tutorials or a weight table.",
+        "Explicit questions about model accuracy still require a truthful assessment of its limits. Any extra claim must be supported.",
+        "Negative statements such as 'not free' or 'cannot establish whether it is in stock' are not positive claims.",
+        "Judge factual correctness and substantive completeness. Awkward style alone does not fail a correct answer."
+      ],
+      "intent": "List all current material-search matches from exact Aluminium evidence and approved material mappings, using the independent reference when present. Distinguish a BOM Aluminium entry from an unresolved combined drawing material. Do not require unapproved alloy-family mappings or silently merge unlinked drawings. Any count must match its declared scope; do not claim an exact verified physical-part total while identities remain unresolved. A matching-record list is sufficient; no unsolicited physical count is required."
+    },
+    "Q09": {
+      "version": 2,
+      "policy": [
+        "Answer the actual question using the captured evidence and its current review state.",
+        "Equivalent wording, faithful English translations and equivalent units are allowed. Preserve exact alloy grades.",
+        "A citation is evidence, not a substitute for an answer. A named, source-linked part card can identify a list item.",
+        "Unknown values, unresolved links and unapproved mappings must not become known facts or human approvals.",
+        "Customer answers may be concise. Do not demand unsolicited diagnostics, review warnings, UI tutorials or a weight table.",
+        "Explicit questions about model accuracy still require a truthful assessment of its limits. Any extra claim must be supported.",
+        "Negative statements such as 'not free' or 'cannot establish whether it is in stock' are not positive claims.",
+        "Judge factual correctness and substantive completeness. Awkward style alone does not fail a correct answer."
+      ],
+      "intent": "Identify exactly the six EN-AW 5005 drawings D-012, D-013, D-014, D-024, D-025, D-028. Names with grounded identity citations/cards suffice; IDs need not be repeated in prose. Do not count a raw marker dump as an answer, or include a different alloy as a match. Exact printed grades need no family approval."
+    },
+    "Q10": {
+      "version": 2,
+      "policy": [
+        "Answer the actual question using the captured evidence and its current review state.",
+        "Equivalent wording, faithful English translations and equivalent units are allowed. Preserve exact alloy grades.",
+        "A citation is evidence, not a substitute for an answer. A named, source-linked part card can identify a list item.",
+        "Unknown values, unresolved links and unapproved mappings must not become known facts or human approvals.",
+        "Customer answers may be concise. Do not demand unsolicited diagnostics, review warnings, UI tutorials or a weight table.",
+        "Explicit questions about model accuracy still require a truthful assessment of its limits. Any extra claim must be supported.",
+        "Negative statements such as 'not free' or 'cannot establish whether it is in stock' are not positive claims.",
+        "Judge factual correctness and substantive completeness. Awkward style alone does not fail a correct answer."
+      ],
+      "intent": "Report BOM materials Stainless steel and Steel. Keep unreadable drawing material unknown; do not assert AISI 316 as established. Faithful English translation of 'rustfri og alu' as 'stainless steel and aluminium' is allowed when attributed to the drawing note. An unresolved drawing field must not invalidate the known BOM list."
+    },
+    "Q11a": {
+      "version": 2,
+      "policy": [
+        "Answer the actual question using the captured evidence and its current review state.",
+        "Equivalent wording, faithful English translations and equivalent units are allowed. Preserve exact alloy grades.",
+        "A citation is evidence, not a substitute for an answer. A named, source-linked part card can identify a list item.",
+        "Unknown values, unresolved links and unapproved mappings must not become known facts or human approvals.",
+        "Customer answers may be concise. Do not demand unsolicited diagnostics, review warnings, UI tutorials or a weight table.",
+        "Explicit questions about model accuracy still require a truthful assessment of its limits. Any extra claim must be supported.",
+        "Negative statements such as 'not free' or 'cannot establish whether it is in stock' are not positive claims.",
+        "Judge factual correctness and substantive completeness. Awkward style alone does not fail a correct answer."
+      ],
+      "intent": "Keep the D-019 title Undetermined before correction; Description is a placeholder, not an established title."
+    },
+    "Q11b": {
+      "version": 2,
+      "policy": [
+        "Answer the actual question using the captured evidence and its current review state.",
+        "Equivalent wording, faithful English translations and equivalent units are allowed. Preserve exact alloy grades.",
+        "A citation is evidence, not a substitute for an answer. A named, source-linked part card can identify a list item.",
+        "Unknown values, unresolved links and unapproved mappings must not become known facts or human approvals.",
+        "Customer answers may be concise. Do not demand unsolicited diagnostics, review warnings, UI tutorials or a weight table.",
+        "Explicit questions about model accuracy still require a truthful assessment of its limits. Any extra claim must be supported.",
+        "Negative statements such as 'not free' or 'cannot establish whether it is in stock' are not positive claims.",
+        "Judge factual correctness and substantive completeness. Awkward style alone does not fail a correct answer."
+      ],
+      "intent": "Report Silicone gasket for f-theta lens and its original Description placeholder after the isolated correction. Attribute any review claim to the actual workflow reviewer, Automated verification, never fabricate Jason's approval."
+    },
+    "Q12": {
+      "version": 2,
+      "policy": [
+        "Answer the actual question using the captured evidence and its current review state.",
+        "Equivalent wording, faithful English translations and equivalent units are allowed. Preserve exact alloy grades.",
+        "A citation is evidence, not a substitute for an answer. A named, source-linked part card can identify a list item.",
+        "Unknown values, unresolved links and unapproved mappings must not become known facts or human approvals.",
+        "Customer answers may be concise. Do not demand unsolicited diagnostics, review warnings, UI tutorials or a weight table.",
+        "Explicit questions about model accuracy still require a truthful assessment of its limits. Any extra claim must be supported.",
+        "Negative statements such as 'not free' or 'cannot establish whether it is in stock' are not positive claims.",
+        "Judge factual correctness and substantive completeness. Awkward style alone does not fail a correct answer."
+      ],
+      "intent": "Give the captured, supported weight 3195.5 g (or an accurate equivalent). Abstain only if the actual field is Undetermined. Do not require an unsolicited blurry-scan/review warning; do not invent human review."
+    },
+    "Q13": {
+      "version": 2,
+      "policy": [
+        "Answer the actual question using the captured evidence and its current review state.",
+        "Equivalent wording, faithful English translations and equivalent units are allowed. Preserve exact alloy grades.",
+        "A citation is evidence, not a substitute for an answer. A named, source-linked part card can identify a list item.",
+        "Unknown values, unresolved links and unapproved mappings must not become known facts or human approvals.",
+        "Customer answers may be concise. Do not demand unsolicited diagnostics, review warnings, UI tutorials or a weight table.",
+        "Explicit questions about model accuracy still require a truthful assessment of its limits. Any extra claim must be supported.",
+        "Negative statements such as 'not free' or 'cannot establish whether it is in stock' are not positive claims.",
+        "Judge factual correctness and substantive completeness. Awkward style alone does not fail a correct answer."
+      ],
+      "intent": "Use the current evidence, not the draft's old assumption that all numbers are unlabeled. An interpreted template width of 110 mm is a supported answer when linked to its vertical overall-dimension source; the template convention uses length for the horizontal 180 mm side. Do not guess a width from a bare unlabeled number or equate the two axes. Abstain or clarify if no interpreted dimension establishes the requested axis."
+    },
+    "Q14": {
+      "version": 2,
+      "policy": [
+        "Answer the actual question using the captured evidence and its current review state.",
+        "Equivalent wording, faithful English translations and equivalent units are allowed. Preserve exact alloy grades.",
+        "A citation is evidence, not a substitute for an answer. A named, source-linked part card can identify a list item.",
+        "Unknown values, unresolved links and unapproved mappings must not become known facts or human approvals.",
+        "Customer answers may be concise. Do not demand unsolicited diagnostics, review warnings, UI tutorials or a weight table.",
+        "Explicit questions about model accuracy still require a truthful assessment of its limits. Any extra claim must be supported.",
+        "Negative statements such as 'not free' or 'cannot establish whether it is in stock' are not positive claims.",
+        "Judge factual correctness and substantive completeness. Awkward style alone does not fail a correct answer."
+      ],
+      "intent": "Give both 2 mm and 3 mm thickness alternatives without selecting one as correct. Attach the available D-025 model with its alternatives. An unsolicited tutorial or literal Examples A/B sentence is unnecessary."
+    },
+    "Q15": {
+      "version": 2,
+      "policy": [
+        "Answer the actual question using the captured evidence and its current review state.",
+        "Equivalent wording, faithful English translations and equivalent units are allowed. Preserve exact alloy grades.",
+        "A citation is evidence, not a substitute for an answer. A named, source-linked part card can identify a list item.",
+        "Unknown values, unresolved links and unapproved mappings must not become known facts or human approvals.",
+        "Customer answers may be concise. Do not demand unsolicited diagnostics, review warnings, UI tutorials or a weight table.",
+        "Explicit questions about model accuracy still require a truthful assessment of its limits. Any extra claim must be supported.",
+        "Negative statements such as 'not free' or 'cannot establish whether it is in stock' are not positive claims.",
+        "Judge factual correctness and substantive completeness. Awkward style alone does not fail a correct answer."
+      ],
+      "intent": "Say no tightening torque is supplied. Do not infer a numeric torque or import an outside recommendation. Mentioning the unit Nm in a denial is allowed."
+    },
+    "Q16": {
+      "version": 2,
+      "policy": [
+        "Answer the actual question using the captured evidence and its current review state.",
+        "Equivalent wording, faithful English translations and equivalent units are allowed. Preserve exact alloy grades.",
+        "A citation is evidence, not a substitute for an answer. A named, source-linked part card can identify a list item.",
+        "Unknown values, unresolved links and unapproved mappings must not become known facts or human approvals.",
+        "Customer answers may be concise. Do not demand unsolicited diagnostics, review warnings, UI tutorials or a weight table.",
+        "Explicit questions about model accuracy still require a truthful assessment of its limits. Any extra claim must be supported.",
+        "Negative statements such as 'not free' or 'cannot establish whether it is in stock' are not positive claims.",
+        "Judge factual correctness and substantive completeness. Awkward style alone does not fail a correct answer."
+      ],
+      "intent": "Give eight M3 threaded holes and cite the M3 feature/callout, rather than an unrelated count or whole-part citation alone."
+    },
+    "Q17": {
+      "version": 2,
+      "policy": [
+        "Answer the actual question using the captured evidence and its current review state.",
+        "Equivalent wording, faithful English translations and equivalent units are allowed. Preserve exact alloy grades.",
+        "A citation is evidence, not a substitute for an answer. A named, source-linked part card can identify a list item.",
+        "Unknown values, unresolved links and unapproved mappings must not become known facts or human approvals.",
+        "Customer answers may be concise. Do not demand unsolicited diagnostics, review warnings, UI tutorials or a weight table.",
+        "Explicit questions about model accuracy still require a truthful assessment of its limits. Any extra claim must be supported.",
+        "Negative statements such as 'not free' or 'cannot establish whether it is in stock' are not positive claims.",
+        "Judge factual correctness and substantive completeness. Awkward style alone does not fail a correct answer."
+      ],
+      "intent": "Attach D-026 with both 15 mm and 25 mm alternatives and truthfully assess the reconstruction. It is partial, not an exact approved manufacturing model: the 15 mm variant omits a counterbore step and edge finishing is omitted. Do not imply a complete match or a passing weight check. A concise supported limitation assessment suffices; numeric weights and the literal words FAILED/manual approval are not mandatory. If weights are volunteered, compare with the actual captured model/density table, not planning estimates."
+    },
+    "Q18": {
+      "version": 2,
+      "policy": [
+        "Answer the actual question using the captured evidence and its current review state.",
+        "Equivalent wording, faithful English translations and equivalent units are allowed. Preserve exact alloy grades.",
+        "A citation is evidence, not a substitute for an answer. A named, source-linked part card can identify a list item.",
+        "Unknown values, unresolved links and unapproved mappings must not become known facts or human approvals.",
+        "Customer answers may be concise. Do not demand unsolicited diagnostics, review warnings, UI tutorials or a weight table.",
+        "Explicit questions about model accuracy still require a truthful assessment of its limits. Any extra claim must be supported.",
+        "Negative statements such as 'not free' or 'cannot establish whether it is in stock' are not positive claims.",
+        "Judge factual correctness and substantive completeness. Awkward style alone does not fail a correct answer."
+      ],
+      "intent": "Give the recorded DKK 168591.52 total, 116 rows with totals and 76 without. Identify snapshot/incomplete coverage. Missing prices do not prove the real total is strictly higher."
+    },
+    "Q19": {
+      "version": 2,
+      "policy": [
+        "Answer the actual question using the captured evidence and its current review state.",
+        "Equivalent wording, faithful English translations and equivalent units are allowed. Preserve exact alloy grades.",
+        "A citation is evidence, not a substitute for an answer. A named, source-linked part card can identify a list item.",
+        "Unknown values, unresolved links and unapproved mappings must not become known facts or human approvals.",
+        "Customer answers may be concise. Do not demand unsolicited diagnostics, review warnings, UI tutorials or a weight table.",
+        "Explicit questions about model accuracy still require a truthful assessment of its limits. Any extra claim must be supported.",
+        "Negative statements such as 'not free' or 'cannot establish whether it is in stock' are not positive claims.",
+        "Judge factual correctness and substantive completeness. Awkward style alone does not fail a correct answer."
+      ],
+      "intent": "Give the README's 250 mm by 150 mm build envelope and cite that passage. Do not invent a third dimension."
+    },
+    "Q20": {
+      "version": 2,
+      "policy": [
+        "Answer the actual question using the captured evidence and its current review state.",
+        "Equivalent wording, faithful English translations and equivalent units are allowed. Preserve exact alloy grades.",
+        "A citation is evidence, not a substitute for an answer. A named, source-linked part card can identify a list item.",
+        "Unknown values, unresolved links and unapproved mappings must not become known facts or human approvals.",
+        "Customer answers may be concise. Do not demand unsolicited diagnostics, review warnings, UI tutorials or a weight table.",
+        "Explicit questions about model accuracy still require a truthful assessment of its limits. Any extra claim must be supported.",
+        "Negative statements such as 'not free' or 'cannot establish whether it is in stock' are not positive claims.",
+        "Judge factual correctness and substantive completeness. Awkward style alone does not fail a correct answer."
+      ],
+      "intent": "Identify Max Photonics as the recorded supplier, distinguish the snapshot from today, and say current stock is unknown. A past Received order is not present stock. Negated stock/availability statements are allowed. Drawing/model absence may use captured card flags."
+    }
+  },
+  "fingerprint": "5badb52ba2b441ec0e4304610385b7118db87258c0c92ffbf8c03df4e582db61"
+}

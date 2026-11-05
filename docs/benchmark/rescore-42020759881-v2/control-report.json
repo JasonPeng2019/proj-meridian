@@ -1,0 +1,207 @@
+{
+  "controls": [
+    {
+      "control": "contradictory_bom_count",
+      "case_id": "Q02",
+      "cache_key": "bc59e04a3104163d92c53b75b47143deeb2514aa6bb5bb7078fe27db46976e0f",
+      "accepted_scores": [
+        0,
+        1
+      ],
+      "synthetic": true,
+      "actual_score": 0,
+      "passed": true
+    },
+    {
+      "control": "fabricated_mapping_approval",
+      "case_id": "Q03",
+      "cache_key": "f59288cc58671f6a6ef83cc7d65c65526860d3c47bf86c755f16d6e0a8b5a75e",
+      "accepted_scores": [
+        0,
+        1
+      ],
+      "synthetic": true,
+      "actual_score": 0,
+      "passed": true
+    },
+    {
+      "control": "zero_placeholder_is_not_free",
+      "case_id": "Q05",
+      "cache_key": "ee5295a7ae2caae847ddcb91dd8f41cdb084ddcc1387d4bce600d39b48532965",
+      "accepted_scores": [
+        0,
+        1
+      ],
+      "synthetic": true,
+      "actual_score": 0,
+      "passed": true
+    },
+    {
+      "control": "availability_flags_can_disprove_absence",
+      "case_id": "Q06",
+      "cache_key": "1d8d6a5cd3e4ef87d151dd896ac84156adf24b8a580356003c3ba2f0bd60765a",
+      "accepted_scores": [
+        0,
+        1
+      ],
+      "synthetic": true,
+      "actual_score": 0,
+      "passed": true
+    },
+    {
+      "control": "multi_material_is_not_steel_only",
+      "case_id": "Q07",
+      "cache_key": "2a2c91a4f3885a7cf7f88076d59f1e3d82f81f825c24727a6e0762662072d2fa",
+      "accepted_scores": [
+        0,
+        1
+      ],
+      "synthetic": true,
+      "actual_score": 0,
+      "passed": true
+    },
+    {
+      "control": "wrong_material_match_count",
+      "case_id": "Q08",
+      "cache_key": "4f8c67bfa3dbd5fcd223b2a71d29983a642e450ef98469b74b37884b9f74f287",
+      "accepted_scores": [
+        0,
+        1
+      ],
+      "synthetic": true,
+      "actual_score": 0,
+      "passed": true
+    },
+    {
+      "control": "one_grade_match_omitted",
+      "case_id": "Q09",
+      "cache_key": "6921c34ce2eac76cb66b2b82a17e8dfa255f65ff514ea9b2c7a3e880eea04d66",
+      "accepted_scores": [
+        0,
+        1
+      ],
+      "synthetic": true,
+      "actual_score": 0,
+      "passed": true
+    },
+    {
+      "control": "unreadable_grade_is_not_aisi316",
+      "case_id": "Q10",
+      "cache_key": "1e5c73dcbe77568e1e02984fcb2bfbb46b07a9976b55e5b0f1313d91dd2d077d",
+      "accepted_scores": [
+        0,
+        1
+      ],
+      "synthetic": true,
+      "actual_score": 0,
+      "passed": true
+    },
+    {
+      "control": "wrong_weight_unit",
+      "case_id": "Q12",
+      "cache_key": "3ffbe257658b3338cfbb60f570ec7ca429489122e31077369e59b9231280485e",
+      "accepted_scores": [
+        0,
+        1
+      ],
+      "synthetic": true,
+      "actual_score": 0,
+      "passed": true
+    },
+    {
+      "control": "vertical_dimension_is_not_horizontal",
+      "case_id": "Q13",
+      "cache_key": "3748f0c8d882aa7d3d49f155d787031762fb65834e054e66e1a07f4c6095b882",
+      "accepted_scores": [
+        0,
+        1
+      ],
+      "synthetic": true,
+      "actual_score": 0,
+      "passed": true
+    },
+    {
+      "control": "unselected_thickness_is_not_confirmed",
+      "case_id": "Q14",
+      "cache_key": "4bbdaf8a7479735d9f0f23c052d136e5cc69fef47f73f49a257c3816d4b500f0",
+      "accepted_scores": [
+        0,
+        1
+      ],
+      "synthetic": true,
+      "actual_score": 0,
+      "passed": true
+    },
+    {
+      "control": "invented_tightening_torque",
+      "case_id": "Q15",
+      "cache_key": "b10ceb83980f044d86ee433dbd6814d21add0041fa524c1eca12e8c70a8e3a8b",
+      "accepted_scores": [
+        0,
+        1
+      ],
+      "synthetic": true,
+      "actual_score": 0,
+      "passed": true
+    },
+    {
+      "control": "partial_model_is_not_exact_or_verified",
+      "case_id": "Q17",
+      "cache_key": "8dc8fcf32cb5d13abad81d40de39889602d91f97adf7e2bd78b92983c7e04a6e",
+      "accepted_scores": [
+        0,
+        1
+      ],
+      "synthetic": true,
+      "actual_score": 0,
+      "passed": true
+    },
+    {
+      "control": "snapshot_does_not_establish_current_stock",
+      "case_id": "Q20",
+      "cache_key": "78f88f3b9cafd5343fbff7872aeed91026ea377f8bcbacf7b0e37147744c69aa",
+      "accepted_scores": [
+        0,
+        1
+      ],
+      "synthetic": true,
+      "actual_score": 0,
+      "passed": true
+    },
+    {
+      "control": "negated_free_is_not_a_free_claim",
+      "case_id": "Q05",
+      "cache_key": "5b5a960cbd4354bf245362c4fc0ca647424373a044fbab67d6edcd51629ed543",
+      "accepted_scores": [
+        2
+      ],
+      "synthetic": true,
+      "actual_score": 2,
+      "passed": true
+    },
+    {
+      "control": "negated_stock_is_not_a_stock_claim",
+      "case_id": "Q20",
+      "cache_key": "d6d383ae16cb663ad4955853cf236825fd4bf103c03e87810d6cc45ba901480c",
+      "accepted_scores": [
+        2
+      ],
+      "synthetic": true,
+      "actual_score": 2,
+      "passed": true
+    },
+    {
+      "control": "unit_in_denial_is_not_torque_advice",
+      "case_id": "Q15",
+      "cache_key": "2bd91d2476a0c9d0aa5c870c4cc81cf11d76b3791ad474561300c6c12d0ee3d9",
+      "accepted_scores": [
+        2
+      ],
+      "synthetic": true,
+      "actual_score": 2,
+      "passed": true
+    }
+  ],
+  "passed": 17,
+  "total": 17
+}

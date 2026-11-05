@@ -202,7 +202,7 @@ def frontend(path: str):
         return FileResponse(candidate)
     if (dist / "index.html").exists():
         return FileResponse(dist / "index.html")
-    return Response("Meridian frontend is not built. Run npm --prefix frontend run build.", status_code=503)
+    return Response("The interface bundle is unavailable. See README for setup.", status_code=503)
 
 def cli():
     configure_environment()

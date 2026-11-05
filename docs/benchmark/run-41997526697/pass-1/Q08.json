@@ -1,0 +1,3647 @@
+{
+  "pass": 1,
+  "case_id": "Q08",
+  "question": "Which parts are aluminium?",
+  "server_start_status": {
+    "chat_available": true,
+    "chat_model": "gpt-6-luna",
+    "revision": "d1982f4eed58c582",
+    "parts": 215,
+    "drawings": 30,
+    "models": 3,
+    "reviewer_name": "Automated verification"
+  },
+  "preconditions": [
+    {
+      "name": "approved_material_mappings",
+      "status": "pending",
+      "records": [
+        {
+          "id": "names/material/6061-alloy -> aluminium",
+          "target": "names/material/6061-alloy -> aluminium",
+          "type": "name_mapping",
+          "title": "6061 Alloy → Aluminium",
+          "value": null,
+          "status": "pending_approval",
+          "readers": {
+            "claude": {
+              "rounds": [
+                {
+                  "answer": {
+                    "key": "relationship",
+                    "state": "known",
+                    "value_json": "\"kind_of\"",
+                    "confidence": "unsure",
+                    "fact_ids": [],
+                    "reason": "Based on general engineering knowledge, not the dataset: 6061 is a specific wrought aluminium alloy (Al-Mg-Si series), so LEFT '6061 Alloy' is a more specific form of RIGHT 'Aluminium'. The supplied established links (D-005/drawing/source, BOM:box/window-frame, D-020/drawing/source, BOM:optics/f-theta-seal-ring) concern drawing sections and BOM items and do not address this material name, so no fact IDs support it directly. This is only a suggestion and needs human approval before use.",
+                    "changed_because": ""
+                  },
+                  "valid": true,
+                  "settings": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "cache_key": "770f04c0a0dc8a90f607455016848a117cf4008e903f90858b6e99effe256308"
+                }
+              ]
+            },
+            "codex": {
+              "rounds": [
+                {
+                  "answer": {
+                    "key": "relationship",
+                    "state": "known",
+                    "value_json": "\"kind_of\"",
+                    "confidence": "sure",
+                    "fact_ids": [],
+                    "reason": "6061 Alloy is a specific alloy of Aluminium; based on general engineering knowledge, not the dataset. This suggestion requires actual human approval before use.",
+                    "changed_because": ""
+                  },
+                  "valid": true,
+                  "settings": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  },
+                  "cache_key": "7d5d27280afde8fa6da7b974a1dee64b0afdb9f14d7338708bd2db67c6e013e1"
+                }
+              ]
+            }
+          },
+          "evidence": "based on general engineering knowledge, not the dataset",
+          "kind": "material",
+          "options": [
+            "same",
+            "kind_of",
+            "different",
+            "no_equivalent"
+          ]
+        },
+        {
+          "id": "names/material/3-3315-en-aw-5005 -> aluminium",
+          "target": "names/material/3-3315-en-aw-5005 -> aluminium",
+          "type": "name_mapping",
+          "title": "3.3315 (EN-AW 5005) → Aluminium",
+          "value": null,
+          "status": "pending_approval",
+          "readers": {
+            "claude": {
+              "rounds": [
+                {
+                  "answer": {
+                    "key": "relationship",
+                    "state": "known",
+                    "value_json": "\"kind_of\"",
+                    "confidence": "unsure",
+                    "fact_ids": [],
+                    "reason": "Based on general engineering knowledge, not the dataset: material number 3.3315 is EN AW-5005, a wrought Al-Mg aluminium alloy. That makes it a specific kind of the general material Aluminium, so LEFT is more specific than RIGHT. None of the supplied established links (D-012, D-014 and the recoater BOM items) say what material either name refers to, so no fact IDs are cited and confidence is unsure. A human must approve this before it is used.",
+                    "changed_because": ""
+                  },
+                  "valid": true,
+                  "settings": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "cache_key": "35b843f81517baf85cc00ba712637842ea82396ada069bbf238f86118d02deac"
+                }
+              ]
+            },
+            "codex": {
+              "rounds": [
+                {
+                  "answer": {
+                    "key": "relationship",
+                    "state": "known",
+                    "value_json": "\"kind_of\"",
+                    "confidence": "sure",
+                    "fact_ids": [],
+                    "reason": "3.3315 (EN-AW 5005) is an aluminium alloy, more specific than Aluminium, based on general engineering knowledge, not the dataset. This suggestion requires actual human approval before use.",
+                    "changed_because": ""
+                  },
+                  "valid": true,
+                  "settings": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  },
+                  "cache_key": "6328c25659ae1ee7788592370d0305dba3745db51e46634e3be9bbbe26c40082"
+                }
+              ]
+            }
+          },
+          "evidence": "based on general engineering knowledge, not the dataset",
+          "kind": "material",
+          "options": [
+            "same",
+            "kind_of",
+            "different",
+            "no_equivalent"
+          ]
+        },
+        {
+          "id": "names/material/7075-t6-plate-ss -> aluminium",
+          "target": "names/material/7075-t6-plate-ss -> aluminium",
+          "type": "name_mapping",
+          "title": "7075-T6, Plate (SS) → Aluminium",
+          "value": null,
+          "status": "pending_approval",
+          "readers": {
+            "claude": {
+              "rounds": [
+                {
+                  "answer": {
+                    "key": "relationship",
+                    "state": "known",
+                    "value_json": "\"kind_of\"",
+                    "confidence": "unsure",
+                    "fact_ids": [],
+                    "reason": "Based on general engineering knowledge, not the dataset: 7075-T6 is a specific wrought aluminium alloy (Al-Zn-Mg-Cu, 7xxx series) in the T6 temper, so LEFT is a more specific form of RIGHT 'Aluminium'. The '(SS)' suffix is not explained in the supplied evidence. If it meant stainless steel, it would conflict with the 7075-T6 designation, so confidence is unsure. The supplied established links (D-011/drawing/source, BOM:recoater/recoater-arm) give section context only and do not support the material classification, so no fact IDs are cited. A human must approve this before it is used.",
+                    "changed_because": ""
+                  },
+                  "valid": true,
+                  "settings": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "cache_key": "0baeb06951e6cbb511697154e736f94717c77959232a53690d4470aadfdc5e72"
+                }
+              ]
+            },
+            "codex": {
+              "rounds": [
+                {
+                  "answer": {
+                    "key": "relationship",
+                    "state": "known",
+                    "value_json": "\"kind_of\"",
+                    "confidence": "unsure",
+                    "fact_ids": [],
+                    "reason": "7075-T6 identifies a specific aluminium alloy and temper, based on general engineering knowledge, not the dataset. This supports kind_of relative to Aluminium, but '(SS)' is unexplained. Actual human approval is required before use.",
+                    "changed_because": ""
+                  },
+                  "valid": true,
+                  "settings": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  },
+                  "cache_key": "2a1668dd096db6916b10d586ecaade9c8bee79362ce8ddefcf804e327ea25871"
+                }
+              ]
+            }
+          },
+          "evidence": "based on general engineering knowledge, not the dataset",
+          "kind": "material",
+          "options": [
+            "same",
+            "kind_of",
+            "different",
+            "no_equivalent"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "four_flagged_drawing_links_verified",
+      "status": "pending",
+      "links": [
+        {
+          "drawing": "D-016",
+          "link": {
+            "bom_rows": [],
+            "method": "unresolved",
+            "readers": {
+              "claude": {
+                "rounds": [
+                  {
+                    "answer": {
+                      "key": "link",
+                      "state": "unknown",
+                      "value_json": "null",
+                      "confidence": "unsure",
+                      "fact_ids": [
+                        "D-016/drawing/title",
+                        "D-016/drawing/material",
+                        "D-016/drawing/notes",
+                        "BOM:optics/sunny-galvo-adapter-plate",
+                        "BOM:optics/galvo-box-bracket",
+                        "BOM:optics/galve-support-bracket"
+                      ],
+                      "reason": "The drawing is titled 'Galvo Bundplade' (Danish for galvo bottom plate) and the source file is GalvoBottomPlate.pdf. Its section is written as 'Optical', its material as '7075-T6, Plate (SS)' and its notes as 'Aluminium'. No BOM row is named a galvo bottom plate, and no BOM row lists GalvoBottomPlate.pdf as a datasheet. The BOM section 'Optics' differs from the drawing's 'Optical', and I can't treat the two as already approved equivalents. Three galvo-related Optics rows could fit. 'Sunny Galvo Adapter Plate' (Aluminium) is a plate, but 'adapter' is not 'bottom'. 'Galvo box bracket' (Aluminium) has notes saying the galvo mount was changed completely, which could involve a bottom plate, but it is called a bracket. 'Galve support bracket' is listed as Stainless steel/Steel; the drawing's '(SS)' might hint at that, but the drawing notes say Aluminium. The material entry also conflicts with itself ('7075-T6' aluminium alloy next to '(SS)'). Because the evidence does not pick out one row, the link is unknown.",
+                      "changed_because": ""
+                    },
+                    "valid": true,
+                    "settings": {
+                      "model": "opus",
+                      "fast_mode": false,
+                      "mode": "regular",
+                      "reader": "claude"
+                    },
+                    "cache_key": "c705581c1bbc0b0f12f6439a4e47dd59a82b4d94f3c4be7486462f150bf7dcb7"
+                  }
+                ]
+              },
+              "codex": {
+                "rounds": [
+                  {
+                    "answer": {
+                      "key": "link",
+                      "state": "unknown",
+                      "value_json": "null",
+                      "confidence": "unsure",
+                      "fact_ids": [
+                        "D-016",
+                        "D-016/drawing/title",
+                        "D-016/drawing/material",
+                        "D-016/drawing/notes",
+                        "BOM:optics/sunny-galvo-adapter-plate",
+                        "BOM:optics/galvo-box-bracket"
+                      ],
+                      "reason": "'Galvo Bundplade' and GalvoBottomPlate.pdf do not uniquely identify 'Sunny Galvo Adapter Plate' or 'Galvo box bracket'. Both rows list Aluminium, matching the drawing note, but neither supplies a datasheet link. No equivalence is documented for section 'Optical' versus 'Optics' or material '7075-T6, Plate (SS)' versus 'Aluminium'. A unique match is undetermined.",
+                      "changed_because": ""
+                    },
+                    "valid": true,
+                    "settings": {
+                      "model": "gpt-6.1-sol",
+                      "reasoning_effort": "xhigh",
+                      "service_tier": "fast",
+                      "reader": "codex"
+                    },
+                    "cache_key": "4896cbe9d31cf276dec01e50e5838b4124268dfc37b32cb294b51d838f317bf9"
+                  }
+                ]
+              }
+            },
+            "review": {
+              "status": "not_reviewed"
+            },
+            "reason": "Waiting for review: unsure",
+            "state": "needs_review",
+            "candidates": [
+              "BOM:optics/galve-support-bracket",
+              "BOM:optics/galvo-box-bracket",
+              "BOM:optics/sunny-galvo-adapter-plate"
+            ],
+            "name": "D-016/link",
+            "drawing": "D-016",
+            "value": [],
+            "confidence": "unsure"
+          },
+          "bom_rows": [],
+          "deduplicated_part_key": "D-016"
+        },
+        {
+          "drawing": "D-017",
+          "link": {
+            "bom_rows": [],
+            "method": "unresolved",
+            "readers": {
+              "claude": {
+                "rounds": [
+                  {
+                    "answer": {
+                      "key": "link",
+                      "state": "unknown",
+                      "value_json": "null",
+                      "confidence": "unsure",
+                      "fact_ids": [
+                        "D-017/drawing/title",
+                        "D-017/drawing/notes",
+                        "D-017/drawing/material",
+                        "BOM:optics/sunny-galvo-adapter-plate",
+                        "BOM:optics/galvo-box-bracket"
+                      ],
+                      "reason": "The drawing is titled 'Galvo Montage Plade' (galvo mount plate). Its notes say 'Galvo Collimator Plade\\nAlu' and its material is '7075-T6, Plate (SS)', so it is an aluminium galvo mounting plate. Two Optics BOM rows fit: 'Sunny Galvo Adapter Plate' (Aluminium, a plate) and 'Galvo box bracket' (Aluminium, with notes saying the galvo mount was changed completely). Neither row has a datasheet that would tie it to GalvoMountPlate.pdf. Neither row mentions a collimator. The drawing's section 'Optical' does not exactly match the BOM section 'Optics', and I was told not to assume they are equivalent. The '(SS)' in the material field is unclear and could also point to stainless rows such as 'Galve support bracket', although the notes say 'Alu'. Because the evidence fits more than one row, I cannot pick one with confidence.",
+                      "changed_because": ""
+                    },
+                    "valid": true,
+                    "settings": {
+                      "model": "opus",
+                      "fast_mode": false,
+                      "mode": "regular",
+                      "reader": "claude"
+                    },
+                    "cache_key": "731255ff0e0d3540dc397330d495a0e6b2c8138b78df1b678e65d45717025841"
+                  }
+                ]
+              },
+              "codex": {
+                "rounds": [
+                  {
+                    "answer": {
+                      "key": "link",
+                      "state": "unknown",
+                      "value_json": "null",
+                      "confidence": "unsure",
+                      "fact_ids": [
+                        "D-017/drawing/title",
+                        "D-017/drawing/notes",
+                        "D-017/drawing/material",
+                        "BOM:optics/sunny-galvo-adapter-plate",
+                        "BOM:optics/galvo-box-bracket"
+                      ],
+                      "reason": "“Galvo Montage Plade” with notes “Galvo Collimator Plade\nAlu” could relate to “Sunny Galvo Adapter Plate” or “Galvo box bracket”, but neither row lists a datasheet identifying this drawing. The evidence does not establish equivalence between section “Optical” and “Optics”, or material “7075-T6, Plate (SS)” and “Aluminium”. A unique match is not determined.",
+                      "changed_because": ""
+                    },
+                    "valid": true,
+                    "settings": {
+                      "model": "gpt-6.1-sol",
+                      "reasoning_effort": "xhigh",
+                      "service_tier": "fast",
+                      "reader": "codex"
+                    },
+                    "cache_key": "46e8ff8c7c770e885dd3426a7dec5f20fd9e71b4f0ea5290ca6e10cefe6250aa"
+                  }
+                ]
+              }
+            },
+            "review": {
+              "status": "not_reviewed"
+            },
+            "reason": "Waiting for review: unsure",
+            "state": "needs_review",
+            "candidates": [
+              "BOM:optics/galvo-box-bracket",
+              "BOM:optics/sunny-galvo-adapter-plate"
+            ],
+            "name": "D-017/link",
+            "drawing": "D-017",
+            "value": [],
+            "confidence": "unsure"
+          },
+          "bom_rows": [],
+          "deduplicated_part_key": "D-017"
+        },
+        {
+          "drawing": "D-018",
+          "link": {
+            "bom_rows": [],
+            "method": "unresolved",
+            "readers": {
+              "claude": {
+                "rounds": [
+                  {
+                    "answer": {
+                      "key": "link",
+                      "state": "known",
+                      "value_json": "[\"BOM:optics/galvo-box-bracket\"]",
+                      "confidence": "unsure",
+                      "fact_ids": [
+                        "D-018/drawing/title",
+                        "D-018/drawing/material",
+                        "D-018/drawing/notes",
+                        "BOM:optics/galvo-box-bracket",
+                        "BOM:optics/sunny-galvo-adapter-plate",
+                        "BOM:optics/galve-support-bracket"
+                      ],
+                      "reason": "The drawing is titled 'Galvo Mount Side x2', its notes say '2 stk. Alu.', and its material is '7075-T6, Plate (SS)'. It belongs to section 'Optical'. The closest BOM row is BOM:optics/galvo-box-bracket in section 'Optics'. That row is Aluminium, and its notes say 'Changed galvo mount completely to allow for adjustments', which directly mentions the galvo mount. BOM:optics/galve-support-bracket is less likely because it is Stainless steel/Steel, while the drawing notes say Alu. Ambiguity remains for three reasons. First, no BOM row is named 'Galvo Mount Side'. Second, BOM:optics/sunny-galvo-adapter-plate is also an Aluminium galvo mounting part in Optics. Third, the 'Plate (SS)' in the drawing's material field is unclear. The section names 'Optical' and 'Optics' also differ and are not confirmed as the same. The drawing may show only a side piece of the galvo box bracket assembly.",
+                      "changed_because": ""
+                    },
+                    "valid": true,
+                    "settings": {
+                      "model": "opus",
+                      "fast_mode": false,
+                      "mode": "regular",
+                      "reader": "claude"
+                    },
+                    "cache_key": "cee738d169e1373bc7de866eb50ae6028a5a36ee1786fda6488cbc1eecafea26"
+                  }
+                ]
+              },
+              "codex": {
+                "rounds": [
+                  {
+                    "answer": {
+                      "key": "link",
+                      "state": "unknown",
+                      "value_json": "null",
+                      "confidence": "unsure",
+                      "fact_ids": [
+                        "D-018/drawing/title",
+                        "D-018/drawing/material",
+                        "D-018/drawing/notes",
+                        "BOM:optics/galvo-box-bracket",
+                        "BOM:optics/galve-support-bracket"
+                      ],
+                      "reason": "“Galvo Mount Side x2” does not uniquely identify either bracket. “Galvo box bracket” lists Aluminium, consistent with “Alu.”, but has a different name. “Galve support bracket” lists Stainless steel and Steel, which are not established as equivalent to “7075-T6, Plate (SS)”. The drawing section “Optical” also differs from “Optics”; no approved equivalence or linking datasheet is supplied.",
+                      "changed_because": ""
+                    },
+                    "valid": true,
+                    "settings": {
+                      "model": "gpt-6.1-sol",
+                      "reasoning_effort": "xhigh",
+                      "service_tier": "fast",
+                      "reader": "codex"
+                    },
+                    "cache_key": "2348b1013ce7915ec09db6737b3941d5c9106042ff466264b6345d9853bfb3ed"
+                  }
+                ]
+              }
+            },
+            "review": {
+              "status": "not_reviewed"
+            },
+            "reason": "Waiting for review: unsure",
+            "state": "needs_review",
+            "candidates": [
+              "BOM:optics/galve-support-bracket",
+              "BOM:optics/galvo-box-bracket",
+              "BOM:optics/sunny-galvo-adapter-plate"
+            ],
+            "name": "D-018/link",
+            "drawing": "D-018",
+            "value": [],
+            "confidence": "unsure"
+          },
+          "bom_rows": [],
+          "deduplicated_part_key": "D-018"
+        },
+        {
+          "drawing": "D-025",
+          "link": {
+            "bom_rows": [],
+            "method": "unresolved",
+            "readers": {
+              "claude": {
+                "rounds": [
+                  {
+                    "answer": {
+                      "key": "link",
+                      "state": "unknown",
+                      "value_json": "null",
+                      "confidence": "unsure",
+                      "fact_ids": [
+                        "D-025/drawing/title",
+                        "D-025/drawing/material",
+                        "D-025/drawing/notes",
+                        "BOM:build-plate/build-base",
+                        "BOM:build-plate/build-cylinder-clamp-ring",
+                        "BOM:build-plate/seal-clamp-plate"
+                      ],
+                      "reason": "The drawing title 'Bygge Base Ring' is Danish for roughly 'Build Base Ring'. Its notes say 'Aluminium' and its material is '3.3315 (EN-AW 5005)'. Several Aluminium rows in the Build-plate section could fit. 'Build base' matches the 'Bygge Base' part of the name, but that row does not mention a ring. 'Build cylinder clamp ring' is ring-shaped but has a different name. 'Seal clamp plate' has a notes entry about its inner diameter, which suggests it may also be ring-shaped. The drawing's section is 'Z-axis', not 'Build-plate', and no BOM row lists a datasheet that matches the source file ByggeBaseRing_Version2.PDF. The evidence does not settle which row this drawing is, so the link is left unknown.",
+                      "changed_because": ""
+                    },
+                    "valid": true,
+                    "settings": {
+                      "model": "opus",
+                      "fast_mode": false,
+                      "mode": "regular",
+                      "reader": "claude"
+                    },
+                    "cache_key": "f47727eb9346b25bfe8893313cc56525f394a0e10f8fac9e6119b46848d1bf8d"
+                  }
+                ]
+              },
+              "codex": {
+                "rounds": [
+                  {
+                    "answer": {
+                      "key": "link",
+                      "state": "unknown",
+                      "value_json": "null",
+                      "confidence": "unsure",
+                      "fact_ids": [
+                        "D-025",
+                        "D-025/drawing/title",
+                        "D-025/drawing/material",
+                        "D-025/drawing/notes",
+                        "BOM:build-plate/build-base",
+                        "BOM:build-plate/build-cylinder-clamp-ring"
+                      ],
+                      "reason": "'Bygge Base Ring' does not uniquely identify 'Build base' or 'Build cylinder clamp ring'. Both BOM rows specify Aluminium, but neither supplies a linking datasheet. The drawing section 'Z-axis' differs from 'Build-plate', with no supplied evidence establishing equivalence.",
+                      "changed_because": ""
+                    },
+                    "valid": true,
+                    "settings": {
+                      "model": "gpt-6.1-sol",
+                      "reasoning_effort": "xhigh",
+                      "service_tier": "fast",
+                      "reader": "codex"
+                    },
+                    "cache_key": "a55690e63060323c2cfe1e948a5754fe936b6f2d7f6dddebb9eb30526441cf3e"
+                  }
+                ]
+              }
+            },
+            "review": {
+              "status": "not_reviewed"
+            },
+            "reason": "Waiting for review: unsure",
+            "state": "needs_review",
+            "candidates": [
+              "BOM:build-plate/build-base",
+              "BOM:build-plate/build-cylinder-clamp-ring",
+              "BOM:build-plate/seal-clamp-plate"
+            ],
+            "name": "D-025/link",
+            "drawing": "D-025",
+            "value": [],
+            "confidence": "unsure"
+          },
+          "bom_rows": [],
+          "deduplicated_part_key": "D-025"
+        }
+      ]
+    }
+  ],
+  "response": {
+    "text": "**Materials recorded as Aluminium: 29 parts.** This reflects recorded material entries, not confirmation of what each part is made of.\n\n- **Drawing-linked parts:** Window Clamp Frame [cite: D-005/part] [cite: BOM:box/window-frame/material]; Recoater Arm [cite: D-011/part] [cite: BOM:recoater/recoater-arm/material]; Recoater Mount Block [cite: D-012/part] [cite: BOM:recoater/recoater-mount-block/material]; Recoater Linear Plate [cite: D-014/part] [cite: BOM:recoater/recoater-stage-plate/material]; SealRing [cite: D-020/part] [cite: BOM:optics/f-theta-seal-ring/material].\n- **Other parts:** Front Door [cite: BOM:box/front-door/part] [cite: BOM:box/front-door/material]; Print Platform [cite: BOM:box/print-platform/part] [cite: BOM:box/print-platform/material]; Back Door [cite: BOM:box/back-door/part] [cite: BOM:box/back-door/material]; 2020 internal profile [cite: BOM:box/2020-internal-profile/part] [cite: BOM:box/2020-internal-profile/material]; 2020 angle bracket [cite: BOM:box/2020-angle-bracket/part] [cite: BOM:box/2020-angle-bracket/material]; Recoater head [cite: BOM:recoater/recoater-head/part] [cite: BOM:recoater/recoater-head/material]; Recoater Clamp [cite: BOM:recoater/recoater-clamp/part] [cite: BOM:recoater/recoater-clamp/material]; Timing pulley Ø6.35 T5 [cite: BOM:recoater/timing-pulley-o6-35-t5/part] [cite: BOM:recoater/timing-pulley-o6-35-t5/material]; Timing belt idler Ø8 T5 [cite: BOM:recoater/timing-belt-idler-o8-t5/part] [cite: BOM:recoater/timing-belt-idler-o8-t5/material]; Timing belt clamp plate [cite: BOM:recoater/timing-belt-clamp-plate/part] [cite: BOM:recoater/timing-belt-clamp-plate/material]; Build cylinder [cite: BOM:build-plate/build-cylinder/part] [cite: BOM:build-plate/build-cylinder/material]; Build base [cite: BOM:build-plate/build-base/part] [cite: BOM:build-plate/build-base/material]; Motor plate [cite: BOM:build-plate/motor-plate/part] [cite: BOM:build-plate/motor-plate/material]; Build cylinder clamp ring [cite: BOM:build-plate/build-cylinder-clamp-ring/part] [cite: BOM:build-plate/build-cylinder-clamp-ring/material]; Heating element plate [cite: BOM:build-plate/heating-element-plate/part] [cite: BOM:build-plate/heating-element-plate/material]; Thermocouple plate [cite: BOM:build-plate/thermocouple-plate/part] [cite: BOM:build-plate/thermocouple-plate/material]; Seal clamp plate [cite: BOM:build-plate/seal-clamp-plate/part] [cite: BOM:build-plate/seal-clamp-plate/material]; Gas blower [cite: BOM:gas-flow/gas-blower/part] [cite: BOM:gas-flow/gas-blower/material]; Sunny Galvo Adapter Plate [cite: BOM:optics/sunny-galvo-adapter-plate/part] [cite: BOM:optics/sunny-galvo-adapter-plate/material]; Galvo box bracket [cite: BOM:optics/galvo-box-bracket/part] [cite: BOM:optics/galvo-box-bracket/material]; Powder roller [cite: BOM:powder/powder-roller/part] [cite: BOM:powder/powder-roller/material]; Powder roller housing [cite: BOM:powder/powder-roller-housing/part] [cite: BOM:powder/powder-roller-housing/material]; Powder Valve Fitting [cite: BOM:powder/powder-valve-fitting/part] [cite: BOM:powder/powder-valve-fitting/material]; Dispenser drum coupling [cite: BOM:powder/dispenser-drum-coupling/part] [cite: BOM:powder/dispenser-drum-coupling/material].\n\nFor the five drawing-linked parts, the drawing material names differ from the BOM’s “Aluminium” entry and those mappings are pending review, so the resolved material is undetermined; those parts are listed here because their BOM records say Aluminium. [undetermined: D-005/resolved/material] [undetermined: D-011/resolved/material] [undetermined: D-012/resolved/material] [undetermined: D-014/resolved/material] [undetermined: D-020/resolved/material] Waiting for review. The Recoater Arm’s drawing material reading is AI-sourced only, not yet reviewed; may contain errors. [cite: D-011/drawing/material]",
+    "facts": {
+      "D-005/part": {
+        "fact": "D-005/part",
+        "field": "part",
+        "part_key": "D-005",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Window Clamp Frame"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-005/part",
+            "says": "Window Clamp Frame",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-005",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:box/window-frame/material": {
+        "fact": "BOM:box/window-frame/material",
+        "field": "material",
+        "part_key": "D-005",
+        "part_keys": [
+          "D-005"
+        ],
+        "display": {
+          "state": "value",
+          "value": [
+            "Aluminium"
+          ]
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/window-frame/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-005",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-005/resolved/material": {
+        "fact": "D-005/resolved/material",
+        "field": "material",
+        "part_key": "D-005",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Drawing: 6061 Alloy. Parts list: Aluminium. These names haven't been mapped yet."
+        },
+        "badge": "Unresolved evidence",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-005/resolved/material",
+            "says": "Drawing: 6061 Alloy. Parts list: Aluminium. These names haven't been mapped yet.",
+            "method": "unresolved",
+            "page": 1,
+            "box": null,
+            "part_key": "D-005",
+            "cleanup": [],
+            "note": "Drawing: 6061 Alloy. Parts list: Aluminium. These names haven't been mapped yet.",
+            "badge": "Unresolved evidence",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-005/drawing/material",
+            "says": "6061 Alloy",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              745.28,
+              771.048,
+              135.0,
+              14.0
+            ],
+            "part_key": "D-005",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "BOM:box/window-frame/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-005",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": "names/material/6061-alloy -> aluminium",
+        "correction": null,
+        "callout": null,
+        "derivation": {
+          "operation": "unresolved",
+          "source_fact_ids": [
+            "D-005/drawing/material",
+            "BOM:box/window-frame/material"
+          ]
+        }
+      },
+      "D-005/drawing/material": {
+        "fact": "D-005/drawing/material",
+        "field": "material",
+        "part_key": "D-005",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "6061 Alloy"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-005/drawing/material",
+            "says": "6061 Alloy",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              745.28,
+              771.048,
+              135.0,
+              14.0
+            ],
+            "part_key": "D-005",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-011/part": {
+        "fact": "D-011/part",
+        "field": "part",
+        "part_key": "D-011",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Recoater Arm"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-011/part",
+            "says": "Recoater Arm",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-arm/material": {
+        "fact": "BOM:recoater/recoater-arm/material",
+        "field": "material",
+        "part_key": "D-011",
+        "part_keys": [
+          "D-011"
+        ],
+        "display": {
+          "state": "value",
+          "value": [
+            "Aluminium"
+          ]
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-arm/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-011/resolved/material": {
+        "fact": "D-011/resolved/material",
+        "field": "material",
+        "part_key": "D-011",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Drawing: 7075-T6, Plate (SS). Parts list: Aluminium. These names haven't been mapped yet."
+        },
+        "badge": "Unresolved evidence",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-011/resolved/material",
+            "says": "Drawing: 7075-T6, Plate (SS). Parts list: Aluminium. These names haven't been mapped yet.",
+            "method": "unresolved",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": "Drawing: 7075-T6, Plate (SS). Parts list: Aluminium. These names haven't been mapped yet.",
+            "badge": "Unresolved evidence",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-011/drawing/material",
+            "says": null,
+            "method": "ai_read",
+            "page": 1,
+            "box": [
+              738.906,
+              766.467,
+              145.983,
+              24.008
+            ],
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": "The MATERIAL field clearly reads '7075-T6, Plate (SS)'.",
+            "badge": "AI reading of a blurry scan, not reviewed",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "BOM:recoater/recoater-arm/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": "names/material/7075-t6-plate-ss -> aluminium",
+        "correction": null,
+        "callout": null,
+        "derivation": {
+          "operation": "unresolved",
+          "source_fact_ids": [
+            "D-011/drawing/material",
+            "BOM:recoater/recoater-arm/material"
+          ]
+        }
+      },
+      "D-011/drawing/material": {
+        "fact": "D-011/drawing/material",
+        "field": "material",
+        "part_key": "D-011",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "7075-T6, Plate (SS)"
+        },
+        "badge": "AI reading of a blurry scan, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-011/drawing/material",
+            "says": null,
+            "method": "ai_read",
+            "page": 1,
+            "box": [
+              738.906,
+              766.467,
+              145.983,
+              24.008
+            ],
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": "The MATERIAL field clearly reads '7075-T6, Plate (SS)'.",
+            "badge": "AI reading of a blurry scan, not reviewed",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-011/drawing/material",
+            "says": null,
+            "method": "ai_read",
+            "page": 1,
+            "box": [
+              738.906,
+              766.467,
+              145.983,
+              24.008
+            ],
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": "The MATERIAL field clearly reads '7075-T6, Plate (SS)'.",
+            "badge": "AI reading of a blurry scan, not reviewed",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-012/part": {
+        "fact": "D-012/part",
+        "field": "part",
+        "part_key": "D-012",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Recoater Mount Block"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-012/part",
+            "says": "Recoater Mount Block",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-012",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-mount-block/material": {
+        "fact": "BOM:recoater/recoater-mount-block/material",
+        "field": "material",
+        "part_key": "D-012",
+        "part_keys": [
+          "D-012"
+        ],
+        "display": {
+          "state": "value",
+          "value": [
+            "Aluminium"
+          ]
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-mount-block/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-012",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-012/resolved/material": {
+        "fact": "D-012/resolved/material",
+        "field": "material",
+        "part_key": "D-012",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Drawing: 3.3315 (EN-AW 5005). Parts list: Aluminium. These names haven't been mapped yet."
+        },
+        "badge": "Unresolved evidence",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-012/resolved/material",
+            "says": "Drawing: 3.3315 (EN-AW 5005). Parts list: Aluminium. These names haven't been mapped yet.",
+            "method": "unresolved",
+            "page": 1,
+            "box": null,
+            "part_key": "D-012",
+            "cleanup": [],
+            "note": "Drawing: 3.3315 (EN-AW 5005). Parts list: Aluminium. These names haven't been mapped yet.",
+            "badge": "Unresolved evidence",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-012/drawing/material",
+            "says": "3.3315 (EN-AW 5005)",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              745.28,
+              771.048,
+              135.0,
+              14.0
+            ],
+            "part_key": "D-012",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "BOM:recoater/recoater-mount-block/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-012",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": "names/material/3-3315-en-aw-5005 -> aluminium",
+        "correction": null,
+        "callout": null,
+        "derivation": {
+          "operation": "unresolved",
+          "source_fact_ids": [
+            "D-012/drawing/material",
+            "BOM:recoater/recoater-mount-block/material"
+          ]
+        }
+      },
+      "D-012/drawing/material": {
+        "fact": "D-012/drawing/material",
+        "field": "material",
+        "part_key": "D-012",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "3.3315 (EN-AW 5005)"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-012/drawing/material",
+            "says": "3.3315 (EN-AW 5005)",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              745.28,
+              771.048,
+              135.0,
+              14.0
+            ],
+            "part_key": "D-012",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-014/part": {
+        "fact": "D-014/part",
+        "field": "part",
+        "part_key": "D-014",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Recoater Linear Plate"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-014/part",
+            "says": "Recoater Linear Plate",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-014",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-stage-plate/material": {
+        "fact": "BOM:recoater/recoater-stage-plate/material",
+        "field": "material",
+        "part_key": "D-014",
+        "part_keys": [
+          "D-014"
+        ],
+        "display": {
+          "state": "value",
+          "value": [
+            "Aluminium"
+          ]
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-stage-plate/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-014",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-014/resolved/material": {
+        "fact": "D-014/resolved/material",
+        "field": "material",
+        "part_key": "D-014",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Drawing: 3.3315 (EN-AW 5005). Parts list: Aluminium. These names haven't been mapped yet."
+        },
+        "badge": "Unresolved evidence",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-014/resolved/material",
+            "says": "Drawing: 3.3315 (EN-AW 5005). Parts list: Aluminium. These names haven't been mapped yet.",
+            "method": "unresolved",
+            "page": 1,
+            "box": null,
+            "part_key": "D-014",
+            "cleanup": [],
+            "note": "Drawing: 3.3315 (EN-AW 5005). Parts list: Aluminium. These names haven't been mapped yet.",
+            "badge": "Unresolved evidence",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-014/drawing/material",
+            "says": "3.3315 (EN-AW 5005)",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              745.28,
+              771.048,
+              135.0,
+              14.0
+            ],
+            "part_key": "D-014",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "BOM:recoater/recoater-stage-plate/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-014",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": "names/material/3-3315-en-aw-5005 -> aluminium",
+        "correction": null,
+        "callout": null,
+        "derivation": {
+          "operation": "unresolved",
+          "source_fact_ids": [
+            "D-014/drawing/material",
+            "BOM:recoater/recoater-stage-plate/material"
+          ]
+        }
+      },
+      "D-014/drawing/material": {
+        "fact": "D-014/drawing/material",
+        "field": "material",
+        "part_key": "D-014",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "3.3315 (EN-AW 5005)"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-014/drawing/material",
+            "says": "3.3315 (EN-AW 5005)",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              745.28,
+              771.048,
+              135.0,
+              14.0
+            ],
+            "part_key": "D-014",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-020/part": {
+        "fact": "D-020/part",
+        "field": "part",
+        "part_key": "D-020",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "SealRing"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-020/part",
+            "says": "SealRing",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-020",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/f-theta-seal-ring/material": {
+        "fact": "BOM:optics/f-theta-seal-ring/material",
+        "field": "material",
+        "part_key": "D-020",
+        "part_keys": [
+          "D-020"
+        ],
+        "display": {
+          "state": "value",
+          "value": [
+            "Aluminium"
+          ]
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/f-theta-seal-ring/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-020",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-020/resolved/material": {
+        "fact": "D-020/resolved/material",
+        "field": "material",
+        "part_key": "D-020",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Drawing: 6061 Alloy. Parts list: Aluminium. These names haven't been mapped yet."
+        },
+        "badge": "Unresolved evidence",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-020/resolved/material",
+            "says": "Drawing: 6061 Alloy. Parts list: Aluminium. These names haven't been mapped yet.",
+            "method": "unresolved",
+            "page": 1,
+            "box": null,
+            "part_key": "D-020",
+            "cleanup": [],
+            "note": "Drawing: 6061 Alloy. Parts list: Aluminium. These names haven't been mapped yet.",
+            "badge": "Unresolved evidence",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-020/drawing/material",
+            "says": null,
+            "method": "ai_read",
+            "page": 1,
+            "box": [
+              738.906,
+              766.467,
+              145.983,
+              24.008
+            ],
+            "part_key": "D-020",
+            "cleanup": [],
+            "note": "The MATERIAL field clearly reads '6061 Alloy'.",
+            "badge": "AI reading of a blurry scan, not reviewed",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "BOM:optics/f-theta-seal-ring/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-020",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": "names/material/6061-alloy -> aluminium",
+        "correction": null,
+        "callout": null,
+        "derivation": {
+          "operation": "unresolved",
+          "source_fact_ids": [
+            "D-020/drawing/material",
+            "BOM:optics/f-theta-seal-ring/material"
+          ]
+        }
+      },
+      "D-020/drawing/material": {
+        "fact": "D-020/drawing/material",
+        "field": "material",
+        "part_key": "D-020",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "6061 Alloy"
+        },
+        "badge": "AI reading of a blurry scan, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-020/drawing/material",
+            "says": null,
+            "method": "ai_read",
+            "page": 1,
+            "box": [
+              738.906,
+              766.467,
+              145.983,
+              24.008
+            ],
+            "part_key": "D-020",
+            "cleanup": [],
+            "note": "The MATERIAL field clearly reads '6061 Alloy'.",
+            "badge": "AI reading of a blurry scan, not reviewed",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-020/drawing/material",
+            "says": null,
+            "method": "ai_read",
+            "page": 1,
+            "box": [
+              738.906,
+              766.467,
+              145.983,
+              24.008
+            ],
+            "part_key": "D-020",
+            "cleanup": [],
+            "note": "The MATERIAL field clearly reads '6061 Alloy'.",
+            "badge": "AI reading of a blurry scan, not reviewed",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:box/front-door/part": {
+        "fact": "BOM:box/front-door/part",
+        "field": "part",
+        "part_key": "bom/box/front-door",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Front Door"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/front-door/part",
+            "says": "Front Door",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/box/front-door",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:box/front-door/material": {
+        "fact": "BOM:box/front-door/material",
+        "field": "material",
+        "part_key": "bom/box/front-door",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Aluminium"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/front-door/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/box/front-door",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:box/print-platform/part": {
+        "fact": "BOM:box/print-platform/part",
+        "field": "part",
+        "part_key": "bom/box/print-platform",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Print Platform"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/print-platform/part",
+            "says": "Print Platform",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/box/print-platform",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:box/print-platform/material": {
+        "fact": "BOM:box/print-platform/material",
+        "field": "material",
+        "part_key": "bom/box/print-platform",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Aluminium"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/print-platform/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/box/print-platform",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:box/back-door/part": {
+        "fact": "BOM:box/back-door/part",
+        "field": "part",
+        "part_key": "bom/box/back-door",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Back Door"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/back-door/part",
+            "says": "Back Door",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/box/back-door",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:box/back-door/material": {
+        "fact": "BOM:box/back-door/material",
+        "field": "material",
+        "part_key": "bom/box/back-door",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Aluminium"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/back-door/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/box/back-door",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:box/2020-internal-profile/part": {
+        "fact": "BOM:box/2020-internal-profile/part",
+        "field": "part",
+        "part_key": "bom/box/2020-internal-profile",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "2020 internal profile"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/2020-internal-profile/part",
+            "says": "2020 internal profile",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/box/2020-internal-profile",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:box/2020-internal-profile/material": {
+        "fact": "BOM:box/2020-internal-profile/material",
+        "field": "material",
+        "part_key": "bom/box/2020-internal-profile",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Aluminium"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/2020-internal-profile/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/box/2020-internal-profile",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:box/2020-angle-bracket/part": {
+        "fact": "BOM:box/2020-angle-bracket/part",
+        "field": "part",
+        "part_key": "bom/box/2020-angle-bracket",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "2020 angle bracket"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/2020-angle-bracket/part",
+            "says": "2020 angle bracket",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/box/2020-angle-bracket",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:box/2020-angle-bracket/material": {
+        "fact": "BOM:box/2020-angle-bracket/material",
+        "field": "material",
+        "part_key": "bom/box/2020-angle-bracket",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Aluminium"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/2020-angle-bracket/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/box/2020-angle-bracket",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-head/part": {
+        "fact": "BOM:recoater/recoater-head/part",
+        "field": "part",
+        "part_key": "bom/recoater/recoater-head",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Recoater head"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-head/part",
+            "says": "Recoater head",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/recoater-head",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-head/material": {
+        "fact": "BOM:recoater/recoater-head/material",
+        "field": "material",
+        "part_key": "bom/recoater/recoater-head",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Aluminium"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-head/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/recoater-head",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-clamp/part": {
+        "fact": "BOM:recoater/recoater-clamp/part",
+        "field": "part",
+        "part_key": "bom/recoater/recoater-clamp",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Recoater Clamp"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-clamp/part",
+            "says": "Recoater Clamp",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/recoater-clamp",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-clamp/material": {
+        "fact": "BOM:recoater/recoater-clamp/material",
+        "field": "material",
+        "part_key": "bom/recoater/recoater-clamp",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Aluminium"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-clamp/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/recoater-clamp",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/timing-pulley-o6-35-t5/part": {
+        "fact": "BOM:recoater/timing-pulley-o6-35-t5/part",
+        "field": "part",
+        "part_key": "bom/recoater/timing-pulley-o6-35-t5",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Timing pulley Ø6.35 T5"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/timing-pulley-o6-35-t5/part",
+            "says": "Timing pulley Ø6.35 T5",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/timing-pulley-o6-35-t5",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/timing-pulley-o6-35-t5/material": {
+        "fact": "BOM:recoater/timing-pulley-o6-35-t5/material",
+        "field": "material",
+        "part_key": "bom/recoater/timing-pulley-o6-35-t5",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Aluminium"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/timing-pulley-o6-35-t5/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/timing-pulley-o6-35-t5",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/timing-belt-idler-o8-t5/part": {
+        "fact": "BOM:recoater/timing-belt-idler-o8-t5/part",
+        "field": "part",
+        "part_key": "bom/recoater/timing-belt-idler-o8-t5",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Timing belt idler Ø8 T5"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/timing-belt-idler-o8-t5/part",
+            "says": "Timing belt idler Ø8 T5",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/timing-belt-idler-o8-t5",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/timing-belt-idler-o8-t5/material": {
+        "fact": "BOM:recoater/timing-belt-idler-o8-t5/material",
+        "field": "material",
+        "part_key": "bom/recoater/timing-belt-idler-o8-t5",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Aluminium"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/timing-belt-idler-o8-t5/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/timing-belt-idler-o8-t5",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/timing-belt-clamp-plate/part": {
+        "fact": "BOM:recoater/timing-belt-clamp-plate/part",
+        "field": "part",
+        "part_key": "bom/recoater/timing-belt-clamp-plate",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Timing belt clamp plate"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/timing-belt-clamp-plate/part",
+            "says": "Timing belt clamp plate",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/timing-belt-clamp-plate",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/timing-belt-clamp-plate/material": {
+        "fact": "BOM:recoater/timing-belt-clamp-plate/material",
+        "field": "material",
+        "part_key": "bom/recoater/timing-belt-clamp-plate",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Aluminium"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/timing-belt-clamp-plate/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/timing-belt-clamp-plate",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-cylinder/part": {
+        "fact": "BOM:build-plate/build-cylinder/part",
+        "field": "part",
+        "part_key": "bom/build-plate/build-cylinder",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Build cylinder"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-cylinder/part",
+            "says": "Build cylinder",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/build-plate/build-cylinder",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-cylinder/material": {
+        "fact": "BOM:build-plate/build-cylinder/material",
+        "field": "material",
+        "part_key": "bom/build-plate/build-cylinder",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Aluminium"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-cylinder/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/build-plate/build-cylinder",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-base/part": {
+        "fact": "BOM:build-plate/build-base/part",
+        "field": "part",
+        "part_key": "bom/build-plate/build-base",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Build base"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-base/part",
+            "says": "Build base",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/build-plate/build-base",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-base/material": {
+        "fact": "BOM:build-plate/build-base/material",
+        "field": "material",
+        "part_key": "bom/build-plate/build-base",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Aluminium"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-base/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/build-plate/build-base",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/motor-plate/part": {
+        "fact": "BOM:build-plate/motor-plate/part",
+        "field": "part",
+        "part_key": "bom/build-plate/motor-plate",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Motor plate"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/motor-plate/part",
+            "says": "Motor plate",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/build-plate/motor-plate",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/motor-plate/material": {
+        "fact": "BOM:build-plate/motor-plate/material",
+        "field": "material",
+        "part_key": "bom/build-plate/motor-plate",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Aluminium"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/motor-plate/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/build-plate/motor-plate",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-cylinder-clamp-ring/part": {
+        "fact": "BOM:build-plate/build-cylinder-clamp-ring/part",
+        "field": "part",
+        "part_key": "bom/build-plate/build-cylinder-clamp-ring",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Build cylinder clamp ring"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-cylinder-clamp-ring/part",
+            "says": "Build cylinder clamp ring",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/build-plate/build-cylinder-clamp-ring",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-cylinder-clamp-ring/material": {
+        "fact": "BOM:build-plate/build-cylinder-clamp-ring/material",
+        "field": "material",
+        "part_key": "bom/build-plate/build-cylinder-clamp-ring",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Aluminium"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-cylinder-clamp-ring/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/build-plate/build-cylinder-clamp-ring",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/heating-element-plate/part": {
+        "fact": "BOM:build-plate/heating-element-plate/part",
+        "field": "part",
+        "part_key": "bom/build-plate/heating-element-plate",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Heating element plate"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/heating-element-plate/part",
+            "says": "Heating element plate",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/build-plate/heating-element-plate",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/heating-element-plate/material": {
+        "fact": "BOM:build-plate/heating-element-plate/material",
+        "field": "material",
+        "part_key": "bom/build-plate/heating-element-plate",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Aluminium"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/heating-element-plate/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/build-plate/heating-element-plate",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/thermocouple-plate/part": {
+        "fact": "BOM:build-plate/thermocouple-plate/part",
+        "field": "part",
+        "part_key": "bom/build-plate/thermocouple-plate",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Thermocouple plate"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/thermocouple-plate/part",
+            "says": "Thermocouple plate",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/build-plate/thermocouple-plate",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/thermocouple-plate/material": {
+        "fact": "BOM:build-plate/thermocouple-plate/material",
+        "field": "material",
+        "part_key": "bom/build-plate/thermocouple-plate",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Aluminium"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/thermocouple-plate/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/build-plate/thermocouple-plate",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/seal-clamp-plate/part": {
+        "fact": "BOM:build-plate/seal-clamp-plate/part",
+        "field": "part",
+        "part_key": "bom/build-plate/seal-clamp-plate",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Seal clamp plate"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/seal-clamp-plate/part",
+            "says": "Seal clamp plate",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/build-plate/seal-clamp-plate",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/seal-clamp-plate/material": {
+        "fact": "BOM:build-plate/seal-clamp-plate/material",
+        "field": "material",
+        "part_key": "bom/build-plate/seal-clamp-plate",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Aluminium"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/seal-clamp-plate/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/build-plate/seal-clamp-plate",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:gas-flow/gas-blower/part": {
+        "fact": "BOM:gas-flow/gas-blower/part",
+        "field": "part",
+        "part_key": "bom/gas-flow/gas-blower",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Gas blower"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:gas-flow/gas-blower/part",
+            "says": "Gas blower",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/gas-flow/gas-blower",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:gas-flow/gas-blower/material": {
+        "fact": "BOM:gas-flow/gas-blower/material",
+        "field": "material",
+        "part_key": "bom/gas-flow/gas-blower",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Materials recorded: Polymer, Steel, Aluminium"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:gas-flow/gas-blower/material",
+            "says": "Polymer,Steel,Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/gas-flow/gas-blower",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/sunny-galvo-adapter-plate/part": {
+        "fact": "BOM:optics/sunny-galvo-adapter-plate/part",
+        "field": "part",
+        "part_key": "bom/optics/sunny-galvo-adapter-plate",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Sunny Galvo Adapter Plate"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/sunny-galvo-adapter-plate/part",
+            "says": "Sunny Galvo Adapter Plate",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/sunny-galvo-adapter-plate",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/sunny-galvo-adapter-plate/material": {
+        "fact": "BOM:optics/sunny-galvo-adapter-plate/material",
+        "field": "material",
+        "part_key": "bom/optics/sunny-galvo-adapter-plate",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Aluminium"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/sunny-galvo-adapter-plate/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/sunny-galvo-adapter-plate",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/galvo-box-bracket/part": {
+        "fact": "BOM:optics/galvo-box-bracket/part",
+        "field": "part",
+        "part_key": "bom/optics/galvo-box-bracket",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Galvo box bracket"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/galvo-box-bracket/part",
+            "says": "Galvo box bracket",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/galvo-box-bracket",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/galvo-box-bracket/material": {
+        "fact": "BOM:optics/galvo-box-bracket/material",
+        "field": "material",
+        "part_key": "bom/optics/galvo-box-bracket",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Aluminium"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/galvo-box-bracket/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/galvo-box-bracket",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:powder/powder-roller/part": {
+        "fact": "BOM:powder/powder-roller/part",
+        "field": "part",
+        "part_key": "bom/powder/powder-roller",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Powder roller"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:powder/powder-roller/part",
+            "says": "Powder roller",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/powder/powder-roller",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:powder/powder-roller/material": {
+        "fact": "BOM:powder/powder-roller/material",
+        "field": "material",
+        "part_key": "bom/powder/powder-roller",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Aluminium"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:powder/powder-roller/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/powder/powder-roller",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:powder/powder-roller-housing/part": {
+        "fact": "BOM:powder/powder-roller-housing/part",
+        "field": "part",
+        "part_key": "bom/powder/powder-roller-housing",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Powder roller housing"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:powder/powder-roller-housing/part",
+            "says": "Powder roller housing",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/powder/powder-roller-housing",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:powder/powder-roller-housing/material": {
+        "fact": "BOM:powder/powder-roller-housing/material",
+        "field": "material",
+        "part_key": "bom/powder/powder-roller-housing",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Aluminium"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:powder/powder-roller-housing/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/powder/powder-roller-housing",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:powder/powder-valve-fitting/part": {
+        "fact": "BOM:powder/powder-valve-fitting/part",
+        "field": "part",
+        "part_key": "bom/powder/powder-valve-fitting",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Powder Valve Fitting"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:powder/powder-valve-fitting/part",
+            "says": "Powder Valve Fitting",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/powder/powder-valve-fitting",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:powder/powder-valve-fitting/material": {
+        "fact": "BOM:powder/powder-valve-fitting/material",
+        "field": "material",
+        "part_key": "bom/powder/powder-valve-fitting",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Aluminium"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:powder/powder-valve-fitting/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/powder/powder-valve-fitting",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:powder/dispenser-drum-coupling/part": {
+        "fact": "BOM:powder/dispenser-drum-coupling/part",
+        "field": "part",
+        "part_key": "bom/powder/dispenser-drum-coupling",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Dispenser drum coupling"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:powder/dispenser-drum-coupling/part",
+            "says": "Dispenser drum coupling",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/powder/dispenser-drum-coupling",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:powder/dispenser-drum-coupling/material": {
+        "fact": "BOM:powder/dispenser-drum-coupling/material",
+        "field": "material",
+        "part_key": "bom/powder/dispenser-drum-coupling",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Aluminium"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:powder/dispenser-drum-coupling/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/powder/dispenser-drum-coupling",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "names/material/6061-alloy -> aluminium": {
+        "fact": "names/material/6061-alloy -> aluminium",
+        "field": "6061-alloy -> aluminium",
+        "part_key": null,
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "kind": "material",
+            "left": "6061 Alloy",
+            "right": "Aluminium",
+            "status": "pending_approval",
+            "approved_relationship": null,
+            "direction": null
+          }
+        },
+        "badge": "Name mapping awaiting review",
+        "review": {
+          "status": "pending_approval"
+        },
+        "sources": [
+          {
+            "name": "names/material/6061-alloy -> aluminium",
+            "says": "Approved mappings alone may resolve different names. Pending or rejected proposals do not establish equivalence.",
+            "method": "mapping_status",
+            "page": 1,
+            "box": null,
+            "part_key": null,
+            "cleanup": [],
+            "note": "Approved mappings alone may resolve different names. Pending or rejected proposals do not establish equivalence.",
+            "badge": "Name mapping awaiting review",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": "names/material/6061-alloy -> aluminium",
+        "correction": null,
+        "callout": null,
+        "derivation": {
+          "operation": "mapping_status",
+          "source_fact_ids": []
+        },
+        "mapping_evidence": "based on general engineering knowledge, not the dataset"
+      },
+      "names/material/3-3315-en-aw-5005 -> aluminium": {
+        "fact": "names/material/3-3315-en-aw-5005 -> aluminium",
+        "field": "3-3315-en-aw-5005 -> aluminium",
+        "part_key": null,
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "kind": "material",
+            "left": "3.3315 (EN-AW 5005)",
+            "right": "Aluminium",
+            "status": "pending_approval",
+            "approved_relationship": null,
+            "direction": null
+          }
+        },
+        "badge": "Name mapping awaiting review",
+        "review": {
+          "status": "pending_approval"
+        },
+        "sources": [
+          {
+            "name": "names/material/3-3315-en-aw-5005 -> aluminium",
+            "says": "Approved mappings alone may resolve different names. Pending or rejected proposals do not establish equivalence.",
+            "method": "mapping_status",
+            "page": 1,
+            "box": null,
+            "part_key": null,
+            "cleanup": [],
+            "note": "Approved mappings alone may resolve different names. Pending or rejected proposals do not establish equivalence.",
+            "badge": "Name mapping awaiting review",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": "names/material/3-3315-en-aw-5005 -> aluminium",
+        "correction": null,
+        "callout": null,
+        "derivation": {
+          "operation": "mapping_status",
+          "source_fact_ids": []
+        },
+        "mapping_evidence": "based on general engineering knowledge, not the dataset"
+      },
+      "names/material/7075-t6-plate-ss -> aluminium": {
+        "fact": "names/material/7075-t6-plate-ss -> aluminium",
+        "field": "7075-t6-plate-ss -> aluminium",
+        "part_key": null,
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "kind": "material",
+            "left": "7075-T6, Plate (SS)",
+            "right": "Aluminium",
+            "status": "pending_approval",
+            "approved_relationship": null,
+            "direction": null
+          }
+        },
+        "badge": "Name mapping awaiting review",
+        "review": {
+          "status": "pending_approval"
+        },
+        "sources": [
+          {
+            "name": "names/material/7075-t6-plate-ss -> aluminium",
+            "says": "Approved mappings alone may resolve different names. Pending or rejected proposals do not establish equivalence.",
+            "method": "mapping_status",
+            "page": 1,
+            "box": null,
+            "part_key": null,
+            "cleanup": [],
+            "note": "Approved mappings alone may resolve different names. Pending or rejected proposals do not establish equivalence.",
+            "badge": "Name mapping awaiting review",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": "names/material/7075-t6-plate-ss -> aluminium",
+        "correction": null,
+        "callout": null,
+        "derivation": {
+          "operation": "mapping_status",
+          "source_fact_ids": []
+        },
+        "mapping_evidence": "based on general engineering knowledge, not the dataset"
+      }
+    },
+    "parts_to_show": [
+      {
+        "id": "D-005/part",
+        "key": "D-005",
+        "display_name": "Window Clamp Frame",
+        "section": "Box",
+        "has_drawing": true,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": "/api/parts/D-005/image?page=1&thumb=1",
+        "drawing_url": "/part/D-005/2d",
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "D-011/part",
+        "key": "D-011",
+        "display_name": "Recoater Arm",
+        "section": "Recoater",
+        "has_drawing": true,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "not_reviewed",
+        "thumbnail": "/api/parts/D-011/image?page=1&thumb=1",
+        "drawing_url": "/part/D-011/2d",
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "D-012/part",
+        "key": "D-012",
+        "display_name": "Recoater Mount Block",
+        "section": "Recoater",
+        "has_drawing": true,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": "/api/parts/D-012/image?page=1&thumb=1",
+        "drawing_url": "/part/D-012/2d",
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "D-014/part",
+        "key": "D-014",
+        "display_name": "Recoater Linear Plate",
+        "section": "Recoater",
+        "has_drawing": true,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": "/api/parts/D-014/image?page=1&thumb=1",
+        "drawing_url": "/part/D-014/2d",
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "D-020/part",
+        "key": "D-020",
+        "display_name": "SealRing",
+        "section": "Optical",
+        "has_drawing": true,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "not_reviewed",
+        "thumbnail": "/api/parts/D-020/image?page=1&thumb=1",
+        "drawing_url": "/part/D-020/2d",
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "BOM:box/front-door/part",
+        "key": "bom/box/front-door",
+        "display_name": "Front Door",
+        "section": "Box",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "BOM:box/print-platform/part",
+        "key": "bom/box/print-platform",
+        "display_name": "Print Platform",
+        "section": "Box",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "BOM:box/back-door/part",
+        "key": "bom/box/back-door",
+        "display_name": "Back Door",
+        "section": "Box",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "BOM:box/2020-internal-profile/part",
+        "key": "bom/box/2020-internal-profile",
+        "display_name": "2020 internal profile",
+        "section": "Box",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "BOM:box/2020-angle-bracket/part",
+        "key": "bom/box/2020-angle-bracket",
+        "display_name": "2020 angle bracket",
+        "section": "Box",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "BOM:recoater/recoater-head/part",
+        "key": "bom/recoater/recoater-head",
+        "display_name": "Recoater head",
+        "section": "Recoater",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "BOM:recoater/recoater-clamp/part",
+        "key": "bom/recoater/recoater-clamp",
+        "display_name": "Recoater Clamp",
+        "section": "Recoater",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "BOM:recoater/timing-pulley-o6-35-t5/part",
+        "key": "bom/recoater/timing-pulley-o6-35-t5",
+        "display_name": "Timing pulley Ø6.35 T5",
+        "section": "Recoater",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "BOM:recoater/timing-belt-idler-o8-t5/part",
+        "key": "bom/recoater/timing-belt-idler-o8-t5",
+        "display_name": "Timing belt idler Ø8 T5",
+        "section": "Recoater",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "BOM:recoater/timing-belt-clamp-plate/part",
+        "key": "bom/recoater/timing-belt-clamp-plate",
+        "display_name": "Timing belt clamp plate",
+        "section": "Recoater",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "BOM:build-plate/build-cylinder/part",
+        "key": "bom/build-plate/build-cylinder",
+        "display_name": "Build cylinder",
+        "section": "Build-plate",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "BOM:build-plate/build-base/part",
+        "key": "bom/build-plate/build-base",
+        "display_name": "Build base",
+        "section": "Build-plate",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "BOM:build-plate/motor-plate/part",
+        "key": "bom/build-plate/motor-plate",
+        "display_name": "Motor plate",
+        "section": "Build-plate",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "BOM:build-plate/build-cylinder-clamp-ring/part",
+        "key": "bom/build-plate/build-cylinder-clamp-ring",
+        "display_name": "Build cylinder clamp ring",
+        "section": "Build-plate",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "BOM:build-plate/heating-element-plate/part",
+        "key": "bom/build-plate/heating-element-plate",
+        "display_name": "Heating element plate",
+        "section": "Build-plate",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "BOM:build-plate/thermocouple-plate/part",
+        "key": "bom/build-plate/thermocouple-plate",
+        "display_name": "Thermocouple plate",
+        "section": "Build-plate",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "BOM:build-plate/seal-clamp-plate/part",
+        "key": "bom/build-plate/seal-clamp-plate",
+        "display_name": "Seal clamp plate",
+        "section": "Build-plate",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "BOM:gas-flow/gas-blower/part",
+        "key": "bom/gas-flow/gas-blower",
+        "display_name": "Gas blower",
+        "section": "Gas flow",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "BOM:optics/sunny-galvo-adapter-plate/part",
+        "key": "bom/optics/sunny-galvo-adapter-plate",
+        "display_name": "Sunny Galvo Adapter Plate",
+        "section": "Optics",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "BOM:optics/galvo-box-bracket/part",
+        "key": "bom/optics/galvo-box-bracket",
+        "display_name": "Galvo box bracket",
+        "section": "Optics",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "BOM:powder/powder-roller/part",
+        "key": "bom/powder/powder-roller",
+        "display_name": "Powder roller",
+        "section": "Powder",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "BOM:powder/powder-roller-housing/part",
+        "key": "bom/powder/powder-roller-housing",
+        "display_name": "Powder roller housing",
+        "section": "Powder",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "BOM:powder/powder-valve-fitting/part",
+        "key": "bom/powder/powder-valve-fitting",
+        "display_name": "Powder Valve Fitting",
+        "section": "Powder",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "BOM:powder/dispenser-drum-coupling/part",
+        "key": "bom/powder/dispenser-drum-coupling",
+        "display_name": "Dispenser drum coupling",
+        "section": "Powder",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      }
+    ],
+    "warnings": [],
+    "session_id": "2218bd8adcbf43129f7687b45af0f9f4",
+    "model": "gpt-6-luna",
+    "usage": {
+      "input_tokens": 19752,
+      "output_tokens": 1293,
+      "total_tokens": 21045
+    },
+    "latency_ms": 9635,
+    "tool_trace": [
+      {
+        "tool": "parts_with_material",
+        "arguments": {
+          "material": "aluminium"
+        },
+        "facts_returned": [
+          "D-005/part",
+          "BOM:box/window-frame/material",
+          "D-005/resolved/material",
+          "D-005/drawing/material",
+          "D-011/part",
+          "BOM:recoater/recoater-arm/material",
+          "D-011/resolved/material",
+          "D-011/drawing/material",
+          "D-012/part",
+          "BOM:recoater/recoater-mount-block/material",
+          "D-012/resolved/material",
+          "D-012/drawing/material",
+          "D-014/part",
+          "BOM:recoater/recoater-stage-plate/material",
+          "D-014/resolved/material",
+          "D-014/drawing/material",
+          "D-020/part",
+          "BOM:optics/f-theta-seal-ring/material",
+          "D-020/resolved/material",
+          "D-020/drawing/material",
+          "BOM:box/front-door/part",
+          "BOM:box/front-door/material",
+          "BOM:box/print-platform/part",
+          "BOM:box/print-platform/material",
+          "BOM:box/back-door/part",
+          "BOM:box/back-door/material",
+          "BOM:box/2020-internal-profile/part",
+          "BOM:box/2020-internal-profile/material",
+          "BOM:box/2020-angle-bracket/part",
+          "BOM:box/2020-angle-bracket/material",
+          "BOM:recoater/recoater-head/part",
+          "BOM:recoater/recoater-head/material",
+          "BOM:recoater/recoater-clamp/part",
+          "BOM:recoater/recoater-clamp/material",
+          "BOM:recoater/timing-pulley-o6-35-t5/part",
+          "BOM:recoater/timing-pulley-o6-35-t5/material",
+          "BOM:recoater/timing-belt-idler-o8-t5/part",
+          "BOM:recoater/timing-belt-idler-o8-t5/material",
+          "BOM:recoater/timing-belt-clamp-plate/part",
+          "BOM:recoater/timing-belt-clamp-plate/material",
+          "BOM:build-plate/build-cylinder/part",
+          "BOM:build-plate/build-cylinder/material",
+          "BOM:build-plate/build-base/part",
+          "BOM:build-plate/build-base/material",
+          "BOM:build-plate/motor-plate/part",
+          "BOM:build-plate/motor-plate/material",
+          "BOM:build-plate/build-cylinder-clamp-ring/part",
+          "BOM:build-plate/build-cylinder-clamp-ring/material",
+          "BOM:build-plate/heating-element-plate/part",
+          "BOM:build-plate/heating-element-plate/material",
+          "BOM:build-plate/thermocouple-plate/part",
+          "BOM:build-plate/thermocouple-plate/material",
+          "BOM:build-plate/seal-clamp-plate/part",
+          "BOM:build-plate/seal-clamp-plate/material",
+          "BOM:gas-flow/gas-blower/part",
+          "BOM:gas-flow/gas-blower/material",
+          "BOM:optics/sunny-galvo-adapter-plate/part",
+          "BOM:optics/sunny-galvo-adapter-plate/material",
+          "BOM:optics/galvo-box-bracket/part",
+          "BOM:optics/galvo-box-bracket/material",
+          "BOM:powder/powder-roller/part",
+          "BOM:powder/powder-roller/material",
+          "BOM:powder/powder-roller-housing/part",
+          "BOM:powder/powder-roller-housing/material",
+          "BOM:powder/powder-valve-fitting/part",
+          "BOM:powder/powder-valve-fitting/material",
+          "BOM:powder/dispenser-drum-coupling/part",
+          "BOM:powder/dispenser-drum-coupling/material",
+          "names/material/6061-alloy -> aluminium",
+          "names/material/3-3315-en-aw-5005 -> aluminium",
+          "names/material/7075-t6-plate-ss -> aluminium"
+        ]
+      }
+    ],
+    "revision": "d1982f4eed58c582"
+  },
+  "wall_latency_ms": 10058
+}

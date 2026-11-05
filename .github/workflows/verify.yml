@@ -79,7 +79,7 @@ jobs:
         run: uv run --locked python -m scripts.frontend_artifact manifest
       - name: Run tests in one process
         run: uv run --locked pytest --junitxml=docs/ci/pytest.xml
-      - name: Generate and roundtrip all six CAD variants
+      - name: Generate and roundtrip every eligible CAD variant
         run: uv run --locked python scripts/ci_verify.py cad
       - name: Install headless browser and Linux dependencies
         run: uv run --locked playwright install --with-deps chromium

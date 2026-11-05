@@ -59,7 +59,9 @@ def cad():
             assert part["waiting"], part
         for variant, model in part["models"].items():
             mesh = trimesh.load(inside(ROOT / "generated" / model["glb"]), force="mesh", process=True)
-            mesh.merge_vertices()
+            # Export duplicates vertices for flat face normals; topology checks
+            # must weld by position rather than preserving normal seams.
+            mesh.merge_vertices(merge_tex=True, merge_norm=True)
             step = inside(ROOT / "generated" / model["step"])
             shape = cq.importers.importStep(str(step)).val()
             bounds_error = max(abs(float(a) * 1000 - b) for a, b in zip(mesh.extents, model["bounds_mm"]["size"]))

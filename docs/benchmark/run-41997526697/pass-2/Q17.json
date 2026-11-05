@@ -1,0 +1,2226 @@
+{
+  "pass": 2,
+  "case_id": "Q17",
+  "question": "Show me the build plate in 3D. Does its model match the drawing?",
+  "server_start_status": {
+    "chat_available": true,
+    "chat_model": "gpt-6-luna",
+    "revision": "d1982f4eed58c582",
+    "parts": 215,
+    "drawings": 30,
+    "models": 3,
+    "reviewer_name": "Automated verification"
+  },
+  "preconditions": [
+    {
+      "name": "actual_model_variants_and_density",
+      "status": "met",
+      "model": {
+        "examples": [
+          "A",
+          "B"
+        ],
+        "models": {
+          "A": {
+            "glb": "models/D-026_A.glb",
+            "step": "models/D-026_A_reconstruction_from_drawing.step",
+            "bounds_mm": {
+              "min": [
+                -125.0,
+                -125.0,
+                0.0
+              ],
+              "max": [
+                125.0,
+                125.0,
+                15.0
+              ],
+              "size": [
+                250.0,
+                250.0,
+                15.0
+              ]
+            },
+            "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
+            "volume_mm3": 736310.7781851079,
+            "template_sha256": "78d5cb69baacd2175aa54d5d54c5a796f4c4f6b58d3290bfc71c4d3197456159",
+            "selections": {
+              "thickness": 15.0
+            },
+            "labels": [],
+            "glb_units": "metres",
+            "cad_units": "mm",
+            "glb_to_mm": 1000,
+            "glb_sha256": "f14f1ac68477a71577fa0ea77cdc497aa90bd78a2543dbe0083dbdddc34cc8a0",
+            "step_sha256": "b7098dad27a37ec6c58fdcd918b6f2da222c3c92b2999b641267dfb5c5c0b183"
+          },
+          "B": {
+            "glb": "models/D-026_B.glb",
+            "step": "models/D-026_B_reconstruction_from_drawing.step",
+            "bounds_mm": {
+              "min": [
+                -125.0,
+                -125.0,
+                0.0
+              ],
+              "max": [
+                125.0,
+                125.0,
+                25.0
+              ],
+              "size": [
+                250.0,
+                250.0,
+                25.0
+              ]
+            },
+            "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
+            "volume_mm3": 1227184.630308513,
+            "template_sha256": "78d5cb69baacd2175aa54d5d54c5a796f4c4f6b58d3290bfc71c4d3197456159",
+            "selections": {
+              "thickness": 25.0
+            },
+            "labels": [],
+            "glb_units": "metres",
+            "cad_units": "mm",
+            "glb_to_mm": 1000,
+            "glb_sha256": "dc255dcc94f80f418383a665c551f4751a7682cf884e9ef71a2b2ba7a4f07d90",
+            "step_sha256": "8834147134ab2633a970b6c56b71260ec66d3564408340228dcb2a119b37c8d1"
+          }
+        },
+        "waiting": [
+          "features_review"
+        ],
+        "omitted": [
+          "Hole and slot details: Waiting for review: unsure"
+        ],
+        "template_sha256": "78d5cb69baacd2175aa54d5d54c5a796f4c4f6b58d3290bfc71c4d3197456159",
+        "source_sha256": "a7ee7f4d75acaf2e8fc67ce14ca223d5cb4a2931063f37f4dfb6fadeeb70256e",
+        "generator_version": "flat-part-10",
+        "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "label": "AI reconstruction. Not reviewed by a person",
+        "units": "mm",
+        "weight_check": {
+          "state": "FAILED",
+          "message": "FAILED weight check: needs manual approval",
+          "examples": {
+            "A": {
+              "attempts": [
+                {
+                  "material": "Stainless steel",
+                  "source": "parts list",
+                  "names": [
+                    "Stainless steel",
+                    "304",
+                    "1.4301",
+                    "X5CrNi18-10"
+                  ],
+                  "density_g_cm3": 7.9,
+                  "source_url": "https://www.outokumpu.com/en/products/product-ranges/-/media/files/products/core/outokumpu-core-range-datasheet.pdf?modified=20251117111909&revision=025e9931-a1d5-4c8f-8ff5-f881d38916da",
+                  "source_title": "Outokumpu Core range datasheet, physical properties, Core 304/4301",
+                  "looked_up": "2026-11-05",
+                  "note": "304 density used as approximate stainless family density when grade is unspecified. Outside source, not the dataset.",
+                  "calculated_g": 5816.8551,
+                  "drawing_g": 7822.5,
+                  "difference_percent": 25.64,
+                  "matches": false,
+                  "outside_source": true
+                },
+                {
+                  "material": "Steel",
+                  "source": "parts list",
+                  "names": [
+                    "Steel",
+                    "Carbon steel",
+                    "Structural steel"
+                  ],
+                  "density_g_cm3": 7.85,
+                  "source_url": "https://www.ssab.com/-/media/files/en/support/certificates/885en-epd-hot-rolled-steel-plates.pdf?m=20200406080301",
+                  "source_title": "SSAB Environmental Product Declaration, Hot Rolled Steel Plates",
+                  "looked_up": "2026-11-05",
+                  "note": "Approximate structural steel family density. Outside source, not the dataset.",
+                  "calculated_g": 5780.0396,
+                  "drawing_g": 7822.5,
+                  "difference_percent": 26.11,
+                  "matches": false,
+                  "outside_source": true
+                }
+              ],
+              "matches": false,
+              "drawing_g": 7822.5
+            },
+            "B": {
+              "attempts": [
+                {
+                  "material": "Stainless steel",
+                  "source": "parts list",
+                  "names": [
+                    "Stainless steel",
+                    "304",
+                    "1.4301",
+                    "X5CrNi18-10"
+                  ],
+                  "density_g_cm3": 7.9,
+                  "source_url": "https://www.outokumpu.com/en/products/product-ranges/-/media/files/products/core/outokumpu-core-range-datasheet.pdf?modified=20251117111909&revision=025e9931-a1d5-4c8f-8ff5-f881d38916da",
+                  "source_title": "Outokumpu Core range datasheet, physical properties, Core 304/4301",
+                  "looked_up": "2026-11-05",
+                  "note": "304 density used as approximate stainless family density when grade is unspecified. Outside source, not the dataset.",
+                  "calculated_g": 9694.7586,
+                  "drawing_g": 7822.5,
+                  "difference_percent": 23.93,
+                  "matches": false,
+                  "outside_source": true
+                },
+                {
+                  "material": "Steel",
+                  "source": "parts list",
+                  "names": [
+                    "Steel",
+                    "Carbon steel",
+                    "Structural steel"
+                  ],
+                  "density_g_cm3": 7.85,
+                  "source_url": "https://www.ssab.com/-/media/files/en/support/certificates/885en-epd-hot-rolled-steel-plates.pdf?m=20200406080301",
+                  "source_title": "SSAB Environmental Product Declaration, Hot Rolled Steel Plates",
+                  "looked_up": "2026-11-05",
+                  "note": "Approximate structural steel family density. Outside source, not the dataset.",
+                  "calculated_g": 9633.3993,
+                  "drawing_g": 7822.5,
+                  "difference_percent": 23.15,
+                  "matches": false,
+                  "outside_source": true
+                }
+              ],
+              "matches": false,
+              "drawing_g": 7822.5
+            }
+          },
+          "drawing_g": 7822.5,
+          "tolerance_percent": 5,
+          "requires_approval": true,
+          "approval_note_required": true,
+          "limitation": "A matching weight does not verify feature positions. No thickness or material is selected automatically.",
+          "density_label": "Outside source, not the dataset"
+        }
+      }
+    }
+  ],
+  "response": {
+    "text": "The Build Plate’s drawing and orbitable 3D model are attached below. [cite: D-026/part]\n\n**The model has not been shown to match the drawing.** Its verification state is **FAILED** and it requires manual approval; it is a reconstruction from the 2D drawing, not the original CAD. [cite: D-026/model/verification]\n\nThe drawing has two possible thickness readings, **15 mm** and **25 mm**; the model examples use 15 mm (A) and 25 mm (B). They are possible readings, not a determination of which is correct. [cite: D-026/template/thickness, D-026/model/verification] The A/B viewer visualizes both possibilities; it does not tell which is right. [cite: D-026/part]\n\nThe drawing weight is **7,822.5 g**. [cite: D-026/drawing/weight_g] Calculated model weights are **5,816.8551 g** (A) and **9,694.7586 g** (B), using approximate density assumptions of **7.9 g/cm³** for stainless steel and **7.85 g/cm³** for steel; those density references are outside the dataset. Neither example passes the weight check. [cite: D-026/model/verification] Hole and slot details are omitted while awaiting review. [cite: D-026/model/verification] AI-sourced only, not yet reviewed; may contain errors. [cite: D-026/model/verification]",
+    "facts": {
+      "D-026/part": {
+        "fact": "D-026/part",
+        "field": "part",
+        "part_key": "D-026",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Build Plate"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-026/part",
+            "says": "Build Plate",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-plate/material": {
+        "fact": "BOM:build-plate/build-plate/material",
+        "field": "material",
+        "part_key": "D-026",
+        "part_keys": [
+          "D-026"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Materials recorded: Stainless steel, Steel"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-026/drawing/material",
+            "says": "AISI 316 Stainless Steel Sheet (SS)",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              745.28,
+              771.048,
+              164.184,
+              14.0
+            ],
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": "Material text overlaps the WEIGHT label; garbled/overprinted source.",
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "BOM:build-plate/build-plate/material",
+            "says": "Stainless steel,Steel",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-026",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-026/drawing/material": {
+        "fact": "D-026/drawing/material",
+        "field": "material",
+        "part_key": "D-026",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Material text overlaps the WEIGHT label; garbled/overprinted source."
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-026/drawing/material",
+            "says": "AISI 316 Stainless Steel Sheet (SS)",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              745.28,
+              771.048,
+              164.184,
+              14.0
+            ],
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": "Material text overlaps the WEIGHT label; garbled/overprinted source.",
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-026/drawing/title": {
+        "fact": "D-026/drawing/title",
+        "field": "title",
+        "part_key": "D-026",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Build Plate"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-026/drawing/title",
+            "says": "Build Plate",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              975.328,
+              710.355,
+              181.0,
+              66.0
+            ],
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-026/drawing/notes": {
+        "fact": "D-026/drawing/notes",
+        "field": "notes",
+        "part_key": "D-026",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Byggeplade, rustfri og alu.\n1-3 stk af hver."
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-026/drawing/notes",
+            "says": "Byggeplade, rustfri og alu.\n1-3 stk af hver.",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              741.526,
+              658.942,
+              231.0,
+              111.0
+            ],
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-026/drawing/company": {
+        "fact": "D-026/drawing/company",
+        "field": "company",
+        "part_key": "D-026",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "DTU MPP"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-026/drawing/company",
+            "says": "DTU MPP",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              975.328,
+              658.942,
+              91.0,
+              48.0
+            ],
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-026/drawing/weight_g": {
+        "fact": "D-026/drawing/weight_g",
+        "field": "weight_g",
+        "part_key": "D-026",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 7822.5
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-026/drawing/weight_g",
+            "says": "7822.5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              880.717,
+              771.048,
+              93.0,
+              14.0
+            ],
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-026/drawing/drawn": {
+        "fact": "D-026/drawing/drawn",
+        "field": "drawn",
+        "part_key": "D-026",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "MBOKJ"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-026/drawing/drawn",
+            "says": "MBOKJ",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              893.294,
+              790.235,
+              78.0,
+              11.0
+            ],
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-026/drawing/date": {
+        "fact": "D-026/drawing/date",
+        "field": "date",
+        "part_key": "D-026",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "13-09-2023"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-026/drawing/date",
+            "says": "13-09-2023",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              897.013,
+              802.562,
+              76.0,
+              11.0
+            ],
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-026/drawing/scale": {
+        "fact": "D-026/drawing/scale",
+        "field": "scale",
+        "part_key": "D-026",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "1:3"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-026/drawing/scale",
+            "says": "1:3",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1082.688,
+              803.564,
+              25.832,
+              7.75
+            ],
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-026/drawing/callout/p1-1": {
+        "fact": "D-026/drawing/callout/p1-1",
+        "field": "p1-1",
+        "part_key": "D-026",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "R105,0"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-026/drawing/callout/p1-1",
+            "says": "R105,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              443.931,
+              270.988,
+              50.916,
+              39.837
+            ],
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": {
+          "feature": "radius",
+          "radius_mm": 105.0
+        }
+      },
+      "D-026/drawing/callout/p1-2": {
+        "fact": "D-026/drawing/callout/p1-2",
+        "field": "p1-2",
+        "part_key": "D-026",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "3 x 5,3 THRU ALL"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-026/drawing/callout/p1-2",
+            "says": "3 x 5,3 THRU ALL",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              472.198,
+              549.465,
+              118.667,
+              18.083
+            ],
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": {
+          "feature": "unclassified_callout",
+          "count": 3,
+          "through": true
+        }
+      },
+      "D-026/drawing/general/units": {
+        "fact": "D-026/drawing/general/units",
+        "field": "units",
+        "part_key": "D-026",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "DIMENSIONS ARE IN MILLIMETERS"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-026/drawing/general/units",
+            "says": "DIMENSIONS ARE IN MILLIMETERS",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              978.968,
+              784.149,
+              85.555,
+              7.75
+            ],
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": {
+          "feature": "general_note"
+        }
+      },
+      "D-026/drawing/general/general_tolerance": {
+        "fact": "D-026/drawing/general/general_tolerance",
+        "field": "general_tolerance",
+        "part_key": "D-026",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "DIN ISO 2768-1 m"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-026/drawing/general/general_tolerance",
+            "says": "DIN ISO 2768-1 m",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1016.541,
+              790.957,
+              47.749,
+              8.202
+            ],
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": {
+          "feature": "general_note"
+        }
+      },
+      "D-026/drawing/general/edge_finish": {
+        "fact": "D-026/drawing/general/edge_finish",
+        "field": "edge_finish",
+        "part_key": "D-026",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "DEBURR AND BREAK SHARP EDGES"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-026/drawing/general/edge_finish",
+            "says": "DEBURR AND BREAK SHARP EDGES",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1078.776,
+              781.582,
+              52.887,
+              14.837
+            ],
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": {
+          "feature": "general_note"
+        }
+      },
+      "BOM:build-plate/build-plate/name": {
+        "fact": "BOM:build-plate/build-plate/name",
+        "field": "name",
+        "part_key": "D-026",
+        "part_keys": [
+          "D-026"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Build Plate"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-plate/name",
+            "says": "Build Plate",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-plate/part_family": {
+        "fact": "BOM:build-plate/build-plate/part_family",
+        "field": "part_family",
+        "part_key": "D-026",
+        "part_keys": [
+          "D-026"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Build-plate"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-plate/part_family",
+            "says": "Build-plate",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-plate/type": {
+        "fact": "BOM:build-plate/build-plate/type",
+        "field": "type",
+        "part_key": "D-026",
+        "part_keys": [
+          "D-026"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Custom"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-plate/type",
+            "says": "Custom",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-plate/design": {
+        "fact": "BOM:build-plate/build-plate/design",
+        "field": "design",
+        "part_key": "D-026",
+        "part_keys": [
+          "D-026"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Done"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-plate/design",
+            "says": "Done",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-plate/order": {
+        "fact": "BOM:build-plate/build-plate/order",
+        "field": "order",
+        "part_key": "D-026",
+        "part_keys": [
+          "D-026"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Received"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-plate/order",
+            "says": "Recieved",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-026",
+            "cleanup": [
+              "status_spelling_Recieved_to_Received"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-plate/validation": {
+        "fact": "BOM:build-plate/build-plate/validation",
+        "field": "validation",
+        "part_key": "D-026",
+        "part_keys": [
+          "D-026"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Good"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-plate/validation",
+            "says": "Good",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-plate/notes": {
+        "fact": "BOM:build-plate/build-plate/notes",
+        "field": "notes",
+        "part_key": "D-026",
+        "part_keys": [
+          "D-026"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. "
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-plate/notes",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-026",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-plate/design_intent": {
+        "fact": "BOM:build-plate/build-plate/design_intent",
+        "field": "design_intent",
+        "part_key": "D-026",
+        "part_keys": [
+          "D-026"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Flat, cheap and compatible with powder material"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-plate/design_intent",
+            "says": "Flat, cheap and compatible with powder material",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-plate/image": {
+        "fact": "BOM:build-plate/build-plate/image",
+        "field": "image",
+        "part_key": "D-026",
+        "part_keys": [
+          "D-026"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-plate/image",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-026",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-plate/product_name": {
+        "fact": "BOM:build-plate/build-plate/product_name",
+        "field": "product_name",
+        "part_key": "D-026",
+        "part_keys": [
+          "D-026"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-plate/product_name",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-026",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-plate/supplier_order": {
+        "fact": "BOM:build-plate/build-plate/supplier_order",
+        "field": "supplier_order",
+        "part_key": "D-026",
+        "part_keys": [
+          "D-026"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-plate/supplier_order",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-026",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-plate/interface_with": {
+        "fact": "BOM:build-plate/build-plate/interface_with",
+        "field": "interface_with",
+        "part_key": "D-026",
+        "part_keys": [
+          "D-026"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. "
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-plate/interface_with",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-026",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-plate/link": {
+        "fact": "BOM:build-plate/build-plate/link",
+        "field": "link",
+        "part_key": "D-026",
+        "part_keys": [
+          "D-026"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-plate/link",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-026",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-plate/supplier": {
+        "fact": "BOM:build-plate/build-plate/supplier",
+        "field": "supplier",
+        "part_key": "D-026",
+        "part_keys": [
+          "D-026"
+        ],
+        "display": {
+          "state": "value",
+          "value": "DTU"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-plate/supplier",
+            "says": "DTU",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-plate/datasheet": {
+        "fact": "BOM:build-plate/build-plate/datasheet",
+        "field": "datasheet",
+        "part_key": "D-026",
+        "part_keys": [
+          "D-026"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-plate/datasheet",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-026",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-plate/amount": {
+        "fact": "BOM:build-plate/build-plate/amount",
+        "field": "amount",
+        "part_key": "D-026",
+        "part_keys": [
+          "D-026"
+        ],
+        "display": {
+          "state": "value",
+          "value": 10
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-plate/amount",
+            "says": "10",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-026",
+            "cleanup": [
+              "parse_number"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-plate/cost": {
+        "fact": "BOM:build-plate/build-plate/cost",
+        "field": "cost",
+        "part_key": "D-026",
+        "part_keys": [
+          "D-026"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-plate/cost",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-026",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-plate/total_cost": {
+        "fact": "BOM:build-plate/build-plate/total_cost",
+        "field": "total_cost",
+        "part_key": "D-026",
+        "part_keys": [
+          "D-026"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: 'DKK0.00'. Cleanup: parse_dkk_price, zero_total_with_blank_cost_or_amount_to_not_recorded. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-plate/total_cost",
+            "says": "DKK0.00",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-026",
+            "cleanup": [
+              "parse_dkk_price",
+              "zero_total_with_blank_cost_or_amount_to_not_recorded"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-plate/interface_count": {
+        "fact": "BOM:build-plate/build-plate/interface_count",
+        "field": "interface_count",
+        "part_key": "D-026",
+        "part_keys": [
+          "D-026"
+        ],
+        "display": {
+          "state": "value",
+          "value": 0
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-plate/interface_count",
+            "says": "0",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-026",
+            "cleanup": [
+              "parse_number"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-026/template/outline": {
+        "fact": "D-026/template/outline",
+        "field": "outline",
+        "part_key": "D-026",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "circle"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-026/template/outline",
+            "says": null,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-026/template/outline/outer_diameter": {
+        "fact": "D-026/template/outline/outer_diameter",
+        "field": "outer_diameter",
+        "part_key": "D-026",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 250.0
+        },
+        "badge": "AI interpretation, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-026/template/outline/outer_diameter",
+            "says": 250.0,
+            "method": "ai_agreed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": "The leader on the outer circle reads Ø250,0.",
+            "badge": "AI interpretation, not reviewed",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-026/drawing/n/250.0@1-1",
+            "says": "250,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              458.306,
+              217.394,
+              36.113,
+              36.113
+            ],
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-026/drawing/n/250.0@1-1": {
+        "fact": "D-026/drawing/n/250.0@1-1",
+        "field": "250.0@1-1",
+        "part_key": "D-026",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 250.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-026/drawing/n/250.0@1-1",
+            "says": "250,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              458.306,
+              217.394,
+              36.113,
+              36.113
+            ],
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-026/template/thickness": {
+        "fact": "D-026/template/thickness",
+        "field": "thickness",
+        "part_key": "D-026",
+        "part_keys": [],
+        "display": {
+          "state": "options",
+          "values": [
+            15.0,
+            25.0
+          ]
+        },
+        "badge": "AI interpretation, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-026/template/thickness",
+            "says": null,
+            "method": "ai_agreed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": "The side view has stacked thickness values 25,0 and 15,0 on the same dimension. The note 'Byggeplade, rustfri og alu' points to variants, so these are alternatives.",
+            "badge": "AI interpretation, not reviewed",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-026/drawing/n/15.0@1-1",
+            "says": "15,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              224.647,
+              218.825,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-026/drawing/n/25.0@1-1",
+            "says": "25,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              224.647,
+              205.994,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-026/drawing/n/15.0@1-1": {
+        "fact": "D-026/drawing/n/15.0@1-1",
+        "field": "15.0@1-1",
+        "part_key": "D-026",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 15.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-026/drawing/n/15.0@1-1",
+            "says": "15,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              224.647,
+              218.825,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-026/drawing/n/25.0@1-1": {
+        "fact": "D-026/drawing/n/25.0@1-1",
+        "field": "25.0@1-1",
+        "part_key": "D-026",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 25.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-026/drawing/n/25.0@1-1",
+            "says": "25,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              224.647,
+              205.994,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-026/template/features_review": {
+        "fact": "D-026/template/features_review",
+        "field": "features_review",
+        "part_key": "D-026",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Waiting for review: unsure"
+        },
+        "badge": "AI interpretation, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-026/template/features_review",
+            "says": null,
+            "method": "ai_unsure",
+            "page": 1,
+            "box": null,
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": "Waiting for review: unsure",
+            "badge": "AI interpretation, not reviewed",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": "D-026/template/features_review",
+        "correction": null,
+        "callout": null
+      },
+      "D-026/link": {
+        "fact": "D-026/link",
+        "field": "link",
+        "part_key": "D-026",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": [
+            "BOM:build-plate/build-plate"
+          ]
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-026/link",
+            "says": [
+              "BOM:build-plate/build-plate"
+            ],
+            "method": "exact_match",
+            "page": 1,
+            "box": null,
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-026/model/verification": {
+        "fact": "D-026/model/verification",
+        "field": "verification",
+        "part_key": "D-026",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "weight_check": {
+              "state": "FAILED",
+              "message": "FAILED weight check: needs manual approval",
+              "examples": {
+                "A": {
+                  "attempts": [
+                    {
+                      "material": "Stainless steel",
+                      "source": "parts list",
+                      "names": [
+                        "Stainless steel",
+                        "304",
+                        "1.4301",
+                        "X5CrNi18-10"
+                      ],
+                      "density_g_cm3": 7.9,
+                      "source_url": "https://www.outokumpu.com/en/products/product-ranges/-/media/files/products/core/outokumpu-core-range-datasheet.pdf?modified=20251117111909&revision=025e9931-a1d5-4c8f-8ff5-f881d38916da",
+                      "source_title": "Outokumpu Core range datasheet, physical properties, Core 304/4301",
+                      "looked_up": "2026-11-05",
+                      "note": "304 density used as approximate stainless family density when grade is unspecified. Outside source, not the dataset.",
+                      "calculated_g": 5816.8551,
+                      "drawing_g": 7822.5,
+                      "difference_percent": 25.64,
+                      "matches": false,
+                      "outside_source": true
+                    },
+                    {
+                      "material": "Steel",
+                      "source": "parts list",
+                      "names": [
+                        "Steel",
+                        "Carbon steel",
+                        "Structural steel"
+                      ],
+                      "density_g_cm3": 7.85,
+                      "source_url": "https://www.ssab.com/-/media/files/en/support/certificates/885en-epd-hot-rolled-steel-plates.pdf?m=20200406080301",
+                      "source_title": "SSAB Environmental Product Declaration, Hot Rolled Steel Plates",
+                      "looked_up": "2026-11-05",
+                      "note": "Approximate structural steel family density. Outside source, not the dataset.",
+                      "calculated_g": 5780.0396,
+                      "drawing_g": 7822.5,
+                      "difference_percent": 26.11,
+                      "matches": false,
+                      "outside_source": true
+                    }
+                  ],
+                  "matches": false,
+                  "drawing_g": 7822.5
+                },
+                "B": {
+                  "attempts": [
+                    {
+                      "material": "Stainless steel",
+                      "source": "parts list",
+                      "names": [
+                        "Stainless steel",
+                        "304",
+                        "1.4301",
+                        "X5CrNi18-10"
+                      ],
+                      "density_g_cm3": 7.9,
+                      "source_url": "https://www.outokumpu.com/en/products/product-ranges/-/media/files/products/core/outokumpu-core-range-datasheet.pdf?modified=20251117111909&revision=025e9931-a1d5-4c8f-8ff5-f881d38916da",
+                      "source_title": "Outokumpu Core range datasheet, physical properties, Core 304/4301",
+                      "looked_up": "2026-11-05",
+                      "note": "304 density used as approximate stainless family density when grade is unspecified. Outside source, not the dataset.",
+                      "calculated_g": 9694.7586,
+                      "drawing_g": 7822.5,
+                      "difference_percent": 23.93,
+                      "matches": false,
+                      "outside_source": true
+                    },
+                    {
+                      "material": "Steel",
+                      "source": "parts list",
+                      "names": [
+                        "Steel",
+                        "Carbon steel",
+                        "Structural steel"
+                      ],
+                      "density_g_cm3": 7.85,
+                      "source_url": "https://www.ssab.com/-/media/files/en/support/certificates/885en-epd-hot-rolled-steel-plates.pdf?m=20200406080301",
+                      "source_title": "SSAB Environmental Product Declaration, Hot Rolled Steel Plates",
+                      "looked_up": "2026-11-05",
+                      "note": "Approximate structural steel family density. Outside source, not the dataset.",
+                      "calculated_g": 9633.3993,
+                      "drawing_g": 7822.5,
+                      "difference_percent": 23.15,
+                      "matches": false,
+                      "outside_source": true
+                    }
+                  ],
+                  "matches": false,
+                  "drawing_g": 7822.5
+                }
+              },
+              "drawing_g": 7822.5,
+              "tolerance_percent": 5,
+              "requires_approval": true,
+              "approval_note_required": true,
+              "limitation": "A matching weight does not verify feature positions. No thickness or material is selected automatically.",
+              "density_label": "Outside source, not the dataset"
+            },
+            "omitted": [
+              "Hole and slot details: Waiting for review: unsure"
+            ],
+            "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
+            "review": {
+              "status": "not_reviewed"
+            },
+            "examples": {
+              "A": {
+                "selections": {
+                  "thickness": 15.0
+                },
+                "volume_mm3": 736310.7781851079
+              },
+              "B": {
+                "selections": {
+                  "thickness": 25.0
+                },
+                "volume_mm3": 1227184.630308513
+              }
+            }
+          }
+        },
+        "badge": "Computed from recorded source facts",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-026/model/verification",
+            "says": "Computed model verification, not a design approval. Density references are outside sources, not the dataset. Failed checks need manual review; possible readings are never selected by weight.",
+            "method": "computed_summary",
+            "page": 1,
+            "box": null,
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": "Computed model verification, not a design approval. Density references are outside sources, not the dataset. Failed checks need manual review; possible readings are never selected by weight.",
+            "badge": "Computed from recorded source facts",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-026/drawing/weight_g",
+            "says": "7822.5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              880.717,
+              771.048,
+              93.0,
+              14.0
+            ],
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-026/template/thickness",
+            "says": null,
+            "method": "ai_agreed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": "The side view has stacked thickness values 25,0 and 15,0 on the same dimension. The note 'Byggeplade, rustfri og alu' points to variants, so these are alternatives.",
+            "badge": "AI interpretation, not reviewed",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-026/drawing/n/105.0@1-1": {
+        "fact": "D-026/drawing/n/105.0@1-1",
+        "field": "105.0@1-1",
+        "part_key": "D-026",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 105.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-026/drawing/n/105.0@1-1",
+            "says": "R105,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              447.106,
+              272.821,
+              44.567,
+              36.171
+            ],
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-026/drawing/n/3.0@1-1": {
+        "fact": "D-026/drawing/n/3.0@1-1",
+        "field": "3.0@1-1",
+        "part_key": "D-026",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 3.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-026/drawing/n/3.0@1-1",
+            "says": "3",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              472.198,
+              549.465,
+              7.331,
+              18.083
+            ],
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-026/drawing/n/5.3@1-1": {
+        "fact": "D-026/drawing/n/5.3@1-1",
+        "field": "5.3@1-1",
+        "part_key": "D-026",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 5.3
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-026/drawing/n/5.3@1-1",
+            "says": "5,3",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              511.838,
+              549.465,
+              18.321,
+              18.083
+            ],
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-026/drawing/n/10.0@1-1": {
+        "fact": "D-026/drawing/n/10.0@1-1",
+        "field": "10.0@1-1",
+        "part_key": "D-026",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 10.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-026/drawing/n/10.0@1-1",
+            "says": "10,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              517.823,
+              565.367,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-026/drawing/n/15.4@1-1": {
+        "fact": "D-026/drawing/n/15.4@1-1",
+        "field": "15.4@1-1",
+        "part_key": "D-026",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 15.4
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-026/drawing/n/15.4@1-1",
+            "says": "15,4",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              564.986,
+              565.367,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-026",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      }
+    },
+    "parts_to_show": [
+      {
+        "id": "D-026/part",
+        "key": "D-026",
+        "display_name": "Build Plate",
+        "section": "Z-axis",
+        "has_drawing": true,
+        "has_3d": true,
+        "examples": [
+          "A",
+          "B"
+        ],
+        "review_status": "not_reviewed",
+        "thumbnail": "/api/parts/D-026/image?page=1&thumb=1",
+        "drawing_url": "/part/D-026/2d",
+        "model_url": "/part/D-026/3d",
+        "shown_reason": null
+      }
+    ],
+    "warnings": [],
+    "session_id": "9074d8b5bfa54c35b9f3fbbd35dec7d5",
+    "model": "gpt-6-luna",
+    "usage": {
+      "input_tokens": 14054,
+      "output_tokens": 366,
+      "total_tokens": 14420
+    },
+    "latency_ms": 5259,
+    "tool_trace": [
+      {
+        "tool": "find_part",
+        "arguments": {
+          "text": "build plate"
+        },
+        "facts_returned": [
+          "D-026/part"
+        ]
+      },
+      {
+        "tool": "get_facts",
+        "arguments": {
+          "part_id": "D-026/part"
+        },
+        "facts_returned": [
+          "D-026/part",
+          "BOM:build-plate/build-plate/material",
+          "D-026/drawing/material",
+          "D-026/drawing/title",
+          "D-026/drawing/notes",
+          "D-026/drawing/company",
+          "D-026/drawing/weight_g",
+          "D-026/drawing/drawn",
+          "D-026/drawing/date",
+          "D-026/drawing/scale",
+          "D-026/drawing/callout/p1-1",
+          "D-026/drawing/callout/p1-2",
+          "D-026/drawing/general/units",
+          "D-026/drawing/general/general_tolerance",
+          "D-026/drawing/general/edge_finish",
+          "BOM:build-plate/build-plate/name",
+          "BOM:build-plate/build-plate/part_family",
+          "BOM:build-plate/build-plate/type",
+          "BOM:build-plate/build-plate/design",
+          "BOM:build-plate/build-plate/order",
+          "BOM:build-plate/build-plate/validation",
+          "BOM:build-plate/build-plate/notes",
+          "BOM:build-plate/build-plate/design_intent",
+          "BOM:build-plate/build-plate/image",
+          "BOM:build-plate/build-plate/product_name",
+          "BOM:build-plate/build-plate/supplier_order",
+          "BOM:build-plate/build-plate/interface_with",
+          "BOM:build-plate/build-plate/link",
+          "BOM:build-plate/build-plate/supplier",
+          "BOM:build-plate/build-plate/datasheet",
+          "BOM:build-plate/build-plate/amount",
+          "BOM:build-plate/build-plate/cost",
+          "BOM:build-plate/build-plate/total_cost",
+          "BOM:build-plate/build-plate/interface_count",
+          "D-026/template/outline",
+          "D-026/template/outline/outer_diameter",
+          "D-026/drawing/n/250.0@1-1",
+          "D-026/template/thickness",
+          "D-026/drawing/n/15.0@1-1",
+          "D-026/drawing/n/25.0@1-1",
+          "D-026/template/features_review",
+          "D-026/link",
+          "D-026/model/verification",
+          "D-026/drawing/n/105.0@1-1",
+          "D-026/drawing/n/3.0@1-1",
+          "D-026/drawing/n/5.3@1-1",
+          "D-026/drawing/n/10.0@1-1",
+          "D-026/drawing/n/15.4@1-1"
+        ]
+      }
+    ],
+    "revision": "b6b7c59644871a7b"
+  },
+  "wall_latency_ms": 5305
+}

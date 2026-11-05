@@ -1,0 +1,1173 @@
+{
+  "pass": 1,
+  "case_id": "Q09",
+  "question": "Which parts are EN-AW 5005?",
+  "server_start_status": {
+    "chat_available": true,
+    "chat_model": "gpt-6-luna",
+    "revision": "d1982f4eed58c582",
+    "parts": 215,
+    "drawings": 30,
+    "models": 3,
+    "reviewer_name": "Automated verification"
+  },
+  "preconditions": [],
+  "response": {
+    "text": "The drawings record EN-AW 5005 for **6 parts**:\n\n- Recoater Mount Block (D-012) [cite: D-012/part, D-012/drawing/material]\n- Recoater Plate (D-013) [cite: D-013/part, D-013/drawing/material]\n- Recoater Linear Plate (D-014) [cite: D-014/part, D-014/drawing/material]\n- ByggeBase (D-024) [cite: D-024/part, D-024/drawing/material]\n- Bygge Base Ring (D-025) [cite: D-025/part, D-025/drawing/material]\n- Varmeelement Plade (D-028) [cite: D-028/part, D-028/drawing/material]\n\nFor D-012 and D-014, whether the drawing grade and the parts-list material “Aluminium” correspond is [undetermined: D-012/resolved/material, D-014/resolved/material]; those names have not been mapped. The proposed mapping is pending review, not approved. [cite: names/material/3-3315-en-aw-5005 -> aluminium]",
+    "facts": {
+      "D-012/part": {
+        "fact": "D-012/part",
+        "field": "part",
+        "part_key": "D-012",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Recoater Mount Block"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-012/part",
+            "says": "Recoater Mount Block",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-012",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-012/drawing/material": {
+        "fact": "D-012/drawing/material",
+        "field": "material",
+        "part_key": "D-012",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "3.3315 (EN-AW 5005)"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-012/drawing/material",
+            "says": "3.3315 (EN-AW 5005)",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              745.28,
+              771.048,
+              135.0,
+              14.0
+            ],
+            "part_key": "D-012",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-012/drawing/material/grade-token/enaw5005": {
+        "fact": "D-012/drawing/material/grade-token/enaw5005",
+        "field": "enaw5005",
+        "part_key": null,
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "query": "EN-AW 5005",
+            "recorded_material": "3.3315 (EN-AW 5005)",
+            "rule": "Exact printed numeric alloy-grade token; a printed temper suffix may be omitted. This does not establish a general material family."
+          }
+        },
+        "badge": "Computed from recorded source facts",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-012/drawing/material/grade-token/enaw5005",
+            "says": "",
+            "method": "computed_summary",
+            "page": 1,
+            "box": null,
+            "part_key": null,
+            "cleanup": [],
+            "note": "",
+            "badge": "Computed from recorded source facts",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-012/drawing/material",
+            "says": "3.3315 (EN-AW 5005)",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              745.28,
+              771.048,
+              135.0,
+              14.0
+            ],
+            "part_key": "D-012",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null,
+        "derivation": {
+          "operation": "computed_summary",
+          "source_fact_ids": [
+            "D-012/drawing/material"
+          ]
+        }
+      },
+      "D-012/resolved/material": {
+        "fact": "D-012/resolved/material",
+        "field": "material",
+        "part_key": "D-012",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Drawing: 3.3315 (EN-AW 5005). Parts list: Aluminium. These names haven't been mapped yet."
+        },
+        "badge": "Unresolved evidence",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-012/resolved/material",
+            "says": "Drawing: 3.3315 (EN-AW 5005). Parts list: Aluminium. These names haven't been mapped yet.",
+            "method": "unresolved",
+            "page": 1,
+            "box": null,
+            "part_key": "D-012",
+            "cleanup": [],
+            "note": "Drawing: 3.3315 (EN-AW 5005). Parts list: Aluminium. These names haven't been mapped yet.",
+            "badge": "Unresolved evidence",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-012/drawing/material",
+            "says": "3.3315 (EN-AW 5005)",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              745.28,
+              771.048,
+              135.0,
+              14.0
+            ],
+            "part_key": "D-012",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "BOM:recoater/recoater-mount-block/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-012",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": "names/material/3-3315-en-aw-5005 -> aluminium",
+        "correction": null,
+        "callout": null,
+        "derivation": {
+          "operation": "unresolved",
+          "source_fact_ids": [
+            "D-012/drawing/material",
+            "BOM:recoater/recoater-mount-block/material"
+          ]
+        }
+      },
+      "BOM:recoater/recoater-mount-block/material": {
+        "fact": "BOM:recoater/recoater-mount-block/material",
+        "field": "material",
+        "part_key": "D-012",
+        "part_keys": [
+          "D-012"
+        ],
+        "display": {
+          "state": "value",
+          "value": [
+            "Aluminium"
+          ]
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-mount-block/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-012",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/part": {
+        "fact": "D-013/part",
+        "field": "part",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Recoater Plate"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/part",
+            "says": "Recoater Plate",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/material": {
+        "fact": "D-013/drawing/material",
+        "field": "material",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "3.3315 (EN-AW 5005)"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/material",
+            "says": "3.3315 (EN-AW 5005)",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              745.28,
+              771.048,
+              135.0,
+              14.0
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/material/grade-token/enaw5005": {
+        "fact": "D-013/drawing/material/grade-token/enaw5005",
+        "field": "enaw5005",
+        "part_key": null,
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "query": "EN-AW 5005",
+            "recorded_material": "3.3315 (EN-AW 5005)",
+            "rule": "Exact printed numeric alloy-grade token; a printed temper suffix may be omitted. This does not establish a general material family."
+          }
+        },
+        "badge": "Computed from recorded source facts",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/material/grade-token/enaw5005",
+            "says": "",
+            "method": "computed_summary",
+            "page": 1,
+            "box": null,
+            "part_key": null,
+            "cleanup": [],
+            "note": "",
+            "badge": "Computed from recorded source facts",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/material",
+            "says": "3.3315 (EN-AW 5005)",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              745.28,
+              771.048,
+              135.0,
+              14.0
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null,
+        "derivation": {
+          "operation": "computed_summary",
+          "source_fact_ids": [
+            "D-013/drawing/material"
+          ]
+        }
+      },
+      "D-014/part": {
+        "fact": "D-014/part",
+        "field": "part",
+        "part_key": "D-014",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Recoater Linear Plate"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-014/part",
+            "says": "Recoater Linear Plate",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-014",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-014/drawing/material": {
+        "fact": "D-014/drawing/material",
+        "field": "material",
+        "part_key": "D-014",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "3.3315 (EN-AW 5005)"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-014/drawing/material",
+            "says": "3.3315 (EN-AW 5005)",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              745.28,
+              771.048,
+              135.0,
+              14.0
+            ],
+            "part_key": "D-014",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-014/drawing/material/grade-token/enaw5005": {
+        "fact": "D-014/drawing/material/grade-token/enaw5005",
+        "field": "enaw5005",
+        "part_key": null,
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "query": "EN-AW 5005",
+            "recorded_material": "3.3315 (EN-AW 5005)",
+            "rule": "Exact printed numeric alloy-grade token; a printed temper suffix may be omitted. This does not establish a general material family."
+          }
+        },
+        "badge": "Computed from recorded source facts",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-014/drawing/material/grade-token/enaw5005",
+            "says": "",
+            "method": "computed_summary",
+            "page": 1,
+            "box": null,
+            "part_key": null,
+            "cleanup": [],
+            "note": "",
+            "badge": "Computed from recorded source facts",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-014/drawing/material",
+            "says": "3.3315 (EN-AW 5005)",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              745.28,
+              771.048,
+              135.0,
+              14.0
+            ],
+            "part_key": "D-014",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null,
+        "derivation": {
+          "operation": "computed_summary",
+          "source_fact_ids": [
+            "D-014/drawing/material"
+          ]
+        }
+      },
+      "D-014/resolved/material": {
+        "fact": "D-014/resolved/material",
+        "field": "material",
+        "part_key": "D-014",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Drawing: 3.3315 (EN-AW 5005). Parts list: Aluminium. These names haven't been mapped yet."
+        },
+        "badge": "Unresolved evidence",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-014/resolved/material",
+            "says": "Drawing: 3.3315 (EN-AW 5005). Parts list: Aluminium. These names haven't been mapped yet.",
+            "method": "unresolved",
+            "page": 1,
+            "box": null,
+            "part_key": "D-014",
+            "cleanup": [],
+            "note": "Drawing: 3.3315 (EN-AW 5005). Parts list: Aluminium. These names haven't been mapped yet.",
+            "badge": "Unresolved evidence",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-014/drawing/material",
+            "says": "3.3315 (EN-AW 5005)",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              745.28,
+              771.048,
+              135.0,
+              14.0
+            ],
+            "part_key": "D-014",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "BOM:recoater/recoater-stage-plate/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-014",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": "names/material/3-3315-en-aw-5005 -> aluminium",
+        "correction": null,
+        "callout": null,
+        "derivation": {
+          "operation": "unresolved",
+          "source_fact_ids": [
+            "D-014/drawing/material",
+            "BOM:recoater/recoater-stage-plate/material"
+          ]
+        }
+      },
+      "BOM:recoater/recoater-stage-plate/material": {
+        "fact": "BOM:recoater/recoater-stage-plate/material",
+        "field": "material",
+        "part_key": "D-014",
+        "part_keys": [
+          "D-014"
+        ],
+        "display": {
+          "state": "value",
+          "value": [
+            "Aluminium"
+          ]
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-stage-plate/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-014",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-024/part": {
+        "fact": "D-024/part",
+        "field": "part",
+        "part_key": "D-024",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "ByggeBase"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-024/part",
+            "says": "ByggeBase",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-024",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-024/drawing/material": {
+        "fact": "D-024/drawing/material",
+        "field": "material",
+        "part_key": "D-024",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "3.3315 (EN-AW 5005)"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-024/drawing/material",
+            "says": "3.3315 (EN-AW 5005)",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              745.28,
+              771.048,
+              135.0,
+              14.0
+            ],
+            "part_key": "D-024",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-024/drawing/material/grade-token/enaw5005": {
+        "fact": "D-024/drawing/material/grade-token/enaw5005",
+        "field": "enaw5005",
+        "part_key": null,
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "query": "EN-AW 5005",
+            "recorded_material": "3.3315 (EN-AW 5005)",
+            "rule": "Exact printed numeric alloy-grade token; a printed temper suffix may be omitted. This does not establish a general material family."
+          }
+        },
+        "badge": "Computed from recorded source facts",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-024/drawing/material/grade-token/enaw5005",
+            "says": "",
+            "method": "computed_summary",
+            "page": 1,
+            "box": null,
+            "part_key": null,
+            "cleanup": [],
+            "note": "",
+            "badge": "Computed from recorded source facts",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-024/drawing/material",
+            "says": "3.3315 (EN-AW 5005)",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              745.28,
+              771.048,
+              135.0,
+              14.0
+            ],
+            "part_key": "D-024",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null,
+        "derivation": {
+          "operation": "computed_summary",
+          "source_fact_ids": [
+            "D-024/drawing/material"
+          ]
+        }
+      },
+      "D-025/part": {
+        "fact": "D-025/part",
+        "field": "part",
+        "part_key": "D-025",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Bygge Base Ring"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-025/part",
+            "says": "Bygge Base Ring",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-025",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-025/drawing/material": {
+        "fact": "D-025/drawing/material",
+        "field": "material",
+        "part_key": "D-025",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "3.3315 (EN-AW 5005)"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-025/drawing/material",
+            "says": "3.3315 (EN-AW 5005)",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              745.28,
+              771.048,
+              135.0,
+              14.0
+            ],
+            "part_key": "D-025",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-025/drawing/material/grade-token/enaw5005": {
+        "fact": "D-025/drawing/material/grade-token/enaw5005",
+        "field": "enaw5005",
+        "part_key": null,
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "query": "EN-AW 5005",
+            "recorded_material": "3.3315 (EN-AW 5005)",
+            "rule": "Exact printed numeric alloy-grade token; a printed temper suffix may be omitted. This does not establish a general material family."
+          }
+        },
+        "badge": "Computed from recorded source facts",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-025/drawing/material/grade-token/enaw5005",
+            "says": "",
+            "method": "computed_summary",
+            "page": 1,
+            "box": null,
+            "part_key": null,
+            "cleanup": [],
+            "note": "",
+            "badge": "Computed from recorded source facts",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-025/drawing/material",
+            "says": "3.3315 (EN-AW 5005)",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              745.28,
+              771.048,
+              135.0,
+              14.0
+            ],
+            "part_key": "D-025",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null,
+        "derivation": {
+          "operation": "computed_summary",
+          "source_fact_ids": [
+            "D-025/drawing/material"
+          ]
+        }
+      },
+      "D-028/part": {
+        "fact": "D-028/part",
+        "field": "part",
+        "part_key": "D-028",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Varmeelement Plade"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-028/part",
+            "says": "Varmeelement Plade",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-028",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-028/drawing/material": {
+        "fact": "D-028/drawing/material",
+        "field": "material",
+        "part_key": "D-028",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "3.3315 (EN-AW 5005)"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-028/drawing/material",
+            "says": "3.3315 (EN-AW 5005)",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              745.28,
+              771.048,
+              135.0,
+              14.0
+            ],
+            "part_key": "D-028",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-028/drawing/material/grade-token/enaw5005": {
+        "fact": "D-028/drawing/material/grade-token/enaw5005",
+        "field": "enaw5005",
+        "part_key": null,
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "query": "EN-AW 5005",
+            "recorded_material": "3.3315 (EN-AW 5005)",
+            "rule": "Exact printed numeric alloy-grade token; a printed temper suffix may be omitted. This does not establish a general material family."
+          }
+        },
+        "badge": "Computed from recorded source facts",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-028/drawing/material/grade-token/enaw5005",
+            "says": "",
+            "method": "computed_summary",
+            "page": 1,
+            "box": null,
+            "part_key": null,
+            "cleanup": [],
+            "note": "",
+            "badge": "Computed from recorded source facts",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-028/drawing/material",
+            "says": "3.3315 (EN-AW 5005)",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              745.28,
+              771.048,
+              135.0,
+              14.0
+            ],
+            "part_key": "D-028",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null,
+        "derivation": {
+          "operation": "computed_summary",
+          "source_fact_ids": [
+            "D-028/drawing/material"
+          ]
+        }
+      },
+      "names/material/3-3315-en-aw-5005 -> aluminium": {
+        "fact": "names/material/3-3315-en-aw-5005 -> aluminium",
+        "field": "3-3315-en-aw-5005 -> aluminium",
+        "part_key": null,
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "kind": "material",
+            "left": "3.3315 (EN-AW 5005)",
+            "right": "Aluminium",
+            "status": "pending_approval",
+            "approved_relationship": null,
+            "direction": null
+          }
+        },
+        "badge": "Name mapping awaiting review",
+        "review": {
+          "status": "pending_approval"
+        },
+        "sources": [
+          {
+            "name": "names/material/3-3315-en-aw-5005 -> aluminium",
+            "says": "Approved mappings alone may resolve different names. Pending or rejected proposals do not establish equivalence.",
+            "method": "mapping_status",
+            "page": 1,
+            "box": null,
+            "part_key": null,
+            "cleanup": [],
+            "note": "Approved mappings alone may resolve different names. Pending or rejected proposals do not establish equivalence.",
+            "badge": "Name mapping awaiting review",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": "names/material/3-3315-en-aw-5005 -> aluminium",
+        "correction": null,
+        "callout": null,
+        "derivation": {
+          "operation": "mapping_status",
+          "source_fact_ids": []
+        },
+        "mapping_evidence": "based on general engineering knowledge, not the dataset"
+      }
+    },
+    "parts_to_show": [
+      {
+        "id": "D-012/part",
+        "key": "D-012",
+        "display_name": "Recoater Mount Block",
+        "section": "Recoater",
+        "has_drawing": true,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": "/api/parts/D-012/image?page=1&thumb=1",
+        "drawing_url": "/part/D-012/2d",
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "D-013/part",
+        "key": "D-013",
+        "display_name": "Recoater Plate",
+        "section": "Recoater",
+        "has_drawing": true,
+        "has_3d": true,
+        "examples": [
+          "A",
+          "B"
+        ],
+        "review_status": "not_reviewed",
+        "thumbnail": "/api/parts/D-013/image?page=1&thumb=1",
+        "drawing_url": "/part/D-013/2d",
+        "model_url": "/part/D-013/3d",
+        "shown_reason": null
+      },
+      {
+        "id": "D-014/part",
+        "key": "D-014",
+        "display_name": "Recoater Linear Plate",
+        "section": "Recoater",
+        "has_drawing": true,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": "/api/parts/D-014/image?page=1&thumb=1",
+        "drawing_url": "/part/D-014/2d",
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "D-024/part",
+        "key": "D-024",
+        "display_name": "ByggeBase",
+        "section": "Z-axis",
+        "has_drawing": true,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": "/api/parts/D-024/image?page=1&thumb=1",
+        "drawing_url": "/part/D-024/2d",
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "D-025/part",
+        "key": "D-025",
+        "display_name": "Bygge Base Ring",
+        "section": "Z-axis",
+        "has_drawing": true,
+        "has_3d": true,
+        "examples": [
+          "A",
+          "B"
+        ],
+        "review_status": "not_reviewed",
+        "thumbnail": "/api/parts/D-025/image?page=1&thumb=1",
+        "drawing_url": "/part/D-025/2d",
+        "model_url": "/part/D-025/3d",
+        "shown_reason": null
+      },
+      {
+        "id": "D-028/part",
+        "key": "D-028",
+        "display_name": "Varmeelement Plade",
+        "section": "Z-axis",
+        "has_drawing": true,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": "/api/parts/D-028/image?page=1&thumb=1",
+        "drawing_url": "/part/D-028/2d",
+        "model_url": null,
+        "shown_reason": null
+      }
+    ],
+    "warnings": [],
+    "session_id": "391d5642f2644e40ab922f6537f9343a",
+    "model": "gpt-6-luna",
+    "usage": {
+      "input_tokens": 16657,
+      "output_tokens": 589,
+      "total_tokens": 17246
+    },
+    "latency_ms": 8334,
+    "tool_trace": [
+      {
+        "tool": "parts_with_material",
+        "arguments": {
+          "material": "EN-AW 5005"
+        },
+        "facts_returned": [
+          "D-012/part",
+          "D-012/drawing/material",
+          "D-012/drawing/material/grade-token/enaw5005",
+          "D-012/resolved/material",
+          "BOM:recoater/recoater-mount-block/material",
+          "D-013/part",
+          "D-013/drawing/material",
+          "D-013/drawing/material/grade-token/enaw5005",
+          "D-014/part",
+          "D-014/drawing/material",
+          "D-014/drawing/material/grade-token/enaw5005",
+          "D-014/resolved/material",
+          "BOM:recoater/recoater-stage-plate/material",
+          "D-024/part",
+          "D-024/drawing/material",
+          "D-024/drawing/material/grade-token/enaw5005",
+          "D-025/part",
+          "D-025/drawing/material",
+          "D-025/drawing/material/grade-token/enaw5005",
+          "D-028/part",
+          "D-028/drawing/material",
+          "D-028/drawing/material/grade-token/enaw5005",
+          "names/material/3-3315-en-aw-5005 -> aluminium"
+        ]
+      }
+    ],
+    "revision": "d1982f4eed58c582"
+  },
+  "wall_latency_ms": 8339
+}

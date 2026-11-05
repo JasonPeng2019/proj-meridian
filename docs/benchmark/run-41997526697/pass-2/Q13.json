@@ -1,0 +1,1102 @@
+{
+  "pass": 2,
+  "case_id": "Q13",
+  "question": "How wide is the Galvo Montage Plade",
+  "server_start_status": {
+    "chat_available": true,
+    "chat_model": "gpt-6-luna",
+    "revision": "d1982f4eed58c582",
+    "parts": 215,
+    "drawings": 30,
+    "models": 3,
+    "reviewer_name": "Automated verification"
+  },
+  "preconditions": [],
+  "response": {
+    "text": "The width is **undetermined**: no reliably labeled width is recorded, and the unlabeled drawing numbers don’t identify which edge they measure. [undetermined: D-017/part/unrecorded/width] The Galvo Montage Plade drawing is attached below. [cite: D-017/part]",
+    "facts": {
+      "D-017/part": {
+        "fact": "D-017/part",
+        "field": "part",
+        "part_key": "D-017",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Galvo Montage Plade"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-017/part",
+            "says": "Galvo Montage Plade",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-017/part/unrecorded/width": {
+        "fact": "D-017/part/unrecorded/width",
+        "field": "width",
+        "part_key": "D-017",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "No reliably labeled width is recorded. Unlabeled drawing numbers do not identify an edge or feature; do not infer this value."
+        },
+        "badge": "Not determined from the evidence",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-017/part/unrecorded/width",
+            "says": "No reliably labeled width is recorded. Unlabeled drawing numbers do not identify an edge or feature; do not infer this value.",
+            "method": "unrecorded_field",
+            "page": 1,
+            "box": null,
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": "No reliably labeled width is recorded. Unlabeled drawing numbers do not identify an edge or feature; do not infer this value.",
+            "badge": "Not determined from the evidence",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-017/part",
+            "says": "Galvo Montage Plade",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-017/drawing/n/45.0@1-1",
+            "says": "45°",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              664.882,
+              321.861,
+              19.955,
+              18.083
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-017/drawing/n/5.5@1-1",
+            "says": "5,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              326.456,
+              291.083,
+              18.327,
+              18.083
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-017/drawing/n/10.8@1-1",
+            "says": "10,8",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              329.185,
+              306.984,
+              25.658,
+              18.083
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-017/drawing/n/90.0@1-1",
+            "says": "90°",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              370.232,
+              306.984,
+              19.955,
+              18.083
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-017/drawing/n/110.0@1-1",
+            "says": "110,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              672.1,
+              437.344,
+              18.083,
+              32.988
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-017/drawing/n/180.0@1-1",
+            "says": "180,00",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              457.79,
+              588.248,
+              40.319,
+              18.083
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-017/drawing/n/0.01@1-1",
+            "says": "0,01",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              506.165,
+              575.575,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-017/drawing/n/0.06@1-1",
+            "says": "0,06",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              506.165,
+              588.406,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-017/drawing/n/50.9@1-1",
+            "says": "50,9",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              650.679,
+              473.934,
+              18.083,
+              25.657
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-017/drawing/n/42.0@1-1",
+            "says": "42,00",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              602.198,
+              299.344,
+              32.988,
+              18.083
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-017/drawing/n/0.1@1-1",
+            "says": "0,10",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              646.87,
+              286.671,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-017/drawing/n/0.05@1-1",
+            "says": "0,05",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              646.87,
+              299.503,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-017/drawing/n/28.2@1-1",
+            "says": "28,2",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              495.447,
+              544.822,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-017/drawing/n/4.1@1-1",
+            "says": "4,1",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              621.077,
+              475.504,
+              18.083,
+              18.327
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-017/drawing/n/6.0@1-1",
+            "says": "6,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              279.818,
+              463.125,
+              18.327,
+              18.083
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-017/drawing/n/6.0@1-2",
+            "says": "6,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              640.271,
+              399.478,
+              18.328,
+              18.083
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-017/drawing/n/10.0@1-1",
+            "says": "10,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              309.266,
+              108.718,
+              18.083,
+              25.657
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null,
+        "derivation": {
+          "operation": "unrecorded_field",
+          "source_fact_ids": [
+            "D-017/part",
+            "D-017/drawing/n/45.0@1-1",
+            "D-017/drawing/n/5.5@1-1",
+            "D-017/drawing/n/10.8@1-1",
+            "D-017/drawing/n/90.0@1-1",
+            "D-017/drawing/n/110.0@1-1",
+            "D-017/drawing/n/180.0@1-1",
+            "D-017/drawing/n/0.01@1-1",
+            "D-017/drawing/n/0.06@1-1",
+            "D-017/drawing/n/50.9@1-1",
+            "D-017/drawing/n/42.0@1-1",
+            "D-017/drawing/n/0.1@1-1",
+            "D-017/drawing/n/0.05@1-1",
+            "D-017/drawing/n/28.2@1-1",
+            "D-017/drawing/n/4.1@1-1",
+            "D-017/drawing/n/6.0@1-1",
+            "D-017/drawing/n/6.0@1-2",
+            "D-017/drawing/n/10.0@1-1"
+          ]
+        }
+      },
+      "D-017/drawing/n/45.0@1-1": {
+        "fact": "D-017/drawing/n/45.0@1-1",
+        "field": "45.0@1-1",
+        "part_key": "D-017",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 45.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-017/drawing/n/45.0@1-1",
+            "says": "45°",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              664.882,
+              321.861,
+              19.955,
+              18.083
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-017/drawing/n/5.5@1-1": {
+        "fact": "D-017/drawing/n/5.5@1-1",
+        "field": "5.5@1-1",
+        "part_key": "D-017",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 5.5
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-017/drawing/n/5.5@1-1",
+            "says": "5,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              326.456,
+              291.083,
+              18.327,
+              18.083
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-017/drawing/n/10.8@1-1": {
+        "fact": "D-017/drawing/n/10.8@1-1",
+        "field": "10.8@1-1",
+        "part_key": "D-017",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 10.8
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-017/drawing/n/10.8@1-1",
+            "says": "10,8",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              329.185,
+              306.984,
+              25.658,
+              18.083
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-017/drawing/n/90.0@1-1": {
+        "fact": "D-017/drawing/n/90.0@1-1",
+        "field": "90.0@1-1",
+        "part_key": "D-017",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 90.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-017/drawing/n/90.0@1-1",
+            "says": "90°",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              370.232,
+              306.984,
+              19.955,
+              18.083
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-017/drawing/n/110.0@1-1": {
+        "fact": "D-017/drawing/n/110.0@1-1",
+        "field": "110.0@1-1",
+        "part_key": "D-017",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 110.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-017/drawing/n/110.0@1-1",
+            "says": "110,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              672.1,
+              437.344,
+              18.083,
+              32.988
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-017/drawing/n/180.0@1-1": {
+        "fact": "D-017/drawing/n/180.0@1-1",
+        "field": "180.0@1-1",
+        "part_key": "D-017",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 180.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-017/drawing/n/180.0@1-1",
+            "says": "180,00",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              457.79,
+              588.248,
+              40.319,
+              18.083
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-017/drawing/n/0.01@1-1": {
+        "fact": "D-017/drawing/n/0.01@1-1",
+        "field": "0.01@1-1",
+        "part_key": "D-017",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 0.01
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-017/drawing/n/0.01@1-1",
+            "says": "0,01",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              506.165,
+              575.575,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-017/drawing/n/0.06@1-1": {
+        "fact": "D-017/drawing/n/0.06@1-1",
+        "field": "0.06@1-1",
+        "part_key": "D-017",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 0.06
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-017/drawing/n/0.06@1-1",
+            "says": "0,06",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              506.165,
+              588.406,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-017/drawing/n/50.9@1-1": {
+        "fact": "D-017/drawing/n/50.9@1-1",
+        "field": "50.9@1-1",
+        "part_key": "D-017",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 50.9
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-017/drawing/n/50.9@1-1",
+            "says": "50,9",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              650.679,
+              473.934,
+              18.083,
+              25.657
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-017/drawing/n/42.0@1-1": {
+        "fact": "D-017/drawing/n/42.0@1-1",
+        "field": "42.0@1-1",
+        "part_key": "D-017",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 42.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-017/drawing/n/42.0@1-1",
+            "says": "42,00",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              602.198,
+              299.344,
+              32.988,
+              18.083
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-017/drawing/n/0.1@1-1": {
+        "fact": "D-017/drawing/n/0.1@1-1",
+        "field": "0.1@1-1",
+        "part_key": "D-017",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 0.1
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-017/drawing/n/0.1@1-1",
+            "says": "0,10",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              646.87,
+              286.671,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-017/drawing/n/0.05@1-1": {
+        "fact": "D-017/drawing/n/0.05@1-1",
+        "field": "0.05@1-1",
+        "part_key": "D-017",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 0.05
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-017/drawing/n/0.05@1-1",
+            "says": "0,05",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              646.87,
+              299.503,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-017/drawing/n/28.2@1-1": {
+        "fact": "D-017/drawing/n/28.2@1-1",
+        "field": "28.2@1-1",
+        "part_key": "D-017",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 28.2
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-017/drawing/n/28.2@1-1",
+            "says": "28,2",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              495.447,
+              544.822,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-017/drawing/n/4.1@1-1": {
+        "fact": "D-017/drawing/n/4.1@1-1",
+        "field": "4.1@1-1",
+        "part_key": "D-017",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 4.1
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-017/drawing/n/4.1@1-1",
+            "says": "4,1",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              621.077,
+              475.504,
+              18.083,
+              18.327
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-017/drawing/n/6.0@1-1": {
+        "fact": "D-017/drawing/n/6.0@1-1",
+        "field": "6.0@1-1",
+        "part_key": "D-017",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 6.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-017/drawing/n/6.0@1-1",
+            "says": "6,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              279.818,
+              463.125,
+              18.327,
+              18.083
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-017/drawing/n/6.0@1-2": {
+        "fact": "D-017/drawing/n/6.0@1-2",
+        "field": "6.0@1-2",
+        "part_key": "D-017",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 6.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-017/drawing/n/6.0@1-2",
+            "says": "6,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              640.271,
+              399.478,
+              18.328,
+              18.083
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-017/drawing/n/10.0@1-1": {
+        "fact": "D-017/drawing/n/10.0@1-1",
+        "field": "10.0@1-1",
+        "part_key": "D-017",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 10.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-017/drawing/n/10.0@1-1",
+            "says": "10,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              309.266,
+              108.718,
+              18.083,
+              25.657
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      }
+    },
+    "parts_to_show": [
+      {
+        "id": "D-017/part",
+        "key": "D-017",
+        "display_name": "Galvo Montage Plade",
+        "section": "Optical",
+        "has_drawing": true,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": "/api/parts/D-017/image?page=1&thumb=1",
+        "drawing_url": "/part/D-017/2d",
+        "model_url": null,
+        "shown_reason": null
+      }
+    ],
+    "warnings": [],
+    "session_id": "2762d06533b14aa1b7bd0c98c69c1c6e",
+    "model": "gpt-6-luna",
+    "usage": {
+      "input_tokens": 6609,
+      "output_tokens": 117,
+      "total_tokens": 6726
+    },
+    "latency_ms": 3253,
+    "tool_trace": [
+      {
+        "tool": "find_part",
+        "arguments": {
+          "text": "Galvo Montage Plade"
+        },
+        "facts_returned": [
+          "D-017/part"
+        ]
+      },
+      {
+        "tool": "get_field",
+        "arguments": {
+          "part_id": "D-017/part",
+          "field": "width"
+        },
+        "facts_returned": [
+          "D-017/part",
+          "D-017/part/unrecorded/width",
+          "D-017/drawing/n/45.0@1-1",
+          "D-017/drawing/n/5.5@1-1",
+          "D-017/drawing/n/10.8@1-1",
+          "D-017/drawing/n/90.0@1-1",
+          "D-017/drawing/n/110.0@1-1",
+          "D-017/drawing/n/180.0@1-1",
+          "D-017/drawing/n/0.01@1-1",
+          "D-017/drawing/n/0.06@1-1",
+          "D-017/drawing/n/50.9@1-1",
+          "D-017/drawing/n/42.0@1-1",
+          "D-017/drawing/n/0.1@1-1",
+          "D-017/drawing/n/0.05@1-1",
+          "D-017/drawing/n/28.2@1-1",
+          "D-017/drawing/n/4.1@1-1",
+          "D-017/drawing/n/6.0@1-1",
+          "D-017/drawing/n/6.0@1-2",
+          "D-017/drawing/n/10.0@1-1"
+        ]
+      }
+    ],
+    "revision": "b6b7c59644871a7b"
+  },
+  "wall_latency_ms": 3257
+}

@@ -1,0 +1,1788 @@
+{
+  "pass": 1,
+  "case_id": "Q15",
+  "question": "What torque should the recoater plate's M5 screws be tightened to?",
+  "server_start_status": {
+    "chat_available": true,
+    "chat_model": "gpt-6-luna",
+    "revision": "d1982f4eed58c582",
+    "parts": 215,
+    "drawings": 30,
+    "models": 3,
+    "reviewer_name": "Automated verification"
+  },
+  "preconditions": [],
+  "response": {
+    "text": "The evidence identifies two through M5-6H threaded holes on the recoater plate, but gives no tightening torque. [cite: D-013/drawing/callout/p1-1] I can’t determine a safe torque from this evidence; consult the assembly or fastener specification. The drawing and 3D model are attached below. [cite: D-013/part]",
+    "facts": {
+      "D-013/part": {
+        "fact": "D-013/part",
+        "field": "part",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Recoater Plate"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/part",
+            "says": "Recoater Plate",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/material": {
+        "fact": "D-013/drawing/material",
+        "field": "material",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "3.3315 (EN-AW 5005)"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/material",
+            "says": "3.3315 (EN-AW 5005)",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              745.28,
+              771.048,
+              135.0,
+              14.0
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/title": {
+        "fact": "D-013/drawing/title",
+        "field": "title",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Recoater Plate"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/title",
+            "says": "Recoater Plate",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              975.328,
+              710.355,
+              181.0,
+              66.0
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/notes": {
+        "fact": "D-013/drawing/notes",
+        "field": "notes",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Alu.\nJusteringsplade til recoater."
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/notes",
+            "says": "Alu.\nJusteringsplade til recoater.",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              741.526,
+              658.942,
+              231.0,
+              111.0
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/company": {
+        "fact": "D-013/drawing/company",
+        "field": "company",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "DTU MPP"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/company",
+            "says": "DTU MPP",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              975.328,
+              658.942,
+              91.0,
+              48.0
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/weight_g": {
+        "fact": "D-013/drawing/weight_g",
+        "field": "weight_g",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 87.5
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/weight_g",
+            "says": "87.5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              880.717,
+              771.048,
+              93.0,
+              14.0
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/drawn": {
+        "fact": "D-013/drawing/drawn",
+        "field": "drawn",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "MBOKJ"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/drawn",
+            "says": "MBOKJ",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              893.294,
+              790.235,
+              78.0,
+              11.0
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/date": {
+        "fact": "D-013/drawing/date",
+        "field": "date",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "24/11/2021"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/date",
+            "says": "24/11/2021",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              897.013,
+              802.562,
+              76.0,
+              11.0
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/scale": {
+        "fact": "D-013/drawing/scale",
+        "field": "scale",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "1:1"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/scale",
+            "says": "1:1",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1082.688,
+              803.564,
+              25.623,
+              7.75
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/callout/p1-1": {
+        "fact": "D-013/drawing/callout/p1-1",
+        "field": "p1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "2 x 4,2 THRU ALL M5 - 6H THRU ALL"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/callout/p1-1",
+            "says": "2 x 4,2 THRU ALL M5 - 6H THRU ALL",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              428.392,
+              520.694,
+              118.667,
+              33.984
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": {
+          "feature": "threaded_hole",
+          "count": 2,
+          "thread": "M5",
+          "thread_class": "6H",
+          "through": true
+        }
+      },
+      "D-013/drawing/callout/p1-2": {
+        "fact": "D-013/drawing/callout/p1-2",
+        "field": "p1-2",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "8 x 2,5 THRU ALL M3 - 6H THRU ALL"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/callout/p1-2",
+            "says": "8 x 2,5 THRU ALL M3 - 6H THRU ALL",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              309.068,
+              564.281,
+              118.668,
+              33.991
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": {
+          "feature": "threaded_hole",
+          "count": 8,
+          "thread": "M3",
+          "thread_class": "6H",
+          "through": true
+        }
+      },
+      "D-013/drawing/callout/p1-3": {
+        "fact": "D-013/drawing/callout/p1-3",
+        "field": "p1-3",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "4 x 5,5 X 10,0 THRU ALL"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/callout/p1-3",
+            "says": "4 x 5,5 X 10,0 THRU ALL",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              760.055,
+              350.781,
+              141.088,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": {
+          "feature": "slot",
+          "count": 4,
+          "through": true,
+          "width_mm": 5.5,
+          "length_mm": 10.0
+        }
+      },
+      "D-013/drawing/general/units": {
+        "fact": "D-013/drawing/general/units",
+        "field": "units",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "DIMENSIONS ARE IN MILLIMETERS"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/general/units",
+            "says": "DIMENSIONS ARE IN MILLIMETERS",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              978.968,
+              784.149,
+              85.555,
+              7.75
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": {
+          "feature": "general_note"
+        }
+      },
+      "D-013/drawing/general/general_tolerance": {
+        "fact": "D-013/drawing/general/general_tolerance",
+        "field": "general_tolerance",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "DIN ISO 2768-1 m"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/general/general_tolerance",
+            "says": "DIN ISO 2768-1 m",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1016.541,
+              790.957,
+              47.749,
+              8.202
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": {
+          "feature": "general_note"
+        }
+      },
+      "D-013/drawing/general/edge_finish": {
+        "fact": "D-013/drawing/general/edge_finish",
+        "field": "edge_finish",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "DEBURR AND BREAK SHARP EDGES"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/general/edge_finish",
+            "says": "DEBURR AND BREAK SHARP EDGES",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1078.776,
+              781.582,
+              52.887,
+              14.837
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": {
+          "feature": "general_note"
+        }
+      },
+      "D-013/template/outline": {
+        "fact": "D-013/template/outline",
+        "field": "outline",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "rectangle"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/outline",
+            "says": null,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/outline/length": {
+        "fact": "D-013/template/outline/length",
+        "field": "length",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 270.0
+        },
+        "badge": "AI interpretation, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-013/template/outline/length",
+            "says": 270.0,
+            "method": "ai_agreed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": "The overall horizontal dimension is 270,0.",
+            "badge": "AI interpretation, not reviewed",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/270.0@1-1",
+            "says": "270,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              601.611,
+              308.89,
+              32.988,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/270.0@1-1": {
+        "fact": "D-013/drawing/n/270.0@1-1",
+        "field": "270.0@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 270.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/270.0@1-1",
+            "says": "270,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              601.611,
+              308.89,
+              32.988,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/outline/width": {
+        "fact": "D-013/template/outline/width",
+        "field": "width",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 25.0
+        },
+        "badge": "AI interpretation, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-013/template/outline/width",
+            "says": 25.0,
+            "method": "ai_agreed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": "The overall vertical dimension on the right side is 25,0.",
+            "badge": "AI interpretation, not reviewed",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/25.0@1-1",
+            "says": "25,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1080.266,
+              408.25,
+              18.083,
+              25.657
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/25.0@1-1": {
+        "fact": "D-013/drawing/n/25.0@1-1",
+        "field": "25.0@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 25.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/25.0@1-1",
+            "says": "25,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1080.266,
+              408.25,
+              18.083,
+              25.657
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/thickness": {
+        "fact": "D-013/template/thickness",
+        "field": "thickness",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "options",
+          "values": [
+            3.0,
+            6.0
+          ]
+        },
+        "badge": "Entered by Jason Peng on 2026-11-05",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/thickness",
+            "says": null,
+            "method": "human_decision",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": "Waiting for review: unsure",
+            "badge": "Entered by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/3.0@1-1",
+            "says": "3,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              151.657,
+              342.913,
+              18.327,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/6.0@1-1",
+            "says": "6,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              151.657,
+              330.081,
+              18.327,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": {
+          "original": null,
+          "corrected": {
+            "state": "options",
+            "value": null,
+            "options": [
+              3.0,
+              6.0
+            ],
+            "fact_ids": [
+              "D-013/drawing/n/3.0@1-1",
+              "D-013/drawing/n/6.0@1-1"
+            ]
+          },
+          "by": "Jason Peng",
+          "at": "2026-11-05T07:23:35.117084+00:00"
+        },
+        "callout": null
+      },
+      "D-013/drawing/n/3.0@1-1": {
+        "fact": "D-013/drawing/n/3.0@1-1",
+        "field": "3.0@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 3.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/3.0@1-1",
+            "says": "3,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              151.657,
+              342.913,
+              18.327,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/6.0@1-1": {
+        "fact": "D-013/drawing/n/6.0@1-1",
+        "field": "6.0@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 6.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/6.0@1-1",
+            "says": "6,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              151.657,
+              330.081,
+              18.327,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features_review": {
+        "fact": "D-013/template/features_review",
+        "field": "features_review",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Waiting for review: unsure"
+        },
+        "badge": "AI interpretation, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-013/template/features_review",
+            "says": null,
+            "method": "ai_unsure",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": "Waiting for review: unsure",
+            "badge": "AI interpretation, not reviewed",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": "D-013/template/features_review",
+        "correction": null,
+        "callout": null
+      },
+      "D-013/link": {
+        "fact": "D-013/link",
+        "field": "link",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Waiting for review: unsure"
+        },
+        "badge": "Unresolved evidence",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-013/link",
+            "says": [],
+            "method": "unresolved",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "Unresolved evidence",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": "D-013/link",
+        "correction": null,
+        "callout": null
+      },
+      "D-013/model/verification": {
+        "fact": "D-013/model/verification",
+        "field": "verification",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "weight_check": {
+              "state": "FAILED",
+              "message": "FAILED weight check: needs manual approval",
+              "examples": {
+                "A": {
+                  "attempts": [
+                    {
+                      "material": "3.3315 (EN-AW 5005)",
+                      "source": "drawing",
+                      "names": [
+                        "3.3315 (EN-AW 5005)",
+                        "EN-AW 5005",
+                        "EN AW-5005",
+                        "5005",
+                        "3.3315"
+                      ],
+                      "density_g_cm3": 2.7,
+                      "source_url": "https://materialsdata.nist.gov/bitstream/handle/11115/168/Properties%20of%20Aluminum%20Mill%20Products.pdf?isAllowed=y&sequence=3",
+                      "source_title": "ASM Aluminum Mill and Engineered Wrought Products, Table 6 (NIST archive)",
+                      "looked_up": "2026-11-05",
+                      "note": "5005 alloy density. Outside source, not the dataset.",
+                      "calculated_g": 54.675,
+                      "drawing_g": 87.5,
+                      "difference_percent": 37.51,
+                      "matches": false,
+                      "outside_source": true
+                    }
+                  ],
+                  "matches": false,
+                  "drawing_g": 87.5
+                },
+                "B": {
+                  "attempts": [
+                    {
+                      "material": "3.3315 (EN-AW 5005)",
+                      "source": "drawing",
+                      "names": [
+                        "3.3315 (EN-AW 5005)",
+                        "EN-AW 5005",
+                        "EN AW-5005",
+                        "5005",
+                        "3.3315"
+                      ],
+                      "density_g_cm3": 2.7,
+                      "source_url": "https://materialsdata.nist.gov/bitstream/handle/11115/168/Properties%20of%20Aluminum%20Mill%20Products.pdf?isAllowed=y&sequence=3",
+                      "source_title": "ASM Aluminum Mill and Engineered Wrought Products, Table 6 (NIST archive)",
+                      "looked_up": "2026-11-05",
+                      "note": "5005 alloy density. Outside source, not the dataset.",
+                      "calculated_g": 109.35,
+                      "drawing_g": 87.5,
+                      "difference_percent": 24.97,
+                      "matches": false,
+                      "outside_source": true
+                    }
+                  ],
+                  "matches": false,
+                  "drawing_g": 87.5
+                }
+              },
+              "drawing_g": 87.5,
+              "tolerance_percent": 5,
+              "requires_approval": true,
+              "approval_note_required": true,
+              "limitation": "A matching weight does not verify feature positions. No thickness or material is selected automatically.",
+              "density_label": "Outside source, not the dataset"
+            },
+            "omitted": [
+              "Hole and slot details: Waiting for review: unsure"
+            ],
+            "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
+            "review": {
+              "status": "not_reviewed"
+            },
+            "examples": {
+              "A": {
+                "selections": {
+                  "thickness": 3.0
+                },
+                "volume_mm3": 20250.0
+              },
+              "B": {
+                "selections": {
+                  "thickness": 6.0
+                },
+                "volume_mm3": 40500.0
+              }
+            }
+          }
+        },
+        "badge": "Computed from recorded source facts",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/model/verification",
+            "says": "Computed model verification, not a design approval. Density references are outside sources, not the dataset. Failed checks need manual review; possible readings are never selected by weight.",
+            "method": "computed_summary",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": "Computed model verification, not a design approval. Density references are outside sources, not the dataset. Failed checks need manual review; possible readings are never selected by weight.",
+            "badge": "Computed from recorded source facts",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/weight_g",
+            "says": "87.5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              880.717,
+              771.048,
+              93.0,
+              14.0
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/template/thickness",
+            "says": null,
+            "method": "human_decision",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": "Waiting for review: unsure",
+            "badge": "Entered by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/2.0@1-1": {
+        "fact": "D-013/drawing/n/2.0@1-1",
+        "field": "2.0@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 2.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/2.0@1-1",
+            "says": "2",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              428.392,
+              520.694,
+              7.331,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/4.2@1-1": {
+        "fact": "D-013/drawing/n/4.2@1-1",
+        "field": "4.2@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 4.2
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/4.2@1-1",
+            "says": "4,2",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              468.032,
+              520.694,
+              18.321,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/8.0@1-1": {
+        "fact": "D-013/drawing/n/8.0@1-1",
+        "field": "8.0@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 8.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/8.0@1-1",
+            "says": "8",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              309.068,
+              564.281,
+              7.331,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/2.5@1-1": {
+        "fact": "D-013/drawing/n/2.5@1-1",
+        "field": "2.5@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 2.5
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/2.5@1-1",
+            "says": "2,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              348.709,
+              564.288,
+              18.321,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/35.7@1-1": {
+        "fact": "D-013/drawing/n/35.7@1-1",
+        "field": "35.7@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 35.7
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/35.7@1-1",
+            "says": "35,7",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              715.676,
+              504.483,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/17.9@1-1": {
+        "fact": "D-013/drawing/n/17.9@1-1",
+        "field": "17.9@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 17.9
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/17.9@1-1",
+            "says": "17,9",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              630.579,
+              487.472,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/7.5@1-1": {
+        "fact": "D-013/drawing/n/7.5@1-1",
+        "field": "7.5@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 7.5
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/7.5@1-1",
+            "says": "7,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1046.25,
+              394.664,
+              18.083,
+              18.327
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/82.0@1-1": {
+        "fact": "D-013/drawing/n/82.0@1-1",
+        "field": "82.0@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 82.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/82.0@1-1",
+            "says": "82,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              489.056,
+              342.906,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/4.5@1-1": {
+        "fact": "D-013/drawing/n/4.5@1-1",
+        "field": "4.5@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 4.5
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/4.5@1-1",
+            "says": "4,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              190.187,
+              370.831,
+              18.083,
+              18.327
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/4.0@1-1": {
+        "fact": "D-013/drawing/n/4.0@1-1",
+        "field": "4.0@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 4.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/4.0@1-1",
+            "says": "4",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              760.055,
+              350.781,
+              7.33,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/5.5@1-1": {
+        "fact": "D-013/drawing/n/5.5@1-1",
+        "field": "5.5@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 5.5
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/5.5@1-1",
+            "says": "5,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              781.065,
+              350.781,
+              18.324,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/10.0@1-1": {
+        "fact": "D-013/drawing/n/10.0@1-1",
+        "field": "10.0@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 10.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/10.0@1-1",
+            "says": "10,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              814.776,
+              350.781,
+              25.654,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/41.0@1-1": {
+        "fact": "D-013/drawing/n/41.0@1-1",
+        "field": "41.0@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 41.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/41.0@1-1",
+            "says": "41,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              663.384,
+              342.91,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/82.0@1-2": {
+        "fact": "D-013/drawing/n/82.0@1-2",
+        "field": "82.0@1-2",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 82.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/82.0@1-2",
+            "says": "82,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              837.72,
+              325.898,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/2.3@1-1": {
+        "fact": "D-013/drawing/n/2.3@1-1",
+        "field": "2.3@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 2.3
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/2.3@1-1",
+            "says": "2,3",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1012.235,
+              394.664,
+              18.083,
+              18.327
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      }
+    },
+    "parts_to_show": [
+      {
+        "id": "D-013/part",
+        "key": "D-013",
+        "display_name": "Recoater Plate",
+        "section": "Recoater",
+        "has_drawing": true,
+        "has_3d": true,
+        "examples": [
+          "A",
+          "B"
+        ],
+        "review_status": "not_reviewed",
+        "thumbnail": "/api/parts/D-013/image?page=1&thumb=1",
+        "drawing_url": "/part/D-013/2d",
+        "model_url": "/part/D-013/3d",
+        "shown_reason": null
+      }
+    ],
+    "warnings": [],
+    "session_id": "dd03d2e868314db4a74868a2a80a7a40",
+    "model": "gpt-6-luna",
+    "usage": {
+      "input_tokens": 11084,
+      "output_tokens": 128,
+      "total_tokens": 11212
+    },
+    "latency_ms": 3269,
+    "tool_trace": [
+      {
+        "tool": "find_part",
+        "arguments": {
+          "text": "recoater plate"
+        },
+        "facts_returned": [
+          "D-013/part"
+        ]
+      },
+      {
+        "tool": "get_facts",
+        "arguments": {
+          "part_id": "D-013/part"
+        },
+        "facts_returned": [
+          "D-013/part",
+          "D-013/drawing/material",
+          "D-013/drawing/title",
+          "D-013/drawing/notes",
+          "D-013/drawing/company",
+          "D-013/drawing/weight_g",
+          "D-013/drawing/drawn",
+          "D-013/drawing/date",
+          "D-013/drawing/scale",
+          "D-013/drawing/callout/p1-1",
+          "D-013/drawing/callout/p1-2",
+          "D-013/drawing/callout/p1-3",
+          "D-013/drawing/general/units",
+          "D-013/drawing/general/general_tolerance",
+          "D-013/drawing/general/edge_finish",
+          "D-013/template/outline",
+          "D-013/template/outline/length",
+          "D-013/drawing/n/270.0@1-1",
+          "D-013/template/outline/width",
+          "D-013/drawing/n/25.0@1-1",
+          "D-013/template/thickness",
+          "D-013/drawing/n/3.0@1-1",
+          "D-013/drawing/n/6.0@1-1",
+          "D-013/template/features_review",
+          "D-013/link",
+          "D-013/model/verification",
+          "D-013/drawing/n/2.0@1-1",
+          "D-013/drawing/n/4.2@1-1",
+          "D-013/drawing/n/8.0@1-1",
+          "D-013/drawing/n/2.5@1-1",
+          "D-013/drawing/n/35.7@1-1",
+          "D-013/drawing/n/17.9@1-1",
+          "D-013/drawing/n/7.5@1-1",
+          "D-013/drawing/n/82.0@1-1",
+          "D-013/drawing/n/4.5@1-1",
+          "D-013/drawing/n/4.0@1-1",
+          "D-013/drawing/n/5.5@1-1",
+          "D-013/drawing/n/10.0@1-1",
+          "D-013/drawing/n/41.0@1-1",
+          "D-013/drawing/n/82.0@1-2",
+          "D-013/drawing/n/2.3@1-1"
+        ]
+      }
+    ],
+    "revision": "72be00d2a7efc29e"
+  },
+  "wall_latency_ms": 3275
+}

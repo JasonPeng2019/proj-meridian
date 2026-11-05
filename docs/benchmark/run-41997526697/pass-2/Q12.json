@@ -1,0 +1,534 @@
+{
+  "pass": 2,
+  "case_id": "Q12",
+  "question": "What does drawing D-023 weigh?",
+  "server_start_status": {
+    "chat_available": true,
+    "chat_model": "gpt-6-luna",
+    "revision": "d1982f4eed58c582",
+    "parts": 215,
+    "drawings": 30,
+    "models": 3,
+    "reviewer_name": "Automated verification"
+  },
+  "preconditions": [],
+  "response": {
+    "text": "D-023 (ByggeCylinder) is listed as weighing **3195.5 g** (about **3.20 kg**). This is AI-sourced only, not yet reviewed; it may contain errors. [cite: D-023/drawing/weight_g, D-023/part]\n\nThe drawing is attached below.",
+    "facts": {
+      "D-023/part": {
+        "fact": "D-023/part",
+        "field": "part",
+        "part_key": "D-023",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "ByggeCylinder"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-023/part",
+            "says": "ByggeCylinder",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-023/drawing/material": {
+        "fact": "D-023/drawing/material",
+        "field": "material",
+        "part_key": "D-023",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "EN AW-6082"
+        },
+        "badge": "AI reading of a blurry scan, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-023/drawing/material",
+            "says": null,
+            "method": "ai_read",
+            "page": 1,
+            "box": [
+              738.906,
+              766.467,
+              145.983,
+              24.008
+            ],
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "The MATERIAL field clearly reads 'EN AW-6082'.",
+            "badge": "AI reading of a blurry scan, not reviewed",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-023/drawing/title": {
+        "fact": "D-023/drawing/title",
+        "field": "title",
+        "part_key": "D-023",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "ByggeCylinder"
+        },
+        "badge": "AI reading of a blurry scan, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-023/drawing/title",
+            "says": null,
+            "method": "ai_read",
+            "page": 1,
+            "box": [
+              968.877,
+              705.43,
+              193.977,
+              69.036
+            ],
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "The TITLE/DESCRIPTION box in the supplied crop clearly reads 'ByggeCylinder'.",
+            "badge": "AI reading of a blurry scan, not reviewed",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-023/drawing/title",
+            "says": null,
+            "method": "ai_read",
+            "page": 1,
+            "box": [
+              968.877,
+              705.43,
+              193.977,
+              69.036
+            ],
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "The TITLE/DESCRIPTION box in the supplied crop clearly reads 'ByggeCylinder'.",
+            "badge": "AI reading of a blurry scan, not reviewed",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-023/drawing/notes": {
+        "fact": "D-023/drawing/notes",
+        "field": "notes",
+        "part_key": "D-023",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Baseret på Ø280mm, t=15mm\nEN AW-6082 T6 rør fra Alumeco.\nIndre flade [B] skal slutte tæt med\nen dynamisk keramisk pakning.\n\n55 mm længere ift. version 1"
+        },
+        "badge": "AI reading of a blurry scan, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-023/drawing/notes",
+            "says": null,
+            "method": "ai_read",
+            "page": 1,
+            "box": [
+              734.907,
+              653.399,
+              242.971,
+              121.067
+            ],
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "The NOTE box is legible. It was copied line by line with the original Danish spelling and the Ø symbol kept.",
+            "badge": "AI reading of a blurry scan, not reviewed",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-023/drawing/notes",
+            "says": null,
+            "method": "ai_read",
+            "page": 1,
+            "box": [
+              734.907,
+              653.399,
+              242.971,
+              121.067
+            ],
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "The NOTE box is legible. It was copied line by line with the original Danish spelling and the Ø symbol kept.",
+            "badge": "AI reading of a blurry scan, not reviewed",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-023/drawing/company": {
+        "fact": "D-023/drawing/company",
+        "field": "company",
+        "part_key": "D-023",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "DTU MPP"
+        },
+        "badge": "AI reading of a blurry scan, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-023/drawing/company",
+            "says": null,
+            "method": "ai_read",
+            "page": 1,
+            "box": [
+              968.877,
+              653.399,
+              102.988,
+              59.03
+            ],
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "The COMPANY box reads 'DTU MPP'. The contact details next to it (Magnus Bolt Kjer, email, phone) are in a separate cell and are not part of the company value.",
+            "badge": "AI reading of a blurry scan, not reviewed",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-023/drawing/company",
+            "says": null,
+            "method": "ai_read",
+            "page": 1,
+            "box": [
+              968.877,
+              653.399,
+              102.988,
+              59.03
+            ],
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "The COMPANY box reads 'DTU MPP'. The contact details next to it (Magnus Bolt Kjer, email, phone) are in a separate cell and are not part of the company value.",
+            "badge": "AI reading of a blurry scan, not reviewed",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-023/drawing/weight_g": {
+        "fact": "D-023/drawing/weight_g",
+        "field": "weight_g",
+        "part_key": "D-023",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 3195.5
+        },
+        "badge": "AI reading of a blurry scan, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-023/drawing/weight_g",
+            "says": null,
+            "method": "ai_read",
+            "page": 1,
+            "box": [
+              874.889,
+              766.467,
+              102.988,
+              24.008
+            ],
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "The field labelled 'WEIGHT [g]:' clearly reads 3195.5, and the label states the unit is grams.",
+            "badge": "AI reading of a blurry scan, not reviewed",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-023/drawing/weight_g",
+            "says": null,
+            "method": "ai_read",
+            "page": 1,
+            "box": [
+              874.889,
+              766.467,
+              102.988,
+              24.008
+            ],
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "The field labelled 'WEIGHT [g]:' clearly reads 3195.5, and the label states the unit is grams.",
+            "badge": "AI reading of a blurry scan, not reviewed",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-023/drawing/drawn": {
+        "fact": "D-023/drawing/drawn",
+        "field": "drawn",
+        "part_key": "D-023",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "MBOKJ"
+        },
+        "badge": "AI reading of a blurry scan, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-023/drawing/drawn",
+            "says": null,
+            "method": "ai_read",
+            "page": 1,
+            "box": [
+              884.888,
+              785.479,
+              91.99,
+              21.007
+            ],
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "The DRAWN cell clearly reads 'MBOKJ'.",
+            "badge": "AI reading of a blurry scan, not reviewed",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-023/drawing/drawn",
+            "says": null,
+            "method": "ai_read",
+            "page": 1,
+            "box": [
+              884.888,
+              785.479,
+              91.99,
+              21.007
+            ],
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "The DRAWN cell clearly reads 'MBOKJ'.",
+            "badge": "AI reading of a blurry scan, not reviewed",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-023/drawing/date": {
+        "fact": "D-023/drawing/date",
+        "field": "date",
+        "part_key": "D-023",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Too blurry to read on the scan."
+        },
+        "badge": "AI interpretation, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-023/drawing/date",
+            "says": null,
+            "method": "ai_unsure",
+            "page": 1,
+            "box": [
+              889.887,
+              797.486,
+              86.99,
+              21.007
+            ],
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "Too blurry to read on the scan.",
+            "badge": "AI interpretation, not reviewed",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-023/drawing/scale": {
+        "fact": "D-023/drawing/scale",
+        "field": "scale",
+        "part_key": "D-023",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Too blurry to read on the scan."
+        },
+        "badge": "AI interpretation, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-023/drawing/scale",
+            "says": null,
+            "method": "ai_unsure",
+            "page": 1,
+            "box": [
+              1066.865,
+              797.486,
+              59.994,
+              22.007
+            ],
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "Too blurry to read on the scan.",
+            "badge": "AI interpretation, not reviewed",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-023/link": {
+        "fact": "D-023/link",
+        "field": "link",
+        "part_key": "D-023",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Waiting for review: unsure"
+        },
+        "badge": "Unresolved evidence",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-023/link",
+            "says": [],
+            "method": "unresolved",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": null,
+            "badge": "Unresolved evidence",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": "D-023/link",
+        "correction": null,
+        "callout": null
+      }
+    },
+    "parts_to_show": [
+      {
+        "id": "D-023/part",
+        "key": "D-023",
+        "display_name": "ByggeCylinder",
+        "section": "Z-axis",
+        "has_drawing": true,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "not_reviewed",
+        "thumbnail": "/api/parts/D-023/image?page=1&thumb=1",
+        "drawing_url": "/part/D-023/2d",
+        "model_url": null,
+        "shown_reason": null
+      }
+    ],
+    "warnings": [],
+    "session_id": "61def2a0665b4d68af73bd1db43a9b37",
+    "model": "gpt-6-luna",
+    "usage": {
+      "input_tokens": 7038,
+      "output_tokens": 116,
+      "total_tokens": 7154
+    },
+    "latency_ms": 3753,
+    "tool_trace": [
+      {
+        "tool": "find_part",
+        "arguments": {
+          "text": "D-023"
+        },
+        "facts_returned": [
+          "D-023/part"
+        ]
+      },
+      {
+        "tool": "get_facts",
+        "arguments": {
+          "part_id": "D-023/part"
+        },
+        "facts_returned": [
+          "D-023/part",
+          "D-023/drawing/material",
+          "D-023/drawing/title",
+          "D-023/drawing/notes",
+          "D-023/drawing/company",
+          "D-023/drawing/weight_g",
+          "D-023/drawing/drawn",
+          "D-023/drawing/date",
+          "D-023/drawing/scale",
+          "D-023/link"
+        ]
+      }
+    ],
+    "revision": "b6b7c59644871a7b"
+  },
+  "wall_latency_ms": 3756
+}

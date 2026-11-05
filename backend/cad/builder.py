@@ -257,7 +257,12 @@ def build_shape(template):
                 raise Unknown("feature does not intersect the plate")
             shape = candidate
             methods = [value.get("method") for value in feature.values() if isinstance(value, dict) and value.get("method")]
-            method = feature.get("method") or ("human_decision" if "human_decision" in methods else "ai_agreed" if "ai_agreed" in methods else "derived")
+            if not methods:
+                provenance = [template.get("features_review"), template.get("thickness"), *outline.values()]
+                methods = [value.get("method") for value in provenance if isinstance(value, dict) and value.get("method")]
+            method = feature.get("method") or next((candidate for candidate in
+                ("human_decision", "ai_verified_after_retry", "ai_verified", "ai_agreed_after_retry", "ai_agreed", "ai_unsure")
+                if candidate in methods), "derived")
             labels.append({"name": name, "kind": feature.get("kind"), "count": len(positions), "hole_type": feature.get("hole_type"), "thread": feature.get("thread"), "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry" if feature.get("hole_type") == "threaded" else None, "fact_ids": evidence or [], "method": method, "feature_index": index})
         except (Unknown, ValueError) as exc:
             reason = f"{name}: {exc}"

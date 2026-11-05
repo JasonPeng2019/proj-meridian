@@ -1,0 +1,2401 @@
+{
+  "purpose": "isolated automated workflow verification; not a human approval",
+  "reviewer": "Automated verification",
+  "proposal_chat": {
+    "text": "Pending proposal created to change D-019’s drawing title from [undetermined: D-019/drawing/title] (“Printed placeholder; not a reliable part title”) to “Silicone gasket for f-theta lens.” [cite: D-019/drawing/title] D-019’s drawing is attached below. [cite: D-019/part]\n\nWaiting for review. The proposal has not changed the accepted facts. The automated check found no exact text match; a human reviewer must review the drawing and linked BOM evidence.",
+    "facts": {
+      "D-019/part": {
+        "fact": "D-019/part",
+        "field": "part",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "SiliconePakningfTheta.pdf"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/part",
+            "says": "SiliconePakningfTheta.pdf",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/material": {
+        "fact": "D-019/drawing/material",
+        "field": "material",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Silicon Rubber"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/material",
+            "says": "Silicon Rubber",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              745.28,
+              771.048,
+              135.0,
+              14.0
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/title": {
+        "fact": "D-019/drawing/title",
+        "field": "title",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Printed placeholder; not a reliable part title."
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/title",
+            "says": "Description",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              975.328,
+              710.355,
+              181.0,
+              66.0
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": "Printed placeholder; not a reliable part title.",
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/notes": {
+        "fact": "D-019/drawing/notes",
+        "field": "notes",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "1mm silicone pakning"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/notes",
+            "says": "1mm silicone pakning",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              741.526,
+              658.942,
+              231.0,
+              111.0
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/company": {
+        "fact": "D-019/drawing/company",
+        "field": "company",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "DTU MPP"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/company",
+            "says": "DTU MPP",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              975.328,
+              658.942,
+              91.0,
+              48.0
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/weight_g": {
+        "fact": "D-019/drawing/weight_g",
+        "field": "weight_g",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 5.7
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/weight_g",
+            "says": "5.7",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              880.717,
+              771.048,
+              93.0,
+              14.0
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/drawn": {
+        "fact": "D-019/drawing/drawn",
+        "field": "drawn",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "MBOKJ"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/drawn",
+            "says": "MBOKJ",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              893.294,
+              790.235,
+              78.0,
+              11.0
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/date": {
+        "fact": "D-019/drawing/date",
+        "field": "date",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "06/01/2022"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/date",
+            "says": "06/01/2022",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              897.013,
+              802.562,
+              76.0,
+              11.0
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/scale": {
+        "fact": "D-019/drawing/scale",
+        "field": "scale",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "1:2"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/scale",
+            "says": "1:2",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1082.688,
+              803.564,
+              25.837,
+              7.75
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/callout/p1-1": {
+        "fact": "D-019/drawing/callout/p1-1",
+        "field": "p1-1",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "6 x 4,5 THRU ALL"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/callout/p1-1",
+            "says": "6 x 4,5 THRU ALL",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              449.788,
+              231.957,
+              118.667,
+              18.083
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": {
+          "feature": "unclassified_callout",
+          "count": 6,
+          "through": true
+        }
+      },
+      "D-019/drawing/general/units": {
+        "fact": "D-019/drawing/general/units",
+        "field": "units",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "DIMENSIONS ARE IN MILLIMETERS"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/general/units",
+            "says": "DIMENSIONS ARE IN MILLIMETERS",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              978.968,
+              784.149,
+              85.555,
+              7.75
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": {
+          "feature": "general_note"
+        }
+      },
+      "D-019/drawing/general/general_tolerance": {
+        "fact": "D-019/drawing/general/general_tolerance",
+        "field": "general_tolerance",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "DIN ISO 2768-1 m"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/general/general_tolerance",
+            "says": "DIN ISO 2768-1 m",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1016.541,
+              790.957,
+              47.749,
+              8.202
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": {
+          "feature": "general_note"
+        }
+      },
+      "D-019/drawing/general/edge_finish": {
+        "fact": "D-019/drawing/general/edge_finish",
+        "field": "edge_finish",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "DEBURR AND BREAK SHARP EDGES"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/general/edge_finish",
+            "says": "DEBURR AND BREAK SHARP EDGES",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1078.776,
+              781.582,
+              52.887,
+              14.837
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": {
+          "feature": "general_note"
+        }
+      },
+      "D-019/link": {
+        "fact": "D-019/link",
+        "field": "link",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Waiting for review: unsure"
+        },
+        "badge": "Unresolved evidence",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-019/link",
+            "says": [],
+            "method": "unresolved",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "Unresolved evidence",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": "D-019/link",
+        "correction": null,
+        "callout": null
+      },
+      "D-019/source-inventory": {
+        "fact": "D-019/source-inventory",
+        "field": "source-inventory",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "id": "D-019/part",
+            "key": "D-019",
+            "name": "SiliconePakningfTheta.pdf",
+            "source_filename": "SiliconePakningfTheta.pdf",
+            "section": "Optical"
+          }
+        },
+        "badge": "From source inventory",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/source-inventory",
+            "says": "Drawing membership in the supplied source inventory; names may be filenames when a printed title is unreadable.",
+            "method": "source_inventory",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": "Drawing membership in the supplied source inventory; names may be filenames when a printed title is unreadable.",
+            "badge": "From source inventory",
+            "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-019.pdf",
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/n/141.0@1-1": {
+        "fact": "D-019/drawing/n/141.0@1-1",
+        "field": "141.0@1-1",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 141.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/n/141.0@1-1",
+            "says": "141,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              728.205,
+              230.219,
+              36.113,
+              36.113
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/n/118.0@1-1": {
+        "fact": "D-019/drawing/n/118.0@1-1",
+        "field": "118.0@1-1",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 118.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/n/118.0@1-1",
+            "says": "118,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              673.172,
+              230.001,
+              32.155,
+              37.61
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/n/6.0@1-1": {
+        "fact": "D-019/drawing/n/6.0@1-1",
+        "field": "6.0@1-1",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 6.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/n/6.0@1-1",
+            "says": "6",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              449.788,
+              231.957,
+              7.331,
+              18.083
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/n/4.5@1-1": {
+        "fact": "D-019/drawing/n/4.5@1-1",
+        "field": "4.5@1-1",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 4.5
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/n/4.5@1-1",
+            "says": "4,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              489.428,
+              231.957,
+              18.321,
+              18.083
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/n/1.0@1-1": {
+        "fact": "D-019/drawing/n/1.0@1-1",
+        "field": "1.0@1-1",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 1.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/n/1.0@1-1",
+            "says": "1,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              323.877,
+              242.209,
+              18.327,
+              18.083
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      }
+    },
+    "parts_to_show": [
+      {
+        "id": "D-019/part",
+        "key": "D-019",
+        "display_name": "SiliconePakningfTheta.pdf",
+        "section": "Optical",
+        "has_drawing": true,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": "/api/parts/D-019/image?page=1&thumb=1",
+        "drawing_url": "/part/D-019/2d",
+        "model_url": null,
+        "shown_reason": null
+      }
+    ],
+    "warnings": [],
+    "session_id": "c6c6a72abadc4d8caeeb6ab4dd6c0be8",
+    "model": "gpt-6-luna",
+    "usage": {
+      "input_tokens": 12637,
+      "output_tokens": 214,
+      "total_tokens": 12851
+    },
+    "latency_ms": 5057,
+    "tool_trace": [
+      {
+        "tool": "find_part",
+        "arguments": {
+          "text": "D-019"
+        },
+        "facts_returned": [
+          "D-019/part"
+        ]
+      },
+      {
+        "tool": "get_facts",
+        "arguments": {
+          "part_id": "D-019/part"
+        },
+        "facts_returned": [
+          "D-019/part",
+          "D-019/drawing/material",
+          "D-019/drawing/title",
+          "D-019/drawing/notes",
+          "D-019/drawing/company",
+          "D-019/drawing/weight_g",
+          "D-019/drawing/drawn",
+          "D-019/drawing/date",
+          "D-019/drawing/scale",
+          "D-019/drawing/callout/p1-1",
+          "D-019/drawing/general/units",
+          "D-019/drawing/general/general_tolerance",
+          "D-019/drawing/general/edge_finish",
+          "D-019/link",
+          "D-019/source-inventory",
+          "D-019/drawing/n/141.0@1-1",
+          "D-019/drawing/n/118.0@1-1",
+          "D-019/drawing/n/6.0@1-1",
+          "D-019/drawing/n/4.5@1-1",
+          "D-019/drawing/n/1.0@1-1"
+        ]
+      },
+      {
+        "tool": "propose_correction",
+        "arguments": {
+          "fact_id": "D-019/drawing/title",
+          "new_value": "Silicone gasket for f-theta lens",
+          "reason": "User-requested title correction proposal for separate review; drawing title currently resolves to a printed placeholder."
+        },
+        "facts_returned": [
+          "D-019/part",
+          "D-019/drawing/material",
+          "D-019/drawing/title",
+          "D-019/drawing/notes",
+          "D-019/drawing/company",
+          "D-019/drawing/weight_g",
+          "D-019/drawing/drawn",
+          "D-019/drawing/date",
+          "D-019/drawing/scale",
+          "D-019/drawing/callout/p1-1",
+          "D-019/drawing/general/units",
+          "D-019/drawing/general/general_tolerance",
+          "D-019/drawing/general/edge_finish",
+          "D-019/link",
+          "D-019/source-inventory",
+          "D-019/drawing/n/141.0@1-1",
+          "D-019/drawing/n/118.0@1-1",
+          "D-019/drawing/n/6.0@1-1",
+          "D-019/drawing/n/4.5@1-1",
+          "D-019/drawing/n/1.0@1-1"
+        ]
+      }
+    ],
+    "revision": "55552f8fc36435e4"
+  },
+  "pending_item": {
+    "id": "HD-b7241d954db84f52a9b31def0e621259",
+    "target": "D-019/drawing/title",
+    "type": "correction",
+    "part_key": "D-019",
+    "title": "D-019/drawing/title",
+    "value": "Silicone gasket for f-theta lens",
+    "original": "Description",
+    "status": "pending",
+    "readers": {},
+    "method": "parsed",
+    "options": [],
+    "evidence": {
+      "part_key": "D-019",
+      "drawing": {
+        "id": "D-019",
+        "pages": 1,
+        "page_sizes": [
+          [
+            1190.550048828125,
+            841.8900146484375
+          ]
+        ],
+        "images": [
+          "images/D-019-p1.png"
+        ],
+        "fields": {
+          "title": {
+            "name": "D-019/drawing/title",
+            "original": "Description",
+            "value": "Description",
+            "confidence": "unsure",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              975.328,
+              710.355,
+              181.0,
+              66.0
+            ],
+            "field_box": [
+              975.328,
+              718.355,
+              181.0,
+              58.0
+            ],
+            "label_box": [
+              975.328,
+              710.355,
+              49.95,
+              7.75
+            ],
+            "note": "Printed placeholder; not a reliable part title."
+          },
+          "notes": {
+            "name": "D-019/drawing/notes",
+            "original": "1mm silicone pakning",
+            "value": "1mm silicone pakning",
+            "confidence": "sure",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              741.526,
+              658.942,
+              231.0,
+              111.0
+            ],
+            "field_box": [
+              741.526,
+              666.942,
+              231.0,
+              103.0
+            ],
+            "label_box": [
+              741.526,
+              658.942,
+              15.72,
+              7.75
+            ]
+          },
+          "company": {
+            "name": "D-019/drawing/company",
+            "original": "DTU MPP",
+            "value": "DTU MPP",
+            "confidence": "sure",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              975.328,
+              658.942,
+              91.0,
+              48.0
+            ],
+            "field_box": [
+              975.328,
+              666.942,
+              91.0,
+              40.0
+            ],
+            "label_box": [
+              975.328,
+              658.942,
+              30.758,
+              7.75
+            ]
+          },
+          "material": {
+            "name": "D-019/drawing/material",
+            "original": "Silicon Rubber",
+            "value": "Silicon Rubber",
+            "confidence": "sure",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              745.28,
+              771.048,
+              135.0,
+              14.0
+            ],
+            "field_box": [
+              784.28,
+              771.048,
+              96.0,
+              14.0
+            ],
+            "label_box": [
+              745.28,
+              772.048,
+              38.539,
+              10.936
+            ]
+          },
+          "weight_g": {
+            "name": "D-019/drawing/weight_g",
+            "original": "5.7",
+            "value": 5.7,
+            "confidence": "sure",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              880.717,
+              771.048,
+              93.0,
+              14.0
+            ],
+            "field_box": [
+              924.717,
+              771.048,
+              49.0,
+              14.0
+            ],
+            "label_box": [
+              880.717,
+              772.048,
+              28.747,
+              10.936
+            ]
+          },
+          "drawn": {
+            "name": "D-019/drawing/drawn",
+            "original": "MBOKJ",
+            "value": "MBOKJ",
+            "confidence": "sure",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              893.294,
+              790.235,
+              78.0,
+              11.0
+            ],
+            "field_box": [
+              917.294,
+              790.235,
+              54.0,
+              11.0
+            ],
+            "label_box": [
+              893.294,
+              791.235,
+              21.062,
+              7.75
+            ]
+          },
+          "date": {
+            "name": "D-019/drawing/date",
+            "original": "06/01/2022",
+            "value": "06/01/2022",
+            "confidence": "sure",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              897.013,
+              802.562,
+              76.0,
+              11.0
+            ],
+            "field_box": [
+              914.013,
+              802.562,
+              59.0,
+              11.0
+            ],
+            "label_box": [
+              897.013,
+              803.562,
+              13.623,
+              7.75
+            ]
+          },
+          "scale": {
+            "name": "D-019/drawing/scale",
+            "original": "1:2",
+            "value": "1:2",
+            "confidence": "sure",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1082.688,
+              803.564,
+              25.837,
+              7.75
+            ],
+            "field_box": [
+              1082.688,
+              803.564,
+              25.837,
+              7.75
+            ],
+            "label_box": [
+              1082.688,
+              803.564,
+              25.837,
+              7.75
+            ]
+          }
+        },
+        "page_fields": {
+          "1": {
+            "title": {
+              "name": "D-019/drawing/title",
+              "original": "Description",
+              "value": "Description",
+              "confidence": "unsure",
+              "method": "parsed",
+              "page": 1,
+              "box": [
+                975.328,
+                710.355,
+                181.0,
+                66.0
+              ],
+              "field_box": [
+                975.328,
+                718.355,
+                181.0,
+                58.0
+              ],
+              "label_box": [
+                975.328,
+                710.355,
+                49.95,
+                7.75
+              ],
+              "note": "Printed placeholder; not a reliable part title."
+            },
+            "notes": {
+              "name": "D-019/drawing/notes",
+              "original": "1mm silicone pakning",
+              "value": "1mm silicone pakning",
+              "confidence": "sure",
+              "method": "parsed",
+              "page": 1,
+              "box": [
+                741.526,
+                658.942,
+                231.0,
+                111.0
+              ],
+              "field_box": [
+                741.526,
+                666.942,
+                231.0,
+                103.0
+              ],
+              "label_box": [
+                741.526,
+                658.942,
+                15.72,
+                7.75
+              ]
+            },
+            "company": {
+              "name": "D-019/drawing/company",
+              "original": "DTU MPP",
+              "value": "DTU MPP",
+              "confidence": "sure",
+              "method": "parsed",
+              "page": 1,
+              "box": [
+                975.328,
+                658.942,
+                91.0,
+                48.0
+              ],
+              "field_box": [
+                975.328,
+                666.942,
+                91.0,
+                40.0
+              ],
+              "label_box": [
+                975.328,
+                658.942,
+                30.758,
+                7.75
+              ]
+            },
+            "material": {
+              "name": "D-019/drawing/material",
+              "original": "Silicon Rubber",
+              "value": "Silicon Rubber",
+              "confidence": "sure",
+              "method": "parsed",
+              "page": 1,
+              "box": [
+                745.28,
+                771.048,
+                135.0,
+                14.0
+              ],
+              "field_box": [
+                784.28,
+                771.048,
+                96.0,
+                14.0
+              ],
+              "label_box": [
+                745.28,
+                772.048,
+                38.539,
+                10.936
+              ]
+            },
+            "weight_g": {
+              "name": "D-019/drawing/weight_g",
+              "original": "5.7",
+              "value": 5.7,
+              "confidence": "sure",
+              "method": "parsed",
+              "page": 1,
+              "box": [
+                880.717,
+                771.048,
+                93.0,
+                14.0
+              ],
+              "field_box": [
+                924.717,
+                771.048,
+                49.0,
+                14.0
+              ],
+              "label_box": [
+                880.717,
+                772.048,
+                28.747,
+                10.936
+              ]
+            },
+            "drawn": {
+              "name": "D-019/drawing/drawn",
+              "original": "MBOKJ",
+              "value": "MBOKJ",
+              "confidence": "sure",
+              "method": "parsed",
+              "page": 1,
+              "box": [
+                893.294,
+                790.235,
+                78.0,
+                11.0
+              ],
+              "field_box": [
+                917.294,
+                790.235,
+                54.0,
+                11.0
+              ],
+              "label_box": [
+                893.294,
+                791.235,
+                21.062,
+                7.75
+              ]
+            },
+            "date": {
+              "name": "D-019/drawing/date",
+              "original": "06/01/2022",
+              "value": "06/01/2022",
+              "confidence": "sure",
+              "method": "parsed",
+              "page": 1,
+              "box": [
+                897.013,
+                802.562,
+                76.0,
+                11.0
+              ],
+              "field_box": [
+                914.013,
+                802.562,
+                59.0,
+                11.0
+              ],
+              "label_box": [
+                897.013,
+                803.562,
+                13.623,
+                7.75
+              ]
+            },
+            "scale": {
+              "name": "D-019/drawing/scale",
+              "original": "1:2",
+              "value": "1:2",
+              "confidence": "sure",
+              "method": "parsed",
+              "page": 1,
+              "box": [
+                1082.688,
+                803.564,
+                25.837,
+                7.75
+              ],
+              "field_box": [
+                1082.688,
+                803.564,
+                25.837,
+                7.75
+              ],
+              "label_box": [
+                1082.688,
+                803.564,
+                25.837,
+                7.75
+              ]
+            }
+          }
+        },
+        "degraded": false,
+        "source_quality": "clean",
+        "numbers": [
+          {
+            "name": "D-019/drawing/n/141.0@1-1",
+            "value": 141.0,
+            "original": "141,0",
+            "text": "141,0",
+            "page": 1,
+            "box": [
+              728.205,
+              230.219,
+              36.113,
+              36.113
+            ],
+            "method": "parsed",
+            "confidence": "sure",
+            "label": null
+          },
+          {
+            "name": "D-019/drawing/n/118.0@1-1",
+            "value": 118.0,
+            "original": "118,0",
+            "text": "118,0",
+            "page": 1,
+            "box": [
+              673.172,
+              230.001,
+              32.155,
+              37.61
+            ],
+            "method": "parsed",
+            "confidence": "sure",
+            "label": null
+          },
+          {
+            "name": "D-019/drawing/n/6.0@1-1",
+            "value": 6.0,
+            "original": "6",
+            "text": "6",
+            "page": 1,
+            "box": [
+              449.788,
+              231.957,
+              7.331,
+              18.083
+            ],
+            "method": "parsed",
+            "confidence": "sure",
+            "label": null
+          },
+          {
+            "name": "D-019/drawing/n/4.5@1-1",
+            "value": 4.5,
+            "original": "4,5",
+            "text": "4,5",
+            "page": 1,
+            "box": [
+              489.428,
+              231.957,
+              18.321,
+              18.083
+            ],
+            "method": "parsed",
+            "confidence": "sure",
+            "label": null
+          },
+          {
+            "name": "D-019/drawing/n/1.0@1-1",
+            "value": 1.0,
+            "original": "1,0",
+            "text": "1,0",
+            "page": 1,
+            "box": [
+              323.877,
+              242.209,
+              18.327,
+              18.083
+            ],
+            "method": "parsed",
+            "confidence": "sure",
+            "label": null
+          }
+        ],
+        "callouts": [
+          {
+            "name": "D-019/drawing/callout/p1-1",
+            "text": "6 x 4,5 THRU ALL",
+            "original": "6 x 4,5 THRU ALL",
+            "value": "6 x 4,5 THRU ALL",
+            "page": 1,
+            "box": [
+              449.788,
+              231.957,
+              118.667,
+              18.083
+            ],
+            "confidence": "sure",
+            "method": "parsed",
+            "feature": "unclassified_callout",
+            "through": true,
+            "count": 6
+          },
+          {
+            "name": "D-019/drawing/general/units",
+            "value": "DIMENSIONS ARE IN MILLIMETERS",
+            "original": "DIMENSIONS ARE IN MILLIMETERS",
+            "text": "DIMENSIONS ARE IN MILLIMETERS",
+            "feature": "general_note",
+            "page": 1,
+            "box": [
+              978.968,
+              784.149,
+              85.555,
+              7.75
+            ],
+            "method": "parsed",
+            "confidence": "sure"
+          },
+          {
+            "name": "D-019/drawing/general/general_tolerance",
+            "value": "DIN ISO 2768-1 m",
+            "original": "DIN ISO 2768-1 m",
+            "text": "DIN ISO 2768-1 m",
+            "feature": "general_note",
+            "page": 1,
+            "box": [
+              1016.541,
+              790.957,
+              47.749,
+              8.202
+            ],
+            "method": "parsed",
+            "confidence": "sure"
+          },
+          {
+            "name": "D-019/drawing/general/edge_finish",
+            "value": "DEBURR AND BREAK SHARP EDGES",
+            "original": "DEBURR AND BREAK SHARP EDGES",
+            "text": "DEBURR AND BREAK SHARP EDGES",
+            "feature": "general_note",
+            "page": 1,
+            "box": [
+              1078.776,
+              781.582,
+              52.887,
+              14.837
+            ],
+            "method": "parsed",
+            "confidence": "sure"
+          }
+        ],
+        "words": [
+          {
+            "text": "141,0",
+            "page": 1,
+            "box": [
+              728.205,
+              230.219,
+              36.113,
+              36.113
+            ]
+          },
+          {
+            "text": "118,0",
+            "page": 1,
+            "box": [
+              673.172,
+              230.001,
+              32.155,
+              37.61
+            ]
+          },
+          {
+            "text": "6",
+            "page": 1,
+            "box": [
+              449.788,
+              231.957,
+              7.331,
+              18.083
+            ]
+          },
+          {
+            "text": "x",
+            "page": 1,
+            "box": [
+              460.784,
+              231.957,
+              6.352,
+              18.083
+            ]
+          },
+          {
+            "text": "4,5",
+            "page": 1,
+            "box": [
+              489.428,
+              231.957,
+              18.321,
+              18.083
+            ]
+          },
+          {
+            "text": "THRU",
+            "page": 1,
+            "box": [
+              511.414,
+              231.957,
+              31.365,
+              18.083
+            ]
+          },
+          {
+            "text": "ALL",
+            "page": 1,
+            "box": [
+              546.442,
+              231.957,
+              22.012,
+              18.083
+            ]
+          },
+          {
+            "text": "1,0",
+            "page": 1,
+            "box": [
+              323.877,
+              242.209,
+              18.327,
+              18.083
+            ]
+          },
+          {
+            "text": "1mm",
+            "page": 1,
+            "box": [
+              745.316,
+              678.796,
+              32.141,
+              18.083
+            ]
+          },
+          {
+            "text": "silicone",
+            "page": 1,
+            "box": [
+              781.121,
+              678.796,
+              46.955,
+              18.083
+            ]
+          },
+          {
+            "text": "pakning",
+            "page": 1,
+            "box": [
+              831.739,
+              678.796,
+              52.378,
+              18.083
+            ]
+          },
+          {
+            "text": "UNLESS",
+            "page": 1,
+            "box": [
+              978.968,
+              777.063,
+              18.691,
+              7.75
+            ]
+          },
+          {
+            "text": "OTHERWISE",
+            "page": 1,
+            "box": [
+              999.186,
+              777.063,
+              29.457,
+              7.75
+            ]
+          },
+          {
+            "text": "SPECIFIED:",
+            "page": 1,
+            "box": [
+              1030.171,
+              777.063,
+              27.206,
+              7.75
+            ]
+          },
+          {
+            "text": "DIMENSIONS",
+            "page": 1,
+            "box": [
+              978.968,
+              784.149,
+              33.111,
+              7.75
+            ]
+          },
+          {
+            "text": "ARE",
+            "page": 1,
+            "box": [
+              1013.609,
+              784.149,
+              10.398,
+              7.75
+            ]
+          },
+          {
+            "text": "IN",
+            "page": 1,
+            "box": [
+              1025.537,
+              784.149,
+              5.334,
+              7.75
+            ]
+          },
+          {
+            "text": "MILLIMETERS",
+            "page": 1,
+            "box": [
+              1032.401,
+              784.149,
+              32.123,
+              7.75
+            ]
+          },
+          {
+            "text": "TOLERANCES:",
+            "page": 1,
+            "box": [
+              978.968,
+              791.236,
+              36.038,
+              7.75
+            ]
+          },
+          {
+            "text": "DIN",
+            "page": 1,
+            "box": [
+              1016.541,
+              790.957,
+              9.989,
+              8.202
+            ]
+          },
+          {
+            "text": "ISO",
+            "page": 1,
+            "box": [
+              1028.148,
+              790.957,
+              9.306,
+              8.202
+            ]
+          },
+          {
+            "text": "2768-1",
+            "page": 1,
+            "box": [
+              1039.072,
+              790.957,
+              18.12,
+              8.202
+            ]
+          },
+          {
+            "text": "m",
+            "page": 1,
+            "box": [
+              1058.811,
+              790.957,
+              5.479,
+              8.202
+            ]
+          },
+          {
+            "text": "FINISH:",
+            "page": 1,
+            "box": [
+              744.448,
+              795.287,
+              24.074,
+              10.936
+            ]
+          },
+          {
+            "text": "DEBURR",
+            "page": 1,
+            "box": [
+              1078.776,
+              781.582,
+              20.62,
+              7.75
+            ]
+          },
+          {
+            "text": "AND",
+            "page": 1,
+            "box": [
+              1100.93,
+              781.582,
+              12.318,
+              7.75
+            ]
+          },
+          {
+            "text": "BREAK",
+            "page": 1,
+            "box": [
+              1114.782,
+              781.582,
+              16.881,
+              7.75
+            ]
+          },
+          {
+            "text": "SHARP",
+            "page": 1,
+            "box": [
+              1078.776,
+              788.669,
+              17.3,
+              7.75
+            ]
+          },
+          {
+            "text": "EDGES",
+            "page": 1,
+            "box": [
+              1097.612,
+              788.669,
+              17.666,
+              7.75
+            ]
+          },
+          {
+            "text": "DATE",
+            "page": 1,
+            "box": [
+              897.013,
+              803.562,
+              13.623,
+              7.75
+            ]
+          },
+          {
+            "text": "MATERIAL:",
+            "page": 1,
+            "box": [
+              745.28,
+              772.048,
+              38.539,
+              10.936
+            ]
+          },
+          {
+            "text": "DO",
+            "page": 1,
+            "box": [
+              989.36,
+              803.212,
+              8.578,
+              8.101
+            ]
+          },
+          {
+            "text": "NOT",
+            "page": 1,
+            "box": [
+              999.497,
+              803.212,
+              11.14,
+              8.101
+            ]
+          },
+          {
+            "text": "SCALE",
+            "page": 1,
+            "box": [
+              1012.197,
+              803.212,
+              16.71,
+              8.101
+            ]
+          },
+          {
+            "text": "DRAWING",
+            "page": 1,
+            "box": [
+              1030.466,
+              803.212,
+              26.625,
+              8.101
+            ]
+          },
+          {
+            "text": "TITLE/DESCRIPTION:",
+            "page": 1,
+            "box": [
+              975.328,
+              710.355,
+              49.95,
+              7.75
+            ]
+          },
+          {
+            "text": "SCALE:1:2",
+            "page": 1,
+            "box": [
+              1082.688,
+              803.564,
+              25.837,
+              7.75
+            ]
+          },
+          {
+            "text": "SHEET",
+            "page": 1,
+            "box": [
+              1123.875,
+              803.564,
+              14.711,
+              7.75
+            ]
+          },
+          {
+            "text": "1",
+            "page": 1,
+            "box": [
+              1140.107,
+              803.564,
+              3.042,
+              7.75
+            ]
+          },
+          {
+            "text": "OF",
+            "page": 1,
+            "box": [
+              1144.67,
+              803.564,
+              7.435,
+              7.75
+            ]
+          },
+          {
+            "text": "1",
+            "page": 1,
+            "box": [
+              1153.627,
+              803.564,
+              3.042,
+              7.75
+            ]
+          },
+          {
+            "text": "A3",
+            "page": 1,
+            "box": [
+              1142.248,
+              780.879,
+              14.071,
+              15.037
+            ]
+          },
+          {
+            "text": "Magnus",
+            "page": 1,
+            "box": [
+              1071.544,
+              662.161,
+              34.914,
+              12.303
+            ]
+          },
+          {
+            "text": "Bolt",
+            "page": 1,
+            "box": [
+              1108.949,
+              662.161,
+              15.905,
+              12.303
+            ]
+          },
+          {
+            "text": "Kjer",
+            "page": 1,
+            "box": [
+              1127.346,
+              662.161,
+              15.698,
+              12.303
+            ]
+          },
+          {
+            "text": "mbokj@mek.dtu.dk",
+            "page": 1,
+            "box": [
+              1071.544,
+              673.996,
+              83.738,
+              12.303
+            ]
+          },
+          {
+            "text": "28",
+            "page": 1,
+            "box": [
+              1071.544,
+              685.831,
+              9.971,
+              12.303
+            ]
+          },
+          {
+            "text": "72",
+            "page": 1,
+            "box": [
+              1084.007,
+              685.831,
+              9.971,
+              12.303
+            ]
+          },
+          {
+            "text": "99",
+            "page": 1,
+            "box": [
+              1096.471,
+              685.831,
+              9.971,
+              12.303
+            ]
+          },
+          {
+            "text": "66",
+            "page": 1,
+            "box": [
+              1108.935,
+              685.831,
+              9.971,
+              12.303
+            ]
+          },
+          {
+            "text": "DTU",
+            "page": 1,
+            "box": [
+              992.845,
+              671.572,
+              21.896,
+              16.404
+            ]
+          },
+          {
+            "text": "MPP",
+            "page": 1,
+            "box": [
+              1018.064,
+              671.572,
+              25.231,
+              16.404
+            ]
+          },
+          {
+            "text": "COMPANY:",
+            "page": 1,
+            "box": [
+              975.328,
+              658.942,
+              30.758,
+              7.75
+            ]
+          },
+          {
+            "text": "DRAWN",
+            "page": 1,
+            "box": [
+              893.294,
+              791.235,
+              21.062,
+              7.75
+            ]
+          },
+          {
+            "text": "06/01/2022",
+            "page": 1,
+            "box": [
+              931.817,
+              803.56,
+              29.385,
+              7.75
+            ]
+          },
+          {
+            "text": "MBOKJ",
+            "page": 1,
+            "box": [
+              936.091,
+              791.235,
+              19.045,
+              7.75
+            ]
+          },
+          {
+            "text": "NOTE:",
+            "page": 1,
+            "box": [
+              741.526,
+              658.942,
+              15.72,
+              7.75
+            ]
+          },
+          {
+            "text": "WEIGHT",
+            "page": 1,
+            "box": [
+              880.717,
+              772.048,
+              28.747,
+              10.936
+            ]
+          },
+          {
+            "text": "[g]:",
+            "page": 1,
+            "box": [
+              911.615,
+              772.048,
+              12.825,
+              10.936
+            ]
+          },
+          {
+            "text": "Silicon",
+            "page": 1,
+            "box": [
+              788.557,
+              772.048,
+              23.452,
+              10.936
+            ]
+          },
+          {
+            "text": "Rubber",
+            "page": 1,
+            "box": [
+              814.167,
+              772.048,
+              27.504,
+              10.936
+            ]
+          },
+          {
+            "text": "5.7",
+            "page": 1,
+            "box": [
+              931.813,
+              772.048,
+              10.739,
+              10.936
+            ]
+          },
+          {
+            "text": "Description",
+            "page": 1,
+            "box": [
+              980.602,
+              723.188,
+              75.814,
+              19.138
+            ]
+          },
+          {
+            "text": "A",
+            "page": 1,
+            "box": [
+              44.054,
+              748.762,
+              11.104,
+              20.505
+            ]
+          },
+          {
+            "text": "A",
+            "page": 1,
+            "box": [
+              1163.744,
+              748.762,
+              11.104,
+              20.505
+            ]
+          },
+          {
+            "text": "B",
+            "page": 1,
+            "box": [
+              45.314,
+              623.272,
+              8.604,
+              20.505
+            ]
+          },
+          {
+            "text": "B",
+            "page": 1,
+            "box": [
+              1165.004,
+              623.272,
+              8.604,
+              20.505
+            ]
+          },
+          {
+            "text": "C",
+            "page": 1,
+            "box": [
+              43.529,
+              481.597,
+              12.187,
+              20.505
+            ]
+          },
+          {
+            "text": "C",
+            "page": 1,
+            "box": [
+              1163.219,
+              481.597,
+              12.188,
+              20.505
+            ]
+          },
+          {
+            "text": "D",
+            "page": 1,
+            "box": [
+              44.04,
+              339.862,
+              11.167,
+              20.505
+            ]
+          },
+          {
+            "text": "D",
+            "page": 1,
+            "box": [
+              1163.73,
+              339.862,
+              11.167,
+              20.505
+            ]
+          },
+          {
+            "text": "E",
+            "page": 1,
+            "box": [
+              45.6,
+              198.082,
+              8.042,
+              20.505
+            ]
+          },
+          {
+            "text": "E",
+            "page": 1,
+            "box": [
+              1165.29,
+              198.082,
+              8.042,
+              20.505
+            ]
+          },
+          {
+            "text": "F",
+            "page": 1,
+            "box": [
+              45.99,
+              72.697,
+              7.271,
+              20.505
+            ]
+          },
+          {
+            "text": "F",
+            "page": 1,
+            "box": [
+              1165.68,
+              72.697,
+              7.271,
+              20.505
+            ]
+          },
+          {
+            "text": "8",
+            "page": 1,
+            "box": [
+              116.34,
+              810.367,
+              8.312,
+              20.505
+            ]
+          },
+          {
+            "text": "8",
+            "page": 1,
+            "box": [
+              116.34,
+              11.002,
+              8.312,
+              20.505
+            ]
+          },
+          {
+            "text": "7",
+            "page": 1,
+            "box": [
+              250.98,
+              810.367,
+              8.313,
+              20.505
+            ]
+          },
+          {
+            "text": "7",
+            "page": 1,
+            "box": [
+              250.98,
+              11.002,
+              8.313,
+              20.505
+            ]
+          },
+          {
+            "text": "6",
+            "page": 1,
+            "box": [
+              392.715,
+              810.367,
+              8.312,
+              20.505
+            ]
+          },
+          {
+            "text": "6",
+            "page": 1,
+            "box": [
+              392.715,
+              11.002,
+              8.312,
+              20.505
+            ]
+          },
+          {
+            "text": "5",
+            "page": 1,
+            "box": [
+              534.45,
+              810.367,
+              8.312,
+              20.505
+            ]
+          },
+          {
+            "text": "5",
+            "page": 1,
+            "box": [
+              534.45,
+              11.002,
+              8.312,
+              20.505
+            ]
+          },
+          {
+            "text": "4",
+            "page": 1,
+            "box": [
+              676.185,
+              810.367,
+              8.312,
+              20.505
+            ]
+          },
+          {
+            "text": "4",
+            "page": 1,
+            "box": [
+              676.185,
+              11.002,
+              8.312,
+              20.505
+            ]
+          },
+          {
+            "text": "3",
+            "page": 1,
+            "box": [
+              817.92,
+              810.367,
+              8.312,
+              20.505
+            ]
+          },
+          {
+            "text": "3",
+            "page": 1,
+            "box": [
+              817.92,
+              11.002,
+              8.312,
+              20.505
+            ]
+          },
+          {
+            "text": "2",
+            "page": 1,
+            "box": [
+              959.655,
+              810.367,
+              8.312,
+              20.505
+            ]
+          },
+          {
+            "text": "2",
+            "page": 1,
+            "box": [
+              959.655,
+              11.002,
+              8.312,
+              20.505
+            ]
+          },
+          {
+            "text": "1",
+            "page": 1,
+            "box": [
+              1094.295,
+              810.367,
+              8.312,
+              20.505
+            ]
+          },
+          {
+            "text": "1",
+            "page": 1,
+            "box": [
+              1094.295,
+              11.002,
+              8.312,
+              20.505
+            ]
+          }
+        ],
+        "text": "8 7 6 5 4 3 2 1\nF F\nE E\n6 x 4,5 THRU ALL 118,0 141,0\n1,0\nD D\nC C\nB B\nNOTE: COMPANY:\nMagnus Bolt Kjer\nDTU MPP mbokj@mek.dtu.dk\n1mm silicone pakning\n28 72 99 66\nTITLE/DESCRIPTION:\nDescription\nA A\nMATERIAL: Silicon Rubber WEIGHT [g]: 5.7\nUNLESS OTHERWISE SPECIFIED:\nA3\nDIMENSIONS ARE IN MILLIMETERS DEBURR AND BREAK\nDRAWN MBOKJ TOLERANCES: DIN ISO 2768-1 m SHARP EDGES\nFINISH:\nDATE 06/01/2022 DO NOT SCALE DRAWING SCALE:1:2 SHEET 1 OF 1\n8 7 6 5 4 3 2 1",
+        "page_texts": [
+          "8 7 6 5 4 3 2 1\nF F\nE E\n6 x 4,5 THRU ALL 118,0 141,0\n1,0\nD D\nC C\nB B\nNOTE: COMPANY:\nMagnus Bolt Kjer\nDTU MPP mbokj@mek.dtu.dk\n1mm silicone pakning\n28 72 99 66\nTITLE/DESCRIPTION:\nDescription\nA A\nMATERIAL: Silicon Rubber WEIGHT [g]: 5.7\nUNLESS OTHERWISE SPECIFIED:\nA3\nDIMENSIONS ARE IN MILLIMETERS DEBURR AND BREAK\nDRAWN MBOKJ TOLERANCES: DIN ISO 2768-1 m SHARP EDGES\nFINISH:\nDATE 06/01/2022 DO NOT SCALE DRAWING SCALE:1:2 SHEET 1 OF 1\n8 7 6 5 4 3 2 1"
+        ],
+        "sha256": "581fbaf7562ac75008243463af6956d6f88cd6a0a858cf6c22aa62ce39041e11",
+        "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-019.pdf",
+        "upstream_source_path": "CAD/Technical Drawings/Optical/SiliconePakningfTheta.pdf",
+        "source_filename": "SiliconePakningfTheta.pdf",
+        "section": "Optical",
+        "source_url": "https://raw.githubusercontent.com/DTUOpenAM/OpenLPBF_v2/98f76dad7b11d6f8fc7d59945d7fcf689df87ee7/CAD/Technical%20Drawings/Optical/SiliconePakningfTheta.pdf",
+        "image": "images/D-019-p1.png",
+        "corner_image": "images/D-019-corner.png",
+        "corner_box": [
+          730.00002993955,
+          645.0000112226563,
+          440.0000180457562,
+          185.00000321890144
+        ]
+      },
+      "bom": [],
+      "page": 1,
+      "box": [
+        975.328,
+        710.355,
+        181.0,
+        66.0
+      ],
+      "says": "Description"
+    },
+    "reason": "User-requested title correction proposal for separate review; drawing title currently resolves to a printed placeholder.",
+    "check_result": {
+      "exact_text_match": false,
+      "message": "No exact text match. Review the original drawing and linked BOM evidence before accepting.",
+      "evidence_excerpt": "Description 1mm silicone pakning DTU MPP Silicon Rubber 5.7 MBOKJ 06/01/2022 1:2 141,0 118,0 6 4,5 1,0 6 x 4,5 THRU ALL DIMENSIONS ARE IN MILLIMETERS DIN ISO 2768-1 m DEBURR AND BREAK SHARP EDGES [] SiliconePakningfTheta.pdf"
+    }
+  },
+  "accepted": {
+    "decision": {
+      "decision_id": "HD-1747d3d6d4f24c97b33df8c9a9718288",
+      "applies_to": "D-019/drawing/title",
+      "type": "correction",
+      "value": "Silicone gasket for f-theta lens",
+      "status": "accepted",
+      "note": "Automated benchmark workflow verification in an isolated clone. Not Jason Peng's review or approval.",
+      "by": "Automated verification",
+      "at": "2026-11-05T08:55:19.460069+00:00",
+      "based_on": {
+        "sha256": "581fbaf7562ac75008243463af6956d6f88cd6a0a858cf6c22aa62ce39041e11"
+      },
+      "proposal_id": "HD-b7241d954db84f52a9b31def0e621259",
+      "old_value": "Description",
+      "check_result": {
+        "exact_text_match": false,
+        "message": "No exact text match. Review the original drawing and linked BOM evidence before accepting.",
+        "evidence_excerpt": "Description 1mm silicone pakning DTU MPP Silicon Rubber 5.7 MBOKJ 06/01/2022 1:2 141,0 118,0 6 4,5 1,0 6 x 4,5 THRU ALL DIMENSIONS ARE IN MILLIMETERS DIN ISO 2768-1 m DEBURR AND BREAK SHARP EDGES [] SiliconePakningfTheta.pdf"
+      }
+    },
+    "revision": "b6b7c59644871a7b",
+    "status": "saved"
+  }
+}

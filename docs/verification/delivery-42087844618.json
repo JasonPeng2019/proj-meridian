@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "actions_run": "42087844618",
+  "actions_url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42087844618",
+  "source_commit": "b228b461a9a40f4eb2ee3da51bdbd7b7a9cbee1b",
+  "archive": "meridian-v1-b228b461.zip",
+  "archive_sha256": "98f7423d9c6dbd1870af13a6e029b7168b1e031984fcce7d0616942031b65a57",
+  "archive_bytes": 80554170,
+  "packaged_files": 3754,
+  "uv_only": true,
+  "docker_required": false,
+  "windows_clean_start_passed": true,
+  "linux_clean_start_passed": true,
+  "automatic_python_setup_passed": true,
+  "source_data_and_decisions_unchanged": true,
+  "catalog_equal_across_platforms": true,
+  "drawings": 30,
+  "parts": 202,
+  "modeled_parts": 9,
+  "model_variants": 12,
+  "model_exports_checked_per_platform": 24,
+  "model_hashes_equal_across_platforms": true,
+  "no_node_cad_agents_or_database_server_required": true,
+  "tests": {
+    "tests": 591,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 28
+  },
+  "release_tag": "meridian-v1-2026-11-05"
+}

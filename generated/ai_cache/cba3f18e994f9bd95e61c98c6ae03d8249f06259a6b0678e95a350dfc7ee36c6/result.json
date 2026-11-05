@@ -1,0 +1,183 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "83d7e6b8379c742fb6f0cf5f4d91a03473c41ef9de7e5b55de58f45d18ebe929",
+    "items": [
+      {
+        "key": "outline_type",
+        "decision": "accept",
+        "reason": "In the main face-on view, the outer and inner boundaries are concentric circles. Leaders dimension them Ø250,0 and Ø224,0, so the part is an annulus (ring).",
+        "fact_ids": [
+          "D-025",
+          "D-025/drawing/n/250.0@1-1",
+          "D-025/drawing/n/224.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "length",
+        "decision": "accept",
+        "reason": "The outline is a ring, so a rectangular X length does not apply. Under the template, irrelevant dimensions are unknown.",
+        "fact_ids": [
+          "D-025"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "width",
+        "decision": "accept",
+        "reason": "The outline is a ring, so a rectangular Y width does not apply. Under the template, irrelevant dimensions are unknown.",
+        "fact_ids": [
+          "D-025"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "outer_diameter",
+        "decision": "accept",
+        "reason": "The printed 'Ø250,0 ±0,2' leader ends on the outer circle. 250,0 is the nominal value, the ±0,2 is a tolerance, and the drawing note says DIMENSIONS ARE IN MILLIMETERS.",
+        "fact_ids": [
+          "D-025",
+          "D-025/drawing/n/250.0@1-1",
+          "D-025/drawing/general/units"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "inner_diameter",
+        "decision": "accept",
+        "reason": "The printed 'Ø224,0 +0,3/0,0' leader ends on the inner circle. The +0,3/0,0 stack is a unilateral tolerance, not a set of alternative nominal diameters, so the nominal is 224,0 mm.",
+        "fact_ids": [
+          "D-025",
+          "D-025/drawing/n/224.0@1-1",
+          "D-025/drawing/n/0.3@1-1",
+          "D-025/drawing/n/0.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "thickness",
+        "decision": "accept",
+        "reason": "In the left edge view, a single thickness dimension carries the stacked readings 3,0 over 2,0. The drawing does not identify them as a tolerance or as bounds. Under the possible-reading contract, keeping them as unselected options [2.0,3.0], sorted ascending, is correct.",
+        "fact_ids": [
+          "D-025",
+          "D-025/drawing/n/3.0@1-1",
+          "D-025/drawing/n/2.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features",
+        "decision": "accept",
+        "reason": "The callout '8 x Ø 3,4 THRU ALL' with the countersink symbol 'Ø 6,9 X 90°' gives the hole size, through condition, and countersink. The main view shows 8 holes on the dash-dot pitch circle: one on each cardinal axis (0/90/180/270°) and one on each diagonal. That matches an even 360/8 = 45° spacing, and a start angle of 0 at the rightmost (+X) hole is valid. The R115,5 leader runs from the ring centre to the lower-left hole centre, so it gives the pitch radius. The doubled circles at each hole are drawn solid in the face-on (+Z) view, so the countersinks open on the top face. Derived countersink depth is (6,9−3,4)/2 = 1,75, which is less than both 2,0 and 3,0, so the countersink is valid for both thickness readings.",
+        "fact_ids": [
+          "D-025",
+          "D-025/drawing/callout/p1-1",
+          "D-025/drawing/callout/p1-2",
+          "D-025/drawing/callout/p1-3",
+          "D-025/drawing/n/8.0@1-1",
+          "D-025/drawing/n/3.4@1-1",
+          "D-025/drawing/n/6.9@1-1",
+          "D-025/drawing/n/90.0@1-1",
+          "D-025/drawing/n/115.5@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_complete",
+        "decision": "accept",
+        "reason": "The undimensioned 'DEBURR AND BREAK SHARP EDGES' note is omitted from the model, so features_complete=false is correct. Apart from that note, the only feature in the views is the 8-hole countersunk pattern.",
+        "fact_ids": [
+          "D-025",
+          "D-025/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_omitted",
+        "decision": "accept",
+        "reason": "The single omission is the general edge-break note. It gives no size or profile, so it cannot be modelled. The original views show no other slots, notches, recesses, side holes, or chamfers.",
+        "fact_ids": [
+          "D-025",
+          "D-025/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "cad_eligibility",
+        "decision": "reject",
+        "reason": "Local validation already marked this key invalid, so the exact packet cannot be accepted. Against the evidence, the content is correct: the main view gives an exact ring of Ø250,0/Ø224,0; the edge view gives a constant thickness with stacked 3,0/2,0 readings; and the 8-hole countersunk pattern at R115,5 is expressible. The likely structural problem is that the object sets supported=true while listing a nonempty essential_uncertainty. The thickness ambiguity is already handled by the options contract, so that list is likely why the object is inconsistent. This is a structural fix, not a change to any value: the proposer should resubmit with a locally valid object, likely an empty essential_uncertainty list with the thickness ambiguity explained in reason, keeping the same supported values and source IDs.",
+        "fact_ids": [
+          "D-025",
+          "D-025/drawing/n/250.0@1-1",
+          "D-025/drawing/n/224.0@1-1",
+          "D-025/drawing/n/3.0@1-1",
+          "D-025/drawing/n/2.0@1-1",
+          "D-025/drawing/callout/p1-1",
+          "D-025/drawing/callout/p1-2",
+          "D-025/drawing/callout/p1-3",
+          "D-025/drawing/general/edge_finish"
+        ],
+        "repairable": true
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 17319,
+      "cache_read_input_tokens": 18932,
+      "output_tokens": 3076,
+      "output_tokens_details": {
+        "thinking_tokens": 843
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 17319,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 3076,
+        "cacheReadInputTokens": 18932,
+        "cacheCreationInputTokens": 17319,
+        "webSearchRequests": 0,
+        "costUSD": 0.2038744,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 843,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 17319,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.2038744,
+    "duration_ms": 27772,
+    "is_error": false
+  },
+  "latency_ms": 29547,
+  "cache_key": "cba3f18e994f9bd95e61c98c6ae03d8249f06259a6b0678e95a350dfc7ee36c6",
+  "cache_hit": false,
+  "job": "detail:D-025:drawing-detail-reprepare-v2:proposal-verification-v1:verification:0",
+  "error": null
+}

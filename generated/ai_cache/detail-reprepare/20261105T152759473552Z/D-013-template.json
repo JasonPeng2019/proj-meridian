@@ -1,0 +1,1640 @@
+{
+  "part": "D-013",
+  "template": "flat_part",
+  "outline": {
+    "state": "known",
+    "type": "rectangle",
+    "length": {
+      "state": "known",
+      "value": 270,
+      "confidence": "sure",
+      "method": "ai_verified",
+      "fact_ids": [
+        "D-013/drawing/n/270.0@1-1",
+        "D-013/drawing/general/units"
+      ],
+      "readers": {
+        "claude": {
+          "role": "verifier",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "length",
+                "decision": "accept",
+                "reason": "The overall horizontal dimension 270,0 runs across the full outline in the main view. DIMENSIONS ARE IN MILLIMETERS.",
+                "fact_ids": [
+                  "D-013/drawing/n/270.0@1-1",
+                  "D-013/drawing/general/units"
+                ],
+                "repairable": false
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "a42739ce62a1b26bd0582ebd54ebc417b7329099dd51b1efa99f94f2f31a5856",
+              "response_proposal_fingerprint": "a42739ce62a1b26bd0582ebd54ebc417b7329099dd51b1efa99f94f2f31a5856",
+              "feedback": [],
+              "settings": {
+                "model": "opus",
+                "fast_mode": false,
+                "mode": "regular",
+                "reader": "claude"
+              },
+              "cache_key": "1393b3599cbe4ee4acea556ee05be4e1676c5f6c3d1a5872b61839acf2460e7c"
+            },
+            {
+              "answer": null,
+              "valid": true,
+              "validation_passed": null,
+              "contract_error": null,
+              "requested": false,
+              "proposal_fingerprint": "83f38c768a5760fac5053e06fb8286a2d64d13166639920848801359f5421387",
+              "response_proposal_fingerprint": "83f38c768a5760fac5053e06fb8286a2d64d13166639920848801359f5421387",
+              "feedback": [],
+              "settings": {
+                "model": "opus",
+                "fast_mode": false,
+                "mode": "regular",
+                "reader": "claude"
+              },
+              "cache_key": "4116e2f87b512f4c065718013493f0d25a998b9d449a53975a01d9ef12152458"
+            }
+          ]
+        },
+        "codex": {
+          "role": "proposer",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "length",
+                "state": "known",
+                "value_json": "270",
+                "confidence": "sure",
+                "fact_ids": [
+                  "D-013/drawing/n/270.0@1-1",
+                  "D-013/drawing/general/units"
+                ],
+                "reason": "The overall horizontal dimension is 270,0 millimeters.",
+                "changed_because": ""
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "a42739ce62a1b26bd0582ebd54ebc417b7329099dd51b1efa99f94f2f31a5856",
+              "response_proposal_fingerprint": null,
+              "feedback": [],
+              "settings": {
+                "model": "gpt-6.1-sol",
+                "reasoning_effort": "xhigh",
+                "service_tier": "fast",
+                "reader": "codex"
+              },
+              "cache_key": "1d8b208b0c6ed11bc916d979482ce30a8911325246b5831b7639793d45d7596b"
+            },
+            {
+              "answer": null,
+              "valid": true,
+              "validation_passed": null,
+              "contract_error": null,
+              "requested": false,
+              "proposal_fingerprint": "83f38c768a5760fac5053e06fb8286a2d64d13166639920848801359f5421387",
+              "response_proposal_fingerprint": null,
+              "feedback": [],
+              "settings": {
+                "model": "gpt-6.1-sol",
+                "reasoning_effort": "xhigh",
+                "service_tier": "fast",
+                "reader": "codex"
+              },
+              "cache_key": "5cf443c055f8f90350c849c30fbb7d6b1e294308882fe6dc265dcac605099208"
+            }
+          ]
+        }
+      },
+      "review": {
+        "status": "not_reviewed"
+      },
+      "note": "The overall horizontal dimension is 270,0 millimeters. Verification: The overall horizontal dimension 270,0 runs across the full outline in the main view. DIMENSIONS ARE IN MILLIMETERS."
+    },
+    "width": {
+      "state": "known",
+      "value": 25,
+      "confidence": "sure",
+      "method": "ai_verified",
+      "fact_ids": [
+        "D-013/drawing/n/25.0@1-1",
+        "D-013/drawing/general/units"
+      ],
+      "readers": {
+        "claude": {
+          "role": "verifier",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "width",
+                "decision": "accept",
+                "reason": "The vertical dimension 25,0 on the right side of the main view runs across the full outline height. Units are millimetres.",
+                "fact_ids": [
+                  "D-013/drawing/n/25.0@1-1",
+                  "D-013/drawing/general/units"
+                ],
+                "repairable": false
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "a42739ce62a1b26bd0582ebd54ebc417b7329099dd51b1efa99f94f2f31a5856",
+              "response_proposal_fingerprint": "a42739ce62a1b26bd0582ebd54ebc417b7329099dd51b1efa99f94f2f31a5856",
+              "feedback": [],
+              "settings": {
+                "model": "opus",
+                "fast_mode": false,
+                "mode": "regular",
+                "reader": "claude"
+              },
+              "cache_key": "1393b3599cbe4ee4acea556ee05be4e1676c5f6c3d1a5872b61839acf2460e7c"
+            },
+            {
+              "answer": null,
+              "valid": true,
+              "validation_passed": null,
+              "contract_error": null,
+              "requested": false,
+              "proposal_fingerprint": "83f38c768a5760fac5053e06fb8286a2d64d13166639920848801359f5421387",
+              "response_proposal_fingerprint": "83f38c768a5760fac5053e06fb8286a2d64d13166639920848801359f5421387",
+              "feedback": [],
+              "settings": {
+                "model": "opus",
+                "fast_mode": false,
+                "mode": "regular",
+                "reader": "claude"
+              },
+              "cache_key": "4116e2f87b512f4c065718013493f0d25a998b9d449a53975a01d9ef12152458"
+            }
+          ]
+        },
+        "codex": {
+          "role": "proposer",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "width",
+                "state": "known",
+                "value_json": "25",
+                "confidence": "sure",
+                "fact_ids": [
+                  "D-013/drawing/n/25.0@1-1",
+                  "D-013/drawing/general/units"
+                ],
+                "reason": "The overall vertical dimension is 25,0 millimeters.",
+                "changed_because": ""
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "a42739ce62a1b26bd0582ebd54ebc417b7329099dd51b1efa99f94f2f31a5856",
+              "response_proposal_fingerprint": null,
+              "feedback": [],
+              "settings": {
+                "model": "gpt-6.1-sol",
+                "reasoning_effort": "xhigh",
+                "service_tier": "fast",
+                "reader": "codex"
+              },
+              "cache_key": "1d8b208b0c6ed11bc916d979482ce30a8911325246b5831b7639793d45d7596b"
+            },
+            {
+              "answer": null,
+              "valid": true,
+              "validation_passed": null,
+              "contract_error": null,
+              "requested": false,
+              "proposal_fingerprint": "83f38c768a5760fac5053e06fb8286a2d64d13166639920848801359f5421387",
+              "response_proposal_fingerprint": null,
+              "feedback": [],
+              "settings": {
+                "model": "gpt-6.1-sol",
+                "reasoning_effort": "xhigh",
+                "service_tier": "fast",
+                "reader": "codex"
+              },
+              "cache_key": "5cf443c055f8f90350c849c30fbb7d6b1e294308882fe6dc265dcac605099208"
+            }
+          ]
+        }
+      },
+      "review": {
+        "status": "not_reviewed"
+      },
+      "note": "The overall vertical dimension is 25,0 millimeters. Verification: The vertical dimension 25,0 on the right side of the main view runs across the full outline height. Units are millimetres."
+    }
+  },
+  "thickness": {
+    "state": "unknown",
+    "value": null,
+    "confidence": "unsure",
+    "method": "ai_unsure",
+    "fact_ids": [],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "thickness",
+              "decision": "needs_input",
+              "reason": "The end view's single thickness dimension carries 6,0 stacked over 3,0. That is the same format as a limit dimension (upper over lower). No note, table or label says these are two alternative thicknesses. The evidence therefore cannot decide between a limit range and two documented variants, and it gives no single exact value. Leaving thickness unknown is the honest reading, but an essential dimension is unresolved, and the protocol makes unknown essential geometry needs_input. A human must decide how to read the 6,0/3,0 stack (limits or alternatives). The existing evidence cannot settle it.",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/n/6.0@1-1",
+                "D-013/drawing/n/3.0@1-1"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "a42739ce62a1b26bd0582ebd54ebc417b7329099dd51b1efa99f94f2f31a5856",
+            "response_proposal_fingerprint": "a42739ce62a1b26bd0582ebd54ebc417b7329099dd51b1efa99f94f2f31a5856",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "1393b3599cbe4ee4acea556ee05be4e1676c5f6c3d1a5872b61839acf2460e7c"
+          },
+          {
+            "answer": null,
+            "valid": true,
+            "validation_passed": null,
+            "contract_error": null,
+            "requested": false,
+            "proposal_fingerprint": "83f38c768a5760fac5053e06fb8286a2d64d13166639920848801359f5421387",
+            "response_proposal_fingerprint": "83f38c768a5760fac5053e06fb8286a2d64d13166639920848801359f5421387",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "4116e2f87b512f4c065718013493f0d25a998b9d449a53975a01d9ef12152458"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "thickness",
+              "state": "unknown",
+              "value_json": "null",
+              "confidence": "unsure",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/n/6.0@1-1",
+                "D-013/drawing/n/3.0@1-1"
+              ],
+              "reason": "The end-view thickness dimension has 6,0 stacked above 3,0 in limit-dimension format. It does not explicitly identify two alternative thicknesses or establish one exact thickness. A limit pair cannot be converted into alternatives, and neither a boundary value nor a midpoint may be selected.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "a42739ce62a1b26bd0582ebd54ebc417b7329099dd51b1efa99f94f2f31a5856",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "1d8b208b0c6ed11bc916d979482ce30a8911325246b5831b7639793d45d7596b"
+          },
+          {
+            "answer": null,
+            "valid": true,
+            "validation_passed": null,
+            "contract_error": null,
+            "requested": false,
+            "proposal_fingerprint": "83f38c768a5760fac5053e06fb8286a2d64d13166639920848801359f5421387",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "5cf443c055f8f90350c849c30fbb7d6b1e294308882fe6dc265dcac605099208"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "Waiting for review: needs_input. The end view's single thickness dimension carries 6,0 stacked over 3,0. That is the same format as a limit dimension (upper over lower). No note, table or label says these are two alternative thicknesses. The evidence therefore cannot decide between a limit range and two documented variants, and it gives no single exact value. Leaving thickness unknown is the honest reading, but an essential dimension is unresolved, and the protocol makes unknown essential geometry needs_input. A human must decide how to read the 6,0/3,0 stack (limits or alternatives). The existing evidence cannot settle it."
+  },
+  "features": [
+    {
+      "kind": "hole",
+      "face": "top",
+      "x": {
+        "state": "known",
+        "value": -82,
+        "fact_ids": [
+          "D-013/drawing/n/82.0@1-1"
+        ],
+        "expression": "0-n0"
+      },
+      "y": {
+        "state": "known",
+        "value": 4.5,
+        "fact_ids": [
+          "D-013/drawing/n/4.5@1-1"
+        ]
+      },
+      "diameter": {
+        "state": "known",
+        "value": 4.2,
+        "fact_ids": [
+          "D-013/drawing/n/4.2@1-1"
+        ]
+      },
+      "through": true,
+      "hole_type": "threaded",
+      "thread": "M5 - 6H",
+      "pattern": {
+        "type": "row",
+        "count": {
+          "state": "known",
+          "value": 2,
+          "fact_ids": [
+            "D-013/drawing/n/2.0@1-1"
+          ]
+        },
+        "spacing": {
+          "state": "known",
+          "value": 164,
+          "fact_ids": [
+            "D-013/drawing/n/82.0@1-1"
+          ],
+          "expression": "n0*2"
+        },
+        "direction": {
+          "state": "known",
+          "value": 0,
+          "fact_ids": [
+            "D-013"
+          ]
+        }
+      },
+      "placement_basis": "drawing_pattern_interpretation",
+      "placement_reason": "The 2 x callout identifies the two M5 holes. The printed 82,0 dimension locates the left hole from the central vertical axis; the opposed two-hole layout establishes its mirrored partner at X=+82. Both lie on the horizontal hole axis dimensioned 4,5 above Y=0.",
+      "fact_ids": [
+        "D-013",
+        "D-013/drawing/callout/p1-1",
+        "D-013/drawing/n/2.0@1-1",
+        "D-013/drawing/n/4.2@1-1",
+        "D-013/drawing/n/82.0@1-1",
+        "D-013/drawing/n/4.5@1-1"
+      ]
+    },
+    {
+      "kind": "hole",
+      "face": "top",
+      "x": {
+        "state": "known",
+        "value": 17.9,
+        "fact_ids": [
+          "D-013/drawing/n/17.9@1-1"
+        ]
+      },
+      "y": {
+        "state": "known",
+        "value": -7.5,
+        "fact_ids": [
+          "D-013/drawing/n/7.5@1-1"
+        ],
+        "expression": "0-n0"
+      },
+      "diameter": {
+        "state": "known",
+        "value": 2.5,
+        "fact_ids": [
+          "D-013/drawing/n/2.5@1-1"
+        ]
+      },
+      "through": true,
+      "hole_type": "threaded",
+      "thread": "M3 - 6H",
+      "placement_basis": "dimensioned",
+      "placement_reason": "The 17,9 dimension directly locates the first lower-row hole right of the central vertical axis. The 7,5 dimension locates the lower hole axis below Y=0. The 8 x M3 callout establishes this hole's printed drill diameter, thread and through operation without requiring the other six unresolved placements.",
+      "fact_ids": [
+        "D-013",
+        "D-013/drawing/callout/p1-2",
+        "D-013/drawing/n/8.0@1-1",
+        "D-013/drawing/n/2.5@1-1",
+        "D-013/drawing/n/17.9@1-1",
+        "D-013/drawing/n/7.5@1-1"
+      ]
+    },
+    {
+      "kind": "hole",
+      "face": "top",
+      "x": {
+        "state": "known",
+        "value": 53.6,
+        "fact_ids": [
+          "D-013/drawing/n/17.9@1-1",
+          "D-013/drawing/n/35.7@1-1"
+        ],
+        "expression": "n0+n1"
+      },
+      "y": {
+        "state": "known",
+        "value": -7.5,
+        "fact_ids": [
+          "D-013/drawing/n/7.5@1-1"
+        ],
+        "expression": "0-n0"
+      },
+      "diameter": {
+        "state": "known",
+        "value": 2.5,
+        "fact_ids": [
+          "D-013/drawing/n/2.5@1-1"
+        ]
+      },
+      "through": true,
+      "hole_type": "threaded",
+      "thread": "M3 - 6H",
+      "placement_basis": "dimensioned",
+      "placement_reason": "The printed 35,7 dimension connects the first lower-row hole right of center, located by 17,9, to the next hole to its right. Thus this hole is at X=17.9+35.7=53.6 on the axis dimensioned 7,5 below Y=0. This uses only the displayed dimension chain, without extending that spacing to undimensioned holes.",
+      "fact_ids": [
+        "D-013",
+        "D-013/drawing/callout/p1-2",
+        "D-013/drawing/n/8.0@1-1",
+        "D-013/drawing/n/2.5@1-1",
+        "D-013/drawing/n/17.9@1-1",
+        "D-013/drawing/n/35.7@1-1",
+        "D-013/drawing/n/7.5@1-1"
+      ]
+    },
+    {
+      "kind": "slot",
+      "face": "top",
+      "x": {
+        "state": "known",
+        "value": -123,
+        "fact_ids": [
+          "D-013/drawing/n/41.0@1-1",
+          "D-013/drawing/n/82.0@1-2"
+        ],
+        "expression": "0-n0-n1"
+      },
+      "y": {
+        "state": "known",
+        "value": 4.55,
+        "fact_ids": [
+          "D-013/drawing/n/2.3@1-1",
+          "D-013/drawing/n/10.0@1-1",
+          "D-013/drawing/n/5.5@1-1"
+        ],
+        "expression": "n0+(n1-n2)/2"
+      },
+      "width": {
+        "state": "known",
+        "value": 5.5,
+        "fact_ids": [
+          "D-013/drawing/n/5.5@1-1"
+        ]
+      },
+      "length": {
+        "state": "known",
+        "value": 10,
+        "fact_ids": [
+          "D-013/drawing/n/10.0@1-1"
+        ]
+      },
+      "direction": "vertical",
+      "through": true,
+      "hole_type": "plain",
+      "pattern": {
+        "type": "row",
+        "count": {
+          "state": "known",
+          "value": 4,
+          "fact_ids": [
+            "D-013/drawing/n/4.0@1-1"
+          ]
+        },
+        "spacing": {
+          "state": "known",
+          "value": 82,
+          "fact_ids": [
+            "D-013/drawing/n/82.0@1-2"
+          ]
+        },
+        "direction": {
+          "state": "known",
+          "value": 0,
+          "fact_ids": [
+            "D-013"
+          ]
+        }
+      },
+      "placement_basis": "drawing_pattern_interpretation",
+      "placement_reason": "The 4 x slot callout, horizontal layout, printed 82,0 adjacent-slot spacing and 41,0 centerline-to-inner-right-slot offset establish slot centers at X=-123,-41,41,123. Their long axes follow the drawing's vertical axis. The 2,3 vertical dimension locates the lower semicircle center above Y=0, so each overall slot center is at Y=2.3+(10.0-5.5)/2=4.55; the separate 4,5 M5-hole dimension is not substituted for this slot location.",
+      "fact_ids": [
+        "D-013",
+        "D-013/drawing/callout/p1-3",
+        "D-013/drawing/n/4.0@1-1",
+        "D-013/drawing/n/5.5@1-1",
+        "D-013/drawing/n/10.0@1-1",
+        "D-013/drawing/n/41.0@1-1",
+        "D-013/drawing/n/82.0@1-2",
+        "D-013/drawing/n/2.3@1-1"
+      ]
+    }
+  ],
+  "features_review": {
+    "state": "known",
+    "value": [
+      {
+        "kind": "hole",
+        "face": "top",
+        "x": {
+          "state": "known",
+          "value": -82,
+          "fact_ids": [
+            "D-013/drawing/n/82.0@1-1"
+          ],
+          "expression": "0-n0"
+        },
+        "y": {
+          "state": "known",
+          "value": 4.5,
+          "fact_ids": [
+            "D-013/drawing/n/4.5@1-1"
+          ]
+        },
+        "diameter": {
+          "state": "known",
+          "value": 4.2,
+          "fact_ids": [
+            "D-013/drawing/n/4.2@1-1"
+          ]
+        },
+        "through": true,
+        "hole_type": "threaded",
+        "thread": "M5 - 6H",
+        "pattern": {
+          "type": "row",
+          "count": {
+            "state": "known",
+            "value": 2,
+            "fact_ids": [
+              "D-013/drawing/n/2.0@1-1"
+            ]
+          },
+          "spacing": {
+            "state": "known",
+            "value": 164,
+            "fact_ids": [
+              "D-013/drawing/n/82.0@1-1"
+            ],
+            "expression": "n0*2"
+          },
+          "direction": {
+            "state": "known",
+            "value": 0,
+            "fact_ids": [
+              "D-013"
+            ]
+          }
+        },
+        "placement_basis": "drawing_pattern_interpretation",
+        "placement_reason": "The 2 x callout identifies the two M5 holes. The printed 82,0 dimension locates the left hole from the central vertical axis; the opposed two-hole layout establishes its mirrored partner at X=+82. Both lie on the horizontal hole axis dimensioned 4,5 above Y=0.",
+        "fact_ids": [
+          "D-013",
+          "D-013/drawing/callout/p1-1",
+          "D-013/drawing/n/2.0@1-1",
+          "D-013/drawing/n/4.2@1-1",
+          "D-013/drawing/n/82.0@1-1",
+          "D-013/drawing/n/4.5@1-1"
+        ]
+      },
+      {
+        "kind": "hole",
+        "face": "top",
+        "x": {
+          "state": "known",
+          "value": 17.9,
+          "fact_ids": [
+            "D-013/drawing/n/17.9@1-1"
+          ]
+        },
+        "y": {
+          "state": "known",
+          "value": -7.5,
+          "fact_ids": [
+            "D-013/drawing/n/7.5@1-1"
+          ],
+          "expression": "0-n0"
+        },
+        "diameter": {
+          "state": "known",
+          "value": 2.5,
+          "fact_ids": [
+            "D-013/drawing/n/2.5@1-1"
+          ]
+        },
+        "through": true,
+        "hole_type": "threaded",
+        "thread": "M3 - 6H",
+        "placement_basis": "dimensioned",
+        "placement_reason": "The 17,9 dimension directly locates the first lower-row hole right of the central vertical axis. The 7,5 dimension locates the lower hole axis below Y=0. The 8 x M3 callout establishes this hole's printed drill diameter, thread and through operation without requiring the other six unresolved placements.",
+        "fact_ids": [
+          "D-013",
+          "D-013/drawing/callout/p1-2",
+          "D-013/drawing/n/8.0@1-1",
+          "D-013/drawing/n/2.5@1-1",
+          "D-013/drawing/n/17.9@1-1",
+          "D-013/drawing/n/7.5@1-1"
+        ]
+      },
+      {
+        "kind": "hole",
+        "face": "top",
+        "x": {
+          "state": "known",
+          "value": 53.6,
+          "fact_ids": [
+            "D-013/drawing/n/17.9@1-1",
+            "D-013/drawing/n/35.7@1-1"
+          ],
+          "expression": "n0+n1"
+        },
+        "y": {
+          "state": "known",
+          "value": -7.5,
+          "fact_ids": [
+            "D-013/drawing/n/7.5@1-1"
+          ],
+          "expression": "0-n0"
+        },
+        "diameter": {
+          "state": "known",
+          "value": 2.5,
+          "fact_ids": [
+            "D-013/drawing/n/2.5@1-1"
+          ]
+        },
+        "through": true,
+        "hole_type": "threaded",
+        "thread": "M3 - 6H",
+        "placement_basis": "dimensioned",
+        "placement_reason": "The printed 35,7 dimension connects the first lower-row hole right of center, located by 17,9, to the next hole to its right. Thus this hole is at X=17.9+35.7=53.6 on the axis dimensioned 7,5 below Y=0. This uses only the displayed dimension chain, without extending that spacing to undimensioned holes.",
+        "fact_ids": [
+          "D-013",
+          "D-013/drawing/callout/p1-2",
+          "D-013/drawing/n/8.0@1-1",
+          "D-013/drawing/n/2.5@1-1",
+          "D-013/drawing/n/17.9@1-1",
+          "D-013/drawing/n/35.7@1-1",
+          "D-013/drawing/n/7.5@1-1"
+        ]
+      },
+      {
+        "kind": "slot",
+        "face": "top",
+        "x": {
+          "state": "known",
+          "value": -123,
+          "fact_ids": [
+            "D-013/drawing/n/41.0@1-1",
+            "D-013/drawing/n/82.0@1-2"
+          ],
+          "expression": "0-n0-n1"
+        },
+        "y": {
+          "state": "known",
+          "value": 4.55,
+          "fact_ids": [
+            "D-013/drawing/n/2.3@1-1",
+            "D-013/drawing/n/10.0@1-1",
+            "D-013/drawing/n/5.5@1-1"
+          ],
+          "expression": "n0+(n1-n2)/2"
+        },
+        "width": {
+          "state": "known",
+          "value": 5.5,
+          "fact_ids": [
+            "D-013/drawing/n/5.5@1-1"
+          ]
+        },
+        "length": {
+          "state": "known",
+          "value": 10,
+          "fact_ids": [
+            "D-013/drawing/n/10.0@1-1"
+          ]
+        },
+        "direction": "vertical",
+        "through": true,
+        "hole_type": "plain",
+        "pattern": {
+          "type": "row",
+          "count": {
+            "state": "known",
+            "value": 4,
+            "fact_ids": [
+              "D-013/drawing/n/4.0@1-1"
+            ]
+          },
+          "spacing": {
+            "state": "known",
+            "value": 82,
+            "fact_ids": [
+              "D-013/drawing/n/82.0@1-2"
+            ]
+          },
+          "direction": {
+            "state": "known",
+            "value": 0,
+            "fact_ids": [
+              "D-013"
+            ]
+          }
+        },
+        "placement_basis": "drawing_pattern_interpretation",
+        "placement_reason": "The 4 x slot callout, horizontal layout, printed 82,0 adjacent-slot spacing and 41,0 centerline-to-inner-right-slot offset establish slot centers at X=-123,-41,41,123. Their long axes follow the drawing's vertical axis. The 2,3 vertical dimension locates the lower semicircle center above Y=0, so each overall slot center is at Y=2.3+(10.0-5.5)/2=4.55; the separate 4,5 M5-hole dimension is not substituted for this slot location.",
+        "fact_ids": [
+          "D-013",
+          "D-013/drawing/callout/p1-3",
+          "D-013/drawing/n/4.0@1-1",
+          "D-013/drawing/n/5.5@1-1",
+          "D-013/drawing/n/10.0@1-1",
+          "D-013/drawing/n/41.0@1-1",
+          "D-013/drawing/n/82.0@1-2",
+          "D-013/drawing/n/2.3@1-1"
+        ]
+      }
+    ],
+    "confidence": "sure",
+    "method": "ai_verified_after_retry",
+    "fact_ids": [
+      "D-013",
+      "D-013/drawing/callout/p1-1",
+      "D-013/drawing/callout/p1-2",
+      "D-013/drawing/callout/p1-3",
+      "D-013/drawing/n/2.0@1-1",
+      "D-013/drawing/n/4.2@1-1",
+      "D-013/drawing/n/8.0@1-1",
+      "D-013/drawing/n/2.5@1-1",
+      "D-013/drawing/n/35.7@1-1",
+      "D-013/drawing/n/17.9@1-1",
+      "D-013/drawing/n/7.5@1-1",
+      "D-013/drawing/n/82.0@1-1",
+      "D-013/drawing/n/4.5@1-1",
+      "D-013/drawing/n/4.0@1-1",
+      "D-013/drawing/n/5.5@1-1",
+      "D-013/drawing/n/10.0@1-1",
+      "D-013/drawing/n/41.0@1-1",
+      "D-013/drawing/n/82.0@1-2",
+      "D-013/drawing/n/2.3@1-1"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features",
+              "decision": "reject",
+              "reason": "The M5 pair and the slots check out. M5 pair: 2 x Ø4,2 THRU ALL M5 - 6H, with the left hole dimensioned 82,0 from the vertical centerline and on the axis 4,5 above the plate centerline; the mirrored partner appears in the view. Slots: 4 x 5,5 X 10,0 THRU ALL, vertical long axes, 41,0 from the centerline plus an 82,0 pitch. That gives X=-123,-41,41,123, which is consistent whether read as a mirror or a uniform row. Y=2,3+(10,0-5,5)/2=4.55 follows from the 2,3 dimension to the lower arc center. The M3 row is not supported exactly. The only printed dimensions are 17,9 (centerline to the first hole right of center) and 35,7 (from that hole to the next). The other six positions are not dimensioned. The proposal applies a uniform 35,7 pitch from +17,9, giving X=-124.9…+125.0, an asymmetric row with a 35,8 gap across the centerline. A mirrored reading (±17,9, ±53,6, ±89,3, ±125,0), which the view visibly suggests, gives different left-side coordinates. The printed numbers cannot satisfy both a uniform pitch and the symmetry, so the layout is ambiguous. Selecting one reading is an interpretation the evidence does not establish. A corrected proposal should keep the M5 pair and the four slots, and should omit the M3 row (or keep only placements printed exactly) and cite this ambiguity.",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/callout/p1-1",
+                "D-013/drawing/callout/p1-2",
+                "D-013/drawing/callout/p1-3",
+                "D-013/drawing/n/17.9@1-1",
+                "D-013/drawing/n/35.7@1-1",
+                "D-013/drawing/n/8.0@1-1",
+                "D-013/drawing/n/82.0@1-1",
+                "D-013/drawing/n/4.5@1-1",
+                "D-013/drawing/n/41.0@1-1",
+                "D-013/drawing/n/82.0@1-2",
+                "D-013/drawing/n/2.3@1-1",
+                "D-013/drawing/n/7.5@1-1"
+              ],
+              "repairable": true
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "a42739ce62a1b26bd0582ebd54ebc417b7329099dd51b1efa99f94f2f31a5856",
+            "response_proposal_fingerprint": "a42739ce62a1b26bd0582ebd54ebc417b7329099dd51b1efa99f94f2f31a5856",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "1393b3599cbe4ee4acea556ee05be4e1676c5f6c3d1a5872b61839acf2460e7c"
+          },
+          {
+            "answer": {
+              "key": "features",
+              "decision": "accept",
+              "reason": "In D-013's main view, the vertical centreline is X=0 and the horizontal centreline is Y=0 (it splits the 25,0 height). M5 pair: callout p1-1 gives 2 x Ø4,2 THRU ALL M5 - 6H. The left 82,0 (n/82.0@1-1, box ~x489pt) runs from the left M5 hole to the centreline, and the right M5 hole sits in the opposed mirrored position. 4,5 (n/4.5@1-1) locates both on the axis above Y=0. So x=0-n0=-82 and a 2-count row with spacing n0*2=164 along 0° is correct. M3 holes: n/17.9@1-1 runs from the centreline extension to the first hole right of centre. n/35.7@1-1 runs from that hole to the next one, so x=17.9 and x=n0+n1=53.6 are directly dimensioned. 7,5 (n/7.5@1-1) runs from Y=0 to the lower hole axis, so y=-7.5. The Ø2,5 THRU ALL M3 - 6H values come from p1-2. Slots: callout p1-3 gives 4 x 5,5 X 10,0 THRU ALL. 41,0 (n/41.0@1-1) runs from the centreline to the inner right slot, and the right 82,0 (n/82.0@1-2) runs from there to the outer right slot. The left slots mirror these, so a uniform 82 pitch from -123 gives -123,-41,41,123; this matches 41+41=82 across the centre. The slot long axes are drawn vertical. 2,3 (n/2.3@1-1) runs from Y=0 to the lower arc centre of the right slot, which is marked with crosshairs. That gives a slot centre of n0+(n1-n2)/2=4.55, and the slot bottom at -0.45 sits just below the centreline, matching the view. Numeric values, cited IDs, expressions and ordering (holes by x ascending, then slots) are all consistent.",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/callout/p1-1",
+                "D-013/drawing/callout/p1-2",
+                "D-013/drawing/callout/p1-3",
+                "D-013/drawing/n/2.0@1-1",
+                "D-013/drawing/n/4.2@1-1",
+                "D-013/drawing/n/8.0@1-1",
+                "D-013/drawing/n/2.5@1-1",
+                "D-013/drawing/n/17.9@1-1",
+                "D-013/drawing/n/35.7@1-1",
+                "D-013/drawing/n/7.5@1-1",
+                "D-013/drawing/n/82.0@1-1",
+                "D-013/drawing/n/4.5@1-1",
+                "D-013/drawing/n/4.0@1-1",
+                "D-013/drawing/n/5.5@1-1",
+                "D-013/drawing/n/10.0@1-1",
+                "D-013/drawing/n/41.0@1-1",
+                "D-013/drawing/n/82.0@1-2",
+                "D-013/drawing/n/2.3@1-1"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "83f38c768a5760fac5053e06fb8286a2d64d13166639920848801359f5421387",
+            "response_proposal_fingerprint": "83f38c768a5760fac5053e06fb8286a2d64d13166639920848801359f5421387",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "4116e2f87b512f4c065718013493f0d25a998b9d449a53975a01d9ef12152458"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features",
+              "state": "known",
+              "value_json": "[{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-124.9,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\",\"D-013/drawing/n/8.0@1-1\"],\"expression\":\"n0-n1*(n2/2)\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"pattern\":{\"type\":\"row\",\"count\":{\"state\":\"known\",\"value\":8,\"fact_ids\":[\"D-013/drawing/n/8.0@1-1\"]},\"spacing\":{\"state\":\"known\",\"value\":35.7,\"fact_ids\":[\"D-013/drawing/n/35.7@1-1\"]},\"direction\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-013\"]}},\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8 x count and 35,7 adjacent-hole pitch establish the lower horizontal row, with four holes on each side of the body centerline. The 17,9 dimension locates the first hole right of X=0. Applying that pitch across the row places its first hole at 17.9-35.7*(8/2)=-124.9. The row is 7,5 below Y=0. This interpretation retains the printed offset and pitch rather than replacing either with an assumed exact half-pitch.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/8.0@1-1\",\"D-013/drawing/n/2.5@1-1\",\"D-013/drawing/n/35.7@1-1\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/7.5@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-82,\"fact_ids\":[\"D-013/drawing/n/82.0@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":4.5,\"fact_ids\":[\"D-013/drawing/n/4.5@1-1\"]},\"diameter\":{\"state\":\"known\",\"value\":4.2,\"fact_ids\":[\"D-013/drawing/n/4.2@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M5 - 6H\",\"pattern\":{\"type\":\"row\",\"count\":{\"state\":\"known\",\"value\":2,\"fact_ids\":[\"D-013/drawing/n/2.0@1-1\"]},\"spacing\":{\"state\":\"known\",\"value\":164,\"fact_ids\":[\"D-013/drawing/n/82.0@1-1\"],\"expression\":\"n0*2\"},\"direction\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-013\"]}},\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The 2 x callout identifies the two M5 holes. The printed 82,0 dimension locates the left hole from the central vertical axis; the opposed two-hole layout establishes its mirrored partner at X=+82. Both lie on the horizontal hole axis dimensioned 4,5 above Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-1\",\"D-013/drawing/n/2.0@1-1\",\"D-013/drawing/n/4.2@1-1\",\"D-013/drawing/n/82.0@1-1\",\"D-013/drawing/n/4.5@1-1\"]},{\"kind\":\"slot\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-123,\"fact_ids\":[\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\"],\"expression\":\"0-n0-n1\"},\"y\":{\"state\":\"known\",\"value\":4.55,\"fact_ids\":[\"D-013/drawing/n/2.3@1-1\",\"D-013/drawing/n/10.0@1-1\",\"D-013/drawing/n/5.5@1-1\"],\"expression\":\"n0+(n1-n2)/2\"},\"width\":{\"state\":\"known\",\"value\":5.5,\"fact_ids\":[\"D-013/drawing/n/5.5@1-1\"]},\"length\":{\"state\":\"known\",\"value\":10,\"fact_ids\":[\"D-013/drawing/n/10.0@1-1\"]},\"direction\":\"vertical\",\"through\":true,\"hole_type\":\"plain\",\"pattern\":{\"type\":\"row\",\"count\":{\"state\":\"known\",\"value\":4,\"fact_ids\":[\"D-013/drawing/n/4.0@1-1\"]},\"spacing\":{\"state\":\"known\",\"value\":82,\"fact_ids\":[\"D-013/drawing/n/82.0@1-2\"]},\"direction\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-013\"]}},\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The 4 x slot callout, horizontal layout, printed 82,0 adjacent-slot spacing and 41,0 centerline-to-inner-right-slot offset establish slot centers at X=-123,-41,41,123. Their long axes follow the drawing's vertical axis. The 2,3 vertical dimension locates the lower semicircle center above Y=0, so each overall slot center is at Y=2.3+(10.0-5.5)/2=4.55; the separate 4,5 M5-hole dimension is not substituted for this slot location.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-3\",\"D-013/drawing/n/4.0@1-1\",\"D-013/drawing/n/5.5@1-1\",\"D-013/drawing/n/10.0@1-1\",\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\",\"D-013/drawing/n/2.3@1-1\"]}]",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/callout/p1-1",
+                "D-013/drawing/callout/p1-2",
+                "D-013/drawing/callout/p1-3",
+                "D-013/drawing/n/35.7@1-1",
+                "D-013/drawing/n/17.9@1-1",
+                "D-013/drawing/n/7.5@1-1",
+                "D-013/drawing/n/82.0@1-1",
+                "D-013/drawing/n/4.5@1-1",
+                "D-013/drawing/n/41.0@1-1",
+                "D-013/drawing/n/82.0@1-2",
+                "D-013/drawing/n/2.3@1-1"
+              ],
+              "reason": "The supported subset comprises eight M3 - 6H through holes with printed Ø2,5 drill diameter, two M5 - 6H through holes with printed Ø4,2 drill diameter, and four vertical 5,5 X 10,0 through slots. Printed counts, offsets and pitches support the stated drawing-pattern interpretations. These through cuts do not require selecting an unresolved thickness.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "a42739ce62a1b26bd0582ebd54ebc417b7329099dd51b1efa99f94f2f31a5856",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "1d8b208b0c6ed11bc916d979482ce30a8911325246b5831b7639793d45d7596b"
+          },
+          {
+            "answer": {
+              "key": "features",
+              "state": "known",
+              "value_json": "[{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-82,\"fact_ids\":[\"D-013/drawing/n/82.0@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":4.5,\"fact_ids\":[\"D-013/drawing/n/4.5@1-1\"]},\"diameter\":{\"state\":\"known\",\"value\":4.2,\"fact_ids\":[\"D-013/drawing/n/4.2@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M5 - 6H\",\"pattern\":{\"type\":\"row\",\"count\":{\"state\":\"known\",\"value\":2,\"fact_ids\":[\"D-013/drawing/n/2.0@1-1\"]},\"spacing\":{\"state\":\"known\",\"value\":164,\"fact_ids\":[\"D-013/drawing/n/82.0@1-1\"],\"expression\":\"n0*2\"},\"direction\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-013\"]}},\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The 2 x callout identifies the two M5 holes. The printed 82,0 dimension locates the left hole from the central vertical axis; the opposed two-hole layout establishes its mirrored partner at X=+82. Both lie on the horizontal hole axis dimensioned 4,5 above Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-1\",\"D-013/drawing/n/2.0@1-1\",\"D-013/drawing/n/4.2@1-1\",\"D-013/drawing/n/82.0@1-1\",\"D-013/drawing/n/4.5@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":17.9,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\"]},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"dimensioned\",\"placement_reason\":\"The 17,9 dimension directly locates the first lower-row hole right of the central vertical axis. The 7,5 dimension locates the lower hole axis below Y=0. The 8 x M3 callout establishes this hole's printed drill diameter, thread and through operation without requiring the other six unresolved placements.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/8.0@1-1\",\"D-013/drawing/n/2.5@1-1\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/7.5@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":53.6,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"n0+n1\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"dimensioned\",\"placement_reason\":\"The printed 35,7 dimension connects the first lower-row hole right of center, located by 17,9, to the next hole to its right. Thus this hole is at X=17.9+35.7=53.6 on the axis dimensioned 7,5 below Y=0. This uses only the displayed dimension chain, without extending that spacing to undimensioned holes.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/8.0@1-1\",\"D-013/drawing/n/2.5@1-1\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\",\"D-013/drawing/n/7.5@1-1\"]},{\"kind\":\"slot\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-123,\"fact_ids\":[\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\"],\"expression\":\"0-n0-n1\"},\"y\":{\"state\":\"known\",\"value\":4.55,\"fact_ids\":[\"D-013/drawing/n/2.3@1-1\",\"D-013/drawing/n/10.0@1-1\",\"D-013/drawing/n/5.5@1-1\"],\"expression\":\"n0+(n1-n2)/2\"},\"width\":{\"state\":\"known\",\"value\":5.5,\"fact_ids\":[\"D-013/drawing/n/5.5@1-1\"]},\"length\":{\"state\":\"known\",\"value\":10,\"fact_ids\":[\"D-013/drawing/n/10.0@1-1\"]},\"direction\":\"vertical\",\"through\":true,\"hole_type\":\"plain\",\"pattern\":{\"type\":\"row\",\"count\":{\"state\":\"known\",\"value\":4,\"fact_ids\":[\"D-013/drawing/n/4.0@1-1\"]},\"spacing\":{\"state\":\"known\",\"value\":82,\"fact_ids\":[\"D-013/drawing/n/82.0@1-2\"]},\"direction\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-013\"]}},\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The 4 x slot callout, horizontal layout, printed 82,0 adjacent-slot spacing and 41,0 centerline-to-inner-right-slot offset establish slot centers at X=-123,-41,41,123. Their long axes follow the drawing's vertical axis. The 2,3 vertical dimension locates the lower semicircle center above Y=0, so each overall slot center is at Y=2.3+(10.0-5.5)/2=4.55; the separate 4,5 M5-hole dimension is not substituted for this slot location.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-3\",\"D-013/drawing/n/4.0@1-1\",\"D-013/drawing/n/5.5@1-1\",\"D-013/drawing/n/10.0@1-1\",\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\",\"D-013/drawing/n/2.3@1-1\"]}]",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/callout/p1-1",
+                "D-013/drawing/callout/p1-2",
+                "D-013/drawing/callout/p1-3",
+                "D-013/drawing/n/2.0@1-1",
+                "D-013/drawing/n/4.2@1-1",
+                "D-013/drawing/n/8.0@1-1",
+                "D-013/drawing/n/2.5@1-1",
+                "D-013/drawing/n/35.7@1-1",
+                "D-013/drawing/n/17.9@1-1",
+                "D-013/drawing/n/7.5@1-1",
+                "D-013/drawing/n/82.0@1-1",
+                "D-013/drawing/n/4.5@1-1",
+                "D-013/drawing/n/4.0@1-1",
+                "D-013/drawing/n/5.5@1-1",
+                "D-013/drawing/n/10.0@1-1",
+                "D-013/drawing/n/41.0@1-1",
+                "D-013/drawing/n/82.0@1-2",
+                "D-013/drawing/n/2.3@1-1"
+              ],
+              "reason": "The original main view supports the two M5 - 6H through holes, four vertical 5,5 X 10,0 through slots, and two individually located M3 - 6H through holes at X=17.9 and X=17.9+35.7. The remaining six M3 horizontal positions are unresolved. Printed drill diameters and through-thread callouts establish the retained holes independently of the omitted placements.",
+              "changed_because": "Reinspection shows that 35,7 dimensions one adjacent M3 interval, while 17,9 locates its first endpoint right of center. Replaced the unsupported eight-hole uniform M3 pattern with these two independently dimensioned holes. Retained the M5 pair and slot pattern because their original callouts, offsets and layouts support them."
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "83f38c768a5760fac5053e06fb8286a2d64d13166639920848801359f5421387",
+            "response_proposal_fingerprint": null,
+            "feedback": [
+              {
+                "key": "features",
+                "state": "rejected",
+                "previous_proposal": {
+                  "key": "features",
+                  "state": "known",
+                  "value_json": "[{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-124.9,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\",\"D-013/drawing/n/8.0@1-1\"],\"expression\":\"n0-n1*(n2/2)\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"pattern\":{\"type\":\"row\",\"count\":{\"state\":\"known\",\"value\":8,\"fact_ids\":[\"D-013/drawing/n/8.0@1-1\"]},\"spacing\":{\"state\":\"known\",\"value\":35.7,\"fact_ids\":[\"D-013/drawing/n/35.7@1-1\"]},\"direction\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-013\"]}},\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8 x count and 35,7 adjacent-hole pitch establish the lower horizontal row, with four holes on each side of the body centerline. The 17,9 dimension locates the first hole right of X=0. Applying that pitch across the row places its first hole at 17.9-35.7*(8/2)=-124.9. The row is 7,5 below Y=0. This interpretation retains the printed offset and pitch rather than replacing either with an assumed exact half-pitch.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/8.0@1-1\",\"D-013/drawing/n/2.5@1-1\",\"D-013/drawing/n/35.7@1-1\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/7.5@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-82,\"fact_ids\":[\"D-013/drawing/n/82.0@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":4.5,\"fact_ids\":[\"D-013/drawing/n/4.5@1-1\"]},\"diameter\":{\"state\":\"known\",\"value\":4.2,\"fact_ids\":[\"D-013/drawing/n/4.2@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M5 - 6H\",\"pattern\":{\"type\":\"row\",\"count\":{\"state\":\"known\",\"value\":2,\"fact_ids\":[\"D-013/drawing/n/2.0@1-1\"]},\"spacing\":{\"state\":\"known\",\"value\":164,\"fact_ids\":[\"D-013/drawing/n/82.0@1-1\"],\"expression\":\"n0*2\"},\"direction\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-013\"]}},\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The 2 x callout identifies the two M5 holes. The printed 82,0 dimension locates the left hole from the central vertical axis; the opposed two-hole layout establishes its mirrored partner at X=+82. Both lie on the horizontal hole axis dimensioned 4,5 above Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-1\",\"D-013/drawing/n/2.0@1-1\",\"D-013/drawing/n/4.2@1-1\",\"D-013/drawing/n/82.0@1-1\",\"D-013/drawing/n/4.5@1-1\"]},{\"kind\":\"slot\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-123,\"fact_ids\":[\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\"],\"expression\":\"0-n0-n1\"},\"y\":{\"state\":\"known\",\"value\":4.55,\"fact_ids\":[\"D-013/drawing/n/2.3@1-1\",\"D-013/drawing/n/10.0@1-1\",\"D-013/drawing/n/5.5@1-1\"],\"expression\":\"n0+(n1-n2)/2\"},\"width\":{\"state\":\"known\",\"value\":5.5,\"fact_ids\":[\"D-013/drawing/n/5.5@1-1\"]},\"length\":{\"state\":\"known\",\"value\":10,\"fact_ids\":[\"D-013/drawing/n/10.0@1-1\"]},\"direction\":\"vertical\",\"through\":true,\"hole_type\":\"plain\",\"pattern\":{\"type\":\"row\",\"count\":{\"state\":\"known\",\"value\":4,\"fact_ids\":[\"D-013/drawing/n/4.0@1-1\"]},\"spacing\":{\"state\":\"known\",\"value\":82,\"fact_ids\":[\"D-013/drawing/n/82.0@1-2\"]},\"direction\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-013\"]}},\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The 4 x slot callout, horizontal layout, printed 82,0 adjacent-slot spacing and 41,0 centerline-to-inner-right-slot offset establish slot centers at X=-123,-41,41,123. Their long axes follow the drawing's vertical axis. The 2,3 vertical dimension locates the lower semicircle center above Y=0, so each overall slot center is at Y=2.3+(10.0-5.5)/2=4.55; the separate 4,5 M5-hole dimension is not substituted for this slot location.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-3\",\"D-013/drawing/n/4.0@1-1\",\"D-013/drawing/n/5.5@1-1\",\"D-013/drawing/n/10.0@1-1\",\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\",\"D-013/drawing/n/2.3@1-1\"]}]",
+                  "confidence": "sure",
+                  "fact_ids": [
+                    "D-013",
+                    "D-013/drawing/callout/p1-1",
+                    "D-013/drawing/callout/p1-2",
+                    "D-013/drawing/callout/p1-3",
+                    "D-013/drawing/n/35.7@1-1",
+                    "D-013/drawing/n/17.9@1-1",
+                    "D-013/drawing/n/7.5@1-1",
+                    "D-013/drawing/n/82.0@1-1",
+                    "D-013/drawing/n/4.5@1-1",
+                    "D-013/drawing/n/41.0@1-1",
+                    "D-013/drawing/n/82.0@1-2",
+                    "D-013/drawing/n/2.3@1-1"
+                  ],
+                  "reason": "The supported subset comprises eight M3 - 6H through holes with printed Ø2,5 drill diameter, two M5 - 6H through holes with printed Ø4,2 drill diameter, and four vertical 5,5 X 10,0 through slots. Printed counts, offsets and pitches support the stated drawing-pattern interpretations. These through cuts do not require selecting an unresolved thickness.",
+                  "changed_because": ""
+                },
+                "local_validation": "valid",
+                "verification": {
+                  "key": "features",
+                  "decision": "reject",
+                  "reason": "The M5 pair and the slots check out. M5 pair: 2 x Ø4,2 THRU ALL M5 - 6H, with the left hole dimensioned 82,0 from the vertical centerline and on the axis 4,5 above the plate centerline; the mirrored partner appears in the view. Slots: 4 x 5,5 X 10,0 THRU ALL, vertical long axes, 41,0 from the centerline plus an 82,0 pitch. That gives X=-123,-41,41,123, which is consistent whether read as a mirror or a uniform row. Y=2,3+(10,0-5,5)/2=4.55 follows from the 2,3 dimension to the lower arc center. The M3 row is not supported exactly. The only printed dimensions are 17,9 (centerline to the first hole right of center) and 35,7 (from that hole to the next). The other six positions are not dimensioned. The proposal applies a uniform 35,7 pitch from +17,9, giving X=-124.9…+125.0, an asymmetric row with a 35,8 gap across the centerline. A mirrored reading (±17,9, ±53,6, ±89,3, ±125,0), which the view visibly suggests, gives different left-side coordinates. The printed numbers cannot satisfy both a uniform pitch and the symmetry, so the layout is ambiguous. Selecting one reading is an interpretation the evidence does not establish. A corrected proposal should keep the M5 pair and the four slots, and should omit the M3 row (or keep only placements printed exactly) and cite this ambiguity.",
+                  "fact_ids": [
+                    "D-013",
+                    "D-013/drawing/callout/p1-1",
+                    "D-013/drawing/callout/p1-2",
+                    "D-013/drawing/callout/p1-3",
+                    "D-013/drawing/n/17.9@1-1",
+                    "D-013/drawing/n/35.7@1-1",
+                    "D-013/drawing/n/8.0@1-1",
+                    "D-013/drawing/n/82.0@1-1",
+                    "D-013/drawing/n/4.5@1-1",
+                    "D-013/drawing/n/41.0@1-1",
+                    "D-013/drawing/n/82.0@1-2",
+                    "D-013/drawing/n/2.3@1-1",
+                    "D-013/drawing/n/7.5@1-1"
+                  ],
+                  "repairable": true
+                }
+              }
+            ],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "5cf443c055f8f90350c849c30fbb7d6b1e294308882fe6dc265dcac605099208"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The original main view supports the two M5 - 6H through holes, four vertical 5,5 X 10,0 through slots, and two individually located M3 - 6H through holes at X=17.9 and X=17.9+35.7. The remaining six M3 horizontal positions are unresolved. Printed drill diameters and through-thread callouts establish the retained holes independently of the omitted placements. Verification: In D-013's main view, the vertical centreline is X=0 and the horizontal centreline is Y=0 (it splits the 25,0 height). M5 pair: callout p1-1 gives 2 x Ø4,2 THRU ALL M5 - 6H. The left 82,0 (n/82.0@1-1, box ~x489pt) runs from the left M5 hole to the centreline, and the right M5 hole sits in the opposed mirrored position. 4,5 (n/4.5@1-1) locates both on the axis above Y=0. So x=0-n0=-82 and a 2-count row with spacing n0*2=164 along 0° is correct. M3 holes: n/17.9@1-1 runs from the centreline extension to the first hole right of centre. n/35.7@1-1 runs from that hole to the next one, so x=17.9 and x=n0+n1=53.6 are directly dimensioned. 7,5 (n/7.5@1-1) runs from Y=0 to the lower hole axis, so y=-7.5. The Ø2,5 THRU ALL M3 - 6H values come from p1-2. Slots: callout p1-3 gives 4 x 5,5 X 10,0 THRU ALL. 41,0 (n/41.0@1-1) runs from the centreline to the inner right slot, and the right 82,0 (n/82.0@1-2) runs from there to the outer right slot. The left slots mirror these, so a uniform 82 pitch from -123 gives -123,-41,41,123; this matches 41+41=82 across the centre. The slot long axes are drawn vertical. 2,3 (n/2.3@1-1) runs from Y=0 to the lower arc centre of the right slot, which is marked with crosshairs. That gives a slot centre of n0+(n1-n2)/2=4.55, and the slot bottom at -0.45 sits just below the centreline, matching the view. Numeric values, cited IDs, expressions and ordering (holes by x ascending, then slots) are all consistent."
+  },
+  "material": {
+    "name": "D-013/drawing/material",
+    "original": "3.3315 (EN-AW 5005)",
+    "value": "3.3315 (EN-AW 5005)",
+    "confidence": "sure",
+    "method": "parsed",
+    "page": 1,
+    "box": [
+      745.28,
+      771.048,
+      135.0,
+      14.0
+    ],
+    "field_box": [
+      784.28,
+      771.048,
+      96.0,
+      14.0
+    ],
+    "label_box": [
+      745.28,
+      772.048,
+      38.539,
+      10.936
+    ]
+  },
+  "weight_on_drawing": {
+    "name": "D-013/drawing/weight_g",
+    "original": "87.5",
+    "value": 87.5,
+    "confidence": "sure",
+    "method": "parsed",
+    "page": 1,
+    "box": [
+      880.717,
+      771.048,
+      93.0,
+      14.0
+    ],
+    "field_box": [
+      924.717,
+      771.048,
+      49.0,
+      14.0
+    ],
+    "label_box": [
+      880.717,
+      772.048,
+      28.747,
+      10.936
+    ]
+  },
+  "cad_ready": false,
+  "blocking_fields": [
+    "thickness",
+    "cad_eligibility"
+  ],
+  "cad_eligibility": {
+    "state": "unknown",
+    "value": null,
+    "confidence": "unsure",
+    "method": "ai_unsure",
+    "fact_ids": [],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "cad_eligibility",
+              "decision": "needs_input",
+              "reason": "The main view does establish the 270,0 × 25,0 rectangular body. The end and isometric views show a flat plate, and treating the corner clips and edge breaks as minor omissions is correct. Whether the part can be supported depends entirely on how the stacked 6,0/3,0 end-view thickness is read. As a limit pair it gives no exact thickness, which would block reconstruction. If a human confirms they are documented alternatives, the protocol would require options [3,6] and the part would be supported. The evidence alone cannot decide, so supported=false cannot be verified as final.",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/n/270.0@1-1",
+                "D-013/drawing/n/25.0@1-1",
+                "D-013/drawing/n/6.0@1-1",
+                "D-013/drawing/n/3.0@1-1",
+                "D-013/drawing/general/edge_finish"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "a42739ce62a1b26bd0582ebd54ebc417b7329099dd51b1efa99f94f2f31a5856",
+            "response_proposal_fingerprint": "a42739ce62a1b26bd0582ebd54ebc417b7329099dd51b1efa99f94f2f31a5856",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "1393b3599cbe4ee4acea556ee05be4e1676c5f6c3d1a5872b61839acf2460e7c"
+          },
+          {
+            "answer": null,
+            "valid": true,
+            "validation_passed": null,
+            "contract_error": null,
+            "requested": false,
+            "proposal_fingerprint": "83f38c768a5760fac5053e06fb8286a2d64d13166639920848801359f5421387",
+            "response_proposal_fingerprint": "83f38c768a5760fac5053e06fb8286a2d64d13166639920848801359f5421387",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "4116e2f87b512f4c065718013493f0d25a998b9d449a53975a01d9ef12152458"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "cad_eligibility",
+              "state": "known",
+              "value_json": "{\"supported\":false,\"constant_thickness\":true,\"outline_exact\":true,\"reason\":\"The main face-on view establishes a 270,0 by 25,0 rectangular main body, and the end and isometric views show a flat constant-thickness plate. The end-view thickness leader carries stacked 6,0 and 3,0 values in limit format, rather than one exact thickness or explicitly designated alternatives. The essential thickness therefore remains unresolved and blocks reconstruction under this template. The small undimensioned corner clips fall within the permitted minor-detail allowance; outline_exact refers to the established main rectangular body, not reproduction of those clips. Fully supported through cuts are retained independently.\",\"essential_uncertainty\":[\"An exact thickness is not established: the stacked 6,0/3,0 thickness limit pair must not be converted into two alternatives or replaced with a selected value.\"],\"omitted_minor_features\":[\"Four small undimensioned outer corner clips.\",\"Unspecified edge breaks required by DEBURR AND BREAK SHARP EDGES.\"]}",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/n/270.0@1-1",
+                "D-013/drawing/n/25.0@1-1",
+                "D-013/drawing/n/6.0@1-1",
+                "D-013/drawing/n/3.0@1-1",
+                "D-013/drawing/general/edge_finish"
+              ],
+              "reason": "The main rectangular outline and planar constant-thickness construction are established, but no permissible exact thickness value or explicit alternative set is established. The eligibility block is caused by that essential dimension, not by the minor omitted corner and edge details.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "a42739ce62a1b26bd0582ebd54ebc417b7329099dd51b1efa99f94f2f31a5856",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "1d8b208b0c6ed11bc916d979482ce30a8911325246b5831b7639793d45d7596b"
+          },
+          {
+            "answer": null,
+            "valid": true,
+            "validation_passed": null,
+            "contract_error": null,
+            "requested": false,
+            "proposal_fingerprint": "83f38c768a5760fac5053e06fb8286a2d64d13166639920848801359f5421387",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "5cf443c055f8f90350c849c30fbb7d6b1e294308882fe6dc265dcac605099208"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "Waiting for review: needs_input. The main view does establish the 270,0 × 25,0 rectangular body. The end and isometric views show a flat plate, and treating the corner clips and edge breaks as minor omissions is correct. Whether the part can be supported depends entirely on how the stacked 6,0/3,0 end-view thickness is read. As a limit pair it gives no exact thickness, which would block reconstruction. If a human confirms they are documented alternatives, the protocol would require options [3,6] and the part would be supported. The evidence alone cannot decide, so supported=false cannot be verified as final."
+  },
+  "feature_protocol": "supported-feature-subset-v1",
+  "features_complete": {
+    "state": "known",
+    "value": false,
+    "confidence": "sure",
+    "method": "ai_verified_after_retry",
+    "fact_ids": [
+      "D-013",
+      "D-013/drawing/callout/p1-2",
+      "D-013/drawing/n/8.0@1-1",
+      "D-013/drawing/n/17.9@1-1",
+      "D-013/drawing/n/35.7@1-1",
+      "D-013/drawing/general/edge_finish"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_complete",
+              "decision": "accept",
+              "reason": "The four outline corner clips in D-013 have no dimensions, so the full feature inventory cannot be reproduced. Also, DEBURR AND BREAK SHARP EDGES gives no geometry. false is therefore correct.",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/general/edge_finish"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "a42739ce62a1b26bd0582ebd54ebc417b7329099dd51b1efa99f94f2f31a5856",
+            "response_proposal_fingerprint": "a42739ce62a1b26bd0582ebd54ebc417b7329099dd51b1efa99f94f2f31a5856",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "1393b3599cbe4ee4acea556ee05be4e1676c5f6c3d1a5872b61839acf2460e7c"
+          },
+          {
+            "answer": {
+              "key": "features_complete",
+              "decision": "accept",
+              "reason": "The design is not complete. Six of the eight M3 holes from callout p1-2 are left out of features. The four outer corner clips in D-013's main view have no setback dimensions. The edge-break note (general/edge_finish) gives no geometry. So false is correct.",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/callout/p1-2",
+                "D-013/drawing/n/8.0@1-1",
+                "D-013/drawing/n/17.9@1-1",
+                "D-013/drawing/n/35.7@1-1",
+                "D-013/drawing/general/edge_finish"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "83f38c768a5760fac5053e06fb8286a2d64d13166639920848801359f5421387",
+            "response_proposal_fingerprint": "83f38c768a5760fac5053e06fb8286a2d64d13166639920848801359f5421387",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "4116e2f87b512f4c065718013493f0d25a998b9d449a53975a01d9ef12152458"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_complete",
+              "state": "known",
+              "value_json": "false",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/general/edge_finish"
+              ],
+              "reason": "The four visible small corner clips lack setback dimensions, and the general edge-break instruction lacks geometric dimensions. These details cannot be reproduced exactly.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": false,
+            "contract_error": "Completeness must agree with the verified supported subset and evidence-backed omissions; true requires no omissions, false requires described omissions.",
+            "requested": true,
+            "proposal_fingerprint": "a42739ce62a1b26bd0582ebd54ebc417b7329099dd51b1efa99f94f2f31a5856",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "1d8b208b0c6ed11bc916d979482ce30a8911325246b5831b7639793d45d7596b"
+          },
+          {
+            "answer": {
+              "key": "features_complete",
+              "state": "known",
+              "value_json": "false",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/callout/p1-2",
+                "D-013/drawing/n/8.0@1-1",
+                "D-013/drawing/n/17.9@1-1",
+                "D-013/drawing/n/35.7@1-1",
+                "D-013/drawing/general/edge_finish"
+              ],
+              "reason": "Six M3-hole placements remain unresolved. The four visible corner clips also lack setback dimensions, and the general edge-break instruction supplies no geometric dimensions. The supported subset therefore does not reproduce the complete feature inventory.",
+              "changed_because": "The value remains false. Its explanation now also accounts for the six omitted M3 holes after retaining only the two placements established by the printed dimension chain."
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "83f38c768a5760fac5053e06fb8286a2d64d13166639920848801359f5421387",
+            "response_proposal_fingerprint": null,
+            "feedback": [
+              {
+                "key": "features_complete",
+                "state": "invalid",
+                "previous_proposal": {
+                  "key": "features_complete",
+                  "state": "known",
+                  "value_json": "false",
+                  "confidence": "sure",
+                  "fact_ids": [
+                    "D-013",
+                    "D-013/drawing/general/edge_finish"
+                  ],
+                  "reason": "The four visible small corner clips lack setback dimensions, and the general edge-break instruction lacks geometric dimensions. These details cannot be reproduced exactly.",
+                  "changed_because": ""
+                },
+                "local_validation": "Completeness must agree with the verified supported subset and evidence-backed omissions; true requires no omissions, false requires described omissions.",
+                "verification": {
+                  "key": "features_complete",
+                  "decision": "accept",
+                  "reason": "The four outline corner clips in D-013 have no dimensions, so the full feature inventory cannot be reproduced. Also, DEBURR AND BREAK SHARP EDGES gives no geometry. false is therefore correct.",
+                  "fact_ids": [
+                    "D-013",
+                    "D-013/drawing/general/edge_finish"
+                  ],
+                  "repairable": false
+                }
+              }
+            ],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "5cf443c055f8f90350c849c30fbb7d6b1e294308882fe6dc265dcac605099208"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "Six M3-hole placements remain unresolved. The four visible corner clips also lack setback dimensions, and the general edge-break instruction supplies no geometric dimensions. The supported subset therefore does not reproduce the complete feature inventory. Verification: The design is not complete. Six of the eight M3 holes from callout p1-2 are left out of features. The four outer corner clips in D-013's main view have no setback dimensions. The edge-break note (general/edge_finish) gives no geometry. So false is correct."
+  },
+  "features_omitted": {
+    "state": "known",
+    "value": [
+      {
+        "description": "Four small straight outer corner clips, one at each corner of the main rectangular outline.",
+        "reason": "The original views show the clips, but neither X/Y setbacks nor a dimensioned 45-degree chamfer callout is supplied. Their dimensions cannot be inferred from pixels or from the generic edge-finish note.",
+        "fact_ids": [
+          "D-013"
+        ]
+      },
+      {
+        "description": "DEBURR AND BREAK SHARP EDGES.",
+        "reason": "The general manufacturing note supplies no edge-break size, angle or radius. It does not determine an additional modeled bevel or rounding.",
+        "fact_ids": [
+          "D-013/drawing/general/edge_finish"
+        ]
+      },
+      {
+        "description": "Six remaining holes from the 8 x 2,5 THRU ALL M3 - 6H THRU ALL callout: the four holes left of the central vertical axis and the two farther-right holes beyond the directly dimensioned pair.",
+        "reason": "The printed 17,9 centerline offset and following 35,7 adjacent-hole dimension establish only the first two holes right of center. The other six X positions are not individually dimensioned, and the view does not resolve the conflict between extending a uniform 35,7 pitch across all eight holes and mirroring the visible layout about X=0: twice 17,9 is 35,8, not 35,7. Their drill diameter, thread, through operation and lower-row Y axis are established, but their complete placements are not. No guessed row or mirrored coordinates are emitted.",
+        "fact_ids": [
+          "D-013",
+          "D-013/drawing/callout/p1-2",
+          "D-013/drawing/n/8.0@1-1",
+          "D-013/drawing/n/2.5@1-1",
+          "D-013/drawing/n/17.9@1-1",
+          "D-013/drawing/n/35.7@1-1",
+          "D-013/drawing/n/7.5@1-1"
+        ]
+      }
+    ],
+    "confidence": "sure",
+    "method": "ai_verified_after_retry",
+    "fact_ids": [
+      "D-013",
+      "D-013/drawing/general/edge_finish",
+      "D-013/drawing/callout/p1-2",
+      "D-013/drawing/n/8.0@1-1",
+      "D-013/drawing/n/2.5@1-1",
+      "D-013/drawing/n/17.9@1-1",
+      "D-013/drawing/n/35.7@1-1",
+      "D-013/drawing/n/7.5@1-1"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_omitted",
+              "decision": "reject",
+              "reason": "Both listed omissions are accurate and correctly cited. The four corner clips are visible in the main view with no setback or 45° callout, and the edge-break note has no size. However, the list is incomplete given the features verdict. The M3 8x row (callout p1-2) is only partly placed: 17,9 and 35,7 are printed, while the left-side positions follow from neither a uniform pitch nor symmetry without a choice the evidence does not support. That row must be added as an omission, citing the 17,9, 35,7, 8 and callout IDs. No blind holes, side holes, counterbores or countersinks appear in the main, end or isometric views.",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/general/edge_finish",
+                "D-013/drawing/callout/p1-2",
+                "D-013/drawing/n/17.9@1-1",
+                "D-013/drawing/n/35.7@1-1"
+              ],
+              "repairable": true
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "a42739ce62a1b26bd0582ebd54ebc417b7329099dd51b1efa99f94f2f31a5856",
+            "response_proposal_fingerprint": "a42739ce62a1b26bd0582ebd54ebc417b7329099dd51b1efa99f94f2f31a5856",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "1393b3599cbe4ee4acea556ee05be4e1676c5f6c3d1a5872b61839acf2460e7c"
+          },
+          {
+            "answer": {
+              "key": "features_omitted",
+              "decision": "accept",
+              "reason": "The main view of D-013 shows straight clips at all four outer corners, with no setback or 45° chamfer callout. The DEBURR AND BREAK SHARP EDGES note gives no size. Only the two holes right of centre are dimensioned (17,9 and the following 35,7). The other six hole positions in the 8 x M3 callout are not printed one by one. 2×17,9=35,8 does not equal 35,7, so it is right not to extend a uniform pitch or mirror the holes into guessed coordinates. The main, end and isometric views show no other blind holes, side holes, counterbores, countersinks or recesses. Each omission cites the correct source IDs.",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/general/edge_finish",
+                "D-013/drawing/callout/p1-2",
+                "D-013/drawing/n/8.0@1-1",
+                "D-013/drawing/n/2.5@1-1",
+                "D-013/drawing/n/17.9@1-1",
+                "D-013/drawing/n/35.7@1-1",
+                "D-013/drawing/n/7.5@1-1"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "83f38c768a5760fac5053e06fb8286a2d64d13166639920848801359f5421387",
+            "response_proposal_fingerprint": "83f38c768a5760fac5053e06fb8286a2d64d13166639920848801359f5421387",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "4116e2f87b512f4c065718013493f0d25a998b9d449a53975a01d9ef12152458"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_omitted",
+              "state": "known",
+              "value_json": "[{\"description\":\"Four small straight outer corner clips, one at each corner of the main rectangular outline.\",\"reason\":\"The original views show the clips, but neither X/Y setbacks nor a dimensioned 45-degree chamfer callout is supplied. Their dimensions cannot be inferred from pixels or from the generic edge-finish note.\",\"fact_ids\":[\"D-013\"]},{\"description\":\"DEBURR AND BREAK SHARP EDGES.\",\"reason\":\"The general manufacturing note supplies no edge-break size, angle or radius. It does not determine an additional modeled bevel or rounding.\",\"fact_ids\":[\"D-013/drawing/general/edge_finish\"]}]",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/general/edge_finish"
+              ],
+              "reason": "These are the visible or expressly requested minor details whose exact geometry is not dimensioned. No additional blind holes, side holes, recesses, countersinks or counterbores are established by the supplied views.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "a42739ce62a1b26bd0582ebd54ebc417b7329099dd51b1efa99f94f2f31a5856",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "1d8b208b0c6ed11bc916d979482ce30a8911325246b5831b7639793d45d7596b"
+          },
+          {
+            "answer": {
+              "key": "features_omitted",
+              "state": "known",
+              "value_json": "[{\"description\":\"Four small straight outer corner clips, one at each corner of the main rectangular outline.\",\"reason\":\"The original views show the clips, but neither X/Y setbacks nor a dimensioned 45-degree chamfer callout is supplied. Their dimensions cannot be inferred from pixels or from the generic edge-finish note.\",\"fact_ids\":[\"D-013\"]},{\"description\":\"DEBURR AND BREAK SHARP EDGES.\",\"reason\":\"The general manufacturing note supplies no edge-break size, angle or radius. It does not determine an additional modeled bevel or rounding.\",\"fact_ids\":[\"D-013/drawing/general/edge_finish\"]},{\"description\":\"Six remaining holes from the 8 x 2,5 THRU ALL M3 - 6H THRU ALL callout: the four holes left of the central vertical axis and the two farther-right holes beyond the directly dimensioned pair.\",\"reason\":\"The printed 17,9 centerline offset and following 35,7 adjacent-hole dimension establish only the first two holes right of center. The other six X positions are not individually dimensioned, and the view does not resolve the conflict between extending a uniform 35,7 pitch across all eight holes and mirroring the visible layout about X=0: twice 17,9 is 35,8, not 35,7. Their drill diameter, thread, through operation and lower-row Y axis are established, but their complete placements are not. No guessed row or mirrored coordinates are emitted.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/8.0@1-1\",\"D-013/drawing/n/2.5@1-1\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\",\"D-013/drawing/n/7.5@1-1\"]}]",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/general/edge_finish",
+                "D-013/drawing/callout/p1-2",
+                "D-013/drawing/n/8.0@1-1",
+                "D-013/drawing/n/2.5@1-1",
+                "D-013/drawing/n/17.9@1-1",
+                "D-013/drawing/n/35.7@1-1",
+                "D-013/drawing/n/7.5@1-1"
+              ],
+              "reason": "The main, end and isometric views establish the visible hole/slot inventory and small corner clips. Six M3 holes lack unambiguous complete placements; corner-clip setbacks and edge-break geometry are absent. No additional blind holes, side-drilled holes, recesses, countersinks or counterbores are established by these views.",
+              "changed_because": "Added the six unresolved M3 placements to the omissions after checking the original 17,9 and 35,7 dimension leaders. The two directly located M3 holes remain in features. The original corner-clip and unspecified edge-break omissions are unchanged."
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "83f38c768a5760fac5053e06fb8286a2d64d13166639920848801359f5421387",
+            "response_proposal_fingerprint": null,
+            "feedback": [
+              {
+                "key": "features_omitted",
+                "state": "rejected",
+                "previous_proposal": {
+                  "key": "features_omitted",
+                  "state": "known",
+                  "value_json": "[{\"description\":\"Four small straight outer corner clips, one at each corner of the main rectangular outline.\",\"reason\":\"The original views show the clips, but neither X/Y setbacks nor a dimensioned 45-degree chamfer callout is supplied. Their dimensions cannot be inferred from pixels or from the generic edge-finish note.\",\"fact_ids\":[\"D-013\"]},{\"description\":\"DEBURR AND BREAK SHARP EDGES.\",\"reason\":\"The general manufacturing note supplies no edge-break size, angle or radius. It does not determine an additional modeled bevel or rounding.\",\"fact_ids\":[\"D-013/drawing/general/edge_finish\"]}]",
+                  "confidence": "sure",
+                  "fact_ids": [
+                    "D-013",
+                    "D-013/drawing/general/edge_finish"
+                  ],
+                  "reason": "These are the visible or expressly requested minor details whose exact geometry is not dimensioned. No additional blind holes, side holes, recesses, countersinks or counterbores are established by the supplied views.",
+                  "changed_because": ""
+                },
+                "local_validation": "valid",
+                "verification": {
+                  "key": "features_omitted",
+                  "decision": "reject",
+                  "reason": "Both listed omissions are accurate and correctly cited. The four corner clips are visible in the main view with no setback or 45° callout, and the edge-break note has no size. However, the list is incomplete given the features verdict. The M3 8x row (callout p1-2) is only partly placed: 17,9 and 35,7 are printed, while the left-side positions follow from neither a uniform pitch nor symmetry without a choice the evidence does not support. That row must be added as an omission, citing the 17,9, 35,7, 8 and callout IDs. No blind holes, side holes, counterbores or countersinks appear in the main, end or isometric views.",
+                  "fact_ids": [
+                    "D-013",
+                    "D-013/drawing/general/edge_finish",
+                    "D-013/drawing/callout/p1-2",
+                    "D-013/drawing/n/17.9@1-1",
+                    "D-013/drawing/n/35.7@1-1"
+                  ],
+                  "repairable": true
+                }
+              }
+            ],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "5cf443c055f8f90350c849c30fbb7d6b1e294308882fe6dc265dcac605099208"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The main, end and isometric views establish the visible hole/slot inventory and small corner clips. Six M3 holes lack unambiguous complete placements; corner-clip setbacks and edge-break geometry are absent. No additional blind holes, side-drilled holes, recesses, countersinks or counterbores are established by these views. Verification: The main view of D-013 shows straight clips at all four outer corners, with no setback or 45° chamfer callout. The DEBURR AND BREAK SHARP EDGES note gives no size. Only the two holes right of centre are dimensioned (17,9 and the following 35,7). The other six hole positions in the 8 x M3 callout are not printed one by one. 2×17,9=35,8 does not equal 35,7, so it is right not to extend a uniform pitch or mirror the holes into guessed coordinates. The main, end and isometric views show no other blind holes, side holes, counterbores, countersinks or recesses. Each omission cites the correct source IDs."
+  },
+  "features_all_determined": false,
+  "features_status": "partial",
+  "omitted_feature_notes": [
+    "Four small straight outer corner clips, one at each corner of the main rectangular outline.: The original views show the clips, but neither X/Y setbacks nor a dimensioned 45-degree chamfer callout is supplied. Their dimensions cannot be inferred from pixels or from the generic edge-finish note.",
+    "DEBURR AND BREAK SHARP EDGES.: The general manufacturing note supplies no edge-break size, angle or radius. It does not determine an additional modeled bevel or rounding.",
+    "Six remaining holes from the 8 x 2,5 THRU ALL M3 - 6H THRU ALL callout: the four holes left of the central vertical axis and the two farther-right holes beyond the directly dimensioned pair.: The printed 17,9 centerline offset and following 35,7 adjacent-hole dimension establish only the first two holes right of center. The other six X positions are not individually dimensioned, and the view does not resolve the conflict between extending a uniform 35,7 pitch across all eight holes and mirroring the visible layout about X=0: twice 17,9 is 35,8, not 35,7. Their drill diameter, thread, through operation and lower-row Y axis are established, but their complete placements are not. No guessed row or mirrored coordinates are emitted."
+  ],
+  "review": {
+    "status": "not_reviewed"
+  },
+  "source_sha256": "826076b03bfbaeee961dc3e57cb642c225d41f1ea9a643d0bb1ca7d296280047",
+  "expansion_protocol": "flat-part-expansion-v1"
+}

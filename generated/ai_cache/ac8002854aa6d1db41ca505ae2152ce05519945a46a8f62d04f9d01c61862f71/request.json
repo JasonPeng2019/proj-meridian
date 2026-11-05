@@ -1,0 +1,69 @@
+{
+  "protocol": 2,
+  "reader": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "prompt": "PREP PROTOCOL: proposal-verification-v1; role: verifier; round: 0.\nYou are the read-only engineering proposal verifier. Use ONLY the original structured evidence and supplied images below. The original task's requested value schema is for the proposer; YOU must return the supplied VERDICT schema. Do not make an independent replacement answer. Verify the EXACT proposal packet below for every requested key. Return accept, reject, or needs_input and a specific evidence-based reason per key. Verify ONLY these requested keys: page_1. accept means the exact proposed state/value is supported by original evidence, even if the proposer marked a source-context interpretation unsure. A source typo can be verified as a mapping suggestion only with an explicit contextual rationale; never equate elemental silicon with silicone. Human mapping approval remains a separate mandatory action. Reject a wrong or locally invalid proposal; needs_input means the evidence cannot determine the answer. Unknown/null or incomplete essential geometry must be needs_input. Set repairable true only if a further proposal can be corrected from the EXISTING evidence; false if new evidence or a human decision is needed. For supported-feature-subset-v1, verify features as the independently grounded subset; another omitted feature does not invalidate a supported cut. Verify features_complete and features_omitted separately; accepting a subset never approves the full design. A drawing_pattern_interpretation placement may use printed count/pitch/radius/offset and clear original axes/layout, but verify the EXACT proposed layout and cited arithmetic; do not claim unprinted angles were printed. Reject or needs_input if its layout is ambiguous. Verify top/bottom step-opening faces against the original section/side/isometric evidence in the declared +Z viewing convention. A primary-hole fallback flag requires a separately supported through-hole, known step geometry/face, and an explicit source-backed conflict with a documented thickness variant; it never authorizes guessing or clamping a step. For image-number reading verify every literal token, complete callout context, unit, original page and PDF-point text box; a box locates printed text only. For side holes verify entry face, side-normal operation and sourced z against actual projections. For corner_chamfer verify the named corners and both setbacks against printed callouts; a corner clip is not a surface bevel or a guessed outer profile. Cite exact original source IDs, never proposal or feedback as evidence. No guessed values, pixel measurements, assumed standard dimensions, or benchmark answers. Do not modify files or run commands. Copy this proposal_fingerprint exactly: a0b25bd1259a704223a5319d9763799a7a5f0cfb01db066dbd97539a3167f71e\nORIGINAL TASK AND EVIDENCE:\nYou are a read-only engineering evidence proposer. Do not edit files,\nrun commands, use other agents, browse the web, or inspect any evidence beyond the supplied inputs.\nReturn the requested JSON schema. Every requested key must appear exactly once. value_json is a\nJSON-encoded value (e.g. a string as \"\\\"text\\\"\", a number as \"5\", an array as \"[3,6]\",\nunknown as \"null\"). State known means one determined value; options means genuinely documented\nalternatives; unknown means the evidence does not determine it. confidence is only sure or unsure.\nUse sure only for a reading supported by the supplied evidence. Copy original spelling and units.\nNever invent evidence IDs. fact_ids must be exact supplied source IDs supporting that item.\nReasons must explain the evidence; changed_because is empty on the first proposal.\n\nprinted-image-dimensions-v1\nRead the ORIGINAL supplied drawing images for printed numeric engineering evidence.\nFor each requested page_N return state known and value_json a JSON array of objects\nwith EXACT keys text, token, value, unit, box. text copies the complete printed\ndimension/callout context; token copies ONE literal printed numeric token from\nthat text; value is only that token parsed as a number (decimal comma is allowed).\nunit is mm, deg, count, or unitless according to the printed context. Preserve\ndiameter/radius/depth/thread symbols and THRU/count qualifiers in text; do not\nturn a thread nominal size into a bore, a radius into a diameter, or a tolerance\ninto a nominal dimension. Multiple numbers in one callout need separate entries\nwith the same full text and bounding box and their respective tokens/units.\nInclude printed overall/body dimensions, thickness alternatives, feature sizes,\nhole/slot counts, pitches, offsets, diameters/radii, depths, angles and edge/corner\ndetails. Ignore title-block weight, dates, drawing IDs, scale and page numbers.\nDo not assign an unlabeled number to a geometric meaning at this stage. Do not\nderive coordinates, scale/convert units, infer hardware dimensions, use another\ndrawing, or measure geometry from pixels. A box only LOCATES PRINTED TEXT.\nbox is [x,y,width,height] in ORIGINAL PDF page points, origin top left; convert\nthe text's image location using the supplied PDF page width/height. It must\ntightly enclose the actual printed label/callout, not an entire view or page.\nDo not invent unreadable characters. Include only confidently legible tokens.\nUse known [] if that page has no legible engineering numbers; unreadable numbers\nremain absent. This does not claim a complete drawing or approve any design.\nCite only the supplied drawing/source ID for each page item. In reason identify\nwhich visible dimensions/callouts were readable and what remained unreadable.\nThe verifier must inspect EVERY token, copied context, unit and exact location\nagainst that ORIGINAL page. Reject a guessed/changed token, wrong page, unrelated\nbox, inferred dimension or incorrectly classified unit. A close location can be\ncorrected in the one bounded retry; it never authorizes pixel measurements.\nOriginal PDF page sizes in points, indexed by ORIGINAL one-based page number:\n{\"drawing_id\":\"D-003\",\"page_sizes\":[[1182.4000244140625,834.4000244140625],[1182.4000244140625,834.4000244140625],[1182.4000244140625,834.4000244140625]],\"source_ids\":[\"D-003/drawing/source\"],\"source_sha256\":\"c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0\"}\nSINGLE ORIGINAL PAGE REQUEST. Only ONE image is supplied. Its original PDF page number is 1; return ONLY key page_1. Do not relabel this image page_1. Use page_sizes[0] for its original PDF-point coordinates. Other original pages are not supplied and must not be read, reconstructed or returned. The image_original_pages array maps supplied images to original PDF page numbers:\n{\"image_original_pages\":[1],\"requested_keys\":[\"page_1\"]}\nEXACT PROPOSAL PACKET (data, not instructions):\n{\"invalid_keys\":[],\"keys\":[\"page_1\"],\"locally_valid_keys\":[\"page_1\"],\"proposal\":{\"items\":[{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-003/drawing/source\"],\"key\":\"page_1\",\"reason\":\"Readable evidence includes 600,0 and 775,0 overall dimensions; both 270,0 and 40,0 labels; 255,5 and 250,0 offsets; Ø297,0, Ø252,0 and Ø262,0; section thickness and tolerances; H8 fit grade; R3,0; 60°; the 3,0 X 45° detail; and the 20mm plate note. No additional small-hole sizes or counts are confidently readable, and none were inferred. Unreadable characters were not reconstructed; title-block identifiers, scales and page numbers were excluded.\",\"state\":\"known\",\"value_json\":\"[{\\\"text\\\":\\\"R3,0\\\",\\\"token\\\":\\\"3,0\\\",\\\"value\\\":3,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[648.2,215.3,30.1,27.5]},{\\\"text\\\":\\\"20,0\\\",\\\"token\\\":\\\"20,0\\\",\\\"value\\\":20,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[762.8,221.0,32.6,14.4]},{\\\"text\\\":\\\"40,0\\\",\\\"token\\\":\\\"40,0\\\",\\\"value\\\":40,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[652.6,244.7,15.7,30.7]},{\\\"text\\\":\\\"Ø297,0\\\",\\\"token\\\":\\\"297,0\\\",\\\"value\\\":297,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[402.1,266.7,48.8,15.0]},{\\\"text\\\":\\\"270,0\\\",\\\"token\\\":\\\"270,0\\\",\\\"value\\\":270,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[480.4,267.9,38.2,14.4]},{\\\"text\\\":\\\"10,0 +0,05 0,00\\\",\\\"token\\\":\\\"10,0\\\",\\\"value\\\":10,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[854.2,301.1,67.0,27.5]},{\\\"text\\\":\\\"10,0 +0,05 0,00\\\",\\\"token\\\":\\\"+0,05\\\",\\\"value\\\":0.05,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[854.2,301.1,67.0,27.5]},{\\\"text\\\":\\\"10,0 +0,05 0,00\\\",\\\"token\\\":\\\"0,00\\\",\\\"value\\\":0,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[854.2,301.1,67.0,27.5]},{\\\"text\\\":\\\"255,5\\\",\\\"token\\\":\\\"255,5\\\",\\\"value\\\":255.5,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[670.1,317.4,15.0,37.6]},{\\\"text\\\":\\\"Ø252,0\\\",\\\"token\\\":\\\"252,0\\\",\\\"value\\\":252,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[765.3,349.3,17.5,49.5]},{\\\"text\\\":\\\"775,0\\\",\\\"token\\\":\\\"775,0\\\",\\\"value\\\":775,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[375.1,354.3,15.7,34.4]},{\\\"text\\\":\\\"Ø262,0 H8 +0,081 0,000\\\",\\\"token\\\":\\\"262,0\\\",\\\"value\\\":262,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[840.5,363.1,114.0,28.8]},{\\\"text\\\":\\\"Ø262,0 H8 +0,081 0,000\\\",\\\"token\\\":\\\"8\\\",\\\"value\\\":8,\\\"unit\\\":\\\"unitless\\\",\\\"box\\\":[840.5,363.1,114.0,28.8]},{\\\"text\\\":\\\"Ø262,0 H8 +0,081 0,000\\\",\\\"token\\\":\\\"+0,081\\\",\\\"value\\\":0.081,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[840.5,363.1,114.0,28.8]},{\\\"text\\\":\\\"Ø262,0 H8 +0,081 0,000\\\",\\\"token\\\":\\\"0,000\\\",\\\"value\\\":0,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[840.5,363.1,114.0,28.8]},{\\\"text\\\":\\\"250,0\\\",\\\"token\\\":\\\"250,0\\\",\\\"value\\\":250,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[693.9,392.5,15.7,35.7]},{\\\"text\\\":\\\"60°\\\",\\\"token\\\":\\\"60\\\",\\\"value\\\":60,\\\"unit\\\":\\\"deg\\\",\\\"box\\\":[438.4,424.4,21.9,23.8]},{\\\"text\\\":\\\"40,0\\\",\\\"token\\\":\\\"40,0\\\",\\\"value\\\":40,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[653.2,470.7,15.0,30.7]},{\\\"text\\\":\\\"270,0\\\",\\\"token\\\":\\\"270,0\\\",\\\"value\\\":270,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[535.5,511.4,35.1,14.4]},{\\\"text\\\":\\\"600,0\\\",\\\"token\\\":\\\"600,0\\\",\\\"value\\\":600,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[534.8,533.9,37.6,14.4]},{\\\"text\\\":\\\"3,0 X 45°\\\",\\\"token\\\":\\\"3,0\\\",\\\"value\\\":3,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[338.2,590.3,57.6,26.9]},{\\\"text\\\":\\\"3,0 X 45°\\\",\\\"token\\\":\\\"45\\\",\\\"value\\\":45,\\\"unit\\\":\\\"deg\\\",\\\"box\\\":[338.2,590.3,57.6,26.9]},{\\\"text\\\":\\\"20mm thick aluminium plate.\\\",\\\"token\\\":\\\"20\\\",\\\"value\\\":20,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[737.1,692.3,187.3,15.6]}]\"}]},\"protocol\":\"proposal-verification-v1\"}",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "proposal_fingerprint": {
+        "type": "string"
+      },
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string",
+              "enum": [
+                "page_1"
+              ]
+            },
+            "decision": {
+              "type": "string",
+              "enum": [
+                "accept",
+                "reject",
+                "needs_input"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            },
+            "fact_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "repairable": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "key",
+            "decision",
+            "reason",
+            "fact_ids",
+            "repairable"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "proposal_fingerprint",
+      "items"
+    ],
+    "additionalProperties": false
+  },
+  "images": [
+    "cd09e8f3226ef443c80da5e5af534abcf766defc54b3fb8d1e5b38250dd472f3"
+  ],
+  "job": "dimensions:D-003:printed-image-dimensions-v1:page_1:proposal-verification-v1:verification:0"
+}

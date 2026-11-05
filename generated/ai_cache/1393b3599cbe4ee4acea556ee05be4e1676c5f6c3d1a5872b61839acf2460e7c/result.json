@@ -1,0 +1,184 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "a42739ce62a1b26bd0582ebd54ebc417b7329099dd51b1efa99f94f2f31a5856",
+    "items": [
+      {
+        "key": "outline_type",
+        "decision": "accept",
+        "reason": "The main face-on view (D-013) shows a rectangular plate dimensioned 270,0 by 25,0. Each of its four corners has a small straight clip with no dimension. Under the minor-detail allowance these clips can be omitted, so 'rectangle' is supported for the main body.",
+        "fact_ids": [
+          "D-013",
+          "D-013/drawing/n/270.0@1-1",
+          "D-013/drawing/n/25.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "length",
+        "decision": "accept",
+        "reason": "The overall horizontal dimension 270,0 runs across the full outline in the main view. DIMENSIONS ARE IN MILLIMETERS.",
+        "fact_ids": [
+          "D-013/drawing/n/270.0@1-1",
+          "D-013/drawing/general/units"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "width",
+        "decision": "accept",
+        "reason": "The vertical dimension 25,0 on the right side of the main view runs across the full outline height. Units are millimetres.",
+        "fact_ids": [
+          "D-013/drawing/n/25.0@1-1",
+          "D-013/drawing/general/units"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "outer_diameter",
+        "decision": "accept",
+        "reason": "The outline is rectangular, so an outer diameter does not apply. Unknown/null is correct for an irrelevant key.",
+        "fact_ids": [
+          "D-013"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "inner_diameter",
+        "decision": "accept",
+        "reason": "The outline is a rectangle, not a ring, so an inner diameter does not apply. Unknown/null is correct.",
+        "fact_ids": [
+          "D-013"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "thickness",
+        "decision": "needs_input",
+        "reason": "The end view's single thickness dimension carries 6,0 stacked over 3,0. That is the same format as a limit dimension (upper over lower). No note, table or label says these are two alternative thicknesses. The evidence therefore cannot decide between a limit range and two documented variants, and it gives no single exact value. Leaving thickness unknown is the honest reading, but an essential dimension is unresolved, and the protocol makes unknown essential geometry needs_input. A human must decide how to read the 6,0/3,0 stack (limits or alternatives). The existing evidence cannot settle it.",
+        "fact_ids": [
+          "D-013",
+          "D-013/drawing/n/6.0@1-1",
+          "D-013/drawing/n/3.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features",
+        "decision": "reject",
+        "reason": "The M5 pair and the slots check out. M5 pair: 2 x Ø4,2 THRU ALL M5 - 6H, with the left hole dimensioned 82,0 from the vertical centerline and on the axis 4,5 above the plate centerline; the mirrored partner appears in the view. Slots: 4 x 5,5 X 10,0 THRU ALL, vertical long axes, 41,0 from the centerline plus an 82,0 pitch. That gives X=-123,-41,41,123, which is consistent whether read as a mirror or a uniform row. Y=2,3+(10,0-5,5)/2=4.55 follows from the 2,3 dimension to the lower arc center. The M3 row is not supported exactly. The only printed dimensions are 17,9 (centerline to the first hole right of center) and 35,7 (from that hole to the next). The other six positions are not dimensioned. The proposal applies a uniform 35,7 pitch from +17,9, giving X=-124.9…+125.0, an asymmetric row with a 35,8 gap across the centerline. A mirrored reading (±17,9, ±53,6, ±89,3, ±125,0), which the view visibly suggests, gives different left-side coordinates. The printed numbers cannot satisfy both a uniform pitch and the symmetry, so the layout is ambiguous. Selecting one reading is an interpretation the evidence does not establish. A corrected proposal should keep the M5 pair and the four slots, and should omit the M3 row (or keep only placements printed exactly) and cite this ambiguity.",
+        "fact_ids": [
+          "D-013",
+          "D-013/drawing/callout/p1-1",
+          "D-013/drawing/callout/p1-2",
+          "D-013/drawing/callout/p1-3",
+          "D-013/drawing/n/17.9@1-1",
+          "D-013/drawing/n/35.7@1-1",
+          "D-013/drawing/n/8.0@1-1",
+          "D-013/drawing/n/82.0@1-1",
+          "D-013/drawing/n/4.5@1-1",
+          "D-013/drawing/n/41.0@1-1",
+          "D-013/drawing/n/82.0@1-2",
+          "D-013/drawing/n/2.3@1-1",
+          "D-013/drawing/n/7.5@1-1"
+        ],
+        "repairable": true
+      },
+      {
+        "key": "features_complete",
+        "decision": "accept",
+        "reason": "The four outline corner clips in D-013 have no dimensions, so the full feature inventory cannot be reproduced. Also, DEBURR AND BREAK SHARP EDGES gives no geometry. false is therefore correct.",
+        "fact_ids": [
+          "D-013",
+          "D-013/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_omitted",
+        "decision": "reject",
+        "reason": "Both listed omissions are accurate and correctly cited. The four corner clips are visible in the main view with no setback or 45° callout, and the edge-break note has no size. However, the list is incomplete given the features verdict. The M3 8x row (callout p1-2) is only partly placed: 17,9 and 35,7 are printed, while the left-side positions follow from neither a uniform pitch nor symmetry without a choice the evidence does not support. That row must be added as an omission, citing the 17,9, 35,7, 8 and callout IDs. No blind holes, side holes, counterbores or countersinks appear in the main, end or isometric views.",
+        "fact_ids": [
+          "D-013",
+          "D-013/drawing/general/edge_finish",
+          "D-013/drawing/callout/p1-2",
+          "D-013/drawing/n/17.9@1-1",
+          "D-013/drawing/n/35.7@1-1"
+        ],
+        "repairable": true
+      },
+      {
+        "key": "cad_eligibility",
+        "decision": "needs_input",
+        "reason": "The main view does establish the 270,0 × 25,0 rectangular body. The end and isometric views show a flat plate, and treating the corner clips and edge breaks as minor omissions is correct. Whether the part can be supported depends entirely on how the stacked 6,0/3,0 end-view thickness is read. As a limit pair it gives no exact thickness, which would block reconstruction. If a human confirms they are documented alternatives, the protocol would require options [3,6] and the part would be supported. The evidence alone cannot decide, so supported=false cannot be verified as final.",
+        "fact_ids": [
+          "D-013",
+          "D-013/drawing/n/270.0@1-1",
+          "D-013/drawing/n/25.0@1-1",
+          "D-013/drawing/n/6.0@1-1",
+          "D-013/drawing/n/3.0@1-1",
+          "D-013/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 19952,
+      "cache_read_input_tokens": 21566,
+      "output_tokens": 6487,
+      "output_tokens_details": {
+        "thinking_tokens": 3864
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 19952,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 6487,
+        "cacheReadInputTokens": 21566,
+        "cacheCreationInputTokens": 19952,
+        "webSearchRequests": 0,
+        "costUSD": 0.29368520000000004,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 3864,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 19952,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.29368520000000004,
+    "duration_ms": 64038,
+    "is_error": false
+  },
+  "latency_ms": 65672,
+  "cache_key": "1393b3599cbe4ee4acea556ee05be4e1676c5f6c3d1a5872b61839acf2460e7c",
+  "cache_hit": false,
+  "job": "detail:D-013:drawing-detail-reprepare-v2:proposal-verification-v1:verification:0",
+  "error": null
+}

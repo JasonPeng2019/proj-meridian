@@ -1,0 +1,183 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "9c3e67d66bb2b319a7f68a23423c1ae68f4fd83680e3b3136b6576564d5d124c",
+    "items": [
+      {
+        "key": "outline_type",
+        "decision": "accept",
+        "reason": "In the main face-on view of D-002, the panel face is a plain rectangle with dimensions 775,00 by 578,90. The proposal correctly says that 'rectangle' describes only this face. The side views, the edge view and the isometric show formed flanges, and that limitation is handled in cad_eligibility.",
+        "fact_ids": [
+          "D-002"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "length",
+        "decision": "accept",
+        "reason": "The horizontal dimension 775,00 (D-002/drawing/n/775.0@1-1) has extension lines to the left and right outer edges of the main face-on view. The general note sets the unit to millimetres.",
+        "fact_ids": [
+          "D-002/drawing/n/775.0@1-1",
+          "D-002/drawing/general/units"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "width",
+        "decision": "accept",
+        "reason": "The vertical dimension 578,90 (D-002/drawing/n/578.9@1-1) runs from the top edge to the bottom edge of the main face-on view. The unit is millimetres.",
+        "fact_ids": [
+          "D-002/drawing/n/578.9@1-1",
+          "D-002/drawing/general/units"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "outer_diameter",
+        "decision": "accept",
+        "reason": "The main outline is rectangular, so an outer diameter does not apply. Leaving it unknown/null is correct.",
+        "fact_ids": [
+          "D-002"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "inner_diameter",
+        "decision": "accept",
+        "reason": "The main outline is not a ring, so an inner diameter does not apply. Leaving it unknown/null is correct.",
+        "fact_ids": [
+          "D-002"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "thickness",
+        "decision": "reject",
+        "reason": "The packet already marks thickness as locally invalid. The NOTES field (D-002/drawing/notes) does say '2mm non-magnetic stainless', but that is a material and stock-gauge note. It is not a parsed dimension number linked by a leader or dimension line to a thickness in any view. No numeric ID for 2 exists among the parsed numbers. The 23,00 in the side view is a flange depth, not a thickness. The value 2 cannot pass the numeric-evidence rule without a separately verified dimension receipt, or a human decision to accept the note as the gauge.",
+        "fact_ids": [
+          "D-002/drawing/notes",
+          "D-002/drawing/n/23.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features",
+        "decision": "accept",
+        "reason": "None of the cuts is fully located. The 286,00 x 36,00 opening has no dimension placing its centre. The 7 x Ø5,80 and 6 x Ø9,00 groups have no printed pitch or offsets. The 6-hole row shows a centreline but no pitch. The flange hole groups (7, 7 and 9 x Ø7,00) are not dimensioned and sit on formed geometry. An empty known subset [] is therefore correct.",
+        "fact_ids": [
+          "D-002",
+          "D-002/drawing/callout/p1-1",
+          "D-002/drawing/callout/p1-2",
+          "D-002/drawing/callout/p1-3",
+          "D-002/drawing/callout/p1-4",
+          "D-002/drawing/callout/p1-5",
+          "D-002/drawing/n/286.0@1-1",
+          "D-002/drawing/n/36.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_complete",
+        "decision": "accept",
+        "reason": "The drawing shows an opening, several hole groups, formed flanges and weld nuts, and none of them is in the supported subset. false is correct.",
+        "fact_ids": [
+          "D-002"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_omitted",
+        "decision": "accept",
+        "reason": "The omissions match the image. The flanges are dimensioned 23,00 in the side view. The 286,00 x 36,00 opening has no location. Seven Ø5,80 holes surround the opening: five above it and one on each side. Six Ø9,00 holes sit on a centreline near the bottom edge, with no pitch printed. The left and right side views each show seven Ø7,00 holes. The edge view below the main view shows nine Ø7,00 holes, all of which I counted. The 'M5 weld nuts on inside of flanges' note has leaders pointing to the flanges. The deburr note has no size. Each entry cites the correct source IDs and correctly separates missing dimensions from generator limitations.",
+        "fact_ids": [
+          "D-002",
+          "D-002/drawing/n/23.0@1-1",
+          "D-002/drawing/n/286.0@1-1",
+          "D-002/drawing/n/36.0@1-1",
+          "D-002/drawing/callout/p1-1",
+          "D-002/drawing/callout/p1-2",
+          "D-002/drawing/callout/p1-3",
+          "D-002/drawing/callout/p1-4",
+          "D-002/drawing/callout/p1-5",
+          "D-002/drawing/notes",
+          "D-002/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "cad_eligibility",
+        "decision": "accept",
+        "reason": "supported=false is correct. The side views (with the 23,00 flange depth), the edge view and the isometric show a formed sheet-metal panel with flanges on its edges. The note also calls for M5 weld nuts. Neither can be represented as a flat extrusion, and setting outline_exact=false correctly avoids substituting a bounding rectangle. constant_thickness=true relies on the 2mm stock note. The gauge is stated in that note, but it is not a dimension-linked thickness (see the thickness verdict). The blocking decision does not depend on that point.",
+        "fact_ids": [
+          "D-002",
+          "D-002/drawing/n/775.0@1-1",
+          "D-002/drawing/n/578.9@1-1",
+          "D-002/drawing/n/23.0@1-1",
+          "D-002/drawing/notes",
+          "D-002/drawing/callout/p1-3",
+          "D-002/drawing/callout/p1-4",
+          "D-002/drawing/callout/p1-5"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 18258,
+      "cache_read_input_tokens": 19874,
+      "output_tokens": 3508,
+      "output_tokens_details": {
+        "thinking_tokens": 1272
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 18258,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 3508,
+        "cacheReadInputTokens": 19874,
+        "cacheCreationInputTokens": 18258,
+        "webSearchRequests": 0,
+        "costUSD": 0.2202148,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 1272,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 18258,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.2202148,
+    "duration_ms": 33715,
+    "is_error": false
+  },
+  "latency_ms": 34906,
+  "cache_key": "9933d197b35cc4c33af9c04d6328d114f14a97d3247cf8b935a5155d1395b1eb",
+  "cache_hit": false,
+  "job": "detail:D-002:drawing-detail-reprepare-v2:proposal-verification-v1:verification:0",
+  "error": null
+}

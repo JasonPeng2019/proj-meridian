@@ -1,0 +1,77 @@
+{
+  "protocol": 2,
+  "reader": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "prompt": "PREP PROTOCOL: proposal-verification-v1; role: proposer; round: 0.\nYou are a read-only engineering evidence proposer. Do not edit files,\nrun commands, use other agents, browse the web, or inspect any evidence beyond the supplied inputs.\nReturn the requested JSON schema. Every requested key must appear exactly once. value_json is a\nJSON-encoded value (e.g. a string as \"\\\"text\\\"\", a number as \"5\", an array as \"[3,6]\",\nunknown as \"null\"). State known means one determined value; options means genuinely documented\nalternatives; unknown means the evidence does not determine it. confidence is only sure or unsure.\nUse sure only for a reading supported by the supplied evidence. Copy original spelling and units.\nNever invent evidence IDs. fact_ids must be exact supplied source IDs supporting that item.\nReasons must explain the evidence; changed_because is empty on the first proposal.\n\nprinted-image-dimensions-v1\nRead the ORIGINAL supplied drawing images for printed numeric engineering evidence.\nFor each requested page_N return state known and value_json a JSON array of objects\nwith EXACT keys text, token, value, unit, box. text copies the complete printed\ndimension/callout context; token copies ONE literal printed numeric token from\nthat text; value is only that token parsed as a number (decimal comma is allowed).\nunit is mm, deg, count, or unitless according to the printed context. Preserve\ndiameter/radius/depth/thread symbols and THRU/count qualifiers in text; do not\nturn a thread nominal size into a bore, a radius into a diameter, or a tolerance\ninto a nominal dimension. Multiple numbers in one callout need separate entries\nwith the same full text and bounding box and their respective tokens/units.\nInclude printed overall/body dimensions, thickness alternatives, feature sizes,\nhole/slot counts, pitches, offsets, diameters/radii, depths, angles and edge/corner\ndetails. Ignore title-block weight, dates, drawing IDs, scale and page numbers.\nDo not assign an unlabeled number to a geometric meaning at this stage. Do not\nderive coordinates, scale/convert units, infer hardware dimensions, use another\ndrawing, or measure geometry from pixels. A box only LOCATES PRINTED TEXT.\nbox is [x,y,width,height] in ORIGINAL PDF page points, origin top left; convert\nthe text's image location using the supplied PDF page width/height. It must\ntightly enclose the actual printed label/callout, not an entire view or page.\nDo not invent unreadable characters. Include only confidently legible tokens.\nUse known [] if that page has no legible engineering numbers; unreadable numbers\nremain absent. This does not claim a complete drawing or approve any design.\nCite only the supplied drawing/source ID for each page item. In reason identify\nwhich visible dimensions/callouts were readable and what remained unreadable.\nThe verifier must inspect EVERY token, copied context, unit and exact location\nagainst that ORIGINAL page. Reject a guessed/changed token, wrong page, unrelated\nbox, inferred dimension or incorrectly classified unit. A close location can be\ncorrected in the one bounded retry; it never authorizes pixel measurements.\nOriginal PDF page sizes in points, indexed by ORIGINAL one-based page number:\n{\"drawing_id\":\"D-003\",\"page_sizes\":[[1182.4000244140625,834.4000244140625],[1182.4000244140625,834.4000244140625],[1182.4000244140625,834.4000244140625]],\"source_ids\":[\"D-003/drawing/source\"],\"source_sha256\":\"c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0\"}\nSINGLE ORIGINAL PAGE REQUEST. Only ONE image is supplied. Its original PDF page number is 1; return ONLY key page_1. Do not relabel this image page_1. Use page_sizes[0] for its original PDF-point coordinates. Other original pages are not supplied and must not be read, reconstructed or returned. The image_original_pages array maps supplied images to original PDF page numbers:\n{\"image_original_pages\":[1],\"requested_keys\":[\"page_1\"]}",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string",
+              "enum": [
+                "page_1"
+              ]
+            },
+            "state": {
+              "type": "string",
+              "enum": [
+                "known",
+                "options",
+                "unknown"
+              ]
+            },
+            "value_json": {
+              "type": "string"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "sure",
+                "unsure"
+              ]
+            },
+            "fact_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "reason": {
+              "type": "string"
+            },
+            "changed_because": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "key",
+            "state",
+            "value_json",
+            "confidence",
+            "fact_ids",
+            "reason",
+            "changed_because"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "items"
+    ],
+    "additionalProperties": false
+  },
+  "images": [
+    "cd09e8f3226ef443c80da5e5af534abcf766defc54b3fb8d1e5b38250dd472f3"
+  ],
+  "job": "dimensions:D-003:printed-image-dimensions-v1:page_1:proposal-verification-v1:proposal:0"
+}

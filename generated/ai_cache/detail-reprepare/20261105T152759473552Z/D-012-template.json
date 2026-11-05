@@ -1,0 +1,1057 @@
+{
+  "part": "D-012",
+  "template": "flat_part",
+  "outline": {
+    "state": "known",
+    "type": "rectangle",
+    "length": {
+      "state": "known",
+      "value": 25,
+      "confidence": "sure",
+      "method": "ai_verified",
+      "fact_ids": [
+        "D-012/drawing/n/25.0@1-1",
+        "D-012"
+      ],
+      "readers": {
+        "claude": {
+          "role": "verifier",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "length",
+                "decision": "accept",
+                "reason": "In the main view, the horizontal dimension across the 25-wide face reads 25,0 with tolerance +0,1/-0,5. The nominal X value is 25.",
+                "fact_ids": [
+                  "D-012/drawing/n/25.0@1-1",
+                  "D-012/drawing/n/0.1@1-1",
+                  "D-012/drawing/n/0.5@1-1"
+                ],
+                "repairable": false
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "bb5c73f9c4daa7980e9e87e81060a149b6f8a87d3a39835dbfa7ce0897e68046",
+              "response_proposal_fingerprint": "bb5c73f9c4daa7980e9e87e81060a149b6f8a87d3a39835dbfa7ce0897e68046",
+              "feedback": [],
+              "settings": {
+                "model": "opus",
+                "fast_mode": false,
+                "mode": "regular",
+                "reader": "claude"
+              },
+              "cache_key": "484349d215549934bd0c3229e47cc63cd2fdf20d54ac16f705c3ffc2bbbd9bff"
+            }
+          ]
+        },
+        "codex": {
+          "role": "proposer",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "length",
+                "state": "known",
+                "value_json": "25",
+                "confidence": "sure",
+                "fact_ids": [
+                  "D-012/drawing/n/25.0@1-1",
+                  "D-012"
+                ],
+                "reason": "The main face-on view's horizontal X dimension is 25,0 mm, with printed tolerance +0,1/-0,5.",
+                "changed_because": ""
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "bb5c73f9c4daa7980e9e87e81060a149b6f8a87d3a39835dbfa7ce0897e68046",
+              "response_proposal_fingerprint": null,
+              "feedback": [],
+              "settings": {
+                "model": "gpt-6.1-sol",
+                "reasoning_effort": "xhigh",
+                "service_tier": "fast",
+                "reader": "codex"
+              },
+              "cache_key": "da5d1bd0ce7334604fafc9bb269d41aeec9dd44b9f19049757014baf5e213384"
+            }
+          ]
+        }
+      },
+      "review": {
+        "status": "not_reviewed"
+      },
+      "note": "The main face-on view's horizontal X dimension is 25,0 mm, with printed tolerance +0,1/-0,5. Verification: In the main view, the horizontal dimension across the 25-wide face reads 25,0 with tolerance +0,1/-0,5. The nominal X value is 25."
+    },
+    "width": {
+      "state": "known",
+      "value": 120,
+      "confidence": "sure",
+      "method": "ai_verified",
+      "fact_ids": [
+        "D-012/drawing/n/120.0@1-1",
+        "D-012"
+      ],
+      "readers": {
+        "claude": {
+          "role": "verifier",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "width",
+                "decision": "accept",
+                "reason": "In the main view, the vertical overall dimension 120,0 spans the full height of the body, which is Y.",
+                "fact_ids": [
+                  "D-012/drawing/n/120.0@1-1"
+                ],
+                "repairable": false
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "bb5c73f9c4daa7980e9e87e81060a149b6f8a87d3a39835dbfa7ce0897e68046",
+              "response_proposal_fingerprint": "bb5c73f9c4daa7980e9e87e81060a149b6f8a87d3a39835dbfa7ce0897e68046",
+              "feedback": [],
+              "settings": {
+                "model": "opus",
+                "fast_mode": false,
+                "mode": "regular",
+                "reader": "claude"
+              },
+              "cache_key": "484349d215549934bd0c3229e47cc63cd2fdf20d54ac16f705c3ffc2bbbd9bff"
+            }
+          ]
+        },
+        "codex": {
+          "role": "proposer",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "width",
+                "state": "known",
+                "value_json": "120",
+                "confidence": "sure",
+                "fact_ids": [
+                  "D-012/drawing/n/120.0@1-1",
+                  "D-012"
+                ],
+                "reason": "The main face-on view's vertical Y dimension is 120,0 mm.",
+                "changed_because": ""
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "bb5c73f9c4daa7980e9e87e81060a149b6f8a87d3a39835dbfa7ce0897e68046",
+              "response_proposal_fingerprint": null,
+              "feedback": [],
+              "settings": {
+                "model": "gpt-6.1-sol",
+                "reasoning_effort": "xhigh",
+                "service_tier": "fast",
+                "reader": "codex"
+              },
+              "cache_key": "da5d1bd0ce7334604fafc9bb269d41aeec9dd44b9f19049757014baf5e213384"
+            }
+          ]
+        }
+      },
+      "review": {
+        "status": "not_reviewed"
+      },
+      "note": "The main face-on view's vertical Y dimension is 120,0 mm. Verification: In the main view, the vertical overall dimension 120,0 spans the full height of the body, which is Y."
+    }
+  },
+  "thickness": {
+    "state": "known",
+    "value": 15,
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-012/drawing/n/15.0@1-1",
+      "D-012"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "thickness",
+              "decision": "accept",
+              "reason": "In the left-hand side view, 15,0 ±1,0 spans the narrow width, which is the depth through the main view. This is one nominal value with a tolerance, not stacked alternatives. The hidden lines of the main-face holes run across this full 15 width.",
+              "fact_ids": [
+                "D-012/drawing/n/15.0@1-1"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "bb5c73f9c4daa7980e9e87e81060a149b6f8a87d3a39835dbfa7ce0897e68046",
+            "response_proposal_fingerprint": "bb5c73f9c4daa7980e9e87e81060a149b6f8a87d3a39835dbfa7ce0897e68046",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "484349d215549934bd0c3229e47cc63cd2fdf20d54ac16f705c3ffc2bbbd9bff"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "thickness",
+              "state": "known",
+              "value_json": "15",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-012/drawing/n/15.0@1-1",
+                "D-012"
+              ],
+              "reason": "The adjacent narrow side view dimensions the constant thickness as 15,0 ±1,0 mm. These are nominal and tolerance, not alternative thicknesses.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "bb5c73f9c4daa7980e9e87e81060a149b6f8a87d3a39835dbfa7ce0897e68046",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "da5d1bd0ce7334604fafc9bb269d41aeec9dd44b9f19049757014baf5e213384"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The adjacent narrow side view dimensions the constant thickness as 15,0 ±1,0 mm. These are nominal and tolerance, not alternative thicknesses. Verification: In the left-hand side view, 15,0 ±1,0 spans the narrow width, which is the depth through the main view. This is one nominal value with a tolerance, not stacked alternatives. The hidden lines of the main-face holes run across this full 15 width."
+  },
+  "features": [
+    {
+      "kind": "hole",
+      "face": "top",
+      "x": {
+        "state": "known",
+        "value": 0,
+        "fact_ids": [
+          "D-012/drawing/n/12.5@1-1",
+          "D-012/drawing/n/25.0@1-1"
+        ],
+        "expression": "n0-n1/2"
+      },
+      "y": {
+        "state": "known",
+        "value": -40,
+        "fact_ids": [
+          "D-012/drawing/n/40.0@1-1"
+        ],
+        "expression": "0-n0"
+      },
+      "diameter": {
+        "state": "known",
+        "value": 5,
+        "fact_ids": [
+          "D-012/drawing/n/5.0@1-1"
+        ]
+      },
+      "through": true,
+      "hole_type": "threaded",
+      "thread": "M6 - 6H",
+      "placement_basis": "drawing_pattern_interpretation",
+      "placement_reason": "The main view shows the printed 2 x hole callout on one longitudinal centerline. The upper center is dimensioned 40,0 above the transverse body centerline; the lower member is its mirrored counterpart at Y=-40. The 12,5 offset from the left edge of the 25,0-wide face gives X=12.5-25/2=0.",
+      "fact_ids": [
+        "D-012",
+        "D-012/drawing/callout/p1-1",
+        "D-012/drawing/n/2.0@1-1",
+        "D-012/drawing/n/12.5@1-1",
+        "D-012/drawing/n/25.0@1-1",
+        "D-012/drawing/n/40.0@1-1"
+      ]
+    },
+    {
+      "kind": "hole",
+      "face": "top",
+      "x": {
+        "state": "known",
+        "value": 0,
+        "fact_ids": [
+          "D-012/drawing/n/12.5@1-1",
+          "D-012/drawing/n/25.0@1-1"
+        ],
+        "expression": "n0-n1/2"
+      },
+      "y": {
+        "state": "known",
+        "value": 40,
+        "fact_ids": [
+          "D-012/drawing/n/40.0@1-1"
+        ]
+      },
+      "diameter": {
+        "state": "known",
+        "value": 5,
+        "fact_ids": [
+          "D-012/drawing/n/5.0@1-1"
+        ]
+      },
+      "through": true,
+      "hole_type": "threaded",
+      "thread": "M6 - 6H",
+      "placement_basis": "dimensioned",
+      "placement_reason": "The main view dimensions this center 40,0 above the transverse centerline and 12,5 from the left edge of the 25,0-wide body, giving X=0. The through-all callout establishes an opening on the main viewing face.",
+      "fact_ids": [
+        "D-012",
+        "D-012/drawing/callout/p1-1",
+        "D-012/drawing/n/12.5@1-1",
+        "D-012/drawing/n/25.0@1-1",
+        "D-012/drawing/n/40.0@1-1"
+      ]
+    },
+    {
+      "kind": "hole",
+      "face": "x_max",
+      "x": {
+        "state": "known",
+        "value": 12.5,
+        "fact_ids": [
+          "D-012/drawing/n/25.0@1-1"
+        ],
+        "expression": "n0/2"
+      },
+      "y": {
+        "state": "known",
+        "value": -30,
+        "fact_ids": [
+          "D-012/drawing/n/30.0@1-1"
+        ],
+        "expression": "0-n0"
+      },
+      "z": {
+        "state": "known",
+        "value": 7.5,
+        "fact_ids": [
+          "D-012/drawing/n/15.0@1-1"
+        ],
+        "expression": "n0/2"
+      },
+      "diameter": {
+        "state": "known",
+        "value": 5,
+        "fact_ids": [
+          "D-012/drawing/n/5.0@1-2"
+        ]
+      },
+      "through": true,
+      "hole_type": "threaded",
+      "thread": "M6 - 6H",
+      "placement_basis": "drawing_pattern_interpretation",
+      "placement_reason": "The narrow side view shows the printed 2 x through-hole callout, an upper center 30,0 above the transverse centerline, and the lower mirrored member at Y=-30. Both centers lie on the thickness-midplane centerline, giving Z=15/2. The isometric shows openings on the right narrow face, selected as X=25/2; the holes pass through to the opposite side.",
+      "fact_ids": [
+        "D-012",
+        "D-012/drawing/callout/p1-2",
+        "D-012/drawing/n/2.0@1-2",
+        "D-012/drawing/n/25.0@1-1",
+        "D-012/drawing/n/15.0@1-1",
+        "D-012/drawing/n/30.0@1-1"
+      ]
+    },
+    {
+      "kind": "hole",
+      "face": "x_max",
+      "x": {
+        "state": "known",
+        "value": 12.5,
+        "fact_ids": [
+          "D-012/drawing/n/25.0@1-1"
+        ],
+        "expression": "n0/2"
+      },
+      "y": {
+        "state": "known",
+        "value": 30,
+        "fact_ids": [
+          "D-012/drawing/n/30.0@1-1"
+        ]
+      },
+      "z": {
+        "state": "known",
+        "value": 7.5,
+        "fact_ids": [
+          "D-012/drawing/n/15.0@1-1"
+        ],
+        "expression": "n0/2"
+      },
+      "diameter": {
+        "state": "known",
+        "value": 5,
+        "fact_ids": [
+          "D-012/drawing/n/5.0@1-2"
+        ]
+      },
+      "through": true,
+      "hole_type": "threaded",
+      "thread": "M6 - 6H",
+      "placement_basis": "drawing_pattern_interpretation",
+      "placement_reason": "The narrow side view directly dimensions this center 30,0 above the transverse centerline and places it on the thickness-midplane centerline, giving Z=15/2. The isometric establishes the right narrow face opening, at X=25/2. The printed 2 x callout identifies this as one of the two side through holes.",
+      "fact_ids": [
+        "D-012",
+        "D-012/drawing/callout/p1-2",
+        "D-012/drawing/n/2.0@1-2",
+        "D-012/drawing/n/25.0@1-1",
+        "D-012/drawing/n/15.0@1-1",
+        "D-012/drawing/n/30.0@1-1"
+      ]
+    }
+  ],
+  "features_review": {
+    "state": "known",
+    "value": [
+      {
+        "kind": "hole",
+        "face": "top",
+        "x": {
+          "state": "known",
+          "value": 0,
+          "fact_ids": [
+            "D-012/drawing/n/12.5@1-1",
+            "D-012/drawing/n/25.0@1-1"
+          ],
+          "expression": "n0-n1/2"
+        },
+        "y": {
+          "state": "known",
+          "value": -40,
+          "fact_ids": [
+            "D-012/drawing/n/40.0@1-1"
+          ],
+          "expression": "0-n0"
+        },
+        "diameter": {
+          "state": "known",
+          "value": 5,
+          "fact_ids": [
+            "D-012/drawing/n/5.0@1-1"
+          ]
+        },
+        "through": true,
+        "hole_type": "threaded",
+        "thread": "M6 - 6H",
+        "placement_basis": "drawing_pattern_interpretation",
+        "placement_reason": "The main view shows the printed 2 x hole callout on one longitudinal centerline. The upper center is dimensioned 40,0 above the transverse body centerline; the lower member is its mirrored counterpart at Y=-40. The 12,5 offset from the left edge of the 25,0-wide face gives X=12.5-25/2=0.",
+        "fact_ids": [
+          "D-012",
+          "D-012/drawing/callout/p1-1",
+          "D-012/drawing/n/2.0@1-1",
+          "D-012/drawing/n/12.5@1-1",
+          "D-012/drawing/n/25.0@1-1",
+          "D-012/drawing/n/40.0@1-1"
+        ]
+      },
+      {
+        "kind": "hole",
+        "face": "top",
+        "x": {
+          "state": "known",
+          "value": 0,
+          "fact_ids": [
+            "D-012/drawing/n/12.5@1-1",
+            "D-012/drawing/n/25.0@1-1"
+          ],
+          "expression": "n0-n1/2"
+        },
+        "y": {
+          "state": "known",
+          "value": 40,
+          "fact_ids": [
+            "D-012/drawing/n/40.0@1-1"
+          ]
+        },
+        "diameter": {
+          "state": "known",
+          "value": 5,
+          "fact_ids": [
+            "D-012/drawing/n/5.0@1-1"
+          ]
+        },
+        "through": true,
+        "hole_type": "threaded",
+        "thread": "M6 - 6H",
+        "placement_basis": "dimensioned",
+        "placement_reason": "The main view dimensions this center 40,0 above the transverse centerline and 12,5 from the left edge of the 25,0-wide body, giving X=0. The through-all callout establishes an opening on the main viewing face.",
+        "fact_ids": [
+          "D-012",
+          "D-012/drawing/callout/p1-1",
+          "D-012/drawing/n/12.5@1-1",
+          "D-012/drawing/n/25.0@1-1",
+          "D-012/drawing/n/40.0@1-1"
+        ]
+      },
+      {
+        "kind": "hole",
+        "face": "x_max",
+        "x": {
+          "state": "known",
+          "value": 12.5,
+          "fact_ids": [
+            "D-012/drawing/n/25.0@1-1"
+          ],
+          "expression": "n0/2"
+        },
+        "y": {
+          "state": "known",
+          "value": -30,
+          "fact_ids": [
+            "D-012/drawing/n/30.0@1-1"
+          ],
+          "expression": "0-n0"
+        },
+        "z": {
+          "state": "known",
+          "value": 7.5,
+          "fact_ids": [
+            "D-012/drawing/n/15.0@1-1"
+          ],
+          "expression": "n0/2"
+        },
+        "diameter": {
+          "state": "known",
+          "value": 5,
+          "fact_ids": [
+            "D-012/drawing/n/5.0@1-2"
+          ]
+        },
+        "through": true,
+        "hole_type": "threaded",
+        "thread": "M6 - 6H",
+        "placement_basis": "drawing_pattern_interpretation",
+        "placement_reason": "The narrow side view shows the printed 2 x through-hole callout, an upper center 30,0 above the transverse centerline, and the lower mirrored member at Y=-30. Both centers lie on the thickness-midplane centerline, giving Z=15/2. The isometric shows openings on the right narrow face, selected as X=25/2; the holes pass through to the opposite side.",
+        "fact_ids": [
+          "D-012",
+          "D-012/drawing/callout/p1-2",
+          "D-012/drawing/n/2.0@1-2",
+          "D-012/drawing/n/25.0@1-1",
+          "D-012/drawing/n/15.0@1-1",
+          "D-012/drawing/n/30.0@1-1"
+        ]
+      },
+      {
+        "kind": "hole",
+        "face": "x_max",
+        "x": {
+          "state": "known",
+          "value": 12.5,
+          "fact_ids": [
+            "D-012/drawing/n/25.0@1-1"
+          ],
+          "expression": "n0/2"
+        },
+        "y": {
+          "state": "known",
+          "value": 30,
+          "fact_ids": [
+            "D-012/drawing/n/30.0@1-1"
+          ]
+        },
+        "z": {
+          "state": "known",
+          "value": 7.5,
+          "fact_ids": [
+            "D-012/drawing/n/15.0@1-1"
+          ],
+          "expression": "n0/2"
+        },
+        "diameter": {
+          "state": "known",
+          "value": 5,
+          "fact_ids": [
+            "D-012/drawing/n/5.0@1-2"
+          ]
+        },
+        "through": true,
+        "hole_type": "threaded",
+        "thread": "M6 - 6H",
+        "placement_basis": "drawing_pattern_interpretation",
+        "placement_reason": "The narrow side view directly dimensions this center 30,0 above the transverse centerline and places it on the thickness-midplane centerline, giving Z=15/2. The isometric establishes the right narrow face opening, at X=25/2. The printed 2 x callout identifies this as one of the two side through holes.",
+        "fact_ids": [
+          "D-012",
+          "D-012/drawing/callout/p1-2",
+          "D-012/drawing/n/2.0@1-2",
+          "D-012/drawing/n/25.0@1-1",
+          "D-012/drawing/n/15.0@1-1",
+          "D-012/drawing/n/30.0@1-1"
+        ]
+      }
+    ],
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-012",
+      "D-012/drawing/callout/p1-1",
+      "D-012/drawing/callout/p1-2",
+      "D-012/drawing/n/25.0@1-1",
+      "D-012/drawing/n/15.0@1-1",
+      "D-012/drawing/n/12.5@1-1",
+      "D-012/drawing/n/40.0@1-1",
+      "D-012/drawing/n/30.0@1-1",
+      "D-012/drawing/n/5.0@1-1",
+      "D-012/drawing/n/5.0@1-2"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features",
+              "decision": "accept",
+              "reason": "Main view: both D-012/drawing/callout/p1-1 ('2 x Ø5,0 THRU ALL / M6 - 6H THRU ALL') and the 40,0 dimension point to the upper hole. The 40,0 runs from the drawn horizontal centerline, which is at mid-length of the 120,0 body. The lower hole sits on the same vertical centerline, mirrored across the horizontal centerline, so a Y=±40 mirrored layout is the conventional reading. 12,5 ±0,1 locates the hole center from the left edge of the 25,0 face, so X = 12.5 - 25/2 = 0 is correct. Side view: callout p1-2 (same text) and the 30,0 dimension from the horizontal centerline locate the upper side hole. The lower side hole is the mirrored member, giving Y=±30. Both side holes lie on the drawn vertical centerline of the 15,0 view, so Z = 15/2 = 7.5 is supported. In the main view, hidden lines at the side-hole heights run across the full 25 width, which confirms through holes normal to the X faces. Because both holes go through, the x_max entry face at X = 25/2 is valid, and either X face gives the same geometry. The 5,0 diameter is printed in both callouts, not inferred from the M6 thread. The concentric circles are the thread representation, not counterbores or countersinks. The expressions and ordering match the cited numbers. The isometric shows an extra unshaded ellipse on the wide face, but no orthographic view shows a matching hole. The dimensioned views govern, and they account for exactly four holes.",
+              "fact_ids": [
+                "D-012",
+                "D-012/drawing/callout/p1-1",
+                "D-012/drawing/callout/p1-2",
+                "D-012/drawing/n/2.0@1-1",
+                "D-012/drawing/n/2.0@1-2",
+                "D-012/drawing/n/5.0@1-1",
+                "D-012/drawing/n/5.0@1-2",
+                "D-012/drawing/n/12.5@1-1",
+                "D-012/drawing/n/25.0@1-1",
+                "D-012/drawing/n/40.0@1-1",
+                "D-012/drawing/n/30.0@1-1",
+                "D-012/drawing/n/15.0@1-1"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "bb5c73f9c4daa7980e9e87e81060a149b6f8a87d3a39835dbfa7ce0897e68046",
+            "response_proposal_fingerprint": "bb5c73f9c4daa7980e9e87e81060a149b6f8a87d3a39835dbfa7ce0897e68046",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "484349d215549934bd0c3229e47cc63cd2fdf20d54ac16f705c3ffc2bbbd9bff"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features",
+              "state": "known",
+              "value_json": "[{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-012/drawing/n/12.5@1-1\",\"D-012/drawing/n/25.0@1-1\"],\"expression\":\"n0-n1/2\"},\"y\":{\"state\":\"known\",\"value\":-40,\"fact_ids\":[\"D-012/drawing/n/40.0@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":5,\"fact_ids\":[\"D-012/drawing/n/5.0@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M6 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The main view shows the printed 2 x hole callout on one longitudinal centerline. The upper center is dimensioned 40,0 above the transverse body centerline; the lower member is its mirrored counterpart at Y=-40. The 12,5 offset from the left edge of the 25,0-wide face gives X=12.5-25/2=0.\",\"fact_ids\":[\"D-012\",\"D-012/drawing/callout/p1-1\",\"D-012/drawing/n/2.0@1-1\",\"D-012/drawing/n/12.5@1-1\",\"D-012/drawing/n/25.0@1-1\",\"D-012/drawing/n/40.0@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-012/drawing/n/12.5@1-1\",\"D-012/drawing/n/25.0@1-1\"],\"expression\":\"n0-n1/2\"},\"y\":{\"state\":\"known\",\"value\":40,\"fact_ids\":[\"D-012/drawing/n/40.0@1-1\"]},\"diameter\":{\"state\":\"known\",\"value\":5,\"fact_ids\":[\"D-012/drawing/n/5.0@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M6 - 6H\",\"placement_basis\":\"dimensioned\",\"placement_reason\":\"The main view dimensions this center 40,0 above the transverse centerline and 12,5 from the left edge of the 25,0-wide body, giving X=0. The through-all callout establishes an opening on the main viewing face.\",\"fact_ids\":[\"D-012\",\"D-012/drawing/callout/p1-1\",\"D-012/drawing/n/12.5@1-1\",\"D-012/drawing/n/25.0@1-1\",\"D-012/drawing/n/40.0@1-1\"]},{\"kind\":\"hole\",\"face\":\"x_max\",\"x\":{\"state\":\"known\",\"value\":12.5,\"fact_ids\":[\"D-012/drawing/n/25.0@1-1\"],\"expression\":\"n0/2\"},\"y\":{\"state\":\"known\",\"value\":-30,\"fact_ids\":[\"D-012/drawing/n/30.0@1-1\"],\"expression\":\"0-n0\"},\"z\":{\"state\":\"known\",\"value\":7.5,\"fact_ids\":[\"D-012/drawing/n/15.0@1-1\"],\"expression\":\"n0/2\"},\"diameter\":{\"state\":\"known\",\"value\":5,\"fact_ids\":[\"D-012/drawing/n/5.0@1-2\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M6 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The narrow side view shows the printed 2 x through-hole callout, an upper center 30,0 above the transverse centerline, and the lower mirrored member at Y=-30. Both centers lie on the thickness-midplane centerline, giving Z=15/2. The isometric shows openings on the right narrow face, selected as X=25/2; the holes pass through to the opposite side.\",\"fact_ids\":[\"D-012\",\"D-012/drawing/callout/p1-2\",\"D-012/drawing/n/2.0@1-2\",\"D-012/drawing/n/25.0@1-1\",\"D-012/drawing/n/15.0@1-1\",\"D-012/drawing/n/30.0@1-1\"]},{\"kind\":\"hole\",\"face\":\"x_max\",\"x\":{\"state\":\"known\",\"value\":12.5,\"fact_ids\":[\"D-012/drawing/n/25.0@1-1\"],\"expression\":\"n0/2\"},\"y\":{\"state\":\"known\",\"value\":30,\"fact_ids\":[\"D-012/drawing/n/30.0@1-1\"]},\"z\":{\"state\":\"known\",\"value\":7.5,\"fact_ids\":[\"D-012/drawing/n/15.0@1-1\"],\"expression\":\"n0/2\"},\"diameter\":{\"state\":\"known\",\"value\":5,\"fact_ids\":[\"D-012/drawing/n/5.0@1-2\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M6 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The narrow side view directly dimensions this center 30,0 above the transverse centerline and places it on the thickness-midplane centerline, giving Z=15/2. The isometric establishes the right narrow face opening, at X=25/2. The printed 2 x callout identifies this as one of the two side through holes.\",\"fact_ids\":[\"D-012\",\"D-012/drawing/callout/p1-2\",\"D-012/drawing/n/2.0@1-2\",\"D-012/drawing/n/25.0@1-1\",\"D-012/drawing/n/15.0@1-1\",\"D-012/drawing/n/30.0@1-1\"]}]",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-012",
+                "D-012/drawing/callout/p1-1",
+                "D-012/drawing/callout/p1-2",
+                "D-012/drawing/n/25.0@1-1",
+                "D-012/drawing/n/15.0@1-1",
+                "D-012/drawing/n/12.5@1-1",
+                "D-012/drawing/n/40.0@1-1",
+                "D-012/drawing/n/30.0@1-1",
+                "D-012/drawing/n/5.0@1-1",
+                "D-012/drawing/n/5.0@1-2"
+              ],
+              "reason": "The two orthographic views establish two main-face and two side-drilled threaded through holes. Both callouts independently print Ø5,0 and M6 - 6H THRU ALL. Concentric thread representations do not establish counterbores or countersinks. Mirrored locations use the printed counts, offsets and centerline layouts.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "bb5c73f9c4daa7980e9e87e81060a149b6f8a87d3a39835dbfa7ce0897e68046",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "da5d1bd0ce7334604fafc9bb269d41aeec9dd44b9f19049757014baf5e213384"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The two orthographic views establish two main-face and two side-drilled threaded through holes. Both callouts independently print Ø5,0 and M6 - 6H THRU ALL. Concentric thread representations do not establish counterbores or countersinks. Mirrored locations use the printed counts, offsets and centerline layouts. Verification: Main view: both D-012/drawing/callout/p1-1 ('2 x Ø5,0 THRU ALL / M6 - 6H THRU ALL') and the 40,0 dimension point to the upper hole. The 40,0 runs from the drawn horizontal centerline, which is at mid-length of the 120,0 body. The lower hole sits on the same vertical centerline, mirrored across the horizontal centerline, so a Y=±40 mirrored layout is the conventional reading. 12,5 ±0,1 locates the hole center from the left edge of the 25,0 face, so X = 12.5 - 25/2 = 0 is correct. Side view: callout p1-2 (same text) and the 30,0 dimension from the horizontal centerline locate the upper side hole. The lower side hole is the mirrored member, giving Y=±30. Both side holes lie on the drawn vertical centerline of the 15,0 view, so Z = 15/2 = 7.5 is supported. In the main view, hidden lines at the side-hole heights run across the full 25 width, which confirms through holes normal to the X faces. Because both holes go through, the x_max entry face at X = 25/2 is valid, and either X face gives the same geometry. The 5,0 diameter is printed in both callouts, not inferred from the M6 thread. The concentric circles are the thread representation, not counterbores or countersinks. The expressions and ordering match the cited numbers. The isometric shows an extra unshaded ellipse on the wide face, but no orthographic view shows a matching hole. The dimensioned views govern, and they account for exactly four holes."
+  },
+  "material": {
+    "name": "D-012/drawing/material",
+    "original": "3.3315 (EN-AW 5005)",
+    "value": "3.3315 (EN-AW 5005)",
+    "confidence": "sure",
+    "method": "parsed",
+    "page": 1,
+    "box": [
+      745.28,
+      771.048,
+      135.0,
+      14.0
+    ],
+    "field_box": [
+      784.28,
+      771.048,
+      96.0,
+      14.0
+    ],
+    "label_box": [
+      745.28,
+      772.048,
+      38.539,
+      10.936
+    ]
+  },
+  "weight_on_drawing": {
+    "name": "D-012/drawing/weight_g",
+    "original": "117.3",
+    "value": 117.3,
+    "confidence": "sure",
+    "method": "parsed",
+    "page": 1,
+    "box": [
+      880.717,
+      771.048,
+      93.0,
+      14.0
+    ],
+    "field_box": [
+      924.717,
+      771.048,
+      49.0,
+      14.0
+    ],
+    "label_box": [
+      880.717,
+      772.048,
+      28.747,
+      10.936
+    ]
+  },
+  "cad_ready": true,
+  "blocking_fields": [],
+  "cad_eligibility": {
+    "state": "known",
+    "value": {
+      "supported": true,
+      "constant_thickness": true,
+      "outline_exact": true,
+      "reason": "The main face-on view explicitly dimensions a 25,0 mm horizontal by 120,0 mm vertical rectangular body. The adjacent narrow side view explicitly dimensions its constant 15,0 ±1,0 mm thickness, corroborated by the isometric. The four threaded through holes are expressible as two main-face cuts and two source-supported side cuts. Only unspecified edge breaks are omitted; no essential contour is replaced by a bounding rectangle.",
+      "essential_uncertainty": [],
+      "omitted_minor_features": [
+        "Undimensioned edge breaks required by DEBURR AND BREAK SHARP EDGES."
+      ]
+    },
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-012",
+      "D-012/drawing/n/25.0@1-1",
+      "D-012/drawing/n/120.0@1-1",
+      "D-012/drawing/n/15.0@1-1",
+      "D-012/drawing/callout/p1-1",
+      "D-012/drawing/callout/p1-2",
+      "D-012/drawing/general/edge_finish"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "cad_eligibility",
+              "decision": "accept",
+              "reason": "The main view gives an exact 25,0 x 120,0 rectangle, and the side view gives a constant 15,0 thickness. The four printed Ø5,0 M6-6H THRU ALL holes are expressible as two top-face holes and two side holes from the X faces. Only the undimensioned edge breaks are omitted, which the minor-omission allowance permits. No essential contour is approximated.",
+              "fact_ids": [
+                "D-012",
+                "D-012/drawing/n/25.0@1-1",
+                "D-012/drawing/n/120.0@1-1",
+                "D-012/drawing/n/15.0@1-1",
+                "D-012/drawing/callout/p1-1",
+                "D-012/drawing/callout/p1-2",
+                "D-012/drawing/general/edge_finish"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "bb5c73f9c4daa7980e9e87e81060a149b6f8a87d3a39835dbfa7ce0897e68046",
+            "response_proposal_fingerprint": "bb5c73f9c4daa7980e9e87e81060a149b6f8a87d3a39835dbfa7ce0897e68046",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "484349d215549934bd0c3229e47cc63cd2fdf20d54ac16f705c3ffc2bbbd9bff"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "cad_eligibility",
+              "state": "known",
+              "value_json": "{\"supported\":true,\"constant_thickness\":true,\"outline_exact\":true,\"reason\":\"The main face-on view explicitly dimensions a 25,0 mm horizontal by 120,0 mm vertical rectangular body. The adjacent narrow side view explicitly dimensions its constant 15,0 ±1,0 mm thickness, corroborated by the isometric. The four threaded through holes are expressible as two main-face cuts and two source-supported side cuts. Only unspecified edge breaks are omitted; no essential contour is replaced by a bounding rectangle.\",\"essential_uncertainty\":[],\"omitted_minor_features\":[\"Undimensioned edge breaks required by DEBURR AND BREAK SHARP EDGES.\"]}",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-012",
+                "D-012/drawing/n/25.0@1-1",
+                "D-012/drawing/n/120.0@1-1",
+                "D-012/drawing/n/15.0@1-1",
+                "D-012/drawing/callout/p1-1",
+                "D-012/drawing/callout/p1-2",
+                "D-012/drawing/general/edge_finish"
+              ],
+              "reason": "The dimensioned rectangular prism and supported main-face and side holes fit the permitted template. Unspecified edge finishing permits an explicitly documented minor omission.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "bb5c73f9c4daa7980e9e87e81060a149b6f8a87d3a39835dbfa7ce0897e68046",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "da5d1bd0ce7334604fafc9bb269d41aeec9dd44b9f19049757014baf5e213384"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The dimensioned rectangular prism and supported main-face and side holes fit the permitted template. Unspecified edge finishing permits an explicitly documented minor omission. Verification: The main view gives an exact 25,0 x 120,0 rectangle, and the side view gives a constant 15,0 thickness. The four printed Ø5,0 M6-6H THRU ALL holes are expressible as two top-face holes and two side holes from the X faces. Only the undimensioned edge breaks are omitted, which the minor-omission allowance permits. No essential contour is approximated."
+  },
+  "feature_protocol": "supported-feature-subset-v1",
+  "features_complete": {
+    "state": "known",
+    "value": false,
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-012",
+      "D-012/drawing/general/edge_finish"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_complete",
+              "decision": "accept",
+              "reason": "false is correct. The note 'DEBURR AND BREAK SHARP EDGES' requires edge breaks with no printed size, so not every detail is modeled.",
+              "fact_ids": [
+                "D-012/drawing/general/edge_finish"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "bb5c73f9c4daa7980e9e87e81060a149b6f8a87d3a39835dbfa7ce0897e68046",
+            "response_proposal_fingerprint": "bb5c73f9c4daa7980e9e87e81060a149b6f8a87d3a39835dbfa7ce0897e68046",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "484349d215549934bd0c3229e47cc63cd2fdf20d54ac16f705c3ffc2bbbd9bff"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_complete",
+              "state": "known",
+              "value_json": "false",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-012",
+                "D-012/drawing/general/edge_finish"
+              ],
+              "reason": "All four supported threaded holes are retained, but the required edge breaks lack dimensions and are omitted.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "bb5c73f9c4daa7980e9e87e81060a149b6f8a87d3a39835dbfa7ce0897e68046",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "da5d1bd0ce7334604fafc9bb269d41aeec9dd44b9f19049757014baf5e213384"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "All four supported threaded holes are retained, but the required edge breaks lack dimensions and are omitted. Verification: false is correct. The note 'DEBURR AND BREAK SHARP EDGES' requires edge breaks with no printed size, so not every detail is modeled."
+  },
+  "features_omitted": {
+    "state": "known",
+    "value": [
+      {
+        "description": "DEBURR AND BREAK SHARP EDGES",
+        "reason": "The general finishing note specifies no setback, angle or radius. Its edge-break geometry cannot be modeled without inventing dimensions.",
+        "fact_ids": [
+          "D-012/drawing/general/edge_finish",
+          "D-012"
+        ]
+      }
+    ],
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-012/drawing/general/edge_finish",
+      "D-012"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_omitted",
+              "decision": "accept",
+              "reason": "The only geometric detail without dimensions is the general edge break. The omission cites the note and correctly says it has no size, angle or radius. The datum A and perpendicularity frame are tolerances, not cuts.",
+              "fact_ids": [
+                "D-012/drawing/general/edge_finish",
+                "D-012"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "bb5c73f9c4daa7980e9e87e81060a149b6f8a87d3a39835dbfa7ce0897e68046",
+            "response_proposal_fingerprint": "bb5c73f9c4daa7980e9e87e81060a149b6f8a87d3a39835dbfa7ce0897e68046",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "484349d215549934bd0c3229e47cc63cd2fdf20d54ac16f705c3ffc2bbbd9bff"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_omitted",
+              "state": "known",
+              "value_json": "[{\"description\":\"DEBURR AND BREAK SHARP EDGES\",\"reason\":\"The general finishing note specifies no setback, angle or radius. Its edge-break geometry cannot be modeled without inventing dimensions.\",\"fact_ids\":[\"D-012/drawing/general/edge_finish\",\"D-012\"]}]",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-012/drawing/general/edge_finish",
+                "D-012"
+              ],
+              "reason": "The unspecified edge finishing is the only excluded geometric detail identified across the supplied views and notes.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "bb5c73f9c4daa7980e9e87e81060a149b6f8a87d3a39835dbfa7ce0897e68046",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "da5d1bd0ce7334604fafc9bb269d41aeec9dd44b9f19049757014baf5e213384"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The unspecified edge finishing is the only excluded geometric detail identified across the supplied views and notes. Verification: The only geometric detail without dimensions is the general edge break. The omission cites the note and correctly says it has no size, angle or radius. The datum A and perpendicularity frame are tolerances, not cuts."
+  },
+  "features_all_determined": false,
+  "features_status": "partial",
+  "omitted_feature_notes": [
+    "DEBURR AND BREAK SHARP EDGES: The general finishing note specifies no setback, angle or radius. Its edge-break geometry cannot be modeled without inventing dimensions."
+  ],
+  "review": {
+    "status": "not_reviewed"
+  },
+  "source_sha256": "23ba5d97ee7a744cf12072e1338ab62fa5e49c09c5229af4f20a6ff5a455f64a",
+  "expansion_protocol": "flat-part-expansion-v1"
+}

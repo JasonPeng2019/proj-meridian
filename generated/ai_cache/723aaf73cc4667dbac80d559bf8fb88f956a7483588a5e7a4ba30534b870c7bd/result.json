@@ -1,0 +1,174 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "cd123a7fb38ddeda9ded862901e14263cf7807b08dd8c4f341267b7f29dfc847",
+    "items": [
+      {
+        "key": "outline_type",
+        "decision": "accept",
+        "reason": "The main face-on view on D-019 shows two concentric full circles, a solid outer one and a solid inner one, with diameter leaders labelled Ø141,0 and Ø118,0. The isometric view shows a flat annular gasket. 'ring' is correct.",
+        "fact_ids": [
+          "D-019",
+          "D-019/drawing/n/141.0@1-1",
+          "D-019/drawing/n/118.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "length",
+        "decision": "accept",
+        "reason": "The outline is a ring defined by diameters, so the rectangular length (X) does not apply. Unknown/null is the right state for an irrelevant dimension under this protocol.",
+        "fact_ids": [
+          "D-019"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "width",
+        "decision": "accept",
+        "reason": "The outline is a ring defined by diameters, so the rectangular width (Y) does not apply. Unknown/null is correct.",
+        "fact_ids": [
+          "D-019"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "outer_diameter",
+        "decision": "accept",
+        "reason": "The parsed text '141,0' (box at 728,230) is the Ø141,0 callout. Its leader runs through the centre and has an arrow on the outermost solid circle of the face-on view. The units note says millimetres, so the value is 141.",
+        "fact_ids": [
+          "D-019/drawing/n/141.0@1-1",
+          "D-019/drawing/general/units"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "inner_diameter",
+        "decision": "accept",
+        "reason": "The parsed text '118,0' (box at 673,230) is the Ø118,0 callout. Its leader is a diameter line through the centre that refers to the solid inner boundary. The dashed construction circle through the holes has no printed size, and Ø118,0 is the only other diameter callout, so it dimensions the inner bore. The units note says millimetres, so the value is 118.",
+        "fact_ids": [
+          "D-019/drawing/n/118.0@1-1",
+          "D-019/drawing/general/units"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "thickness",
+        "decision": "accept",
+        "reason": "In the side view (the left edge-on line), a 1,0 dimension with extension lines and arrows spans the edge-on sheet thickness. The note '1mm silicone pakning' agrees with it. Only one thickness is printed, so the value is a constant 1.",
+        "fact_ids": [
+          "D-019/drawing/n/1.0@1-1",
+          "D-019/drawing/notes",
+          "D-019/drawing/general/units"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features",
+        "decision": "accept",
+        "reason": "The callout '6 x 4,5 THRU ALL' gives the count, diameter and through operation. The six holes sit on a dashed construction circle between the inner and outer boundaries. No pitch-circle diameter, radius or hole coordinates are printed: Ø118,0 and Ø141,0 dimension the body boundaries, not the construction circle. A circle-pattern placement would need an unprinted radius, so no hole can be fully placed. No other cuts are visible. Known [] is the correct supported subset.",
+        "fact_ids": [
+          "D-019",
+          "D-019/drawing/callout/p1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_complete",
+        "decision": "accept",
+        "reason": "The six Ø4,5 through-holes have to be omitted because their pitch-circle diameter is not printed, so the inventory is incomplete. False is correct.",
+        "fact_ids": [
+          "D-019",
+          "D-019/drawing/callout/p1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_omitted",
+        "decision": "accept",
+        "reason": "The first omission correctly describes the 6 × Ø4,5 THRU ALL holes on an undimensioned construction circle and cites the callout and its parsed numbers. The second correctly records the general note 'DEBURR AND BREAK SHARP EDGES', which gives no size. Both reasons match the drawing, and no other visible feature is missing from the list.",
+        "fact_ids": [
+          "D-019",
+          "D-019/drawing/callout/p1-1",
+          "D-019/drawing/n/6.0@1-1",
+          "D-019/drawing/n/4.5@1-1",
+          "D-019/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "cad_eligibility",
+        "decision": "accept",
+        "reason": "The main body is an exact flat ring (outer Ø141,0, inner Ø118,0) with a constant 1,0 thickness dimensioned in the side view. The isometric view confirms a planar annulus with no steps, contours or notches. The unplaced holes are minor cuts and are listed as omissions, so an honest partial model is allowed. supported, constant_thickness and outline_exact = true, essential_uncertainty = [] and the omitted-features list are all consistent with the evidence.",
+        "fact_ids": [
+          "D-019",
+          "D-019/drawing/n/141.0@1-1",
+          "D-019/drawing/n/118.0@1-1",
+          "D-019/drawing/n/1.0@1-1",
+          "D-019/drawing/notes",
+          "D-019/drawing/callout/p1-1",
+          "D-019/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 15568,
+      "cache_read_input_tokens": 17183,
+      "output_tokens": 2540,
+      "output_tokens_details": {
+        "thinking_tokens": 589
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 15568,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 2540,
+        "cacheReadInputTokens": 17183,
+        "cacheCreationInputTokens": 15568,
+        "webSearchRequests": 0,
+        "costUSD": 0.1787966,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 589,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 15568,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.1787966,
+    "duration_ms": 24864,
+    "is_error": false
+  },
+  "latency_ms": 26531,
+  "cache_key": "723aaf73cc4667dbac80d559bf8fb88f956a7483588a5e7a4ba30534b870c7bd",
+  "cache_hit": false,
+  "job": "detail:D-019:drawing-detail-reprepare-v2:proposal-verification-v1:verification:0",
+  "error": null
+}

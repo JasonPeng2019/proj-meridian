@@ -1,0 +1,165 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "outline_type",
+        "state": "known",
+        "value_json": "\"rectangle\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-004"
+        ],
+        "reason": "The main face-on view has a rectangular projected boundary. Bent side flanges prevent representing the complete part as a flat rectangular extrusion.",
+        "changed_because": ""
+      },
+      {
+        "key": "length",
+        "state": "known",
+        "value_json": "775",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-004/drawing/n/775.0@1-1",
+          "D-004"
+        ],
+        "reason": "775,00 establishes the overall projected X dimension in the upper profile view; it does not establish a developed sheet length.",
+        "changed_because": ""
+      },
+      {
+        "key": "width",
+        "state": "known",
+        "value_json": "650",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-004/drawing/n/650.0@1-1",
+          "D-004"
+        ],
+        "reason": "650,00 directly dimensions the main face-on view along Y.",
+        "changed_because": ""
+      },
+      {
+        "key": "outer_diameter",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-004"
+        ],
+        "reason": "Not applicable to the rectangular main outline. The 120,00 callout describes an internal hole.",
+        "changed_because": ""
+      },
+      {
+        "key": "inner_diameter",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-004"
+        ],
+        "reason": "Not applicable because the main outline is not a ring. Internal holes belong in the feature inventory.",
+        "changed_because": ""
+      },
+      {
+        "key": "thickness",
+        "state": "known",
+        "value_json": "3",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-004/drawing/n/3.0@1-1",
+          "D-004/drawing/notes",
+          "D-004"
+        ],
+        "reason": "The upper profile dimensions the sheet thickness as 3,00, corroborated by the note '3 mm non-magnetic stainless'. This is sheet gauge, not the overall formed-part height.",
+        "changed_because": ""
+      },
+      {
+        "key": "features",
+        "state": "known",
+        "value_json": "[]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-004"
+        ],
+        "reason": "Hole diameters and several counts are printed, but no hole center coordinates, edge offsets, pitches or pitch-circle dimensions establish their placement. Apparent centering and symmetry cannot supply missing dimensions. No cut has fully supported geometry and placement.",
+        "changed_because": ""
+      },
+      {
+        "key": "features_complete",
+        "state": "known",
+        "value_json": "false",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-004"
+        ],
+        "reason": "The drawing contains unresolved hole locations, bent flanges and welded components. The omitted inventory is recorded separately.",
+        "changed_because": ""
+      },
+      {
+        "key": "features_omitted",
+        "state": "known",
+        "value_json": "[{\"description\":\"Two bent side flanges, 25,00 high, including bend transitions\",\"reason\":\"The upper profile and isometric show a formed sheet rather than a planar plate. Flanges and bends are outside the supported flat-part generator; bend radii and developed dimensions are not supplied. These are essential geometry, not minor edge details.\",\"fact_ids\":[\"D-004\",\"D-004/drawing/n/25.0@1-1\",\"D-004/drawing/n/3.0@1-1\"]},{\"description\":\"18 x 5,80 THRU ALL on the upper and lower edges of the main face\",\"reason\":\"Count, diameter and through operation are printed, but row offsets, pitches and complete center coordinates are absent.\",\"fact_ids\":[\"D-004\",\"D-004/drawing/callout/p1-1\"]},{\"description\":\"10 x 5,80 THRU ALL in the main face\",\"reason\":\"Count, diameter and through operation are printed, but the illustrated rows have no dimensioned offsets, spacing or center coordinates.\",\"fact_ids\":[\"D-004\",\"D-004/drawing/callout/p1-2\"]},{\"description\":\"6 x 4,50 THRU ALL around the 120,00 hole\",\"reason\":\"Count, diameter and through operation are printed. No pitch-circle diameter or radius, angular registration, or dimensioned pattern-center location establishes the layout.\",\"fact_ids\":[\"D-004\",\"D-004/drawing/callout/p1-3\",\"D-004/drawing/callout/p1-7\"]},{\"description\":\"4 x 6,60 THRU ALL above the large hole\",\"reason\":\"Count, diameter and through operation are printed, but the illustrated four-hole arrangement has no horizontal or vertical spacing and no dimensioned location.\",\"fact_ids\":[\"D-004\",\"D-004/drawing/callout/p1-4\"]},{\"description\":\"8 x 5,80 THRU ALL around the two larger left-hand holes\",\"reason\":\"Count, diameter and through operation are printed, but pattern radii or offsets and parent-hole center locations are absent. The visible arrangement does not establish numeric coordinates.\",\"fact_ids\":[\"D-004\",\"D-004/drawing/callout/p1-5\"]},{\"description\":\"24,00 THRU hole targeted by the lower-left leader\",\"reason\":\"Diameter and through operation are established, but neither X nor Y center location is dimensioned.\",\"fact_ids\":[\"D-004\",\"D-004/drawing/callout/p1-6\"]},{\"description\":\"Additional larger left-hand hole above the leader-targeted 24,00 THRU hole\",\"reason\":\"The front and isometric views show this opening, but no separate diameter or explicit repeated-size association and no center coordinates are supplied. Its diameter cannot be copied from the lower hole by appearance.\",\"fact_ids\":[\"D-004\"]},{\"description\":\"120,00 THRU main-face hole\",\"reason\":\"Diameter and through operation are established, but its center is not dimensionally tied to the plate boundary. The local hole centerlines do not establish coincidence with the plate center.\",\"fact_ids\":[\"D-004\",\"D-004/drawing/callout/p1-7\"]},{\"description\":\"9 x 7,00 THRU ALL in each side flange\",\"reason\":\"Both flange views print count, diameter and through operation. Hole pitches, end offsets and positions across the flange height are absent. The holes enter bent flanges, which cannot be represented as side holes in the single rectangular slab template.\",\"fact_ids\":[\"D-004\",\"D-004/drawing/callout/p1-8\",\"D-004/drawing/callout/p1-9\"]},{\"description\":\"M5 weld nuts on inside of flanges\",\"reason\":\"The functional note requires welded components, outside the supported single-body cut template. Nut geometry and weld details are not dimensioned; M5 does not establish a drill diameter.\",\"fact_ids\":[\"D-004\",\"D-004/drawing/notes\"]},{\"description\":\"DEBURR AND BREAK SHARP EDGES\",\"reason\":\"No edge-break size or profile is specified, so no numerical chamfer or rounding can be modeled.\",\"fact_ids\":[\"D-004/drawing/general/edge_finish\"]}]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-004",
+          "D-004/drawing/callout/p1-1",
+          "D-004/drawing/callout/p1-2",
+          "D-004/drawing/callout/p1-3",
+          "D-004/drawing/callout/p1-4",
+          "D-004/drawing/callout/p1-5",
+          "D-004/drawing/callout/p1-6",
+          "D-004/drawing/callout/p1-7",
+          "D-004/drawing/callout/p1-8",
+          "D-004/drawing/callout/p1-9",
+          "D-004/drawing/notes",
+          "D-004/drawing/general/edge_finish"
+        ],
+        "reason": "Inventory covers the main-face hole groups, both larger left-hand openings, the large central opening, both flange-hole groups, formed flanges, weld nuts and unspecified edge finishing. No dimensions were inferred from scale or pixels.",
+        "changed_because": ""
+      },
+      {
+        "key": "cad_eligibility",
+        "state": "known",
+        "value_json": "{\"supported\":false,\"constant_thickness\":true,\"outline_exact\":false,\"reason\":\"The main face-on view establishes a 775,00 by 650,00 rectangular envelope. The upper profile and isometric show two bent 25,00 side flanges, and the note specifies M5 weld nuts on their inside. The 3,00 thickness dimension and '3 mm non-magnetic stainless' note establish constant sheet gauge, but a single planar rectangular extrusion cannot reproduce the formed part and welded components. The rectangular projection is not an exact flat-part representation.\",\"essential_uncertainty\":[\"Bend radii and developed sheet geometry are not dimensioned.\",\"Hole center coordinates, row pitches, offsets and pitch-circle dimensions are absent, preventing reconstruction of the functional hole layout.\",\"The upper larger left-hand opening has no independently established diameter or explicit repeated-size association.\",\"Weld-nut geometry and weld details are not dimensioned.\"],\"omitted_minor_features\":[\"Unspecified edge breaks required by DEBURR AND BREAK SHARP EDGES.\"]}",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-004",
+          "D-004/drawing/n/775.0@1-1",
+          "D-004/drawing/n/650.0@1-1",
+          "D-004/drawing/n/25.0@1-1",
+          "D-004/drawing/n/3.0@1-1",
+          "D-004/drawing/notes",
+          "D-004/drawing/general/edge_finish"
+        ],
+        "reason": "Blocked by essential bent geometry and welded components, independently of the readable overall dimensions and sheet thickness. Missing hole placement also prevents an accurate functional reconstruction.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 23054,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 4639,
+          "reasoning_output_tokens": 2588
+        }
+      }
+    ]
+  },
+  "latency_ms": 116500,
+  "cache_key": "77e44be76fdca491c25da9c33b1a73c4639a067ff0a3691ce47d58790fc512e3",
+  "cache_hit": false,
+  "job": "detail:D-004:drawing-detail-reprepare-v2:proposal-verification-v1:proposal:0",
+  "error": null
+}

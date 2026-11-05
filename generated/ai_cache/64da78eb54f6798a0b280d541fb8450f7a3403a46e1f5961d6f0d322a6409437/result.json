@@ -1,0 +1,84 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "922e7b28f6a30d0c83cb0b21fa9997408bbd2cc5921ae6a48bdc32778953e38c",
+    "items": [
+      {
+        "key": "cad_eligibility",
+        "decision": "accept",
+        "reason": "Original D-025 page 1 shows a face-on annulus. The outer diameter is dimensioned Ø250,0 ±0,2 (D-025/drawing/n/250.0@1-1) and the inner diameter Ø224,0 +0,3/0,0 (D-025/drawing/n/224.0@1-1). The ±0,2, +0,3 and 0,0 values are tolerances, not separate geometry. The left edge view is a plain constant-width strip. Its thickness leader prints the stacked readings 3,0 (D-025/drawing/n/3.0@1-1) and 2,0 (D-025/drawing/n/2.0@1-1), and the units note says millimetres (D-025/drawing/general/units). Under the possible-reading contract, these are kept as unselected constant-thickness options. The face view shows 8 equally spaced holes on the R115,5 centreline circle (D-025/drawing/callout/p1-3) at the cardinal and diagonal positions. They carry the callout '8 x Ø 3,4 THRU ALL' with countersink 'Ø 6,9 X 90°' (D-025/drawing/callout/p1-1 and p1-2). The resulting countersink depth, (6,9-3,4)/2 = 1,75, is valid for both the 2,0 and 3,0 readings. The outline has no notches, lobes, steps or other unsupported contour. The only general unmodeled detail is the unspecified edge break, DEBURR AND BREAK SHARP EDGES (D-025/drawing/general/edge_finish), and the proposal correctly lists it as an omitted minor detail. supported=true, constant_thickness=true, outline_exact=true and an empty essential_uncertainty are therefore supported. Accepting this eligibility does not approve the countersink opening face or the feature completeness; those are separate keys.",
+        "fact_ids": [
+          "D-025",
+          "D-025/drawing/n/250.0@1-1",
+          "D-025/drawing/n/224.0@1-1",
+          "D-025/drawing/n/3.0@1-1",
+          "D-025/drawing/n/2.0@1-1",
+          "D-025/drawing/callout/p1-1",
+          "D-025/drawing/callout/p1-2",
+          "D-025/drawing/callout/p1-3",
+          "D-025/drawing/general/units",
+          "D-025/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 15086,
+      "cache_read_input_tokens": 16605,
+      "output_tokens": 1458,
+      "output_tokens_details": {
+        "thinking_tokens": 386
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 15086,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 1458,
+        "cacheReadInputTokens": 16605,
+        "cacheCreationInputTokens": 15086,
+        "webSearchRequests": 0,
+        "costUSD": 0.15318500000000002,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 386,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 15086,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.15318500000000002,
+    "duration_ms": 14818,
+    "is_error": false
+  },
+  "latency_ms": 16359,
+  "cache_key": "64da78eb54f6798a0b280d541fb8450f7a3403a46e1f5961d6f0d322a6409437",
+  "cache_hit": false,
+  "job": "detail:D-025:drawing-detail-reprepare-v2:proposal-verification-v1:verification:1",
+  "error": null
+}

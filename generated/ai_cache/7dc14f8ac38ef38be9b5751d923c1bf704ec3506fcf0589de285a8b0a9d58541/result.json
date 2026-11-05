@@ -1,0 +1,45 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "page_1",
+        "state": "known",
+        "value_json": "[{\"text\":\"15,0\\n12,0\",\"token\":\"15,0\",\"value\":15.0,\"unit\":\"mm\",\"box\":[244.6,240.4,28.4,26.5]},{\"text\":\"15,0\\n12,0\",\"token\":\"12,0\",\"value\":12.0,\"unit\":\"mm\",\"box\":[244.6,240.4,28.4,26.5]},{\"text\":\"20,0\",\"token\":\"20,0\",\"value\":20.0,\"unit\":\"mm\",\"box\":[301.4,246.7,14.5,29.0]},{\"text\":\"25,0\",\"token\":\"25,0\",\"value\":25.0,\"unit\":\"mm\",\"box\":[347.4,253.0,30.3,15.1]},{\"text\":\"2 x Ø 6,6 THRU ALL\",\"token\":\"2\",\"value\":2,\"unit\":\"count\",\"box\":[414.9,259.4,120.4,15.8]},{\"text\":\"2 x Ø 6,6 THRU ALL\",\"token\":\"6,6\",\"value\":6.6,\"unit\":\"mm\",\"box\":[414.9,259.4,120.4,15.8]},{\"text\":\"80,0\",\"token\":\"80,0\",\"value\":80.0,\"unit\":\"mm\",\"box\":[300.8,366.6,14.5,29.7]},{\"text\":\"195,0\",\"token\":\"195,0\",\"value\":195.0,\"unit\":\"mm\",\"box\":[283.1,410.2,15.1,36.0]},{\"text\":\"R35,0\",\"token\":\"35,0\",\"value\":35.0,\"unit\":\"mm\",\"box\":[387.1,479.0,39.1,29.0]},{\"text\":\"R60,0\",\"token\":\"60,0\",\"value\":60.0,\"unit\":\"mm\",\"box\":[295.1,578.6,33.4,35.3]},{\"text\":\"82,0\",\"token\":\"82,0\",\"value\":82.0,\"unit\":\"mm\",\"box\":[517.6,484.6,29.6,14.5]},{\"text\":\"4 x Ø 4,2 THRU ALL\\nM5 - 6H THRU ALL\",\"token\":\"4\",\"value\":4,\"unit\":\"count\",\"box\":[660.8,452.4,121.7,30.9]},{\"text\":\"4 x Ø 4,2 THRU ALL\\nM5 - 6H THRU ALL\",\"token\":\"4,2\",\"value\":4.2,\"unit\":\"mm\",\"box\":[660.8,452.4,121.7,30.9]},{\"text\":\"4 x Ø 4,2 THRU ALL\\nM5 - 6H THRU ALL\",\"token\":\"5\",\"value\":5,\"unit\":\"mm\",\"box\":[660.8,452.4,121.7,30.9]},{\"text\":\"4 x Ø 4,2 THRU ALL\\nM5 - 6H THRU ALL\",\"token\":\"6\",\"value\":6,\"unit\":\"unitless\",\"box\":[660.8,452.4,121.7,30.9]},{\"text\":\"10,5\",\"token\":\"10,5\",\"value\":10.5,\"unit\":\"mm\",\"box\":[828.5,500.4,29.0,15.8]},{\"text\":\"8,0\",\"token\":\"8,0\",\"value\":8.0,\"unit\":\"mm\",\"box\":[861.9,485.9,14.5,24.6]},{\"text\":\"25,0\",\"token\":\"25,0\",\"value\":25.0,\"unit\":\"mm\",\"box\":[884.6,538.9,15.8,32.2]},{\"text\":\"348,0\",\"token\":\"348,0\",\"value\":348.0,\"unit\":\"mm\",\"box\":[573.1,584.9,37.8,15.8]}]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-011/drawing/source"
+        ],
+        "reason": "Readable printed dimensions are stacked 15,0/12,0, 20,0, both 25,0 labels, 80,0, 195,0, R35,0, R60,0, 82,0, 10,5, 8,0 and 348,0. Both through-hole callouts and M5 - 6H THRU ALL are legible. Thread nominal size and tolerance-class number are recorded separately. Boxes locate their printed text in PDF page points. No unreadable characters are guessed; title-block metadata is excluded.",
+        "changed_because": "Reinspection of the original image supports decimal commas. Corrected text and token spelling for 15,0, 12,0, 20,0, both 25,0 labels, 80,0, 195,0, R35,0, R60,0, 82,0, 10,5, 8,0 and 348,0. Parsed numeric values, units, callout entries and boxes remain unchanged."
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 20048,
+          "cached_input_tokens": 10112,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2090,
+          "reasoning_output_tokens": 924
+        }
+      }
+    ]
+  },
+  "latency_ms": 41656,
+  "cache_key": "7dc14f8ac38ef38be9b5751d923c1bf704ec3506fcf0589de285a8b0a9d58541",
+  "cache_hit": false,
+  "job": "dimensions:D-011:printed-image-dimensions-v1:proposal-verification-v1:proposal:1",
+  "error": null
+}

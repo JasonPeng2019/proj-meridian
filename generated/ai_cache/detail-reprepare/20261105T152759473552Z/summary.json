@@ -1,0 +1,74 @@
+{
+  "complete": true,
+  "protocol": "drawing-detail-reprepare-v2",
+  "metrics": {
+    "agreed": 0,
+    "agreed_after_retry": 0,
+    "verified": 108,
+    "verified_after_retry": 7,
+    "sent_to_review": 13,
+    "scan_undetermined": 0,
+    "mapping_approvals_required": 0,
+    "mapping_suggestions_unsure": 0,
+    "status_counts": {
+      "verified_after_retry": 7,
+      "verified": 108,
+      "needs_input": 12,
+      "invalid": 1
+    },
+    "by_job": {
+      "image_dimensions": {
+        "verified_after_retry": 3,
+        "verified": 8
+      },
+      "template": {
+        "needs_input": 12,
+        "verified": 100,
+        "verified_after_retry": 4,
+        "invalid": 1
+      }
+    },
+    "jobs": 25,
+    "exact_links": 0,
+    "reader_calls": 64,
+    "cache_hits": 1,
+    "provider_calls": 63,
+    "latency_ms_total": 5486387,
+    "proposer_calls": 32,
+    "verifier_calls": 32,
+    "feedback_rounds": 7,
+    "feedback_keys": 9,
+    "protocols": [
+      "proposal-verification-v1"
+    ],
+    "configured_readers": {
+      "claude": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "codex": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      }
+    },
+    "roles": {
+      "codex": "proposer",
+      "claude": "verifier"
+    },
+    "wall_time_ms": 173813
+  },
+  "decisions_unchanged": true,
+  "eligible_drawings": [
+    "D-012",
+    "D-014",
+    "D-015",
+    "D-019",
+    "D-025",
+    "D-027",
+    "D-017"
+  ]
+}

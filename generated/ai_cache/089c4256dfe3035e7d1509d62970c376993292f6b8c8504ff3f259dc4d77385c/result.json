@@ -1,0 +1,80 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "9774164d7dd807f3edb4715d62899d6d91fb48297e70e7c59bc39ff3f121b2e9",
+    "items": [
+      {
+        "key": "cad_eligibility",
+        "decision": "accept",
+        "reason": "Drawing D-013 shows the part from the front, from the side and in isometric. All three show one flat plate. Its outer outline is rectangular, and it has no bends, steps, revolved shape or grooves. The side view is a single rectangle of uniform width. The isometric view also shows uniform thickness along the full length. The stacked '6,0 / 3,0' thickness label sits on one dimension line. That is a printed choice between thickness values, which the contract allows. It is not a step in the body, so the exact value can be settled in the detailed fields. The front view has small straight corner clips at all four corners. They have no dimensions, and the side view shows matching lines near its ends. These fit the allowance for small undimensioned corner clips on an established rectangle. They are not a custom rounded or angled outer contour. The title-block note 'DEBURR AND BREAK SHARP EDGES' (D-013/drawing/general/edge_finish) supports omitting edge breaks. The slots and holes are internal through-cuts and do not change the base-body contract. supported=true, constant_thickness=true, outline_exact=true and an empty essential_uncertainty are all consistent with this evidence.",
+        "fact_ids": [
+          "D-013",
+          "D-013/drawing/general/edge_finish",
+          "D-013/drawing/n/6.0@1-1",
+          "D-013/drawing/n/3.0@1-1",
+          "D-013/drawing/n/270.0@1-1",
+          "D-013/drawing/n/25.0@1-1"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 8633,
+      "cache_read_input_tokens": 10153,
+      "output_tokens": 1307,
+      "output_tokens_details": {
+        "thinking_tokens": 531
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 8633,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 1307,
+        "cacheReadInputTokens": 10153,
+        "cacheCreationInputTokens": 8633,
+        "webSearchRequests": 0,
+        "costUSD": 0.09725059999999999,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 531,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 8633,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.09725059999999999,
+    "duration_ms": 13669,
+    "is_error": false
+  },
+  "latency_ms": 15234,
+  "cache_key": "089c4256dfe3035e7d1509d62970c376993292f6b8c8504ff3f259dc4d77385c",
+  "cache_hit": false,
+  "job": "screen:D-013:base-body-eligibility-routing-v1:proposal-verification-v1:verification:0",
+  "error": null
+}

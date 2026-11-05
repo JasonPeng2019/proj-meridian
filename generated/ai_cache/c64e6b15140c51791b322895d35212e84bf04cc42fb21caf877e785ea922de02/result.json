@@ -1,0 +1,46 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "thickness",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-002/drawing/notes",
+          "D-002/drawing/n/23.0@1-1"
+        ],
+        "reason": "The note states \"2mm non-magnetic stainless\", but no qualifying parsed numeric thickness dimension or verified image-dimension receipt is supplied. The side-view 23,00 dimension establishes flange depth, not thickness.",
+        "changed_because": "The previous value 2 relied on the material note without the numeric dimension evidence required by this protocol; thickness is therefore unresolved."
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 22621,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 492,
+          "reasoning_output_tokens": 355
+        }
+      }
+    ]
+  },
+  "latency_ms": 16313,
+  "cache_key": "c64e6b15140c51791b322895d35212e84bf04cc42fb21caf877e785ea922de02",
+  "cache_hit": false,
+  "job": "detail:D-002:drawing-detail-reprepare-v2:proposal-verification-v1:proposal:1",
+  "error": null
+}

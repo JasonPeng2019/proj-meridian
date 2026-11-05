@@ -1,0 +1,75 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "c79a4211b9d14d5ede9cfb4815e556e6fbc788751afcffb5045b56c5eb974abb",
+    "items": [
+      {
+        "key": "page_3",
+        "decision": "accept",
+        "reason": "Checked against original page 3 of D-003/drawing/source, the 'Threaded holes top side' sheet. The hole table reads: A '⌀ 4,2 ↧ 12,4 / M5 - 6H ↧ 10,0', QUANTITY 8. B '⌀ 10,5 ↧ 19,0 / TAP FOR M10x1.5 HELICOIL Insert = 1.0 * Dia.', QUANTITY 4. C '⌀ 8,3 ↧ 19,5 / TAP FOR M8x1.25 HELICOIL Insert = 1.0 * Dia.', QUANTITY 3. G '⌀ 8,3 ↧ 13,0 / TAP FOR M8x1.25 HELICOIL Insert = 1.0 * Dia.', QUANTITY 5. Every proposed token matches the printed text exactly, decimal commas included, and each parsed value is correct. The units fit the printed context. Diameters, depths, thread nominal sizes and pitches are mm. The 6H tolerance-class digit and the 1.0 insert multiplier are unitless. Table quantities are count. The two '0' axis-origin labels are unitless and are not given a geometric meaning. Each proposed box was converted with page_sizes[2] (1182.4 x 834.4 pt), using an image-to-point scale of about 0.624. Each box tightly encloses its own printed text: the A cell is about x243-340, y79-106; the B, C and G size cells are about y112-138, y144-171 and y175-203; the quantity digits sit at about x456-467; the origin zeros are near (795,347) and (824,376). The plate view prints no other numeric dimensions. Excluding border zone numbers and title-block items (date, scale, sheet, A3, ISO tolerance standard) is correct. No token is guessed or inferred.",
+        "fact_ids": [
+          "D-003/drawing/source"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 12820,
+      "cache_read_input_tokens": 9396,
+      "output_tokens": 1542,
+      "output_tokens_details": {
+        "thinking_tokens": 608
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 12820,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 1542,
+        "cacheReadInputTokens": 9396,
+        "cacheCreationInputTokens": 12820,
+        "webSearchRequests": 0,
+        "costUSD": 0.1352952,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 608,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 12820,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.1352952,
+    "duration_ms": 16917,
+    "is_error": false
+  },
+  "latency_ms": 18109,
+  "cache_key": "7699dd2308f6450d20f94d5b3e62a7c43cc4db660713d0ae0f471898b8b82d38",
+  "cache_hit": false,
+  "job": "dimensions:D-003:printed-image-dimensions-v1:page_3:proposal-verification-v1:verification:0",
+  "error": null
+}

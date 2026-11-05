@@ -1,0 +1,626 @@
+{
+  "part": "D-005",
+  "template": "flat_part",
+  "outline": {
+    "state": "unknown",
+    "type": null
+  },
+  "thickness": {
+    "state": "known",
+    "value": 8.2,
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-005/drawing/n/8.2@1-1",
+      "D-005"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "thickness",
+              "decision": "accept",
+              "reason": "In the left side view, 8,2 is dimensioned between extension lines across the full face-to-face depth, so it is the overall thickness. The reason correctly says this does not show uniform local thickness, since Section A-A and Detail B show a stepped profile.",
+              "fact_ids": [
+                "D-005/drawing/n/8.2@1-1",
+                "D-005"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "57774037e41342648344f8b9f1318436b68528b6ac462138a4c9ebbb9477a8c3",
+            "response_proposal_fingerprint": "57774037e41342648344f8b9f1318436b68528b6ac462138a4c9ebbb9477a8c3",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "c50785f6ec977f439ba8b19a1e687ca465ad27079ed999c4b1b84f9dec1d764b"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "thickness",
+              "state": "known",
+              "value_json": "8.2",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-005/drawing/n/8.2@1-1",
+                "D-005"
+              ],
+              "reason": "The left side view dimensions the overall face-to-face thickness as 8,2 mm. This is the overall depth, not evidence that the recessed frame has uniform local thickness.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "57774037e41342648344f8b9f1318436b68528b6ac462138a4c9ebbb9477a8c3",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "bfa2dc37167b764829062232b9989d62230f750f8cf5d0c43ad6deb6879087de"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The left side view dimensions the overall face-to-face thickness as 8,2 mm. This is the overall depth, not evidence that the recessed frame has uniform local thickness. Verification: In the left side view, 8,2 is dimensioned between extension lines across the full face-to-face depth, so it is the overall thickness. The reason correctly says this does not show uniform local thickness, since Section A-A and Detail B show a stepped profile."
+  },
+  "features": [],
+  "features_review": {
+    "state": "known",
+    "value": [],
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-005"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features",
+              "decision": "accept",
+              "reason": "The 20 holes are visible in the main view as 5 per side. The callout gives their count, drill diameter, thread and depths, but no pitch, offset or center coordinates are printed, and the opening face is not separately established. The window opening, seat and grooves are not supported hole or slot cuts. No cut is fully supported, so known [] is correct.",
+              "fact_ids": [
+                "D-005",
+                "D-005/drawing/n/20.0@1-1",
+                "D-005/drawing/n/3.3@1-1",
+                "D-005/drawing/n/6.0@1-1",
+                "D-005/drawing/n/4.0@1-1"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "57774037e41342648344f8b9f1318436b68528b6ac462138a4c9ebbb9477a8c3",
+            "response_proposal_fingerprint": "57774037e41342648344f8b9f1318436b68528b6ac462138a4c9ebbb9477a8c3",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "c50785f6ec977f439ba8b19a1e687ca465ad27079ed999c4b1b84f9dec1d764b"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features",
+              "state": "known",
+              "value_json": "[]",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-005"
+              ],
+              "reason": "No hole or slot has fully supported geometry, placement and operation. The tapped holes lack dimensioned centers; the window opening, recess, grooves and rounded contours cannot be expressed by the supported feature types with the supplied dimensions.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "57774037e41342648344f8b9f1318436b68528b6ac462138a4c9ebbb9477a8c3",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "bfa2dc37167b764829062232b9989d62230f750f8cf5d0c43ad6deb6879087de"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "No hole or slot has fully supported geometry, placement and operation. The tapped holes lack dimensioned centers; the window opening, recess, grooves and rounded contours cannot be expressed by the supported feature types with the supplied dimensions. Verification: The 20 holes are visible in the main view as 5 per side. The callout gives their count, drill diameter, thread and depths, but no pitch, offset or center coordinates are printed, and the opening face is not separately established. The window opening, seat and grooves are not supported hole or slot cuts. No cut is fully supported, so known [] is correct."
+  },
+  "material": {
+    "name": "D-005/drawing/material",
+    "original": "6061 Alloy",
+    "value": "6061 Alloy",
+    "confidence": "sure",
+    "method": "parsed",
+    "page": 1,
+    "box": [
+      745.28,
+      771.048,
+      135.0,
+      14.0
+    ],
+    "field_box": [
+      784.28,
+      771.048,
+      96.0,
+      14.0
+    ],
+    "label_box": [
+      745.28,
+      772.048,
+      38.539,
+      10.936
+    ]
+  },
+  "weight_on_drawing": {
+    "name": "D-005/drawing/weight_g",
+    "original": "315.0",
+    "value": 315.0,
+    "confidence": "sure",
+    "method": "parsed",
+    "page": 1,
+    "box": [
+      880.717,
+      771.048,
+      93.0,
+      14.0
+    ],
+    "field_box": [
+      924.717,
+      771.048,
+      49.0,
+      14.0
+    ],
+    "label_box": [
+      880.717,
+      772.048,
+      28.747,
+      10.936
+    ]
+  },
+  "cad_ready": false,
+  "blocking_fields": [
+    "outline_type",
+    "cad_eligibility"
+  ],
+  "cad_eligibility": {
+    "state": "known",
+    "value": {
+      "supported": false,
+      "constant_thickness": false,
+      "outline_exact": false,
+      "reason": "The main face-on view establishes a 323,0 by 236,0 mm rounded rectangular window frame, not an exact supported rectangular or circular outline. The left side view supplies 8,2 mm overall thickness, while Section A-A and Detail B show a stepped window seat and grooved section rather than a single uniform-thickness flat body. The essential rounded outer contour, rounded rectangular window opening, recess and closed o-ring grooves exceed the supported template. A bounding rectangular blank would not reconstruct this functional part.",
+      "essential_uncertainty": [
+        "Outer corner radii are not dimensioned.",
+        "The window opening and seat lack complete corner geometry.",
+        "The window-seat recess depth is not fully established.",
+        "The complete o-ring groove paths and XY placement are not dimensioned.",
+        "The functional window-corner relief has no fixed dimensions."
+      ],
+      "omitted_minor_features": [
+        "Twenty blind M4 - 6H holes have printed drill and thread depths but no dimensioned XY centers.",
+        "The 3,0 X 45° surface edge bevel is unsupported.",
+        "General deburring and sharp-edge breaks have no specified geometric size."
+      ]
+    },
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-005",
+      "D-005/drawing/n/323.0@1-1",
+      "D-005/drawing/n/236.0@1-1",
+      "D-005/drawing/n/8.2@1-1",
+      "D-005/drawing/notes",
+      "D-005/drawing/callout/p1-1",
+      "D-005/drawing/general/edge_finish"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "cad_eligibility",
+              "decision": "accept",
+              "reason": "The proposal sets supported=false, outline_exact=false and constant_thickness=false. The drawing supports all three. The main view establishes a rounded-corner frame of 323,0 by 236,0 with no corner radii. The 8,2 side-view dimension is the overall depth, while Section A-A and Detail B show a stepped seat and grooved section, so the body is not a constant-thickness flat plate. These essential contours cannot be expressed by the template, and a bounding blank would misrepresent the part.",
+              "fact_ids": [
+                "D-005",
+                "D-005/drawing/n/323.0@1-1",
+                "D-005/drawing/n/236.0@1-1",
+                "D-005/drawing/n/8.2@1-1",
+                "D-005/drawing/notes",
+                "D-005/drawing/callout/p1-1",
+                "D-005/drawing/general/edge_finish"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "57774037e41342648344f8b9f1318436b68528b6ac462138a4c9ebbb9477a8c3",
+            "response_proposal_fingerprint": "57774037e41342648344f8b9f1318436b68528b6ac462138a4c9ebbb9477a8c3",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "c50785f6ec977f439ba8b19a1e687ca465ad27079ed999c4b1b84f9dec1d764b"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "cad_eligibility",
+              "state": "known",
+              "value_json": "{\"supported\":false,\"constant_thickness\":false,\"outline_exact\":false,\"reason\":\"The main face-on view establishes a 323,0 by 236,0 mm rounded rectangular window frame, not an exact supported rectangular or circular outline. The left side view supplies 8,2 mm overall thickness, while Section A-A and Detail B show a stepped window seat and grooved section rather than a single uniform-thickness flat body. The essential rounded outer contour, rounded rectangular window opening, recess and closed o-ring grooves exceed the supported template. A bounding rectangular blank would not reconstruct this functional part.\",\"essential_uncertainty\":[\"Outer corner radii are not dimensioned.\",\"The window opening and seat lack complete corner geometry.\",\"The window-seat recess depth is not fully established.\",\"The complete o-ring groove paths and XY placement are not dimensioned.\",\"The functional window-corner relief has no fixed dimensions.\"],\"omitted_minor_features\":[\"Twenty blind M4 - 6H holes have printed drill and thread depths but no dimensioned XY centers.\",\"The 3,0 X 45° surface edge bevel is unsupported.\",\"General deburring and sharp-edge breaks have no specified geometric size.\"]}",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-005",
+                "D-005/drawing/n/323.0@1-1",
+                "D-005/drawing/n/236.0@1-1",
+                "D-005/drawing/n/8.2@1-1",
+                "D-005/drawing/notes",
+                "D-005/drawing/callout/p1-1",
+                "D-005/drawing/general/edge_finish"
+              ],
+              "reason": "Eligibility is blocked by the essential rounded and stepped frame geometry, independently of the unresolved tapped-hole placement. The overall dimensions remain valid readings despite that limitation.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "57774037e41342648344f8b9f1318436b68528b6ac462138a4c9ebbb9477a8c3",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "bfa2dc37167b764829062232b9989d62230f750f8cf5d0c43ad6deb6879087de"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "Eligibility is blocked by the essential rounded and stepped frame geometry, independently of the unresolved tapped-hole placement. The overall dimensions remain valid readings despite that limitation. Verification: The proposal sets supported=false, outline_exact=false and constant_thickness=false. The drawing supports all three. The main view establishes a rounded-corner frame of 323,0 by 236,0 with no corner radii. The 8,2 side-view dimension is the overall depth, while Section A-A and Detail B show a stepped seat and grooved section, so the body is not a constant-thickness flat plate. These essential contours cannot be expressed by the template, and a bounding blank would misrepresent the part."
+  },
+  "feature_protocol": "supported-feature-subset-v1",
+  "features_complete": {
+    "state": "known",
+    "value": false,
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-005",
+      "D-005/drawing/notes",
+      "D-005/drawing/callout/p1-1"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_complete",
+              "decision": "accept",
+              "reason": "Several visible features are omitted, including the opening, seat, two grooves, 20 tapped holes, rounded corners, machining relief and the 3,0 X 45° bevel. Therefore false is correct.",
+              "fact_ids": [
+                "D-005",
+                "D-005/drawing/notes",
+                "D-005/drawing/callout/p1-1"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "57774037e41342648344f8b9f1318436b68528b6ac462138a4c9ebbb9477a8c3",
+            "response_proposal_fingerprint": "57774037e41342648344f8b9f1318436b68528b6ac462138a4c9ebbb9477a8c3",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "c50785f6ec977f439ba8b19a1e687ca465ad27079ed999c4b1b84f9dec1d764b"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_complete",
+              "state": "known",
+              "value_json": "false",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-005",
+                "D-005/drawing/notes",
+                "D-005/drawing/callout/p1-1"
+              ],
+              "reason": "The visible inventory includes the window opening, window seat, two o-ring grooves, twenty blind threaded holes, rounded outer corners, window-corner machining relief and a surface bevel. These details are omitted from the supported feature subset.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "57774037e41342648344f8b9f1318436b68528b6ac462138a4c9ebbb9477a8c3",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "bfa2dc37167b764829062232b9989d62230f750f8cf5d0c43ad6deb6879087de"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The visible inventory includes the window opening, window seat, two o-ring grooves, twenty blind threaded holes, rounded outer corners, window-corner machining relief and a surface bevel. These details are omitted from the supported feature subset. Verification: Several visible features are omitted, including the opening, seat, two grooves, 20 tapped holes, rounded corners, machining relief and the 3,0 X 45° bevel. Therefore false is correct."
+  },
+  "features_omitted": {
+    "state": "known",
+    "value": [
+      {
+        "description": "Rounded outer corners of the frame",
+        "reason": "The main and isometric views establish substantial rounded outer corners, but no outer corner radius is supplied. This essential outline contour cannot be replaced by a bounding rectangle or represented as straight corner_chamfer cuts.",
+        "fact_ids": [
+          "D-005",
+          "D-005/drawing/n/323.0@1-1",
+          "D-005/drawing/n/236.0@1-1"
+        ]
+      },
+      {
+        "description": "Central through-window opening",
+        "reason": "The main view gives opening extents 286,7 by 199,7 mm, but its rounded corner radii are not dimensioned. A rounded rectangular opening is not a supported hole or straight slot, and its exact contour cannot be invented.",
+        "fact_ids": [
+          "D-005",
+          "D-005/drawing/n/286.7@1-1",
+          "D-005/drawing/n/199.7@1-1"
+        ]
+      },
+      {
+        "description": "Stepped window seat or recess",
+        "reason": "The drawing dimensions the window-receiving region as 297,2 by 210,2 mm. Section A-A and Detail B show a stepped section, but the complete recess depth and corner geometry are not determined. This functional pocket is also outside the supported hole/slot feature types.",
+        "fact_ids": [
+          "D-005",
+          "D-005/drawing/n/297.2@1-1",
+          "D-005/drawing/n/210.2@1-1"
+        ]
+      },
+      {
+        "description": "Two o-ring grooves",
+        "reason": "The note specifies two grooves, and Detail B supplies local 2,0 and 3,3 dimensions and a maximum groove-bottom internal corner-radius note. The complete groove paths, corner radii and XY placement are not dimensioned. These closed perimeter grooves are outside the supported hole/slot operations.",
+        "fact_ids": [
+          "D-005",
+          "D-005/drawing/notes",
+          "D-005/drawing/n/2.0@1-1",
+          "D-005/drawing/n/2.0@1-2",
+          "D-005/drawing/n/3.3@1-2",
+          "D-005/drawing/n/3.3@1-3"
+        ]
+      },
+      {
+        "description": "20 blind M4 - 6H threaded holes",
+        "reason": "The callout establishes 20 holes with Ø 3,3 drilling depth 6,0 and M4 - 6H thread depth 4,0. No printed hole pitches, center offsets or dimensioned pattern paths establish their XY centers. Count and visual spacing alone cannot supply coordinates.",
+        "fact_ids": [
+          "D-005",
+          "D-005/drawing/notes",
+          "D-005/drawing/n/20.0@1-1",
+          "D-005/drawing/n/3.3@1-1",
+          "D-005/drawing/n/6.0@1-1",
+          "D-005/drawing/n/4.0@1-1"
+        ]
+      },
+      {
+        "description": "Window-corner machining relief",
+        "reason": "The leader explicitly calls for machining relief to fit the sharp window corner and says to resize as needed. No relief size or complete dimensioned contour is supplied, so this functional relief cannot be reconstructed.",
+        "fact_ids": [
+          "D-005"
+        ]
+      },
+      {
+        "description": "3,0 X 45° surface edge bevel",
+        "reason": "The side-view leader identifies an edge bevel, not a straight through-thickness XY corner clip. Surface bevels are unsupported by the feature protocol, and the callout does not establish corner_chamfer features.",
+        "fact_ids": [
+          "D-005",
+          "D-005/drawing/callout/p1-1",
+          "D-005/drawing/n/3.0@1-1",
+          "D-005/drawing/n/45.0@1-1"
+        ]
+      },
+      {
+        "description": "Deburring and unspecified sharp-edge breaks",
+        "reason": "The general instruction DEBURR AND BREAK SHARP EDGES supplies no geometric size or precise extent; no arbitrary chamfer is added.",
+        "fact_ids": [
+          "D-005/drawing/general/edge_finish"
+        ]
+      }
+    ],
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-005",
+      "D-005/drawing/notes",
+      "D-005/drawing/callout/p1-1",
+      "D-005/drawing/general/edge_finish"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_omitted",
+              "decision": "accept",
+              "reason": "Each omission matches the drawing. Rounded outer corners have no radius. The window opening's extents are 286,7 by 199,7, but its corner radii are not given. The 297,2 by 210,2 seat is shown stepped in Section A-A and Detail B, but its depth and corner geometry are incomplete. In Detail B, the 2,0 and 3,3 groove dimensions and the maximum 0.5 mm bottom-corner radius note are shown, but the groove paths are not dimensioned. The tapped holes have the callout 20 x Ø3,3 ↧6,0 / M4-6H ↧4,0 but no center dimensions. The machining-relief leader says 'Resize as needed' and gives no dimensions. The 3,0 X 45° callout is a side-view edge bevel. The deburr note has no size. Each citation is an exact source ID.",
+              "fact_ids": [
+                "D-005",
+                "D-005/drawing/notes",
+                "D-005/drawing/callout/p1-1",
+                "D-005/drawing/general/edge_finish",
+                "D-005/drawing/n/286.7@1-1",
+                "D-005/drawing/n/199.7@1-1",
+                "D-005/drawing/n/297.2@1-1",
+                "D-005/drawing/n/210.2@1-1",
+                "D-005/drawing/n/2.0@1-1",
+                "D-005/drawing/n/2.0@1-2",
+                "D-005/drawing/n/3.3@1-2",
+                "D-005/drawing/n/3.3@1-3",
+                "D-005/drawing/n/20.0@1-1",
+                "D-005/drawing/n/3.3@1-1",
+                "D-005/drawing/n/6.0@1-1",
+                "D-005/drawing/n/4.0@1-1",
+                "D-005/drawing/n/3.0@1-1",
+                "D-005/drawing/n/45.0@1-1"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "57774037e41342648344f8b9f1318436b68528b6ac462138a4c9ebbb9477a8c3",
+            "response_proposal_fingerprint": "57774037e41342648344f8b9f1318436b68528b6ac462138a4c9ebbb9477a8c3",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "c50785f6ec977f439ba8b19a1e687ca465ad27079ed999c4b1b84f9dec1d764b"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_omitted",
+              "state": "known",
+              "value_json": "[{\"description\":\"Rounded outer corners of the frame\",\"reason\":\"The main and isometric views establish substantial rounded outer corners, but no outer corner radius is supplied. This essential outline contour cannot be replaced by a bounding rectangle or represented as straight corner_chamfer cuts.\",\"fact_ids\":[\"D-005\",\"D-005/drawing/n/323.0@1-1\",\"D-005/drawing/n/236.0@1-1\"]},{\"description\":\"Central through-window opening\",\"reason\":\"The main view gives opening extents 286,7 by 199,7 mm, but its rounded corner radii are not dimensioned. A rounded rectangular opening is not a supported hole or straight slot, and its exact contour cannot be invented.\",\"fact_ids\":[\"D-005\",\"D-005/drawing/n/286.7@1-1\",\"D-005/drawing/n/199.7@1-1\"]},{\"description\":\"Stepped window seat or recess\",\"reason\":\"The drawing dimensions the window-receiving region as 297,2 by 210,2 mm. Section A-A and Detail B show a stepped section, but the complete recess depth and corner geometry are not determined. This functional pocket is also outside the supported hole/slot feature types.\",\"fact_ids\":[\"D-005\",\"D-005/drawing/n/297.2@1-1\",\"D-005/drawing/n/210.2@1-1\"]},{\"description\":\"Two o-ring grooves\",\"reason\":\"The note specifies two grooves, and Detail B supplies local 2,0 and 3,3 dimensions and a maximum groove-bottom internal corner-radius note. The complete groove paths, corner radii and XY placement are not dimensioned. These closed perimeter grooves are outside the supported hole/slot operations.\",\"fact_ids\":[\"D-005\",\"D-005/drawing/notes\",\"D-005/drawing/n/2.0@1-1\",\"D-005/drawing/n/2.0@1-2\",\"D-005/drawing/n/3.3@1-2\",\"D-005/drawing/n/3.3@1-3\"]},{\"description\":\"20 blind M4 - 6H threaded holes\",\"reason\":\"The callout establishes 20 holes with Ø 3,3 drilling depth 6,0 and M4 - 6H thread depth 4,0. No printed hole pitches, center offsets or dimensioned pattern paths establish their XY centers. Count and visual spacing alone cannot supply coordinates.\",\"fact_ids\":[\"D-005\",\"D-005/drawing/notes\",\"D-005/drawing/n/20.0@1-1\",\"D-005/drawing/n/3.3@1-1\",\"D-005/drawing/n/6.0@1-1\",\"D-005/drawing/n/4.0@1-1\"]},{\"description\":\"Window-corner machining relief\",\"reason\":\"The leader explicitly calls for machining relief to fit the sharp window corner and says to resize as needed. No relief size or complete dimensioned contour is supplied, so this functional relief cannot be reconstructed.\",\"fact_ids\":[\"D-005\"]},{\"description\":\"3,0 X 45° surface edge bevel\",\"reason\":\"The side-view leader identifies an edge bevel, not a straight through-thickness XY corner clip. Surface bevels are unsupported by the feature protocol, and the callout does not establish corner_chamfer features.\",\"fact_ids\":[\"D-005\",\"D-005/drawing/callout/p1-1\",\"D-005/drawing/n/3.0@1-1\",\"D-005/drawing/n/45.0@1-1\"]},{\"description\":\"Deburring and unspecified sharp-edge breaks\",\"reason\":\"The general instruction DEBURR AND BREAK SHARP EDGES supplies no geometric size or precise extent; no arbitrary chamfer is added.\",\"fact_ids\":[\"D-005/drawing/general/edge_finish\"]}]",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-005",
+                "D-005/drawing/notes",
+                "D-005/drawing/callout/p1-1",
+                "D-005/drawing/general/edge_finish"
+              ],
+              "reason": "The omissions distinguish unsupported essential contours and operations from missing dimensions and hole placements. Every excluded detail is grounded in the supplied drawing.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "57774037e41342648344f8b9f1318436b68528b6ac462138a4c9ebbb9477a8c3",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "bfa2dc37167b764829062232b9989d62230f750f8cf5d0c43ad6deb6879087de"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The omissions distinguish unsupported essential contours and operations from missing dimensions and hole placements. Every excluded detail is grounded in the supplied drawing. Verification: Each omission matches the drawing. Rounded outer corners have no radius. The window opening's extents are 286,7 by 199,7, but its corner radii are not given. The 297,2 by 210,2 seat is shown stepped in Section A-A and Detail B, but its depth and corner geometry are incomplete. In Detail B, the 2,0 and 3,3 groove dimensions and the maximum 0.5 mm bottom-corner radius note are shown, but the groove paths are not dimensioned. The tapped holes have the callout 20 x Ø3,3 ↧6,0 / M4-6H ↧4,0 but no center dimensions. The machining-relief leader says 'Resize as needed' and gives no dimensions. The 3,0 X 45° callout is a side-view edge bevel. The deburr note has no size. Each citation is an exact source ID."
+  },
+  "features_all_determined": false,
+  "features_status": "partial",
+  "omitted_feature_notes": [
+    "Rounded outer corners of the frame: The main and isometric views establish substantial rounded outer corners, but no outer corner radius is supplied. This essential outline contour cannot be replaced by a bounding rectangle or represented as straight corner_chamfer cuts.",
+    "Central through-window opening: The main view gives opening extents 286,7 by 199,7 mm, but its rounded corner radii are not dimensioned. A rounded rectangular opening is not a supported hole or straight slot, and its exact contour cannot be invented.",
+    "Stepped window seat or recess: The drawing dimensions the window-receiving region as 297,2 by 210,2 mm. Section A-A and Detail B show a stepped section, but the complete recess depth and corner geometry are not determined. This functional pocket is also outside the supported hole/slot feature types.",
+    "Two o-ring grooves: The note specifies two grooves, and Detail B supplies local 2,0 and 3,3 dimensions and a maximum groove-bottom internal corner-radius note. The complete groove paths, corner radii and XY placement are not dimensioned. These closed perimeter grooves are outside the supported hole/slot operations.",
+    "20 blind M4 - 6H threaded holes: The callout establishes 20 holes with Ø 3,3 drilling depth 6,0 and M4 - 6H thread depth 4,0. No printed hole pitches, center offsets or dimensioned pattern paths establish their XY centers. Count and visual spacing alone cannot supply coordinates.",
+    "Window-corner machining relief: The leader explicitly calls for machining relief to fit the sharp window corner and says to resize as needed. No relief size or complete dimensioned contour is supplied, so this functional relief cannot be reconstructed.",
+    "3,0 X 45° surface edge bevel: The side-view leader identifies an edge bevel, not a straight through-thickness XY corner clip. Surface bevels are unsupported by the feature protocol, and the callout does not establish corner_chamfer features.",
+    "Deburring and unspecified sharp-edge breaks: The general instruction DEBURR AND BREAK SHARP EDGES supplies no geometric size or precise extent; no arbitrary chamfer is added."
+  ],
+  "review": {
+    "status": "not_reviewed"
+  },
+  "source_sha256": "6f49feb435d02be842ac6933d726b6785cf9cb7cef70e8193976dc4ab265cf26",
+  "expansion_protocol": "flat-part-expansion-v1"
+}

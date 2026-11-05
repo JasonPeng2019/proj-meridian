@@ -1,0 +1,170 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "ed9dd703fc09d30fee65194e5f895fbdc9456235494f3dd4d3ec32c5bc6b949d",
+    "items": [
+      {
+        "key": "outline_type",
+        "decision": "accept",
+        "reason": "The main face-on view in D-015 shows a single plain rectangle with straight edges and square corners. It has no notches, rounded corners or other contours.",
+        "fact_ids": [
+          "D-015"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "length",
+        "decision": "accept",
+        "reason": "The horizontal dimension 270,0 (D-015/drawing/n/270.0@1-1) has extension lines to the left and right ends of the rectangle in the main view, so it is the overall X length. The drawing note gives millimetres (D-015/drawing/general/units).",
+        "fact_ids": [
+          "D-015/drawing/n/270.0@1-1",
+          "D-015/drawing/general/units"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "width",
+        "decision": "accept",
+        "reason": "The vertical dimension 14,0 (D-015/drawing/n/14.0@1-1) has arrows to the top and bottom edges of the rectangle on its right side, so it is the overall Y width in mm.",
+        "fact_ids": [
+          "D-015/drawing/n/14.0@1-1",
+          "D-015/drawing/general/units"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "outer_diameter",
+        "decision": "accept",
+        "reason": "The outline is a rectangle, so an outer diameter does not apply. Leaving it unknown/null is correct.",
+        "fact_ids": [
+          "D-015"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "inner_diameter",
+        "decision": "accept",
+        "reason": "The part is not a ring, so an inner diameter does not apply. Leaving it unknown/null is correct.",
+        "fact_ids": [
+          "D-015"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "thickness",
+        "decision": "accept",
+        "reason": "The 1,0 dimension (D-015/drawing/n/1.0@1-1) has arrows on both faces of the thin edge-on view at the left, so it is a single constant thickness of 1 mm. The note 'Silikone Wiper af 1mm silikone plade' (D-015/drawing/notes) agrees. No alternative thicknesses are printed.",
+        "fact_ids": [
+          "D-015/drawing/n/1.0@1-1",
+          "D-015/drawing/notes"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features",
+        "decision": "accept",
+        "reason": "The callout '8 x Ø 3,4 THRU ALL' (D-015/drawing/callout/p1-1) gives the hole count and diameter. However, the main view of D-015 prints no hole pitch, end offset or Y position for the holes; the only dimensions are 270,0, 14,0 and 1,0. The holes appear to sit on a centerline and look evenly spaced, but no printed pitch or offset supports a pattern interpretation. An empty supported subset (known []) is therefore correct.",
+        "fact_ids": [
+          "D-015",
+          "D-015/drawing/callout/p1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_complete",
+        "decision": "accept",
+        "reason": "The eight visible Ø3,4 through-holes (D-015/drawing/callout/p1-1) cannot be placed, so they are omitted. That makes the feature inventory incomplete, and false is correct.",
+        "fact_ids": [
+          "D-015",
+          "D-015/drawing/callout/p1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_omitted",
+        "decision": "accept",
+        "reason": "The first omission covers the 8 x Ø3,4 THRU ALL holes. It correctly says the count and diameter are printed but the pitch, end offsets and Y positions are not. The second omission covers 'DEBURR AND BREAK SHARP EDGES' (D-015/drawing/general/edge_finish), which gives no size. Both reasons are accurate and both cite exact source IDs. The drawing shows no other features.",
+        "fact_ids": [
+          "D-015",
+          "D-015/drawing/callout/p1-1",
+          "D-015/drawing/n/8.0@1-1",
+          "D-015/drawing/n/3.4@1-1",
+          "D-015/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "cad_eligibility",
+        "decision": "accept",
+        "reason": "The main view dimensions a plain 270,0 x 14,0 rectangle, and the edge-on view dimensions a constant 1,0 thickness. The template supports this solid, so supported=true, constant_thickness=true and outline_exact=true are justified. The reason field clearly calls the reconstruction partial and names the unplaceable functional through-holes and the unspecified edge breaks. Under the rules, uncertainty about these holes must not block the main solid. There is no essential uncertainty in the outline or thickness.",
+        "fact_ids": [
+          "D-015",
+          "D-015/drawing/n/270.0@1-1",
+          "D-015/drawing/n/14.0@1-1",
+          "D-015/drawing/n/1.0@1-1",
+          "D-015/drawing/callout/p1-1",
+          "D-015/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 15441,
+      "cache_read_input_tokens": 17052,
+      "output_tokens": 2099,
+      "output_tokens_details": {
+        "thinking_tokens": 226
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 15441,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 2099,
+        "cacheReadInputTokens": 17052,
+        "cacheCreationInputTokens": 15441,
+        "webSearchRequests": 0,
+        "costUSD": 0.1689344,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 226,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 15441,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.1689344,
+    "duration_ms": 18515,
+    "is_error": false
+  },
+  "latency_ms": 20156,
+  "cache_key": "9362d182c6ecb595ca5919ffeb9a2cd9b8d0e77373993a48b3755e9fbe2c59b4",
+  "cache_hit": false,
+  "job": "detail:D-015:drawing-detail-reprepare-v2:proposal-verification-v1:verification:0",
+  "error": null
+}

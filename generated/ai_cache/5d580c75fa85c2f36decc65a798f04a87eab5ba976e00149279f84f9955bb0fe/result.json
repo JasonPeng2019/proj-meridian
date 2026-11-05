@@ -1,0 +1,194 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "5db0c45e348856d6a5a8c70fa9a07b5d57c184aaf4709c1acec21e7be2181213",
+    "items": [
+      {
+        "key": "outline_type",
+        "decision": "accept",
+        "reason": "The main face-on view in D-017 shows a rectangular plate dimensioned 180,00 horizontally and 110,0 vertically. The only outline departures are the small corner clips called out as 4x1,0 X 45°, and those are handled separately as corner_chamfer features.",
+        "fact_ids": [
+          "D-017",
+          "D-017/drawing/n/180.0@1-1",
+          "D-017/drawing/n/110.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "length",
+        "decision": "accept",
+        "reason": "The horizontal overall dimension under the main view is printed as 180,00 with deviations -0,01/-0,06. The deviations are tolerances, so the nominal X length is 180 mm.",
+        "fact_ids": [
+          "D-017/drawing/n/180.0@1-1",
+          "D-017/drawing/visual-n/p1-ad3ff9472ea83924",
+          "D-017/drawing/visual-n/p1-1e84b5f5e54eda3f",
+          "D-017/drawing/visual-n/p1-7cda1b8c942d7e24"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "width",
+        "decision": "accept",
+        "reason": "On the right side of the main view, a vertical overall dimension of 110,0 runs from the plate's bottom edge to its top edge. That gives a Y width of 110 mm.",
+        "fact_ids": [
+          "D-017/drawing/n/110.0@1-1",
+          "D-017/drawing/visual-n/p1-073bb58a2c574eb9"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "outer_diameter",
+        "decision": "accept",
+        "reason": "The outline is a rectangle, so outer diameter does not apply. Under the template rules, an irrelevant dimension is correctly left unknown/null.",
+        "fact_ids": [
+          "D-017"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "inner_diameter",
+        "decision": "accept",
+        "reason": "The body is not a ring. The ⌀42,00 opening is off-centre (28,2 / 4,1 from the centrelines), so it belongs in features as a hole, not as an outline inner diameter. Unknown/null is correct.",
+        "fact_ids": [
+          "D-017",
+          "D-017/drawing/n/42.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "thickness",
+        "decision": "accept",
+        "reason": "In the upper edge-on view, the 10,0 dimension is linked by extension lines to the plate's two faces. Only one thickness is printed and no step is shown, so a single known value of 10 mm is correct.",
+        "fact_ids": [
+          "D-017/drawing/n/10.0@1-1",
+          "D-017/drawing/visual-n/p1-2328759231c37906"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features",
+        "decision": "accept",
+        "reason": "Bore: the leader reads ⌀42,00 +0,10/+0,05, so the diameter is 42. The 4,1 dimension runs from the horizontal dash-dot centreline down to the bore centre. That centreline is at the plate's mid-height, because 50,9 + 4,1 = 55 = 110,0/2, so y = 0-4,1 = -4.1 is supported. The 28,2 dimension runs from the full-height vertical dash-dot centreline to the bore axis, toward +X. That line is the matching orthogonal plate centreline in the same dimensioning scheme, so x = 28.2. The isometric view shows the bore going all the way through. Treating it as plain through is correct; the concentric rim line is omitted separately. Corner clips: the 4x1,0 X 45° leader points to a plate corner, and the edge-on view shows a clip line near each end, so these are full-thickness outline clips. The 45° callout establishes equal 1,0 setbacks, and the 4x count matches the four corners. No hole with an incomplete position was emitted.",
+        "fact_ids": [
+          "D-017",
+          "D-017/drawing/n/42.0@1-1",
+          "D-017/drawing/visual-n/p1-a5dad71e48692127",
+          "D-017/drawing/n/28.2@1-1",
+          "D-017/drawing/visual-n/p1-3f7fffd6018d0000",
+          "D-017/drawing/n/4.1@1-1",
+          "D-017/drawing/n/50.9@1-1",
+          "D-017/drawing/n/110.0@1-1",
+          "D-017/drawing/visual-n/p1-d0fe5c50afad87b3",
+          "D-017/drawing/visual-n/p1-ee618980ae103848",
+          "D-017/drawing/visual-n/p1-ecee833e5bb88bde",
+          "D-017/drawing/n/45.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_complete",
+        "decision": "accept",
+        "reason": "The main view also shows 4 countersunk ⌀5,5 holes, 8 M5 holes and 2 ⌀6,0 H7 holes. None of their X/Y positions are dimensioned, so the feature set is not complete and false is correct.",
+        "fact_ids": [
+          "D-017",
+          "D-017/drawing/callout/p1-1",
+          "D-017/drawing/callout/p1-2",
+          "D-017/drawing/visual-n/p1-5a39f978a15b9116",
+          "D-017/drawing/n/6.0@1-1",
+          "D-017/drawing/n/6.0@1-2"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_omitted",
+        "decision": "accept",
+        "reason": "I counted every visible feature in the main view: 4 double-circle countersunk holes, 8 cross-marked M5 holes, 2 ⌀6,0 H7 holes on the bore centreline, the concentric rim line at the bore, and the general deburr note. All of them are listed. Each omission reason is correct: the hole centres or pitches are not dimensioned, the M5 holes have no drill size or depth, and the edge details have no numbers. The citations are original source IDs.",
+        "fact_ids": [
+          "D-017",
+          "D-017/drawing/callout/p1-1",
+          "D-017/drawing/callout/p1-2",
+          "D-017/drawing/visual-n/p1-63e92235a1b07426",
+          "D-017/drawing/visual-n/p1-5a39f978a15b9116",
+          "D-017/drawing/n/6.0@1-1",
+          "D-017/drawing/n/6.0@1-2",
+          "D-017/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "cad_eligibility",
+        "decision": "accept",
+        "reason": "The rectangular body is exactly dimensioned at 180,00 x 110,0 and has one printed thickness, 10,0, from the edge-on view. The dimensioned corner clips and the bore can both be generated. The holes left out only lack positions, which per the rules makes this an honest partial model rather than a blocked one. supported, constant_thickness and outline_exact are all correctly true, and the reason states the main view, the thickness source and that the model is partial.",
+        "fact_ids": [
+          "D-017",
+          "D-017/drawing/n/180.0@1-1",
+          "D-017/drawing/n/110.0@1-1",
+          "D-017/drawing/n/10.0@1-1",
+          "D-017/drawing/visual-n/p1-2328759231c37906",
+          "D-017/drawing/visual-n/p1-d0fe5c50afad87b3",
+          "D-017/drawing/n/42.0@1-1",
+          "D-017/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 23704,
+      "cache_read_input_tokens": 25321,
+      "output_tokens": 5400,
+      "output_tokens_details": {
+        "thinking_tokens": 2746
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 23704,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 5400,
+        "cacheReadInputTokens": 25321,
+        "cacheCreationInputTokens": 23704,
+        "webSearchRequests": 0,
+        "costUSD": 0.3027122,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 2746,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 23704,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.3027122,
+    "duration_ms": 52156,
+    "is_error": false
+  },
+  "latency_ms": 53625,
+  "cache_key": "5d580c75fa85c2f36decc65a798f04a87eab5ba976e00149279f84f9955bb0fe",
+  "cache_hit": false,
+  "job": "detail:D-017:drawing-detail-reprepare-v2:proposal-verification-v1:verification:0",
+  "error": null
+}

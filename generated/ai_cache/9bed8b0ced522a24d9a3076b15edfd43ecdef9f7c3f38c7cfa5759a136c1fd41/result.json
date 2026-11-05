@@ -1,0 +1,80 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "c948cddcbc7d0edec056928e1c1191cab75f50a6bbca5a8ac11ab985146a5839",
+    "items": [
+      {
+        "key": "cad_eligibility",
+        "decision": "accept",
+        "reason": "The original D-025 sheet shows the face view as a plain circular annulus. The outer contour is called out as Ø250,0 ±0,2 and the inner bore as Ø224,0 +0,3/0,0. The ring has no lobes, flats, notches or custom contour, so the 'ring' outline is exact and no bounding-shape substitution is involved. The left edge view is a single thin rectangle of uniform width along its whole length, with no steps, bends, grooves or revolved profile. The stacked 3,0 / 2,0 thickness callout gives two printed thickness alternatives, which the contract explicitly allows; the section itself is uniform. The 8 x Ø3,4 THRU ALL holes with the Ø6,9 X 90° countersink are cut features. They are not part of the base body and do not expand the contract. The title 'Bygge Base Ring' is consistent with this reading. So supported=true, constant_thickness=true, outline_exact=true, with an empty essential_uncertainty, is supported. An empty omitted_minor_features list is also consistent, because no corner clips or edge breaks are drawn on the outline. This screen covers routing only; the exact thickness choice and hole details are left to the detailed fields.",
+        "fact_ids": [
+          "D-025",
+          "D-025/drawing/n/250.0@1-1",
+          "D-025/drawing/n/224.0@1-1",
+          "D-025/drawing/n/3.0@1-1",
+          "D-025/drawing/n/2.0@1-1",
+          "D-025/drawing/title"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 10916,
+      "cache_read_input_tokens": 7371,
+      "output_tokens": 919,
+      "output_tokens_details": {
+        "thinking_tokens": 122
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 10916,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 919,
+        "cacheReadInputTokens": 7371,
+        "cacheCreationInputTokens": 10916,
+        "webSearchRequests": 0,
+        "costUSD": 0.1071982,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 122,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 10916,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.1071982,
+    "duration_ms": 10299,
+    "is_error": false
+  },
+  "latency_ms": 11860,
+  "cache_key": "9bed8b0ced522a24d9a3076b15edfd43ecdef9f7c3f38c7cfa5759a136c1fd41",
+  "cache_hit": false,
+  "job": "screen:D-025:base-body-eligibility-routing-v1:proposal-verification-v1:verification:0",
+  "error": null
+}

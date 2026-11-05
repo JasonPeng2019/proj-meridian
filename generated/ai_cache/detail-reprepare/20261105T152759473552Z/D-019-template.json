@@ -1,0 +1,706 @@
+{
+  "part": "D-019",
+  "template": "flat_part",
+  "outline": {
+    "state": "known",
+    "type": "ring",
+    "outer_diameter": {
+      "state": "known",
+      "value": 141,
+      "confidence": "sure",
+      "method": "ai_verified",
+      "fact_ids": [
+        "D-019/drawing/n/141.0@1-1",
+        "D-019/drawing/general/units"
+      ],
+      "readers": {
+        "claude": {
+          "role": "verifier",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "outer_diameter",
+                "decision": "accept",
+                "reason": "The parsed text '141,0' (box at 728,230) is the Ø141,0 callout. Its leader runs through the centre and has an arrow on the outermost solid circle of the face-on view. The units note says millimetres, so the value is 141.",
+                "fact_ids": [
+                  "D-019/drawing/n/141.0@1-1",
+                  "D-019/drawing/general/units"
+                ],
+                "repairable": false
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "cd123a7fb38ddeda9ded862901e14263cf7807b08dd8c4f341267b7f29dfc847",
+              "response_proposal_fingerprint": "cd123a7fb38ddeda9ded862901e14263cf7807b08dd8c4f341267b7f29dfc847",
+              "feedback": [],
+              "settings": {
+                "model": "opus",
+                "fast_mode": false,
+                "mode": "regular",
+                "reader": "claude"
+              },
+              "cache_key": "723aaf73cc4667dbac80d559bf8fb88f956a7483588a5e7a4ba30534b870c7bd"
+            }
+          ]
+        },
+        "codex": {
+          "role": "proposer",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "outer_diameter",
+                "state": "known",
+                "value_json": "141",
+                "confidence": "sure",
+                "fact_ids": [
+                  "D-019/drawing/n/141.0@1-1",
+                  "D-019/drawing/general/units"
+                ],
+                "reason": "The Ø141,0 diameter dimension terminates on the outer circular boundary. Dimensions are in millimeters.",
+                "changed_because": ""
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "cd123a7fb38ddeda9ded862901e14263cf7807b08dd8c4f341267b7f29dfc847",
+              "response_proposal_fingerprint": null,
+              "feedback": [],
+              "settings": {
+                "model": "gpt-6.1-sol",
+                "reasoning_effort": "xhigh",
+                "service_tier": "fast",
+                "reader": "codex"
+              },
+              "cache_key": "ecee7f97db5738bac685f3e3bb875a5bd5223838c717aa89f80312a36ab7b392"
+            }
+          ]
+        }
+      },
+      "review": {
+        "status": "not_reviewed"
+      },
+      "note": "The Ø141,0 diameter dimension terminates on the outer circular boundary. Dimensions are in millimeters. Verification: The parsed text '141,0' (box at 728,230) is the Ø141,0 callout. Its leader runs through the centre and has an arrow on the outermost solid circle of the face-on view. The units note says millimetres, so the value is 141."
+    },
+    "inner_diameter": {
+      "state": "known",
+      "value": 118,
+      "confidence": "sure",
+      "method": "ai_verified",
+      "fact_ids": [
+        "D-019/drawing/n/118.0@1-1",
+        "D-019/drawing/general/units"
+      ],
+      "readers": {
+        "claude": {
+          "role": "verifier",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "inner_diameter",
+                "decision": "accept",
+                "reason": "The parsed text '118,0' (box at 673,230) is the Ø118,0 callout. Its leader is a diameter line through the centre that refers to the solid inner boundary. The dashed construction circle through the holes has no printed size, and Ø118,0 is the only other diameter callout, so it dimensions the inner bore. The units note says millimetres, so the value is 118.",
+                "fact_ids": [
+                  "D-019/drawing/n/118.0@1-1",
+                  "D-019/drawing/general/units"
+                ],
+                "repairable": false
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "cd123a7fb38ddeda9ded862901e14263cf7807b08dd8c4f341267b7f29dfc847",
+              "response_proposal_fingerprint": "cd123a7fb38ddeda9ded862901e14263cf7807b08dd8c4f341267b7f29dfc847",
+              "feedback": [],
+              "settings": {
+                "model": "opus",
+                "fast_mode": false,
+                "mode": "regular",
+                "reader": "claude"
+              },
+              "cache_key": "723aaf73cc4667dbac80d559bf8fb88f956a7483588a5e7a4ba30534b870c7bd"
+            }
+          ]
+        },
+        "codex": {
+          "role": "proposer",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "inner_diameter",
+                "state": "known",
+                "value_json": "118",
+                "confidence": "sure",
+                "fact_ids": [
+                  "D-019/drawing/n/118.0@1-1",
+                  "D-019/drawing/general/units"
+                ],
+                "reason": "The Ø118,0 diameter dimension terminates on the inner circular boundary. Dimensions are in millimeters.",
+                "changed_because": ""
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "cd123a7fb38ddeda9ded862901e14263cf7807b08dd8c4f341267b7f29dfc847",
+              "response_proposal_fingerprint": null,
+              "feedback": [],
+              "settings": {
+                "model": "gpt-6.1-sol",
+                "reasoning_effort": "xhigh",
+                "service_tier": "fast",
+                "reader": "codex"
+              },
+              "cache_key": "ecee7f97db5738bac685f3e3bb875a5bd5223838c717aa89f80312a36ab7b392"
+            }
+          ]
+        }
+      },
+      "review": {
+        "status": "not_reviewed"
+      },
+      "note": "The Ø118,0 diameter dimension terminates on the inner circular boundary. Dimensions are in millimeters. Verification: The parsed text '118,0' (box at 673,230) is the Ø118,0 callout. Its leader is a diameter line through the centre that refers to the solid inner boundary. The dashed construction circle through the holes has no printed size, and Ø118,0 is the only other diameter callout, so it dimensions the inner bore. The units note says millimetres, so the value is 118."
+    }
+  },
+  "thickness": {
+    "state": "known",
+    "value": 1,
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-019/drawing/n/1.0@1-1",
+      "D-019/drawing/notes",
+      "D-019/drawing/general/units"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "thickness",
+              "decision": "accept",
+              "reason": "In the side view (the left edge-on line), a 1,0 dimension with extension lines and arrows spans the edge-on sheet thickness. The note '1mm silicone pakning' agrees with it. Only one thickness is printed, so the value is a constant 1.",
+              "fact_ids": [
+                "D-019/drawing/n/1.0@1-1",
+                "D-019/drawing/notes",
+                "D-019/drawing/general/units"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "cd123a7fb38ddeda9ded862901e14263cf7807b08dd8c4f341267b7f29dfc847",
+            "response_proposal_fingerprint": "cd123a7fb38ddeda9ded862901e14263cf7807b08dd8c4f341267b7f29dfc847",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "723aaf73cc4667dbac80d559bf8fb88f956a7483588a5e7a4ba30534b870c7bd"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "thickness",
+              "state": "known",
+              "value_json": "1",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-019/drawing/n/1.0@1-1",
+                "D-019/drawing/notes",
+                "D-019/drawing/general/units"
+              ],
+              "reason": "The side view directly dimensions the sheet thickness as 1,0 mm, corroborated by the note '1mm silicone pakning'.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "cd123a7fb38ddeda9ded862901e14263cf7807b08dd8c4f341267b7f29dfc847",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "ecee7f97db5738bac685f3e3bb875a5bd5223838c717aa89f80312a36ab7b392"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The side view directly dimensions the sheet thickness as 1,0 mm, corroborated by the note '1mm silicone pakning'. Verification: In the side view (the left edge-on line), a 1,0 dimension with extension lines and arrows spans the edge-on sheet thickness. The note '1mm silicone pakning' agrees with it. Only one thickness is printed, so the value is a constant 1."
+  },
+  "features": [],
+  "features_review": {
+    "state": "known",
+    "value": [],
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-019",
+      "D-019/drawing/callout/p1-1"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features",
+              "decision": "accept",
+              "reason": "The callout '6 x 4,5 THRU ALL' gives the count, diameter and through operation. The six holes sit on a dashed construction circle between the inner and outer boundaries. No pitch-circle diameter, radius or hole coordinates are printed: Ø118,0 and Ø141,0 dimension the body boundaries, not the construction circle. A circle-pattern placement would need an unprinted radius, so no hole can be fully placed. No other cuts are visible. Known [] is the correct supported subset.",
+              "fact_ids": [
+                "D-019",
+                "D-019/drawing/callout/p1-1"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "cd123a7fb38ddeda9ded862901e14263cf7807b08dd8c4f341267b7f29dfc847",
+            "response_proposal_fingerprint": "cd123a7fb38ddeda9ded862901e14263cf7807b08dd8c4f341267b7f29dfc847",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "723aaf73cc4667dbac80d559bf8fb88f956a7483588a5e7a4ba30534b870c7bd"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features",
+              "state": "known",
+              "value_json": "[]",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-019",
+                "D-019/drawing/callout/p1-1"
+              ],
+              "reason": "Six Ø4,5 through-holes are visible and called out, but their pitch-circle diameter or complete center coordinates are not dimensioned. No additional cut has fully supported geometry and placement.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "cd123a7fb38ddeda9ded862901e14263cf7807b08dd8c4f341267b7f29dfc847",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "ecee7f97db5738bac685f3e3bb875a5bd5223838c717aa89f80312a36ab7b392"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "Six Ø4,5 through-holes are visible and called out, but their pitch-circle diameter or complete center coordinates are not dimensioned. No additional cut has fully supported geometry and placement. Verification: The callout '6 x 4,5 THRU ALL' gives the count, diameter and through operation. The six holes sit on a dashed construction circle between the inner and outer boundaries. No pitch-circle diameter, radius or hole coordinates are printed: Ø118,0 and Ø141,0 dimension the body boundaries, not the construction circle. A circle-pattern placement would need an unprinted radius, so no hole can be fully placed. No other cuts are visible. Known [] is the correct supported subset."
+  },
+  "material": {
+    "name": "D-019/drawing/material",
+    "original": "Silicon Rubber",
+    "value": "Silicon Rubber",
+    "confidence": "sure",
+    "method": "parsed",
+    "page": 1,
+    "box": [
+      745.28,
+      771.048,
+      135.0,
+      14.0
+    ],
+    "field_box": [
+      784.28,
+      771.048,
+      96.0,
+      14.0
+    ],
+    "label_box": [
+      745.28,
+      772.048,
+      38.539,
+      10.936
+    ]
+  },
+  "weight_on_drawing": {
+    "name": "D-019/drawing/weight_g",
+    "original": "5.7",
+    "value": 5.7,
+    "confidence": "sure",
+    "method": "parsed",
+    "page": 1,
+    "box": [
+      880.717,
+      771.048,
+      93.0,
+      14.0
+    ],
+    "field_box": [
+      924.717,
+      771.048,
+      49.0,
+      14.0
+    ],
+    "label_box": [
+      880.717,
+      772.048,
+      28.747,
+      10.936
+    ]
+  },
+  "cad_ready": true,
+  "blocking_fields": [],
+  "cad_eligibility": {
+    "state": "known",
+    "value": {
+      "supported": true,
+      "constant_thickness": true,
+      "outline_exact": true,
+      "reason": "The main face-on view establishes an exact concentric ring with outer diameter 141,0 mm and inner diameter 118,0 mm. The side-view thickness dimension establishes a constant 1,0 mm thickness, corroborated by '1mm silicone pakning'. The isometric view is consistent with this flat ring. The main body is supported, but reconstruction remains partial because the six through-holes lack dimensioned placement and the general edge breaks lack defined geometry.",
+      "essential_uncertainty": [],
+      "omitted_minor_features": [
+        "Six Ø4,5 through-holes: pitch-circle diameter or complete center coordinates are missing.",
+        "Unspecified edge breaks: size and profile are missing."
+      ]
+    },
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-019",
+      "D-019/drawing/n/141.0@1-1",
+      "D-019/drawing/n/118.0@1-1",
+      "D-019/drawing/n/1.0@1-1",
+      "D-019/drawing/notes",
+      "D-019/drawing/callout/p1-1",
+      "D-019/drawing/general/edge_finish"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "cad_eligibility",
+              "decision": "accept",
+              "reason": "The main body is an exact flat ring (outer Ø141,0, inner Ø118,0) with a constant 1,0 thickness dimensioned in the side view. The isometric view confirms a planar annulus with no steps, contours or notches. The unplaced holes are minor cuts and are listed as omissions, so an honest partial model is allowed. supported, constant_thickness and outline_exact = true, essential_uncertainty = [] and the omitted-features list are all consistent with the evidence.",
+              "fact_ids": [
+                "D-019",
+                "D-019/drawing/n/141.0@1-1",
+                "D-019/drawing/n/118.0@1-1",
+                "D-019/drawing/n/1.0@1-1",
+                "D-019/drawing/notes",
+                "D-019/drawing/callout/p1-1",
+                "D-019/drawing/general/edge_finish"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "cd123a7fb38ddeda9ded862901e14263cf7807b08dd8c4f341267b7f29dfc847",
+            "response_proposal_fingerprint": "cd123a7fb38ddeda9ded862901e14263cf7807b08dd8c4f341267b7f29dfc847",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "723aaf73cc4667dbac80d559bf8fb88f956a7483588a5e7a4ba30534b870c7bd"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "cad_eligibility",
+              "state": "known",
+              "value_json": "{\"supported\":true,\"constant_thickness\":true,\"outline_exact\":true,\"reason\":\"The main face-on view establishes an exact concentric ring with outer diameter 141,0 mm and inner diameter 118,0 mm. The side-view thickness dimension establishes a constant 1,0 mm thickness, corroborated by '1mm silicone pakning'. The isometric view is consistent with this flat ring. The main body is supported, but reconstruction remains partial because the six through-holes lack dimensioned placement and the general edge breaks lack defined geometry.\",\"essential_uncertainty\":[],\"omitted_minor_features\":[\"Six Ø4,5 through-holes: pitch-circle diameter or complete center coordinates are missing.\",\"Unspecified edge breaks: size and profile are missing.\"]}",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-019",
+                "D-019/drawing/n/141.0@1-1",
+                "D-019/drawing/n/118.0@1-1",
+                "D-019/drawing/n/1.0@1-1",
+                "D-019/drawing/notes",
+                "D-019/drawing/callout/p1-1",
+                "D-019/drawing/general/edge_finish"
+              ],
+              "reason": "The dimensioned constant-thickness ring fits the supported main-body template. Missing placement of the smaller holes permits a partial body model, without establishing a complete functional reconstruction.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "cd123a7fb38ddeda9ded862901e14263cf7807b08dd8c4f341267b7f29dfc847",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "ecee7f97db5738bac685f3e3bb875a5bd5223838c717aa89f80312a36ab7b392"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The dimensioned constant-thickness ring fits the supported main-body template. Missing placement of the smaller holes permits a partial body model, without establishing a complete functional reconstruction. Verification: The main body is an exact flat ring (outer Ø141,0, inner Ø118,0) with a constant 1,0 thickness dimensioned in the side view. The isometric view confirms a planar annulus with no steps, contours or notches. The unplaced holes are minor cuts and are listed as omissions, so an honest partial model is allowed. supported, constant_thickness and outline_exact = true, essential_uncertainty = [] and the omitted-features list are all consistent with the evidence."
+  },
+  "feature_protocol": "supported-feature-subset-v1",
+  "features_complete": {
+    "state": "known",
+    "value": false,
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-019",
+      "D-019/drawing/callout/p1-1",
+      "D-019/drawing/general/edge_finish"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_complete",
+              "decision": "accept",
+              "reason": "The six Ø4,5 through-holes have to be omitted because their pitch-circle diameter is not printed, so the inventory is incomplete. False is correct.",
+              "fact_ids": [
+                "D-019",
+                "D-019/drawing/callout/p1-1"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "cd123a7fb38ddeda9ded862901e14263cf7807b08dd8c4f341267b7f29dfc847",
+            "response_proposal_fingerprint": "cd123a7fb38ddeda9ded862901e14263cf7807b08dd8c4f341267b7f29dfc847",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "723aaf73cc4667dbac80d559bf8fb88f956a7483588a5e7a4ba30534b870c7bd"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_complete",
+              "state": "known",
+              "value_json": "false",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-019",
+                "D-019/drawing/callout/p1-1",
+                "D-019/drawing/general/edge_finish"
+              ],
+              "reason": "The six through-holes cannot be located from supplied dimensions, and the specified edge breaks have no dimensional definition.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "cd123a7fb38ddeda9ded862901e14263cf7807b08dd8c4f341267b7f29dfc847",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "ecee7f97db5738bac685f3e3bb875a5bd5223838c717aa89f80312a36ab7b392"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The six through-holes cannot be located from supplied dimensions, and the specified edge breaks have no dimensional definition. Verification: The six Ø4,5 through-holes have to be omitted because their pitch-circle diameter is not printed, so the inventory is incomplete. False is correct."
+  },
+  "features_omitted": {
+    "state": "known",
+    "value": [
+      {
+        "description": "6 x Ø4,5 THRU ALL holes",
+        "reason": "The count, diameter and through operation are established. The face-on view shows centers on a circular construction line, but no pitch-circle diameter, radius or complete center coordinates are supplied. Ø118,0 and Ø141,0 dimension the inner and outer body boundaries, not the hole pattern. Hole positions therefore cannot be modeled without guessing.",
+        "fact_ids": [
+          "D-019",
+          "D-019/drawing/callout/p1-1",
+          "D-019/drawing/n/6.0@1-1",
+          "D-019/drawing/n/4.5@1-1"
+        ]
+      },
+      {
+        "description": "DEBURR AND BREAK SHARP EDGES",
+        "reason": "The general finish note supplies no edge-break size or profile; no specific chamfer or rounding can be modeled.",
+        "fact_ids": [
+          "D-019/drawing/general/edge_finish"
+        ]
+      }
+    ],
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-019",
+      "D-019/drawing/callout/p1-1",
+      "D-019/drawing/n/6.0@1-1",
+      "D-019/drawing/n/4.5@1-1",
+      "D-019/drawing/general/edge_finish"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_omitted",
+              "decision": "accept",
+              "reason": "The first omission correctly describes the 6 × Ø4,5 THRU ALL holes on an undimensioned construction circle and cites the callout and its parsed numbers. The second correctly records the general note 'DEBURR AND BREAK SHARP EDGES', which gives no size. Both reasons match the drawing, and no other visible feature is missing from the list.",
+              "fact_ids": [
+                "D-019",
+                "D-019/drawing/callout/p1-1",
+                "D-019/drawing/n/6.0@1-1",
+                "D-019/drawing/n/4.5@1-1",
+                "D-019/drawing/general/edge_finish"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "cd123a7fb38ddeda9ded862901e14263cf7807b08dd8c4f341267b7f29dfc847",
+            "response_proposal_fingerprint": "cd123a7fb38ddeda9ded862901e14263cf7807b08dd8c4f341267b7f29dfc847",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "723aaf73cc4667dbac80d559bf8fb88f956a7483588a5e7a4ba30534b870c7bd"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_omitted",
+              "state": "known",
+              "value_json": "[{\"description\":\"6 x Ø4,5 THRU ALL holes\",\"reason\":\"The count, diameter and through operation are established. The face-on view shows centers on a circular construction line, but no pitch-circle diameter, radius or complete center coordinates are supplied. Ø118,0 and Ø141,0 dimension the inner and outer body boundaries, not the hole pattern. Hole positions therefore cannot be modeled without guessing.\",\"fact_ids\":[\"D-019\",\"D-019/drawing/callout/p1-1\",\"D-019/drawing/n/6.0@1-1\",\"D-019/drawing/n/4.5@1-1\"]},{\"description\":\"DEBURR AND BREAK SHARP EDGES\",\"reason\":\"The general finish note supplies no edge-break size or profile; no specific chamfer or rounding can be modeled.\",\"fact_ids\":[\"D-019/drawing/general/edge_finish\"]}]",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-019",
+                "D-019/drawing/callout/p1-1",
+                "D-019/drawing/n/6.0@1-1",
+                "D-019/drawing/n/4.5@1-1",
+                "D-019/drawing/general/edge_finish"
+              ],
+              "reason": "These omissions distinguish missing hole-location dimensions and unspecified finishing geometry from supported ring-body dimensions.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "cd123a7fb38ddeda9ded862901e14263cf7807b08dd8c4f341267b7f29dfc847",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "ecee7f97db5738bac685f3e3bb875a5bd5223838c717aa89f80312a36ab7b392"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "These omissions distinguish missing hole-location dimensions and unspecified finishing geometry from supported ring-body dimensions. Verification: The first omission correctly describes the 6 × Ø4,5 THRU ALL holes on an undimensioned construction circle and cites the callout and its parsed numbers. The second correctly records the general note 'DEBURR AND BREAK SHARP EDGES', which gives no size. Both reasons match the drawing, and no other visible feature is missing from the list."
+  },
+  "features_all_determined": false,
+  "features_status": "partial",
+  "omitted_feature_notes": [
+    "6 x Ø4,5 THRU ALL holes: The count, diameter and through operation are established. The face-on view shows centers on a circular construction line, but no pitch-circle diameter, radius or complete center coordinates are supplied. Ø118,0 and Ø141,0 dimension the inner and outer body boundaries, not the hole pattern. Hole positions therefore cannot be modeled without guessing.",
+    "DEBURR AND BREAK SHARP EDGES: The general finish note supplies no edge-break size or profile; no specific chamfer or rounding can be modeled."
+  ],
+  "review": {
+    "status": "not_reviewed"
+  },
+  "source_sha256": "581fbaf7562ac75008243463af6956d6f88cd6a0a858cf6c22aa62ce39041e11",
+  "expansion_protocol": "flat-part-expansion-v1"
+}

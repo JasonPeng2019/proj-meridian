@@ -1,0 +1,46 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "cad_eligibility",
+        "state": "known",
+        "value_json": "{\"supported\":true,\"constant_thickness\":true,\"outline_exact\":true,\"reason\":\"The front, edge and isometric views establish a single flat rectangular plate with uniform thickness. Small straight corner clips fit the contract's minor-detail allowance. No bends, steps or essential custom outer contours are shown.\",\"essential_uncertainty\":[],\"omitted_minor_features\":[\"Small undimensioned straight corner clips.\",\"Deburring and sharp-edge breaks.\"]}",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-013",
+          "D-013/drawing/general/edge_finish"
+        ],
+        "reason": "The original drawing supports the rectangular constant-thickness base-body contract with the permitted minor omissions stated explicitly.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 19200,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 646,
+          "reasoning_output_tokens": 469
+        }
+      }
+    ]
+  },
+  "latency_ms": 22859,
+  "cache_key": "edb3904aa16596b421e44bd2b078fa4470e596fd69c488facd0a25744eed7182",
+  "cache_hit": false,
+  "job": "screen:D-013:base-body-eligibility-routing-v1:proposal-verification-v1:proposal:0",
+  "error": null
+}

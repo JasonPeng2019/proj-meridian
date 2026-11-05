@@ -1,0 +1,1105 @@
+{
+  "part": "D-026",
+  "template": "flat_part",
+  "outline": {
+    "state": "known",
+    "type": "circle",
+    "outer_diameter": {
+      "state": "known",
+      "value": 250,
+      "confidence": "sure",
+      "method": "ai_verified",
+      "fact_ids": [
+        "D-026",
+        "D-026/drawing/n/250.0@1-1"
+      ],
+      "readers": {
+        "claude": {
+          "role": "verifier",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "outer_diameter",
+                "decision": "accept",
+                "reason": "The Ø250,0 leader ends on the outer solid circle in the main view, so the outer diameter is 250 mm (D-026/drawing/n/250.0@1-1). The units note confirms millimetres.",
+                "fact_ids": [
+                  "D-026",
+                  "D-026/drawing/n/250.0@1-1",
+                  "D-026/drawing/general/units"
+                ],
+                "repairable": false
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "c49d0f3afa9c4aad8ca302757e4f6723911b6e4a3a957198e4fbc5310fb5d8f6",
+              "response_proposal_fingerprint": "c49d0f3afa9c4aad8ca302757e4f6723911b6e4a3a957198e4fbc5310fb5d8f6",
+              "feedback": [],
+              "settings": {
+                "model": "opus",
+                "fast_mode": false,
+                "mode": "regular",
+                "reader": "claude"
+              },
+              "cache_key": "f66b6831dbd93fb9c2a8d38528eb9033f258580fadf7bdc1273d5139ed71d72c"
+            },
+            {
+              "answer": null,
+              "valid": true,
+              "validation_passed": null,
+              "contract_error": null,
+              "requested": false,
+              "proposal_fingerprint": "0cc1e429305a54856ac98701e1c2819b3ba84fbd8d69ba5a5320cca15b84d200",
+              "response_proposal_fingerprint": "0cc1e429305a54856ac98701e1c2819b3ba84fbd8d69ba5a5320cca15b84d200",
+              "feedback": [],
+              "settings": {
+                "model": "opus",
+                "fast_mode": false,
+                "mode": "regular",
+                "reader": "claude"
+              },
+              "cache_key": "d7cbf50e55a60ee959a25486692fba90335df675d2a3e85a4bf2d767dd4382f6"
+            }
+          ]
+        },
+        "codex": {
+          "role": "proposer",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "outer_diameter",
+                "state": "known",
+                "value_json": "250",
+                "confidence": "sure",
+                "fact_ids": [
+                  "D-026",
+                  "D-026/drawing/n/250.0@1-1"
+                ],
+                "reason": "The diameter leader identifies the outer circular boundary as Ø250,0 mm.",
+                "changed_because": ""
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "c49d0f3afa9c4aad8ca302757e4f6723911b6e4a3a957198e4fbc5310fb5d8f6",
+              "response_proposal_fingerprint": null,
+              "feedback": [],
+              "settings": {
+                "model": "gpt-6.1-sol",
+                "reasoning_effort": "xhigh",
+                "service_tier": "fast",
+                "reader": "codex"
+              },
+              "cache_key": "39061fc46fd8575cec13c091ddbaee8b11e937c027acde8b116a91f4d9815af9"
+            },
+            {
+              "answer": null,
+              "valid": true,
+              "validation_passed": null,
+              "contract_error": null,
+              "requested": false,
+              "proposal_fingerprint": "0cc1e429305a54856ac98701e1c2819b3ba84fbd8d69ba5a5320cca15b84d200",
+              "response_proposal_fingerprint": null,
+              "feedback": [],
+              "settings": {
+                "model": "gpt-6.1-sol",
+                "reasoning_effort": "xhigh",
+                "service_tier": "fast",
+                "reader": "codex"
+              },
+              "cache_key": "40c7ef5c568d1ca83055f59aaee752490c0e7f90ec31a6f9f8a308a57aaa54bb"
+            }
+          ]
+        }
+      },
+      "review": {
+        "status": "not_reviewed"
+      },
+      "note": "The diameter leader identifies the outer circular boundary as Ø250,0 mm. Verification: The Ø250,0 leader ends on the outer solid circle in the main view, so the outer diameter is 250 mm (D-026/drawing/n/250.0@1-1). The units note confirms millimetres."
+    }
+  },
+  "thickness": {
+    "state": "options",
+    "options": [
+      15,
+      25
+    ],
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-026",
+      "D-026/drawing/n/15.0@1-1",
+      "D-026/drawing/n/25.0@1-1"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "thickness",
+              "decision": "accept",
+              "reason": "In the side view, stacked texts 25,0 and 15,0 sit on one dimension line whose arrows span the plate faces. Neither reading is marked as a tolerance or a limit. Under the possible-reading contract, options [15,25] sorted ascending is correct, and the proposal does not select one. The note 'rustfri og alu' does not resolve which applies.",
+              "fact_ids": [
+                "D-026",
+                "D-026/drawing/n/15.0@1-1",
+                "D-026/drawing/n/25.0@1-1"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "c49d0f3afa9c4aad8ca302757e4f6723911b6e4a3a957198e4fbc5310fb5d8f6",
+            "response_proposal_fingerprint": "c49d0f3afa9c4aad8ca302757e4f6723911b6e4a3a957198e4fbc5310fb5d8f6",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "f66b6831dbd93fb9c2a8d38528eb9033f258580fadf7bdc1273d5139ed71d72c"
+          },
+          {
+            "answer": null,
+            "valid": true,
+            "validation_passed": null,
+            "contract_error": null,
+            "requested": false,
+            "proposal_fingerprint": "0cc1e429305a54856ac98701e1c2819b3ba84fbd8d69ba5a5320cca15b84d200",
+            "response_proposal_fingerprint": "0cc1e429305a54856ac98701e1c2819b3ba84fbd8d69ba5a5320cca15b84d200",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "d7cbf50e55a60ee959a25486692fba90335df675d2a3e85a4bf2d767dd4382f6"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "thickness",
+              "state": "options",
+              "value_json": "[15,25]",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-026",
+                "D-026/drawing/n/15.0@1-1",
+                "D-026/drawing/n/25.0@1-1"
+              ],
+              "reason": "The side view links stacked 25,0 and 15,0 readings to the same face-to-face thickness dimension. Both remain unselected possible readings under the supplied contract; the drawing does not establish two discrete manufactured variants or identify explicit limits.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "c49d0f3afa9c4aad8ca302757e4f6723911b6e4a3a957198e4fbc5310fb5d8f6",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "39061fc46fd8575cec13c091ddbaee8b11e937c027acde8b116a91f4d9815af9"
+          },
+          {
+            "answer": null,
+            "valid": true,
+            "validation_passed": null,
+            "contract_error": null,
+            "requested": false,
+            "proposal_fingerprint": "0cc1e429305a54856ac98701e1c2819b3ba84fbd8d69ba5a5320cca15b84d200",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "40c7ef5c568d1ca83055f59aaee752490c0e7f90ec31a6f9f8a308a57aaa54bb"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The side view links stacked 25,0 and 15,0 readings to the same face-to-face thickness dimension. Both remain unselected possible readings under the supplied contract; the drawing does not establish two discrete manufactured variants or identify explicit limits. Verification: In the side view, stacked texts 25,0 and 15,0 sit on one dimension line whose arrows span the plate faces. Neither reading is marked as a tolerance or a limit. Under the possible-reading contract, options [15,25] sorted ascending is correct, and the proposal does not select one. The note 'rustfri og alu' does not resolve which applies."
+  },
+  "features": [
+    {
+      "kind": "hole",
+      "face": "top",
+      "x": {
+        "state": "known",
+        "value": 0,
+        "fact_ids": [
+          "D-026"
+        ]
+      },
+      "y": {
+        "state": "known",
+        "value": 0,
+        "fact_ids": [
+          "D-026"
+        ]
+      },
+      "diameter": {
+        "state": "known",
+        "value": 5.3,
+        "fact_ids": [
+          "D-026/drawing/n/5.3@1-1"
+        ]
+      },
+      "through": true,
+      "hole_type": "counterbored",
+      "counterbore_diameter": {
+        "state": "known",
+        "value": 10,
+        "fact_ids": [
+          "D-026/drawing/n/10.0@1-1"
+        ]
+      },
+      "counterbore_depth": {
+        "state": "known",
+        "value": 15.4,
+        "fact_ids": [
+          "D-026/drawing/n/15.4@1-1"
+        ]
+      },
+      "pattern": {
+        "type": "circle",
+        "count": {
+          "state": "known",
+          "value": 3,
+          "fact_ids": [
+            "D-026/drawing/n/3.0@1-1"
+          ]
+        },
+        "radius": {
+          "state": "known",
+          "value": 105,
+          "fact_ids": [
+            "D-026/drawing/n/105.0@1-1"
+          ]
+        },
+        "start_angle": {
+          "state": "known",
+          "value": 180,
+          "fact_ids": [
+            "D-026"
+          ]
+        }
+      },
+      "placement_basis": "drawing_pattern_interpretation",
+      "placement_reason": "The printed count 3 and R105,0 establish three holes on a circle concentric with the plate. The face-on layout places one hole on the negative-X centerline and the other two at upper right and lower right. Interpret the circular pattern as 360/count spacing, starting at the established 180-degree axis. The concentric step rims in the main face view and the stepped openings opposite datum A in the side view establish that the counterbores open toward the main-view viewer, the top face.",
+      "allow_primary_hole_without_unresolved_step": true,
+      "step_conflict_reason": "The printed counterbore depth 15,4 mm exceeds the possible 15,0 mm plate thickness, although it fits the possible 25,0 mm thickness. Preserve all three independently dimensioned Ø5,3 THRU ALL holes; omit the counterbore step for the 15,0 mm reading without clamping its depth.",
+      "fact_ids": [
+        "D-026",
+        "D-026/drawing/callout/p1-1",
+        "D-026/drawing/callout/p1-2",
+        "D-026/drawing/n/3.0@1-1",
+        "D-026/drawing/n/105.0@1-1",
+        "D-026/drawing/n/5.3@1-1",
+        "D-026/drawing/n/10.0@1-1",
+        "D-026/drawing/n/15.4@1-1",
+        "D-026/drawing/n/15.0@1-1",
+        "D-026/drawing/n/25.0@1-1"
+      ]
+    }
+  ],
+  "features_review": {
+    "state": "known",
+    "value": [
+      {
+        "kind": "hole",
+        "face": "top",
+        "x": {
+          "state": "known",
+          "value": 0,
+          "fact_ids": [
+            "D-026"
+          ]
+        },
+        "y": {
+          "state": "known",
+          "value": 0,
+          "fact_ids": [
+            "D-026"
+          ]
+        },
+        "diameter": {
+          "state": "known",
+          "value": 5.3,
+          "fact_ids": [
+            "D-026/drawing/n/5.3@1-1"
+          ]
+        },
+        "through": true,
+        "hole_type": "counterbored",
+        "counterbore_diameter": {
+          "state": "known",
+          "value": 10,
+          "fact_ids": [
+            "D-026/drawing/n/10.0@1-1"
+          ]
+        },
+        "counterbore_depth": {
+          "state": "known",
+          "value": 15.4,
+          "fact_ids": [
+            "D-026/drawing/n/15.4@1-1"
+          ]
+        },
+        "pattern": {
+          "type": "circle",
+          "count": {
+            "state": "known",
+            "value": 3,
+            "fact_ids": [
+              "D-026/drawing/n/3.0@1-1"
+            ]
+          },
+          "radius": {
+            "state": "known",
+            "value": 105,
+            "fact_ids": [
+              "D-026/drawing/n/105.0@1-1"
+            ]
+          },
+          "start_angle": {
+            "state": "known",
+            "value": 180,
+            "fact_ids": [
+              "D-026"
+            ]
+          }
+        },
+        "placement_basis": "drawing_pattern_interpretation",
+        "placement_reason": "The printed count 3 and R105,0 establish three holes on a circle concentric with the plate. The face-on layout places one hole on the negative-X centerline and the other two at upper right and lower right. Interpret the circular pattern as 360/count spacing, starting at the established 180-degree axis. The concentric step rims in the main face view and the stepped openings opposite datum A in the side view establish that the counterbores open toward the main-view viewer, the top face.",
+        "allow_primary_hole_without_unresolved_step": true,
+        "step_conflict_reason": "The printed counterbore depth 15,4 mm exceeds the possible 15,0 mm plate thickness, although it fits the possible 25,0 mm thickness. Preserve all three independently dimensioned Ø5,3 THRU ALL holes; omit the counterbore step for the 15,0 mm reading without clamping its depth.",
+        "fact_ids": [
+          "D-026",
+          "D-026/drawing/callout/p1-1",
+          "D-026/drawing/callout/p1-2",
+          "D-026/drawing/n/3.0@1-1",
+          "D-026/drawing/n/105.0@1-1",
+          "D-026/drawing/n/5.3@1-1",
+          "D-026/drawing/n/10.0@1-1",
+          "D-026/drawing/n/15.4@1-1",
+          "D-026/drawing/n/15.0@1-1",
+          "D-026/drawing/n/25.0@1-1"
+        ]
+      }
+    ],
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-026",
+      "D-026/drawing/callout/p1-1",
+      "D-026/drawing/callout/p1-2",
+      "D-026/drawing/n/3.0@1-1",
+      "D-026/drawing/n/105.0@1-1",
+      "D-026/drawing/n/5.3@1-1",
+      "D-026/drawing/n/10.0@1-1",
+      "D-026/drawing/n/15.4@1-1",
+      "D-026/drawing/n/15.0@1-1",
+      "D-026/drawing/n/25.0@1-1"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features",
+              "decision": "accept",
+              "reason": "Callout '3 x Ø 5,3 THRU ALL / ⌴ Ø 10,0 ↧ 15,4' gives three through holes, Ø5,3, with Ø10,0 counterbores 15,4 deep. The holes lie on the R105,0 centerline circle centred on the plate centre (0,0). The main view places one hole on the -X horizontal centerline and two at upper right and lower right, symmetric about the X axis. That matches 360/3 spacing starting at 180°, giving 180°, 300° and 60°; no unprinted angle is claimed as printed. Opening face: the main view draws each hole as two solid concentric circles, so the counterbore is visible from the +Z viewer. The side view shows the hidden wide step on the face opposite datum A, consistent with the main view. The isometric face shows the same hole layout, not mirrored, so it is also the +Z face. face='top' is supported. The conflict flag is valid: the printed 15,4 step depth exceeds the 15,0 thickness reading but fits 25,0, while the Ø5,3 through holes are independently established. Every numeric value cites a matching parsed number.",
+              "fact_ids": [
+                "D-026",
+                "D-026/drawing/callout/p1-1",
+                "D-026/drawing/callout/p1-2",
+                "D-026/drawing/n/3.0@1-1",
+                "D-026/drawing/n/105.0@1-1",
+                "D-026/drawing/n/5.3@1-1",
+                "D-026/drawing/n/10.0@1-1",
+                "D-026/drawing/n/15.4@1-1",
+                "D-026/drawing/n/15.0@1-1",
+                "D-026/drawing/n/25.0@1-1"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "c49d0f3afa9c4aad8ca302757e4f6723911b6e4a3a957198e4fbc5310fb5d8f6",
+            "response_proposal_fingerprint": "c49d0f3afa9c4aad8ca302757e4f6723911b6e4a3a957198e4fbc5310fb5d8f6",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "f66b6831dbd93fb9c2a8d38528eb9033f258580fadf7bdc1273d5139ed71d72c"
+          },
+          {
+            "answer": null,
+            "valid": true,
+            "validation_passed": null,
+            "contract_error": null,
+            "requested": false,
+            "proposal_fingerprint": "0cc1e429305a54856ac98701e1c2819b3ba84fbd8d69ba5a5320cca15b84d200",
+            "response_proposal_fingerprint": "0cc1e429305a54856ac98701e1c2819b3ba84fbd8d69ba5a5320cca15b84d200",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "d7cbf50e55a60ee959a25486692fba90335df675d2a3e85a4bf2d767dd4382f6"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features",
+              "state": "known",
+              "value_json": "[{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-026\"]},\"y\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-026\"]},\"diameter\":{\"state\":\"known\",\"value\":5.3,\"fact_ids\":[\"D-026/drawing/n/5.3@1-1\"]},\"through\":true,\"hole_type\":\"counterbored\",\"counterbore_diameter\":{\"state\":\"known\",\"value\":10,\"fact_ids\":[\"D-026/drawing/n/10.0@1-1\"]},\"counterbore_depth\":{\"state\":\"known\",\"value\":15.4,\"fact_ids\":[\"D-026/drawing/n/15.4@1-1\"]},\"pattern\":{\"type\":\"circle\",\"count\":{\"state\":\"known\",\"value\":3,\"fact_ids\":[\"D-026/drawing/n/3.0@1-1\"]},\"radius\":{\"state\":\"known\",\"value\":105,\"fact_ids\":[\"D-026/drawing/n/105.0@1-1\"]},\"start_angle\":{\"state\":\"known\",\"value\":180,\"fact_ids\":[\"D-026\"]}},\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed count 3 and R105,0 establish three holes on a circle concentric with the plate. The face-on layout places one hole on the negative-X centerline and the other two at upper right and lower right. Interpret the circular pattern as 360/count spacing, starting at the established 180-degree axis. The concentric step rims in the main face view and the stepped openings opposite datum A in the side view establish that the counterbores open toward the main-view viewer, the top face.\",\"allow_primary_hole_without_unresolved_step\":true,\"step_conflict_reason\":\"The printed counterbore depth 15,4 mm exceeds the possible 15,0 mm plate thickness, although it fits the possible 25,0 mm thickness. Preserve all three independently dimensioned Ø5,3 THRU ALL holes; omit the counterbore step for the 15,0 mm reading without clamping its depth.\",\"fact_ids\":[\"D-026\",\"D-026/drawing/callout/p1-1\",\"D-026/drawing/callout/p1-2\",\"D-026/drawing/n/3.0@1-1\",\"D-026/drawing/n/105.0@1-1\",\"D-026/drawing/n/5.3@1-1\",\"D-026/drawing/n/10.0@1-1\",\"D-026/drawing/n/15.4@1-1\",\"D-026/drawing/n/15.0@1-1\",\"D-026/drawing/n/25.0@1-1\"]}]",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-026",
+                "D-026/drawing/callout/p1-1",
+                "D-026/drawing/callout/p1-2",
+                "D-026/drawing/n/3.0@1-1",
+                "D-026/drawing/n/105.0@1-1",
+                "D-026/drawing/n/5.3@1-1",
+                "D-026/drawing/n/10.0@1-1",
+                "D-026/drawing/n/15.4@1-1",
+                "D-026/drawing/n/15.0@1-1",
+                "D-026/drawing/n/25.0@1-1"
+              ],
+              "reason": "The drawing establishes three Ø5,3 through holes on R105,0 with Ø10,0 counterbores 15,4 deep opening from the main-view face. The documented thickness conflict requires conditional omission of the step for the 15,0 reading while retaining the primary holes.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "c49d0f3afa9c4aad8ca302757e4f6723911b6e4a3a957198e4fbc5310fb5d8f6",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "39061fc46fd8575cec13c091ddbaee8b11e937c027acde8b116a91f4d9815af9"
+          },
+          {
+            "answer": null,
+            "valid": true,
+            "validation_passed": null,
+            "contract_error": null,
+            "requested": false,
+            "proposal_fingerprint": "0cc1e429305a54856ac98701e1c2819b3ba84fbd8d69ba5a5320cca15b84d200",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "40c7ef5c568d1ca83055f59aaee752490c0e7f90ec31a6f9f8a308a57aaa54bb"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The drawing establishes three Ø5,3 through holes on R105,0 with Ø10,0 counterbores 15,4 deep opening from the main-view face. The documented thickness conflict requires conditional omission of the step for the 15,0 reading while retaining the primary holes. Verification: Callout '3 x Ø 5,3 THRU ALL / ⌴ Ø 10,0 ↧ 15,4' gives three through holes, Ø5,3, with Ø10,0 counterbores 15,4 deep. The holes lie on the R105,0 centerline circle centred on the plate centre (0,0). The main view places one hole on the -X horizontal centerline and two at upper right and lower right, symmetric about the X axis. That matches 360/3 spacing starting at 180°, giving 180°, 300° and 60°; no unprinted angle is claimed as printed. Opening face: the main view draws each hole as two solid concentric circles, so the counterbore is visible from the +Z viewer. The side view shows the hidden wide step on the face opposite datum A, consistent with the main view. The isometric face shows the same hole layout, not mirrored, so it is also the +Z face. face='top' is supported. The conflict flag is valid: the printed 15,4 step depth exceeds the 15,0 thickness reading but fits 25,0, while the Ø5,3 through holes are independently established. Every numeric value cites a matching parsed number."
+  },
+  "material": {
+    "name": "D-026/drawing/material",
+    "original": "AISI 316 Stainless Steel Sheet (SS)",
+    "value": "AISI 316 Stainless Steel Sheet (SS)",
+    "confidence": "unsure",
+    "method": "parsed",
+    "page": 1,
+    "box": [
+      745.28,
+      771.048,
+      164.184,
+      14.0
+    ],
+    "field_box": [
+      784.28,
+      771.048,
+      125.184,
+      14.0
+    ],
+    "label_box": [
+      745.28,
+      772.048,
+      38.539,
+      10.936
+    ],
+    "note": "Material text overlaps the WEIGHT label; garbled/overprinted source."
+  },
+  "weight_on_drawing": {
+    "name": "D-026/drawing/weight_g",
+    "original": "7822.5",
+    "value": 7822.5,
+    "confidence": "sure",
+    "method": "parsed",
+    "page": 1,
+    "box": [
+      880.717,
+      771.048,
+      93.0,
+      14.0
+    ],
+    "field_box": [
+      924.717,
+      771.048,
+      49.0,
+      14.0
+    ],
+    "label_box": [
+      880.717,
+      772.048,
+      28.747,
+      10.936
+    ]
+  },
+  "cad_ready": false,
+  "blocking_fields": [
+    "cad_eligibility"
+  ],
+  "cad_eligibility": {
+    "state": "unknown",
+    "value": null,
+    "confidence": "unsure",
+    "method": "ai_unsure",
+    "fact_ids": [],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "cad_eligibility",
+              "decision": "reject",
+              "reason": "The proposal packet marks this key as locally invalid (invalid_keys includes cad_eligibility), so it cannot be accepted as submitted. The underlying substance appears supported by the evidence: an exact Ø250,0 circular disc; constant-thickness possible readings 15,0 and 25,0 on one side-view dimension; three supported Ø5,3 through holes on R105,0; and the counterbore steps conditionally skipped for the 15,0 reading. The proposer should fix the local schema or validation defect in the eligibility object, keeping these supported facts, and resubmit.",
+              "fact_ids": [
+                "D-026",
+                "D-026/drawing/n/250.0@1-1",
+                "D-026/drawing/n/15.0@1-1",
+                "D-026/drawing/n/25.0@1-1",
+                "D-026/drawing/n/105.0@1-1",
+                "D-026/drawing/callout/p1-2",
+                "D-026/drawing/n/10.0@1-1",
+                "D-026/drawing/n/15.4@1-1",
+                "D-026/drawing/general/edge_finish"
+              ],
+              "repairable": true
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "c49d0f3afa9c4aad8ca302757e4f6723911b6e4a3a957198e4fbc5310fb5d8f6",
+            "response_proposal_fingerprint": "c49d0f3afa9c4aad8ca302757e4f6723911b6e4a3a957198e4fbc5310fb5d8f6",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "f66b6831dbd93fb9c2a8d38528eb9033f258580fadf7bdc1273d5139ed71d72c"
+          },
+          {
+            "answer": {
+              "key": "cad_eligibility",
+              "decision": "accept",
+              "reason": "The original drawing D-026 supports the proposed eligibility object. In the face-on main view, a single circular outer outline carries the leader dimension Ø250,0 (D-026/drawing/n/250.0@1-1). It has no notches, lobes or other outer contours, and the isometric view shows a plain flat disc, so a circle outline is exact rather than a bounding substitute. In the side view, the thickness dimension's extension lines and arrows sit on the two faces of the plate. That dimension prints stacked 25,0 / 15,0 (D-026/drawing/n/25.0@1-1, D-026/drawing/n/15.0@1-1) with no tolerance or limit label, so keeping them as unselected constant-thickness options follows the possible-reading contract. Datum A and the parallelism frame confirm a planar plate. The callout '3 x Ø 5,3 THRU ALL' with counterbore Ø 10,0, depth 15,4 (D-026/drawing/callout/p1-2, n/3.0@1-1, n/5.3@1-1, n/10.0@1-1, n/15.4@1-1) gives through-holes on the R105,0 circle (n/105.0@1-1). For the 15,0 reading, the 15,4 counterbore depth is larger than the thickness, which is an actual printed conflict. Treating that step as a conditional omission for that reading, while keeping the primary through-holes, does not affect whether the body is eligible. The unspecified deburr/edge-break note (D-026/drawing/general/edge_finish) is correctly left out of the model as a minor detail. supported=true, constant_thickness=true and outline_exact=true all follow from the original views. This decision accepts body eligibility only. It does not verify hole angular placement or the counterbore opening face, which belong to the features keys.",
+              "fact_ids": [
+                "D-026",
+                "D-026/drawing/n/250.0@1-1",
+                "D-026/drawing/n/25.0@1-1",
+                "D-026/drawing/n/15.0@1-1",
+                "D-026/drawing/n/105.0@1-1",
+                "D-026/drawing/n/3.0@1-1",
+                "D-026/drawing/n/5.3@1-1",
+                "D-026/drawing/n/10.0@1-1",
+                "D-026/drawing/n/15.4@1-1",
+                "D-026/drawing/callout/p1-2",
+                "D-026/drawing/general/edge_finish"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "0cc1e429305a54856ac98701e1c2819b3ba84fbd8d69ba5a5320cca15b84d200",
+            "response_proposal_fingerprint": "0cc1e429305a54856ac98701e1c2819b3ba84fbd8d69ba5a5320cca15b84d200",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "d7cbf50e55a60ee959a25486692fba90335df675d2a3e85a4bf2d767dd4382f6"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "cad_eligibility",
+              "state": "known",
+              "value_json": "{\"supported\":true,\"constant_thickness\":true,\"outline_exact\":true,\"reason\":\"The main face-on view establishes an exact Ø250,0 circular body. The side-view thickness dimension carries stacked 15,0 and 25,0 readings, retained as unselected possible constant thicknesses under the supplied contract. The three through holes and their circular placement are supported. The 15,4-deep counterbores are retained for the 25,0 reading and must be skipped for the conflicting 15,0 reading, yielding an explicitly partial reconstruction for that reading. No essential unsupported outer contour is shown.\",\"essential_uncertainty\":[\"The drawing does not resolve the applicability or intent of the stacked 15,0 and 25,0 thickness readings; they do not prove discrete manufactured variants.\",\"The printed 15,4 counterbore depth conflicts with the possible 15,0 plate thickness.\"],\"omitted_minor_features\":[\"Three counterbore steps for the 15,0 thickness reading only; retain the primary through holes.\",\"Undimensioned deburring and sharp-edge breaks.\"]}",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-026",
+                "D-026/drawing/n/250.0@1-1",
+                "D-026/drawing/n/15.0@1-1",
+                "D-026/drawing/n/25.0@1-1",
+                "D-026/drawing/n/105.0@1-1",
+                "D-026/drawing/callout/p1-2",
+                "D-026/drawing/n/10.0@1-1",
+                "D-026/drawing/n/15.4@1-1",
+                "D-026/drawing/general/edge_finish"
+              ],
+              "reason": "The supported circular template matches the main body directly, with source-linked possible thicknesses. The step conflict and unspecified finishing details are disclosed without blocking the independently supported body and through holes.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": false,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "c49d0f3afa9c4aad8ca302757e4f6723911b6e4a3a957198e4fbc5310fb5d8f6",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "39061fc46fd8575cec13c091ddbaee8b11e937c027acde8b116a91f4d9815af9"
+          },
+          {
+            "answer": {
+              "key": "cad_eligibility",
+              "state": "known",
+              "value_json": "{\"supported\":true,\"constant_thickness\":true,\"outline_exact\":true,\"reason\":\"The main face-on view establishes a circular Ø250,0 outer outline. The side-view thickness dimension carries stacked 25,0 and 15,0 readings, retained as unselected possible constant thicknesses under the supplied contract. The other views show no essential unsupported body contour. The counterbore-depth conflict requires a conditional omission without blocking the supported circular body.\",\"essential_uncertainty\":[\"The applicability of the stacked 15,0 and 25,0 thickness readings is unresolved; these possible readings do not prove discrete manufactured variants.\",\"The printed 15,4 counterbore depth exceeds the possible 15,0 thickness.\"],\"omitted_minor_features\":[\"For the 15,0 thickness reading, omit the three counterbore steps while retaining the independently supported primary through holes.\",\"Unspecified deburring and sharp-edge breaks are not modeled.\"]}",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-026",
+                "D-026/drawing/n/250.0@1-1",
+                "D-026/drawing/n/25.0@1-1",
+                "D-026/drawing/n/15.0@1-1",
+                "D-026/drawing/n/3.0@1-1",
+                "D-026/drawing/n/5.3@1-1",
+                "D-026/drawing/n/105.0@1-1",
+                "D-026/drawing/n/10.0@1-1",
+                "D-026/drawing/n/15.4@1-1",
+                "D-026/drawing/callout/p1-2",
+                "D-026/drawing/general/edge_finish"
+              ],
+              "reason": "The original main and side views support an exact circular main body with the documented possible thickness readings. The stepped-hole conflict is conditional on thickness and does not establish an unsupported essential contour.",
+              "changed_because": "Rechecked the original views and reissued only the six required eligibility-object fields. Removed the broader assertion that the complete hole layout was established from this eligibility assessment, added explicit numeric source IDs for the hole count and primary diameter, and retained the supported body conclusion with its thickness ambiguity and conditional step omission."
+            },
+            "valid": true,
+            "validation_passed": false,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "0cc1e429305a54856ac98701e1c2819b3ba84fbd8d69ba5a5320cca15b84d200",
+            "response_proposal_fingerprint": null,
+            "feedback": [
+              {
+                "key": "cad_eligibility",
+                "state": "invalid",
+                "previous_proposal": {
+                  "key": "cad_eligibility",
+                  "state": "known",
+                  "value_json": "{\"supported\":true,\"constant_thickness\":true,\"outline_exact\":true,\"reason\":\"The main face-on view establishes an exact Ø250,0 circular body. The side-view thickness dimension carries stacked 15,0 and 25,0 readings, retained as unselected possible constant thicknesses under the supplied contract. The three through holes and their circular placement are supported. The 15,4-deep counterbores are retained for the 25,0 reading and must be skipped for the conflicting 15,0 reading, yielding an explicitly partial reconstruction for that reading. No essential unsupported outer contour is shown.\",\"essential_uncertainty\":[\"The drawing does not resolve the applicability or intent of the stacked 15,0 and 25,0 thickness readings; they do not prove discrete manufactured variants.\",\"The printed 15,4 counterbore depth conflicts with the possible 15,0 plate thickness.\"],\"omitted_minor_features\":[\"Three counterbore steps for the 15,0 thickness reading only; retain the primary through holes.\",\"Undimensioned deburring and sharp-edge breaks.\"]}",
+                  "confidence": "sure",
+                  "fact_ids": [
+                    "D-026",
+                    "D-026/drawing/n/250.0@1-1",
+                    "D-026/drawing/n/15.0@1-1",
+                    "D-026/drawing/n/25.0@1-1",
+                    "D-026/drawing/n/105.0@1-1",
+                    "D-026/drawing/callout/p1-2",
+                    "D-026/drawing/n/10.0@1-1",
+                    "D-026/drawing/n/15.4@1-1",
+                    "D-026/drawing/general/edge_finish"
+                  ],
+                  "reason": "The supported circular template matches the main body directly, with source-linked possible thicknesses. The step conflict and unspecified finishing details are disclosed without blocking the independently supported body and through holes.",
+                  "changed_because": ""
+                },
+                "local_validation": "invalid: missing, duplicate, malformed, ungrounded, or unsupported proposal; obey original schema and source/numeric/geometry constraints",
+                "verification": {
+                  "key": "cad_eligibility",
+                  "decision": "reject",
+                  "reason": "The proposal packet marks this key as locally invalid (invalid_keys includes cad_eligibility), so it cannot be accepted as submitted. The underlying substance appears supported by the evidence: an exact Ø250,0 circular disc; constant-thickness possible readings 15,0 and 25,0 on one side-view dimension; three supported Ø5,3 through holes on R105,0; and the counterbore steps conditionally skipped for the 15,0 reading. The proposer should fix the local schema or validation defect in the eligibility object, keeping these supported facts, and resubmit.",
+                  "fact_ids": [
+                    "D-026",
+                    "D-026/drawing/n/250.0@1-1",
+                    "D-026/drawing/n/15.0@1-1",
+                    "D-026/drawing/n/25.0@1-1",
+                    "D-026/drawing/n/105.0@1-1",
+                    "D-026/drawing/callout/p1-2",
+                    "D-026/drawing/n/10.0@1-1",
+                    "D-026/drawing/n/15.4@1-1",
+                    "D-026/drawing/general/edge_finish"
+                  ],
+                  "repairable": true
+                }
+              }
+            ],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "40c7ef5c568d1ca83055f59aaee752490c0e7f90ec31a6f9f8a308a57aaa54bb"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "Waiting for review: invalid. The original drawing D-026 supports the proposed eligibility object. In the face-on main view, a single circular outer outline carries the leader dimension Ø250,0 (D-026/drawing/n/250.0@1-1). It has no notches, lobes or other outer contours, and the isometric view shows a plain flat disc, so a circle outline is exact rather than a bounding substitute. In the side view, the thickness dimension's extension lines and arrows sit on the two faces of the plate. That dimension prints stacked 25,0 / 15,0 (D-026/drawing/n/25.0@1-1, D-026/drawing/n/15.0@1-1) with no tolerance or limit label, so keeping them as unselected constant-thickness options follows the possible-reading contract. Datum A and the parallelism frame confirm a planar plate. The callout '3 x Ø 5,3 THRU ALL' with counterbore Ø 10,0, depth 15,4 (D-026/drawing/callout/p1-2, n/3.0@1-1, n/5.3@1-1, n/10.0@1-1, n/15.4@1-1) gives through-holes on the R105,0 circle (n/105.0@1-1). For the 15,0 reading, the 15,4 counterbore depth is larger than the thickness, which is an actual printed conflict. Treating that step as a conditional omission for that reading, while keeping the primary through-holes, does not affect whether the body is eligible. The unspecified deburr/edge-break note (D-026/drawing/general/edge_finish) is correctly left out of the model as a minor detail. supported=true, constant_thickness=true and outline_exact=true all follow from the original views. This decision accepts body eligibility only. It does not verify hole angular placement or the counterbore opening face, which belong to the features keys."
+  },
+  "feature_protocol": "supported-feature-subset-v1",
+  "features_complete": {
+    "state": "known",
+    "value": false,
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-026",
+      "D-026/drawing/n/15.4@1-1",
+      "D-026/drawing/n/15.0@1-1",
+      "D-026/drawing/general/edge_finish"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_complete",
+              "decision": "accept",
+              "reason": "false is correct. The counterbore steps must be skipped for the 15,0 thickness reading because the printed depth 15,4 exceeds it. The note DEBURR AND BREAK SHARP EDGES is not dimensioned. The omissions list is therefore not empty.",
+              "fact_ids": [
+                "D-026",
+                "D-026/drawing/n/15.4@1-1",
+                "D-026/drawing/n/15.0@1-1",
+                "D-026/drawing/general/edge_finish"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "c49d0f3afa9c4aad8ca302757e4f6723911b6e4a3a957198e4fbc5310fb5d8f6",
+            "response_proposal_fingerprint": "c49d0f3afa9c4aad8ca302757e4f6723911b6e4a3a957198e4fbc5310fb5d8f6",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "f66b6831dbd93fb9c2a8d38528eb9033f258580fadf7bdc1273d5139ed71d72c"
+          },
+          {
+            "answer": null,
+            "valid": true,
+            "validation_passed": null,
+            "contract_error": null,
+            "requested": false,
+            "proposal_fingerprint": "0cc1e429305a54856ac98701e1c2819b3ba84fbd8d69ba5a5320cca15b84d200",
+            "response_proposal_fingerprint": "0cc1e429305a54856ac98701e1c2819b3ba84fbd8d69ba5a5320cca15b84d200",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "d7cbf50e55a60ee959a25486692fba90335df675d2a3e85a4bf2d767dd4382f6"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_complete",
+              "state": "known",
+              "value_json": "false",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-026",
+                "D-026/drawing/n/15.4@1-1",
+                "D-026/drawing/n/15.0@1-1",
+                "D-026/drawing/general/edge_finish"
+              ],
+              "reason": "The counterbore steps cannot be retained for the 15,0 thickness reading, and the specified edge breaks have no dimensional definition.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "c49d0f3afa9c4aad8ca302757e4f6723911b6e4a3a957198e4fbc5310fb5d8f6",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "39061fc46fd8575cec13c091ddbaee8b11e937c027acde8b116a91f4d9815af9"
+          },
+          {
+            "answer": null,
+            "valid": true,
+            "validation_passed": null,
+            "contract_error": null,
+            "requested": false,
+            "proposal_fingerprint": "0cc1e429305a54856ac98701e1c2819b3ba84fbd8d69ba5a5320cca15b84d200",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "40c7ef5c568d1ca83055f59aaee752490c0e7f90ec31a6f9f8a308a57aaa54bb"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The counterbore steps cannot be retained for the 15,0 thickness reading, and the specified edge breaks have no dimensional definition. Verification: false is correct. The counterbore steps must be skipped for the 15,0 thickness reading because the printed depth 15,4 exceeds it. The note DEBURR AND BREAK SHARP EDGES is not dimensioned. The omissions list is therefore not empty."
+  },
+  "features_omitted": {
+    "state": "known",
+    "value": [
+      {
+        "description": "Three Ø10,0 counterbore steps, 15,4 deep, for the 15,0 mm thickness reading only.",
+        "reason": "The printed step depth exceeds this possible plate thickness. Preserve the Ø5,3 through holes, skip these steps for this reading, and report the conflict. The steps remain supported for the 25,0 mm reading.",
+        "fact_ids": [
+          "D-026",
+          "D-026/drawing/n/3.0@1-1",
+          "D-026/drawing/n/5.3@1-1",
+          "D-026/drawing/n/10.0@1-1",
+          "D-026/drawing/n/15.4@1-1",
+          "D-026/drawing/n/15.0@1-1",
+          "D-026/drawing/n/25.0@1-1"
+        ]
+      },
+      {
+        "description": "Deburring and sharp-edge breaks.",
+        "reason": "The note DEBURR AND BREAK SHARP EDGES gives no size or profile. No chamfer or rounding geometry can be assigned from this note.",
+        "fact_ids": [
+          "D-026/drawing/general/edge_finish"
+        ]
+      }
+    ],
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-026",
+      "D-026/drawing/n/3.0@1-1",
+      "D-026/drawing/n/5.3@1-1",
+      "D-026/drawing/n/10.0@1-1",
+      "D-026/drawing/n/15.4@1-1",
+      "D-026/drawing/n/15.0@1-1",
+      "D-026/drawing/n/25.0@1-1",
+      "D-026/drawing/general/edge_finish"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_omitted",
+              "decision": "accept",
+              "reason": "The two omissions match the evidence: (1) the Ø10,0 × 15,4 counterbore steps for the 15,0 reading only, because the printed depth exceeds that thickness; (2) the undimensioned deburr and edge-break note. A check of the side, main and isometric views found no other holes, slots, notches, chamfers or recesses.",
+              "fact_ids": [
+                "D-026",
+                "D-026/drawing/n/3.0@1-1",
+                "D-026/drawing/n/5.3@1-1",
+                "D-026/drawing/n/10.0@1-1",
+                "D-026/drawing/n/15.4@1-1",
+                "D-026/drawing/n/15.0@1-1",
+                "D-026/drawing/n/25.0@1-1",
+                "D-026/drawing/general/edge_finish"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "c49d0f3afa9c4aad8ca302757e4f6723911b6e4a3a957198e4fbc5310fb5d8f6",
+            "response_proposal_fingerprint": "c49d0f3afa9c4aad8ca302757e4f6723911b6e4a3a957198e4fbc5310fb5d8f6",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "f66b6831dbd93fb9c2a8d38528eb9033f258580fadf7bdc1273d5139ed71d72c"
+          },
+          {
+            "answer": null,
+            "valid": true,
+            "validation_passed": null,
+            "contract_error": null,
+            "requested": false,
+            "proposal_fingerprint": "0cc1e429305a54856ac98701e1c2819b3ba84fbd8d69ba5a5320cca15b84d200",
+            "response_proposal_fingerprint": "0cc1e429305a54856ac98701e1c2819b3ba84fbd8d69ba5a5320cca15b84d200",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "d7cbf50e55a60ee959a25486692fba90335df675d2a3e85a4bf2d767dd4382f6"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_omitted",
+              "state": "known",
+              "value_json": "[{\"description\":\"Three Ø10,0 counterbore steps, 15,4 deep, for the 15,0 mm thickness reading only.\",\"reason\":\"The printed step depth exceeds this possible plate thickness. Preserve the Ø5,3 through holes, skip these steps for this reading, and report the conflict. The steps remain supported for the 25,0 mm reading.\",\"fact_ids\":[\"D-026\",\"D-026/drawing/n/3.0@1-1\",\"D-026/drawing/n/5.3@1-1\",\"D-026/drawing/n/10.0@1-1\",\"D-026/drawing/n/15.4@1-1\",\"D-026/drawing/n/15.0@1-1\",\"D-026/drawing/n/25.0@1-1\"]},{\"description\":\"Deburring and sharp-edge breaks.\",\"reason\":\"The note DEBURR AND BREAK SHARP EDGES gives no size or profile. No chamfer or rounding geometry can be assigned from this note.\",\"fact_ids\":[\"D-026/drawing/general/edge_finish\"]}]",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-026",
+                "D-026/drawing/n/3.0@1-1",
+                "D-026/drawing/n/5.3@1-1",
+                "D-026/drawing/n/10.0@1-1",
+                "D-026/drawing/n/15.4@1-1",
+                "D-026/drawing/n/15.0@1-1",
+                "D-026/drawing/n/25.0@1-1",
+                "D-026/drawing/general/edge_finish"
+              ],
+              "reason": "The omissions distinguish the explicit depth/thickness conflict from the undimensioned finishing instruction. No other cuts are visible in the supplied views.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "c49d0f3afa9c4aad8ca302757e4f6723911b6e4a3a957198e4fbc5310fb5d8f6",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "39061fc46fd8575cec13c091ddbaee8b11e937c027acde8b116a91f4d9815af9"
+          },
+          {
+            "answer": null,
+            "valid": true,
+            "validation_passed": null,
+            "contract_error": null,
+            "requested": false,
+            "proposal_fingerprint": "0cc1e429305a54856ac98701e1c2819b3ba84fbd8d69ba5a5320cca15b84d200",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "40c7ef5c568d1ca83055f59aaee752490c0e7f90ec31a6f9f8a308a57aaa54bb"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The omissions distinguish the explicit depth/thickness conflict from the undimensioned finishing instruction. No other cuts are visible in the supplied views. Verification: The two omissions match the evidence: (1) the Ø10,0 × 15,4 counterbore steps for the 15,0 reading only, because the printed depth exceeds that thickness; (2) the undimensioned deburr and edge-break note. A check of the side, main and isometric views found no other holes, slots, notches, chamfers or recesses."
+  },
+  "features_all_determined": false,
+  "features_status": "partial",
+  "omitted_feature_notes": [
+    "Three Ø10,0 counterbore steps, 15,4 deep, for the 15,0 mm thickness reading only.: The printed step depth exceeds this possible plate thickness. Preserve the Ø5,3 through holes, skip these steps for this reading, and report the conflict. The steps remain supported for the 25,0 mm reading.",
+    "Deburring and sharp-edge breaks.: The note DEBURR AND BREAK SHARP EDGES gives no size or profile. No chamfer or rounding geometry can be assigned from this note."
+  ],
+  "review": {
+    "status": "not_reviewed"
+  },
+  "source_sha256": "a7ee7f4d75acaf2e8fc67ce14ca223d5cb4a2931063f37f4dfb6fadeeb70256e",
+  "expansion_protocol": "flat-part-expansion-v1"
+}

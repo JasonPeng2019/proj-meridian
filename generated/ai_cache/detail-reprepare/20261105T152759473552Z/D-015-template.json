@@ -1,0 +1,696 @@
+{
+  "part": "D-015",
+  "template": "flat_part",
+  "outline": {
+    "state": "known",
+    "type": "rectangle",
+    "length": {
+      "state": "known",
+      "value": 270,
+      "confidence": "sure",
+      "method": "ai_verified",
+      "fact_ids": [
+        "D-015/drawing/n/270.0@1-1"
+      ],
+      "readers": {
+        "claude": {
+          "role": "verifier",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "length",
+                "decision": "accept",
+                "reason": "The horizontal dimension 270,0 (D-015/drawing/n/270.0@1-1) has extension lines to the left and right ends of the rectangle in the main view, so it is the overall X length. The drawing note gives millimetres (D-015/drawing/general/units).",
+                "fact_ids": [
+                  "D-015/drawing/n/270.0@1-1",
+                  "D-015/drawing/general/units"
+                ],
+                "repairable": false
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "ed9dd703fc09d30fee65194e5f895fbdc9456235494f3dd4d3ec32c5bc6b949d",
+              "response_proposal_fingerprint": "ed9dd703fc09d30fee65194e5f895fbdc9456235494f3dd4d3ec32c5bc6b949d",
+              "feedback": [],
+              "settings": {
+                "model": "opus",
+                "fast_mode": false,
+                "mode": "regular",
+                "reader": "claude"
+              },
+              "cache_key": "9362d182c6ecb595ca5919ffeb9a2cd9b8d0e77373993a48b3755e9fbe2c59b4"
+            }
+          ]
+        },
+        "codex": {
+          "role": "proposer",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "length",
+                "state": "known",
+                "value_json": "270",
+                "confidence": "sure",
+                "fact_ids": [
+                  "D-015/drawing/n/270.0@1-1"
+                ],
+                "reason": "The 270,0 dimension spans the full rectangular outline along X. Dimensions are in millimetres.",
+                "changed_because": ""
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "ed9dd703fc09d30fee65194e5f895fbdc9456235494f3dd4d3ec32c5bc6b949d",
+              "response_proposal_fingerprint": null,
+              "feedback": [],
+              "settings": {
+                "model": "gpt-6.1-sol",
+                "reasoning_effort": "xhigh",
+                "service_tier": "fast",
+                "reader": "codex"
+              },
+              "cache_key": "9e946c2b301906743b54afee849095a45fd1a5d605baa184b9df2a7293b54ec3"
+            }
+          ]
+        }
+      },
+      "review": {
+        "status": "not_reviewed"
+      },
+      "note": "The 270,0 dimension spans the full rectangular outline along X. Dimensions are in millimetres. Verification: The horizontal dimension 270,0 (D-015/drawing/n/270.0@1-1) has extension lines to the left and right ends of the rectangle in the main view, so it is the overall X length. The drawing note gives millimetres (D-015/drawing/general/units)."
+    },
+    "width": {
+      "state": "known",
+      "value": 14,
+      "confidence": "sure",
+      "method": "ai_verified",
+      "fact_ids": [
+        "D-015/drawing/n/14.0@1-1"
+      ],
+      "readers": {
+        "claude": {
+          "role": "verifier",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "width",
+                "decision": "accept",
+                "reason": "The vertical dimension 14,0 (D-015/drawing/n/14.0@1-1) has arrows to the top and bottom edges of the rectangle on its right side, so it is the overall Y width in mm.",
+                "fact_ids": [
+                  "D-015/drawing/n/14.0@1-1",
+                  "D-015/drawing/general/units"
+                ],
+                "repairable": false
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "ed9dd703fc09d30fee65194e5f895fbdc9456235494f3dd4d3ec32c5bc6b949d",
+              "response_proposal_fingerprint": "ed9dd703fc09d30fee65194e5f895fbdc9456235494f3dd4d3ec32c5bc6b949d",
+              "feedback": [],
+              "settings": {
+                "model": "opus",
+                "fast_mode": false,
+                "mode": "regular",
+                "reader": "claude"
+              },
+              "cache_key": "9362d182c6ecb595ca5919ffeb9a2cd9b8d0e77373993a48b3755e9fbe2c59b4"
+            }
+          ]
+        },
+        "codex": {
+          "role": "proposer",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "width",
+                "state": "known",
+                "value_json": "14",
+                "confidence": "sure",
+                "fact_ids": [
+                  "D-015/drawing/n/14.0@1-1"
+                ],
+                "reason": "The 14,0 dimension spans the full rectangular outline along Y.",
+                "changed_because": ""
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "ed9dd703fc09d30fee65194e5f895fbdc9456235494f3dd4d3ec32c5bc6b949d",
+              "response_proposal_fingerprint": null,
+              "feedback": [],
+              "settings": {
+                "model": "gpt-6.1-sol",
+                "reasoning_effort": "xhigh",
+                "service_tier": "fast",
+                "reader": "codex"
+              },
+              "cache_key": "9e946c2b301906743b54afee849095a45fd1a5d605baa184b9df2a7293b54ec3"
+            }
+          ]
+        }
+      },
+      "review": {
+        "status": "not_reviewed"
+      },
+      "note": "The 14,0 dimension spans the full rectangular outline along Y. Verification: The vertical dimension 14,0 (D-015/drawing/n/14.0@1-1) has arrows to the top and bottom edges of the rectangle on its right side, so it is the overall Y width in mm."
+    }
+  },
+  "thickness": {
+    "state": "known",
+    "value": 1,
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-015/drawing/n/1.0@1-1",
+      "D-015/drawing/notes"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "thickness",
+              "decision": "accept",
+              "reason": "The 1,0 dimension (D-015/drawing/n/1.0@1-1) has arrows on both faces of the thin edge-on view at the left, so it is a single constant thickness of 1 mm. The note 'Silikone Wiper af 1mm silikone plade' (D-015/drawing/notes) agrees. No alternative thicknesses are printed.",
+              "fact_ids": [
+                "D-015/drawing/n/1.0@1-1",
+                "D-015/drawing/notes"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "ed9dd703fc09d30fee65194e5f895fbdc9456235494f3dd4d3ec32c5bc6b949d",
+            "response_proposal_fingerprint": "ed9dd703fc09d30fee65194e5f895fbdc9456235494f3dd4d3ec32c5bc6b949d",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "9362d182c6ecb595ca5919ffeb9a2cd9b8d0e77373993a48b3755e9fbe2c59b4"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "thickness",
+              "state": "known",
+              "value_json": "1",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-015/drawing/n/1.0@1-1",
+                "D-015/drawing/notes"
+              ],
+              "reason": "The left edge-on view directly dimensions the thickness as 1,0. The note also specifies 1mm silicone sheet.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "ed9dd703fc09d30fee65194e5f895fbdc9456235494f3dd4d3ec32c5bc6b949d",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "9e946c2b301906743b54afee849095a45fd1a5d605baa184b9df2a7293b54ec3"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The left edge-on view directly dimensions the thickness as 1,0. The note also specifies 1mm silicone sheet. Verification: The 1,0 dimension (D-015/drawing/n/1.0@1-1) has arrows on both faces of the thin edge-on view at the left, so it is a single constant thickness of 1 mm. The note 'Silikone Wiper af 1mm silikone plade' (D-015/drawing/notes) agrees. No alternative thicknesses are printed."
+  },
+  "features": [],
+  "features_review": {
+    "state": "known",
+    "value": [],
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-015",
+      "D-015/drawing/callout/p1-1"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features",
+              "decision": "accept",
+              "reason": "The callout '8 x Ø 3,4 THRU ALL' (D-015/drawing/callout/p1-1) gives the hole count and diameter. However, the main view of D-015 prints no hole pitch, end offset or Y position for the holes; the only dimensions are 270,0, 14,0 and 1,0. The holes appear to sit on a centerline and look evenly spaced, but no printed pitch or offset supports a pattern interpretation. An empty supported subset (known []) is therefore correct.",
+              "fact_ids": [
+                "D-015",
+                "D-015/drawing/callout/p1-1"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "ed9dd703fc09d30fee65194e5f895fbdc9456235494f3dd4d3ec32c5bc6b949d",
+            "response_proposal_fingerprint": "ed9dd703fc09d30fee65194e5f895fbdc9456235494f3dd4d3ec32c5bc6b949d",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "9362d182c6ecb595ca5919ffeb9a2cd9b8d0e77373993a48b3755e9fbe2c59b4"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features",
+              "state": "known",
+              "value_json": "[]",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-015",
+                "D-015/drawing/callout/p1-1"
+              ],
+              "reason": "Eight Ø 3,4 through-holes are established, but their complete center locations are not dimensioned. No cut has sufficiently supported placement to emit.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "ed9dd703fc09d30fee65194e5f895fbdc9456235494f3dd4d3ec32c5bc6b949d",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "9e946c2b301906743b54afee849095a45fd1a5d605baa184b9df2a7293b54ec3"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "Eight Ø 3,4 through-holes are established, but their complete center locations are not dimensioned. No cut has sufficiently supported placement to emit. Verification: The callout '8 x Ø 3,4 THRU ALL' (D-015/drawing/callout/p1-1) gives the hole count and diameter. However, the main view of D-015 prints no hole pitch, end offset or Y position for the holes; the only dimensions are 270,0, 14,0 and 1,0. The holes appear to sit on a centerline and look evenly spaced, but no printed pitch or offset supports a pattern interpretation. An empty supported subset (known []) is therefore correct."
+  },
+  "material": {
+    "name": "D-015/drawing/material",
+    "original": "Silicon Rubber",
+    "value": "Silicon Rubber",
+    "confidence": "sure",
+    "method": "parsed",
+    "page": 1,
+    "box": [
+      745.28,
+      771.048,
+      135.0,
+      14.0
+    ],
+    "field_box": [
+      784.28,
+      771.048,
+      96.0,
+      14.0
+    ],
+    "label_box": [
+      745.28,
+      772.048,
+      38.539,
+      10.936
+    ]
+  },
+  "weight_on_drawing": {
+    "name": "D-015/drawing/weight_g",
+    "original": "4.6",
+    "value": 4.6,
+    "confidence": "sure",
+    "method": "parsed",
+    "page": 1,
+    "box": [
+      880.717,
+      771.048,
+      93.0,
+      14.0
+    ],
+    "field_box": [
+      924.717,
+      771.048,
+      49.0,
+      14.0
+    ],
+    "label_box": [
+      880.717,
+      772.048,
+      28.747,
+      10.936
+    ]
+  },
+  "cad_ready": true,
+  "blocking_fields": [],
+  "cad_eligibility": {
+    "state": "known",
+    "value": {
+      "supported": true,
+      "constant_thickness": true,
+      "outline_exact": true,
+      "reason": "The main face-on view directly dimensions a 270,0 by 14,0 rectangular body, and the left edge-on view directly dimensions its uniform 1,0 thickness. The supported template can represent this main solid. Reconstruction is partial: the eight functional through-holes cannot be located from supplied dimensions, and the unspecified edge breaks cannot be reproduced. A blank body does not fully reconstruct the perforated wiper.",
+      "essential_uncertainty": [],
+      "omitted_minor_features": [
+        "Eight Ø 3,4 through-holes: pitch, end offsets and transverse center locations are not dimensioned.",
+        "DEBURR AND BREAK SHARP EDGES: edge-break geometry is unspecified."
+      ]
+    },
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-015",
+      "D-015/drawing/n/270.0@1-1",
+      "D-015/drawing/n/14.0@1-1",
+      "D-015/drawing/n/1.0@1-1",
+      "D-015/drawing/callout/p1-1",
+      "D-015/drawing/general/edge_finish"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "cad_eligibility",
+              "decision": "accept",
+              "reason": "The main view dimensions a plain 270,0 x 14,0 rectangle, and the edge-on view dimensions a constant 1,0 thickness. The template supports this solid, so supported=true, constant_thickness=true and outline_exact=true are justified. The reason field clearly calls the reconstruction partial and names the unplaceable functional through-holes and the unspecified edge breaks. Under the rules, uncertainty about these holes must not block the main solid. There is no essential uncertainty in the outline or thickness.",
+              "fact_ids": [
+                "D-015",
+                "D-015/drawing/n/270.0@1-1",
+                "D-015/drawing/n/14.0@1-1",
+                "D-015/drawing/n/1.0@1-1",
+                "D-015/drawing/callout/p1-1",
+                "D-015/drawing/general/edge_finish"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "ed9dd703fc09d30fee65194e5f895fbdc9456235494f3dd4d3ec32c5bc6b949d",
+            "response_proposal_fingerprint": "ed9dd703fc09d30fee65194e5f895fbdc9456235494f3dd4d3ec32c5bc6b949d",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "9362d182c6ecb595ca5919ffeb9a2cd9b8d0e77373993a48b3755e9fbe2c59b4"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "cad_eligibility",
+              "state": "known",
+              "value_json": "{\"supported\":true,\"constant_thickness\":true,\"outline_exact\":true,\"reason\":\"The main face-on view directly dimensions a 270,0 by 14,0 rectangular body, and the left edge-on view directly dimensions its uniform 1,0 thickness. The supported template can represent this main solid. Reconstruction is partial: the eight functional through-holes cannot be located from supplied dimensions, and the unspecified edge breaks cannot be reproduced. A blank body does not fully reconstruct the perforated wiper.\",\"essential_uncertainty\":[],\"omitted_minor_features\":[\"Eight Ø 3,4 through-holes: pitch, end offsets and transverse center locations are not dimensioned.\",\"DEBURR AND BREAK SHARP EDGES: edge-break geometry is unspecified.\"]}",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-015",
+                "D-015/drawing/n/270.0@1-1",
+                "D-015/drawing/n/14.0@1-1",
+                "D-015/drawing/n/1.0@1-1",
+                "D-015/drawing/callout/p1-1",
+                "D-015/drawing/general/edge_finish"
+              ],
+              "reason": "The rectangular main body and constant thickness are directly dimensioned and supported. Missing hole placements require explicit omissions rather than blocking the main solid or inventing a layout.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "ed9dd703fc09d30fee65194e5f895fbdc9456235494f3dd4d3ec32c5bc6b949d",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "9e946c2b301906743b54afee849095a45fd1a5d605baa184b9df2a7293b54ec3"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The rectangular main body and constant thickness are directly dimensioned and supported. Missing hole placements require explicit omissions rather than blocking the main solid or inventing a layout. Verification: The main view dimensions a plain 270,0 x 14,0 rectangle, and the edge-on view dimensions a constant 1,0 thickness. The template supports this solid, so supported=true, constant_thickness=true and outline_exact=true are justified. The reason field clearly calls the reconstruction partial and names the unplaceable functional through-holes and the unspecified edge breaks. Under the rules, uncertainty about these holes must not block the main solid. There is no essential uncertainty in the outline or thickness."
+  },
+  "feature_protocol": "supported-feature-subset-v1",
+  "features_complete": {
+    "state": "known",
+    "value": false,
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-015",
+      "D-015/drawing/callout/p1-1",
+      "D-015/drawing/general/edge_finish"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_complete",
+              "decision": "accept",
+              "reason": "The eight visible Ø3,4 through-holes (D-015/drawing/callout/p1-1) cannot be placed, so they are omitted. That makes the feature inventory incomplete, and false is correct.",
+              "fact_ids": [
+                "D-015",
+                "D-015/drawing/callout/p1-1"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "ed9dd703fc09d30fee65194e5f895fbdc9456235494f3dd4d3ec32c5bc6b949d",
+            "response_proposal_fingerprint": "ed9dd703fc09d30fee65194e5f895fbdc9456235494f3dd4d3ec32c5bc6b949d",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "9362d182c6ecb595ca5919ffeb9a2cd9b8d0e77373993a48b3755e9fbe2c59b4"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_complete",
+              "state": "known",
+              "value_json": "false",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-015",
+                "D-015/drawing/callout/p1-1",
+                "D-015/drawing/general/edge_finish"
+              ],
+              "reason": "All eight visible through-holes and the unspecified edge breaks are omitted.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "ed9dd703fc09d30fee65194e5f895fbdc9456235494f3dd4d3ec32c5bc6b949d",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "9e946c2b301906743b54afee849095a45fd1a5d605baa184b9df2a7293b54ec3"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "All eight visible through-holes and the unspecified edge breaks are omitted. Verification: The eight visible Ø3,4 through-holes (D-015/drawing/callout/p1-1) cannot be placed, so they are omitted. That makes the feature inventory incomplete, and false is correct."
+  },
+  "features_omitted": {
+    "state": "known",
+    "value": [
+      {
+        "description": "8 x Ø 3,4 THRU ALL holes",
+        "reason": "The printed callout establishes eight through-holes of diameter 3,4 mm. Neither hole pitch, end offsets nor transverse center locations are dimensioned. The visible row alone cannot establish numeric placement, equal spacing or centering; no hole coordinates can be emitted.",
+        "fact_ids": [
+          "D-015",
+          "D-015/drawing/callout/p1-1",
+          "D-015/drawing/n/8.0@1-1",
+          "D-015/drawing/n/3.4@1-1"
+        ]
+      },
+      {
+        "description": "DEBURR AND BREAK SHARP EDGES",
+        "reason": "The general finishing instruction supplies no edge-break size, angle or specific geometry. An arbitrary chamfer cannot be modeled.",
+        "fact_ids": [
+          "D-015/drawing/general/edge_finish"
+        ]
+      }
+    ],
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-015",
+      "D-015/drawing/callout/p1-1",
+      "D-015/drawing/n/8.0@1-1",
+      "D-015/drawing/n/3.4@1-1",
+      "D-015/drawing/general/edge_finish"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_omitted",
+              "decision": "accept",
+              "reason": "The first omission covers the 8 x Ø3,4 THRU ALL holes. It correctly says the count and diameter are printed but the pitch, end offsets and Y positions are not. The second omission covers 'DEBURR AND BREAK SHARP EDGES' (D-015/drawing/general/edge_finish), which gives no size. Both reasons are accurate and both cite exact source IDs. The drawing shows no other features.",
+              "fact_ids": [
+                "D-015",
+                "D-015/drawing/callout/p1-1",
+                "D-015/drawing/n/8.0@1-1",
+                "D-015/drawing/n/3.4@1-1",
+                "D-015/drawing/general/edge_finish"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "ed9dd703fc09d30fee65194e5f895fbdc9456235494f3dd4d3ec32c5bc6b949d",
+            "response_proposal_fingerprint": "ed9dd703fc09d30fee65194e5f895fbdc9456235494f3dd4d3ec32c5bc6b949d",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "9362d182c6ecb595ca5919ffeb9a2cd9b8d0e77373993a48b3755e9fbe2c59b4"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_omitted",
+              "state": "known",
+              "value_json": "[{\"description\":\"8 x Ø 3,4 THRU ALL holes\",\"reason\":\"The printed callout establishes eight through-holes of diameter 3,4 mm. Neither hole pitch, end offsets nor transverse center locations are dimensioned. The visible row alone cannot establish numeric placement, equal spacing or centering; no hole coordinates can be emitted.\",\"fact_ids\":[\"D-015\",\"D-015/drawing/callout/p1-1\",\"D-015/drawing/n/8.0@1-1\",\"D-015/drawing/n/3.4@1-1\"]},{\"description\":\"DEBURR AND BREAK SHARP EDGES\",\"reason\":\"The general finishing instruction supplies no edge-break size, angle or specific geometry. An arbitrary chamfer cannot be modeled.\",\"fact_ids\":[\"D-015/drawing/general/edge_finish\"]}]",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-015",
+                "D-015/drawing/callout/p1-1",
+                "D-015/drawing/n/8.0@1-1",
+                "D-015/drawing/n/3.4@1-1",
+                "D-015/drawing/general/edge_finish"
+              ],
+              "reason": "The original views establish eight plain through-holes without dimensioned placement, plus an unspecified edge-break instruction.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "ed9dd703fc09d30fee65194e5f895fbdc9456235494f3dd4d3ec32c5bc6b949d",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "9e946c2b301906743b54afee849095a45fd1a5d605baa184b9df2a7293b54ec3"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The original views establish eight plain through-holes without dimensioned placement, plus an unspecified edge-break instruction. Verification: The first omission covers the 8 x Ø3,4 THRU ALL holes. It correctly says the count and diameter are printed but the pitch, end offsets and Y positions are not. The second omission covers 'DEBURR AND BREAK SHARP EDGES' (D-015/drawing/general/edge_finish), which gives no size. Both reasons are accurate and both cite exact source IDs. The drawing shows no other features."
+  },
+  "features_all_determined": false,
+  "features_status": "partial",
+  "omitted_feature_notes": [
+    "8 x Ø 3,4 THRU ALL holes: The printed callout establishes eight through-holes of diameter 3,4 mm. Neither hole pitch, end offsets nor transverse center locations are dimensioned. The visible row alone cannot establish numeric placement, equal spacing or centering; no hole coordinates can be emitted.",
+    "DEBURR AND BREAK SHARP EDGES: The general finishing instruction supplies no edge-break size, angle or specific geometry. An arbitrary chamfer cannot be modeled."
+  ],
+  "review": {
+    "status": "not_reviewed"
+  },
+  "source_sha256": "0828f6fee0d3bc087524df08c8b3fbadc5201212e5f86fcfc08b984fe9e32c60",
+  "expansion_protocol": "flat-part-expansion-v1"
+}

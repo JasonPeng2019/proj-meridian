@@ -1,0 +1,45 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "page_1",
+        "state": "known",
+        "value_json": "[{\"text\":\"R3,0\",\"token\":\"3,0\",\"value\":3,\"unit\":\"mm\",\"box\":[648.2,215.3,30.1,27.5]},{\"text\":\"20,0\",\"token\":\"20,0\",\"value\":20,\"unit\":\"mm\",\"box\":[762.8,221.0,32.6,14.4]},{\"text\":\"40,0\",\"token\":\"40,0\",\"value\":40,\"unit\":\"mm\",\"box\":[652.6,244.7,15.7,30.7]},{\"text\":\"Ø297,0\",\"token\":\"297,0\",\"value\":297,\"unit\":\"mm\",\"box\":[402.1,266.7,48.8,15.0]},{\"text\":\"270,0\",\"token\":\"270,0\",\"value\":270,\"unit\":\"mm\",\"box\":[480.4,267.9,38.2,14.4]},{\"text\":\"10,0 +0,05 0,00\",\"token\":\"10,0\",\"value\":10,\"unit\":\"mm\",\"box\":[854.2,301.1,67.0,27.5]},{\"text\":\"10,0 +0,05 0,00\",\"token\":\"+0,05\",\"value\":0.05,\"unit\":\"mm\",\"box\":[854.2,301.1,67.0,27.5]},{\"text\":\"10,0 +0,05 0,00\",\"token\":\"0,00\",\"value\":0,\"unit\":\"mm\",\"box\":[854.2,301.1,67.0,27.5]},{\"text\":\"255,5\",\"token\":\"255,5\",\"value\":255.5,\"unit\":\"mm\",\"box\":[670.1,317.4,15.0,37.6]},{\"text\":\"Ø252,0\",\"token\":\"252,0\",\"value\":252,\"unit\":\"mm\",\"box\":[765.3,349.3,17.5,49.5]},{\"text\":\"775,0\",\"token\":\"775,0\",\"value\":775,\"unit\":\"mm\",\"box\":[375.1,354.3,15.7,34.4]},{\"text\":\"Ø262,0 H8 +0,081 0,000\",\"token\":\"262,0\",\"value\":262,\"unit\":\"mm\",\"box\":[840.5,363.1,114.0,28.8]},{\"text\":\"Ø262,0 H8 +0,081 0,000\",\"token\":\"8\",\"value\":8,\"unit\":\"unitless\",\"box\":[840.5,363.1,114.0,28.8]},{\"text\":\"Ø262,0 H8 +0,081 0,000\",\"token\":\"+0,081\",\"value\":0.081,\"unit\":\"mm\",\"box\":[840.5,363.1,114.0,28.8]},{\"text\":\"Ø262,0 H8 +0,081 0,000\",\"token\":\"0,000\",\"value\":0,\"unit\":\"mm\",\"box\":[840.5,363.1,114.0,28.8]},{\"text\":\"250,0\",\"token\":\"250,0\",\"value\":250,\"unit\":\"mm\",\"box\":[693.9,392.5,15.7,35.7]},{\"text\":\"60°\",\"token\":\"60\",\"value\":60,\"unit\":\"deg\",\"box\":[438.4,424.4,21.9,23.8]},{\"text\":\"40,0\",\"token\":\"40,0\",\"value\":40,\"unit\":\"mm\",\"box\":[653.2,470.7,15.0,30.7]},{\"text\":\"270,0\",\"token\":\"270,0\",\"value\":270,\"unit\":\"mm\",\"box\":[535.5,511.4,35.1,14.4]},{\"text\":\"600,0\",\"token\":\"600,0\",\"value\":600,\"unit\":\"mm\",\"box\":[534.8,533.9,37.6,14.4]},{\"text\":\"3,0 X 45°\",\"token\":\"3,0\",\"value\":3,\"unit\":\"mm\",\"box\":[338.2,590.3,57.6,26.9]},{\"text\":\"3,0 X 45°\",\"token\":\"45\",\"value\":45,\"unit\":\"deg\",\"box\":[338.2,590.3,57.6,26.9]},{\"text\":\"20mm thick aluminium plate.\",\"token\":\"20\",\"value\":20,\"unit\":\"mm\",\"box\":[737.1,692.3,187.3,15.6]}]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-003/drawing/source"
+        ],
+        "reason": "Readable evidence includes 600,0 and 775,0 overall dimensions; both 270,0 and 40,0 labels; 255,5 and 250,0 offsets; Ø297,0, Ø252,0 and Ø262,0; section thickness and tolerances; H8 fit grade; R3,0; 60°; the 3,0 X 45° detail; and the 20mm plate note. No additional small-hole sizes or counts are confidently readable, and none were inferred. Unreadable characters were not reconstructed; title-block identifiers, scales and page numbers were excluded.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 17621,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 5863,
+          "reasoning_output_tokens": 4655
+        }
+      }
+    ]
+  },
+  "latency_ms": 132750,
+  "cache_key": "3b7c39ddb5f22798cd809ad9fb280c5bb6d0d3b5c4f01ab0dea34a90beba6853",
+  "cache_hit": false,
+  "job": "dimensions:D-003:printed-image-dimensions-v1:page_1:proposal-verification-v1:proposal:0",
+  "error": null
+}

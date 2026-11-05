@@ -1,0 +1,77 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "a1696da79260de05d4c9014c7f5f63b238d4ab04d5dc35cbc3117fbd84906474",
+    "items": [
+      {
+        "key": "thickness",
+        "decision": "needs_input",
+        "reason": "The proposal's unknown/null state matches the evidence. The original drawing (D-002) has no dimension, with a leader or extension lines, that measures sheet thickness. The only parsed numbers are 775,00, 578,90, 36,00, 286,00 and 23,00, plus the callout counts and diameters. In the side view, 23,00 (D-002/drawing/n/23.0@1-1) measures the flange depth, not the sheet thickness. The '2mm' only appears inside the free-text NOTES field (D-002/drawing/notes: 'Left Wall / 2mm non-magnetic stainless'). That is a material/stock description, not a dimension tied to the geometry, and the protocol forbids taking thickness from material or stock notes. The views also show a bent sheet-metal wall with flanges on the sides and bottom, so it is not a single flat plate. Because essential thickness is unknown/null, the verdict must be needs_input rather than accept. A further proposal cannot fix this from the existing evidence. It would need a dimensioned thickness or a human decision.",
+        "fact_ids": [
+          "D-002/drawing/notes",
+          "D-002/drawing/n/23.0@1-1",
+          "D-002"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 17670,
+      "cache_read_input_tokens": 14129,
+      "output_tokens": 917,
+      "output_tokens_details": {
+        "thinking_tokens": 231
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 17670,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 917,
+        "cacheReadInputTokens": 14129,
+        "cacheCreationInputTokens": 17670,
+        "webSearchRequests": 0,
+        "costUSD": 0.1625418,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 231,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 17670,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.1625418,
+    "duration_ms": 9715,
+    "is_error": false
+  },
+  "latency_ms": 10891,
+  "cache_key": "c81472e0d9f9113b9d68c6ec84fe70836132b21444cbdd40d3ffebc750edc21d",
+  "cache_hit": false,
+  "job": "detail:D-002:drawing-detail-reprepare-v2:proposal-verification-v1:verification:1",
+  "error": null
+}

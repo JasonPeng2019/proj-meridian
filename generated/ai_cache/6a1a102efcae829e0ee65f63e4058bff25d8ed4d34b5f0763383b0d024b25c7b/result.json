@@ -1,0 +1,81 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "02e5acdc6e4a265685ee1e25e7641500d10cc27390c38c843fcf9397ff54de49",
+    "items": [
+      {
+        "key": "cad_eligibility",
+        "decision": "accept",
+        "reason": "The original D-026 sheet shows the face view as a plain circular outline (Ø250,0 callout, D-026/drawing/n/250.0@1-1). It has no lobes, flats, notches or custom contour. The side view is a simple rectangle with parallel faces and uniform width along the whole height. The isometric view shows a flat disc of constant thickness. The only thickness callouts are the stacked printed alternatives 25,0 / 15,0 (D-026/drawing/n/25.0@1-1, D-026/drawing/n/15.0@1-1). The contract explicitly allows printed thickness alternatives, so the body is still a constant-thickness extrusion. The 3x Ø5,3 THRU ALL counterbored holes on R105,0 are cut features. The capabilities state that cut changes do not expand the base-body contract, so they do not stop routing. No bends, steps, grooves or assembled geometry appear. This matches the supported circle outline with supported=true, constant_thickness=true and outline_exact=true. Leaving essential_uncertainty empty is justified.",
+        "fact_ids": [
+          "D-026",
+          "D-026/drawing/n/250.0@1-1",
+          "D-026/drawing/n/25.0@1-1",
+          "D-026/drawing/n/15.0@1-1",
+          "D-026/drawing/n/105.0@1-1",
+          "D-026/drawing/callout/p1-1",
+          "D-026/drawing/notes"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 8370,
+      "cache_read_input_tokens": 9886,
+      "output_tokens": 890,
+      "output_tokens_details": {
+        "thinking_tokens": 128
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 8370,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 890,
+        "cacheReadInputTokens": 9886,
+        "cacheCreationInputTokens": 8370,
+        "webSearchRequests": 0,
+        "costUSD": 0.0867532,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 128,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 8370,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.0867532,
+    "duration_ms": 9799,
+    "is_error": false
+  },
+  "latency_ms": 11359,
+  "cache_key": "6a1a102efcae829e0ee65f63e4058bff25d8ed4d34b5f0763383b0d024b25c7b",
+  "cache_hit": false,
+  "job": "screen:D-026:base-body-eligibility-routing-v1:proposal-verification-v1:verification:0",
+  "error": null
+}

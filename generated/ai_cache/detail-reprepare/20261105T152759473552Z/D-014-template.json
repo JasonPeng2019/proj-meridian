@@ -1,0 +1,2328 @@
+{
+  "part": "D-014",
+  "template": "flat_part",
+  "outline": {
+    "state": "known",
+    "type": "rectangle",
+    "length": {
+      "state": "known",
+      "value": 96,
+      "confidence": "sure",
+      "method": "ai_verified",
+      "fact_ids": [
+        "D-014/drawing/n/96.0@1-1"
+      ],
+      "readers": {
+        "claude": {
+          "role": "verifier",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "length",
+                "decision": "accept",
+                "reason": "In the right-hand main face-on view, the overall horizontal dimension 96,0 spans the full plate width (X).",
+                "fact_ids": [
+                  "D-014/drawing/n/96.0@1-1"
+                ],
+                "repairable": false
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "f3e58de92f9c85f4c08b4ae25496ad29a070de4f495c58624592c118a5bfe8c0",
+              "response_proposal_fingerprint": "f3e58de92f9c85f4c08b4ae25496ad29a070de4f495c58624592c118a5bfe8c0",
+              "feedback": [],
+              "settings": {
+                "model": "opus",
+                "fast_mode": false,
+                "mode": "regular",
+                "reader": "claude"
+              },
+              "cache_key": "607741166601d83d0c89853f3c6a0e68b00dcf3b62937e22244175122c79b4a9"
+            }
+          ]
+        },
+        "codex": {
+          "role": "proposer",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "length",
+                "state": "known",
+                "value_json": "96",
+                "confidence": "sure",
+                "fact_ids": [
+                  "D-014/drawing/n/96.0@1-1"
+                ],
+                "reason": "The main right-hand face-on view dimensions the horizontal X extent as 96,0 mm.",
+                "changed_because": ""
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "f3e58de92f9c85f4c08b4ae25496ad29a070de4f495c58624592c118a5bfe8c0",
+              "response_proposal_fingerprint": null,
+              "feedback": [],
+              "settings": {
+                "model": "gpt-6.1-sol",
+                "reasoning_effort": "xhigh",
+                "service_tier": "fast",
+                "reader": "codex"
+              },
+              "cache_key": "fbe5c71001afa8f6c7a6d7d20f3b2694684249f285aa3c4772294fb70ffd808b"
+            }
+          ]
+        }
+      },
+      "review": {
+        "status": "not_reviewed"
+      },
+      "note": "The main right-hand face-on view dimensions the horizontal X extent as 96,0 mm. Verification: In the right-hand main face-on view, the overall horizontal dimension 96,0 spans the full plate width (X)."
+    },
+    "width": {
+      "state": "known",
+      "value": 167,
+      "confidence": "sure",
+      "method": "ai_verified",
+      "fact_ids": [
+        "D-014/drawing/n/167.0@1-1"
+      ],
+      "readers": {
+        "claude": {
+          "role": "verifier",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "width",
+                "decision": "accept",
+                "reason": "In the main view, the overall vertical dimension 167,0 spans from the top edge to the bottom edge (Y).",
+                "fact_ids": [
+                  "D-014/drawing/n/167.0@1-1"
+                ],
+                "repairable": false
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "f3e58de92f9c85f4c08b4ae25496ad29a070de4f495c58624592c118a5bfe8c0",
+              "response_proposal_fingerprint": "f3e58de92f9c85f4c08b4ae25496ad29a070de4f495c58624592c118a5bfe8c0",
+              "feedback": [],
+              "settings": {
+                "model": "opus",
+                "fast_mode": false,
+                "mode": "regular",
+                "reader": "claude"
+              },
+              "cache_key": "607741166601d83d0c89853f3c6a0e68b00dcf3b62937e22244175122c79b4a9"
+            }
+          ]
+        },
+        "codex": {
+          "role": "proposer",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "width",
+                "state": "known",
+                "value_json": "167",
+                "confidence": "sure",
+                "fact_ids": [
+                  "D-014/drawing/n/167.0@1-1"
+                ],
+                "reason": "The main right-hand face-on view dimensions the vertical Y extent as 167,0 mm.",
+                "changed_because": ""
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "f3e58de92f9c85f4c08b4ae25496ad29a070de4f495c58624592c118a5bfe8c0",
+              "response_proposal_fingerprint": null,
+              "feedback": [],
+              "settings": {
+                "model": "gpt-6.1-sol",
+                "reasoning_effort": "xhigh",
+                "service_tier": "fast",
+                "reader": "codex"
+              },
+              "cache_key": "fbe5c71001afa8f6c7a6d7d20f3b2694684249f285aa3c4772294fb70ffd808b"
+            }
+          ]
+        }
+      },
+      "review": {
+        "status": "not_reviewed"
+      },
+      "note": "The main right-hand face-on view dimensions the vertical Y extent as 167,0 mm. Verification: In the main view, the overall vertical dimension 167,0 spans from the top edge to the bottom edge (Y)."
+    }
+  },
+  "thickness": {
+    "state": "known",
+    "value": 8,
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-014",
+      "D-014/drawing/n/8.0@1-3"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "thickness",
+              "decision": "accept",
+              "reason": "The middle edge view is dimensioned '8,0 ±0,2' across the plate thickness. This is one nominal thickness with a tolerance, not a set of alternative thicknesses.",
+              "fact_ids": [
+                "D-014/drawing/n/8.0@1-3"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "f3e58de92f9c85f4c08b4ae25496ad29a070de4f495c58624592c118a5bfe8c0",
+            "response_proposal_fingerprint": "f3e58de92f9c85f4c08b4ae25496ad29a070de4f495c58624592c118a5bfe8c0",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "607741166601d83d0c89853f3c6a0e68b00dcf3b62937e22244175122c79b4a9"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "thickness",
+              "state": "known",
+              "value_json": "8",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-014",
+                "D-014/drawing/n/8.0@1-3"
+              ],
+              "reason": "The middle edge view dimensions the uniform thickness as 8,0 ±0,2 mm. This is a nominal thickness with tolerance, not alternative thicknesses.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "f3e58de92f9c85f4c08b4ae25496ad29a070de4f495c58624592c118a5bfe8c0",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "fbe5c71001afa8f6c7a6d7d20f3b2694684249f285aa3c4772294fb70ffd808b"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The middle edge view dimensions the uniform thickness as 8,0 ±0,2 mm. This is a nominal thickness with tolerance, not alternative thicknesses. Verification: The middle edge view is dimensioned '8,0 ±0,2' across the plate thickness. This is one nominal thickness with a tolerance, not a set of alternative thicknesses."
+  },
+  "features": [
+    {
+      "kind": "hole",
+      "face": "top",
+      "x": {
+        "state": "known",
+        "value": -43,
+        "fact_ids": [
+          "D-014/drawing/n/18.0@1-1",
+          "D-014/drawing/n/25.0@1-1"
+        ],
+        "expression": "0-n0-n1"
+      },
+      "y": {
+        "state": "known",
+        "value": 51.5,
+        "fact_ids": [
+          "D-014/drawing/n/51.5@1-1"
+        ]
+      },
+      "diameter": {
+        "state": "known",
+        "value": 4.2,
+        "fact_ids": [
+          "D-014/drawing/n/4.2@1-1"
+        ]
+      },
+      "through": true,
+      "hole_type": "threaded",
+      "thread": "M5 - 6H",
+      "placement_basis": "dimensioned",
+      "placement_reason": "The left outer column is another 25,0 outward from the inner column located 18,0 left of the vertical centerline; this row is 51,5 above the horizontal centerline.",
+      "fact_ids": [
+        "D-014",
+        "D-014/drawing/callout/p1-1"
+      ]
+    },
+    {
+      "kind": "hole",
+      "face": "top",
+      "x": {
+        "state": "known",
+        "value": -43,
+        "fact_ids": [
+          "D-014/drawing/n/18.0@1-1",
+          "D-014/drawing/n/25.0@1-1"
+        ],
+        "expression": "0-n0-n1"
+      },
+      "y": {
+        "state": "known",
+        "value": 77.5,
+        "fact_ids": [
+          "D-014/drawing/n/51.5@1-1",
+          "D-014/drawing/n/26.0@1-1"
+        ],
+        "expression": "n0+n1"
+      },
+      "diameter": {
+        "state": "known",
+        "value": 4.2,
+        "fact_ids": [
+          "D-014/drawing/n/4.2@1-1"
+        ]
+      },
+      "through": true,
+      "hole_type": "threaded",
+      "thread": "M5 - 6H",
+      "placement_basis": "dimensioned",
+      "placement_reason": "The left outer column follows the printed 18,0 and 25,0 chain from the vertical centerline; the upper row is 26,0 above the row located 51,5 above the horizontal centerline.",
+      "fact_ids": [
+        "D-014",
+        "D-014/drawing/callout/p1-1"
+      ]
+    },
+    {
+      "kind": "hole",
+      "face": "top",
+      "x": {
+        "state": "known",
+        "value": -35,
+        "fact_ids": [
+          "D-014/drawing/n/35.0@1-1"
+        ],
+        "expression": "0-n0"
+      },
+      "y": {
+        "state": "known",
+        "value": -71.5,
+        "fact_ids": [
+          "D-014/drawing/n/10.5@1-1",
+          "D-014/drawing/n/21.0@1-1",
+          "D-014/drawing/n/40.0@1-1"
+        ],
+        "expression": "0-n0-n1-n2"
+      },
+      "diameter": {
+        "state": "known",
+        "value": 6.6,
+        "fact_ids": [
+          "D-014/drawing/n/6.6@1-1"
+        ]
+      },
+      "through": true,
+      "hole_type": "countersunk",
+      "countersink_diameter": {
+        "state": "known",
+        "value": 13.4,
+        "fact_ids": [
+          "D-014/drawing/n/13.4@1-1"
+        ]
+      },
+      "countersink_angle": {
+        "state": "known",
+        "value": 90,
+        "fact_ids": [
+          "D-014/drawing/n/90.0@1-1"
+        ]
+      },
+      "placement_basis": "drawing_pattern_interpretation",
+      "placement_reason": "The printed 8-count and clear two-column/four-row layout establish mirrored columns at ±35,0. The lowest row is 10,5+21,0+40,0 below the horizontal centerline. Main-view concentric circles and the isometric establish the top countersink opening.",
+      "fact_ids": [
+        "D-014",
+        "D-014/drawing/callout/p1-2",
+        "D-014/drawing/callout/p1-3"
+      ]
+    },
+    {
+      "kind": "hole",
+      "face": "top",
+      "x": {
+        "state": "known",
+        "value": -35,
+        "fact_ids": [
+          "D-014/drawing/n/35.0@1-1"
+        ],
+        "expression": "0-n0"
+      },
+      "y": {
+        "state": "known",
+        "value": -31.5,
+        "fact_ids": [
+          "D-014/drawing/n/10.5@1-1",
+          "D-014/drawing/n/21.0@1-1"
+        ],
+        "expression": "0-n0-n1"
+      },
+      "diameter": {
+        "state": "known",
+        "value": 6.6,
+        "fact_ids": [
+          "D-014/drawing/n/6.6@1-1"
+        ]
+      },
+      "through": true,
+      "hole_type": "countersunk",
+      "countersink_diameter": {
+        "state": "known",
+        "value": 13.4,
+        "fact_ids": [
+          "D-014/drawing/n/13.4@1-1"
+        ]
+      },
+      "countersink_angle": {
+        "state": "known",
+        "value": 90,
+        "fact_ids": [
+          "D-014/drawing/n/90.0@1-1"
+        ]
+      },
+      "placement_basis": "drawing_pattern_interpretation",
+      "placement_reason": "The printed 8-count and two-column/four-row layout establish mirrored columns at ±35,0. This row is 10,5+21,0 below the horizontal centerline. Main-view concentric circles and the isometric establish the top opening.",
+      "fact_ids": [
+        "D-014",
+        "D-014/drawing/callout/p1-2",
+        "D-014/drawing/callout/p1-3"
+      ]
+    },
+    {
+      "kind": "hole",
+      "face": "top",
+      "x": {
+        "state": "known",
+        "value": -35,
+        "fact_ids": [
+          "D-014/drawing/n/35.0@1-1"
+        ],
+        "expression": "0-n0"
+      },
+      "y": {
+        "state": "known",
+        "value": -10.5,
+        "fact_ids": [
+          "D-014/drawing/n/10.5@1-1"
+        ],
+        "expression": "0-n0"
+      },
+      "diameter": {
+        "state": "known",
+        "value": 6.6,
+        "fact_ids": [
+          "D-014/drawing/n/6.6@1-1"
+        ]
+      },
+      "through": true,
+      "hole_type": "countersunk",
+      "countersink_diameter": {
+        "state": "known",
+        "value": 13.4,
+        "fact_ids": [
+          "D-014/drawing/n/13.4@1-1"
+        ]
+      },
+      "countersink_angle": {
+        "state": "known",
+        "value": 90,
+        "fact_ids": [
+          "D-014/drawing/n/90.0@1-1"
+        ]
+      },
+      "placement_basis": "drawing_pattern_interpretation",
+      "placement_reason": "The printed 8-count and two-column/four-row layout establish mirrored columns at ±35,0. This row is dimensioned 10,5 below the horizontal centerline. Main-view concentric circles and the isometric establish the top opening.",
+      "fact_ids": [
+        "D-014",
+        "D-014/drawing/callout/p1-2",
+        "D-014/drawing/callout/p1-3"
+      ]
+    },
+    {
+      "kind": "hole",
+      "face": "top",
+      "x": {
+        "state": "known",
+        "value": -35,
+        "fact_ids": [
+          "D-014/drawing/n/35.0@1-1"
+        ],
+        "expression": "0-n0"
+      },
+      "y": {
+        "state": "known",
+        "value": 29.5,
+        "fact_ids": [
+          "D-014/drawing/n/40.0@1-2",
+          "D-014/drawing/n/10.5@1-1"
+        ],
+        "expression": "n0-n1"
+      },
+      "diameter": {
+        "state": "known",
+        "value": 6.6,
+        "fact_ids": [
+          "D-014/drawing/n/6.6@1-1"
+        ]
+      },
+      "through": true,
+      "hole_type": "countersunk",
+      "countersink_diameter": {
+        "state": "known",
+        "value": 13.4,
+        "fact_ids": [
+          "D-014/drawing/n/13.4@1-1"
+        ]
+      },
+      "countersink_angle": {
+        "state": "known",
+        "value": 90,
+        "fact_ids": [
+          "D-014/drawing/n/90.0@1-1"
+        ]
+      },
+      "placement_basis": "drawing_pattern_interpretation",
+      "placement_reason": "The printed 8-count and two-column/four-row layout establish mirrored columns at ±35,0. This row is 40,0 above the row located 10,5 below the horizontal centerline. Main-view concentric circles and the isometric establish the top opening.",
+      "fact_ids": [
+        "D-014",
+        "D-014/drawing/callout/p1-2",
+        "D-014/drawing/callout/p1-3"
+      ]
+    },
+    {
+      "kind": "hole",
+      "face": "top",
+      "x": {
+        "state": "known",
+        "value": -18,
+        "fact_ids": [
+          "D-014/drawing/n/18.0@1-1"
+        ],
+        "expression": "0-n0"
+      },
+      "y": {
+        "state": "known",
+        "value": 51.5,
+        "fact_ids": [
+          "D-014/drawing/n/51.5@1-1"
+        ]
+      },
+      "diameter": {
+        "state": "known",
+        "value": 4.2,
+        "fact_ids": [
+          "D-014/drawing/n/4.2@1-1"
+        ]
+      },
+      "through": true,
+      "hole_type": "threaded",
+      "thread": "M5 - 6H",
+      "placement_basis": "dimensioned",
+      "placement_reason": "The inner left column is dimensioned 18,0 left of the vertical centerline; this row is dimensioned 51,5 above the horizontal centerline.",
+      "fact_ids": [
+        "D-014",
+        "D-014/drawing/callout/p1-1"
+      ]
+    },
+    {
+      "kind": "hole",
+      "face": "top",
+      "x": {
+        "state": "known",
+        "value": -18,
+        "fact_ids": [
+          "D-014/drawing/n/18.0@1-1"
+        ],
+        "expression": "0-n0"
+      },
+      "y": {
+        "state": "known",
+        "value": 77.5,
+        "fact_ids": [
+          "D-014/drawing/n/51.5@1-1",
+          "D-014/drawing/n/26.0@1-1"
+        ],
+        "expression": "n0+n1"
+      },
+      "diameter": {
+        "state": "known",
+        "value": 4.2,
+        "fact_ids": [
+          "D-014/drawing/n/4.2@1-1"
+        ]
+      },
+      "through": true,
+      "hole_type": "threaded",
+      "thread": "M5 - 6H",
+      "placement_basis": "dimensioned",
+      "placement_reason": "The inner left column is 18,0 left of the vertical centerline; the upper row is 26,0 above the row located 51,5 above the horizontal centerline.",
+      "fact_ids": [
+        "D-014",
+        "D-014/drawing/callout/p1-1"
+      ]
+    },
+    {
+      "kind": "hole",
+      "face": "bottom",
+      "x": {
+        "state": "known",
+        "value": 12.5,
+        "fact_ids": [
+          "D-014/drawing/n/12.5@1-1"
+        ]
+      },
+      "y": {
+        "state": "known",
+        "value": -53.5,
+        "fact_ids": [
+          "D-014/drawing/n/53.5@1-1"
+        ],
+        "expression": "0-n0"
+      },
+      "diameter": {
+        "state": "known",
+        "value": 6.6,
+        "fact_ids": [
+          "D-014/drawing/n/6.6@1-2"
+        ]
+      },
+      "through": true,
+      "hole_type": "countersunk",
+      "countersink_diameter": {
+        "state": "known",
+        "value": 14.4,
+        "fact_ids": [
+          "D-014/drawing/n/14.4@1-1"
+        ]
+      },
+      "countersink_angle": {
+        "state": "known",
+        "value": 90,
+        "fact_ids": [
+          "D-014/drawing/n/90.0@1-2"
+        ]
+      },
+      "placement_basis": "dimensioned",
+      "placement_reason": "The opposite-face view locates the column 12,5 left of its vertical centerline, corresponding to X=+12,5 in the main view. The lower center is 53,5 below the horizontal centerline. These two countersinks open on the opposite face: their outer circles appear in the left view, while the main view and isometric show only their through openings.",
+      "fact_ids": [
+        "D-014",
+        "D-014/drawing/callout/p1-4",
+        "D-014/drawing/callout/p1-5"
+      ]
+    },
+    {
+      "kind": "hole",
+      "face": "bottom",
+      "x": {
+        "state": "known",
+        "value": 12.5,
+        "fact_ids": [
+          "D-014/drawing/n/12.5@1-1"
+        ]
+      },
+      "y": {
+        "state": "known",
+        "value": 6.5,
+        "fact_ids": [
+          "D-014/drawing/n/60.0@1-1",
+          "D-014/drawing/n/53.5@1-1"
+        ],
+        "expression": "n0-n1"
+      },
+      "diameter": {
+        "state": "known",
+        "value": 6.6,
+        "fact_ids": [
+          "D-014/drawing/n/6.6@1-2"
+        ]
+      },
+      "through": true,
+      "hole_type": "countersunk",
+      "countersink_diameter": {
+        "state": "known",
+        "value": 14.4,
+        "fact_ids": [
+          "D-014/drawing/n/14.4@1-1"
+        ]
+      },
+      "countersink_angle": {
+        "state": "known",
+        "value": 90,
+        "fact_ids": [
+          "D-014/drawing/n/90.0@1-2"
+        ]
+      },
+      "placement_basis": "dimensioned",
+      "placement_reason": "The opposite-face view locates the column 12,5 left of its centerline, corresponding to X=+12,5 in the main view. The upper center is 60,0 above the lower center located 53,5 below the horizontal centerline. Countersink circles occur on the opposite-face view, establishing bottom openings without changing the main XY frame.",
+      "fact_ids": [
+        "D-014",
+        "D-014/drawing/callout/p1-4",
+        "D-014/drawing/callout/p1-5"
+      ]
+    },
+    {
+      "kind": "hole",
+      "face": "top",
+      "x": {
+        "state": "known",
+        "value": 18,
+        "fact_ids": [
+          "D-014/drawing/n/18.0@1-1"
+        ]
+      },
+      "y": {
+        "state": "known",
+        "value": 51.5,
+        "fact_ids": [
+          "D-014/drawing/n/51.5@1-1"
+        ]
+      },
+      "diameter": {
+        "state": "known",
+        "value": 4.2,
+        "fact_ids": [
+          "D-014/drawing/n/4.2@1-1"
+        ]
+      },
+      "through": true,
+      "hole_type": "threaded",
+      "thread": "M5 - 6H",
+      "placement_basis": "drawing_pattern_interpretation",
+      "placement_reason": "The printed 8-count and clear four-column/two-row layout establish mirrored inner columns at ±18,0 and outer columns another 25,0 outward. This row is dimensioned 51,5 above the horizontal centerline.",
+      "fact_ids": [
+        "D-014",
+        "D-014/drawing/callout/p1-1",
+        "D-014/drawing/n/25.0@1-1"
+      ]
+    },
+    {
+      "kind": "hole",
+      "face": "top",
+      "x": {
+        "state": "known",
+        "value": 18,
+        "fact_ids": [
+          "D-014/drawing/n/18.0@1-1"
+        ]
+      },
+      "y": {
+        "state": "known",
+        "value": 77.5,
+        "fact_ids": [
+          "D-014/drawing/n/51.5@1-1",
+          "D-014/drawing/n/26.0@1-1"
+        ],
+        "expression": "n0+n1"
+      },
+      "diameter": {
+        "state": "known",
+        "value": 4.2,
+        "fact_ids": [
+          "D-014/drawing/n/4.2@1-1"
+        ]
+      },
+      "through": true,
+      "hole_type": "threaded",
+      "thread": "M5 - 6H",
+      "placement_basis": "drawing_pattern_interpretation",
+      "placement_reason": "The printed 8-count and four-column/two-row layout establish mirrored inner columns at ±18,0 and outer columns another 25,0 outward. The upper row is 26,0 above the row located 51,5 above the horizontal centerline.",
+      "fact_ids": [
+        "D-014",
+        "D-014/drawing/callout/p1-1",
+        "D-014/drawing/n/25.0@1-1"
+      ]
+    },
+    {
+      "kind": "hole",
+      "face": "top",
+      "x": {
+        "state": "known",
+        "value": 35,
+        "fact_ids": [
+          "D-014/drawing/n/35.0@1-1"
+        ]
+      },
+      "y": {
+        "state": "known",
+        "value": -71.5,
+        "fact_ids": [
+          "D-014/drawing/n/10.5@1-1",
+          "D-014/drawing/n/21.0@1-1",
+          "D-014/drawing/n/40.0@1-1"
+        ],
+        "expression": "0-n0-n1-n2"
+      },
+      "diameter": {
+        "state": "known",
+        "value": 6.6,
+        "fact_ids": [
+          "D-014/drawing/n/6.6@1-1"
+        ]
+      },
+      "through": true,
+      "hole_type": "countersunk",
+      "countersink_diameter": {
+        "state": "known",
+        "value": 13.4,
+        "fact_ids": [
+          "D-014/drawing/n/13.4@1-1"
+        ]
+      },
+      "countersink_angle": {
+        "state": "known",
+        "value": 90,
+        "fact_ids": [
+          "D-014/drawing/n/90.0@1-1"
+        ]
+      },
+      "placement_basis": "dimensioned",
+      "placement_reason": "The right column is dimensioned 35,0 from the vertical centerline. The lowest row is 10,5+21,0+40,0 below the horizontal centerline. Main-view concentric circles and the isometric establish the top opening.",
+      "fact_ids": [
+        "D-014",
+        "D-014/drawing/callout/p1-2",
+        "D-014/drawing/callout/p1-3"
+      ]
+    },
+    {
+      "kind": "hole",
+      "face": "top",
+      "x": {
+        "state": "known",
+        "value": 35,
+        "fact_ids": [
+          "D-014/drawing/n/35.0@1-1"
+        ]
+      },
+      "y": {
+        "state": "known",
+        "value": -31.5,
+        "fact_ids": [
+          "D-014/drawing/n/10.5@1-1",
+          "D-014/drawing/n/21.0@1-1"
+        ],
+        "expression": "0-n0-n1"
+      },
+      "diameter": {
+        "state": "known",
+        "value": 6.6,
+        "fact_ids": [
+          "D-014/drawing/n/6.6@1-1"
+        ]
+      },
+      "through": true,
+      "hole_type": "countersunk",
+      "countersink_diameter": {
+        "state": "known",
+        "value": 13.4,
+        "fact_ids": [
+          "D-014/drawing/n/13.4@1-1"
+        ]
+      },
+      "countersink_angle": {
+        "state": "known",
+        "value": 90,
+        "fact_ids": [
+          "D-014/drawing/n/90.0@1-1"
+        ]
+      },
+      "placement_basis": "dimensioned",
+      "placement_reason": "The right column is dimensioned 35,0 from the vertical centerline. This row is 21,0 below the row located 10,5 below the horizontal centerline. Main-view concentric circles and the isometric establish the top opening.",
+      "fact_ids": [
+        "D-014",
+        "D-014/drawing/callout/p1-2",
+        "D-014/drawing/callout/p1-3"
+      ]
+    },
+    {
+      "kind": "hole",
+      "face": "top",
+      "x": {
+        "state": "known",
+        "value": 35,
+        "fact_ids": [
+          "D-014/drawing/n/35.0@1-1"
+        ]
+      },
+      "y": {
+        "state": "known",
+        "value": -10.5,
+        "fact_ids": [
+          "D-014/drawing/n/10.5@1-1"
+        ],
+        "expression": "0-n0"
+      },
+      "diameter": {
+        "state": "known",
+        "value": 6.6,
+        "fact_ids": [
+          "D-014/drawing/n/6.6@1-1"
+        ]
+      },
+      "through": true,
+      "hole_type": "countersunk",
+      "countersink_diameter": {
+        "state": "known",
+        "value": 13.4,
+        "fact_ids": [
+          "D-014/drawing/n/13.4@1-1"
+        ]
+      },
+      "countersink_angle": {
+        "state": "known",
+        "value": 90,
+        "fact_ids": [
+          "D-014/drawing/n/90.0@1-1"
+        ]
+      },
+      "placement_basis": "dimensioned",
+      "placement_reason": "The right column is dimensioned 35,0 from the vertical centerline and this row is dimensioned 10,5 below the horizontal centerline. Main-view concentric circles and the isometric establish the top opening.",
+      "fact_ids": [
+        "D-014",
+        "D-014/drawing/callout/p1-2",
+        "D-014/drawing/callout/p1-3"
+      ]
+    },
+    {
+      "kind": "hole",
+      "face": "top",
+      "x": {
+        "state": "known",
+        "value": 35,
+        "fact_ids": [
+          "D-014/drawing/n/35.0@1-1"
+        ]
+      },
+      "y": {
+        "state": "known",
+        "value": 29.5,
+        "fact_ids": [
+          "D-014/drawing/n/40.0@1-2",
+          "D-014/drawing/n/10.5@1-1"
+        ],
+        "expression": "n0-n1"
+      },
+      "diameter": {
+        "state": "known",
+        "value": 6.6,
+        "fact_ids": [
+          "D-014/drawing/n/6.6@1-1"
+        ]
+      },
+      "through": true,
+      "hole_type": "countersunk",
+      "countersink_diameter": {
+        "state": "known",
+        "value": 13.4,
+        "fact_ids": [
+          "D-014/drawing/n/13.4@1-1"
+        ]
+      },
+      "countersink_angle": {
+        "state": "known",
+        "value": 90,
+        "fact_ids": [
+          "D-014/drawing/n/90.0@1-1"
+        ]
+      },
+      "placement_basis": "dimensioned",
+      "placement_reason": "The right column is dimensioned 35,0 from the vertical centerline. This row is 40,0 above the row located 10,5 below the horizontal centerline. Main-view concentric circles and the isometric establish the top opening.",
+      "fact_ids": [
+        "D-014",
+        "D-014/drawing/callout/p1-2",
+        "D-014/drawing/callout/p1-3"
+      ]
+    },
+    {
+      "kind": "hole",
+      "face": "top",
+      "x": {
+        "state": "known",
+        "value": 43,
+        "fact_ids": [
+          "D-014/drawing/n/18.0@1-1",
+          "D-014/drawing/n/25.0@1-1"
+        ],
+        "expression": "n0+n1"
+      },
+      "y": {
+        "state": "known",
+        "value": 51.5,
+        "fact_ids": [
+          "D-014/drawing/n/51.5@1-1"
+        ]
+      },
+      "diameter": {
+        "state": "known",
+        "value": 4.2,
+        "fact_ids": [
+          "D-014/drawing/n/4.2@1-1"
+        ]
+      },
+      "through": true,
+      "hole_type": "threaded",
+      "thread": "M5 - 6H",
+      "placement_basis": "drawing_pattern_interpretation",
+      "placement_reason": "The printed 8-count and four-column/two-row layout establish mirrored inner columns at ±18,0 and outer columns another 25,0 outward. This row is dimensioned 51,5 above the horizontal centerline.",
+      "fact_ids": [
+        "D-014",
+        "D-014/drawing/callout/p1-1"
+      ]
+    },
+    {
+      "kind": "hole",
+      "face": "top",
+      "x": {
+        "state": "known",
+        "value": 43,
+        "fact_ids": [
+          "D-014/drawing/n/18.0@1-1",
+          "D-014/drawing/n/25.0@1-1"
+        ],
+        "expression": "n0+n1"
+      },
+      "y": {
+        "state": "known",
+        "value": 77.5,
+        "fact_ids": [
+          "D-014/drawing/n/51.5@1-1",
+          "D-014/drawing/n/26.0@1-1"
+        ],
+        "expression": "n0+n1"
+      },
+      "diameter": {
+        "state": "known",
+        "value": 4.2,
+        "fact_ids": [
+          "D-014/drawing/n/4.2@1-1"
+        ]
+      },
+      "through": true,
+      "hole_type": "threaded",
+      "thread": "M5 - 6H",
+      "placement_basis": "drawing_pattern_interpretation",
+      "placement_reason": "The printed 8-count and four-column/two-row layout establish mirrored inner columns at ±18,0 and outer columns another 25,0 outward. The upper row is 26,0 above the row located 51,5 above the horizontal centerline.",
+      "fact_ids": [
+        "D-014",
+        "D-014/drawing/callout/p1-1"
+      ]
+    }
+  ],
+  "features_review": {
+    "state": "known",
+    "value": [
+      {
+        "kind": "hole",
+        "face": "top",
+        "x": {
+          "state": "known",
+          "value": -43,
+          "fact_ids": [
+            "D-014/drawing/n/18.0@1-1",
+            "D-014/drawing/n/25.0@1-1"
+          ],
+          "expression": "0-n0-n1"
+        },
+        "y": {
+          "state": "known",
+          "value": 51.5,
+          "fact_ids": [
+            "D-014/drawing/n/51.5@1-1"
+          ]
+        },
+        "diameter": {
+          "state": "known",
+          "value": 4.2,
+          "fact_ids": [
+            "D-014/drawing/n/4.2@1-1"
+          ]
+        },
+        "through": true,
+        "hole_type": "threaded",
+        "thread": "M5 - 6H",
+        "placement_basis": "dimensioned",
+        "placement_reason": "The left outer column is another 25,0 outward from the inner column located 18,0 left of the vertical centerline; this row is 51,5 above the horizontal centerline.",
+        "fact_ids": [
+          "D-014",
+          "D-014/drawing/callout/p1-1"
+        ]
+      },
+      {
+        "kind": "hole",
+        "face": "top",
+        "x": {
+          "state": "known",
+          "value": -43,
+          "fact_ids": [
+            "D-014/drawing/n/18.0@1-1",
+            "D-014/drawing/n/25.0@1-1"
+          ],
+          "expression": "0-n0-n1"
+        },
+        "y": {
+          "state": "known",
+          "value": 77.5,
+          "fact_ids": [
+            "D-014/drawing/n/51.5@1-1",
+            "D-014/drawing/n/26.0@1-1"
+          ],
+          "expression": "n0+n1"
+        },
+        "diameter": {
+          "state": "known",
+          "value": 4.2,
+          "fact_ids": [
+            "D-014/drawing/n/4.2@1-1"
+          ]
+        },
+        "through": true,
+        "hole_type": "threaded",
+        "thread": "M5 - 6H",
+        "placement_basis": "dimensioned",
+        "placement_reason": "The left outer column follows the printed 18,0 and 25,0 chain from the vertical centerline; the upper row is 26,0 above the row located 51,5 above the horizontal centerline.",
+        "fact_ids": [
+          "D-014",
+          "D-014/drawing/callout/p1-1"
+        ]
+      },
+      {
+        "kind": "hole",
+        "face": "top",
+        "x": {
+          "state": "known",
+          "value": -35,
+          "fact_ids": [
+            "D-014/drawing/n/35.0@1-1"
+          ],
+          "expression": "0-n0"
+        },
+        "y": {
+          "state": "known",
+          "value": -71.5,
+          "fact_ids": [
+            "D-014/drawing/n/10.5@1-1",
+            "D-014/drawing/n/21.0@1-1",
+            "D-014/drawing/n/40.0@1-1"
+          ],
+          "expression": "0-n0-n1-n2"
+        },
+        "diameter": {
+          "state": "known",
+          "value": 6.6,
+          "fact_ids": [
+            "D-014/drawing/n/6.6@1-1"
+          ]
+        },
+        "through": true,
+        "hole_type": "countersunk",
+        "countersink_diameter": {
+          "state": "known",
+          "value": 13.4,
+          "fact_ids": [
+            "D-014/drawing/n/13.4@1-1"
+          ]
+        },
+        "countersink_angle": {
+          "state": "known",
+          "value": 90,
+          "fact_ids": [
+            "D-014/drawing/n/90.0@1-1"
+          ]
+        },
+        "placement_basis": "drawing_pattern_interpretation",
+        "placement_reason": "The printed 8-count and clear two-column/four-row layout establish mirrored columns at ±35,0. The lowest row is 10,5+21,0+40,0 below the horizontal centerline. Main-view concentric circles and the isometric establish the top countersink opening.",
+        "fact_ids": [
+          "D-014",
+          "D-014/drawing/callout/p1-2",
+          "D-014/drawing/callout/p1-3"
+        ]
+      },
+      {
+        "kind": "hole",
+        "face": "top",
+        "x": {
+          "state": "known",
+          "value": -35,
+          "fact_ids": [
+            "D-014/drawing/n/35.0@1-1"
+          ],
+          "expression": "0-n0"
+        },
+        "y": {
+          "state": "known",
+          "value": -31.5,
+          "fact_ids": [
+            "D-014/drawing/n/10.5@1-1",
+            "D-014/drawing/n/21.0@1-1"
+          ],
+          "expression": "0-n0-n1"
+        },
+        "diameter": {
+          "state": "known",
+          "value": 6.6,
+          "fact_ids": [
+            "D-014/drawing/n/6.6@1-1"
+          ]
+        },
+        "through": true,
+        "hole_type": "countersunk",
+        "countersink_diameter": {
+          "state": "known",
+          "value": 13.4,
+          "fact_ids": [
+            "D-014/drawing/n/13.4@1-1"
+          ]
+        },
+        "countersink_angle": {
+          "state": "known",
+          "value": 90,
+          "fact_ids": [
+            "D-014/drawing/n/90.0@1-1"
+          ]
+        },
+        "placement_basis": "drawing_pattern_interpretation",
+        "placement_reason": "The printed 8-count and two-column/four-row layout establish mirrored columns at ±35,0. This row is 10,5+21,0 below the horizontal centerline. Main-view concentric circles and the isometric establish the top opening.",
+        "fact_ids": [
+          "D-014",
+          "D-014/drawing/callout/p1-2",
+          "D-014/drawing/callout/p1-3"
+        ]
+      },
+      {
+        "kind": "hole",
+        "face": "top",
+        "x": {
+          "state": "known",
+          "value": -35,
+          "fact_ids": [
+            "D-014/drawing/n/35.0@1-1"
+          ],
+          "expression": "0-n0"
+        },
+        "y": {
+          "state": "known",
+          "value": -10.5,
+          "fact_ids": [
+            "D-014/drawing/n/10.5@1-1"
+          ],
+          "expression": "0-n0"
+        },
+        "diameter": {
+          "state": "known",
+          "value": 6.6,
+          "fact_ids": [
+            "D-014/drawing/n/6.6@1-1"
+          ]
+        },
+        "through": true,
+        "hole_type": "countersunk",
+        "countersink_diameter": {
+          "state": "known",
+          "value": 13.4,
+          "fact_ids": [
+            "D-014/drawing/n/13.4@1-1"
+          ]
+        },
+        "countersink_angle": {
+          "state": "known",
+          "value": 90,
+          "fact_ids": [
+            "D-014/drawing/n/90.0@1-1"
+          ]
+        },
+        "placement_basis": "drawing_pattern_interpretation",
+        "placement_reason": "The printed 8-count and two-column/four-row layout establish mirrored columns at ±35,0. This row is dimensioned 10,5 below the horizontal centerline. Main-view concentric circles and the isometric establish the top opening.",
+        "fact_ids": [
+          "D-014",
+          "D-014/drawing/callout/p1-2",
+          "D-014/drawing/callout/p1-3"
+        ]
+      },
+      {
+        "kind": "hole",
+        "face": "top",
+        "x": {
+          "state": "known",
+          "value": -35,
+          "fact_ids": [
+            "D-014/drawing/n/35.0@1-1"
+          ],
+          "expression": "0-n0"
+        },
+        "y": {
+          "state": "known",
+          "value": 29.5,
+          "fact_ids": [
+            "D-014/drawing/n/40.0@1-2",
+            "D-014/drawing/n/10.5@1-1"
+          ],
+          "expression": "n0-n1"
+        },
+        "diameter": {
+          "state": "known",
+          "value": 6.6,
+          "fact_ids": [
+            "D-014/drawing/n/6.6@1-1"
+          ]
+        },
+        "through": true,
+        "hole_type": "countersunk",
+        "countersink_diameter": {
+          "state": "known",
+          "value": 13.4,
+          "fact_ids": [
+            "D-014/drawing/n/13.4@1-1"
+          ]
+        },
+        "countersink_angle": {
+          "state": "known",
+          "value": 90,
+          "fact_ids": [
+            "D-014/drawing/n/90.0@1-1"
+          ]
+        },
+        "placement_basis": "drawing_pattern_interpretation",
+        "placement_reason": "The printed 8-count and two-column/four-row layout establish mirrored columns at ±35,0. This row is 40,0 above the row located 10,5 below the horizontal centerline. Main-view concentric circles and the isometric establish the top opening.",
+        "fact_ids": [
+          "D-014",
+          "D-014/drawing/callout/p1-2",
+          "D-014/drawing/callout/p1-3"
+        ]
+      },
+      {
+        "kind": "hole",
+        "face": "top",
+        "x": {
+          "state": "known",
+          "value": -18,
+          "fact_ids": [
+            "D-014/drawing/n/18.0@1-1"
+          ],
+          "expression": "0-n0"
+        },
+        "y": {
+          "state": "known",
+          "value": 51.5,
+          "fact_ids": [
+            "D-014/drawing/n/51.5@1-1"
+          ]
+        },
+        "diameter": {
+          "state": "known",
+          "value": 4.2,
+          "fact_ids": [
+            "D-014/drawing/n/4.2@1-1"
+          ]
+        },
+        "through": true,
+        "hole_type": "threaded",
+        "thread": "M5 - 6H",
+        "placement_basis": "dimensioned",
+        "placement_reason": "The inner left column is dimensioned 18,0 left of the vertical centerline; this row is dimensioned 51,5 above the horizontal centerline.",
+        "fact_ids": [
+          "D-014",
+          "D-014/drawing/callout/p1-1"
+        ]
+      },
+      {
+        "kind": "hole",
+        "face": "top",
+        "x": {
+          "state": "known",
+          "value": -18,
+          "fact_ids": [
+            "D-014/drawing/n/18.0@1-1"
+          ],
+          "expression": "0-n0"
+        },
+        "y": {
+          "state": "known",
+          "value": 77.5,
+          "fact_ids": [
+            "D-014/drawing/n/51.5@1-1",
+            "D-014/drawing/n/26.0@1-1"
+          ],
+          "expression": "n0+n1"
+        },
+        "diameter": {
+          "state": "known",
+          "value": 4.2,
+          "fact_ids": [
+            "D-014/drawing/n/4.2@1-1"
+          ]
+        },
+        "through": true,
+        "hole_type": "threaded",
+        "thread": "M5 - 6H",
+        "placement_basis": "dimensioned",
+        "placement_reason": "The inner left column is 18,0 left of the vertical centerline; the upper row is 26,0 above the row located 51,5 above the horizontal centerline.",
+        "fact_ids": [
+          "D-014",
+          "D-014/drawing/callout/p1-1"
+        ]
+      },
+      {
+        "kind": "hole",
+        "face": "bottom",
+        "x": {
+          "state": "known",
+          "value": 12.5,
+          "fact_ids": [
+            "D-014/drawing/n/12.5@1-1"
+          ]
+        },
+        "y": {
+          "state": "known",
+          "value": -53.5,
+          "fact_ids": [
+            "D-014/drawing/n/53.5@1-1"
+          ],
+          "expression": "0-n0"
+        },
+        "diameter": {
+          "state": "known",
+          "value": 6.6,
+          "fact_ids": [
+            "D-014/drawing/n/6.6@1-2"
+          ]
+        },
+        "through": true,
+        "hole_type": "countersunk",
+        "countersink_diameter": {
+          "state": "known",
+          "value": 14.4,
+          "fact_ids": [
+            "D-014/drawing/n/14.4@1-1"
+          ]
+        },
+        "countersink_angle": {
+          "state": "known",
+          "value": 90,
+          "fact_ids": [
+            "D-014/drawing/n/90.0@1-2"
+          ]
+        },
+        "placement_basis": "dimensioned",
+        "placement_reason": "The opposite-face view locates the column 12,5 left of its vertical centerline, corresponding to X=+12,5 in the main view. The lower center is 53,5 below the horizontal centerline. These two countersinks open on the opposite face: their outer circles appear in the left view, while the main view and isometric show only their through openings.",
+        "fact_ids": [
+          "D-014",
+          "D-014/drawing/callout/p1-4",
+          "D-014/drawing/callout/p1-5"
+        ]
+      },
+      {
+        "kind": "hole",
+        "face": "bottom",
+        "x": {
+          "state": "known",
+          "value": 12.5,
+          "fact_ids": [
+            "D-014/drawing/n/12.5@1-1"
+          ]
+        },
+        "y": {
+          "state": "known",
+          "value": 6.5,
+          "fact_ids": [
+            "D-014/drawing/n/60.0@1-1",
+            "D-014/drawing/n/53.5@1-1"
+          ],
+          "expression": "n0-n1"
+        },
+        "diameter": {
+          "state": "known",
+          "value": 6.6,
+          "fact_ids": [
+            "D-014/drawing/n/6.6@1-2"
+          ]
+        },
+        "through": true,
+        "hole_type": "countersunk",
+        "countersink_diameter": {
+          "state": "known",
+          "value": 14.4,
+          "fact_ids": [
+            "D-014/drawing/n/14.4@1-1"
+          ]
+        },
+        "countersink_angle": {
+          "state": "known",
+          "value": 90,
+          "fact_ids": [
+            "D-014/drawing/n/90.0@1-2"
+          ]
+        },
+        "placement_basis": "dimensioned",
+        "placement_reason": "The opposite-face view locates the column 12,5 left of its centerline, corresponding to X=+12,5 in the main view. The upper center is 60,0 above the lower center located 53,5 below the horizontal centerline. Countersink circles occur on the opposite-face view, establishing bottom openings without changing the main XY frame.",
+        "fact_ids": [
+          "D-014",
+          "D-014/drawing/callout/p1-4",
+          "D-014/drawing/callout/p1-5"
+        ]
+      },
+      {
+        "kind": "hole",
+        "face": "top",
+        "x": {
+          "state": "known",
+          "value": 18,
+          "fact_ids": [
+            "D-014/drawing/n/18.0@1-1"
+          ]
+        },
+        "y": {
+          "state": "known",
+          "value": 51.5,
+          "fact_ids": [
+            "D-014/drawing/n/51.5@1-1"
+          ]
+        },
+        "diameter": {
+          "state": "known",
+          "value": 4.2,
+          "fact_ids": [
+            "D-014/drawing/n/4.2@1-1"
+          ]
+        },
+        "through": true,
+        "hole_type": "threaded",
+        "thread": "M5 - 6H",
+        "placement_basis": "drawing_pattern_interpretation",
+        "placement_reason": "The printed 8-count and clear four-column/two-row layout establish mirrored inner columns at ±18,0 and outer columns another 25,0 outward. This row is dimensioned 51,5 above the horizontal centerline.",
+        "fact_ids": [
+          "D-014",
+          "D-014/drawing/callout/p1-1",
+          "D-014/drawing/n/25.0@1-1"
+        ]
+      },
+      {
+        "kind": "hole",
+        "face": "top",
+        "x": {
+          "state": "known",
+          "value": 18,
+          "fact_ids": [
+            "D-014/drawing/n/18.0@1-1"
+          ]
+        },
+        "y": {
+          "state": "known",
+          "value": 77.5,
+          "fact_ids": [
+            "D-014/drawing/n/51.5@1-1",
+            "D-014/drawing/n/26.0@1-1"
+          ],
+          "expression": "n0+n1"
+        },
+        "diameter": {
+          "state": "known",
+          "value": 4.2,
+          "fact_ids": [
+            "D-014/drawing/n/4.2@1-1"
+          ]
+        },
+        "through": true,
+        "hole_type": "threaded",
+        "thread": "M5 - 6H",
+        "placement_basis": "drawing_pattern_interpretation",
+        "placement_reason": "The printed 8-count and four-column/two-row layout establish mirrored inner columns at ±18,0 and outer columns another 25,0 outward. The upper row is 26,0 above the row located 51,5 above the horizontal centerline.",
+        "fact_ids": [
+          "D-014",
+          "D-014/drawing/callout/p1-1",
+          "D-014/drawing/n/25.0@1-1"
+        ]
+      },
+      {
+        "kind": "hole",
+        "face": "top",
+        "x": {
+          "state": "known",
+          "value": 35,
+          "fact_ids": [
+            "D-014/drawing/n/35.0@1-1"
+          ]
+        },
+        "y": {
+          "state": "known",
+          "value": -71.5,
+          "fact_ids": [
+            "D-014/drawing/n/10.5@1-1",
+            "D-014/drawing/n/21.0@1-1",
+            "D-014/drawing/n/40.0@1-1"
+          ],
+          "expression": "0-n0-n1-n2"
+        },
+        "diameter": {
+          "state": "known",
+          "value": 6.6,
+          "fact_ids": [
+            "D-014/drawing/n/6.6@1-1"
+          ]
+        },
+        "through": true,
+        "hole_type": "countersunk",
+        "countersink_diameter": {
+          "state": "known",
+          "value": 13.4,
+          "fact_ids": [
+            "D-014/drawing/n/13.4@1-1"
+          ]
+        },
+        "countersink_angle": {
+          "state": "known",
+          "value": 90,
+          "fact_ids": [
+            "D-014/drawing/n/90.0@1-1"
+          ]
+        },
+        "placement_basis": "dimensioned",
+        "placement_reason": "The right column is dimensioned 35,0 from the vertical centerline. The lowest row is 10,5+21,0+40,0 below the horizontal centerline. Main-view concentric circles and the isometric establish the top opening.",
+        "fact_ids": [
+          "D-014",
+          "D-014/drawing/callout/p1-2",
+          "D-014/drawing/callout/p1-3"
+        ]
+      },
+      {
+        "kind": "hole",
+        "face": "top",
+        "x": {
+          "state": "known",
+          "value": 35,
+          "fact_ids": [
+            "D-014/drawing/n/35.0@1-1"
+          ]
+        },
+        "y": {
+          "state": "known",
+          "value": -31.5,
+          "fact_ids": [
+            "D-014/drawing/n/10.5@1-1",
+            "D-014/drawing/n/21.0@1-1"
+          ],
+          "expression": "0-n0-n1"
+        },
+        "diameter": {
+          "state": "known",
+          "value": 6.6,
+          "fact_ids": [
+            "D-014/drawing/n/6.6@1-1"
+          ]
+        },
+        "through": true,
+        "hole_type": "countersunk",
+        "countersink_diameter": {
+          "state": "known",
+          "value": 13.4,
+          "fact_ids": [
+            "D-014/drawing/n/13.4@1-1"
+          ]
+        },
+        "countersink_angle": {
+          "state": "known",
+          "value": 90,
+          "fact_ids": [
+            "D-014/drawing/n/90.0@1-1"
+          ]
+        },
+        "placement_basis": "dimensioned",
+        "placement_reason": "The right column is dimensioned 35,0 from the vertical centerline. This row is 21,0 below the row located 10,5 below the horizontal centerline. Main-view concentric circles and the isometric establish the top opening.",
+        "fact_ids": [
+          "D-014",
+          "D-014/drawing/callout/p1-2",
+          "D-014/drawing/callout/p1-3"
+        ]
+      },
+      {
+        "kind": "hole",
+        "face": "top",
+        "x": {
+          "state": "known",
+          "value": 35,
+          "fact_ids": [
+            "D-014/drawing/n/35.0@1-1"
+          ]
+        },
+        "y": {
+          "state": "known",
+          "value": -10.5,
+          "fact_ids": [
+            "D-014/drawing/n/10.5@1-1"
+          ],
+          "expression": "0-n0"
+        },
+        "diameter": {
+          "state": "known",
+          "value": 6.6,
+          "fact_ids": [
+            "D-014/drawing/n/6.6@1-1"
+          ]
+        },
+        "through": true,
+        "hole_type": "countersunk",
+        "countersink_diameter": {
+          "state": "known",
+          "value": 13.4,
+          "fact_ids": [
+            "D-014/drawing/n/13.4@1-1"
+          ]
+        },
+        "countersink_angle": {
+          "state": "known",
+          "value": 90,
+          "fact_ids": [
+            "D-014/drawing/n/90.0@1-1"
+          ]
+        },
+        "placement_basis": "dimensioned",
+        "placement_reason": "The right column is dimensioned 35,0 from the vertical centerline and this row is dimensioned 10,5 below the horizontal centerline. Main-view concentric circles and the isometric establish the top opening.",
+        "fact_ids": [
+          "D-014",
+          "D-014/drawing/callout/p1-2",
+          "D-014/drawing/callout/p1-3"
+        ]
+      },
+      {
+        "kind": "hole",
+        "face": "top",
+        "x": {
+          "state": "known",
+          "value": 35,
+          "fact_ids": [
+            "D-014/drawing/n/35.0@1-1"
+          ]
+        },
+        "y": {
+          "state": "known",
+          "value": 29.5,
+          "fact_ids": [
+            "D-014/drawing/n/40.0@1-2",
+            "D-014/drawing/n/10.5@1-1"
+          ],
+          "expression": "n0-n1"
+        },
+        "diameter": {
+          "state": "known",
+          "value": 6.6,
+          "fact_ids": [
+            "D-014/drawing/n/6.6@1-1"
+          ]
+        },
+        "through": true,
+        "hole_type": "countersunk",
+        "countersink_diameter": {
+          "state": "known",
+          "value": 13.4,
+          "fact_ids": [
+            "D-014/drawing/n/13.4@1-1"
+          ]
+        },
+        "countersink_angle": {
+          "state": "known",
+          "value": 90,
+          "fact_ids": [
+            "D-014/drawing/n/90.0@1-1"
+          ]
+        },
+        "placement_basis": "dimensioned",
+        "placement_reason": "The right column is dimensioned 35,0 from the vertical centerline. This row is 40,0 above the row located 10,5 below the horizontal centerline. Main-view concentric circles and the isometric establish the top opening.",
+        "fact_ids": [
+          "D-014",
+          "D-014/drawing/callout/p1-2",
+          "D-014/drawing/callout/p1-3"
+        ]
+      },
+      {
+        "kind": "hole",
+        "face": "top",
+        "x": {
+          "state": "known",
+          "value": 43,
+          "fact_ids": [
+            "D-014/drawing/n/18.0@1-1",
+            "D-014/drawing/n/25.0@1-1"
+          ],
+          "expression": "n0+n1"
+        },
+        "y": {
+          "state": "known",
+          "value": 51.5,
+          "fact_ids": [
+            "D-014/drawing/n/51.5@1-1"
+          ]
+        },
+        "diameter": {
+          "state": "known",
+          "value": 4.2,
+          "fact_ids": [
+            "D-014/drawing/n/4.2@1-1"
+          ]
+        },
+        "through": true,
+        "hole_type": "threaded",
+        "thread": "M5 - 6H",
+        "placement_basis": "drawing_pattern_interpretation",
+        "placement_reason": "The printed 8-count and four-column/two-row layout establish mirrored inner columns at ±18,0 and outer columns another 25,0 outward. This row is dimensioned 51,5 above the horizontal centerline.",
+        "fact_ids": [
+          "D-014",
+          "D-014/drawing/callout/p1-1"
+        ]
+      },
+      {
+        "kind": "hole",
+        "face": "top",
+        "x": {
+          "state": "known",
+          "value": 43,
+          "fact_ids": [
+            "D-014/drawing/n/18.0@1-1",
+            "D-014/drawing/n/25.0@1-1"
+          ],
+          "expression": "n0+n1"
+        },
+        "y": {
+          "state": "known",
+          "value": 77.5,
+          "fact_ids": [
+            "D-014/drawing/n/51.5@1-1",
+            "D-014/drawing/n/26.0@1-1"
+          ],
+          "expression": "n0+n1"
+        },
+        "diameter": {
+          "state": "known",
+          "value": 4.2,
+          "fact_ids": [
+            "D-014/drawing/n/4.2@1-1"
+          ]
+        },
+        "through": true,
+        "hole_type": "threaded",
+        "thread": "M5 - 6H",
+        "placement_basis": "drawing_pattern_interpretation",
+        "placement_reason": "The printed 8-count and four-column/two-row layout establish mirrored inner columns at ±18,0 and outer columns another 25,0 outward. The upper row is 26,0 above the row located 51,5 above the horizontal centerline.",
+        "fact_ids": [
+          "D-014",
+          "D-014/drawing/callout/p1-1"
+        ]
+      }
+    ],
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-014",
+      "D-014/drawing/callout/p1-1",
+      "D-014/drawing/callout/p1-2",
+      "D-014/drawing/callout/p1-3",
+      "D-014/drawing/callout/p1-4",
+      "D-014/drawing/callout/p1-5",
+      "D-014/drawing/n/18.0@1-1",
+      "D-014/drawing/n/25.0@1-1",
+      "D-014/drawing/n/26.0@1-1",
+      "D-014/drawing/n/51.5@1-1",
+      "D-014/drawing/n/35.0@1-1",
+      "D-014/drawing/n/10.5@1-1",
+      "D-014/drawing/n/21.0@1-1",
+      "D-014/drawing/n/40.0@1-1",
+      "D-014/drawing/n/40.0@1-2",
+      "D-014/drawing/n/12.5@1-1",
+      "D-014/drawing/n/53.5@1-1",
+      "D-014/drawing/n/60.0@1-1"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features",
+              "decision": "accept",
+              "reason": "All 18 holes match the views.\n- Threaded holes (8x Ø4,2 THRU ALL M5 - 6H): in the main view, 18,0 runs from the vertical centerline to the inner column and 25,0 from the inner to the outer column, so the left columns are at X=-18 and X=-43. 51,5 runs from the horizontal centerline to the lower threaded row and 26,0 from that row to the top row, giving Y=51.5 and Y=77.5. The four-column, two-row layout is clearly mirrored about the vertical centerline, which supports X=+18 and X=+43; these are correctly tagged as pattern interpretation.\n- Top countersinks (8x Ø6,6 THRU ALL, Ø13,4 X 90°): 35,0 runs from the centerline to the right column. 10,5 runs from the centerline down to the first lower row, 21,0 to the next row and the lower 40,0 to the bottom row, giving Y=-10.5, -31.5 and -71.5. The right-hand 40,0 runs up from the -10.5 row to the upper row, giving Y=29.5. The two columns are mirrored at X=±35. The main view and the isometric show the large concentric countersink circles on the viewed face, so these open on top.\n- Bottom countersinks (2x Ø6,6 THRU ALL, Ø14,4 X 90°): the left view is the opposite face. It shows the threaded and Ø6,6 patterns mirrored, the large countersink circles appear only on this face, and the callout is tagged with datum B, 'Ekstra undersænkning' (extra under-countersink). That establishes bottom openings. In the left view, 12,5 places the column left of center, which maps to X=+12.5 in the main frame; the main view shows the plain through-openings right of center, which agrees. 53,5 places the lower hole below the centerline and 60,0 is the spacing between the two holes, giving Y=-53.5 and Y=6.5.\nAll arithmetic and cited IDs are correct. The features are ordered by X, then Y. There are no slots, side holes, counterbores or outline cuts.",
+              "fact_ids": [
+                "D-014",
+                "D-014/drawing/callout/p1-1",
+                "D-014/drawing/callout/p1-2",
+                "D-014/drawing/callout/p1-3",
+                "D-014/drawing/callout/p1-4",
+                "D-014/drawing/callout/p1-5",
+                "D-014/drawing/n/4.2@1-1",
+                "D-014/drawing/n/6.6@1-1",
+                "D-014/drawing/n/6.6@1-2",
+                "D-014/drawing/n/13.4@1-1",
+                "D-014/drawing/n/14.4@1-1",
+                "D-014/drawing/n/90.0@1-1",
+                "D-014/drawing/n/90.0@1-2",
+                "D-014/drawing/n/18.0@1-1",
+                "D-014/drawing/n/25.0@1-1",
+                "D-014/drawing/n/26.0@1-1",
+                "D-014/drawing/n/51.5@1-1",
+                "D-014/drawing/n/35.0@1-1",
+                "D-014/drawing/n/10.5@1-1",
+                "D-014/drawing/n/21.0@1-1",
+                "D-014/drawing/n/40.0@1-1",
+                "D-014/drawing/n/40.0@1-2",
+                "D-014/drawing/n/12.5@1-1",
+                "D-014/drawing/n/53.5@1-1",
+                "D-014/drawing/n/60.0@1-1"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "f3e58de92f9c85f4c08b4ae25496ad29a070de4f495c58624592c118a5bfe8c0",
+            "response_proposal_fingerprint": "f3e58de92f9c85f4c08b4ae25496ad29a070de4f495c58624592c118a5bfe8c0",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "607741166601d83d0c89853f3c6a0e68b00dcf3b62937e22244175122c79b4a9"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features",
+              "state": "known",
+              "value_json": "[{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-43,\"fact_ids\":[\"D-014/drawing/n/18.0@1-1\",\"D-014/drawing/n/25.0@1-1\"],\"expression\":\"0-n0-n1\"},\"y\":{\"state\":\"known\",\"value\":51.5,\"fact_ids\":[\"D-014/drawing/n/51.5@1-1\"]},\"diameter\":{\"state\":\"known\",\"value\":4.2,\"fact_ids\":[\"D-014/drawing/n/4.2@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M5 - 6H\",\"placement_basis\":\"dimensioned\",\"placement_reason\":\"The left outer column is another 25,0 outward from the inner column located 18,0 left of the vertical centerline; this row is 51,5 above the horizontal centerline.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-43,\"fact_ids\":[\"D-014/drawing/n/18.0@1-1\",\"D-014/drawing/n/25.0@1-1\"],\"expression\":\"0-n0-n1\"},\"y\":{\"state\":\"known\",\"value\":77.5,\"fact_ids\":[\"D-014/drawing/n/51.5@1-1\",\"D-014/drawing/n/26.0@1-1\"],\"expression\":\"n0+n1\"},\"diameter\":{\"state\":\"known\",\"value\":4.2,\"fact_ids\":[\"D-014/drawing/n/4.2@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M5 - 6H\",\"placement_basis\":\"dimensioned\",\"placement_reason\":\"The left outer column follows the printed 18,0 and 25,0 chain from the vertical centerline; the upper row is 26,0 above the row located 51,5 above the horizontal centerline.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-35,\"fact_ids\":[\"D-014/drawing/n/35.0@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":-71.5,\"fact_ids\":[\"D-014/drawing/n/10.5@1-1\",\"D-014/drawing/n/21.0@1-1\",\"D-014/drawing/n/40.0@1-1\"],\"expression\":\"0-n0-n1-n2\"},\"diameter\":{\"state\":\"known\",\"value\":6.6,\"fact_ids\":[\"D-014/drawing/n/6.6@1-1\"]},\"through\":true,\"hole_type\":\"countersunk\",\"countersink_diameter\":{\"state\":\"known\",\"value\":13.4,\"fact_ids\":[\"D-014/drawing/n/13.4@1-1\"]},\"countersink_angle\":{\"state\":\"known\",\"value\":90,\"fact_ids\":[\"D-014/drawing/n/90.0@1-1\"]},\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8-count and clear two-column/four-row layout establish mirrored columns at ±35,0. The lowest row is 10,5+21,0+40,0 below the horizontal centerline. Main-view concentric circles and the isometric establish the top countersink opening.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-2\",\"D-014/drawing/callout/p1-3\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-35,\"fact_ids\":[\"D-014/drawing/n/35.0@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":-31.5,\"fact_ids\":[\"D-014/drawing/n/10.5@1-1\",\"D-014/drawing/n/21.0@1-1\"],\"expression\":\"0-n0-n1\"},\"diameter\":{\"state\":\"known\",\"value\":6.6,\"fact_ids\":[\"D-014/drawing/n/6.6@1-1\"]},\"through\":true,\"hole_type\":\"countersunk\",\"countersink_diameter\":{\"state\":\"known\",\"value\":13.4,\"fact_ids\":[\"D-014/drawing/n/13.4@1-1\"]},\"countersink_angle\":{\"state\":\"known\",\"value\":90,\"fact_ids\":[\"D-014/drawing/n/90.0@1-1\"]},\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8-count and two-column/four-row layout establish mirrored columns at ±35,0. This row is 10,5+21,0 below the horizontal centerline. Main-view concentric circles and the isometric establish the top opening.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-2\",\"D-014/drawing/callout/p1-3\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-35,\"fact_ids\":[\"D-014/drawing/n/35.0@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":-10.5,\"fact_ids\":[\"D-014/drawing/n/10.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":6.6,\"fact_ids\":[\"D-014/drawing/n/6.6@1-1\"]},\"through\":true,\"hole_type\":\"countersunk\",\"countersink_diameter\":{\"state\":\"known\",\"value\":13.4,\"fact_ids\":[\"D-014/drawing/n/13.4@1-1\"]},\"countersink_angle\":{\"state\":\"known\",\"value\":90,\"fact_ids\":[\"D-014/drawing/n/90.0@1-1\"]},\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8-count and two-column/four-row layout establish mirrored columns at ±35,0. This row is dimensioned 10,5 below the horizontal centerline. Main-view concentric circles and the isometric establish the top opening.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-2\",\"D-014/drawing/callout/p1-3\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-35,\"fact_ids\":[\"D-014/drawing/n/35.0@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":29.5,\"fact_ids\":[\"D-014/drawing/n/40.0@1-2\",\"D-014/drawing/n/10.5@1-1\"],\"expression\":\"n0-n1\"},\"diameter\":{\"state\":\"known\",\"value\":6.6,\"fact_ids\":[\"D-014/drawing/n/6.6@1-1\"]},\"through\":true,\"hole_type\":\"countersunk\",\"countersink_diameter\":{\"state\":\"known\",\"value\":13.4,\"fact_ids\":[\"D-014/drawing/n/13.4@1-1\"]},\"countersink_angle\":{\"state\":\"known\",\"value\":90,\"fact_ids\":[\"D-014/drawing/n/90.0@1-1\"]},\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8-count and two-column/four-row layout establish mirrored columns at ±35,0. This row is 40,0 above the row located 10,5 below the horizontal centerline. Main-view concentric circles and the isometric establish the top opening.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-2\",\"D-014/drawing/callout/p1-3\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-18,\"fact_ids\":[\"D-014/drawing/n/18.0@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":51.5,\"fact_ids\":[\"D-014/drawing/n/51.5@1-1\"]},\"diameter\":{\"state\":\"known\",\"value\":4.2,\"fact_ids\":[\"D-014/drawing/n/4.2@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M5 - 6H\",\"placement_basis\":\"dimensioned\",\"placement_reason\":\"The inner left column is dimensioned 18,0 left of the vertical centerline; this row is dimensioned 51,5 above the horizontal centerline.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-18,\"fact_ids\":[\"D-014/drawing/n/18.0@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":77.5,\"fact_ids\":[\"D-014/drawing/n/51.5@1-1\",\"D-014/drawing/n/26.0@1-1\"],\"expression\":\"n0+n1\"},\"diameter\":{\"state\":\"known\",\"value\":4.2,\"fact_ids\":[\"D-014/drawing/n/4.2@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M5 - 6H\",\"placement_basis\":\"dimensioned\",\"placement_reason\":\"The inner left column is 18,0 left of the vertical centerline; the upper row is 26,0 above the row located 51,5 above the horizontal centerline.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-1\"]},{\"kind\":\"hole\",\"face\":\"bottom\",\"x\":{\"state\":\"known\",\"value\":12.5,\"fact_ids\":[\"D-014/drawing/n/12.5@1-1\"]},\"y\":{\"state\":\"known\",\"value\":-53.5,\"fact_ids\":[\"D-014/drawing/n/53.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":6.6,\"fact_ids\":[\"D-014/drawing/n/6.6@1-2\"]},\"through\":true,\"hole_type\":\"countersunk\",\"countersink_diameter\":{\"state\":\"known\",\"value\":14.4,\"fact_ids\":[\"D-014/drawing/n/14.4@1-1\"]},\"countersink_angle\":{\"state\":\"known\",\"value\":90,\"fact_ids\":[\"D-014/drawing/n/90.0@1-2\"]},\"placement_basis\":\"dimensioned\",\"placement_reason\":\"The opposite-face view locates the column 12,5 left of its vertical centerline, corresponding to X=+12,5 in the main view. The lower center is 53,5 below the horizontal centerline. These two countersinks open on the opposite face: their outer circles appear in the left view, while the main view and isometric show only their through openings.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-4\",\"D-014/drawing/callout/p1-5\"]},{\"kind\":\"hole\",\"face\":\"bottom\",\"x\":{\"state\":\"known\",\"value\":12.5,\"fact_ids\":[\"D-014/drawing/n/12.5@1-1\"]},\"y\":{\"state\":\"known\",\"value\":6.5,\"fact_ids\":[\"D-014/drawing/n/60.0@1-1\",\"D-014/drawing/n/53.5@1-1\"],\"expression\":\"n0-n1\"},\"diameter\":{\"state\":\"known\",\"value\":6.6,\"fact_ids\":[\"D-014/drawing/n/6.6@1-2\"]},\"through\":true,\"hole_type\":\"countersunk\",\"countersink_diameter\":{\"state\":\"known\",\"value\":14.4,\"fact_ids\":[\"D-014/drawing/n/14.4@1-1\"]},\"countersink_angle\":{\"state\":\"known\",\"value\":90,\"fact_ids\":[\"D-014/drawing/n/90.0@1-2\"]},\"placement_basis\":\"dimensioned\",\"placement_reason\":\"The opposite-face view locates the column 12,5 left of its centerline, corresponding to X=+12,5 in the main view. The upper center is 60,0 above the lower center located 53,5 below the horizontal centerline. Countersink circles occur on the opposite-face view, establishing bottom openings without changing the main XY frame.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-4\",\"D-014/drawing/callout/p1-5\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":18,\"fact_ids\":[\"D-014/drawing/n/18.0@1-1\"]},\"y\":{\"state\":\"known\",\"value\":51.5,\"fact_ids\":[\"D-014/drawing/n/51.5@1-1\"]},\"diameter\":{\"state\":\"known\",\"value\":4.2,\"fact_ids\":[\"D-014/drawing/n/4.2@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M5 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8-count and clear four-column/two-row layout establish mirrored inner columns at ±18,0 and outer columns another 25,0 outward. This row is dimensioned 51,5 above the horizontal centerline.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-1\",\"D-014/drawing/n/25.0@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":18,\"fact_ids\":[\"D-014/drawing/n/18.0@1-1\"]},\"y\":{\"state\":\"known\",\"value\":77.5,\"fact_ids\":[\"D-014/drawing/n/51.5@1-1\",\"D-014/drawing/n/26.0@1-1\"],\"expression\":\"n0+n1\"},\"diameter\":{\"state\":\"known\",\"value\":4.2,\"fact_ids\":[\"D-014/drawing/n/4.2@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M5 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8-count and four-column/two-row layout establish mirrored inner columns at ±18,0 and outer columns another 25,0 outward. The upper row is 26,0 above the row located 51,5 above the horizontal centerline.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-1\",\"D-014/drawing/n/25.0@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":35,\"fact_ids\":[\"D-014/drawing/n/35.0@1-1\"]},\"y\":{\"state\":\"known\",\"value\":-71.5,\"fact_ids\":[\"D-014/drawing/n/10.5@1-1\",\"D-014/drawing/n/21.0@1-1\",\"D-014/drawing/n/40.0@1-1\"],\"expression\":\"0-n0-n1-n2\"},\"diameter\":{\"state\":\"known\",\"value\":6.6,\"fact_ids\":[\"D-014/drawing/n/6.6@1-1\"]},\"through\":true,\"hole_type\":\"countersunk\",\"countersink_diameter\":{\"state\":\"known\",\"value\":13.4,\"fact_ids\":[\"D-014/drawing/n/13.4@1-1\"]},\"countersink_angle\":{\"state\":\"known\",\"value\":90,\"fact_ids\":[\"D-014/drawing/n/90.0@1-1\"]},\"placement_basis\":\"dimensioned\",\"placement_reason\":\"The right column is dimensioned 35,0 from the vertical centerline. The lowest row is 10,5+21,0+40,0 below the horizontal centerline. Main-view concentric circles and the isometric establish the top opening.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-2\",\"D-014/drawing/callout/p1-3\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":35,\"fact_ids\":[\"D-014/drawing/n/35.0@1-1\"]},\"y\":{\"state\":\"known\",\"value\":-31.5,\"fact_ids\":[\"D-014/drawing/n/10.5@1-1\",\"D-014/drawing/n/21.0@1-1\"],\"expression\":\"0-n0-n1\"},\"diameter\":{\"state\":\"known\",\"value\":6.6,\"fact_ids\":[\"D-014/drawing/n/6.6@1-1\"]},\"through\":true,\"hole_type\":\"countersunk\",\"countersink_diameter\":{\"state\":\"known\",\"value\":13.4,\"fact_ids\":[\"D-014/drawing/n/13.4@1-1\"]},\"countersink_angle\":{\"state\":\"known\",\"value\":90,\"fact_ids\":[\"D-014/drawing/n/90.0@1-1\"]},\"placement_basis\":\"dimensioned\",\"placement_reason\":\"The right column is dimensioned 35,0 from the vertical centerline. This row is 21,0 below the row located 10,5 below the horizontal centerline. Main-view concentric circles and the isometric establish the top opening.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-2\",\"D-014/drawing/callout/p1-3\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":35,\"fact_ids\":[\"D-014/drawing/n/35.0@1-1\"]},\"y\":{\"state\":\"known\",\"value\":-10.5,\"fact_ids\":[\"D-014/drawing/n/10.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":6.6,\"fact_ids\":[\"D-014/drawing/n/6.6@1-1\"]},\"through\":true,\"hole_type\":\"countersunk\",\"countersink_diameter\":{\"state\":\"known\",\"value\":13.4,\"fact_ids\":[\"D-014/drawing/n/13.4@1-1\"]},\"countersink_angle\":{\"state\":\"known\",\"value\":90,\"fact_ids\":[\"D-014/drawing/n/90.0@1-1\"]},\"placement_basis\":\"dimensioned\",\"placement_reason\":\"The right column is dimensioned 35,0 from the vertical centerline and this row is dimensioned 10,5 below the horizontal centerline. Main-view concentric circles and the isometric establish the top opening.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-2\",\"D-014/drawing/callout/p1-3\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":35,\"fact_ids\":[\"D-014/drawing/n/35.0@1-1\"]},\"y\":{\"state\":\"known\",\"value\":29.5,\"fact_ids\":[\"D-014/drawing/n/40.0@1-2\",\"D-014/drawing/n/10.5@1-1\"],\"expression\":\"n0-n1\"},\"diameter\":{\"state\":\"known\",\"value\":6.6,\"fact_ids\":[\"D-014/drawing/n/6.6@1-1\"]},\"through\":true,\"hole_type\":\"countersunk\",\"countersink_diameter\":{\"state\":\"known\",\"value\":13.4,\"fact_ids\":[\"D-014/drawing/n/13.4@1-1\"]},\"countersink_angle\":{\"state\":\"known\",\"value\":90,\"fact_ids\":[\"D-014/drawing/n/90.0@1-1\"]},\"placement_basis\":\"dimensioned\",\"placement_reason\":\"The right column is dimensioned 35,0 from the vertical centerline. This row is 40,0 above the row located 10,5 below the horizontal centerline. Main-view concentric circles and the isometric establish the top opening.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-2\",\"D-014/drawing/callout/p1-3\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":43,\"fact_ids\":[\"D-014/drawing/n/18.0@1-1\",\"D-014/drawing/n/25.0@1-1\"],\"expression\":\"n0+n1\"},\"y\":{\"state\":\"known\",\"value\":51.5,\"fact_ids\":[\"D-014/drawing/n/51.5@1-1\"]},\"diameter\":{\"state\":\"known\",\"value\":4.2,\"fact_ids\":[\"D-014/drawing/n/4.2@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M5 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8-count and four-column/two-row layout establish mirrored inner columns at ±18,0 and outer columns another 25,0 outward. This row is dimensioned 51,5 above the horizontal centerline.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":43,\"fact_ids\":[\"D-014/drawing/n/18.0@1-1\",\"D-014/drawing/n/25.0@1-1\"],\"expression\":\"n0+n1\"},\"y\":{\"state\":\"known\",\"value\":77.5,\"fact_ids\":[\"D-014/drawing/n/51.5@1-1\",\"D-014/drawing/n/26.0@1-1\"],\"expression\":\"n0+n1\"},\"diameter\":{\"state\":\"known\",\"value\":4.2,\"fact_ids\":[\"D-014/drawing/n/4.2@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M5 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8-count and four-column/two-row layout establish mirrored inner columns at ±18,0 and outer columns another 25,0 outward. The upper row is 26,0 above the row located 51,5 above the horizontal centerline.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-1\"]}]",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-014",
+                "D-014/drawing/callout/p1-1",
+                "D-014/drawing/callout/p1-2",
+                "D-014/drawing/callout/p1-3",
+                "D-014/drawing/callout/p1-4",
+                "D-014/drawing/callout/p1-5",
+                "D-014/drawing/n/18.0@1-1",
+                "D-014/drawing/n/25.0@1-1",
+                "D-014/drawing/n/26.0@1-1",
+                "D-014/drawing/n/51.5@1-1",
+                "D-014/drawing/n/35.0@1-1",
+                "D-014/drawing/n/10.5@1-1",
+                "D-014/drawing/n/21.0@1-1",
+                "D-014/drawing/n/40.0@1-1",
+                "D-014/drawing/n/40.0@1-2",
+                "D-014/drawing/n/12.5@1-1",
+                "D-014/drawing/n/53.5@1-1",
+                "D-014/drawing/n/60.0@1-1"
+              ],
+              "reason": "The views establish 18 through-holes: eight explicitly drilled Ø4,2 and threaded M5 - 6H; eight Ø6,6 with Ø13,4 × 90° countersinks opening on top; and two Ø6,6 with Ø14,4 × 90° countersinks opening on bottom. Opposite-face positions are transformed into the main right-hand view's unchanged XY frame. Printed offsets, pitches, counts and clear mirrored layouts establish the placements. No slots, blind holes, side holes, counterbores, recesses, grooves or functional outline cuts are shown.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "f3e58de92f9c85f4c08b4ae25496ad29a070de4f495c58624592c118a5bfe8c0",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "fbe5c71001afa8f6c7a6d7d20f3b2694684249f285aa3c4772294fb70ffd808b"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The views establish 18 through-holes: eight explicitly drilled Ø4,2 and threaded M5 - 6H; eight Ø6,6 with Ø13,4 × 90° countersinks opening on top; and two Ø6,6 with Ø14,4 × 90° countersinks opening on bottom. Opposite-face positions are transformed into the main right-hand view's unchanged XY frame. Printed offsets, pitches, counts and clear mirrored layouts establish the placements. No slots, blind holes, side holes, counterbores, recesses, grooves or functional outline cuts are shown. Verification: All 18 holes match the views.\n- Threaded holes (8x Ø4,2 THRU ALL M5 - 6H): in the main view, 18,0 runs from the vertical centerline to the inner column and 25,0 from the inner to the outer column, so the left columns are at X=-18 and X=-43. 51,5 runs from the horizontal centerline to the lower threaded row and 26,0 from that row to the top row, giving Y=51.5 and Y=77.5. The four-column, two-row layout is clearly mirrored about the vertical centerline, which supports X=+18 and X=+43; these are correctly tagged as pattern interpretation.\n- Top countersinks (8x Ø6,6 THRU ALL, Ø13,4 X 90°): 35,0 runs from the centerline to the right column. 10,5 runs from the centerline down to the first lower row, 21,0 to the next row and the lower 40,0 to the bottom row, giving Y=-10.5, -31.5 and -71.5. The right-hand 40,0 runs up from the -10.5 row to the upper row, giving Y=29.5. The two columns are mirrored at X=±35. The main view and the isometric show the large concentric countersink circles on the viewed face, so these open on top.\n- Bottom countersinks (2x Ø6,6 THRU ALL, Ø14,4 X 90°): the left view is the opposite face. It shows the threaded and Ø6,6 patterns mirrored, the large countersink circles appear only on this face, and the callout is tagged with datum B, 'Ekstra undersænkning' (extra under-countersink). That establishes bottom openings. In the left view, 12,5 places the column left of center, which maps to X=+12.5 in the main frame; the main view shows the plain through-openings right of center, which agrees. 53,5 places the lower hole below the centerline and 60,0 is the spacing between the two holes, giving Y=-53.5 and Y=6.5.\nAll arithmetic and cited IDs are correct. The features are ordered by X, then Y. There are no slots, side holes, counterbores or outline cuts."
+  },
+  "material": {
+    "name": "D-014/drawing/material",
+    "original": "3.3315 (EN-AW 5005)",
+    "value": "3.3315 (EN-AW 5005)",
+    "confidence": "sure",
+    "method": "parsed",
+    "page": 1,
+    "box": [
+      745.28,
+      771.048,
+      135.0,
+      14.0
+    ],
+    "field_box": [
+      784.28,
+      771.048,
+      96.0,
+      14.0
+    ],
+    "label_box": [
+      745.28,
+      772.048,
+      38.539,
+      10.936
+    ]
+  },
+  "weight_on_drawing": {
+    "name": "D-014/drawing/weight_g",
+    "original": "331.8",
+    "value": 331.8,
+    "confidence": "sure",
+    "method": "parsed",
+    "page": 1,
+    "box": [
+      880.717,
+      771.048,
+      93.0,
+      14.0
+    ],
+    "field_box": [
+      924.717,
+      771.048,
+      49.0,
+      14.0
+    ],
+    "label_box": [
+      880.717,
+      772.048,
+      28.747,
+      10.936
+    ]
+  },
+  "cad_ready": true,
+  "blocking_fields": [],
+  "cad_eligibility": {
+    "state": "known",
+    "value": {
+      "supported": true,
+      "constant_thickness": true,
+      "outline_exact": true,
+      "reason": "The main right-hand face-on view establishes an exact 96,0 × 167,0 mm rectangular body, and the middle edge view directly dimensions its single constant thickness as 8,0 mm with tolerance. The opposite-face and isometric views establish the opening faces of the supported through-hole countersinks. All 18 hole cuts are representable; only unspecified edge finishing is omitted.",
+      "essential_uncertainty": [],
+      "omitted_minor_features": [
+        "Undimensioned edge breaks required by DEBURR AND BREAK SHARP EDGES."
+      ]
+    },
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-014",
+      "D-014/drawing/n/96.0@1-1",
+      "D-014/drawing/n/167.0@1-1",
+      "D-014/drawing/n/8.0@1-3",
+      "D-014/drawing/callout/p1-1",
+      "D-014/drawing/callout/p1-2",
+      "D-014/drawing/callout/p1-3",
+      "D-014/drawing/callout/p1-4",
+      "D-014/drawing/callout/p1-5",
+      "D-014/drawing/general/edge_finish"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "cad_eligibility",
+              "decision": "accept",
+              "reason": "The part is a 96,0 x 167,0 rectangular plate from the main view with a single printed thickness of 8,0 ±0,2 from the edge view. All holes are supported through-holes, either threaded or countersunk on top or bottom. The only omission is the minor undimensioned edge break. There are no essential contours the generator cannot express, so supported=true and outline_exact=true are correct.",
+              "fact_ids": [
+                "D-014",
+                "D-014/drawing/n/96.0@1-1",
+                "D-014/drawing/n/167.0@1-1",
+                "D-014/drawing/n/8.0@1-3",
+                "D-014/drawing/callout/p1-1",
+                "D-014/drawing/callout/p1-2",
+                "D-014/drawing/callout/p1-4",
+                "D-014/drawing/general/edge_finish"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "f3e58de92f9c85f4c08b4ae25496ad29a070de4f495c58624592c118a5bfe8c0",
+            "response_proposal_fingerprint": "f3e58de92f9c85f4c08b4ae25496ad29a070de4f495c58624592c118a5bfe8c0",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "607741166601d83d0c89853f3c6a0e68b00dcf3b62937e22244175122c79b4a9"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "cad_eligibility",
+              "state": "known",
+              "value_json": "{\"supported\":true,\"constant_thickness\":true,\"outline_exact\":true,\"reason\":\"The main right-hand face-on view establishes an exact 96,0 × 167,0 mm rectangular body, and the middle edge view directly dimensions its single constant thickness as 8,0 mm with tolerance. The opposite-face and isometric views establish the opening faces of the supported through-hole countersinks. All 18 hole cuts are representable; only unspecified edge finishing is omitted.\",\"essential_uncertainty\":[],\"omitted_minor_features\":[\"Undimensioned edge breaks required by DEBURR AND BREAK SHARP EDGES.\"]}",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-014",
+                "D-014/drawing/n/96.0@1-1",
+                "D-014/drawing/n/167.0@1-1",
+                "D-014/drawing/n/8.0@1-3",
+                "D-014/drawing/callout/p1-1",
+                "D-014/drawing/callout/p1-2",
+                "D-014/drawing/callout/p1-3",
+                "D-014/drawing/callout/p1-4",
+                "D-014/drawing/callout/p1-5",
+                "D-014/drawing/general/edge_finish"
+              ],
+              "reason": "The original views establish a supported constant-thickness rectangular plate, with no essential contour outside the template capabilities. The omission concerns minor undimensioned edge finishing.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "f3e58de92f9c85f4c08b4ae25496ad29a070de4f495c58624592c118a5bfe8c0",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "fbe5c71001afa8f6c7a6d7d20f3b2694684249f285aa3c4772294fb70ffd808b"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The original views establish a supported constant-thickness rectangular plate, with no essential contour outside the template capabilities. The omission concerns minor undimensioned edge finishing. Verification: The part is a 96,0 x 167,0 rectangular plate from the main view with a single printed thickness of 8,0 ±0,2 from the edge view. All holes are supported through-holes, either threaded or countersunk on top or bottom. The only omission is the minor undimensioned edge break. There are no essential contours the generator cannot express, so supported=true and outline_exact=true are correct."
+  },
+  "feature_protocol": "supported-feature-subset-v1",
+  "features_complete": {
+    "state": "known",
+    "value": false,
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-014",
+      "D-014/drawing/general/edge_finish"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_complete",
+              "decision": "accept",
+              "reason": "The general note 'DEBURR AND BREAK SHARP EDGES' asks for edge breaks but gives no size, so that detail is omitted. Because features_omitted is not empty, false is correct. The parallelism tolerance and datum A in the edge view are tolerances, not cuts.",
+              "fact_ids": [
+                "D-014",
+                "D-014/drawing/general/edge_finish"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "f3e58de92f9c85f4c08b4ae25496ad29a070de4f495c58624592c118a5bfe8c0",
+            "response_proposal_fingerprint": "f3e58de92f9c85f4c08b4ae25496ad29a070de4f495c58624592c118a5bfe8c0",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "607741166601d83d0c89853f3c6a0e68b00dcf3b62937e22244175122c79b4a9"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_complete",
+              "state": "known",
+              "value_json": "false",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-014",
+                "D-014/drawing/general/edge_finish"
+              ],
+              "reason": "All 18 hole cuts are supported, but the specified edge breaking has no defined size or profile and is omitted.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "f3e58de92f9c85f4c08b4ae25496ad29a070de4f495c58624592c118a5bfe8c0",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "fbe5c71001afa8f6c7a6d7d20f3b2694684249f285aa3c4772294fb70ffd808b"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "All 18 hole cuts are supported, but the specified edge breaking has no defined size or profile and is omitted. Verification: The general note 'DEBURR AND BREAK SHARP EDGES' asks for edge breaks but gives no size, so that detail is omitted. Because features_omitted is not empty, false is correct. The parallelism tolerance and datum A in the edge view are tolerances, not cuts."
+  },
+  "features_omitted": {
+    "state": "known",
+    "value": [
+      {
+        "description": "DEBURR AND BREAK SHARP EDGES",
+        "reason": "The general finishing note supplies no edge-break size, angle or profile. An arbitrary chamfer or radius cannot be added; this minor finishing detail is omitted.",
+        "fact_ids": [
+          "D-014",
+          "D-014/drawing/general/edge_finish"
+        ]
+      }
+    ],
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-014",
+      "D-014/drawing/general/edge_finish"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_omitted",
+              "decision": "accept",
+              "reason": "The only feature-like detail not modeled is the edge break from the deburr note, which has no specified dimensions. Every hole visible in the views is included in features.",
+              "fact_ids": [
+                "D-014",
+                "D-014/drawing/general/edge_finish"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "f3e58de92f9c85f4c08b4ae25496ad29a070de4f495c58624592c118a5bfe8c0",
+            "response_proposal_fingerprint": "f3e58de92f9c85f4c08b4ae25496ad29a070de4f495c58624592c118a5bfe8c0",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "607741166601d83d0c89853f3c6a0e68b00dcf3b62937e22244175122c79b4a9"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_omitted",
+              "state": "known",
+              "value_json": "[{\"description\":\"DEBURR AND BREAK SHARP EDGES\",\"reason\":\"The general finishing note supplies no edge-break size, angle or profile. An arbitrary chamfer or radius cannot be added; this minor finishing detail is omitted.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/general/edge_finish\"]}]",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-014",
+                "D-014/drawing/general/edge_finish"
+              ],
+              "reason": "Only the unspecified edge finishing is omitted; all independently supported hole geometry is retained.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "f3e58de92f9c85f4c08b4ae25496ad29a070de4f495c58624592c118a5bfe8c0",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "fbe5c71001afa8f6c7a6d7d20f3b2694684249f285aa3c4772294fb70ffd808b"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "Only the unspecified edge finishing is omitted; all independently supported hole geometry is retained. Verification: The only feature-like detail not modeled is the edge break from the deburr note, which has no specified dimensions. Every hole visible in the views is included in features."
+  },
+  "features_all_determined": false,
+  "features_status": "partial",
+  "omitted_feature_notes": [
+    "DEBURR AND BREAK SHARP EDGES: The general finishing note supplies no edge-break size, angle or profile. An arbitrary chamfer or radius cannot be added; this minor finishing detail is omitted."
+  ],
+  "review": {
+    "status": "not_reviewed"
+  },
+  "source_sha256": "0e6fa42e39eda320d42f45576a0825c5d0c002abd6863188b3c98774d52867f6",
+  "expansion_protocol": "flat-part-expansion-v1"
+}

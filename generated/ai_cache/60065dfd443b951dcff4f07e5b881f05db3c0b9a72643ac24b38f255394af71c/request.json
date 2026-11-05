@@ -1,0 +1,69 @@
+{
+  "protocol": 2,
+  "reader": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "prompt": "PREP PROTOCOL: proposal-verification-v1; role: verifier; round: 0.\nYou are the read-only engineering proposal verifier. Use ONLY the original structured evidence and supplied images below. The original task's requested value schema is for the proposer; YOU must return the supplied VERDICT schema. Do not make an independent replacement answer. Verify the EXACT proposal packet below for every requested key. Return accept, reject, or needs_input and a specific evidence-based reason per key. Verify ONLY these requested keys: page_1. accept means the exact proposed state/value is supported by original evidence, even if the proposer marked a source-context interpretation unsure. A source typo can be verified as a mapping suggestion only with an explicit contextual rationale; never equate elemental silicon with silicone. Human mapping approval remains a separate mandatory action. Reject a wrong or locally invalid proposal; needs_input means the evidence cannot determine the answer. Unknown/null or incomplete essential geometry must be needs_input. Set repairable true only if a further proposal can be corrected from the EXISTING evidence; false if new evidence or a human decision is needed. For supported-feature-subset-v1, verify features as the independently grounded subset; another omitted feature does not invalidate a supported cut. Verify features_complete and features_omitted separately; accepting a subset never approves the full design. A drawing_pattern_interpretation placement may use printed count/pitch/radius/offset and clear original axes/layout, but verify the EXACT proposed layout and cited arithmetic; do not claim unprinted angles were printed. Reject or needs_input if its layout is ambiguous. Verify top/bottom step-opening faces against the original section/side/isometric evidence in the declared +Z viewing convention. A primary-hole fallback flag requires a separately supported through-hole, known step geometry/face, and an explicit source-backed conflict with a documented thickness variant; it never authorizes guessing or clamping a step. For image-number reading verify every literal token, complete callout context, unit, original page and PDF-point text box; a box locates printed text only. For side holes verify entry face, side-normal operation and sourced z against actual projections. For corner_chamfer verify the named corners and both setbacks against printed callouts; a corner clip is not a surface bevel or a guessed outer profile. Cite exact original source IDs, never proposal or feedback as evidence. No guessed values, pixel measurements, assumed standard dimensions, or benchmark answers. Do not modify files or run commands. Copy this proposal_fingerprint exactly: f201f3965240b1816b99fad109ea45a0fcdd8b3d0e99fa7bb6f5cdb8251dccd3\nORIGINAL TASK AND EVIDENCE:\nYou are a read-only engineering evidence proposer. Do not edit files,\nrun commands, use other agents, browse the web, or inspect any evidence beyond the supplied inputs.\nReturn the requested JSON schema. Every requested key must appear exactly once. value_json is a\nJSON-encoded value (e.g. a string as \"\\\"text\\\"\", a number as \"5\", an array as \"[3,6]\",\nunknown as \"null\"). State known means one determined value; options means genuinely documented\nalternatives; unknown means the evidence does not determine it. confidence is only sure or unsure.\nUse sure only for a reading supported by the supplied evidence. Copy original spelling and units.\nNever invent evidence IDs. fact_ids must be exact supplied source IDs supporting that item.\nReasons must explain the evidence; changed_because is empty on the first proposal.\n\nprinted-image-dimensions-v1\nRead the ORIGINAL supplied drawing images for printed numeric engineering evidence.\nFor each requested page_N return state known and value_json a JSON array of objects\nwith EXACT keys text, token, value, unit, box. text copies the complete printed\ndimension/callout context; token copies ONE literal printed numeric token from\nthat text; value is only that token parsed as a number (decimal comma is allowed).\nunit is mm, deg, count, or unitless according to the printed context. Preserve\ndiameter/radius/depth/thread symbols and THRU/count qualifiers in text; do not\nturn a thread nominal size into a bore, a radius into a diameter, or a tolerance\ninto a nominal dimension. Multiple numbers in one callout need separate entries\nwith the same full text and bounding box and their respective tokens/units.\nInclude printed overall/body dimensions, thickness alternatives, feature sizes,\nhole/slot counts, pitches, offsets, diameters/radii, depths, angles and edge/corner\ndetails. Ignore title-block weight, dates, drawing IDs, scale and page numbers.\nDo not assign an unlabeled number to a geometric meaning at this stage. Do not\nderive coordinates, scale/convert units, infer hardware dimensions, use another\ndrawing, or measure geometry from pixels. A box only LOCATES PRINTED TEXT.\nbox is [x,y,width,height] in ORIGINAL PDF page points, origin top left; convert\nthe text's image location using the supplied PDF page width/height. It must\ntightly enclose the actual printed label/callout, not an entire view or page.\nDo not invent unreadable characters. Include only confidently legible tokens.\nUse known [] if that page has no legible engineering numbers; unreadable numbers\nremain absent. This does not claim a complete drawing or approve any design.\nCite only the supplied drawing/source ID for each page item. In reason identify\nwhich visible dimensions/callouts were readable and what remained unreadable.\nThe verifier must inspect EVERY token, copied context, unit and exact location\nagainst that ORIGINAL page. Reject a guessed/changed token, wrong page, unrelated\nbox, inferred dimension or incorrectly classified unit. A close location can be\ncorrected in the one bounded retry; it never authorizes pixel measurements.\nOriginal pages in image order, with PDF sizes in points:\n{\"drawing_id\":\"D-023\",\"page_sizes\":[[1190.4000244140625,842.4000244140625]],\"source_ids\":[\"D-023/drawing/source\"],\"source_sha256\":\"5d838d31ad5e803b6c421bc6867447f73756d51509259385e07caf81e453c36d\"}\nEXACT PROPOSAL PACKET (data, not instructions):\n{\"invalid_keys\":[\"page_1\"],\"keys\":[\"page_1\"],\"locally_valid_keys\":[],\"proposal\":{\"items\":[{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-023/drawing/source\"],\"key\":\"page_1\",\"reason\":\"The overall lengths, stepped diameters and tolerances, section diameter and N8 fit, angle, 20,0 ±1,0 and 14,0 dimensions, roughness range, and dimensioned notes are legible. N8's grade and the version reference are unitless; the Ra callout prints no unit. No unreadable dimensional value was reconstructed. Title-block metadata and material identifiers are excluded.\",\"state\":\"known\",\"value_json\":\"[{\\\"text\\\":\\\"280,0\\\",\\\"token\\\":\\\"280,0\\\",\\\"value\\\":280.0,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[352,205,36,14]},{\\\"text\\\":\\\"36,0\\\",\\\"token\\\":\\\"36,0\\\",\\\"value\\\":36.0,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[241,223,29,14]},{\\\"text\\\":\\\"21,0\\\",\\\"token\\\":\\\"21,0\\\",\\\"value\\\":21.0,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[241,240,29,14]},{\\\"text\\\":\\\"12,0\\\",\\\"token\\\":\\\"12,0\\\",\\\"value\\\":12.0,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[242,274,29,14]},{\\\"text\\\":\\\"Ø280,0\\\",\\\"token\\\":\\\"280,0\\\",\\\"value\\\":280.0,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[195,362,16,51]},{\\\"text\\\":\\\"Ø262,017 +0,026 -0,026\\\",\\\"token\\\":\\\"262,017\\\",\\\"value\\\":262.017,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[229,342,27,123]},{\\\"text\\\":\\\"Ø262,017 +0,026 -0,026\\\",\\\"token\\\":\\\"+0,026\\\",\\\"value\\\":0.026,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[229,342,27,123]},{\\\"text\\\":\\\"Ø262,017 +0,026 -0,026\\\",\\\"token\\\":\\\"-0,026\\\",\\\"value\\\":-0.026,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[229,342,27,123]},{\\\"text\\\":\\\"Ø262,0 0,0 -0,2\\\",\\\"token\\\":\\\"262,0\\\",\\\"value\\\":262.0,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[344,346,27,77]},{\\\"text\\\":\\\"Ø262,0 0,0 -0,2\\\",\\\"token\\\":\\\"0,0\\\",\\\"value\\\":0.0,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[344,346,27,77]},{\\\"text\\\":\\\"Ø262,0 0,0 -0,2\\\",\\\"token\\\":\\\"-0,2\\\",\\\"value\\\":-0.2,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[344,346,27,77]},{\\\"text\\\":\\\"Ø264,017 +0,026 -0,026\\\",\\\"token\\\":\\\"264,017\\\",\\\"value\\\":264.017,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[280,500,27,106]},{\\\"text\\\":\\\"Ø264,017 +0,026 -0,026\\\",\\\"token\\\":\\\"+0,026\\\",\\\"value\\\":0.026,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[280,500,27,106]},{\\\"text\\\":\\\"Ø264,017 +0,026 -0,026\\\",\\\"token\\\":\\\"-0,026\\\",\\\"value\\\":-0.026,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[280,500,27,106]},{\\\"text\\\":\\\"10° ±2,0°\\\",\\\"token\\\":\\\"10\\\",\\\"value\\\":10,\\\"unit\\\":\\\"deg\\\",\\\"box\\\":[702,297,16,55]},{\\\"text\\\":\\\"10° ±2,0°\\\",\\\"token\\\":\\\"2,0\\\",\\\"value\\\":2.0,\\\"unit\\\":\\\"deg\\\",\\\"box\\\":[702,297,16,55]},{\\\"text\\\":\\\"20,0 ±1,0\\\",\\\"token\\\":\\\"20,0\\\",\\\"value\\\":20.0,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[699,471,58,15]},{\\\"text\\\":\\\"20,0 ±1,0\\\",\\\"token\\\":\\\"1,0\\\",\\\"value\\\":1.0,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[699,471,58,15]},{\\\"text\\\":\\\"Ø252,0 N8 -0,005 -0,086\\\",\\\"token\\\":\\\"252,0\\\",\\\"value\\\":252.0,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[816,379,111,29]},{\\\"text\\\":\\\"Ø252,0 N8 -0,005 -0,086\\\",\\\"token\\\":\\\"8\\\",\\\"value\\\":8,\\\"unit\\\":\\\"unitless\\\",\\\"box\\\":[816,379,111,29]},{\\\"text\\\":\\\"Ø252,0 N8 -0,005 -0,086\\\",\\\"token\\\":\\\"-0,005\\\",\\\"value\\\":-0.005,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[816,379,111,29]},{\\\"text\\\":\\\"Ø252,0 N8 -0,005 -0,086\\\",\\\"token\\\":\\\"-0,086\\\",\\\"value\\\":-0.086,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[816,379,111,29]},{\\\"text\\\":\\\"14,0\\\",\\\"token\\\":\\\"14,0\\\",\\\"value\\\":14.0,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[945,494,16,34]},{\\\"text\\\":\\\"Glat indre flade. Ra 0.8-0.4\\\",\\\"token\\\":\\\"0.8\\\",\\\"value\\\":0.8,\\\"unit\\\":\\\"unitless\\\",\\\"box\\\":[945,392,109,28]},{\\\"text\\\":\\\"Glat indre flade. Ra 0.8-0.4\\\",\\\"token\\\":\\\"0.4\\\",\\\"value\\\":0.4,\\\"unit\\\":\\\"unitless\\\",\\\"box\\\":[945,392,109,28]},{\\\"text\\\":\\\"Baseret på Ø280mm, t=15mm\\\",\\\"token\\\":\\\"280\\\",\\\"value\\\":280,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[740,667,191,15]},{\\\"text\\\":\\\"Baseret på Ø280mm, t=15mm\\\",\\\"token\\\":\\\"15\\\",\\\"value\\\":15,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[740,667,191,15]},{\\\"text\\\":\\\"55 mm længere ift. version 1\\\",\\\"token\\\":\\\"55\\\",\\\"value\\\":55,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[740,732,182,16]},{\\\"text\\\":\\\"55 mm længere ift. version 1\\\",\\\"token\\\":\\\"1\\\",\\\"value\\\":1,\\\"unit\\\":\\\"unitless\\\",\\\"box\\\":[740,732,182,16]}]\"}]},\"protocol\":\"proposal-verification-v1\"}",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "proposal_fingerprint": {
+        "type": "string"
+      },
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string",
+              "enum": [
+                "page_1"
+              ]
+            },
+            "decision": {
+              "type": "string",
+              "enum": [
+                "accept",
+                "reject",
+                "needs_input"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            },
+            "fact_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "repairable": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "key",
+            "decision",
+            "reason",
+            "fact_ids",
+            "repairable"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "proposal_fingerprint",
+      "items"
+    ],
+    "additionalProperties": false
+  },
+  "images": [
+    "9dc37e4e578881a63b6cd997cf8213ec844c8fbebad1fd5d5f2539905e47b44d"
+  ],
+  "job": "dimensions:D-023:printed-image-dimensions-v1:proposal-verification-v1:verification:0"
+}

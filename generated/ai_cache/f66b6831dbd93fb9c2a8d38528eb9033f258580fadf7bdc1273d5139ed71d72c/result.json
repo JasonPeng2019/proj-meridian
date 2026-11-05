@@ -1,0 +1,190 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "c49d0f3afa9c4aad8ca302757e4f6723911b6e4a3a957198e4fbc5310fb5d8f6",
+    "items": [
+      {
+        "key": "outline_type",
+        "decision": "accept",
+        "reason": "The main face-on view in D-026 shows one solid circular outer boundary. Its diameter leader reads Ø250,0 (D-026/drawing/n/250.0@1-1). There is no notch, lobe or other outer contour, and the isometric view shows a plain disc.",
+        "fact_ids": [
+          "D-026",
+          "D-026/drawing/n/250.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "length",
+        "decision": "accept",
+        "reason": "The outline is a circle, so a rectangular X length does not apply. Unknown/null is the correct value for an irrelevant key.",
+        "fact_ids": [
+          "D-026"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "width",
+        "decision": "accept",
+        "reason": "The outline is a circle, so a rectangular Y width does not apply. Unknown/null is the correct value for an irrelevant key.",
+        "fact_ids": [
+          "D-026"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "outer_diameter",
+        "decision": "accept",
+        "reason": "The Ø250,0 leader ends on the outer solid circle in the main view, so the outer diameter is 250 mm (D-026/drawing/n/250.0@1-1). The units note confirms millimetres.",
+        "fact_ids": [
+          "D-026",
+          "D-026/drawing/n/250.0@1-1",
+          "D-026/drawing/general/units"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "inner_diameter",
+        "decision": "accept",
+        "reason": "The drawing shows no central aperture. The R105,0 circle is a dash-dot centerline pitch circle, not a body boundary. An inner diameter does not apply to this circle outline, so unknown/null is correct.",
+        "fact_ids": [
+          "D-026",
+          "D-026/drawing/n/105.0@1-1",
+          "D-026/drawing/callout/p1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "thickness",
+        "decision": "accept",
+        "reason": "In the side view, stacked texts 25,0 and 15,0 sit on one dimension line whose arrows span the plate faces. Neither reading is marked as a tolerance or a limit. Under the possible-reading contract, options [15,25] sorted ascending is correct, and the proposal does not select one. The note 'rustfri og alu' does not resolve which applies.",
+        "fact_ids": [
+          "D-026",
+          "D-026/drawing/n/15.0@1-1",
+          "D-026/drawing/n/25.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features",
+        "decision": "accept",
+        "reason": "Callout '3 x Ø 5,3 THRU ALL / ⌴ Ø 10,0 ↧ 15,4' gives three through holes, Ø5,3, with Ø10,0 counterbores 15,4 deep. The holes lie on the R105,0 centerline circle centred on the plate centre (0,0). The main view places one hole on the -X horizontal centerline and two at upper right and lower right, symmetric about the X axis. That matches 360/3 spacing starting at 180°, giving 180°, 300° and 60°; no unprinted angle is claimed as printed. Opening face: the main view draws each hole as two solid concentric circles, so the counterbore is visible from the +Z viewer. The side view shows the hidden wide step on the face opposite datum A, consistent with the main view. The isometric face shows the same hole layout, not mirrored, so it is also the +Z face. face='top' is supported. The conflict flag is valid: the printed 15,4 step depth exceeds the 15,0 thickness reading but fits 25,0, while the Ø5,3 through holes are independently established. Every numeric value cites a matching parsed number.",
+        "fact_ids": [
+          "D-026",
+          "D-026/drawing/callout/p1-1",
+          "D-026/drawing/callout/p1-2",
+          "D-026/drawing/n/3.0@1-1",
+          "D-026/drawing/n/105.0@1-1",
+          "D-026/drawing/n/5.3@1-1",
+          "D-026/drawing/n/10.0@1-1",
+          "D-026/drawing/n/15.4@1-1",
+          "D-026/drawing/n/15.0@1-1",
+          "D-026/drawing/n/25.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_complete",
+        "decision": "accept",
+        "reason": "false is correct. The counterbore steps must be skipped for the 15,0 thickness reading because the printed depth 15,4 exceeds it. The note DEBURR AND BREAK SHARP EDGES is not dimensioned. The omissions list is therefore not empty.",
+        "fact_ids": [
+          "D-026",
+          "D-026/drawing/n/15.4@1-1",
+          "D-026/drawing/n/15.0@1-1",
+          "D-026/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_omitted",
+        "decision": "accept",
+        "reason": "The two omissions match the evidence: (1) the Ø10,0 × 15,4 counterbore steps for the 15,0 reading only, because the printed depth exceeds that thickness; (2) the undimensioned deburr and edge-break note. A check of the side, main and isometric views found no other holes, slots, notches, chamfers or recesses.",
+        "fact_ids": [
+          "D-026",
+          "D-026/drawing/n/3.0@1-1",
+          "D-026/drawing/n/5.3@1-1",
+          "D-026/drawing/n/10.0@1-1",
+          "D-026/drawing/n/15.4@1-1",
+          "D-026/drawing/n/15.0@1-1",
+          "D-026/drawing/n/25.0@1-1",
+          "D-026/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "cad_eligibility",
+        "decision": "reject",
+        "reason": "The proposal packet marks this key as locally invalid (invalid_keys includes cad_eligibility), so it cannot be accepted as submitted. The underlying substance appears supported by the evidence: an exact Ø250,0 circular disc; constant-thickness possible readings 15,0 and 25,0 on one side-view dimension; three supported Ø5,3 through holes on R105,0; and the counterbore steps conditionally skipped for the 15,0 reading. The proposer should fix the local schema or validation defect in the eligibility object, keeping these supported facts, and resubmit.",
+        "fact_ids": [
+          "D-026",
+          "D-026/drawing/n/250.0@1-1",
+          "D-026/drawing/n/15.0@1-1",
+          "D-026/drawing/n/25.0@1-1",
+          "D-026/drawing/n/105.0@1-1",
+          "D-026/drawing/callout/p1-2",
+          "D-026/drawing/n/10.0@1-1",
+          "D-026/drawing/n/15.4@1-1",
+          "D-026/drawing/general/edge_finish"
+        ],
+        "repairable": true
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 17672,
+      "cache_read_input_tokens": 19286,
+      "output_tokens": 4486,
+      "output_tokens_details": {
+        "thinking_tokens": 2017
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 17672,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 4486,
+        "cacheReadInputTokens": 19286,
+        "cacheCreationInputTokens": 17672,
+        "webSearchRequests": 0,
+        "costUSD": 0.2349692,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 2017,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 17672,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.2349692,
+    "duration_ms": 43315,
+    "is_error": false
+  },
+  "latency_ms": 44984,
+  "cache_key": "f66b6831dbd93fb9c2a8d38528eb9033f258580fadf7bdc1273d5139ed71d72c",
+  "cache_hit": false,
+  "job": "detail:D-026:drawing-detail-reprepare-v2:proposal-verification-v1:verification:0",
+  "error": null
+}

@@ -1,0 +1,1190 @@
+{
+  "part": "D-025",
+  "template": "flat_part",
+  "outline": {
+    "state": "known",
+    "type": "ring",
+    "outer_diameter": {
+      "state": "known",
+      "value": 250.0,
+      "confidence": "sure",
+      "method": "ai_verified",
+      "fact_ids": [
+        "D-025",
+        "D-025/drawing/n/250.0@1-1"
+      ],
+      "readers": {
+        "claude": {
+          "role": "verifier",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "outer_diameter",
+                "decision": "accept",
+                "reason": "The printed 'Ø250,0 ±0,2' leader ends on the outer circle. 250,0 is the nominal value, the ±0,2 is a tolerance, and the drawing note says DIMENSIONS ARE IN MILLIMETERS.",
+                "fact_ids": [
+                  "D-025",
+                  "D-025/drawing/n/250.0@1-1",
+                  "D-025/drawing/general/units"
+                ],
+                "repairable": false
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "83d7e6b8379c742fb6f0cf5f4d91a03473c41ef9de7e5b55de58f45d18ebe929",
+              "response_proposal_fingerprint": "83d7e6b8379c742fb6f0cf5f4d91a03473c41ef9de7e5b55de58f45d18ebe929",
+              "feedback": [],
+              "settings": {
+                "model": "opus",
+                "fast_mode": false,
+                "mode": "regular",
+                "reader": "claude"
+              },
+              "cache_key": "cba3f18e994f9bd95e61c98c6ae03d8249f06259a6b0678e95a350dfc7ee36c6"
+            },
+            {
+              "answer": null,
+              "valid": true,
+              "validation_passed": null,
+              "contract_error": null,
+              "requested": false,
+              "proposal_fingerprint": "922e7b28f6a30d0c83cb0b21fa9997408bbd2cc5921ae6a48bdc32778953e38c",
+              "response_proposal_fingerprint": "922e7b28f6a30d0c83cb0b21fa9997408bbd2cc5921ae6a48bdc32778953e38c",
+              "feedback": [],
+              "settings": {
+                "model": "opus",
+                "fast_mode": false,
+                "mode": "regular",
+                "reader": "claude"
+              },
+              "cache_key": "64da78eb54f6798a0b280d541fb8450f7a3403a46e1f5961d6f0d322a6409437"
+            }
+          ]
+        },
+        "codex": {
+          "role": "proposer",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "outer_diameter",
+                "state": "known",
+                "value_json": "250.0",
+                "confidence": "sure",
+                "fact_ids": [
+                  "D-025",
+                  "D-025/drawing/n/250.0@1-1"
+                ],
+                "reason": "The Ø250,0 leader identifies the outer circular boundary. The accompanying tolerance does not establish alternative nominal diameters. Units are millimetres.",
+                "changed_because": ""
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "83d7e6b8379c742fb6f0cf5f4d91a03473c41ef9de7e5b55de58f45d18ebe929",
+              "response_proposal_fingerprint": null,
+              "feedback": [],
+              "settings": {
+                "model": "gpt-6.1-sol",
+                "reasoning_effort": "xhigh",
+                "service_tier": "fast",
+                "reader": "codex"
+              },
+              "cache_key": "019f4cdd63b0fd5dd9c001680ad285a99f915f062f5f4c9c40ba685ff0514b1b"
+            },
+            {
+              "answer": null,
+              "valid": true,
+              "validation_passed": null,
+              "contract_error": null,
+              "requested": false,
+              "proposal_fingerprint": "922e7b28f6a30d0c83cb0b21fa9997408bbd2cc5921ae6a48bdc32778953e38c",
+              "response_proposal_fingerprint": null,
+              "feedback": [],
+              "settings": {
+                "model": "gpt-6.1-sol",
+                "reasoning_effort": "xhigh",
+                "service_tier": "fast",
+                "reader": "codex"
+              },
+              "cache_key": "8016a4e2f6c70165aacaf0d371decf6c5036bcab4d698428c0ba6a2679f6664f"
+            }
+          ]
+        }
+      },
+      "review": {
+        "status": "not_reviewed"
+      },
+      "note": "The Ø250,0 leader identifies the outer circular boundary. The accompanying tolerance does not establish alternative nominal diameters. Units are millimetres. Verification: The printed 'Ø250,0 ±0,2' leader ends on the outer circle. 250,0 is the nominal value, the ±0,2 is a tolerance, and the drawing note says DIMENSIONS ARE IN MILLIMETERS."
+    },
+    "inner_diameter": {
+      "state": "known",
+      "value": 224.0,
+      "confidence": "sure",
+      "method": "ai_verified",
+      "fact_ids": [
+        "D-025",
+        "D-025/drawing/n/224.0@1-1",
+        "D-025/drawing/n/0.3@1-1",
+        "D-025/drawing/n/0.0@1-1"
+      ],
+      "readers": {
+        "claude": {
+          "role": "verifier",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "inner_diameter",
+                "decision": "accept",
+                "reason": "The printed 'Ø224,0 +0,3/0,0' leader ends on the inner circle. The +0,3/0,0 stack is a unilateral tolerance, not a set of alternative nominal diameters, so the nominal is 224,0 mm.",
+                "fact_ids": [
+                  "D-025",
+                  "D-025/drawing/n/224.0@1-1",
+                  "D-025/drawing/n/0.3@1-1",
+                  "D-025/drawing/n/0.0@1-1"
+                ],
+                "repairable": false
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "83d7e6b8379c742fb6f0cf5f4d91a03473c41ef9de7e5b55de58f45d18ebe929",
+              "response_proposal_fingerprint": "83d7e6b8379c742fb6f0cf5f4d91a03473c41ef9de7e5b55de58f45d18ebe929",
+              "feedback": [],
+              "settings": {
+                "model": "opus",
+                "fast_mode": false,
+                "mode": "regular",
+                "reader": "claude"
+              },
+              "cache_key": "cba3f18e994f9bd95e61c98c6ae03d8249f06259a6b0678e95a350dfc7ee36c6"
+            },
+            {
+              "answer": null,
+              "valid": true,
+              "validation_passed": null,
+              "contract_error": null,
+              "requested": false,
+              "proposal_fingerprint": "922e7b28f6a30d0c83cb0b21fa9997408bbd2cc5921ae6a48bdc32778953e38c",
+              "response_proposal_fingerprint": "922e7b28f6a30d0c83cb0b21fa9997408bbd2cc5921ae6a48bdc32778953e38c",
+              "feedback": [],
+              "settings": {
+                "model": "opus",
+                "fast_mode": false,
+                "mode": "regular",
+                "reader": "claude"
+              },
+              "cache_key": "64da78eb54f6798a0b280d541fb8450f7a3403a46e1f5961d6f0d322a6409437"
+            }
+          ]
+        },
+        "codex": {
+          "role": "proposer",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "inner_diameter",
+                "state": "known",
+                "value_json": "224.0",
+                "confidence": "sure",
+                "fact_ids": [
+                  "D-025",
+                  "D-025/drawing/n/224.0@1-1",
+                  "D-025/drawing/n/0.3@1-1",
+                  "D-025/drawing/n/0.0@1-1"
+                ],
+                "reason": "The Ø224,0 leader identifies the inner circular boundary. Its unilateral tolerance is not a pair of nominal alternatives. Units are millimetres.",
+                "changed_because": ""
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "83d7e6b8379c742fb6f0cf5f4d91a03473c41ef9de7e5b55de58f45d18ebe929",
+              "response_proposal_fingerprint": null,
+              "feedback": [],
+              "settings": {
+                "model": "gpt-6.1-sol",
+                "reasoning_effort": "xhigh",
+                "service_tier": "fast",
+                "reader": "codex"
+              },
+              "cache_key": "019f4cdd63b0fd5dd9c001680ad285a99f915f062f5f4c9c40ba685ff0514b1b"
+            },
+            {
+              "answer": null,
+              "valid": true,
+              "validation_passed": null,
+              "contract_error": null,
+              "requested": false,
+              "proposal_fingerprint": "922e7b28f6a30d0c83cb0b21fa9997408bbd2cc5921ae6a48bdc32778953e38c",
+              "response_proposal_fingerprint": null,
+              "feedback": [],
+              "settings": {
+                "model": "gpt-6.1-sol",
+                "reasoning_effort": "xhigh",
+                "service_tier": "fast",
+                "reader": "codex"
+              },
+              "cache_key": "8016a4e2f6c70165aacaf0d371decf6c5036bcab4d698428c0ba6a2679f6664f"
+            }
+          ]
+        }
+      },
+      "review": {
+        "status": "not_reviewed"
+      },
+      "note": "The Ø224,0 leader identifies the inner circular boundary. Its unilateral tolerance is not a pair of nominal alternatives. Units are millimetres. Verification: The printed 'Ø224,0 +0,3/0,0' leader ends on the inner circle. The +0,3/0,0 stack is a unilateral tolerance, not a set of alternative nominal diameters, so the nominal is 224,0 mm."
+    }
+  },
+  "thickness": {
+    "state": "options",
+    "options": [
+      2.0,
+      3.0
+    ],
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-025",
+      "D-025/drawing/n/2.0@1-1",
+      "D-025/drawing/n/3.0@1-1"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "thickness",
+              "decision": "accept",
+              "reason": "In the left edge view, a single thickness dimension carries the stacked readings 3,0 over 2,0. The drawing does not identify them as a tolerance or as bounds. Under the possible-reading contract, keeping them as unselected options [2.0,3.0], sorted ascending, is correct.",
+              "fact_ids": [
+                "D-025",
+                "D-025/drawing/n/3.0@1-1",
+                "D-025/drawing/n/2.0@1-1"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "83d7e6b8379c742fb6f0cf5f4d91a03473c41ef9de7e5b55de58f45d18ebe929",
+            "response_proposal_fingerprint": "83d7e6b8379c742fb6f0cf5f4d91a03473c41ef9de7e5b55de58f45d18ebe929",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "cba3f18e994f9bd95e61c98c6ae03d8249f06259a6b0678e95a350dfc7ee36c6"
+          },
+          {
+            "answer": null,
+            "valid": true,
+            "validation_passed": null,
+            "contract_error": null,
+            "requested": false,
+            "proposal_fingerprint": "922e7b28f6a30d0c83cb0b21fa9997408bbd2cc5921ae6a48bdc32778953e38c",
+            "response_proposal_fingerprint": "922e7b28f6a30d0c83cb0b21fa9997408bbd2cc5921ae6a48bdc32778953e38c",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "64da78eb54f6798a0b280d541fb8450f7a3403a46e1f5961d6f0d322a6409437"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "thickness",
+              "state": "options",
+              "value_json": "[2.0,3.0]",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-025",
+                "D-025/drawing/n/2.0@1-1",
+                "D-025/drawing/n/3.0@1-1"
+              ],
+              "reason": "The left edge view links stacked 3,0 and 2,0 readings to the single thickness dimension. Both are retained, unselected and sorted ascending, under the possible-reading contract. The stack's interpretation remains unresolved; it does not prove two manufactured variants.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "83d7e6b8379c742fb6f0cf5f4d91a03473c41ef9de7e5b55de58f45d18ebe929",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "019f4cdd63b0fd5dd9c001680ad285a99f915f062f5f4c9c40ba685ff0514b1b"
+          },
+          {
+            "answer": null,
+            "valid": true,
+            "validation_passed": null,
+            "contract_error": null,
+            "requested": false,
+            "proposal_fingerprint": "922e7b28f6a30d0c83cb0b21fa9997408bbd2cc5921ae6a48bdc32778953e38c",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "8016a4e2f6c70165aacaf0d371decf6c5036bcab4d698428c0ba6a2679f6664f"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The left edge view links stacked 3,0 and 2,0 readings to the single thickness dimension. Both are retained, unselected and sorted ascending, under the possible-reading contract. The stack's interpretation remains unresolved; it does not prove two manufactured variants. Verification: In the left edge view, a single thickness dimension carries the stacked readings 3,0 over 2,0. The drawing does not identify them as a tolerance or as bounds. Under the possible-reading contract, keeping them as unselected options [2.0,3.0], sorted ascending, is correct."
+  },
+  "features": [
+    {
+      "kind": "hole",
+      "face": "top",
+      "x": {
+        "state": "known",
+        "value": 0,
+        "fact_ids": [
+          "D-025"
+        ]
+      },
+      "y": {
+        "state": "known",
+        "value": 0,
+        "fact_ids": [
+          "D-025"
+        ]
+      },
+      "diameter": {
+        "state": "known",
+        "value": 3.4,
+        "fact_ids": [
+          "D-025/drawing/n/3.4@1-1"
+        ]
+      },
+      "through": true,
+      "hole_type": "countersunk",
+      "countersink_diameter": {
+        "state": "known",
+        "value": 6.9,
+        "fact_ids": [
+          "D-025/drawing/n/6.9@1-1"
+        ]
+      },
+      "countersink_angle": {
+        "state": "known",
+        "value": 90,
+        "fact_ids": [
+          "D-025/drawing/n/90.0@1-1"
+        ]
+      },
+      "pattern": {
+        "type": "circle",
+        "count": {
+          "state": "known",
+          "value": 8,
+          "fact_ids": [
+            "D-025/drawing/n/8.0@1-1"
+          ]
+        },
+        "radius": {
+          "state": "known",
+          "value": 115.5,
+          "fact_ids": [
+            "D-025/drawing/n/115.5@1-1"
+          ]
+        },
+        "start_angle": {
+          "state": "known",
+          "value": 0,
+          "fact_ids": [
+            "D-025"
+          ]
+        }
+      },
+      "placement_basis": "drawing_pattern_interpretation",
+      "placement_reason": "The printed count 8 and R115,5 center-to-hole radius, together with the centered circular layout showing holes on both cardinal axes and between them, establish an equally distributed circular pattern using 360/count. The pattern center is the ring origin; the rightmost hole anchors the pattern on +X. Solid concentric circles in the main face-on view show the countersink openings on the visible top face.",
+      "fact_ids": [
+        "D-025",
+        "D-025/drawing/callout/p1-1",
+        "D-025/drawing/callout/p1-2",
+        "D-025/drawing/callout/p1-3",
+        "D-025/drawing/n/8.0@1-1",
+        "D-025/drawing/n/115.5@1-1"
+      ]
+    }
+  ],
+  "features_review": {
+    "state": "known",
+    "value": [
+      {
+        "kind": "hole",
+        "face": "top",
+        "x": {
+          "state": "known",
+          "value": 0,
+          "fact_ids": [
+            "D-025"
+          ]
+        },
+        "y": {
+          "state": "known",
+          "value": 0,
+          "fact_ids": [
+            "D-025"
+          ]
+        },
+        "diameter": {
+          "state": "known",
+          "value": 3.4,
+          "fact_ids": [
+            "D-025/drawing/n/3.4@1-1"
+          ]
+        },
+        "through": true,
+        "hole_type": "countersunk",
+        "countersink_diameter": {
+          "state": "known",
+          "value": 6.9,
+          "fact_ids": [
+            "D-025/drawing/n/6.9@1-1"
+          ]
+        },
+        "countersink_angle": {
+          "state": "known",
+          "value": 90,
+          "fact_ids": [
+            "D-025/drawing/n/90.0@1-1"
+          ]
+        },
+        "pattern": {
+          "type": "circle",
+          "count": {
+            "state": "known",
+            "value": 8,
+            "fact_ids": [
+              "D-025/drawing/n/8.0@1-1"
+            ]
+          },
+          "radius": {
+            "state": "known",
+            "value": 115.5,
+            "fact_ids": [
+              "D-025/drawing/n/115.5@1-1"
+            ]
+          },
+          "start_angle": {
+            "state": "known",
+            "value": 0,
+            "fact_ids": [
+              "D-025"
+            ]
+          }
+        },
+        "placement_basis": "drawing_pattern_interpretation",
+        "placement_reason": "The printed count 8 and R115,5 center-to-hole radius, together with the centered circular layout showing holes on both cardinal axes and between them, establish an equally distributed circular pattern using 360/count. The pattern center is the ring origin; the rightmost hole anchors the pattern on +X. Solid concentric circles in the main face-on view show the countersink openings on the visible top face.",
+        "fact_ids": [
+          "D-025",
+          "D-025/drawing/callout/p1-1",
+          "D-025/drawing/callout/p1-2",
+          "D-025/drawing/callout/p1-3",
+          "D-025/drawing/n/8.0@1-1",
+          "D-025/drawing/n/115.5@1-1"
+        ]
+      }
+    ],
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-025",
+      "D-025/drawing/callout/p1-1",
+      "D-025/drawing/callout/p1-2",
+      "D-025/drawing/callout/p1-3",
+      "D-025/drawing/n/8.0@1-1",
+      "D-025/drawing/n/3.4@1-1",
+      "D-025/drawing/n/6.9@1-1",
+      "D-025/drawing/n/90.0@1-1",
+      "D-025/drawing/n/115.5@1-1"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features",
+              "decision": "accept",
+              "reason": "The callout '8 x Ø 3,4 THRU ALL' with the countersink symbol 'Ø 6,9 X 90°' gives the hole size, through condition, and countersink. The main view shows 8 holes on the dash-dot pitch circle: one on each cardinal axis (0/90/180/270°) and one on each diagonal. That matches an even 360/8 = 45° spacing, and a start angle of 0 at the rightmost (+X) hole is valid. The R115,5 leader runs from the ring centre to the lower-left hole centre, so it gives the pitch radius. The doubled circles at each hole are drawn solid in the face-on (+Z) view, so the countersinks open on the top face. Derived countersink depth is (6,9−3,4)/2 = 1,75, which is less than both 2,0 and 3,0, so the countersink is valid for both thickness readings.",
+              "fact_ids": [
+                "D-025",
+                "D-025/drawing/callout/p1-1",
+                "D-025/drawing/callout/p1-2",
+                "D-025/drawing/callout/p1-3",
+                "D-025/drawing/n/8.0@1-1",
+                "D-025/drawing/n/3.4@1-1",
+                "D-025/drawing/n/6.9@1-1",
+                "D-025/drawing/n/90.0@1-1",
+                "D-025/drawing/n/115.5@1-1"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "83d7e6b8379c742fb6f0cf5f4d91a03473c41ef9de7e5b55de58f45d18ebe929",
+            "response_proposal_fingerprint": "83d7e6b8379c742fb6f0cf5f4d91a03473c41ef9de7e5b55de58f45d18ebe929",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "cba3f18e994f9bd95e61c98c6ae03d8249f06259a6b0678e95a350dfc7ee36c6"
+          },
+          {
+            "answer": null,
+            "valid": true,
+            "validation_passed": null,
+            "contract_error": null,
+            "requested": false,
+            "proposal_fingerprint": "922e7b28f6a30d0c83cb0b21fa9997408bbd2cc5921ae6a48bdc32778953e38c",
+            "response_proposal_fingerprint": "922e7b28f6a30d0c83cb0b21fa9997408bbd2cc5921ae6a48bdc32778953e38c",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "64da78eb54f6798a0b280d541fb8450f7a3403a46e1f5961d6f0d322a6409437"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features",
+              "state": "known",
+              "value_json": "[{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-025\"]},\"y\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-025\"]},\"diameter\":{\"state\":\"known\",\"value\":3.4,\"fact_ids\":[\"D-025/drawing/n/3.4@1-1\"]},\"through\":true,\"hole_type\":\"countersunk\",\"countersink_diameter\":{\"state\":\"known\",\"value\":6.9,\"fact_ids\":[\"D-025/drawing/n/6.9@1-1\"]},\"countersink_angle\":{\"state\":\"known\",\"value\":90,\"fact_ids\":[\"D-025/drawing/n/90.0@1-1\"]},\"pattern\":{\"type\":\"circle\",\"count\":{\"state\":\"known\",\"value\":8,\"fact_ids\":[\"D-025/drawing/n/8.0@1-1\"]},\"radius\":{\"state\":\"known\",\"value\":115.5,\"fact_ids\":[\"D-025/drawing/n/115.5@1-1\"]},\"start_angle\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-025\"]}},\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed count 8 and R115,5 center-to-hole radius, together with the centered circular layout showing holes on both cardinal axes and between them, establish an equally distributed circular pattern using 360/count. The pattern center is the ring origin; the rightmost hole anchors the pattern on +X. Solid concentric circles in the main face-on view show the countersink openings on the visible top face.\",\"fact_ids\":[\"D-025\",\"D-025/drawing/callout/p1-1\",\"D-025/drawing/callout/p1-2\",\"D-025/drawing/callout/p1-3\",\"D-025/drawing/n/8.0@1-1\",\"D-025/drawing/n/115.5@1-1\"]}]",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-025",
+                "D-025/drawing/callout/p1-1",
+                "D-025/drawing/callout/p1-2",
+                "D-025/drawing/callout/p1-3",
+                "D-025/drawing/n/8.0@1-1",
+                "D-025/drawing/n/3.4@1-1",
+                "D-025/drawing/n/6.9@1-1",
+                "D-025/drawing/n/90.0@1-1",
+                "D-025/drawing/n/115.5@1-1"
+              ],
+              "reason": "The linked callout specifies eight Ø3,4 THRU ALL holes with Ø6,9 X 90° countersinks. The solid visible concentric hole edges establish top openings. R115,5 and the clear axis-aligned circular layout support the stated pattern. The countersink geometry fits both retained thickness readings.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "83d7e6b8379c742fb6f0cf5f4d91a03473c41ef9de7e5b55de58f45d18ebe929",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "019f4cdd63b0fd5dd9c001680ad285a99f915f062f5f4c9c40ba685ff0514b1b"
+          },
+          {
+            "answer": null,
+            "valid": true,
+            "validation_passed": null,
+            "contract_error": null,
+            "requested": false,
+            "proposal_fingerprint": "922e7b28f6a30d0c83cb0b21fa9997408bbd2cc5921ae6a48bdc32778953e38c",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "8016a4e2f6c70165aacaf0d371decf6c5036bcab4d698428c0ba6a2679f6664f"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The linked callout specifies eight Ø3,4 THRU ALL holes with Ø6,9 X 90° countersinks. The solid visible concentric hole edges establish top openings. R115,5 and the clear axis-aligned circular layout support the stated pattern. The countersink geometry fits both retained thickness readings. Verification: The callout '8 x Ø 3,4 THRU ALL' with the countersink symbol 'Ø 6,9 X 90°' gives the hole size, through condition, and countersink. The main view shows 8 holes on the dash-dot pitch circle: one on each cardinal axis (0/90/180/270°) and one on each diagonal. That matches an even 360/8 = 45° spacing, and a start angle of 0 at the rightmost (+X) hole is valid. The R115,5 leader runs from the ring centre to the lower-left hole centre, so it gives the pitch radius. The doubled circles at each hole are drawn solid in the face-on (+Z) view, so the countersinks open on the top face. Derived countersink depth is (6,9−3,4)/2 = 1,75, which is less than both 2,0 and 3,0, so the countersink is valid for both thickness readings."
+  },
+  "material": {
+    "name": "D-025/drawing/material",
+    "original": "3.3315 (EN-AW 5005)",
+    "value": "3.3315 (EN-AW 5005)",
+    "confidence": "sure",
+    "method": "parsed",
+    "page": 1,
+    "box": [
+      745.28,
+      771.048,
+      135.0,
+      14.0
+    ],
+    "field_box": [
+      784.28,
+      771.048,
+      96.0,
+      14.0
+    ],
+    "label_box": [
+      745.28,
+      772.048,
+      38.539,
+      10.936
+    ]
+  },
+  "weight_on_drawing": {
+    "name": "D-025/drawing/weight_g",
+    "original": "77.3",
+    "value": 77.3,
+    "confidence": "sure",
+    "method": "parsed",
+    "page": 1,
+    "box": [
+      880.717,
+      771.048,
+      93.0,
+      14.0
+    ],
+    "field_box": [
+      924.717,
+      771.048,
+      49.0,
+      14.0
+    ],
+    "label_box": [
+      880.717,
+      772.048,
+      28.747,
+      10.936
+    ]
+  },
+  "cad_ready": true,
+  "blocking_fields": [],
+  "cad_eligibility": {
+    "state": "known",
+    "value": {
+      "supported": true,
+      "constant_thickness": true,
+      "outline_exact": true,
+      "reason": "The main face-on view establishes an annulus with Ø250,0 outer diameter and Ø224,0 inner diameter. The left edge-view thickness dimension prints stacked 3,0 and 2,0 readings in millimetres; retain both as unselected possible constant-thickness readings without claiming discrete manufactured variants. The eight countersunk through-holes on R115,5 are expressible by the supported circular pattern. Neither view shows an essential unsupported body contour.",
+      "essential_uncertainty": [],
+      "omitted_minor_features": [
+        "DEBURR AND BREAK SHARP EDGES: the unspecified edge-break geometry is omitted."
+      ]
+    },
+    "confidence": "sure",
+    "method": "ai_verified_after_retry",
+    "fact_ids": [
+      "D-025",
+      "D-025/drawing/n/250.0@1-1",
+      "D-025/drawing/n/224.0@1-1",
+      "D-025/drawing/n/2.0@1-1",
+      "D-025/drawing/n/3.0@1-1",
+      "D-025/drawing/callout/p1-1",
+      "D-025/drawing/callout/p1-2",
+      "D-025/drawing/callout/p1-3",
+      "D-025/drawing/general/units",
+      "D-025/drawing/general/edge_finish"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "cad_eligibility",
+              "decision": "reject",
+              "reason": "Local validation already marked this key invalid, so the exact packet cannot be accepted. Against the evidence, the content is correct: the main view gives an exact ring of Ø250,0/Ø224,0; the edge view gives a constant thickness with stacked 3,0/2,0 readings; and the 8-hole countersunk pattern at R115,5 is expressible. The likely structural problem is that the object sets supported=true while listing a nonempty essential_uncertainty. The thickness ambiguity is already handled by the options contract, so that list is likely why the object is inconsistent. This is a structural fix, not a change to any value: the proposer should resubmit with a locally valid object, likely an empty essential_uncertainty list with the thickness ambiguity explained in reason, keeping the same supported values and source IDs.",
+              "fact_ids": [
+                "D-025",
+                "D-025/drawing/n/250.0@1-1",
+                "D-025/drawing/n/224.0@1-1",
+                "D-025/drawing/n/3.0@1-1",
+                "D-025/drawing/n/2.0@1-1",
+                "D-025/drawing/callout/p1-1",
+                "D-025/drawing/callout/p1-2",
+                "D-025/drawing/callout/p1-3",
+                "D-025/drawing/general/edge_finish"
+              ],
+              "repairable": true
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "83d7e6b8379c742fb6f0cf5f4d91a03473c41ef9de7e5b55de58f45d18ebe929",
+            "response_proposal_fingerprint": "83d7e6b8379c742fb6f0cf5f4d91a03473c41ef9de7e5b55de58f45d18ebe929",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "cba3f18e994f9bd95e61c98c6ae03d8249f06259a6b0678e95a350dfc7ee36c6"
+          },
+          {
+            "answer": {
+              "key": "cad_eligibility",
+              "decision": "accept",
+              "reason": "Original D-025 page 1 shows a face-on annulus. The outer diameter is dimensioned Ø250,0 ±0,2 (D-025/drawing/n/250.0@1-1) and the inner diameter Ø224,0 +0,3/0,0 (D-025/drawing/n/224.0@1-1). The ±0,2, +0,3 and 0,0 values are tolerances, not separate geometry. The left edge view is a plain constant-width strip. Its thickness leader prints the stacked readings 3,0 (D-025/drawing/n/3.0@1-1) and 2,0 (D-025/drawing/n/2.0@1-1), and the units note says millimetres (D-025/drawing/general/units). Under the possible-reading contract, these are kept as unselected constant-thickness options. The face view shows 8 equally spaced holes on the R115,5 centreline circle (D-025/drawing/callout/p1-3) at the cardinal and diagonal positions. They carry the callout '8 x Ø 3,4 THRU ALL' with countersink 'Ø 6,9 X 90°' (D-025/drawing/callout/p1-1 and p1-2). The resulting countersink depth, (6,9-3,4)/2 = 1,75, is valid for both the 2,0 and 3,0 readings. The outline has no notches, lobes, steps or other unsupported contour. The only general unmodeled detail is the unspecified edge break, DEBURR AND BREAK SHARP EDGES (D-025/drawing/general/edge_finish), and the proposal correctly lists it as an omitted minor detail. supported=true, constant_thickness=true, outline_exact=true and an empty essential_uncertainty are therefore supported. Accepting this eligibility does not approve the countersink opening face or the feature completeness; those are separate keys.",
+              "fact_ids": [
+                "D-025",
+                "D-025/drawing/n/250.0@1-1",
+                "D-025/drawing/n/224.0@1-1",
+                "D-025/drawing/n/3.0@1-1",
+                "D-025/drawing/n/2.0@1-1",
+                "D-025/drawing/callout/p1-1",
+                "D-025/drawing/callout/p1-2",
+                "D-025/drawing/callout/p1-3",
+                "D-025/drawing/general/units",
+                "D-025/drawing/general/edge_finish"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "922e7b28f6a30d0c83cb0b21fa9997408bbd2cc5921ae6a48bdc32778953e38c",
+            "response_proposal_fingerprint": "922e7b28f6a30d0c83cb0b21fa9997408bbd2cc5921ae6a48bdc32778953e38c",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "64da78eb54f6798a0b280d541fb8450f7a3403a46e1f5961d6f0d322a6409437"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "cad_eligibility",
+              "state": "known",
+              "value_json": "{\"supported\":true,\"constant_thickness\":true,\"outline_exact\":true,\"reason\":\"The main face-on view establishes a dimensioned annulus with Ø250,0 outer and Ø224,0 inner boundaries. The left edge view ties stacked 3,0 and 2,0 readings to its single constant thickness; both remain unselected possible readings. The eight top-opening countersunk through-holes at R115,5 are expressible by the supported circular pattern. The undimensioned general edge-breaking treatment is omitted.\",\"essential_uncertainty\":[\"The stacked 3,0 and 2,0 thickness readings do not determine a unique thickness or prove discrete manufactured variants; neither possible reading is selected.\"],\"omitted_minor_features\":[\"Undimensioned DEBURR AND BREAK SHARP EDGES treatment.\"]}",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-025",
+                "D-025/drawing/n/250.0@1-1",
+                "D-025/drawing/n/224.0@1-1",
+                "D-025/drawing/n/2.0@1-1",
+                "D-025/drawing/n/3.0@1-1",
+                "D-025/drawing/callout/p1-1",
+                "D-025/drawing/callout/p1-2",
+                "D-025/drawing/callout/p1-3",
+                "D-025/drawing/general/edge_finish"
+              ],
+              "reason": "The original views support an exact main ring outline with possible constant-thickness readings and supported countersunk holes. No essential unsupported body contour is shown.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": false,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "83d7e6b8379c742fb6f0cf5f4d91a03473c41ef9de7e5b55de58f45d18ebe929",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "019f4cdd63b0fd5dd9c001680ad285a99f915f062f5f4c9c40ba685ff0514b1b"
+          },
+          {
+            "answer": {
+              "key": "cad_eligibility",
+              "state": "known",
+              "value_json": "{\"supported\":true,\"constant_thickness\":true,\"outline_exact\":true,\"reason\":\"The main face-on view establishes an annulus with Ø250,0 outer diameter and Ø224,0 inner diameter. The left edge-view thickness dimension prints stacked 3,0 and 2,0 readings in millimetres; retain both as unselected possible constant-thickness readings without claiming discrete manufactured variants. The eight countersunk through-holes on R115,5 are expressible by the supported circular pattern. Neither view shows an essential unsupported body contour.\",\"essential_uncertainty\":[],\"omitted_minor_features\":[\"DEBURR AND BREAK SHARP EDGES: the unspecified edge-break geometry is omitted.\"]}",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-025",
+                "D-025/drawing/n/250.0@1-1",
+                "D-025/drawing/n/224.0@1-1",
+                "D-025/drawing/n/2.0@1-1",
+                "D-025/drawing/n/3.0@1-1",
+                "D-025/drawing/callout/p1-1",
+                "D-025/drawing/callout/p1-2",
+                "D-025/drawing/callout/p1-3",
+                "D-025/drawing/general/units",
+                "D-025/drawing/general/edge_finish"
+              ],
+              "reason": "The dimensioned annulus and edge-view thickness readings meet the permitted flat-ring template. The stacked thickness ambiguity is preserved under the possible-reading contract and does not block eligibility.",
+              "changed_because": "Moved the thickness-choice ambiguity into reason and cleared essential_uncertainty because the protocol explicitly permits these unselected possible constant-thickness readings. The geometric readings and eligibility booleans remain unchanged."
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "922e7b28f6a30d0c83cb0b21fa9997408bbd2cc5921ae6a48bdc32778953e38c",
+            "response_proposal_fingerprint": null,
+            "feedback": [
+              {
+                "key": "cad_eligibility",
+                "state": "invalid",
+                "previous_proposal": {
+                  "key": "cad_eligibility",
+                  "state": "known",
+                  "value_json": "{\"supported\":true,\"constant_thickness\":true,\"outline_exact\":true,\"reason\":\"The main face-on view establishes a dimensioned annulus with Ø250,0 outer and Ø224,0 inner boundaries. The left edge view ties stacked 3,0 and 2,0 readings to its single constant thickness; both remain unselected possible readings. The eight top-opening countersunk through-holes at R115,5 are expressible by the supported circular pattern. The undimensioned general edge-breaking treatment is omitted.\",\"essential_uncertainty\":[\"The stacked 3,0 and 2,0 thickness readings do not determine a unique thickness or prove discrete manufactured variants; neither possible reading is selected.\"],\"omitted_minor_features\":[\"Undimensioned DEBURR AND BREAK SHARP EDGES treatment.\"]}",
+                  "confidence": "sure",
+                  "fact_ids": [
+                    "D-025",
+                    "D-025/drawing/n/250.0@1-1",
+                    "D-025/drawing/n/224.0@1-1",
+                    "D-025/drawing/n/2.0@1-1",
+                    "D-025/drawing/n/3.0@1-1",
+                    "D-025/drawing/callout/p1-1",
+                    "D-025/drawing/callout/p1-2",
+                    "D-025/drawing/callout/p1-3",
+                    "D-025/drawing/general/edge_finish"
+                  ],
+                  "reason": "The original views support an exact main ring outline with possible constant-thickness readings and supported countersunk holes. No essential unsupported body contour is shown.",
+                  "changed_because": ""
+                },
+                "local_validation": "invalid: missing, duplicate, malformed, ungrounded, or unsupported proposal; obey original schema and source/numeric/geometry constraints",
+                "verification": {
+                  "key": "cad_eligibility",
+                  "decision": "reject",
+                  "reason": "Local validation already marked this key invalid, so the exact packet cannot be accepted. Against the evidence, the content is correct: the main view gives an exact ring of Ø250,0/Ø224,0; the edge view gives a constant thickness with stacked 3,0/2,0 readings; and the 8-hole countersunk pattern at R115,5 is expressible. The likely structural problem is that the object sets supported=true while listing a nonempty essential_uncertainty. The thickness ambiguity is already handled by the options contract, so that list is likely why the object is inconsistent. This is a structural fix, not a change to any value: the proposer should resubmit with a locally valid object, likely an empty essential_uncertainty list with the thickness ambiguity explained in reason, keeping the same supported values and source IDs.",
+                  "fact_ids": [
+                    "D-025",
+                    "D-025/drawing/n/250.0@1-1",
+                    "D-025/drawing/n/224.0@1-1",
+                    "D-025/drawing/n/3.0@1-1",
+                    "D-025/drawing/n/2.0@1-1",
+                    "D-025/drawing/callout/p1-1",
+                    "D-025/drawing/callout/p1-2",
+                    "D-025/drawing/callout/p1-3",
+                    "D-025/drawing/general/edge_finish"
+                  ],
+                  "repairable": true
+                }
+              }
+            ],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "8016a4e2f6c70165aacaf0d371decf6c5036bcab4d698428c0ba6a2679f6664f"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The dimensioned annulus and edge-view thickness readings meet the permitted flat-ring template. The stacked thickness ambiguity is preserved under the possible-reading contract and does not block eligibility. Verification: Original D-025 page 1 shows a face-on annulus. The outer diameter is dimensioned Ø250,0 ±0,2 (D-025/drawing/n/250.0@1-1) and the inner diameter Ø224,0 +0,3/0,0 (D-025/drawing/n/224.0@1-1). The ±0,2, +0,3 and 0,0 values are tolerances, not separate geometry. The left edge view is a plain constant-width strip. Its thickness leader prints the stacked readings 3,0 (D-025/drawing/n/3.0@1-1) and 2,0 (D-025/drawing/n/2.0@1-1), and the units note says millimetres (D-025/drawing/general/units). Under the possible-reading contract, these are kept as unselected constant-thickness options. The face view shows 8 equally spaced holes on the R115,5 centreline circle (D-025/drawing/callout/p1-3) at the cardinal and diagonal positions. They carry the callout '8 x Ø 3,4 THRU ALL' with countersink 'Ø 6,9 X 90°' (D-025/drawing/callout/p1-1 and p1-2). The resulting countersink depth, (6,9-3,4)/2 = 1,75, is valid for both the 2,0 and 3,0 readings. The outline has no notches, lobes, steps or other unsupported contour. The only general unmodeled detail is the unspecified edge break, DEBURR AND BREAK SHARP EDGES (D-025/drawing/general/edge_finish), and the proposal correctly lists it as an omitted minor detail. supported=true, constant_thickness=true, outline_exact=true and an empty essential_uncertainty are therefore supported. Accepting this eligibility does not approve the countersink opening face or the feature completeness; those are separate keys."
+  },
+  "feature_protocol": "supported-feature-subset-v1",
+  "features_complete": {
+    "state": "known",
+    "value": false,
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-025",
+      "D-025/drawing/general/edge_finish"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_complete",
+              "decision": "accept",
+              "reason": "The undimensioned 'DEBURR AND BREAK SHARP EDGES' note is omitted from the model, so features_complete=false is correct. Apart from that note, the only feature in the views is the 8-hole countersunk pattern.",
+              "fact_ids": [
+                "D-025",
+                "D-025/drawing/general/edge_finish"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "83d7e6b8379c742fb6f0cf5f4d91a03473c41ef9de7e5b55de58f45d18ebe929",
+            "response_proposal_fingerprint": "83d7e6b8379c742fb6f0cf5f4d91a03473c41ef9de7e5b55de58f45d18ebe929",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "cba3f18e994f9bd95e61c98c6ae03d8249f06259a6b0678e95a350dfc7ee36c6"
+          },
+          {
+            "answer": null,
+            "valid": true,
+            "validation_passed": null,
+            "contract_error": null,
+            "requested": false,
+            "proposal_fingerprint": "922e7b28f6a30d0c83cb0b21fa9997408bbd2cc5921ae6a48bdc32778953e38c",
+            "response_proposal_fingerprint": "922e7b28f6a30d0c83cb0b21fa9997408bbd2cc5921ae6a48bdc32778953e38c",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "64da78eb54f6798a0b280d541fb8450f7a3403a46e1f5961d6f0d322a6409437"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_complete",
+              "state": "known",
+              "value_json": "false",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-025",
+                "D-025/drawing/general/edge_finish"
+              ],
+              "reason": "The eight countersunk holes are supported, but the unspecified edge-breaking treatment is omitted.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "83d7e6b8379c742fb6f0cf5f4d91a03473c41ef9de7e5b55de58f45d18ebe929",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "019f4cdd63b0fd5dd9c001680ad285a99f915f062f5f4c9c40ba685ff0514b1b"
+          },
+          {
+            "answer": null,
+            "valid": true,
+            "validation_passed": null,
+            "contract_error": null,
+            "requested": false,
+            "proposal_fingerprint": "922e7b28f6a30d0c83cb0b21fa9997408bbd2cc5921ae6a48bdc32778953e38c",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "8016a4e2f6c70165aacaf0d371decf6c5036bcab4d698428c0ba6a2679f6664f"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The eight countersunk holes are supported, but the unspecified edge-breaking treatment is omitted. Verification: The undimensioned 'DEBURR AND BREAK SHARP EDGES' note is omitted from the model, so features_complete=false is correct. Apart from that note, the only feature in the views is the 8-hole countersunk pattern."
+  },
+  "features_omitted": {
+    "state": "known",
+    "value": [
+      {
+        "description": "DEBURR AND BREAK SHARP EDGES",
+        "reason": "The general note specifies edge treatment without a dimensioned size or profile. No arbitrary chamfer or rounding can be modeled from this note.",
+        "fact_ids": [
+          "D-025/drawing/general/edge_finish",
+          "D-025"
+        ]
+      }
+    ],
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-025",
+      "D-025/drawing/general/edge_finish"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_omitted",
+              "decision": "accept",
+              "reason": "The single omission is the general edge-break note. It gives no size or profile, so it cannot be modelled. The original views show no other slots, notches, recesses, side holes, or chamfers.",
+              "fact_ids": [
+                "D-025",
+                "D-025/drawing/general/edge_finish"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "83d7e6b8379c742fb6f0cf5f4d91a03473c41ef9de7e5b55de58f45d18ebe929",
+            "response_proposal_fingerprint": "83d7e6b8379c742fb6f0cf5f4d91a03473c41ef9de7e5b55de58f45d18ebe929",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "cba3f18e994f9bd95e61c98c6ae03d8249f06259a6b0678e95a350dfc7ee36c6"
+          },
+          {
+            "answer": null,
+            "valid": true,
+            "validation_passed": null,
+            "contract_error": null,
+            "requested": false,
+            "proposal_fingerprint": "922e7b28f6a30d0c83cb0b21fa9997408bbd2cc5921ae6a48bdc32778953e38c",
+            "response_proposal_fingerprint": "922e7b28f6a30d0c83cb0b21fa9997408bbd2cc5921ae6a48bdc32778953e38c",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "64da78eb54f6798a0b280d541fb8450f7a3403a46e1f5961d6f0d322a6409437"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_omitted",
+              "state": "known",
+              "value_json": "[{\"description\":\"DEBURR AND BREAK SHARP EDGES\",\"reason\":\"The general note specifies edge treatment without a dimensioned size or profile. No arbitrary chamfer or rounding can be modeled from this note.\",\"fact_ids\":[\"D-025/drawing/general/edge_finish\",\"D-025\"]}]",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-025",
+                "D-025/drawing/general/edge_finish"
+              ],
+              "reason": "The edge-finish note is present but supplies no geometric dimensions. No other unsupported cut is visible in the supplied views.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "83d7e6b8379c742fb6f0cf5f4d91a03473c41ef9de7e5b55de58f45d18ebe929",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "019f4cdd63b0fd5dd9c001680ad285a99f915f062f5f4c9c40ba685ff0514b1b"
+          },
+          {
+            "answer": null,
+            "valid": true,
+            "validation_passed": null,
+            "contract_error": null,
+            "requested": false,
+            "proposal_fingerprint": "922e7b28f6a30d0c83cb0b21fa9997408bbd2cc5921ae6a48bdc32778953e38c",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "8016a4e2f6c70165aacaf0d371decf6c5036bcab4d698428c0ba6a2679f6664f"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The edge-finish note is present but supplies no geometric dimensions. No other unsupported cut is visible in the supplied views. Verification: The single omission is the general edge-break note. It gives no size or profile, so it cannot be modelled. The original views show no other slots, notches, recesses, side holes, or chamfers."
+  },
+  "features_all_determined": false,
+  "features_status": "partial",
+  "omitted_feature_notes": [
+    "DEBURR AND BREAK SHARP EDGES: The general note specifies edge treatment without a dimensioned size or profile. No arbitrary chamfer or rounding can be modeled from this note."
+  ],
+  "review": {
+    "status": "not_reviewed"
+  },
+  "source_sha256": "9b61f2c688fba1b10f502658505c78c0ff99820d3f281822eacdc7283e9b7e9c",
+  "expansion_protocol": "flat-part-expansion-v1"
+}

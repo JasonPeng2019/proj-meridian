@@ -1,0 +1,77 @@
+{
+  "protocol": 2,
+  "reader": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "prompt": "PREP PROTOCOL: proposal-verification-v1; role: proposer; round: 1.\nYou are a read-only engineering evidence proposer. Do not edit files,\nrun commands, use other agents, browse the web, or inspect any evidence beyond the supplied inputs.\nReturn the requested JSON schema. Every requested key must appear exactly once. value_json is a\nJSON-encoded value (e.g. a string as \"\\\"text\\\"\", a number as \"5\", an array as \"[3,6]\",\nunknown as \"null\"). State known means one determined value; options means genuinely documented\nalternatives; unknown means the evidence does not determine it. confidence is only sure or unsure.\nUse sure only for a reading supported by the supplied evidence. Copy original spelling and units.\nNever invent evidence IDs. fact_ids must be exact supplied source IDs supporting that item.\nReasons must explain the evidence; changed_because is empty on the first proposal.\n\nprinted-image-dimensions-v1\nRead the ORIGINAL supplied drawing images for printed numeric engineering evidence.\nFor each requested page_N return state known and value_json a JSON array of objects\nwith EXACT keys text, token, value, unit, box. text copies the complete printed\ndimension/callout context; token copies ONE literal printed numeric token from\nthat text; value is only that token parsed as a number (decimal comma is allowed).\nunit is mm, deg, count, or unitless according to the printed context. Preserve\ndiameter/radius/depth/thread symbols and THRU/count qualifiers in text; do not\nturn a thread nominal size into a bore, a radius into a diameter, or a tolerance\ninto a nominal dimension. Multiple numbers in one callout need separate entries\nwith the same full text and bounding box and their respective tokens/units.\nInclude printed overall/body dimensions, thickness alternatives, feature sizes,\nhole/slot counts, pitches, offsets, diameters/radii, depths, angles and edge/corner\ndetails. Ignore title-block weight, dates, drawing IDs, scale and page numbers.\nDo not assign an unlabeled number to a geometric meaning at this stage. Do not\nderive coordinates, scale/convert units, infer hardware dimensions, use another\ndrawing, or measure geometry from pixels. A box only LOCATES PRINTED TEXT.\nbox is [x,y,width,height] in ORIGINAL PDF page points, origin top left; convert\nthe text's image location using the supplied PDF page width/height. It must\ntightly enclose the actual printed label/callout, not an entire view or page.\nDo not invent unreadable characters. Include only confidently legible tokens.\nUse known [] if that page has no legible engineering numbers; unreadable numbers\nremain absent. This does not claim a complete drawing or approve any design.\nCite only the supplied drawing/source ID for each page item. In reason identify\nwhich visible dimensions/callouts were readable and what remained unreadable.\nThe verifier must inspect EVERY token, copied context, unit and exact location\nagainst that ORIGINAL page. Reject a guessed/changed token, wrong page, unrelated\nbox, inferred dimension or incorrectly classified unit. A close location can be\ncorrected in the one bounded retry; it never authorizes pixel measurements.\nOriginal pages in image order, with PDF sizes in points:\n{\"drawing_id\":\"D-001\",\"page_sizes\":[[1190.4000244140625,842.4000244140625]],\"source_ids\":[\"D-001/drawing/source\"],\"source_sha256\":\"f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f\"}\nONE BOUNDED FEEDBACK REPAIR. Return ONLY these keys: page_1. Reinspect the ORIGINAL evidence and images. Feedback is a critique, not source evidence. Do not invent missing values or copy a suggested correction without evidence. Explain every changed proposal in changed_because. If evidence is insufficient, return unknown.\n{\"feedback\":[{\"key\":\"page_1\",\"local_validation\":\"valid\",\"previous_proposal\":{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-001/drawing/source\"],\"key\":\"page_1\",\"reason\":\"Readable dimensions are 3.00, 492.00, 515, 287.00 and 200.00. Four THRU ALL callouts give counts 2, 3, 6 and 20 with their printed diameters. The note reads Door - x2 and 3mm aluminium. No printed corner-radius or hole-position numbers are legible. Indistinct title-block text was excluded.\",\"state\":\"known\",\"value_json\":\"[{\\\"text\\\":\\\"3.00\\\",\\\"token\\\":\\\"3.00\\\",\\\"value\\\":3,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[235.8,177.3,29,13.2]},{\\\"text\\\":\\\"492.00\\\",\\\"token\\\":\\\"492.00\\\",\\\"value\\\":492,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[636.2,177.3,44.1,13.2]},{\\\"text\\\":\\\"2 x Ø 4.50 THRU ALL\\\",\\\"token\\\":\\\"2\\\",\\\"value\\\":2,\\\"unit\\\":\\\"count\\\",\\\"box\\\":[563.7,232.8,129.3,14.5]},{\\\"text\\\":\\\"2 x Ø 4.50 THRU ALL\\\",\\\"token\\\":\\\"4.50\\\",\\\"value\\\":4.5,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[563.7,232.8,129.3,14.5]},{\\\"text\\\":\\\"3 x Ø 6.60 THRU ALL\\\",\\\"token\\\":\\\"3\\\",\\\"value\\\":3,\\\"unit\\\":\\\"count\\\",\\\"box\\\":[370.1,315.5,127.4,14.5]},{\\\"text\\\":\\\"3 x Ø 6.60 THRU ALL\\\",\\\"token\\\":\\\"6.60\\\",\\\"value\\\":6.6,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[370.1,315.5,127.4,14.5]},{\\\"text\\\":\\\"200.00\\\",\\\"token\\\":\\\"200.00\\\",\\\"value\\\":200,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[693.6,331.2,13.9,41.6]},{\\\"text\\\":\\\"515\\\",\\\"token\\\":\\\"515\\\",\\\"value\\\":515,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[815.9,355.9,13.2,24]},{\\\"text\\\":\\\"287.00\\\",\\\"token\\\":\\\"287.00\\\",\\\"value\\\":287,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[607.8,383,43.5,13.9]},{\\\"text\\\":\\\"6 x Ø 6.60 THRU ALL\\\",\\\"token\\\":\\\"6\\\",\\\"value\\\":6,\\\"unit\\\":\\\"count\\\",\\\"box\\\":[870.7,382.4,128,14.5]},{\\\"text\\\":\\\"6 x Ø 6.60 THRU ALL\\\",\\\"token\\\":\\\"6.60\\\",\\\"value\\\":6.6,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[870.7,382.4,128,14.5]},{\\\"text\\\":\\\"20 x Ø 4.50 THRU ALL\\\",\\\"token\\\":\\\"20\\\",\\\"value\\\":20,\\\"unit\\\":\\\"count\\\",\\\"box\\\":[583.9,452.4,135.6,14.5]},{\\\"text\\\":\\\"20 x Ø 4.50 THRU ALL\\\",\\\"token\\\":\\\"4.50\\\",\\\"value\\\":4.5,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[583.9,452.4,135.6,14.5]},{\\\"text\\\":\\\"Door - x2\\\\n3mm aluminium\\\",\\\"token\\\":\\\"2\\\",\\\"value\\\":2,\\\"unit\\\":\\\"count\\\",\\\"box\\\":[749.7,678.9,105.3,26.5]},{\\\"text\\\":\\\"Door - x2\\\\n3mm aluminium\\\",\\\"token\\\":\\\"3\\\",\\\"value\\\":3,\\\"unit\\\":\\\"mm\\\",\\\"box\\\":[749.7,678.9,105.3,26.5]}]\"},\"state\":\"rejected\",\"verification\":{\"decision\":\"reject\",\"fact_ids\":[\"D-001/drawing/source\"],\"key\":\"page_1\",\"reason\":\"Checked against original page D-001/drawing/source. The set of callouts is right (3,00; 492,00; 2 x Ø 4,50 THRU ALL; 3 x Ø 6,60 THRU ALL; 200,00; 515; 287,00; 6 x Ø 6,60 THRU ALL; 20 x Ø 4,50 THRU ALL; note 'Door - x2 / 3mm aluminium'). Counts, units and parsed values are also right. When converted from image to PDF points (scale about 0.62), every box roughly encloses its printed label. However, the drawing uses decimal commas: it prints '3,00', '492,00', '4,50', '6,60', '200,00' and '287,00'. The proposal changes these to decimal points in both text and token ('3.00', '492.00', 'Ø 4.50', 'Ø 6.60', '200.00', '287.00'). The protocol requires a literal printed token and the original spelling, and it allows decimal commas only in value parsing. So these tokens and texts are changed, not literal. A smaller issue: the 492,00 box ([636.2,...,44.1 wide]) is slightly shifted right of the printed label (about x 632–672 pt), and the 2 x Ø 4,50 box extends a little past the text. Both are close enough to correct. A resubmission can fix all of this from the existing evidence by copying the comma tokens literally (e.g. token '4,50', value 4.5).\",\"repairable\":true}}],\"previous_proposals\":{\"page_1\":{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-001/drawing/source\"],\"key\":\"page_1\",\"reason\":\"Readable dimensions are 3.00, 492.00, 515, 287.00 and 200.00. Four THRU ALL callouts give counts 2, 3, 6 and 20 with their printed diameters. The note reads Door - x2 and 3mm aluminium. No printed corner-radius or hole-position numbers are legible. Indistinct title-block text was excluded.\",\"state\":\"known\",\"value\":[{\"box\":[235.8,177.3,29,13.2],\"text\":\"3.00\",\"token\":\"3.00\",\"unit\":\"mm\",\"value\":3},{\"box\":[636.2,177.3,44.1,13.2],\"text\":\"492.00\",\"token\":\"492.00\",\"unit\":\"mm\",\"value\":492},{\"box\":[563.7,232.8,129.3,14.5],\"text\":\"2 x Ø 4.50 THRU ALL\",\"token\":\"2\",\"unit\":\"count\",\"value\":2},{\"box\":[563.7,232.8,129.3,14.5],\"text\":\"2 x Ø 4.50 THRU ALL\",\"token\":\"4.50\",\"unit\":\"mm\",\"value\":4.5},{\"box\":[370.1,315.5,127.4,14.5],\"text\":\"3 x Ø 6.60 THRU ALL\",\"token\":\"3\",\"unit\":\"count\",\"value\":3},{\"box\":[370.1,315.5,127.4,14.5],\"text\":\"3 x Ø 6.60 THRU ALL\",\"token\":\"6.60\",\"unit\":\"mm\",\"value\":6.6},{\"box\":[693.6,331.2,13.9,41.6],\"text\":\"200.00\",\"token\":\"200.00\",\"unit\":\"mm\",\"value\":200},{\"box\":[815.9,355.9,13.2,24],\"text\":\"515\",\"token\":\"515\",\"unit\":\"mm\",\"value\":515},{\"box\":[607.8,383,43.5,13.9],\"text\":\"287.00\",\"token\":\"287.00\",\"unit\":\"mm\",\"value\":287},{\"box\":[870.7,382.4,128,14.5],\"text\":\"6 x Ø 6.60 THRU ALL\",\"token\":\"6\",\"unit\":\"count\",\"value\":6},{\"box\":[870.7,382.4,128,14.5],\"text\":\"6 x Ø 6.60 THRU ALL\",\"token\":\"6.60\",\"unit\":\"mm\",\"value\":6.6},{\"box\":[583.9,452.4,135.6,14.5],\"text\":\"20 x Ø 4.50 THRU ALL\",\"token\":\"20\",\"unit\":\"count\",\"value\":20},{\"box\":[583.9,452.4,135.6,14.5],\"text\":\"20 x Ø 4.50 THRU ALL\",\"token\":\"4.50\",\"unit\":\"mm\",\"value\":4.5},{\"box\":[749.7,678.9,105.3,26.5],\"text\":\"Door - x2\\n3mm aluminium\",\"token\":\"2\",\"unit\":\"count\",\"value\":2},{\"box\":[749.7,678.9,105.3,26.5],\"text\":\"Door - x2\\n3mm aluminium\",\"token\":\"3\",\"unit\":\"mm\",\"value\":3}]}}}",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string",
+              "enum": [
+                "page_1"
+              ]
+            },
+            "state": {
+              "type": "string",
+              "enum": [
+                "known",
+                "options",
+                "unknown"
+              ]
+            },
+            "value_json": {
+              "type": "string"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "sure",
+                "unsure"
+              ]
+            },
+            "fact_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "reason": {
+              "type": "string"
+            },
+            "changed_because": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "key",
+            "state",
+            "value_json",
+            "confidence",
+            "fact_ids",
+            "reason",
+            "changed_because"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "items"
+    ],
+    "additionalProperties": false
+  },
+  "images": [
+    "c52d5946b67f97d86f69791d14829b0dc4d7edc780cb2ecb763abe9fdb4b2669"
+  ],
+  "job": "dimensions:D-001:printed-image-dimensions-v1:proposal-verification-v1:proposal:1"
+}

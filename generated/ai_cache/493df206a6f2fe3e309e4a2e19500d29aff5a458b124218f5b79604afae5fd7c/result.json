@@ -1,0 +1,166 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "outline_type",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-006"
+        ],
+        "reason": "The main face has an angled upper-right corner and an essential sloping, stepped lower contour. The views also show bent flanges and return tabs. None of rectangle/circle/ring represents this outline exactly.",
+        "changed_because": ""
+      },
+      {
+        "key": "length",
+        "state": "known",
+        "value_json": "243.5",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-006/drawing/n/243.5@1-1",
+          "D-006"
+        ],
+        "reason": "243,50 dimensions the overall X span in the main face-on view, in millimetres. This span does not establish a rectangular body.",
+        "changed_because": ""
+      },
+      {
+        "key": "width",
+        "state": "known",
+        "value_json": "420",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-006/drawing/n/420.0@1-1",
+          "D-006"
+        ],
+        "reason": "420,00 dimensions the overall Y span in the main face-on view, in millimetres.",
+        "changed_because": ""
+      },
+      {
+        "key": "outer_diameter",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-006"
+        ],
+        "reason": "The body is not circular or annular; no applicable outer diameter is specified.",
+        "changed_because": ""
+      },
+      {
+        "key": "inner_diameter",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-006"
+        ],
+        "reason": "The body is not an annulus; no applicable inner diameter is specified.",
+        "changed_because": ""
+      },
+      {
+        "key": "thickness",
+        "state": "known",
+        "value_json": "3",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-006/drawing/n/3.0@1-2",
+          "D-006/drawing/notes",
+          "D-006"
+        ],
+        "reason": "The upper orthographic view directly dimensions sheet thickness as 3,00. The note '3mm (or thicker)' permits unspecified thicker stock; it does not document discrete thickness alternatives. The drawn nominal gauge is 3 mm.",
+        "changed_because": ""
+      },
+      {
+        "key": "features",
+        "state": "known",
+        "value_json": "[]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-006",
+          "D-006/drawing/callout/p1-1",
+          "D-006/drawing/callout/p1-2",
+          "D-006/drawing/callout/p1-3"
+        ],
+        "reason": "The drawing identifies four Ø10,00, three Ø10,50 and two Ø12,00 through holes. No hole has a complete supported location and operation in the required flat-part frame. The flange and return-tab holes additionally belong to bent faces outside this template.",
+        "changed_because": ""
+      },
+      {
+        "key": "features_complete",
+        "state": "known",
+        "value_json": "false",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-006",
+          "D-006/drawing/callout/p1-1",
+          "D-006/drawing/callout/p1-2",
+          "D-006/drawing/callout/p1-3"
+        ],
+        "reason": "All three through-hole groups, essential contours, bent geometry and undimensioned finishing details are omitted. The supported subset is not a complete reconstruction.",
+        "changed_because": ""
+      },
+      {
+        "key": "features_omitted",
+        "state": "known",
+        "value_json": "[{\"description\":\"Four Ø10,00 THRU ALL holes in the main wall\",\"reason\":\"The count, diameter and through operation are printed. The 357,00 dimension establishes their row height, and 27,00 supplies local spacing, but complete absolute X locations for the four-hole layout are not established. Do not assume a symmetric layout or measure the view.\",\"fact_ids\":[\"D-006\",\"D-006/drawing/callout/p1-1\",\"D-006/drawing/n/4.0@1-1\",\"D-006/drawing/n/10.0@1-1\",\"D-006/drawing/n/357.0@1-1\",\"D-006/drawing/n/27.0@1-1\"]},{\"description\":\"Three Ø10,50 THRU ALL flange holes for M8 weld nuts\",\"reason\":\"The diameter, count and through operation are specified, but complete center offsets and spacing are not dimensioned. These holes enter a bent flange, whose location cannot be represented as a supported rectangular-body side face with established global entry coordinates and Z.\",\"fact_ids\":[\"D-006\",\"D-006/drawing/callout/p1-2\",\"D-006/drawing/n/3.0@1-1\",\"D-006/drawing/n/10.5@1-1\"]},{\"description\":\"Two Ø12,00 THRU ALL return-tab holes\",\"reason\":\"The upper projection establishes two through holes on the bent return geometry. Complete hole locations are not dimensioned; 24,25 alone does not establish both centers in the required global frame. The return face also requires unsupported bent geometry.\",\"fact_ids\":[\"D-006\",\"D-006/drawing/callout/p1-3\",\"D-006/drawing/n/2.0@1-1\",\"D-006/drawing/n/12.0@1-1\",\"D-006/drawing/n/24.25@1-1\"]},{\"description\":\"Bent side flanges and lower return tabs\",\"reason\":\"The orthographic and isometric views show a nonplanar folded sheet. Dimensions 50,00, 36,50 and 30,00 describe portions of the projected flange geometry, but do not supply a complete bend definition or developed blank. Bends and return tabs cannot be generated by the supported flat outline and cuts.\",\"fact_ids\":[\"D-006\",\"D-006/drawing/n/50.0@1-1\",\"D-006/drawing/n/36.5@1-1\",\"D-006/drawing/n/30.0@1-1\"]},{\"description\":\"Angled upper-right perimeter and sloping, stepped lower perimeter\",\"reason\":\"These substantial contours are visible in the main face-on view, but their setbacks, vertices and transition geometry are not fully dimensioned. They are essential outline features, not minor corner breaks. Neither a bounding rectangle nor guessed corner_chamfer features would reproduce them.\",\"fact_ids\":[\"D-006\",\"D-006/drawing/n/243.5@1-1\",\"D-006/drawing/n/420.0@1-1\"]},{\"description\":\"Rounded flange/tab ends, profile transitions and bend radii\",\"reason\":\"Curved transitions are visible across the orthographic and isometric views, but no radii are specified. Rounded outer contours and bend radii are also outside the supported flat-part feature vocabulary.\",\"fact_ids\":[\"D-006\"]},{\"description\":\"M8 weld-nut provision on the inside of the flange\",\"reason\":\"The functional note specifies M8 weld nuts on the inside of the flange. Nut geometry and attachment details are not dimensioned, and welded hardware is outside the flat-part template. The Ø10,50 clearance holes must not be converted into inferred M8 threaded holes.\",\"fact_ids\":[\"D-006\",\"D-006/drawing/callout/p1-2\"]},{\"description\":\"Deburring and sharp-edge breaks\",\"reason\":\"'DEBURR AND BREAK SHARP EDGES' supplies no numerical chamfer or radius size, so no explicit edge-break geometry can be modeled.\",\"fact_ids\":[\"D-006/drawing/general/edge_finish\"]}]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-006",
+          "D-006/drawing/callout/p1-1",
+          "D-006/drawing/callout/p1-2",
+          "D-006/drawing/callout/p1-3",
+          "D-006/drawing/general/edge_finish"
+        ],
+        "reason": "The omissions enumerate the visible hole groups, functional notes, essential profile and folded geometry, rounded transitions and unspecified edge finishing. Missing dimensions and generator limitations are identified separately.",
+        "changed_because": ""
+      },
+      {
+        "key": "cad_eligibility",
+        "state": "known",
+        "value_json": "{\"supported\":false,\"constant_thickness\":true,\"outline_exact\":false,\"reason\":\"The main face-on view shows a profiled canister wall with a substantial angled and stepped perimeter; the other orthographic views and both isometric views establish bent side flanges and return tabs. The directly dimensioned 3,00 sheet gauge supports constant nominal thickness, consistent with the note '3mm (or thicker)', but does not make the part planar. The exact body cannot be represented by a rectangle/circle/ring with supported cuts and corner clips. The 243,50 by 420,00 spans must not be substituted as a bounding rectangular solid.\",\"essential_uncertainty\":[\"The angled upper-right and sloping, stepped lower perimeter lack dimensions fixing the complete contour.\",\"Complete bend and return geometry, including bend radii, is not established.\",\"The inside-flange M8 weld-nut requirement lacks hardware and attachment geometry.\"],\"omitted_minor_features\":[\"Four Ø10,00 main-wall through holes lack complete X placement.\",\"Three Ø10,50 flange through holes lack complete placement and require a bent face.\",\"Two Ø12,00 return-tab through holes lack complete placement and require a bent face.\",\"Small rounded flange/tab corners lack specified radii.\",\"Deburring and edge breaks have no specified size.\"]}",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-006",
+          "D-006/drawing/notes",
+          "D-006/drawing/n/3.0@1-2",
+          "D-006/drawing/n/243.5@1-1",
+          "D-006/drawing/n/420.0@1-1",
+          "D-006/drawing/callout/p1-1",
+          "D-006/drawing/callout/p1-2",
+          "D-006/drawing/callout/p1-3",
+          "D-006/drawing/general/edge_finish"
+        ],
+        "reason": "Eligibility is blocked by the positively established bent, nonplanar body and essential unsupported perimeter, independently of the unresolved hole positions.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 22265,
+          "cached_input_tokens": 10112,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 6264,
+          "reasoning_output_tokens": 4142
+        }
+      }
+    ]
+  },
+  "latency_ms": 171985,
+  "cache_key": "493df206a6f2fe3e309e4a2e19500d29aff5a458b124218f5b79604afae5fd7c",
+  "cache_hit": false,
+  "job": "detail:D-006:drawing-detail-reprepare-v2:proposal-verification-v1:proposal:0",
+  "error": null
+}

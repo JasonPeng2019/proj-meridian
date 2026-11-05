@@ -1,0 +1,75 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "c4d984ff9ac1e8450b6d8868cae5dd797c75865ead4c68d3e27bf5b5d3ea195b",
+    "items": [
+      {
+        "key": "page_1",
+        "decision": "accept",
+        "reason": "I checked the proposal against the original page image of D-011/drawing/source. Every printed engineering token is present and copied as printed, decimal commas included: the stacked 15,0/12,0 thickness callout; 20,0, 25,0, 80,0 and 195,0 on the vertical leg; '2 x Ø 6,6 THRU ALL'; R35,0 and R60,0; 82,0 for the hole pitch; '4 x Ø 4,2 THRU ALL / M5 - 6H THRU ALL'; 10,5, 8,0 and 25,0 at the right end; and 348,0 overall. The parsed values match their tokens. The units are correct: hole quantities are count; the M5 thread nominal is mm and is kept separate from the 4,2 bore; the 6 from the 6H tolerance class is unitless. Radius and diameter symbols and THRU ALL qualifiers are kept in the text. Title-block items (weight 415.3, date, scale, phone number and sheet) are left out as required. Scaling the image to the 1190.4x842.4 pt page, each box falls on its own printed label and does not cover a whole view. The 10,5 and 8,0 boxes sit slightly right of the text but still locate the correct labels. No numbers were guessed or inferred.",
+        "fact_ids": [
+          "D-011/drawing/source"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 9460,
+      "cache_read_input_tokens": 10967,
+      "output_tokens": 1654,
+      "output_tokens_details": {
+        "thinking_tokens": 912
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 9460,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 1654,
+        "cacheReadInputTokens": 10967,
+        "cacheCreationInputTokens": 9460,
+        "webSearchRequests": 0,
+        "costUSD": 0.11096940000000001,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 912,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 9460,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.11096940000000001,
+    "duration_ms": 19185,
+    "is_error": false
+  },
+  "latency_ms": 20437,
+  "cache_key": "6f8ad48924869a994bd2e6d2e45c4debf9b560c8e6c8ee4b9c858317630b10dc",
+  "cache_hit": false,
+  "job": "dimensions:D-011:printed-image-dimensions-v1:proposal-verification-v1:verification:1",
+  "error": null
+}

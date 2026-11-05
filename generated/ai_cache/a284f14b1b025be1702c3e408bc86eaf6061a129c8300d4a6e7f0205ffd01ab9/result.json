@@ -1,0 +1,45 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "page_1",
+        "state": "known",
+        "value_json": "[{\"text\":\"162,00\",\"token\":\"162,00\",\"value\":162,\"unit\":\"mm\",\"box\":[543.6,143.3,42.6,14.4]},{\"text\":\"Ø3,00 THRU\",\"token\":\"3,00\",\"value\":3,\"unit\":\"mm\",\"box\":[319.4,299.8,77,16.3]},{\"text\":\"200,00\",\"token\":\"200,00\",\"value\":200,\"unit\":\"mm\",\"box\":[543.6,338,42.6,14.4]},{\"text\":\"Ø3,00 THRU\",\"token\":\"3,00\",\"value\":3,\"unit\":\"mm\",\"box\":[320.6,360.6,77,16.3]},{\"text\":\"105\",\"token\":\"105\",\"value\":105,\"unit\":\"mm\",\"box\":[722.7,452.6,13.2,23.2]},{\"text\":\"120\",\"token\":\"120\",\"value\":120,\"unit\":\"mm\",\"box\":[739,452,13.8,23.8]},{\"text\":\"184,00\",\"token\":\"184,00\",\"value\":184,\"unit\":\"mm\",\"box\":[546.7,597.2,41.9,15]},{\"text\":\"100°\",\"token\":\"100\",\"value\":100,\"unit\":\"deg\",\"box\":[210.5,561.5,30,29.5]},{\"text\":\"62,50\",\"token\":\"62,50\",\"value\":62.5,\"unit\":\"mm\",\"box\":[220.4,617.8,36.3,15]},{\"text\":\"10 x Ø 7,00 THRU ALL\\nfor M5 weld nut on side shown\",\"token\":\"10\",\"value\":10,\"unit\":\"count\",\"box\":[230.5,656.6,197.3,31.9]},{\"text\":\"10 x Ø 7,00 THRU ALL\\nfor M5 weld nut on side shown\",\"token\":\"7,00\",\"value\":7,\"unit\":\"mm\",\"box\":[230.5,656.6,197.3,31.9]},{\"text\":\"10 x Ø 7,00 THRU ALL\\nfor M5 weld nut on side shown\",\"token\":\"5\",\"value\":5,\"unit\":\"unitless\",\"box\":[230.5,656.6,197.3,31.9]}]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-022/drawing/source"
+        ],
+        "reason": "Readable engineering numbers are 162,00; 200,00; 105; 120; 184,00; 62,50; 100°; two Ø3,00 THRU callouts; and the mounting-hole callout specifying 10 x Ø 7,00 THRU ALL for M5 weld nuts. The 5 in M5 is retained as a designation, not interpreted as a bore dimension. No numeric thickness is specified, and no unreadable engineering numeric labels were identified. Title-block metadata is excluded.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 17597,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 3519,
+          "reasoning_output_tokens": 2834
+        }
+      }
+    ]
+  },
+  "latency_ms": 91172,
+  "cache_key": "a284f14b1b025be1702c3e408bc86eaf6061a129c8300d4a6e7f0205ffd01ab9",
+  "cache_hit": false,
+  "job": "dimensions:D-022:printed-image-dimensions-v1:proposal-verification-v1:proposal:0",
+  "error": null
+}

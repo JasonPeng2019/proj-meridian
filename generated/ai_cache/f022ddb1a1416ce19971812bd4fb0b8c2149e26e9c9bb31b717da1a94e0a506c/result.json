@@ -1,0 +1,75 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "6f508e2ace05ab403a4870b30b9489a4d4849bd2368962d45021b88351a04d2e",
+    "items": [
+      {
+        "key": "page_1",
+        "decision": "accept",
+        "reason": "I checked every entry against the original page image of D-001/drawing/source (PDF page 1190.4 x 842.4 pt, about 0.62 pt per image pixel). The printed text, literal tokens and units match the drawing. The dimensions read '3,00' (thickness view), '492,00' (overall width), '515' (overall height, no decimals), '287,00' and '200,00' (vertical text, inner opening). The four hole callouts read '2 x Ø 4,50 THRU ALL', '3 x Ø 6,60 THRU ALL', '6 x Ø 6,60 THRU ALL' and '20 x Ø 4,50 THRU ALL'. Each callout correctly has a count token and a diameter token with the same text and box. The drawing uses decimal commas, and the parsed values (3, 492, 2, 4.5, 3, 6.6, 200, 515, 287, 6, 6.6, 20, 4.5) match their tokens. The note reads 'Door - x2' / '3mm aluminium'. Its 2 is correctly labeled a count and its 3 is in mm. When converted to PDF points, the boxes for 3,00, 492,00, all four THRU ALL callouts, 287,00 and the note tightly enclose their printed text. The 200,00 and 515 boxes sit a few points right of the vertical text but still overlap and locate the correct labels. Leaving out title-block items (scale, date, weight, ISO 2768 tolerance note, sheet size) is correct. No hole-position or corner-radius dimension is printed, so leaving those out is correct. No numbers were guessed or inferred.",
+        "fact_ids": [
+          "D-001/drawing/source"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 8370,
+      "cache_read_input_tokens": 9877,
+      "output_tokens": 2081,
+      "output_tokens_details": {
+        "thinking_tokens": 1233
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 8370,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 2081,
+        "cacheReadInputTokens": 9877,
+        "cacheCreationInputTokens": 8370,
+        "webSearchRequests": 0,
+        "costUSD": 0.11057140000000001,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 1233,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 8370,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.11057140000000001,
+    "duration_ms": 22655,
+    "is_error": false
+  },
+  "latency_ms": 23921,
+  "cache_key": "f022ddb1a1416ce19971812bd4fb0b8c2149e26e9c9bb31b717da1a94e0a506c",
+  "cache_hit": false,
+  "job": "dimensions:D-001:printed-image-dimensions-v1:proposal-verification-v1:verification:1",
+  "error": null
+}

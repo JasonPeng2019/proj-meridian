@@ -1,0 +1,77 @@
+{
+  "protocol": 2,
+  "reader": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "prompt": "PREP PROTOCOL: proposal-verification-v1; role: proposer; round: 0.\nYou are a read-only engineering evidence proposer. Do not edit files,\nrun commands, use other agents, browse the web, or inspect any evidence beyond the supplied inputs.\nReturn the requested JSON schema. Every requested key must appear exactly once. value_json is a\nJSON-encoded value (e.g. a string as \"\\\"text\\\"\", a number as \"5\", an array as \"[3,6]\",\nunknown as \"null\"). State known means one determined value; options means genuinely documented\nalternatives; unknown means the evidence does not determine it. confidence is only sure or unsure.\nUse sure only for a reading supported by the supplied evidence. Copy original spelling and units.\nNever invent evidence IDs. fact_ids must be exact supplied source IDs supporting that item.\nReasons must explain the evidence; changed_because is empty on the first proposal.\n\nQUALITATIVE TEMPLATE CAPABILITY SCREEN ONLY.\nInspect the original drawing views. Do not transcribe numeric dimensions, locate holes, or extract a complete feature list. Decide only whether the essential body fits the provided reusable base-body contract. Missing numeric evidence or hole positions alone does not make a body structurally unsupported; uncertain body shape stays unknown. Constant thickness means spatially uniform across the main body, independent of an unresolved exact thickness reading. Leave numeric ambiguity to detailed fields. Never substitute a bounding rectangle/circle for a formed or custom-profiled body. Return only cad_eligibility: known object with exactly supported, constant_thickness, outline_exact (booleans), reason (source-specific structural explanation), essential_uncertainty and omitted_minor_features (string arrays). supported=true requires a certain compatible base shape, constant extrusion and empty essential_uncertainty. This is routing, not a complete reconstruction or human approval. Cite original source IDs.\n{\"capabilities\":{\"body\":\"single planar constant-thickness extrusion; explicitly printed thickness alternatives allowed\",\"bounding_shape_substitution\":false,\"contract\":\"mvp-flat-base-body-v1\",\"exact_main_outline\":true,\"minor_cut_changes_do_not_expand_base_body_contract\":true,\"minor_detail_allowance\":\"Small undimensioned straight corner clips and edge breaks may be explicitly omitted from an otherwise established rectangular main body; never discard essential functional contours.\",\"outlines\":[\"rectangle\",\"circle\",\"ring\"],\"unsupported_essential_geometry\":[\"bends\",\"nonplanar or assembled bodies\",\"stepped or revolved bodies\",\"custom rounded, lobed, obround or angled outer contours\",\"essential grooves\"]},\"drawing\":\"D-013\",\"notes\":{\"box\":[741.526,658.942,231.0,111.0],\"confidence\":\"sure\",\"field_box\":[741.526,666.942,231.0,103.0],\"label_box\":[741.526,658.942,15.72,7.75],\"method\":\"parsed\",\"name\":\"D-013/drawing/notes\",\"original\":\"Alu.\\nJusteringsplade til recoater.\",\"page\":1,\"value\":\"Alu.\\nJusteringsplade til recoater.\"},\"source_ids\":[\"D-013\",\"D-013/drawing/callout/p1-1\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/callout/p1-3\",\"D-013/drawing/company\",\"D-013/drawing/date\",\"D-013/drawing/drawn\",\"D-013/drawing/general/edge_finish\",\"D-013/drawing/general/general_tolerance\",\"D-013/drawing/general/units\",\"D-013/drawing/material\",\"D-013/drawing/n/10.0@1-1\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/2.0@1-1\",\"D-013/drawing/n/2.3@1-1\",\"D-013/drawing/n/2.5@1-1\",\"D-013/drawing/n/25.0@1-1\",\"D-013/drawing/n/270.0@1-1\",\"D-013/drawing/n/3.0@1-1\",\"D-013/drawing/n/35.7@1-1\",\"D-013/drawing/n/4.0@1-1\",\"D-013/drawing/n/4.2@1-1\",\"D-013/drawing/n/4.5@1-1\",\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/5.5@1-1\",\"D-013/drawing/n/6.0@1-1\",\"D-013/drawing/n/7.5@1-1\",\"D-013/drawing/n/8.0@1-1\",\"D-013/drawing/n/82.0@1-1\",\"D-013/drawing/n/82.0@1-2\",\"D-013/drawing/notes\",\"D-013/drawing/scale\",\"D-013/drawing/source\",\"D-013/drawing/title\",\"D-013/drawing/weight_g\"]}",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string",
+              "enum": [
+                "cad_eligibility"
+              ]
+            },
+            "state": {
+              "type": "string",
+              "enum": [
+                "known",
+                "options",
+                "unknown"
+              ]
+            },
+            "value_json": {
+              "type": "string"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "sure",
+                "unsure"
+              ]
+            },
+            "fact_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "reason": {
+              "type": "string"
+            },
+            "changed_because": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "key",
+            "state",
+            "value_json",
+            "confidence",
+            "fact_ids",
+            "reason",
+            "changed_because"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "items"
+    ],
+    "additionalProperties": false
+  },
+  "images": [
+    "30afbd63188f29b0d47eb96b09de668226fca19f2910fc06c38ea0a98ef5e726"
+  ],
+  "job": "screen:D-013:base-body-eligibility-routing-v1:proposal-verification-v1:proposal:0"
+}

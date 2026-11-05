@@ -1,0 +1,187 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "533841fbcb4dd793475854a8976a25845c7318906539a97094b0713a291e1603",
+    "items": [
+      {
+        "key": "outline_type",
+        "decision": "accept",
+        "reason": "Both face-on views in D-027 show concentric circular outer and inner boundaries. The left view has leaders to Ø330,0 (n/330.0@1-1) and Ø264,0 (n/264.0@1-1). There are no notches or lobes, so the outline is a ring.",
+        "fact_ids": [
+          "D-027",
+          "D-027/drawing/n/330.0@1-1",
+          "D-027/drawing/n/264.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "length",
+        "decision": "accept",
+        "reason": "The outline is a ring, so a rectangular X length does not apply. Unknown/null is correct for an irrelevant key under the task protocol.",
+        "fact_ids": [
+          "D-027"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "width",
+        "decision": "accept",
+        "reason": "The outline is a ring, so a rectangular Y width does not apply. Unknown/null is correct for an irrelevant key.",
+        "fact_ids": [
+          "D-027"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "outer_diameter",
+        "decision": "accept",
+        "reason": "In the left face view, the Ø330,0 leader points to the outer circle. The units note states millimetres.",
+        "fact_ids": [
+          "D-027/drawing/n/330.0@1-1",
+          "D-027/drawing/general/units",
+          "D-027"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "inner_diameter",
+        "decision": "accept",
+        "reason": "In the left face view, the Ø264,0 leader points to the inner bore. H8 +0,081/0,000 is a tolerance, not an alternative size, so 264.0 is the correct nominal value.",
+        "fact_ids": [
+          "D-027/drawing/n/264.0@1-1",
+          "D-027/drawing/n/0.081@1-1",
+          "D-027/drawing/n/0.0@1-2",
+          "D-027"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "thickness",
+        "decision": "accept",
+        "reason": "The middle edge view dimensions the gap between the two planar faces as 15,0. The edge view is a plain rectangle with no steps, so the thickness is a single constant value.",
+        "fact_ids": [
+          "D-027/drawing/n/15.0@1-1",
+          "D-027"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features",
+        "decision": "accept",
+        "reason": "Checked against the image. The left view has six small holes on the dashed R148,5 circle at 30°, 90°, 150°, 210°, 270° and 330°, with one on the +Y centerline. That matches count 6, start 90 and 360/6 spacing, and the 60° printed in the right view confirms the spacing. The left view also has three double-circle stepped holes at 60°, 180° and 300°, with one on the -X axis. That matches count 3, start 180 and 360/3 spacing. The callout on them is 3 x Ø11,0 THRU ALL with countersink Ø24,4 X 90°. The right view shows the same holes mirrored: the stepped holes sit at +X and upper/lower left. This mirroring is consistent with viewing the opposite face. That view calls out 3 x counterbore Ø20,0 depth 4,0. Reflecting the right view across its vertical axis puts the stepped holes back at 180/60/300 in the main frame. So the counterbores are bottom operations on the same three Ø11,0 bores. Depths fit within the 15,0 thickness: the countersink is (24,4-11)/2 = 6,7 deep, plus the 4,0 counterbore, giving 10,7. Every numeric value cites a matching parsed number, and the features are ordered correctly.",
+        "fact_ids": [
+          "D-027",
+          "D-027/drawing/callout/p1-1",
+          "D-027/drawing/callout/p1-2",
+          "D-027/drawing/callout/p1-3",
+          "D-027/drawing/callout/p1-4",
+          "D-027/drawing/n/148.5@1-1",
+          "D-027/drawing/n/6.0@1-1",
+          "D-027/drawing/n/9.0@1-1",
+          "D-027/drawing/n/3.0@1-1",
+          "D-027/drawing/n/3.0@1-2",
+          "D-027/drawing/n/11.0@1-1",
+          "D-027/drawing/n/24.4@1-1",
+          "D-027/drawing/n/90.0@1-1",
+          "D-027/drawing/n/20.0@1-1",
+          "D-027/drawing/n/4.0@1-1",
+          "D-027/drawing/n/60.0@1-1",
+          "D-027/drawing/n/120.0@1-1",
+          "D-027/drawing/n/15.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_complete",
+        "decision": "accept",
+        "reason": "The edge-break finishing note gives no size, so that detail cannot be modeled and is omitted. With an omission present, false is the correct value.",
+        "fact_ids": [
+          "D-027/drawing/general/edge_finish",
+          "D-027"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_omitted",
+        "decision": "accept",
+        "reason": "The image shows nine holes in total: six Ø9 holes and three stepped Ø11 holes. All of them, with both stepped ends, are in features. The only unmodelled detail is the DEBURR AND BREAK SHARP EDGES instruction, which has no printed size. The omission entry describes this correctly and cites the note.",
+        "fact_ids": [
+          "D-027/drawing/general/edge_finish",
+          "D-027"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "cad_eligibility",
+        "decision": "accept",
+        "reason": "The left face view establishes an exact Ø330,0/Ø264,0 ring. The edge view gives a single constant 15,0 thickness. All the hole operations are axial plain, countersunk or counterbored cuts that the generator supports. No unsupported contour appears in any view or the isometric, and the only omission is the minor edge break.",
+        "fact_ids": [
+          "D-027",
+          "D-027/drawing/n/330.0@1-1",
+          "D-027/drawing/n/264.0@1-1",
+          "D-027/drawing/n/15.0@1-1",
+          "D-027/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 19414,
+      "cache_read_input_tokens": 21032,
+      "output_tokens": 4037,
+      "output_tokens_details": {
+        "thinking_tokens": 1821
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 19414,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 4037,
+        "cacheReadInputTokens": 21032,
+        "cacheCreationInputTokens": 19414,
+        "webSearchRequests": 0,
+        "costUSD": 0.2402744,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 1821,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 19414,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.2402744,
+    "duration_ms": 37877,
+    "is_error": false
+  },
+  "latency_ms": 39406,
+  "cache_key": "26b2cdb7f57eedb0bfba05a155d115bff842451c990ff0e99164cc22c293906b",
+  "cache_hit": false,
+  "job": "detail:D-027:drawing-detail-reprepare-v2:proposal-verification-v1:verification:0",
+  "error": null
+}

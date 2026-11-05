@@ -1,0 +1,166 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "outline_type",
+        "state": "known",
+        "value_json": "\"rectangle\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-002"
+        ],
+        "reason": "The main face-on view has a rectangular face. This describes that face; the complete part includes formed flanges and is not eligible for a flat rectangular extrusion.",
+        "changed_because": ""
+      },
+      {
+        "key": "length",
+        "state": "known",
+        "value_json": "775",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-002/drawing/n/775.0@1-1"
+        ],
+        "reason": "775,00 dimensions the horizontal overall extent in the main face-on view. Dimensions are in millimetres.",
+        "changed_because": ""
+      },
+      {
+        "key": "width",
+        "state": "known",
+        "value_json": "578.9",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-002/drawing/n/578.9@1-1"
+        ],
+        "reason": "578,90 dimensions the vertical overall extent in the main face-on view. Dimensions are in millimetres.",
+        "changed_because": ""
+      },
+      {
+        "key": "outer_diameter",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-002"
+        ],
+        "reason": "An outer diameter is not relevant to the rectangular main face.",
+        "changed_because": ""
+      },
+      {
+        "key": "inner_diameter",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-002"
+        ],
+        "reason": "The drawing does not show a ring outline; an inner diameter is not applicable.",
+        "changed_because": ""
+      },
+      {
+        "key": "thickness",
+        "state": "known",
+        "value_json": "2",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-002/drawing/notes"
+        ],
+        "reason": "The note explicitly states \"2mm non-magnetic stainless\". This establishes sheet thickness; 23,00 in the side view describes flange depth.",
+        "changed_because": ""
+      },
+      {
+        "key": "features",
+        "state": "known",
+        "value_json": "[]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-002"
+        ],
+        "reason": "No cut has a fully established location. The opening has printed dimensions but no dimensioned XY position; the hole groups lack the offsets and pitches needed to establish their coordinates. Flange holes additionally belong to unsupported formed geometry.",
+        "changed_because": ""
+      },
+      {
+        "key": "features_complete",
+        "state": "known",
+        "value_json": "false",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-002"
+        ],
+        "reason": "The visible opening, hole groups, formed flanges, weld nuts and unspecified edge breaks are omitted for the reasons recorded in features_omitted.",
+        "changed_because": ""
+      },
+      {
+        "key": "features_omitted",
+        "state": "known",
+        "value_json": "[{\"description\":\"Formed flanges, bends and corner junctions\",\"reason\":\"The side views, horizontal edge view and isometric show flanges projecting out of the main face. The side view prints 23,00 depth. These are essential nonplanar geometry outside the flat-part generator; bend radii and a dimensioned developed outline are not supplied.\",\"fact_ids\":[\"D-002\",\"D-002/drawing/n/23.0@1-1\",\"D-002/drawing/notes\"]},{\"description\":\"Rectangular opening, 286,00 by 36,00\",\"reason\":\"The printed dimensions establish the opening size and the view establishes its horizontal long axis, but no dimensions locate its center relative to the main outline. Apparent centering cannot establish coordinates.\",\"fact_ids\":[\"D-002\",\"D-002/drawing/n/286.0@1-1\",\"D-002/drawing/n/36.0@1-1\"]},{\"description\":\"Main-face holes: 7 x 5,80 THRU ALL\",\"reason\":\"Count, diameter and through operation are established. The arrangement around the rectangular opening has no printed center offsets or pitches, so individual XY coordinates cannot be established.\",\"fact_ids\":[\"D-002\",\"D-002/drawing/callout/p1-1\"]},{\"description\":\"Main-face lower row: 6 x 9,00 THRU ALL\",\"reason\":\"Count, diameter and through operation are established, but row height, endpoint offsets and pitch are not dimensioned. The count and overall panel width do not establish the row coordinates.\",\"fact_ids\":[\"D-002\",\"D-002/drawing/callout/p1-2\"]},{\"description\":\"Left side-view flange holes: 7 x 7,00 THRU ALL\",\"reason\":\"Count, diameter and through operation are established. Longitudinal offsets, pitch and entry locations through the flange depth are not dimensioned. The supporting flange is nonplanar geometry outside the template.\",\"fact_ids\":[\"D-002\",\"D-002/drawing/callout/p1-3\",\"D-002/drawing/n/23.0@1-1\"]},{\"description\":\"Right side-view flange holes: 7 x 7,00 THRU ALL\",\"reason\":\"Count, diameter and through operation are established, but complete entry coordinates and spacing are not dimensioned. Mirroring the opposite flange would not supply the missing dimensions, and the supporting flange is outside the template.\",\"fact_ids\":[\"D-002\",\"D-002/drawing/callout/p1-5\"]},{\"description\":\"Horizontal edge-view flange holes: 9 x 7,00 THRU ALL\",\"reason\":\"Count, diameter and through operation are established. The displayed locations have no printed offsets or pitches, and the through-flange entry coordinates are unresolved. The supporting flange is outside the template.\",\"fact_ids\":[\"D-002\",\"D-002/drawing/callout/p1-4\"]},{\"description\":\"M5 weld nuts on inside of flanges\",\"reason\":\"The functional note specifies attached weld nuts. Their complete geometry and attachment locations are not dimensioned, and separate welded hardware cannot be represented by supported plate cuts. M5 does not establish a drill diameter.\",\"fact_ids\":[\"D-002\",\"D-002/drawing/notes\"]},{\"description\":\"DEBURR AND BREAK SHARP EDGES\",\"reason\":\"The edge-finish instruction supplies no size or profile for an explicit chamfer or other edge-break operation.\",\"fact_ids\":[\"D-002/drawing/general/edge_finish\"]}]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-002",
+          "D-002/drawing/n/23.0@1-1",
+          "D-002/drawing/n/286.0@1-1",
+          "D-002/drawing/n/36.0@1-1",
+          "D-002/drawing/callout/p1-1",
+          "D-002/drawing/callout/p1-2",
+          "D-002/drawing/callout/p1-3",
+          "D-002/drawing/callout/p1-4",
+          "D-002/drawing/callout/p1-5",
+          "D-002/drawing/notes",
+          "D-002/drawing/general/edge_finish"
+        ],
+        "reason": "Each visible feature group or functional detail excluded from the supported subset is identified with its missing dimensions or generator limitation.",
+        "changed_because": ""
+      },
+      {
+        "key": "cad_eligibility",
+        "state": "known",
+        "value_json": "{\"supported\":false,\"constant_thickness\":true,\"outline_exact\":false,\"reason\":\"The main face-on view is dimensioned 775,00 by 578,90, and the note explicitly specifies 2mm sheet thickness. However, the side views, 23,00 flange depth, horizontal edge view and isometric establish a formed panel with projecting flanges; the note also requires M5 weld nuts. Constant sheet gauge does not make this formed part a flat extrusion. A rectangular extrusion would omit essential flange geometry and would not reproduce the complete main body.\",\"essential_uncertainty\":[\"Bend radii, bend-line locations and the exact developed outline are not dimensioned; the formed flanges are unsupported by this template.\",\"The 286,00 by 36,00 rectangular opening has no dimensioned XY location.\",\"The M5 weld nuts lack complete geometry and dimensioned attachment locations.\"],\"omitted_minor_features\":[\"Seven 5,80 through holes and six 9,00 through holes on the main face lack complete placement dimensions.\",\"Seven 7,00 through holes in each side flange and nine 7,00 through holes in the horizontal edge-view flange lack complete entry coordinates and spacing.\",\"The deburr and edge-break instruction has no geometric dimensions.\"]}",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-002",
+          "D-002/drawing/n/775.0@1-1",
+          "D-002/drawing/n/578.9@1-1",
+          "D-002/drawing/n/23.0@1-1",
+          "D-002/drawing/n/286.0@1-1",
+          "D-002/drawing/n/36.0@1-1",
+          "D-002/drawing/notes",
+          "D-002/drawing/callout/p1-1",
+          "D-002/drawing/callout/p1-2",
+          "D-002/drawing/callout/p1-3",
+          "D-002/drawing/callout/p1-4",
+          "D-002/drawing/callout/p1-5",
+          "D-002/drawing/general/edge_finish"
+        ],
+        "reason": "The explicit 2mm sheet gauge is established, but essential formed flanges and attached weld nuts independently block reconstruction by the supported flat-part template.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 22296,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 4555,
+          "reasoning_output_tokens": 2588
+        }
+      }
+    ]
+  },
+  "latency_ms": 104547,
+  "cache_key": "604a621c3acbf4292a3bcfc73803aa15945efa32544ed38a1ffcdad850313dc6",
+  "cache_hit": false,
+  "job": "detail:D-002:drawing-detail-reprepare-v2:proposal-verification-v1:proposal:0",
+  "error": null
+}

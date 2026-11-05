@@ -1,0 +1,596 @@
+{
+  "part": "D-001",
+  "template": "flat_part",
+  "outline": {
+    "state": "unknown",
+    "type": null
+  },
+  "thickness": {
+    "state": "known",
+    "value": 3,
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-001/drawing/visual-n/p1-9e842af67407b1f5",
+      "D-001/drawing/visual-n/p1-5961e5bc85823d07"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "thickness",
+              "decision": "accept",
+              "reason": "The edge-on side view at left carries the 3,00 dimension (p1-9e842af67407b1f5) across the plate thickness. The note 'Door - x2 / 3mm aluminium' (p1-5961e5bc85823d07) agrees. This is one constant thickness of 3 mm with no alternatives.",
+              "fact_ids": [
+                "D-001/drawing/visual-n/p1-9e842af67407b1f5",
+                "D-001/drawing/visual-n/p1-5961e5bc85823d07"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "bb0777bd6dd28e9b13440a0c3accf39906a0ee03c186d77ae2a9f5c515aebb6f",
+            "response_proposal_fingerprint": "bb0777bd6dd28e9b13440a0c3accf39906a0ee03c186d77ae2a9f5c515aebb6f",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "3fd3b25c6ef3a5c0a8fa021f765142e775bb404a2bb94d1de9cb3970be291d85"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "thickness",
+              "state": "known",
+              "value_json": "3",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-001/drawing/visual-n/p1-9e842af67407b1f5",
+                "D-001/drawing/visual-n/p1-5961e5bc85823d07"
+              ],
+              "reason": "The side view's 3,00 mm thickness dimension agrees with the note '3mm aluminium'. These establish one constant thickness.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "bb0777bd6dd28e9b13440a0c3accf39906a0ee03c186d77ae2a9f5c515aebb6f",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "6a6a68a64d0c535d6d65337bf6256b9df81b19e3f1d1d8fc9d9535036f5a8b56"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The side view's 3,00 mm thickness dimension agrees with the note '3mm aluminium'. These establish one constant thickness. Verification: The edge-on side view at left carries the 3,00 dimension (p1-9e842af67407b1f5) across the plate thickness. The note 'Door - x2 / 3mm aluminium' (p1-5961e5bc85823d07) agrees. This is one constant thickness of 3 mm with no alternatives."
+  },
+  "features": [],
+  "features_review": {
+    "state": "known",
+    "value": [],
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-001"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features",
+              "decision": "accept",
+              "reason": "All four hole callouts (2x Ø4,50, 3x Ø6,60, 6x Ø6,60, 20x Ø4,50 THRU ALL) give count and diameter only. The drawing has no locating offsets, pitches or coordinates for any hole. The 287,00 and 200,00 dimensions span the opening edges, not hole centers. The opening itself has no location dimension. No cut is fully supported, so known [] is correct.",
+              "fact_ids": [
+                "D-001",
+                "D-001/drawing/visual-n/p1-bb5309c42b3d451d",
+                "D-001/drawing/visual-n/p1-f6f5c0a88c7e24a8",
+                "D-001/drawing/visual-n/p1-ce252af373fa8dad",
+                "D-001/drawing/visual-n/p1-e4b74964fa4c84e1"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "bb0777bd6dd28e9b13440a0c3accf39906a0ee03c186d77ae2a9f5c515aebb6f",
+            "response_proposal_fingerprint": "bb0777bd6dd28e9b13440a0c3accf39906a0ee03c186d77ae2a9f5c515aebb6f",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "3fd3b25c6ef3a5c0a8fa021f765142e775bb404a2bb94d1de9cb3970be291d85"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features",
+              "state": "known",
+              "value_json": "[]",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-001"
+              ],
+              "reason": "No cut has fully supported geometry and placement. The hole groups lack locating dimensions, and the central rounded rectangular opening lacks corner radii and dimensioned placement and is outside the supported hole/slot geometry.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "bb0777bd6dd28e9b13440a0c3accf39906a0ee03c186d77ae2a9f5c515aebb6f",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "6a6a68a64d0c535d6d65337bf6256b9df81b19e3f1d1d8fc9d9535036f5a8b56"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "No cut has fully supported geometry and placement. The hole groups lack locating dimensions, and the central rounded rectangular opening lacks corner radii and dimensioned placement and is outside the supported hole/slot geometry. Verification: All four hole callouts (2x Ø4,50, 3x Ø6,60, 6x Ø6,60, 20x Ø4,50 THRU ALL) give count and diameter only. The drawing has no locating offsets, pitches or coordinates for any hole. The 287,00 and 200,00 dimensions span the opening edges, not hole centers. The opening itself has no location dimension. No cut is fully supported, so known [] is correct."
+  },
+  "material": {
+    "name": "D-001/drawing/material",
+    "original": null,
+    "value": null,
+    "confidence": "unsure",
+    "method": "parsed",
+    "page": 1,
+    "box": [
+      738.906,
+      766.467,
+      145.983,
+      24.008
+    ],
+    "field_box": [
+      738.906,
+      766.467,
+      145.983,
+      24.008
+    ],
+    "label_box": null,
+    "note": "Too blurry to read on the scan.",
+    "source_quality": "degraded"
+  },
+  "weight_on_drawing": {
+    "name": "D-001/drawing/weight_g",
+    "original": null,
+    "value": null,
+    "confidence": "unsure",
+    "method": "parsed",
+    "page": 1,
+    "box": [
+      874.889,
+      766.467,
+      102.988,
+      24.008
+    ],
+    "field_box": [
+      874.889,
+      766.467,
+      102.988,
+      24.008
+    ],
+    "label_box": null,
+    "note": "Too blurry to read on the scan.",
+    "source_quality": "degraded"
+  },
+  "cad_ready": false,
+  "blocking_fields": [
+    "outline_type",
+    "cad_eligibility"
+  ],
+  "cad_eligibility": {
+    "state": "known",
+    "value": {
+      "supported": false,
+      "constant_thickness": true,
+      "outline_exact": false,
+      "reason": "The main face establishes overall extents of 492,00 by 515 mm but shows an essential rounded outer contour that the supported rectangle/circle/ring generator cannot reproduce. The side-view 3,00 mm dimension, corroborated by '3mm aluminium', establishes constant thickness. The central 287,00 by 200,00 mm rounded rectangular opening also has unsupported contour details and undimensioned placement. A rectangular blank would not reconstruct this functional part accurately.",
+      "essential_uncertainty": [
+        "Outer corner radii are not dimensioned, and the rounded outer profile is outside the supported outline types.",
+        "The central opening's corner radii and XY location are not dimensioned; its rounded rectangular contour is outside the supported hole/slot cuts."
+      ],
+      "omitted_minor_features": [
+        "2 x Ø 4,50 THRU ALL: hole-center locations and pitch are missing.",
+        "3 x Ø 6,60 THRU ALL: hole-center locations and spacing are missing.",
+        "6 x Ø 6,60 THRU ALL: hole-center locations and spacing are missing.",
+        "20 x Ø 4,50 THRU ALL: hole-center offsets and pitches around the opening are missing."
+      ]
+    },
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-001",
+      "D-001/drawing/visual-n/p1-f696ecbb0352e5b6",
+      "D-001/drawing/visual-n/p1-73aeb8a54aab9f26",
+      "D-001/drawing/visual-n/p1-9e842af67407b1f5",
+      "D-001/drawing/visual-n/p1-5961e5bc85823d07",
+      "D-001/drawing/visual-n/p1-f9d92385e61d8ec5",
+      "D-001/drawing/visual-n/p1-915e1d5c5e688216"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "cad_eligibility",
+              "decision": "accept",
+              "reason": "supported=false is correct. The main face has large undimensioned rounded outer corners, which are an essential contour and not a minor edge break, so the outline cannot be reproduced exactly (outline_exact=false). The central opening is also essential and has no location dimension. constant_thickness=true is supported by the side-view 3,00 dimension and the '3mm aluminium' note. Overall extents are 492,00 x 515. The four hole groups are correctly listed as minor omissions that lack locations.",
+              "fact_ids": [
+                "D-001",
+                "D-001/drawing/visual-n/p1-f696ecbb0352e5b6",
+                "D-001/drawing/visual-n/p1-73aeb8a54aab9f26",
+                "D-001/drawing/visual-n/p1-9e842af67407b1f5",
+                "D-001/drawing/visual-n/p1-5961e5bc85823d07",
+                "D-001/drawing/visual-n/p1-f9d92385e61d8ec5",
+                "D-001/drawing/visual-n/p1-915e1d5c5e688216"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "bb0777bd6dd28e9b13440a0c3accf39906a0ee03c186d77ae2a9f5c515aebb6f",
+            "response_proposal_fingerprint": "bb0777bd6dd28e9b13440a0c3accf39906a0ee03c186d77ae2a9f5c515aebb6f",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "3fd3b25c6ef3a5c0a8fa021f765142e775bb404a2bb94d1de9cb3970be291d85"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "cad_eligibility",
+              "state": "known",
+              "value_json": "{\"supported\":false,\"constant_thickness\":true,\"outline_exact\":false,\"reason\":\"The main face establishes overall extents of 492,00 by 515 mm but shows an essential rounded outer contour that the supported rectangle/circle/ring generator cannot reproduce. The side-view 3,00 mm dimension, corroborated by '3mm aluminium', establishes constant thickness. The central 287,00 by 200,00 mm rounded rectangular opening also has unsupported contour details and undimensioned placement. A rectangular blank would not reconstruct this functional part accurately.\",\"essential_uncertainty\":[\"Outer corner radii are not dimensioned, and the rounded outer profile is outside the supported outline types.\",\"The central opening's corner radii and XY location are not dimensioned; its rounded rectangular contour is outside the supported hole/slot cuts.\"],\"omitted_minor_features\":[\"2 x Ø 4,50 THRU ALL: hole-center locations and pitch are missing.\",\"3 x Ø 6,60 THRU ALL: hole-center locations and spacing are missing.\",\"6 x Ø 6,60 THRU ALL: hole-center locations and spacing are missing.\",\"20 x Ø 4,50 THRU ALL: hole-center offsets and pitches around the opening are missing.\"]}",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-001",
+                "D-001/drawing/visual-n/p1-f696ecbb0352e5b6",
+                "D-001/drawing/visual-n/p1-73aeb8a54aab9f26",
+                "D-001/drawing/visual-n/p1-9e842af67407b1f5",
+                "D-001/drawing/visual-n/p1-5961e5bc85823d07",
+                "D-001/drawing/visual-n/p1-f9d92385e61d8ec5",
+                "D-001/drawing/visual-n/p1-915e1d5c5e688216"
+              ],
+              "reason": "Eligibility is blocked by the essential rounded outer profile and central opening limitations, independently of the readable overall dimensions and constant thickness. Missing minor-hole locations alone are not the blocking reason.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "bb0777bd6dd28e9b13440a0c3accf39906a0ee03c186d77ae2a9f5c515aebb6f",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "6a6a68a64d0c535d6d65337bf6256b9df81b19e3f1d1d8fc9d9535036f5a8b56"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "Eligibility is blocked by the essential rounded outer profile and central opening limitations, independently of the readable overall dimensions and constant thickness. Missing minor-hole locations alone are not the blocking reason. Verification: supported=false is correct. The main face has large undimensioned rounded outer corners, which are an essential contour and not a minor edge break, so the outline cannot be reproduced exactly (outline_exact=false). The central opening is also essential and has no location dimension. constant_thickness=true is supported by the side-view 3,00 dimension and the '3mm aluminium' note. Overall extents are 492,00 x 515. The four hole groups are correctly listed as minor omissions that lack locations."
+  },
+  "feature_protocol": "supported-feature-subset-v1",
+  "features_complete": {
+    "state": "known",
+    "value": false,
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-001"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_complete",
+              "decision": "accept",
+              "reason": "The visible inventory includes 31 holes and a central opening that cannot be modeled, and the outer corners are rounded. features_omitted is nonempty, so false is correct.",
+              "fact_ids": [
+                "D-001"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "bb0777bd6dd28e9b13440a0c3accf39906a0ee03c186d77ae2a9f5c515aebb6f",
+            "response_proposal_fingerprint": "bb0777bd6dd28e9b13440a0c3accf39906a0ee03c186d77ae2a9f5c515aebb6f",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "3fd3b25c6ef3a5c0a8fa021f765142e775bb404a2bb94d1de9cb3970be291d85"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_complete",
+              "state": "known",
+              "value_json": "false",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-001"
+              ],
+              "reason": "The central opening, all four called-out hole groups and the rounded outer-corner contour cannot be represented fully from the supplied dimensions.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "bb0777bd6dd28e9b13440a0c3accf39906a0ee03c186d77ae2a9f5c515aebb6f",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "6a6a68a64d0c535d6d65337bf6256b9df81b19e3f1d1d8fc9d9535036f5a8b56"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The central opening, all four called-out hole groups and the rounded outer-corner contour cannot be represented fully from the supplied dimensions. Verification: The visible inventory includes 31 holes and a central opening that cannot be modeled, and the outer corners are rounded. features_omitted is nonempty, so false is correct."
+  },
+  "features_omitted": {
+    "state": "known",
+    "value": [
+      {
+        "description": "Four rounded outer corners",
+        "reason": "The main outline visibly has rounded corners, whose radii are not dimensioned. Rounded outer contours are unsupported by this template. These are essential outline geometry and cannot be treated as minor edge breaks or replaced with a bounding rectangle.",
+        "fact_ids": [
+          "D-001"
+        ]
+      },
+      {
+        "description": "Central rounded rectangular opening, 287,00 by 200,00 mm",
+        "reason": "The printed dimensions establish the opening's horizontal and vertical extents, not its corner radii or its XY location relative to the outer outline. Apparent centering cannot establish coordinates. Its four-corner rounded rectangular contour is also outside the supported hole/slot geometry.",
+        "fact_ids": [
+          "D-001",
+          "D-001/drawing/visual-n/p1-f9d92385e61d8ec5",
+          "D-001/drawing/visual-n/p1-915e1d5c5e688216"
+        ]
+      },
+      {
+        "description": "2 x Ø 4,50 THRU ALL near the upper left",
+        "reason": "Count, diameter and through operation are established, but no hole-center coordinates, locating offsets or pitch are printed. The holes cannot be positioned from the pictured layout alone.",
+        "fact_ids": [
+          "D-001",
+          "D-001/drawing/visual-n/p1-bb5309c42b3d451d",
+          "D-001/drawing/visual-n/p1-79a383303ea71188"
+        ]
+      },
+      {
+        "description": "3 x Ø 6,60 THRU ALL on the left",
+        "reason": "Count, diameter and through operation are established, but the triangular layout has no dimensioned center coordinates, offsets or spacing. Its placement cannot be derived from the supplied dimensions.",
+        "fact_ids": [
+          "D-001",
+          "D-001/drawing/visual-n/p1-f6f5c0a88c7e24a8",
+          "D-001/drawing/visual-n/p1-eef7bb1864b51bce"
+        ]
+      },
+      {
+        "description": "6 x Ø 6,60 THRU ALL on the right",
+        "reason": "Count, diameter and through operation are established, but the two visible groups lack dimensioned XY locations and spacing. No supported row placement can be derived.",
+        "fact_ids": [
+          "D-001",
+          "D-001/drawing/visual-n/p1-ce252af373fa8dad",
+          "D-001/drawing/visual-n/p1-b8f656d98011390f"
+        ]
+      },
+      {
+        "description": "20 x Ø 4,50 THRU ALL surrounding the central opening",
+        "reason": "Count, diameter and through operation are established, but hole-center offsets and pitches are absent. The 287,00 and 200,00 dimensions terminate on the opening edges, not on the surrounding hole centers, so they cannot establish this hole pattern.",
+        "fact_ids": [
+          "D-001",
+          "D-001/drawing/visual-n/p1-e4b74964fa4c84e1",
+          "D-001/drawing/visual-n/p1-0e79dbcd0ec180b9",
+          "D-001/drawing/visual-n/p1-f9d92385e61d8ec5",
+          "D-001/drawing/visual-n/p1-915e1d5c5e688216"
+        ]
+      }
+    ],
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-001",
+      "D-001/drawing/visual-n/p1-f9d92385e61d8ec5",
+      "D-001/drawing/visual-n/p1-915e1d5c5e688216",
+      "D-001/drawing/visual-n/p1-bb5309c42b3d451d",
+      "D-001/drawing/visual-n/p1-79a383303ea71188",
+      "D-001/drawing/visual-n/p1-f6f5c0a88c7e24a8",
+      "D-001/drawing/visual-n/p1-eef7bb1864b51bce",
+      "D-001/drawing/visual-n/p1-ce252af373fa8dad",
+      "D-001/drawing/visual-n/p1-b8f656d98011390f",
+      "D-001/drawing/visual-n/p1-e4b74964fa4c84e1",
+      "D-001/drawing/visual-n/p1-0e79dbcd0ec180b9"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_omitted",
+              "decision": "accept",
+              "reason": "The omission list matches the original view. It covers the rounded outer corners (undimensioned radius), the central 287,00 x 200,00 opening (no location dimension), and all four hole groups. The image confirms 2 holes at upper left, 3 in a triangle at left, two groups of 3 at right (6), and 5 per side around the opening (20). Each entry correctly says position or pitch is missing, and each cites the matching callout IDs.",
+              "fact_ids": [
+                "D-001",
+                "D-001/drawing/visual-n/p1-f9d92385e61d8ec5",
+                "D-001/drawing/visual-n/p1-915e1d5c5e688216",
+                "D-001/drawing/visual-n/p1-bb5309c42b3d451d",
+                "D-001/drawing/visual-n/p1-79a383303ea71188",
+                "D-001/drawing/visual-n/p1-f6f5c0a88c7e24a8",
+                "D-001/drawing/visual-n/p1-eef7bb1864b51bce",
+                "D-001/drawing/visual-n/p1-ce252af373fa8dad",
+                "D-001/drawing/visual-n/p1-b8f656d98011390f",
+                "D-001/drawing/visual-n/p1-e4b74964fa4c84e1",
+                "D-001/drawing/visual-n/p1-0e79dbcd0ec180b9"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "bb0777bd6dd28e9b13440a0c3accf39906a0ee03c186d77ae2a9f5c515aebb6f",
+            "response_proposal_fingerprint": "bb0777bd6dd28e9b13440a0c3accf39906a0ee03c186d77ae2a9f5c515aebb6f",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "3fd3b25c6ef3a5c0a8fa021f765142e775bb404a2bb94d1de9cb3970be291d85"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_omitted",
+              "state": "known",
+              "value_json": "[{\"description\":\"Four rounded outer corners\",\"reason\":\"The main outline visibly has rounded corners, whose radii are not dimensioned. Rounded outer contours are unsupported by this template. These are essential outline geometry and cannot be treated as minor edge breaks or replaced with a bounding rectangle.\",\"fact_ids\":[\"D-001\"]},{\"description\":\"Central rounded rectangular opening, 287,00 by 200,00 mm\",\"reason\":\"The printed dimensions establish the opening's horizontal and vertical extents, not its corner radii or its XY location relative to the outer outline. Apparent centering cannot establish coordinates. Its four-corner rounded rectangular contour is also outside the supported hole/slot geometry.\",\"fact_ids\":[\"D-001\",\"D-001/drawing/visual-n/p1-f9d92385e61d8ec5\",\"D-001/drawing/visual-n/p1-915e1d5c5e688216\"]},{\"description\":\"2 x Ø 4,50 THRU ALL near the upper left\",\"reason\":\"Count, diameter and through operation are established, but no hole-center coordinates, locating offsets or pitch are printed. The holes cannot be positioned from the pictured layout alone.\",\"fact_ids\":[\"D-001\",\"D-001/drawing/visual-n/p1-bb5309c42b3d451d\",\"D-001/drawing/visual-n/p1-79a383303ea71188\"]},{\"description\":\"3 x Ø 6,60 THRU ALL on the left\",\"reason\":\"Count, diameter and through operation are established, but the triangular layout has no dimensioned center coordinates, offsets or spacing. Its placement cannot be derived from the supplied dimensions.\",\"fact_ids\":[\"D-001\",\"D-001/drawing/visual-n/p1-f6f5c0a88c7e24a8\",\"D-001/drawing/visual-n/p1-eef7bb1864b51bce\"]},{\"description\":\"6 x Ø 6,60 THRU ALL on the right\",\"reason\":\"Count, diameter and through operation are established, but the two visible groups lack dimensioned XY locations and spacing. No supported row placement can be derived.\",\"fact_ids\":[\"D-001\",\"D-001/drawing/visual-n/p1-ce252af373fa8dad\",\"D-001/drawing/visual-n/p1-b8f656d98011390f\"]},{\"description\":\"20 x Ø 4,50 THRU ALL surrounding the central opening\",\"reason\":\"Count, diameter and through operation are established, but hole-center offsets and pitches are absent. The 287,00 and 200,00 dimensions terminate on the opening edges, not on the surrounding hole centers, so they cannot establish this hole pattern.\",\"fact_ids\":[\"D-001\",\"D-001/drawing/visual-n/p1-e4b74964fa4c84e1\",\"D-001/drawing/visual-n/p1-0e79dbcd0ec180b9\",\"D-001/drawing/visual-n/p1-f9d92385e61d8ec5\",\"D-001/drawing/visual-n/p1-915e1d5c5e688216\"]}]",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-001",
+                "D-001/drawing/visual-n/p1-f9d92385e61d8ec5",
+                "D-001/drawing/visual-n/p1-915e1d5c5e688216",
+                "D-001/drawing/visual-n/p1-bb5309c42b3d451d",
+                "D-001/drawing/visual-n/p1-79a383303ea71188",
+                "D-001/drawing/visual-n/p1-f6f5c0a88c7e24a8",
+                "D-001/drawing/visual-n/p1-eef7bb1864b51bce",
+                "D-001/drawing/visual-n/p1-ce252af373fa8dad",
+                "D-001/drawing/visual-n/p1-b8f656d98011390f",
+                "D-001/drawing/visual-n/p1-e4b74964fa4c84e1",
+                "D-001/drawing/visual-n/p1-0e79dbcd0ec180b9"
+              ],
+              "reason": "The supplied face and side views establish the visible inventory but leave the listed contours or placements unsupported. No coordinates or radii were inferred from pixels or apparent symmetry.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "bb0777bd6dd28e9b13440a0c3accf39906a0ee03c186d77ae2a9f5c515aebb6f",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "6a6a68a64d0c535d6d65337bf6256b9df81b19e3f1d1d8fc9d9535036f5a8b56"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The supplied face and side views establish the visible inventory but leave the listed contours or placements unsupported. No coordinates or radii were inferred from pixels or apparent symmetry. Verification: The omission list matches the original view. It covers the rounded outer corners (undimensioned radius), the central 287,00 x 200,00 opening (no location dimension), and all four hole groups. The image confirms 2 holes at upper left, 3 in a triangle at left, two groups of 3 at right (6), and 5 per side around the opening (20). Each entry correctly says position or pitch is missing, and each cites the matching callout IDs."
+  },
+  "features_all_determined": false,
+  "features_status": "partial",
+  "omitted_feature_notes": [
+    "Four rounded outer corners: The main outline visibly has rounded corners, whose radii are not dimensioned. Rounded outer contours are unsupported by this template. These are essential outline geometry and cannot be treated as minor edge breaks or replaced with a bounding rectangle.",
+    "Central rounded rectangular opening, 287,00 by 200,00 mm: The printed dimensions establish the opening's horizontal and vertical extents, not its corner radii or its XY location relative to the outer outline. Apparent centering cannot establish coordinates. Its four-corner rounded rectangular contour is also outside the supported hole/slot geometry.",
+    "2 x Ø 4,50 THRU ALL near the upper left: Count, diameter and through operation are established, but no hole-center coordinates, locating offsets or pitch are printed. The holes cannot be positioned from the pictured layout alone.",
+    "3 x Ø 6,60 THRU ALL on the left: Count, diameter and through operation are established, but the triangular layout has no dimensioned center coordinates, offsets or spacing. Its placement cannot be derived from the supplied dimensions.",
+    "6 x Ø 6,60 THRU ALL on the right: Count, diameter and through operation are established, but the two visible groups lack dimensioned XY locations and spacing. No supported row placement can be derived.",
+    "20 x Ø 4,50 THRU ALL surrounding the central opening: Count, diameter and through operation are established, but hole-center offsets and pitches are absent. The 287,00 and 200,00 dimensions terminate on the opening edges, not on the surrounding hole centers, so they cannot establish this hole pattern."
+  ],
+  "review": {
+    "status": "not_reviewed"
+  },
+  "source_sha256": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f",
+  "expansion_protocol": "flat-part-expansion-v1"
+}

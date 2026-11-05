@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-05",
+  "problem": "The previous transport retry detector searched successful CLI output for any occurrence of 429, including substrings inside source and proposal fingerprints.",
+  "observed_examples": [
+    {
+      "job": "D-026 final detailed verifier",
+      "cache": "d7cbf50e55a60ee959a25486692fba90335df675d2a3e85a4bf2d767dd4382f6",
+      "false_match": "proposal_fingerprint beginning 0cc1e429305a",
+      "final_returncode": 0,
+      "final_valid": true,
+      "elapsed_ms_including_unnecessary_retries": 341438
+    },
+    {
+      "job": "D-017 detailed proposer",
+      "false_match": "D-017/drawing/visual-n/p1-682f2b41ff744298",
+      "recovery": "Stopped only the verified prep process tree and resumed the checkpoint with the corrected detector; completed jobs were reused."
+    }
+  ],
+  "fix": "Retry rate-limit errors only for failed or missing structured responses, and match HTTP 429 as a standalone token. Clear an old Codex final message before each retry.",
+  "verification": {
+    "commit": "fa141853cff97ac4969c4d688533f4cde5c3dec5",
+    "actions_run": "42073819428",
+    "passed": 513,
+    "skipped_cad_checks": 28,
+    "regressions": [
+      "A successful response with output_tokens 429 is accepted after one invocation.",
+      "A failed HTTP 429 is retried and the subsequent successful response is accepted."
+    ]
+  }
+}

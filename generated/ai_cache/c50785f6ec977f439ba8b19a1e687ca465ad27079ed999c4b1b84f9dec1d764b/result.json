@@ -1,0 +1,190 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "57774037e41342648344f8b9f1318436b68528b6ac462138a4c9ebbb9477a8c3",
+    "items": [
+      {
+        "key": "outline_type",
+        "decision": "needs_input",
+        "reason": "The main face-on view in D-005 shows a rectangular frame with large rounded outer corners, and no outer corner radius is printed. That outline is not an exact rectangle, circle or ring, so the proposed unknown is correct. Because this is essential geometry, the verdict is needs_input. A rectangle cannot be chosen without substituting the bounding box.",
+        "fact_ids": [
+          "D-005",
+          "D-005/drawing/n/323.0@1-1",
+          "D-005/drawing/n/236.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "length",
+        "decision": "accept",
+        "reason": "In the main view, 323,0 is the horizontal overall dimension. Its extension lines run to the outer left and right extents of the frame.",
+        "fact_ids": [
+          "D-005/drawing/n/323.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "width",
+        "decision": "accept",
+        "reason": "In the main view, 236,0 is the vertical overall dimension on the right side. Its extension lines run to the outer top and bottom extents.",
+        "fact_ids": [
+          "D-005/drawing/n/236.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "outer_diameter",
+        "decision": "accept",
+        "reason": "The outline is not circular and no outer diameter is printed. Leaving this not-applicable field unknown is correct.",
+        "fact_ids": [
+          "D-005"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "inner_diameter",
+        "decision": "accept",
+        "reason": "The window opening is a rounded rectangle measuring 286,7 by 199,7, not a circle, and no inner diameter is printed. Unknown is correct.",
+        "fact_ids": [
+          "D-005",
+          "D-005/drawing/n/286.7@1-1",
+          "D-005/drawing/n/199.7@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "thickness",
+        "decision": "accept",
+        "reason": "In the left side view, 8,2 is dimensioned between extension lines across the full face-to-face depth, so it is the overall thickness. The reason correctly says this does not show uniform local thickness, since Section A-A and Detail B show a stepped profile.",
+        "fact_ids": [
+          "D-005/drawing/n/8.2@1-1",
+          "D-005"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features",
+        "decision": "accept",
+        "reason": "The 20 holes are visible in the main view as 5 per side. The callout gives their count, drill diameter, thread and depths, but no pitch, offset or center coordinates are printed, and the opening face is not separately established. The window opening, seat and grooves are not supported hole or slot cuts. No cut is fully supported, so known [] is correct.",
+        "fact_ids": [
+          "D-005",
+          "D-005/drawing/n/20.0@1-1",
+          "D-005/drawing/n/3.3@1-1",
+          "D-005/drawing/n/6.0@1-1",
+          "D-005/drawing/n/4.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_complete",
+        "decision": "accept",
+        "reason": "Several visible features are omitted, including the opening, seat, two grooves, 20 tapped holes, rounded corners, machining relief and the 3,0 X 45° bevel. Therefore false is correct.",
+        "fact_ids": [
+          "D-005",
+          "D-005/drawing/notes",
+          "D-005/drawing/callout/p1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_omitted",
+        "decision": "accept",
+        "reason": "Each omission matches the drawing. Rounded outer corners have no radius. The window opening's extents are 286,7 by 199,7, but its corner radii are not given. The 297,2 by 210,2 seat is shown stepped in Section A-A and Detail B, but its depth and corner geometry are incomplete. In Detail B, the 2,0 and 3,3 groove dimensions and the maximum 0.5 mm bottom-corner radius note are shown, but the groove paths are not dimensioned. The tapped holes have the callout 20 x Ø3,3 ↧6,0 / M4-6H ↧4,0 but no center dimensions. The machining-relief leader says 'Resize as needed' and gives no dimensions. The 3,0 X 45° callout is a side-view edge bevel. The deburr note has no size. Each citation is an exact source ID.",
+        "fact_ids": [
+          "D-005",
+          "D-005/drawing/notes",
+          "D-005/drawing/callout/p1-1",
+          "D-005/drawing/general/edge_finish",
+          "D-005/drawing/n/286.7@1-1",
+          "D-005/drawing/n/199.7@1-1",
+          "D-005/drawing/n/297.2@1-1",
+          "D-005/drawing/n/210.2@1-1",
+          "D-005/drawing/n/2.0@1-1",
+          "D-005/drawing/n/2.0@1-2",
+          "D-005/drawing/n/3.3@1-2",
+          "D-005/drawing/n/3.3@1-3",
+          "D-005/drawing/n/20.0@1-1",
+          "D-005/drawing/n/3.3@1-1",
+          "D-005/drawing/n/6.0@1-1",
+          "D-005/drawing/n/4.0@1-1",
+          "D-005/drawing/n/3.0@1-1",
+          "D-005/drawing/n/45.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "cad_eligibility",
+        "decision": "accept",
+        "reason": "The proposal sets supported=false, outline_exact=false and constant_thickness=false. The drawing supports all three. The main view establishes a rounded-corner frame of 323,0 by 236,0 with no corner radii. The 8,2 side-view dimension is the overall depth, while Section A-A and Detail B show a stepped seat and grooved section, so the body is not a constant-thickness flat plate. These essential contours cannot be expressed by the template, and a bounding blank would misrepresent the part.",
+        "fact_ids": [
+          "D-005",
+          "D-005/drawing/n/323.0@1-1",
+          "D-005/drawing/n/236.0@1-1",
+          "D-005/drawing/n/8.2@1-1",
+          "D-005/drawing/notes",
+          "D-005/drawing/callout/p1-1",
+          "D-005/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 17974,
+      "cache_read_input_tokens": 19589,
+      "output_tokens": 3486,
+      "output_tokens_details": {
+        "thinking_tokens": 1213
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 17974,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 3486,
+        "cacheReadInputTokens": 19589,
+        "cacheCreationInputTokens": 17974,
+        "webSearchRequests": 0,
+        "costUSD": 0.21744579999999997,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 1213,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 17974,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.21744579999999997,
+    "duration_ms": 32236,
+    "is_error": false
+  },
+  "latency_ms": 33453,
+  "cache_key": "c50785f6ec977f439ba8b19a1e687ca465ad27079ed999c4b1b84f9dec1d764b",
+  "cache_hit": false,
+  "job": "detail:D-005:drawing-detail-reprepare-v2:proposal-verification-v1:verification:0",
+  "error": null
+}

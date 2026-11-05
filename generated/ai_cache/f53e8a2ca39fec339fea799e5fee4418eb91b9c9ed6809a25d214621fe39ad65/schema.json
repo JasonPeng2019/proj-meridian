@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "properties": {
+    "proposal_fingerprint": {
+      "type": "string"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "enum": [
+              "page_2"
+            ]
+          },
+          "decision": {
+            "type": "string",
+            "enum": [
+              "accept",
+              "reject",
+              "needs_input"
+            ]
+          },
+          "reason": {
+            "type": "string"
+          },
+          "fact_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "repairable": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "key",
+          "decision",
+          "reason",
+          "fact_ids",
+          "repairable"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "proposal_fingerprint",
+    "items"
+  ],
+  "additionalProperties": false
+}

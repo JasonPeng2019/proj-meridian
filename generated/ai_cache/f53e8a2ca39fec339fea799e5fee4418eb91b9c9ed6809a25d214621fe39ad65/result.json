@@ -1,0 +1,75 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "42895f6be246bf1a4a14ad088382d2304b0d3427475c43fc9fde7de85862ce63",
+    "items": [
+      {
+        "key": "page_2",
+        "decision": "accept",
+        "reason": "Checked against the original page 2 image (D-003/drawing/source; sheet 2 of 3, 'Threaded holes bottom side'). Every token matches the printed TAG/SIZE/QUANTITY table. A: 'Ø 6,8 ↧ 15,0 / M8 - 6H ↧ 12,0', quantity 8. B: 'Ø 5,0 ↧ 15,0 / M6 - 6H ↧ 12,0', quantity 28. C: 'Ø 8,3 ↧ 17,2 / TAP FOR M8x1.25 HELICOIL Insert = 1.5 * Dia.', quantity 6. D: 'Ø 4,2 ↧ 12,4 / M5 - 6H ↧ 10,0', quantity 32. The full callout text is copied correctly in each entry, and multi-number callouts are split into separate entries that share the same text and box. Units are classified correctly: drill diameters, depths, thread nominals and the 1.25 pitch are mm; the 6H tolerance-grade digit and the 1.5 Dia. multiplier are unitless; quantities are count. No thread nominal is turned into a bore. Each box was converted with page_sizes[1] (1182.4x834.4 pt, about 0.622 pt per image px) and tightly encloses its own SIZE or QUANTITY cell text: A text about x219–315, y67–93; C text about x131–405, y130–159; quantities at about x430–447. The omitted items are correctly excluded: the ambiguous '0' origin mark at the view center, the border zone numbers and letters, and title-block metadata (date, scale 1:5, sheet number, DIN ISO 2768-1 m). No unprinted or pixel-derived values were added.",
+        "fact_ids": [
+          "D-003/drawing/source"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 12354,
+      "cache_read_input_tokens": 8930,
+      "output_tokens": 1680,
+      "output_tokens_details": {
+        "thinking_tokens": 784
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 12354,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 1680,
+        "cacheReadInputTokens": 8930,
+        "cacheCreationInputTokens": 12354,
+        "webSearchRequests": 0,
+        "costUSD": 0.13423400000000002,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 784,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 12354,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.13423400000000002,
+    "duration_ms": 18136,
+    "is_error": false
+  },
+  "latency_ms": 19359,
+  "cache_key": "f53e8a2ca39fec339fea799e5fee4418eb91b9c9ed6809a25d214621fe39ad65",
+  "cache_hit": false,
+  "job": "dimensions:D-003:printed-image-dimensions-v1:page_2:proposal-verification-v1:verification:0",
+  "error": null
+}

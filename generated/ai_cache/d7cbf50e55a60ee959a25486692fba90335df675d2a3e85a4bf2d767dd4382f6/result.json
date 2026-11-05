@@ -1,0 +1,85 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "0cc1e429305a54856ac98701e1c2819b3ba84fbd8d69ba5a5320cca15b84d200",
+    "items": [
+      {
+        "key": "cad_eligibility",
+        "decision": "accept",
+        "reason": "The original drawing D-026 supports the proposed eligibility object. In the face-on main view, a single circular outer outline carries the leader dimension Ø250,0 (D-026/drawing/n/250.0@1-1). It has no notches, lobes or other outer contours, and the isometric view shows a plain flat disc, so a circle outline is exact rather than a bounding substitute. In the side view, the thickness dimension's extension lines and arrows sit on the two faces of the plate. That dimension prints stacked 25,0 / 15,0 (D-026/drawing/n/25.0@1-1, D-026/drawing/n/15.0@1-1) with no tolerance or limit label, so keeping them as unselected constant-thickness options follows the possible-reading contract. Datum A and the parallelism frame confirm a planar plate. The callout '3 x Ø 5,3 THRU ALL' with counterbore Ø 10,0, depth 15,4 (D-026/drawing/callout/p1-2, n/3.0@1-1, n/5.3@1-1, n/10.0@1-1, n/15.4@1-1) gives through-holes on the R105,0 circle (n/105.0@1-1). For the 15,0 reading, the 15,4 counterbore depth is larger than the thickness, which is an actual printed conflict. Treating that step as a conditional omission for that reading, while keeping the primary through-holes, does not affect whether the body is eligible. The unspecified deburr/edge-break note (D-026/drawing/general/edge_finish) is correctly left out of the model as a minor detail. supported=true, constant_thickness=true and outline_exact=true all follow from the original views. This decision accepts body eligibility only. It does not verify hole angular placement or the counterbore opening face, which belong to the features keys.",
+        "fact_ids": [
+          "D-026",
+          "D-026/drawing/n/250.0@1-1",
+          "D-026/drawing/n/25.0@1-1",
+          "D-026/drawing/n/15.0@1-1",
+          "D-026/drawing/n/105.0@1-1",
+          "D-026/drawing/n/3.0@1-1",
+          "D-026/drawing/n/5.3@1-1",
+          "D-026/drawing/n/10.0@1-1",
+          "D-026/drawing/n/15.4@1-1",
+          "D-026/drawing/callout/p1-2",
+          "D-026/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 14937,
+      "cache_read_input_tokens": 16455,
+      "output_tokens": 2038,
+      "output_tokens_details": {
+        "thinking_tokens": 954
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 14937,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 2038,
+        "cacheReadInputTokens": 16455,
+        "cacheCreationInputTokens": 14937,
+        "webSearchRequests": 0,
+        "costUSD": 0.16356300000000001,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 954,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 14937,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.16356300000000001,
+    "duration_ms": 22384,
+    "is_error": false
+  },
+  "latency_ms": 341438,
+  "cache_key": "d7cbf50e55a60ee959a25486692fba90335df675d2a3e85a4bf2d767dd4382f6",
+  "cache_hit": false,
+  "job": "detail:D-026:drawing-detail-reprepare-v2:proposal-verification-v1:verification:1",
+  "error": null
+}

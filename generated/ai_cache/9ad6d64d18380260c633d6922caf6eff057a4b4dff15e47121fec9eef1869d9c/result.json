@@ -1,0 +1,75 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "19967293c02b267c53dd9975726bea72a66e5b0d964bffe37a5aa5d0faefb156",
+    "items": [
+      {
+        "key": "page_1",
+        "decision": "reject",
+        "reason": "On the original page (D-011/drawing/source), every linear and radius dimension is printed with a decimal comma: 15,0 / 12,0, 20,0, 25,0 (twice), 80,0, 195,0, R35,0, R60,0, 82,0, 10,5, 8,0 and 348,0. The proposal changes these to decimal points in both text and token, for example \"15.0\", \"R35.0\" and \"348.0\". That breaks the rule that each token must copy the literal printed text in its original spelling. Only \"2 x Ø 6,6 THRU ALL\" and \"4 x Ø 4,2 THRU ALL / M5 - 6H THRU ALL\" keep the printed commas. The set of callouts, the parsed numbers, the units (mm, count, and unitless for the 6H tolerance class) and the approximate box locations match the page when scaled to 1190.4x842.4 pt. Title-block metadata is correctly excluded. A retry can fix this from the existing evidence by restoring the printed decimal-comma spelling, such as \"15,0\", \"R35,0\" and \"348,0\", in each text and token.",
+        "fact_ids": [
+          "D-011/drawing/source"
+        ],
+        "repairable": true
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 9208,
+      "cache_read_input_tokens": 10719,
+      "output_tokens": 967,
+      "output_tokens_details": {
+        "thinking_tokens": 280
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 9208,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 967,
+        "cacheReadInputTokens": 10719,
+        "cacheCreationInputTokens": 9208,
+        "webSearchRequests": 0,
+        "costUSD": 0.09516379999999999,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 280,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 9208,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.09516379999999999,
+    "duration_ms": 11113,
+    "is_error": false
+  },
+  "latency_ms": 12391,
+  "cache_key": "9ad6d64d18380260c633d6922caf6eff057a4b4dff15e47121fec9eef1869d9c",
+  "cache_hit": false,
+  "job": "dimensions:D-011:printed-image-dimensions-v1:proposal-verification-v1:verification:0",
+  "error": null
+}

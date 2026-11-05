@@ -1,0 +1,45 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "page_1",
+        "state": "known",
+        "value_json": "[{\"text\":\"4,00 ±0,05\",\"token\":\"4,00\",\"value\":4,\"unit\":\"mm\",\"box\":[160.8,216.4,67.5,14.5]},{\"text\":\"4,00 ±0,05\",\"token\":\"0,05\",\"value\":0.05,\"unit\":\"mm\",\"box\":[160.8,216.4,67.5,14.5]},{\"text\":\"Ø36,00 H6 +0,016 0,000 THRU\",\"token\":\"36,00\",\"value\":36,\"unit\":\"mm\",\"box\":[328.5,311.7,149.4,27.8]},{\"text\":\"Ø36,00 H6 +0,016 0,000 THRU\",\"token\":\"6\",\"value\":6,\"unit\":\"unitless\",\"box\":[328.5,311.7,149.4,27.8]},{\"text\":\"Ø36,00 H6 +0,016 0,000 THRU\",\"token\":\"+0,016\",\"value\":0.016,\"unit\":\"mm\",\"box\":[328.5,311.7,149.4,27.8]},{\"text\":\"Ø36,00 H6 +0,016 0,000 THRU\",\"token\":\"0,000\",\"value\":0,\"unit\":\"mm\",\"box\":[328.5,311.7,149.4,27.8]},{\"text\":\"4 x Ø 5,00 THRU ALL\\nM6 - 6H THRU ALL\",\"token\":\"4\",\"value\":4,\"unit\":\"count\",\"box\":[622.9,308.6,131.1,30.9]},{\"text\":\"4 x Ø 5,00 THRU ALL\\nM6 - 6H THRU ALL\",\"token\":\"5,00\",\"value\":5,\"unit\":\"mm\",\"box\":[622.9,308.6,131.1,30.9]},{\"text\":\"4 x Ø 5,00 THRU ALL\\nM6 - 6H THRU ALL\",\"token\":\"6\",\"value\":6,\"unit\":\"mm\",\"box\":[622.9,308.6,131.1,30.9]},{\"text\":\"4 x Ø 5,00 THRU ALL\\nM6 - 6H THRU ALL\",\"token\":\"6\",\"value\":6,\"unit\":\"unitless\",\"box\":[622.9,308.6,131.1,30.9]},{\"text\":\"4 x Ø 4,50 THRU ALL\",\"token\":\"4\",\"value\":4,\"unit\":\"count\",\"box\":[622.9,354.6,130.5,15.8]},{\"text\":\"4 x Ø 4,50 THRU ALL\",\"token\":\"4,50\",\"value\":4.5,\"unit\":\"mm\",\"box\":[622.9,354.6,130.5,15.8]},{\"text\":\"Ø13,50 THRU\\n⌴ Ø20,00 H6 +0,013 0,000 ↧4,00\",\"token\":\"13,50\",\"value\":13.5,\"unit\":\"mm\",\"box\":[704.9,408.9,182.8,41.6]},{\"text\":\"Ø13,50 THRU\\n⌴ Ø20,00 H6 +0,013 0,000 ↧4,00\",\"token\":\"20,00\",\"value\":20,\"unit\":\"mm\",\"box\":[704.9,408.9,182.8,41.6]},{\"text\":\"Ø13,50 THRU\\n⌴ Ø20,00 H6 +0,013 0,000 ↧4,00\",\"token\":\"6\",\"value\":6,\"unit\":\"unitless\",\"box\":[704.9,408.9,182.8,41.6]},{\"text\":\"Ø13,50 THRU\\n⌴ Ø20,00 H6 +0,013 0,000 ↧4,00\",\"token\":\"+0,013\",\"value\":0.013,\"unit\":\"mm\",\"box\":[704.9,408.9,182.8,41.6]},{\"text\":\"Ø13,50 THRU\\n⌴ Ø20,00 H6 +0,013 0,000 ↧4,00\",\"token\":\"0,000\",\"value\":0,\"unit\":\"mm\",\"box\":[704.9,408.9,182.8,41.6]},{\"text\":\"Ø13,50 THRU\\n⌴ Ø20,00 H6 +0,013 0,000 ↧4,00\",\"token\":\"4,00\",\"value\":4,\"unit\":\"mm\",\"box\":[704.9,408.9,182.8,41.6]},{\"text\":\"Ø10,20 THRU ALL\\nM12 - 6H THRU ALL\",\"token\":\"10,20\",\"value\":10.2,\"unit\":\"mm\",\"box\":[656.4,535.7,119.2,30.9]},{\"text\":\"Ø10,20 THRU ALL\\nM12 - 6H THRU ALL\",\"token\":\"12\",\"value\":12,\"unit\":\"mm\",\"box\":[656.4,535.7,119.2,30.9]},{\"text\":\"Ø10,20 THRU ALL\\nM12 - 6H THRU ALL\",\"token\":\"6\",\"value\":6,\"unit\":\"unitless\",\"box\":[656.4,535.7,119.2,30.9]}]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-030/drawing/source"
+        ],
+        "reason": "Readable engineering evidence comprises the thickness and tolerance, Ø36,00 H6 fit and deviations, four-hole M6 callout, four Ø4,50 holes, Ø13,50/Ø20,00 counterbore callout with fit and depth, and M12 callout. Fit and thread class digits are unitless; thread nominal sizes retain their thread context. No uncertain engineering characters were transcribed. No numeric overall/profile or hole-position dimensions are visible. Title-block and border numbers are excluded.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 17663,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 5467,
+          "reasoning_output_tokens": 4100
+        }
+      }
+    ]
+  },
+  "latency_ms": 120953,
+  "cache_key": "13b38110ea776df7f050e0656e02f20ede1806676a658bdd9933b2c45007874f",
+  "cache_hit": false,
+  "job": "dimensions:D-030:printed-image-dimensions-v1:proposal-verification-v1:proposal:0",
+  "error": null
+}

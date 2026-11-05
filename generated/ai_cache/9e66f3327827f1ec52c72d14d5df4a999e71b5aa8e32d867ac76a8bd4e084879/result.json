@@ -1,0 +1,75 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "5c28c68c00f98396c319a3beda287d895fea8b424ce53663afb56f1205ab0f02",
+    "items": [
+      {
+        "key": "page_1",
+        "decision": "accept",
+        "reason": "I checked every entry against the original D-009 page 1 image. All tokens and their full callout text match the printed labels: '8 x Ø 5,80 THRU ALL' (top view, right), '230,00' (above the right side view), '270,00 max.' (above the front view), '4 x Ø 10,50 / for M8 weld nut inside' (left), '322,00' (vertical, left view), '395,00' (vertical, right side view), 'Ø 14,80 THRU / For M12 weld nut / outside' (next to SECTION A-A), the stacked vertical '5,00' and '3,00' at the bottom left, '8 x Ø 7,00 / for M5 weld nut inside' and 'Ø 25,00 THRU' (bottom view), and the critical-distance note ending 'Should stay below +/- 1mm'. Counts are marked count and diameters/lengths are marked mm. The M8/M12/M5 numbers keep their thread context and are not presented as bores, and the 1 in '+/- 1mm' keeps its tolerance context. To check the boxes, I scaled the image to the 1190.4x842.4 pt page. Each box tightly encloses its own printed label, and every offset is within a few points. No other legible engineering numbers are missing: the 'Has to fit between two wall' note, SECTION A-A and the wall-thickness note contain no numbers, and the title-block weight, date, scale, sheet number and border grid numbers are correctly left out.",
+        "fact_ids": [
+          "D-009/drawing/source"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 9273,
+      "cache_read_input_tokens": 10781,
+      "output_tokens": 1824,
+      "output_tokens_details": {
+        "thinking_tokens": 1031
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 9273,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 1824,
+        "cacheReadInputTokens": 10781,
+        "cacheCreationInputTokens": 9273,
+        "webSearchRequests": 0,
+        "costUSD": 0.1128362,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 1031,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 9273,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.1128362,
+    "duration_ms": 20620,
+    "is_error": false
+  },
+  "latency_ms": 21781,
+  "cache_key": "9e66f3327827f1ec52c72d14d5df4a999e71b5aa8e32d867ac76a8bd4e084879",
+  "cache_hit": false,
+  "job": "dimensions:D-009:printed-image-dimensions-v1:proposal-verification-v1:verification:0",
+  "error": null
+}

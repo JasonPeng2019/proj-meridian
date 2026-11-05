@@ -1,0 +1,97 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "features",
+        "state": "known",
+        "value_json": "[{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-82,\"fact_ids\":[\"D-013/drawing/n/82.0@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":4.5,\"fact_ids\":[\"D-013/drawing/n/4.5@1-1\"]},\"diameter\":{\"state\":\"known\",\"value\":4.2,\"fact_ids\":[\"D-013/drawing/n/4.2@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M5 - 6H\",\"pattern\":{\"type\":\"row\",\"count\":{\"state\":\"known\",\"value\":2,\"fact_ids\":[\"D-013/drawing/n/2.0@1-1\"]},\"spacing\":{\"state\":\"known\",\"value\":164,\"fact_ids\":[\"D-013/drawing/n/82.0@1-1\"],\"expression\":\"n0*2\"},\"direction\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-013\"]}},\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The 2 x callout identifies the two M5 holes. The printed 82,0 dimension locates the left hole from the central vertical axis; the opposed two-hole layout establishes its mirrored partner at X=+82. Both lie on the horizontal hole axis dimensioned 4,5 above Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-1\",\"D-013/drawing/n/2.0@1-1\",\"D-013/drawing/n/4.2@1-1\",\"D-013/drawing/n/82.0@1-1\",\"D-013/drawing/n/4.5@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":17.9,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\"]},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"dimensioned\",\"placement_reason\":\"The 17,9 dimension directly locates the first lower-row hole right of the central vertical axis. The 7,5 dimension locates the lower hole axis below Y=0. The 8 x M3 callout establishes this hole's printed drill diameter, thread and through operation without requiring the other six unresolved placements.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/8.0@1-1\",\"D-013/drawing/n/2.5@1-1\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/7.5@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":53.6,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"n0+n1\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"dimensioned\",\"placement_reason\":\"The printed 35,7 dimension connects the first lower-row hole right of center, located by 17,9, to the next hole to its right. Thus this hole is at X=17.9+35.7=53.6 on the axis dimensioned 7,5 below Y=0. This uses only the displayed dimension chain, without extending that spacing to undimensioned holes.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/8.0@1-1\",\"D-013/drawing/n/2.5@1-1\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\",\"D-013/drawing/n/7.5@1-1\"]},{\"kind\":\"slot\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-123,\"fact_ids\":[\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\"],\"expression\":\"0-n0-n1\"},\"y\":{\"state\":\"known\",\"value\":4.55,\"fact_ids\":[\"D-013/drawing/n/2.3@1-1\",\"D-013/drawing/n/10.0@1-1\",\"D-013/drawing/n/5.5@1-1\"],\"expression\":\"n0+(n1-n2)/2\"},\"width\":{\"state\":\"known\",\"value\":5.5,\"fact_ids\":[\"D-013/drawing/n/5.5@1-1\"]},\"length\":{\"state\":\"known\",\"value\":10,\"fact_ids\":[\"D-013/drawing/n/10.0@1-1\"]},\"direction\":\"vertical\",\"through\":true,\"hole_type\":\"plain\",\"pattern\":{\"type\":\"row\",\"count\":{\"state\":\"known\",\"value\":4,\"fact_ids\":[\"D-013/drawing/n/4.0@1-1\"]},\"spacing\":{\"state\":\"known\",\"value\":82,\"fact_ids\":[\"D-013/drawing/n/82.0@1-2\"]},\"direction\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-013\"]}},\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The 4 x slot callout, horizontal layout, printed 82,0 adjacent-slot spacing and 41,0 centerline-to-inner-right-slot offset establish slot centers at X=-123,-41,41,123. Their long axes follow the drawing's vertical axis. The 2,3 vertical dimension locates the lower semicircle center above Y=0, so each overall slot center is at Y=2.3+(10.0-5.5)/2=4.55; the separate 4,5 M5-hole dimension is not substituted for this slot location.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-3\",\"D-013/drawing/n/4.0@1-1\",\"D-013/drawing/n/5.5@1-1\",\"D-013/drawing/n/10.0@1-1\",\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\",\"D-013/drawing/n/2.3@1-1\"]}]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-013",
+          "D-013/drawing/callout/p1-1",
+          "D-013/drawing/callout/p1-2",
+          "D-013/drawing/callout/p1-3",
+          "D-013/drawing/n/2.0@1-1",
+          "D-013/drawing/n/4.2@1-1",
+          "D-013/drawing/n/8.0@1-1",
+          "D-013/drawing/n/2.5@1-1",
+          "D-013/drawing/n/35.7@1-1",
+          "D-013/drawing/n/17.9@1-1",
+          "D-013/drawing/n/7.5@1-1",
+          "D-013/drawing/n/82.0@1-1",
+          "D-013/drawing/n/4.5@1-1",
+          "D-013/drawing/n/4.0@1-1",
+          "D-013/drawing/n/5.5@1-1",
+          "D-013/drawing/n/10.0@1-1",
+          "D-013/drawing/n/41.0@1-1",
+          "D-013/drawing/n/82.0@1-2",
+          "D-013/drawing/n/2.3@1-1"
+        ],
+        "reason": "The original main view supports the two M5 - 6H through holes, four vertical 5,5 X 10,0 through slots, and two individually located M3 - 6H through holes at X=17.9 and X=17.9+35.7. The remaining six M3 horizontal positions are unresolved. Printed drill diameters and through-thread callouts establish the retained holes independently of the omitted placements.",
+        "changed_because": "Reinspection shows that 35,7 dimensions one adjacent M3 interval, while 17,9 locates its first endpoint right of center. Replaced the unsupported eight-hole uniform M3 pattern with these two independently dimensioned holes. Retained the M5 pair and slot pattern because their original callouts, offsets and layouts support them."
+      },
+      {
+        "key": "features_complete",
+        "state": "known",
+        "value_json": "false",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-013",
+          "D-013/drawing/callout/p1-2",
+          "D-013/drawing/n/8.0@1-1",
+          "D-013/drawing/n/17.9@1-1",
+          "D-013/drawing/n/35.7@1-1",
+          "D-013/drawing/general/edge_finish"
+        ],
+        "reason": "Six M3-hole placements remain unresolved. The four visible corner clips also lack setback dimensions, and the general edge-break instruction supplies no geometric dimensions. The supported subset therefore does not reproduce the complete feature inventory.",
+        "changed_because": "The value remains false. Its explanation now also accounts for the six omitted M3 holes after retaining only the two placements established by the printed dimension chain."
+      },
+      {
+        "key": "features_omitted",
+        "state": "known",
+        "value_json": "[{\"description\":\"Four small straight outer corner clips, one at each corner of the main rectangular outline.\",\"reason\":\"The original views show the clips, but neither X/Y setbacks nor a dimensioned 45-degree chamfer callout is supplied. Their dimensions cannot be inferred from pixels or from the generic edge-finish note.\",\"fact_ids\":[\"D-013\"]},{\"description\":\"DEBURR AND BREAK SHARP EDGES.\",\"reason\":\"The general manufacturing note supplies no edge-break size, angle or radius. It does not determine an additional modeled bevel or rounding.\",\"fact_ids\":[\"D-013/drawing/general/edge_finish\"]},{\"description\":\"Six remaining holes from the 8 x 2,5 THRU ALL M3 - 6H THRU ALL callout: the four holes left of the central vertical axis and the two farther-right holes beyond the directly dimensioned pair.\",\"reason\":\"The printed 17,9 centerline offset and following 35,7 adjacent-hole dimension establish only the first two holes right of center. The other six X positions are not individually dimensioned, and the view does not resolve the conflict between extending a uniform 35,7 pitch across all eight holes and mirroring the visible layout about X=0: twice 17,9 is 35,8, not 35,7. Their drill diameter, thread, through operation and lower-row Y axis are established, but their complete placements are not. No guessed row or mirrored coordinates are emitted.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/8.0@1-1\",\"D-013/drawing/n/2.5@1-1\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\",\"D-013/drawing/n/7.5@1-1\"]}]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-013",
+          "D-013/drawing/general/edge_finish",
+          "D-013/drawing/callout/p1-2",
+          "D-013/drawing/n/8.0@1-1",
+          "D-013/drawing/n/2.5@1-1",
+          "D-013/drawing/n/17.9@1-1",
+          "D-013/drawing/n/35.7@1-1",
+          "D-013/drawing/n/7.5@1-1"
+        ],
+        "reason": "The main, end and isometric views establish the visible hole/slot inventory and small corner clips. Six M3 holes lack unambiguous complete placements; corner-clip setbacks and edge-break geometry are absent. No additional blind holes, side-drilled holes, recesses, countersinks or counterbores are established by these views.",
+        "changed_because": "Added the six unresolved M3 placements to the omissions after checking the original 17,9 and 35,7 dimension leaders. The two directly located M3 holes remain in features. The original corner-clip and unspecified edge-break omissions are unchanged."
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 27748,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 4464,
+          "reasoning_output_tokens": 1544
+        }
+      }
+    ]
+  },
+  "latency_ms": 77016,
+  "cache_key": "5cf443c055f8f90350c849c30fbb7d6b1e294308882fe6dc265dcac605099208",
+  "cache_hit": false,
+  "job": "detail:D-013:drawing-detail-reprepare-v2:proposal-verification-v1:proposal:1",
+  "error": null
+}

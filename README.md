@@ -13,6 +13,8 @@ uv run meridian
 
 Open **http://127.0.0.1:8000**. `start.bat` and `./start.sh` also launch the app. The frontend, extraction results, AI reader cache, GLBs, and STEP files are included. Normal browsing requires neither Node, CadQuery, nor the prep CLIs. First launch installs the locked Python runtime dependencies; network access is needed for that install.
 
+For a frontend build needed for local use, run `powershell -NoProfile -File scripts/local_build.ps1`. It queues behind any other local build, waits for at least 3 GB free RAM and CPU load at or below 70% across two samples, then caps the Node heap at 1.5 GB and esbuild Go workers at two. Other applications can change resource usage, so these are conservative bounds rather than a guarantee. Normal app startup uses existing generated records/models; it does not rerender all sheets on every launch. Full verification remains on Actions.
+
 Chat uses **gpt-6-luna only**. Set `OPENAI_API_KEY` in a local `.env`, or put one key in the ignored `.codex/.secrets/OpenAI_API_Keys.txt`. No key is needed for parts, drawings, 3D, source history, or review. `MERIDIAN_NO_KEY=1` explicitly disables chat for verification. The server binds to localhost.
 
 All project writes must stay under this repository, as required by [AGENTS.md](AGENTS.md). The launch scripts and `project-env.ps1` place temporary files, CLI state, caches and environments here. Do not run development commands before configuring that environment.
@@ -84,7 +86,7 @@ The recorded BOM subtotal is **168,591.52 DKK**, with 75 missing unit prices and
 
 Builds and verification run on [GitHub Actions](https://github.com/JasonPeng2019/proj-meridian/actions/workflows/verify.yml). Local work stays lightweight. The workflow runs frontend build → tests → real CAD generation/roundtrips → fresh runtime/cache regeneration → browser verification, in succession on one hosted Linux runner. Numerical/CAD threads are limited to one. Runs share the `meridian-heavy` concurrency queue, so another run waits rather than competing for resources. It never launches coding or dataset-prep CLIs.
 
-Pushes to `main` and pull requests run without API credentials. In Actions → Meridian verification → Run workflow, select `live_api` only when paid GPT-6-luna questions and the isolated correction demonstration are wanted. This uses the repository's `OPENAI_API_KEY` Actions secret; no credential file is uploaded. Reports, screenshots, generated data/models and the built frontend are downloadable from the run's artifact for seven days. Project-owned files on runners remain under `GITHUB_WORKSPACE`; the original Windows write boundary still applies locally.
+Pushes to `main` and pull requests run without API credentials. In Actions → Meridian verification → Run workflow, select `benchmark` for two sequential passes of the canonical Question-benchmark cases; `live_api` separately selects the isolated correction UI check. These paid checks use the repository's `OPENAI_API_KEY` Actions secret; no credential file is uploaded. CLI meaning judging stays local and sequential, through `scripts/judge_benchmark.py`, with hooks disabled and a separate ignored cache. Reports, screenshots, generated data/models and the built frontend are downloadable from the run's artifact for seven days. Project-owned files on runners remain under `GITHUB_WORKSPACE`; the original Windows write boundary still applies locally.
 
 The commands below are for the hosted runner or an unavoidable sequential local diagnostic; do not run the full sequence locally alongside agents.
 

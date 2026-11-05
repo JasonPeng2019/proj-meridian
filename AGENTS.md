@@ -30,8 +30,8 @@ Launch coding subagents as `gpt-6.1-sol`, high reasoning, on priority/Fast mode.
 
 ## Resource limits
 
-Keep local work lightweight: edits, source inspection, static validation and Git operations. Run frontend builds, PDF regeneration, CAD generation, full tests and browser verification on GitHub-hosted Actions runners. CLI coding/prep agents remain outside Actions.
+Keep routine local work lightweight: edits, source inspection, static validation and Git operations. Run full verification, PDF/CAD regeneration and browser checks on GitHub-hosted Actions runners. Build locally when needed to test/use the app, including its frontend, using the shared local build lock and resource gate in `scripts/local_build.ps1`. CLI coding/prep agents remain outside Actions.
 
 Dataset-prep CLI readers have a hard cap of four concurrent processes. Coding agents are excluded from that four-reader limit. Do not raise the prep cap from the command line or configuration.
 
-Run heavy stages in succession, never simultaneously. Queue Actions runs in the shared `meridian-heavy` concurrency group. Do not add a parallel matrix or launch concurrent heavy subprocesses. Limit numerical/CAD worker threads. If heavy local work is unavoidable, run one heavy process at a time and wait for it to exit before starting another.
+Run heavy stages in succession, never simultaneously. Queue Actions runs in the shared `meridian-heavy` concurrency group. Do not add a parallel matrix or launch concurrent heavy subprocesses. Limit numerical/CAD worker threads. Local builds must wait for enough free RAM and low enough CPU load, cap workers/Node heap, and hold the shared lock until every child exits. Do not parallelize local heavy work without measured resource headroom. Never stop unrelated user processes to free resources.

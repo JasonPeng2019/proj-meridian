@@ -20,6 +20,10 @@ MODEL = "gpt-6-luna"
 SYSTEM = """You are Meridian, an engineering assistant for the pinned OpenLPBF v2 evidence.
 Answer ONLY from returned structured tool evidence, never from memory or raw PDFs.
 Use find_part then get_facts for a particular part. You may use multiple tools.
+Use machine_summary for drawing source sections, BOM families, counts or organization, and cost_summary for recorded costs and completeness. A drawing count is a document count, not a physical quantity.
+Use get_field for a requested width, dimension or hole count. Explicit hole callout counts and slot counts are separate; do not claim the callout subtotal is a census of every physical hole. Preserve thread sizes, slot sizes and through status as returned.
+Use mapping_status for differently named sections or materials. Only approved_relationship establishes a mapping. A pending/rejected mapping is not approval; preserve exact source names and direct pending items to Review.
+For material searches use parts_with_material; list the exact recorded grades from material_matches and their source facts, with approved kind_of mappings only in the stated direction.
 Values are resolved by code: use display exactly; do not choose sources or map names yourself.
 Every factual claim needs [cite: stable-name] immediately after it. Several names may be comma separated.
 When display.state is undetermined, put [undetermined: stable-name] where the value belongs, and explain why from its message. Never give it a guessed value.
@@ -56,8 +60,9 @@ def collect_evidence(result: Any, ledger: dict, tools: KnowledgeTools) -> None:
         if "fact" in result and "display" in result:
             ledger[result["fact"]] = result
             for source in result.get("sources", []):
-                if source.get("name") in tools.store.fields:
-                    ledger.setdefault(source["name"], tools.display(source["name"]))
+                name = source.get("name")
+                if name in tools.store.fields and name not in ledger:
+                    collect_evidence(tools.display(name), ledger, tools)
         name = result.get("name")
         if name in tools.store.fields and "/drawing/n/" in name and "value" in result:
             ledger.setdefault(name, tools.display(name))
@@ -87,9 +92,9 @@ def validate_markers(text: str, ledger: dict, store: Store, single_matches: list
                     continue
                 unknown_markers.add(name)
             cited.append(name)
-            key = fact.get("part_key")
-            if key and key not in parts:
-                parts.append(key)
+            for key in [fact.get("part_key"), *fact.get("part_keys", [])]:
+                if key and key not in parts:
+                    parts.append(key)
     for name in cited:
         if ledger[name].get("display", {}).get("state") == "undetermined" and name not in unknown_markers:
             warnings.append("This answer cites something the sources could not determine without its Undetermined marker: " + name)

@@ -7,7 +7,11 @@ on:
   workflow_dispatch:
     inputs:
       live_api:
-        description: Run paid GPT-6-luna questions and isolated correction UI
+        description: Run paid isolated correction UI check
+        type: boolean
+        default: false
+      benchmark:
+        description: Run the canonical Question-benchmark cases twice (paid GPT-6-luna)
         type: boolean
         default: false
 
@@ -84,11 +88,11 @@ jobs:
         run: uv run --locked python scripts/verify_release.py --skip-live
       - name: Verify browser pages and screenshots without a key
         run: uv run --locked python scripts/ci_verify.py browser
-      - name: Optional live questions
-        if: github.event_name == 'workflow_dispatch' && inputs.live_api
+      - name: Optional canonical benchmark (two sequential passes)
+        if: github.event_name == 'workflow_dispatch' && inputs.benchmark
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: uv run --locked python scripts/ci_verify.py live
+        run: uv run --locked python -m scripts.run_benchmark run --output docs/benchmark/run-${{ github.run_id }} --passes 2
       - name: Optional live correction in isolated clone
         if: github.event_name == 'workflow_dispatch' && inputs.live_api
         env:
@@ -109,3 +113,4 @@ jobs:
             generated/
             docs/ci/
             docs/verification/
+            docs/benchmark/

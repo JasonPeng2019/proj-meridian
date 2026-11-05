@@ -26,6 +26,6 @@ The draft remains unapproved ground truth. “Checked” in that document descri
 
 ## Remote/local boundary and completion evidence
 
-GitHub Actions owns heavy extraction, geometry, full tests, browsers and the live question loop. All heavy jobs/runs queue in `meridian-heavy`; no parallel matrix. Paid question runs are manual and use an Actions secret. CLI agents and judging stay local; heavy local fallback runs, if unavoidable, run one at a time. Project files remain under the existing local root or the hosted runner's `GITHUB_WORKSPACE`.
+GitHub Actions owns heavy extraction, geometry, full tests, browsers and the live question loop. All heavy jobs/runs queue in `meridian-heavy`; no parallel matrix. Paid question runs are manual and use an Actions secret. CLI agents and judging stay local. Builds needed for local testing/use, including the frontend, use `scripts/local_build.ps1`: one heavy task, measured RAM/CPU headroom, and bounded workers/Node heap. Project files remain under the existing local root or the hosted runner's `GITHUB_WORKSPACE`.
 
 The previous five-question checks and their 10/10 observation remain historical smoke results. They do not establish any pass rate for this benchmark. The new benchmark is complete only when its own two-pass reports, judge outputs, stated preconditions and actual human spot-check status are saved. This plan update does not claim those new benchmark runs have already happened.

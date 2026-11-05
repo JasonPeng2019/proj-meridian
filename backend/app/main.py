@@ -224,8 +224,11 @@ def cli():
         get_store().rebuild_models()
         print("Rebuilt records; preserved and replayed decisions.")
         return
-    get_store().reload(rebuild=True)
-    get_store().rebuild_models()
+    # Normal use loads the shipped evidence/assets; explicit rebuild is the
+    # regeneration path. A missing cache still restores offline on first use.
+    get_store()
+    if not (ROOT / "generated/models/manifest.json").exists():
+        get_store().rebuild_models()
     print("Meridian: http://127.0.0.1:" + str(args.port))
     import uvicorn
     uvicorn.run(app, host="127.0.0.1", port=args.port)

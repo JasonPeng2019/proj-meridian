@@ -2,7 +2,10 @@
 from __future__ import annotations
 
 import json
+import math
 import re
+from collections import defaultdict
+from decimal import Decimal, InvalidOperation
 from typing import Any
 
 from backend.app.store import AI_METHODS, Store, normalized, read_json
@@ -14,6 +17,14 @@ def trusted(field: dict | None) -> bool:
 
 def badge(field: dict) -> str:
     method, review = field.get("method", "parsed"), field.get("review", {})
+    if method == "computed_summary":
+        return "Computed from recorded source facts"
+    if method == "source_inventory":
+        return "From source inventory"
+    if method == "mapping_status":
+        return "Human-reviewed name mapping" if review.get("status") == "human_confirmed" else "Name mapping awaiting review" if review.get("status") != "human_rejected" else "Rejected name mapping"
+    if method == "unrecorded_field":
+        return "Not determined from the evidence"
     if method == "human_decision":
         correction = field.get("correction", {})
         return f"Entered by {correction.get('by', 'reviewer')} on {correction.get('at', '')[:10]}"
@@ -39,7 +50,39 @@ class KnowledgeTools:
         owner = part or self.store.owners.get(name)
         return {"name": name, "says": field.get("original", field.get("value")), "method": field.get("method", "parsed"),
                 "page": field.get("page", 1), "box": field.get("box"), "part_key": owner.get("key") if owner else None,
-                "cleanup": field.get("cleanup", []), "note": field.get("note"), "badge": badge(field)}
+                "cleanup": field.get("cleanup", []), "note": field.get("note"), "badge": badge(field),
+                "source_path": field.get("source_path"), "source_row": field.get("source_row")}
+
+    def row_field(self, row: dict, key: str) -> dict:
+        """Resolve current decisions, including canonical rows shared by drawings."""
+        original = row.get("fields", {}).get(key, {})
+        name = original.get("name")
+        if name:
+            self.store.fields.setdefault(name, original)
+        return self.store.fields.get(name, original)
+
+    def linked_parts(self, row_id: str) -> list[dict]:
+        result = []
+        for part in self.store.records:
+            link = part.get("link") or {}
+            # A candidate name is not a proven link. Only the projected linked
+            # rows of an accepted link may attach a drawing to BOM evidence.
+            if not part.get("drawing") or not trusted(link) or link.get("method") == "unresolved":
+                continue
+            if row_id in link.get("value", link.get("bom_rows", [])) and any(r["name"] == row_id for r in part.get("bom", [])):
+                result.append(part)
+        return result
+
+    def derived(self, name: str, value: Any, sources: list[str], *, method: str = "computed_summary", note: str = "", part: dict | None = None, **extra: Any) -> dict:
+        field = {"name": name, "value": value, "original": note, "method": method,
+                 "confidence": "sure", "fact_ids": list(dict.fromkeys(sources)), "note": note,
+                 "compact_sources": len(sources) > 12, **extra}
+        self.store.fields[name] = field
+        if part:
+            self.store.owners[name] = part
+        fact = self.display(name, field)
+        fact["derivation"] = {"operation": method, "source_fact_ids": field["fact_ids"]}
+        return fact
 
     def display(self, target: str, field: dict | None = None) -> dict:
         field = field if field is not None else self.store.fields[target]
@@ -50,7 +93,9 @@ class KnowledgeTools:
             value = field["type"]
         if state == "options" and field.get("selected") is None:
             display = {"state": "options", "values": [o.get("value") if isinstance(o, dict) else o for o in field.get("options", [])]}
-        elif trusted({**field, "value": value}):
+        # Mapping-status facts report the rejection itself, rather than using
+        # the rejected relationship as accepted engineering evidence.
+        elif (field.get("method") == "mapping_status" and value is not None) or trusted({**field, "value": value}):
             display = {"state": "value", "value": value}
         else:
             message = field.get("note") or field.get("reason")
@@ -61,11 +106,22 @@ class KnowledgeTools:
         for name in field.get("fact_ids", []):
             if name in self.store.fields:
                 sources.append(self.source(self.store.fields[name]))
+        if field.get("compact_sources"):
+            # Aggregate tools need the source identities, not hundreds of
+            # repeated crop/null/original metadata records. The server ledger
+            # resolves these identities to their full source facts.
+            sources = [{k: s[k] for k in ("name", "method", "badge", "source_path", "source_row") if s.get(k) is not None} for s in sources]
         review_item = target if (target.endswith("/link") and field.get("method") == "unresolved") or ("/template/" in target and state == "unknown" and field.get("method") != "human_decision") else None
+        linked = []
+        if target.startswith("BOM:"):
+            row_id = next((name for name in self.store.rows if target == name or target.startswith(name + "/")), None)
+            linked = [p["key"] for p in self.linked_parts(row_id)] if row_id else []
         return {"fact": target, "field": target.split("/")[-1], "part_key": part.get("key") if part else None,
+                "part_keys": linked,
                 "display": display, "badge": badge(field), "review": field.get("review"), "sources": sources,
                 "snapshot_note": bool(field.get("snapshot_note")) or target.split("/")[-1] in SNAPSHOT_FIELDS,
-                "review_item": review_item, "correction": field.get("correction")}
+                "review_item": review_item, "correction": field.get("correction"),
+                "callout": ({k: field[k] for k in ("feature", "count", "thread", "thread_class", "through", "width_mm", "length_mm", "radius_mm") if k in field} or None) if trusted(field) and not field.get("correction") else None}
 
     def relationship(self, left: Any, right: Any, kind: str = "material") -> tuple[str | None, dict | None]:
         if normalized(left) == normalized(right):
@@ -195,7 +251,39 @@ class KnowledgeTools:
         row = self.store.rows.get(row_id)
         if not row:
             return {"error": "BOM row not found"}
-        return {"name": row_id, "facts": [self.display(f["name"], self.store.fields.get(f["name"], f)) for f in row.get("fields", {}).values()]}
+        return {"name": row_id, "linked_parts": [self.summary(p) for p in self.linked_parts(row_id)],
+                "facts": [self.display(f["name"], self.row_field(row, key)) for key, f in row.get("fields", {}).items()]}
+
+    def get_field(self, part_id: str, field: str) -> dict:
+        """A missing interpreted field cannot be filled with an unlabeled number."""
+        part = self.store.part(part_id)
+        key = normalized(field)
+        if key == "material":
+            fact = self.material(part)
+            if fact:
+                return {"part": self.summary(part), "facts": [fact]}
+        if key in {"holes", "holecount", "holescount", "callouts"}:
+            callouts = []
+            for original in (part.get("drawing") or {}).get("callouts", []):
+                current = self.store.fields.get(original["name"], original)
+                if current.get("feature") != "general_note":
+                    callouts.append(self.display(current["name"], current))
+            counts = [f for f in callouts if f["display"]["state"] == "value" and not f.get("correction") and (f.get("callout") or {}).get("feature") in {"hole", "threaded_hole"}
+                      and isinstance(f["callout"].get("count"), int) and f["callout"]["count"] > 0]
+            fact = self.derived(part["id"] + "/explicit-hole-callouts", {"count": sum(f["callout"]["count"] for f in counts), "scope": "Explicit counted hole callouts only; slots are separate. This is not a census of all physical holes."} if counts else None,
+                                [f["fact"] for f in callouts], part=part,
+                                note="Only explicit trusted hole counts are summed; unlabeled dimensions and unclassified callouts cannot establish a complete hole count.",
+                                state="known" if counts else "unknown")
+            return {"part": self.summary(part), "facts": [fact, *callouts]}
+        matches = [self.display(name, value) for name, value in self.store.fields.items()
+                   if self.store.owners.get(name) is part and normalized(name.split("/")[-1]) == key
+                   and "/drawing/n/" not in name and "/features/" not in name]
+        if matches:
+            return {"part": self.summary(part), "facts": matches}
+        fact = self.derived(part["id"] + "/unrecorded/" + (key or "field"), None, [part["id"]],
+                            method="unrecorded_field", part=part, state="unknown",
+                            note=f"No reliably labeled {field} is recorded. Unlabeled drawing numbers do not identify an edge or feature; do not infer this value.")
+        return {"part": self.summary(part), "facts": [fact]}
 
     def get_connections(self, part_id: str) -> dict:
         part = self.store.part(part_id)
@@ -207,28 +295,66 @@ class KnowledgeTools:
             names = [part.get("section")] + [r.get("section") for r in part.get("bom", [])]
             if any(self.relationship(section, n, "section")[0] == "same" for n in names if n):
                 parts.append(self.summary(part))
-        return {"parts": parts, "note": "Differently named sections are combined only after human approval of their mapping."}
+        return {"parts": parts, "mapping_status": self.mapping_status(section, "section"),
+                "note": "Differently named sections are combined only after human approval of their mapping."}
 
     def parts_with_material(self, material: str) -> dict:
         parts = []
         for part in self.store.records:
-            values = []
+            evidence = []
             drawing = (part.get("drawing") or {}).get("fields", {}).get("material")
             if drawing and trusted(self.store.fields.get(drawing["name"], drawing)):
-                values.append(self.store.fields.get(drawing["name"], drawing)["value"])
+                evidence.append(self.store.fields.get(drawing["name"], drawing))
             for row in part.get("bom", []):
                 field = row.get("fields", {}).get("material", {})
                 field = self.store.fields.get(field.get("name"), field)
-                value = field.get("value") if trusted(field) else None
-                values.extend(value if isinstance(value, list) else [value] if value else [])
-            matched = False
-            for value in values:
-                relation, mapping = self.relationship(value, material)
-                if relation == "same" or (relation == "kind_of" and mapping and normalized(mapping.get("right")) == normalized(material)):
-                    matched = True
-            if matched:
-                parts.append({**self.summary(part), "material_fact": self.material(part)})
-        return {"parts": parts, "note": "Includes source-recorded materials and approved kind_of mappings. A material list does not establish how each material is used."}
+                if trusted(field):
+                    evidence.append(field)
+            matches = []
+            for recorded in evidence:
+                values = recorded["value"] if isinstance(recorded["value"], list) else [recorded["value"]]
+                for value in values:
+                    relation, mapping = self.relationship(value, material)
+                    grade_match = self.recorded_grade_match(value, material)
+                    if grade_match or relation == "same" or (relation == "kind_of" and mapping and normalized(mapping.get("left")) == normalized(value) and normalized(mapping.get("right")) == normalized(material)):
+                        matches.append({"recorded_material": value, "relationship": relation,
+                                        "source_fact": self.display(recorded["name"], recorded),
+                                        "mapping": self.mapping_fact(mapping) if mapping else None,
+                                        "grade_token_match": self.derived(recorded["name"] + "/grade-token/" + normalized(material),
+                                            {"query": material, "recorded_material": value, "rule": "Exact printed numeric alloy-grade token; a printed temper suffix may be omitted. This does not establish a general material family."},
+                                            [recorded["name"]]) if grade_match else None})
+            if matches:
+                parts.append({**self.summary(part), "material_matches": matches, "material_fact": self.material(part)})
+        return {"parts": parts, "mapping_status": self.mapping_status(material, "material"), "note": "Materials recorded, with exact grades preserved. Includes exact source materials and approved kind_of mappings in the specific-to-general direction only. A material list does not establish how each material is used."}
+
+    @staticmethod
+    def recorded_grade_match(recorded: Any, query: str) -> bool:
+        """Recognize a literal printed grade token, never infer an alloy family."""
+        if not isinstance(recorded, str):
+            return False
+        tokens = re.findall(r"(?<![\w.])(?:\d\.\d{4}|\d{4}(?:-[A-Za-z]\d+)?)(?![\w.])", recorded)
+        aliases = {normalized(value) for token in tokens for value in (token, token.split("-", 1)[0])}
+        return normalized(query) in aliases
+
+    def mapping_fact(self, mapping: dict) -> dict:
+        review = mapping.get("review", {})
+        approved = review.get("status") == "human_confirmed"
+        status = review.get("status", "pending")
+        fact = self.derived(mapping["name"], {"kind": mapping.get("kind"), "left": mapping.get("left"), "right": mapping.get("right"),
+                            "status": status, "approved_relationship": mapping.get("relationship") if approved else None,
+                            "direction": "left is a kind of right" if approved and mapping.get("relationship") == "kind_of" else None},
+                            [], method="mapping_status", review=review,
+                            note="Approved mappings alone may resolve different names. Pending or rejected proposals do not establish equivalence.")
+        fact["mapping_evidence"] = mapping.get("evidence")
+        if not approved and status != "human_rejected":
+            fact["review_item"] = mapping["name"]
+        return fact
+
+    def mapping_status(self, text: str, kind: str = "section") -> dict:
+        query = normalized(text)
+        mappings = [self.mapping_fact(m) for m in self.store.mappings if (not kind or m.get("kind") == kind)
+                    and any(query and (query in normalized(v) or normalized(v) in query) for v in (m.get("name"), m.get("left"), m.get("right")))]
+        return {"facts": mappings, "note": "These are current review statuses, not new approvals. Without a human-confirmed same mapping, differently named sections remain separate. Pending items require the Review UI."}
 
     def search_readme(self, text: str) -> dict:
         passages = read_json(self.store.generated / "readme.json", [])
@@ -242,27 +368,109 @@ class KnowledgeTools:
             results.append({**self.display(passage["name"], passage), "mentions_unavailable_files": passage.get("mentions_unavailable_files"), "heading": passage.get("heading")})
         return {"facts": results, "note": "README describes the pinned upstream snapshot; images/native CAD mentioned there may not be supplied."}
 
-    def get_overview(self) -> dict:
-        rows = list(self.store.rows.values())
-        total = 0.0
-        missing = 0
-        source_names = []
-        for row in rows:
-            original = row.get("fields", {}).get("total_cost", {})
-            field = self.store.fields.get(original.get("name"), original)
-            value = field.get("value")
-            if trusted(field) and isinstance(value, dict) and value.get("amount") is not None:
-                total += value["amount"]
-                source_names.append(field["name"])
+    def machine_summary(self) -> dict:
+        drawings, families = defaultdict(list), defaultdict(list)
+        drawing_sources, row_sources = [], []
+        for part in self.store.records:
+            drawing = part.get("drawing")
+            if not drawing:
+                continue
+            # This is the source directory section, not an inferred subsystem
+            # or the family of a linked BOM row.
+            section = drawing.get("section") or part.get("section") or "Unrecorded section"
+            value = {"id": part["id"], "key": part["key"], "name": part["display_name"],
+                     "source_filename": drawing.get("source_filename"), "section": section}
+            source = self.derived(drawing["id"] + "/source-inventory", value, [], method="source_inventory", part=part,
+                                  source_path=drawing.get("source_path"), note="Drawing membership in the supplied source inventory; names may be filenames when a printed title is unreadable.")
+            drawings[section].append((value, source["fact"]))
+            drawing_sources.append(source["fact"])
+        for row in self.store.rows.values():
+            family_field = self.row_field(row, "part_family")
+            family = family_field.get("value") if trusted(family_field) else row.get("section")
+            family = str(family or "Unrecorded family")
+            name_field = self.row_field(row, "name")
+            value = {"row_id": row["name"], "name": name_field.get("value") if trusted(name_field) else row.get("display_name"),
+                     "family": family, "linked_drawing_ids": [p["id"] for p in self.linked_parts(row["name"])]}
+            sources = [f["name"] for f in (name_field, family_field) if f.get("name")]
+            source = self.derived(row["name"] + "/source-inventory", value, sources, method="source_inventory",
+                                  source_path=row.get("source_path"), source_row=row.get("source_row"),
+                                  note="One canonical row from the pinned BOM; shared drawing links do not duplicate rows.")
+            families[family].append((value, source["fact"]))
+            row_sources.append(source["fact"])
+        drawing_groups = []
+        for index, (section, members) in enumerate(sorted(drawings.items())):
+            value = {"section": section, "drawing_count": len(members), "parts": [v for v, _ in members]}
+            drawing_groups.append({**value, "summary_fact": self.derived(f"machine/summary/drawing-section/{index}", value, [n for _, n in members])})
+        family_groups = []
+        for index, (family, members) in enumerate(sorted(families.items())):
+            value = {"family": family, "bom_row_count": len(members), "parts": [v for v, _ in members]}
+            family_groups.append({**value, "summary_fact": self.derived(f"machine/summary/bom-family/{index}", value, [n for _, n in members], snapshot_note=True)})
+        totals = {"drawing_count": len(drawing_sources), "bom_row_count": len(row_sources),
+                  "drawing_section_count": len(drawings), "bom_family_count": len(families)}
+        return {**totals, "drawing_sections": drawing_groups, "bom_families": family_groups,
+                "facts": [self.derived("machine/summary/inventory", totals, drawing_sources + row_sources)],
+                "note": "Counts use actual source sections and canonical BOM families separately. Differently named groups are not merged without an approved mapping; drawing counts are documents, not physical quantities."}
+
+    @staticmethod
+    def money(field: dict) -> tuple[Decimal, str] | None:
+        value = field.get("value")
+        if not trusted(field) or not isinstance(value, dict) or not isinstance(value.get("currency"), str) or not value["currency"].strip():
+            return None
+        amount = value.get("amount")
+        if isinstance(amount, bool) or not isinstance(amount, (int, float, str, Decimal)):
+            return None
+        try:
+            number = Decimal(str(amount))
+        except InvalidOperation:
+            return None
+        return (number, value["currency"]) if number.is_finite() else None
+
+    def cost_summary(self) -> dict:
+        totals = defaultdict(Decimal)
+        included, missing_total, missing_price, missing_quantity, both = [], [], [], [], []
+        source_names, included_total_sources = [], []
+        for row in self.store.rows.values():
+            fields = {key: self.row_field(row, key) for key in ("total_cost", "cost", "amount")}
+            source_names.extend(f["name"] for f in fields.values() if f.get("name"))
+            money = self.money(fields["total_cost"])
+            if money is not None:
+                amount, currency = money
+                totals[currency] += amount
+                included.append(row["name"])
+                included_total_sources.append(fields["total_cost"]["name"])
             else:
-                missing += 1
-        name = "BOM/summary/recorded-cost"
-        missing_price = sum(not trusted(self.store.fields.get((r.get("fields", {}).get("cost") or {}).get("name"), r.get("fields", {}).get("cost", {}))) for r in rows)
-        field = {"name": name, "value": {"amount": round(total, 2), "currency": "DKK", "rows_missing_price": missing_price, "rows_missing_total": missing}, "method": "cleanup_rule", "confidence": "sure", "original": "Sum of recorded row totals; blank costs are unknown, never free.", "snapshot_note": True}
-        self.store.fields[name] = field
-        fact = self.display(name, field)
-        fact["derivation"] = {"operation": "sum", "source_fact_ids": source_names}
-        return {"drawing_count": sum(bool(p.get("drawing")) for p in self.store.records), "bom_row_count": len(rows), "drawing_subsystems": sorted({p["section"] for p in self.store.records if p.get("drawing")}), "bom_families": sorted({r["section"] for r in rows}), "facts": [fact], "note": "Recorded subtotal only, not the complete machine cost or a current quote."}
+                missing_total.append(row["name"])
+            no_price = self.money(fields["cost"]) is None
+            quantity = fields["amount"].get("value")
+            no_quantity = not trusted(fields["amount"]) or isinstance(quantity, bool) or not isinstance(quantity, (int, float)) or not math.isfinite(quantity)
+            if no_price:
+                missing_price.append(row["name"])
+            if no_quantity:
+                missing_quantity.append(row["name"])
+            if no_price and no_quantity:
+                both.append(row["name"])
+        value = {"totals_by_currency": [{"currency": currency, "amount": float(total.quantize(Decimal("0.01")))} for currency, total in sorted(totals.items())],
+                 "row_count": len(self.store.rows), "rows_included": len(included), "rows_missing_total": len(missing_total),
+                 "rows_missing_price": len(missing_price), "rows_missing_quantity": len(missing_quantity),
+                 "rows_missing_both_price_and_quantity": len(both),
+                 "rows_missing_price_only": len(set(missing_price) - set(missing_quantity)),
+                 "rows_missing_quantity_only": len(set(missing_quantity) - set(missing_price))}
+        if len(totals) == 1:
+            value.update(value["totals_by_currency"][0])
+        fact = self.derived("BOM/summary/recorded-cost", value, source_names, snapshot_note=True,
+                            note="Sum of trusted canonical recorded row totals, once per BOM row and separately by currency. Missing values are unknown, never free. No unit-price multiplication replaces a missing recorded total.")
+        fact["derivation"].update(operation="sum_recorded_row_totals_by_currency", included_total_fact_ids=included_total_sources)
+        return {**value, "included_row_ids": included, "missing_total_row_ids": missing_total,
+                "missing_price_row_ids": missing_price, "missing_quantity_row_ids": missing_quantity,
+                "facts": [fact], "note": "As recorded in the snapshot, may be out of date. Recorded subtotal only, not the complete machine cost or a current quote. Blank prices and quantities are unknown, never zero."}
+
+    def get_overview(self) -> dict:
+        machine, cost = self.machine_summary(), self.cost_summary()
+        return {"drawing_count": machine["drawing_count"], "bom_row_count": machine["bom_row_count"],
+                "drawing_subsystems": [g["section"] for g in machine["drawing_sections"]],
+                "bom_families": [g["family"] for g in machine["bom_families"]],
+                "machine_summary": machine, "cost_summary": cost,
+                "facts": cost["facts"], "note": cost["note"]}
 
     def propose_correction(self, fact_id: str, new_value: Any, reason: str) -> dict:
         proposal = self.store.propose(fact_id, new_value, reason)
@@ -271,12 +479,16 @@ class KnowledgeTools:
 TOOL_DEFINITIONS = [
     ("find_part", "Find a drawing or BOM part by name or drawing ID; use before part questions.", {"text": "string"}),
     ("get_facts", "Get source-resolved facts for a part, including uncertainty, material, dimensions, procurement and provenance.", {"part_id": "string"}),
+    ("get_field", "Get one labeled field, or explicit hole/slot callouts. Missing width or dimensions stay undetermined; never assign an unlabeled number to an edge.", {"part_id": "string", "field": "string"}),
     ("get_bom_row", "Inspect facts of a canonical BOM row.", {"row_id": "string"}),
     ("get_connections", "Get only recorded component interfaces; absence is not evidence of no physical connection.", {"part_id": "string"}),
     ("parts_in_section", "List parts in a subsystem or BOM family using approved section mappings.", {"section": "string"}),
     ("parts_with_material", "Find parts recorded with a material, following approved kind_of mappings in the specific-to-general direction only.", {"material": "string"}),
+    ("mapping_status", "Look up current citable mapping/review status by either name. Use kind section or material. Pending/rejected mappings cannot establish equivalence or a material family.", {"text": "string", "kind": "string"}),
     ("search_readme", "Search citable machine context, build volume, laser, safety, or native-CAD availability in the pinned README.", {"text": "string"}),
-    ("get_overview", "Get machine organization and computed recorded cost subtotal with missing-price count.", {}),
+    ("machine_summary", "Get source section drawing counts and canonical BOM family row counts with compact citable part lists. Drawing source sections and BOM families stay distinct.", {}),
+    ("cost_summary", "Get canonical recorded row-total subtotals by currency, included/missing row counts and missing-price/quantity breakdown. Snapshot only, never full current machine cost.", {}),
+    ("get_overview", "Get machine organization and computed recorded cost subtotal with missing-price/quantity counts; wrapper around machine_summary and cost_summary.", {}),
     ("propose_correction", "Create a pending correction explicitly requested by the user; cannot approve anything.", {"fact_id": "string", "new_value": "string", "reason": "string"}),
 ]
 

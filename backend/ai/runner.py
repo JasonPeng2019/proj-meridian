@@ -142,9 +142,9 @@ def run_reader(reader: str, prompt: str, schema: dict, images: list[str], job: s
                 "--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}',
                 "--permission-prompts", "none", "--no-session-persistence", "--no-chrome",
                 "--output-format", "json", "--json-schema", json_text(schema),
-                "--settings", '{"fastMode":false,"autoMemoryEnabled":false,"disableAllHooks":true}',
-                prompt + image_instruction]
-        stdin = None
+                "--settings", '{"fastMode":false,"autoMemoryEnabled":false,"disableAllHooks":true}']
+        # Large judge evidence must not exceed Windows' command-line limit.
+        stdin = prompt + image_instruction
     else:
         argv = codex_command() + ["exec", "--ignore-user-config", "--ignore-rules", "--skip-git-repo-check",
                 "--ephemeral", "--sandbox", "read-only", "--model", "gpt-6.1-sol",

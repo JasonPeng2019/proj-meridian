@@ -1,0 +1,35 @@
+{
+  "files.watcherExclude": {
+    "**/.cache/**": true,
+    "**/.runtime/**": true,
+    "**/.tmp/**": true,
+    "**/.verification/**": true,
+    "**/.venv/**": true,
+    "**/node_modules/**": true,
+    "**/__pycache__/**": true,
+    "**/generated/ai_cache/**": true,
+    "**/generated/images/**": true,
+    "**/generated/models/**": true,
+    "**/frontend/dist/**": true
+  },
+  "python.analysis.exclude": [
+    "**/.cache/**",
+    "**/.runtime/**",
+    "**/.tmp/**",
+    "**/.verification/**",
+    "**/.venv/**",
+    "**/node_modules/**",
+    "**/generated/**",
+    "**/frontend/dist/**"
+  ],
+  "python.analysis.indexing": false,
+  "typescript.tsserver.maxTsServerMemory": 512,
+  "search.exclude": {
+    "**/.cache/**": true,
+    "**/.runtime/**": true,
+    "**/.tmp/**": true,
+    "**/.verification/**": true,
+    "**/.venv/**": true,
+    "**/node_modules/**": true
+  }
+}

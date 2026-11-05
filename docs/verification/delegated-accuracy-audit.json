@@ -1,0 +1,50 @@
+{
+  "audit_date": "2026-11-05",
+  "inspecting_actor": "Codex delegated accuracy reviewer",
+  "delegating_authority": "Jason Peng",
+  "scope": "Accuracy accounting implementation; no engineering decisions authored by this audit",
+  "metric": {
+    "scope": "current_source_reviewed_original_ai_proposals",
+    "numerator": "Confirmed original AI proposals under the configured reviewer authority",
+    "denominator": "Confirmed plus rejected original AI proposals in the current reviewed sample",
+    "empty_sample": "accuracy is null, reviewed is zero",
+    "categories": ["scans", "matching", "templates", "mappings"],
+    "deduplication": "Latest eligible outcome per original target on current evidence",
+    "authority": "Direct configured reviewer or delegated_by matching the configured reviewer; actual executor remains in immutable receipts",
+    "mapping_outcomes": "An accepted original relationship confirms the proposal. An accepted differing relationship or an explicitly rejected mapping rejects the original proposal. The replacement is not a new correct AI sample.",
+    "replacement_outcomes": "Accepted corrections, set values, option selections and manual links are not accuracy outcomes. An earlier positive outcome is superseded; an earlier explicit rejection remains measured. Later outcomes for the human replacement are excluded.",
+    "source_binding": "Only nonempty current source fingerprints score. Source-obsolete and unbound receipts are excluded.",
+    "prediction_binding": "Optional prediction_sha256 binds state/value/options/selected/type to the original AI interpretation. Reader/review/correction/name metadata is excluded; embedded geometry and omission reasons remain bound.",
+    "mapping_prior_proposals": "Compatible prior-proposal approvals can remain effective in the application but do not score a refreshed proposal because the legacy prior receipt does not retain its original relationship.",
+    "prep_metrics": "Prep-model verification remains separate and unchanged under prep"
+  },
+  "disclosures": {
+    "delegated_reviewed": "Authorized delegated outcomes included in the current reviewed sample",
+    "legacy_prediction_unbound_reviewed": "Source-bound legacy field outcomes without a prediction hash; this limitation is explicit",
+    "excluded_decisions": "Receipt counts by exclusion reason, not unique proposal counts",
+    "limitations": [
+      "Reviewed-sample agreement is not whole-dataset accuracy.",
+      "Review outcomes do not imply whole-design approval.",
+      "A legacy field receipt without prediction_sha256 cannot independently establish whether an interpretation changed on the same unchanged source.",
+      "This audit does not assign accuracy scores to unsupported-template dispositions, newly supplied geometry or parser-formatting assistance."
+    ]
+  },
+  "verification": {
+    "focused_tests": "tests/test_review_authority.py",
+    "local_test_execution": "Not run; full execution is reserved for GitHub-hosted Actions under workspace instructions",
+    "coverage": [
+      "Configured authority, unauthorized actor exclusion and delegated outcome count",
+      "Latest outcome deduplication and current-source binding",
+      "Immutable mapping proposal agreement, changed relationship and explicit rejection",
+      "Prior mapping receipts with unavailable original relationship",
+      "Human replacement barriers and preserved explicit original rejection",
+      "Prediction changes on an unchanged PDF",
+      "Disclosed source-bound legacy prediction limitation",
+      "Store.append binds the original extraction rather than a replayed replacement",
+      "Changed interpretation reopens review while reader-only refresh preserves it",
+      "Geometry and omission-reason changes affect prediction hashes"
+    ]
+  },
+  "live_reviewed_sample": null,
+  "live_reviewed_sample_note": "Coordinator records the final live sample only after new authorized decisions and remote verification. No score is invented by this audit."
+}

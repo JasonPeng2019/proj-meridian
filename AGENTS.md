@@ -22,6 +22,8 @@ This includes source, tests, fixtures, generated data, models, decisions, docume
 
 ## Implementation coordination
 
+Use only the named branches `v1` and `v2`, locally and on origin. Do not recreate `ui-baseline-reviews`, `harness-v2`, or other named branches. Keep the active product work on its current branch unless the user directs a switch.
+
 Parallel agents are authorized. Each agent owns only its assigned folders; the coordinator owns root configuration, shared contracts, Git, integration, and release artifacts. Do not change shared manifests or lockfiles without coordinating.
 
 App chat uses `gpt-6-luna` for OpenAI. Jason additionally authorized Anthropic API keys: default to `claude-sonnet-5-5`, with an optional explicit `ANTHROPIC_MODEL` override. Choose providers through their named key variables and optional `CHAT_PROVIDER`; never send one provider's key to another or silently fail over between providers. Dataset prep uses Claude Opus at regular speed and `gpt-6.1-sol` with xhigh reasoning and priority/Fast service. Do not silently substitute prep models or tiers.

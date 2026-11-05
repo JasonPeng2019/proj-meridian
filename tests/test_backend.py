@@ -282,7 +282,8 @@ def test_authorized_review_uses_jason_identity_without_rewriting_event(evidence,
     target = "D-019/template/thickness"
     event = {"applies_to": target, "type": "confirm", "status": "accepted",
              "by": "Meridian delegated reviewer", "review_kind": "delegated",
-             "delegated_by": "Jason Peng", "at": "2000-01-02T00:00:00Z"}
+             "delegated_by": "Jason Peng", "at": "2000-01-02T00:00:00Z",
+             "based_on": {"sha256": evidence.fingerprint(target)}}
     original = copy.deepcopy(event)
     evidence._apply(event)
     evidence.events.append(event)

@@ -33,6 +33,19 @@ def settings() -> dict:
 def normalized(value: Any) -> str:
     return re.sub(r"[^\w]", "", str(value or "").casefold())
 
+def prediction_fingerprint(field: dict) -> str:
+    """Bind an original AI value, independent of reader receipts and review state."""
+    value = {key: field[key] for key in ("state", "value", "options", "selected", "type") if key in field}
+    def without_receipts(item):
+        if isinstance(item, dict):
+            return {key: without_receipts(child) for key, child in item.items()
+                    if key not in {"readers", "review", "correction", "name"}}
+        if isinstance(item, list):
+            return [without_receipts(child) for child in item]
+        return item
+    return hashlib.sha256(json.dumps(without_receipts(value), sort_keys=True).encode()).hexdigest()
+
+
 def mapping_source_signature(mapping: dict, drawing_hashes: dict, row_hashes: dict) -> str:
     """Bind a mapping review to source evidence, not mutable AI receipt metadata."""
     basis={"kind":mapping.get("kind"),"left":mapping.get("left"),"right":mapping.get("right"),
@@ -203,6 +216,10 @@ class Store:
         kind, status = event.get("type"), event.get("status")
         field = self.fields.get(target)
         owner = self.owners.get(target)
+        if (kind in {"confirm", "reject"} and event.get("prediction_sha256")
+                and event["prediction_sha256"] != prediction_fingerprint(self.raw_fields.get(target, {}))):
+            self.changed.append({**event, "change_reason": "AI interpretation changed since review"})
+            return
         if owner and owner.get("design_review") and kind in {"correction", "set_value", "choose_option", "link", "reject"} and status == "accepted":
             owner["previous_design_review"] = owner.pop("design_review")
         if kind == "name_mapping" and status in {"accepted", "rejected"}:
@@ -283,6 +300,8 @@ class Store:
         return [old for old in self.changed if not any(
             event.get("applies_to") == old.get("applies_to") and event.get("at", "") > old.get("at", "")
             and event.get("status") == "accepted" and event.get("based_on", {}).get("sha256") == self.fingerprint(old["applies_to"])
+            and (event.get("type") not in {"confirm", "reject"} or not event.get("prediction_sha256")
+                 or event["prediction_sha256"] == prediction_fingerprint(self.raw_fields.get(old["applies_to"], {})))
             for event in self.events)]
 
     def append(self, target: str, kind: str, value: Any = None, status: str = "accepted", note: str = "", **extra: Any) -> dict:
@@ -290,6 +309,8 @@ class Store:
         event = {"decision_id": "HD-" + uuid.uuid4().hex, "applies_to": target, "type": kind,
                  "value": value, "status": status, "note": note, "by": settings().get("reviewer_name", "Jason Peng"),
                  "at": now(), "based_on": {"sha256": self.fingerprint(target)}, **extra}
+        if kind in {"confirm", "reject"}:
+            event.setdefault("prediction_sha256", prediction_fingerprint(self.raw_fields.get(target, {})))
         path = inside(self.decisions_dir / (event["decision_id"] + ".json"))
         pending = inside(self.decisions_dir / ("." + event["decision_id"] + ".pending"))
         try:
@@ -355,7 +376,7 @@ class Store:
                 if state in {"failed", "flagged", "flagged_for_review"}:
                     items.append(item(part["id"], "weight", {}, id="weight:" + part["id"], title=part["display_name"] + " — weight check", weight_check=weight, status="human_confirmed" if part.get("design_review") else "pending"))
         for event in self.pending_changed():
-            items.append(item(event["applies_to"], "source_changed", {}, id="changed:" + event["decision_id"], value=event.get("value"), reason="Source changed since approval", previous_decision=event))
+            items.append(item(event["applies_to"], "source_changed", {}, id="changed:" + event["decision_id"], value=event.get("value"), reason=event.get("change_reason", "Source changed since approval"), previous_decision=event))
         for entry in items:
             entry["review_queue"], entry["queue_reason"] = classify_review(entry)
             entry["review_label"] = "Human reviewed" if entry["review_queue"] == "resolved" else "Needs human input" if entry["review_queue"] == "human_input" else "Needs human review"
@@ -473,19 +494,90 @@ class Store:
         return originals + [presented_review(event) for event in events] + [{"type": "source_changed", "applies_to": e["applies_to"], "at": e.get("at"), "message": "Source changed since approval"} for e in self.changed if self.owners.get(e.get("applies_to")) is part and (not fact or e["applies_to"] == fact)]
 
     def accuracy(self) -> dict:
-        latest = {}
+        """Score reviewed original AI proposals against current, bound evidence.
+
+        Review completion and a replacement value are not accuracy labels. In
+        particular, approving a different mapping rejects the original proposal;
+        a subsequent confirmation of a human replacement cannot improve its score.
+        """
+        reviewer = settings().get("reviewer_name", "Jason Peng")
+        mappings = {m["name"]: m for m in self.ai.get("mappings", [])}
+        latest, replaced = {}, set()
+        excluded = {key: 0 for key in (
+            "unauthorized", "not_ai", "stale_source", "unbound_source",
+            "stale_prediction", "prior_mapping_proposal", "corrected_replacement", "nonfinal_outcome")}
         for event in self.events:
-            authorized_delegate = event.get("review_kind") == "delegated" and event.get("delegated_by") == settings().get("reviewer_name", "Jason Peng")
-            if event.get("type") in {"confirm", "reject"} and (authorized_delegate or event.get("review_kind") != "delegated" and "automated" not in event.get("by", "").lower()):
-                key = (event["applies_to"], event.get("based_on", {}).get("sha256"))
-                latest[key] = event
-        jobs = {job: {"confirmed": 0, "rejected": 0} for job in ("scans", "matching", "templates")}
-        for event in latest.values():
-            name = event["applies_to"]
-            raw = self.raw_fields.get(name, {})
-            if raw.get("method") not in AI_METHODS:
+            name, kind = event.get("applies_to"), event.get("type")
+            fingerprint = event.get("based_on", {}).get("sha256")
+            current = self.fingerprint(name) if name else ""
+            if (kind in {"correction", "set_value", "choose_option", "link"}
+                    and event.get("status") == "accepted" and fingerprint and fingerprint == current):
+                replaced.add(name)
+                # A correction supersedes a prior positive assessment, but an
+                # explicit rejection of the original remains a measured failure.
+                if latest.get(name, {}).get("outcome") == "confirmed":
+                    latest.pop(name)
+                    excluded["corrected_replacement"] += 1
                 continue
-            job = "templates" if "/template/" in name else "matching" if name.endswith("/link") else "scans"
-            jobs[job]["confirmed" if event["type"] == "confirm" else "rejected"] += 1
+            if kind not in {"confirm", "reject", "name_mapping"}:
+                continue
+            status = event.get("status")
+            if ((kind == "name_mapping" and status not in {"accepted", "rejected"})
+                    or (kind != "name_mapping" and status != "accepted")):
+                excluded["nonfinal_outcome"] += 1
+                continue
+            delegated = event.get("review_kind") == "delegated"
+            authorized = (event.get("delegated_by") == reviewer if delegated else
+                          event.get("by") == reviewer and "automated" not in reviewer.lower())
+            if not authorized:
+                excluded["unauthorized"] += 1
+                continue
+            raw = self.raw_fields.get(name, {})
+            mapping = mappings.get(name, {}) if kind == "name_mapping" else {}
+            if (mapping or raw).get("method") not in AI_METHODS:
+                excluded["not_ai"] += 1
+                continue
+            if not fingerprint or not current:
+                excluded["unbound_source"] += 1
+                continue
+            if fingerprint != current:
+                signature = mapping_source_signature(mapping,
+                    {p["drawing"]["id"]: p["drawing"].get("sha256", "") for p in self.records if p.get("drawing")},
+                    {target: row.get("sha256", "") for target, row in self.rows.items()}) if mapping else None
+                compatible_prior = bool(mapping) and any(
+                    prior.get("sha256") == fingerprint and prior.get("source_signature") == signature
+                    for prior in mapping.get("prior_proposals", []) if isinstance(prior, dict))
+                # Legacy prior-proposal receipts retain only hashes, not the
+                # original relationship: their effective approvals cannot label
+                # a refreshed AI prediction without inventing that old value.
+                excluded["prior_mapping_proposal" if compatible_prior else "stale_source"] += 1
+                continue
+            prediction_sha256 = event.get("prediction_sha256")
+            if not mapping and prediction_sha256 and prediction_sha256 != prediction_fingerprint(raw):
+                excluded["stale_prediction"] += 1
+                continue
+            if name in replaced:
+                excluded["corrected_replacement"] += 1
+                continue
+            if mapping:
+                value = event.get("value")
+                relationship = value.get("relationship") if isinstance(value, dict) else value
+                outcome = "confirmed" if status == "accepted" and relationship == mapping.get("relationship") else "rejected"
+                job = "mappings"
+            else:
+                outcome = "confirmed" if kind == "confirm" else "rejected"
+                job = "templates" if "/template/" in name else "matching" if name.endswith("/link") else "scans"
+            latest[name] = {"outcome": outcome, "job": job, "delegated": delegated,
+                            "legacy_prediction_unbound": not mapping and not prediction_sha256}
+        jobs = {job: {"confirmed": 0, "rejected": 0} for job in ("scans", "matching", "templates", "mappings")}
+        for result in latest.values():
+            jobs[result["job"]][result["outcome"]] += 1
         total = sum(sum(v.values()) for v in jobs.values())
-        return {"jobs": jobs, "reviewed": total, "accuracy": sum(v["confirmed"] for v in jobs.values()) / total if total else None, "note": "Human review accuracy is not measured until a person checks AI items." if not total else "Counts refer to original AI predictions reviewed under the configured reviewer authority, including authorized reviews on their behalf; corrected replacements are excluded.", "prep": self.ai.get("metrics", {})}
+        return {"jobs": jobs, "reviewed": total,
+                "accuracy": sum(v["confirmed"] for v in jobs.values()) / total if total else None,
+                "delegated_reviewed": sum(result["delegated"] for result in latest.values()),
+                "legacy_prediction_unbound_reviewed": sum(result["legacy_prediction_unbound"] for result in latest.values()),
+                "excluded_decisions": excluded,
+                "scope": "current_source_reviewed_original_ai_proposals",
+                "note": "Agreement with the latest authorized review of original AI proposals on current source evidence, including authorized delegated reviews. This reviewed sample is not whole-dataset accuracy or design approval. Changed mapping relationships count against the original proposal; corrected replacements and unbound or obsolete source receipts are excluded. Legacy field reviews without a prediction fingerprint are disclosed separately. Exclusion counts refer to decision receipts, not unique proposals.",
+                "prep": self.ai.get("metrics", {})}

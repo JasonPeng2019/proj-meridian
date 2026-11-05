@@ -325,12 +325,15 @@ def main():
         drawings = raw_drawings()
         existing = read_json(GENERATED / "ai_results.json").get("templates", {})
         restored = restore_blocked(args.resume, drawings)[0] if args.resume else {}
+        pause_path = inside(args.pause_file or runner.CACHE / "model_expansion.pause")
         print(json.dumps({"execute": False, "assess": sorted(set(drawings) - set(existing) - set(restored)),
                           "reuse_blocked": sorted(set(restored) - set(existing)),
                           "preserve_templates": sorted(existing), "protocol": pipeline.PROTOCOL,
                           "provider_order": [runner.reader_settings("codex"), runner.reader_settings("claude")],
                           "max_concurrent_readers": 1, "maximum_feedback_rounds": 1,
-                          "next": "python -m scripts.expand_models --execute"}, indent=2))
+                          "paused": pause_path.exists(), "pause_file": str(pause_path.relative_to(ROOT)),
+                          "next_args": ["python", "-m", "scripts.expand_models", "--execute"] +
+                                       (["--resume", str(inside(args.resume).relative_to(ROOT))] if args.resume else [])}, indent=2))
         return
     summary = expand(args.force, args.pause_file, args.resume)
     print(json.dumps({key: value for key, value in summary.items() if key != "usage"}, indent=2, ensure_ascii=False))

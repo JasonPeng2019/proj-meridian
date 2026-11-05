@@ -96,7 +96,7 @@ def test_cache_only_copies_verified_cache_hit_before_cad_gate(tmp_path, monkeypa
 def test_partial_inventory_retains_supported_cut_geometry():
     pytest.importorskip("cadquery")
     template = cube()
-    template["features"] = [{"kind": "hole", "face": "top", "x": known(0), "y": known(0), "diameter": known(2), "through": True, "hole_type": "plain"}]
+    template["features"] = [{"kind": "hole", "face": "top", "x": known(0), "y": known(0), "diameter": known(2), "through": True, "hole_type": "plain", "fact_ids": ["smoke/callout"]}]
     template["features_complete"] = known(False)
     template["features_omitted"] = known([{"description": "Other holes", "reason": "No XY positions", "fact_ids": ["drawing/source"]}])
     shape, waiting, omitted, labels = builder.build_shape(template)

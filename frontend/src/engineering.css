@@ -148,3 +148,26 @@
 :is(.debug-view, .review-item-list, .review-item-detail, .part-review-controls, .review-parts-results)::-webkit-scrollbar { width: 12px; height: 12px; }
 :is(.debug-view, .review-item-list, .review-item-detail, .part-review-controls, .review-parts-results)::-webkit-scrollbar-track { background: #eff3f6; }
 :is(.debug-view, .review-item-list, .review-item-detail, .part-review-controls, .review-parts-results)::-webkit-scrollbar-thumb { background: #98aab8; border: 3px solid #eff3f6; border-radius: 8px; }
+
+/* Field-specific engineering inputs keep examples behind disclosure. */
+.review-actions .set-value { display: block; border-top: 1px solid #e2e9ef; padding-top: 18px; }
+.set-value h4 { margin: 0 0 12px; font-size: 13px; color: #36556a; }
+.review-value-input { min-width: 0; }
+.review-value-label { display: block; font-size: 12px; font-weight: 550; color: #486579; margin: 12px 0 6px; }
+.review-value-input :is(input, select, textarea) { display: block; width: 100%; min-width: 0; padding: 10px; border: 1px solid #cad8e2; border-radius: 5px; background: #fff; color: #304f65; font: inherit; font-size: 13px; box-sizing: border-box; }
+.review-value-label input { margin-top: 6px; }
+.review-value-hint { color: #607c90; line-height: 1.6; font-size: 12px; margin: 6px 0 10px; }
+.review-value-dimensions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.review-value-json { font-family: monospace !important; resize: vertical; }
+.review-value-example { margin: 12px 0; color: #58768b; font-size: 12px; }
+.review-value-example summary { cursor: pointer; padding: 5px 0; }
+.review-value-example pre { padding: 12px; border-radius: 5px; background: #f1f5f8; max-height: 240px; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; }
+.review-value-error { color: #a43838; font-size: 12px; line-height: 1.5; margin-top: 10px; }
+.review-value-input [aria-invalid="true"] { border-color: #b75959; }
+.set-value > .button { margin-top: 12px; }
+
+.review-feature-format { margin: 12px 0; color: #58768b; font-size: 12px; }
+.review-feature-format summary { cursor: pointer; padding: 5px 0; }
+.review-format-fields { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 9px 12px; line-height: 1.6; padding: 12px 0; }
+.review-format-fields dt { font-weight: 550; }
+.review-format-fields dd { margin: 0; overflow-wrap: anywhere; }

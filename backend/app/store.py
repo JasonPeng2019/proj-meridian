@@ -16,6 +16,7 @@ import yaml
 from backend.paths import ROOT, inside
 from backend.app.review_queue import classify_review
 from backend.app.review_sources import review_sources
+from backend.app.review_values import validate_review_value
 
 AI_METHODS = {"ai_read", "ai_agreed", "ai_agreed_after_retry", "ai_verified", "ai_verified_after_retry"}
 
@@ -259,7 +260,8 @@ class Store:
             metadata = {"review_kind": "delegated", "display_by": event.get("delegated_by", "Jason Peng") + " - delegated review"}
             if field:
                 for key in ("review", "correction"):
-                    if isinstance(field.get(key), dict):
+                    if (isinstance(field.get(key), dict) and
+                            field[key].get("by") == event.get("by") and field[key].get("at") == event.get("at")):
                         field[key].update(metadata)
 
     def part(self, key: str) -> dict:
@@ -378,6 +380,8 @@ class Store:
             if target not in self.fields and not any(m["name"] == target for m in self.mappings):
                 raise ValueError("The original target no longer exists in the current evidence")
             chosen = previous.get("value") if action == "accept" else value
+            if action == "set_value":
+                chosen = validate_review_value(target, chosen, self.fields.get(target, {}), self.templates.get(target.split("/")[0]))
             if previous["type"] == "approve_design":
                 self.validate_design(self.owners[target], note)
             event = self.append(target, previous["type"], chosen, note=note or "Re-approved against changed source evidence", previous_decision_id=previous["decision_id"])
@@ -411,6 +415,8 @@ class Store:
                 options = [o.get("value") if isinstance(o, dict) else o for o in self.fields[target].get("options", [])]
                 if value not in options:
                     raise ValueError("Value is not one of the printed options")
+            else:
+                value = validate_review_value(target, value, self.fields.get(target, {}), self.templates.get(target.split("/")[0]))
             event = self.append(target, action, value, note=note)
             if "/template/" in target:
                 self.rebuild_models()

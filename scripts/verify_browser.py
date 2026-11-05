@@ -59,7 +59,7 @@ def verify_debug():
         expect(pane).to_have_js_property('scrollTop',0)
 
         page.goto(BASE+'/review/awaiting-review')
-        unsettled=[i for i in get('/api/review') if i.get('status') not in ['accepted','rejected','human_confirmed','human_rejected','approved','reviewed']]
+        unsettled=[i for i in get('/api/review') if i.get('status') not in ['accepted','rejected','human_confirmed','human_rejected','approved','reviewed','deferred']]
         expect(page.locator('.review-item')).to_have_count(len(unsettled))
         expect(page.get_by_role('button',name='Show all items awaiting human review',exact=True)).to_have_text(f'{len(unsettled)} awaiting human review')
         page.goto(BASE+'/review/parts')
@@ -154,9 +154,45 @@ def verify_debug():
         dialog.get_by_role('button',name='Close source material',exact=True).click()
         expect(dialog).to_have_count(0)
         assert quote(mapping['id'],safe='/') in page.url
+        # Exercise expected input spaces without submitting engineering decisions.
+        page.goto(BASE+'/review/needs-input/D-001/template/outline?part=D-001')
+        shape=page.get_by_role('combobox',name='Outer shape',exact=True)
+        expect(shape.locator('option')).to_have_text(['Choose a shape','Rectangle','Square','Circle','Ring'])
+        save=page.get_by_role('button',name='Save reviewed value',exact=True)
+        expect(save).to_be_disabled()
+        shape.select_option('square')
+        page.get_by_role('textbox',name='Side (mm)',exact=True).fill('40')
+        expect(save).to_be_enabled()
+        shape.select_option('ring')
+        page.get_by_role('textbox',name='Outer diameter (mm)',exact=True).fill('40')
+        page.get_by_role('textbox',name='Inner diameter (mm)',exact=True).fill('50')
+        expect(save).to_be_disabled()
+        expect(page.get_by_role('alert')).to_have_text('Inner diameter must be smaller than outer diameter.')
+        page.get_by_role('textbox',name='Inner diameter (mm)',exact=True).fill('20')
+        expect(save).to_be_enabled()
+        page.locator('.review-value-example > summary').click()
+        page.locator('.set-value').scroll_into_view_if_needed()
+        page.screenshot(path=str(OUT/'review-value-shape.png'))
+        page.goto(BASE+'/review/ai/D-014/template/outline/length?part=D-014')
+        number=page.get_by_role('textbox',name='Length (mm)',exact=True)
+        number.fill('0')
+        expect(save).to_be_disabled()
+        number.fill('12.5 mm')
+        expect(save).to_be_disabled()
+        number.fill('12.5')
+        expect(save).to_be_enabled()
+        page.goto(BASE+'/review/needs-input/D-001/template/features_review?part=D-001')
+        features=page.get_by_role('textbox',name='Reviewed holes and slots (JSON array)',exact=True)
+        features.fill('{}')
+        expect(save).to_be_disabled()
+        features.fill('[]')
+        expect(save).to_be_enabled()
+        page.locator('.review-value-example > summary').click()
+        page.locator('.set-value').scroll_into_view_if_needed()
+        page.screenshot(path=str(OUT/'review-value-features.png'))
         assert not errors,errors
         browser.close()
-    (OUT/'debug-browser-check.json').write_text(json.dumps({'debug_launch':True,'calculations':True,'history':True,'raw_sources':True,'laptop_scrollbars':metrics,'searchable_parts':True,'global_awaiting_review_queue':len(unsettled),'human_input_and_review_separate':True,'source_drawing_region_and_pdf':True,'mapping_original_bom_row':True,'source_modal_retains_review':True,'part_scoped_review_counts':True,'scope_refresh_back_navigation':True,'independent_review_scroll':True,'design_approval_controls_retained':True,'page_errors':errors},indent=2),encoding='utf-8')
+    (OUT/'debug-browser-check.json').write_text(json.dumps({'debug_launch':True,'calculations':True,'history':True,'raw_sources':True,'laptop_scrollbars':metrics,'searchable_parts':True,'global_awaiting_review_queue':len(unsettled),'human_input_and_review_separate':True,'source_drawing_region_and_pdf':True,'mapping_original_bom_row':True,'source_modal_retains_review':True,'typed_review_formats_and_validation':True,'part_scoped_review_counts':True,'scope_refresh_back_navigation':True,'independent_review_scroll':True,'design_approval_controls_retained':True,'page_errors':errors},indent=2),encoding='utf-8')
 
 
 def main():

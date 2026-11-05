@@ -1,0 +1,26 @@
+{
+  "live_url": "http://127.0.0.1:8000",
+  "process_name": "python.exe",
+  "pid": 34448,
+  "debug_ui": true,
+  "revision": "c45b1c973caef7a1",
+  "same_decision_revision": true,
+  "queue_counts": {
+    "resolved": 29,
+    "human_review": 173,
+    "human_input": 42
+  },
+  "same_queue_counts": true,
+  "D-001_thickness": 3,
+  "display_reviewer": "Jason Peng - delegated review",
+  "D-001_link": [
+    "BOM:box/front-door"
+  ],
+  "D-020_printed_limits": [
+    9.8,
+    10.2
+  ],
+  "D-020_selected": null,
+  "matching_frontend_source": true,
+  "frontend_hashes_match": true
+}

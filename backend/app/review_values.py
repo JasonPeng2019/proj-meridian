@@ -254,10 +254,10 @@ def validate_review_value(target, value, current_field, template=None, *, strict
     if isinstance(value, dict) and value.get("state") == "options":
         if not supports_review_options(target) or type(current) is bool:
             raise ValueError("Two alternatives are supported only for scalar template dimensions, not text, booleans, links or feature geometry")
-        if set(value) != {"state", "options"}:
+        legacy = tail == "thickness" and not strict_options
+        if not legacy and set(value) != {"state", "options"}:
             raise ValueError("Unresolved alternatives must contain only state and options; do not select a value or supply bounds")
         choices = value.get("options")
-        legacy = tail == "thickness" and not strict_options
         allowed_count = isinstance(choices, list) and (1 <= len(choices) <= 4 if legacy else len(choices) == 2)
         if not allowed_count:
             raise ValueError("Thickness options must contain one to four positive numbers" if legacy else
@@ -269,6 +269,8 @@ def validate_review_value(target, value, current_field, template=None, *, strict
             result.append(_number(choice, f"{tail} alternative", positive=True, integer=tail.endswith("count")))
         if len(set(result)) != len(result):
             raise ValueError("The two alternatives must be distinct; duplicate values do not express alternatives")
+        if legacy:
+            return copy.deepcopy(value)
         return {"state": "options", "options": sorted(result)}
     if type(current) is bool or tail == "features_complete":
         if type(value) is not bool:

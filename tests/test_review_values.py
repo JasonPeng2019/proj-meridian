@@ -60,7 +60,7 @@ def test_legacy_thickness_api_keeps_one_to_four_alternatives(choices):
 
 def test_legacy_thickness_api_preserves_known_wrapped_readings():
     value = {"state": "options", "options": [{"state": "known", "value": 3}, {"state": "known", "value": 6}]}
-    assert validate("thickness", value) == {"state": "options", "options": [3, 6]}
+    assert validate("thickness", value) == value
 
 
 def test_signed_coordinates_counts_and_booleans():

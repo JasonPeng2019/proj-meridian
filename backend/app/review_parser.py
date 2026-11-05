@@ -223,7 +223,7 @@ class ReviewParser:
             if len(self._previews) >= 256:
                 self._previews.pop(next(iter(self._previews)))
             self._previews[token] = receipt
-        return {"status": "ready", "value": value, "summary": result["summary"], "questions": [], "receipt": token, "model": MODEL}
+        return {"status": "ready", "value": value, "summary": result["summary"], "questions": [], "receipt": token, "model": model}
 
     def resolve(self, store, item_id, token, supplied_value=None):
         with self._lock:

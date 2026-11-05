@@ -66,20 +66,10 @@ jobs:
         run: uv run --locked python -m scripts.package_delivery
       - name: Follow README from clean extracted ZIP with automatic Python setup
         run: uv run --locked python -m scripts.verify_delivery native --archive "$(find dist/delivery -maxdepth 1 -name '*.zip' -print -quit)"
-      - name: Build the container after native verification exits
-        run: docker build --tag meridian:local .
-      - name: Export and reload the prebuilt container
-        run: |
-          docker image inspect meridian:local > dist/delivery/container-image.json
-          docker save meridian:local | gzip -1 > dist/delivery/meridian-linux-amd64-image.tar.gz
-          docker image rm meridian:local
-          docker load -i dist/delivery/meridian-linux-amd64-image.tar.gz
-      - name: Verify Compose, full data, model files and persistence after recreation
-        run: uv run --locked python -m scripts.verify_delivery container
       - name: Record delivery checksums
         run: |
           cd dist/delivery
-          sha256sum meridian-v1-*.zip meridian-linux-amd64-image.tar.gz verification-*.json package.json container-image.json > SHA256SUMS
+          sha256sum meridian-v1-*.zip verification-*.json package.json > SHA256SUMS
       - name: Save complete deliverable and verification reports
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

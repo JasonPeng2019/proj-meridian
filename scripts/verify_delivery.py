@@ -1,4 +1,4 @@
-"""Exercise README startup from the actual ZIP, then the container, sequentially."""
+"""Exercise README uv startup from the actual ZIP on a clean hosted runner."""
 from __future__ import annotations
 
 import argparse
@@ -49,8 +49,8 @@ def main():
     if os.environ.get('GITHUB_ACTIONS') != 'true':
         raise RuntimeError('Delivery verification runs on the queued runner')
     parser = argparse.ArgumentParser()
-    parser.add_argument('mode', choices=['native', 'container'])
-    parser.add_argument('--archive')
+    parser.add_argument('mode', choices=['native'])
+    parser.add_argument('--archive', required=True)
     args = parser.parse_args()
     out = inside(ROOT / 'dist/delivery')
     work = inside(ROOT / '.verification/delivery-extracted')
@@ -87,26 +87,6 @@ def main():
         result['automatic_python_download'] = any((app / '.runtime/python').glob('cpython-*'))
         assert result['automatic_python_download']
         result['packaged_files_unchanged'] = True
-    else:
-        app = work / 'Meridian'
-        assert (app / 'DELIVERY-MANIFEST.json').exists()
-        (app / '.runtime').mkdir(exist_ok=True)
-        def compose(*values):
-            subprocess.run(['docker', 'compose', *values], cwd=app, check=True)
-        compose('up', '-d', '--no-build', '--wait')
-        try:
-            wait('http://127.0.0.1:8001')
-            result = inspect(app, 'http://127.0.0.1:8001')
-            compose('exec', '-T', 'meridian', '/app/.venv/bin/python', '-c',
-                    "from pathlib import Path; Path('/app/.runtime/delivery-persistence.txt').write_text('delivery fixture')")
-            compose('down')
-            assert (app / '.runtime/delivery-persistence.txt').read_text() == 'delivery fixture'
-            compose('up', '-d', '--no-build', '--wait')
-            wait('http://127.0.0.1:8001')
-            inspect(app, 'http://127.0.0.1:8001')
-            result['persistence_and_recreate_passed'] = True
-        finally:
-            compose('down')
     result['passed'] = True
     (out / ('verification-' + args.mode + '.json')).write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8')
     print(json.dumps({'mode': args.mode, 'passed': True, 'parts': result['status']['parts'],

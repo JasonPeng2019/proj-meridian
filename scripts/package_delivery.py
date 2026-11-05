@@ -41,7 +41,7 @@ def build(output: Path) -> Path:
         if path.is_symlink() or not allowed(name):
             raise ValueError("Unsafe delivery input path")
         files[name] = digest(path)
-    for required in ('README.md', 'start.sh', 'start.bat', '.python-version', 'Dockerfile', 'compose.yaml',
+    for required in ('README.md', 'start.sh', 'start.bat', '.python-version',
                      'uv.lock', 'frontend/dist/index.html', 'generated/records.json', 'generated/ai_results.json',
                      'generated/drawings.json', 'generated/bom.json', 'generated/readme.json', 'generated/models/manifest.json'):
         if required not in files:

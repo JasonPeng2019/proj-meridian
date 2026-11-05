@@ -55,12 +55,13 @@ and retired locally; isolated remote verification may use its own port 8000.
 Delivery checkpoints use `delivery.yml` in the same serial heavy queue. Package
 the current prepared catalog, evidence, append-only decisions, model recovery
 caches and built frontend with a per-file manifest. Follow README startup from
-the extracted ZIP without a Git checkout or preinstalled Python, then export,
-reload and test the container with Compose. Verify all drawing/model assets and
-persistence after recreation. Publish ZIP, image, checksums and verification
+the extracted ZIP without a Git checkout or preinstalled Python on Linux, then
+Windows. Verify all drawing/model assets and unchanged source/decision files.
+Publish the ZIP, checksums and verification
 reports together; keep credentials, personal chats and machine state excluded.
-The coordinator dispatches this autonomously and performs no local container
-builds or archive compression.
+The coordinator dispatches this autonomously and performs no local archive
+compression or fresh environment installation. The handoff uses uv only; Docker
+is outside the requested scope.
 
 `Meridian checks` runs remotely on pushes/PRs: focused Python tests without CAD/PDF regeneration/browser/API work, then frontend build. Each branch has a concurrency group that cancels superseded runs. Downloadable artifacts contain test reports and a frontend bundle with source and file hashes.
 

@@ -88,39 +88,11 @@ To show the engineering Debug view, start with `--debug-ui`:
 On Linux/macOS, use `sh ./start.sh --debug-ui`. Then open
 [Debug](http://127.0.0.1:8001/review/parts). Normal launches hide Debug.
 
-## Prebuilt container (no uv or Python installation)
-
-Install Docker with Compose v2.24 or newer (Docker Desktop on Windows/macOS,
-using Linux containers). Extract the app ZIP as above and download
-`meridian-linux-amd64-image.tar.gz` from the same release. The prebuilt image
-targets Linux AMD64; Docker Desktop can emulate it on Apple Silicon.
-
-From the extracted `Meridian` folder:
-
-```sh
-docker load -i /path/to/meridian-linux-amd64-image.tar.gz
-docker compose up -d --no-build --wait
-```
-
-Replace `/path/to/...` with the image file's path. A quoted Windows path works
-with Docker Desktop. Open [http://127.0.0.1:8001](http://127.0.0.1:8001).
-The image contains Python and dependencies, so no build or dependency download
-is needed. The same optional `.env` file enables chat. Run either the uv app or
-the container on port 8001, one at a time.
-
-For container Debug mode, add `MERIDIAN_DEBUG_UI=1` to `.env` and run
-`docker compose up -d --no-build --wait` again. Stop with `docker compose down`;
-view logs with `docker compose logs -f meridian`.
-
-If the prebuilt image is unavailable, `docker compose up -d --build --wait`
-builds it from the included Dockerfile. This needs internet and performs a local
-build. Compose bounds the running app to two CPUs and 2 GB RAM.
-
 ## Saved data and troubleshooting
 
 The prepared catalog lives in `generated/`, append-only reviews in `decisions/`,
-and saved chats in `.runtime/chats/`. Compose mounts these same folders, so data
-survive container recreation. Back them up before replacing an installation;
+and saved chats in `.runtime/chats/`. Data survive app restarts. Back them up
+before replacing an installation;
 do not overwrite your own decisions when unpacking a new release. Extract into
 a fresh folder to try a new release independently.
 
@@ -132,4 +104,4 @@ required. Browsing remains available without credentials.
 The release includes `SHA256SUMS` for its downloads and a
 `DELIVERY-MANIFEST.json` inside the app ZIP with hashes of every packaged file.
 No platform-specific `.venv` is shipped: uv creates the right environment for
-your OS, or Docker uses its prebuilt Linux environment.
+your operating system. No Docker installation is needed.

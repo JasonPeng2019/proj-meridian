@@ -1,0 +1,32 @@
+INFO:     Started server process [5720]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8001 (Press CTRL+C to quit)
+Meridian: http://127.0.0.1:8001
+INFO:     127.0.0.1:57782 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57783 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57783 - "POST /api/chat HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:57783 - "GET /api/review HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57783 - "GET /api/parts/D-013 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57783 - "GET /api/parts/D-013 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57783 - "GET /generated/models/D-013_A.glb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57783 - "GET /generated/models/D-013_A_reconstruction_from_drawing.step HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57783 - "GET /generated/models/D-013_B.glb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57783 - "GET /generated/models/D-013_B_reconstruction_from_drawing.step HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57783 - "GET /api/parts/D-025 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57783 - "GET /generated/models/D-025_A.glb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57783 - "GET /generated/models/D-025_A_reconstruction_from_drawing.step HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57783 - "GET /generated/models/D-025_B.glb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57783 - "GET /generated/models/D-025_B_reconstruction_from_drawing.step HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57783 - "GET /api/parts/D-026 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57783 - "GET /generated/models/D-026_A.glb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57783 - "GET /generated/models/D-026_A_reconstruction_from_drawing.step HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57783 - "GET /generated/models/D-026_B.glb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57783 - "GET /generated/models/D-026_B_reconstruction_from_drawing.step HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57783 - "GET /part/D-013/3d?example=B HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57783 - "GET /part/bom/box/m5-nut-for-2020-not-5mm/detail HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57783 - "GET /review/needs-input HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57783 - "GET /readme HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57783 - "GET /api/parts/D-003/image?page=3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57783 - "GET /api/parts/D-013/image?thumb=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57783 - "GET /api/parts/D-013/crop?fact=D-013%2Fdrawing%2Fmaterial HTTP/1.1" 200 OK

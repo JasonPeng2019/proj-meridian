@@ -1,0 +1,21 @@
+{
+  "command": "uv run pytest",
+  "passed": 32,
+  "failed": 0,
+  "duration_seconds": 20.61,
+  "scope": "loader, AI runner/governance, CAD, backend, links; isolated test decisions only",
+  "browser": {
+    "javascript_errors": 0,
+    "failed_responses": 0
+  },
+  "production_decisions": {
+    "count": 1,
+    "target": "D-013/template/thickness",
+    "reviewer": "Jason Peng",
+    "values": [
+      3.0,
+      6.0
+    ],
+    "selected": null
+  }
+}

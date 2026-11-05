@@ -23,3 +23,5 @@ This includes source, tests, fixtures, generated data, models, decisions, docume
 Parallel agents are authorized. Each agent owns only its assigned folders; the coordinator owns root configuration, shared contracts, Git, integration, and release artifacts. Do not change shared manifests or lockfiles without coordinating.
 
 App chat MUST use `gpt-6-luna`. Dataset prep uses Claude Opus at regular speed and `gpt-6.1-sol` with xhigh reasoning and priority/Fast service. Do not silently substitute models or tiers.
+
+Launch coding subagents as `gpt-6.1-sol`, high reasoning, on priority/Fast mode. The project Codex configuration specifies these settings for root coding sessions as well.

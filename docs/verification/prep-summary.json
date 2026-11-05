@@ -1,0 +1,41 @@
+{
+  "source_clean_timed_run_seconds": 524.656,
+  "timed_run_note": "Included two subsequently discarded section suggestions; current trusted counts exclude them.",
+  "final_cached_replay_seconds": 2.735,
+  "trusted_reader_results": 96,
+  "jobs": 45,
+  "cache_hits": 96,
+  "provider_calls_in_final_replay": 0,
+  "agreed": 45,
+  "agreed_after_retry": 3,
+  "scan_undetermined": 31,
+  "unresolved_links": 23,
+  "unresolved_template_inputs_before_human_overlay": 4,
+  "mapping_approvals_required": 11,
+  "claude": {
+    "configured_model": "opus",
+    "receipt_model": "claude-opus-5-5",
+    "mode": "regular",
+    "fastMode": false,
+    "results": 48,
+    "input_tokens": 124,
+    "cache_creation_input_tokens": 216011,
+    "cache_read_input_tokens": 207523,
+    "output_tokens": 43536,
+    "thinking_tokens_within_output": 13818,
+    "reported_list_cost_usd": 2.6408086,
+    "cost_note": "Provider list-cost receipt, not a subscription invoice"
+  },
+  "codex": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "results": 48,
+    "input_tokens": 713388,
+    "cached_input_tokens": 178816,
+    "output_tokens": 51577,
+    "reasoning_tokens_within_output": 39369,
+    "reported_cost_usd": null
+  },
+  "usage_scope": "Trusted CLI receipts only; excludes preflights, interrupted runs and explicitly excluded replay requests. Not total account billing."
+}

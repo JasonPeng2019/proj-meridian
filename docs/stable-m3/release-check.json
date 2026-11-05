@@ -1,0 +1,48 @@
+{
+  "at": "2026-11-05T07:41:12.949877+00:00",
+  "source_commit": "7979ae1efcb66382aa547ea552730b8dd3917f6f",
+  "source_manifest_hashes": {
+    "passed": 40,
+    "total": 40
+  },
+  "optional_dependencies_absent": {
+    "cadquery": true,
+    "pytest": true,
+    "playwright": true
+  },
+  "fresh_runtime": {
+    "status": {
+      "chat_available": false,
+      "chat_model": "gpt-6-luna",
+      "revision": "d1982f4eed58c582",
+      "parts": 215,
+      "drawings": 30,
+      "models": 3,
+      "reviewer_name": "Jason Peng"
+    },
+    "asset_hashes_checked": 12,
+    "d013_decision_replayed": true
+  },
+  "regenerated_runtime": {
+    "status": {
+      "chat_available": false,
+      "chat_model": "gpt-6-luna",
+      "revision": "d1982f4eed58c582",
+      "parts": 215,
+      "drawings": 30,
+      "models": 3,
+      "reviewer_name": "Jason Peng"
+    },
+    "asset_hashes_checked": 12,
+    "d013_decision_replayed": true
+  },
+  "regeneration_seconds": 18.969,
+  "correction_ui": {
+    "passed": true,
+    "reviewer": "Automated verification",
+    "production_d019_unchanged": true,
+    "browser_errors": []
+  },
+  "production_evidence_and_decisions_unchanged": true,
+  "passed": true
+}

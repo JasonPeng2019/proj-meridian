@@ -1,0 +1,83 @@
+{
+  "passed": true,
+  "variants": [
+    {
+      "part": "D-026",
+      "variant": "A",
+      "bounds_mm": [
+        250.0,
+        250.0,
+        15.0
+      ],
+      "max_glb_bounds_error_mm": 0.055946409702301025,
+      "step_volume_error_mm3": 0.0,
+      "hashes_match": true,
+      "step_solid_valid": true
+    },
+    {
+      "part": "D-026",
+      "variant": "B",
+      "bounds_mm": [
+        250.0,
+        250.0,
+        25.0
+      ],
+      "max_glb_bounds_error_mm": 0.055946409702301025,
+      "step_volume_error_mm3": 0.0,
+      "hashes_match": true,
+      "step_solid_valid": true
+    },
+    {
+      "part": "D-013",
+      "variant": "A",
+      "bounds_mm": [
+        270.0,
+        25.0,
+        3.0
+      ],
+      "max_glb_bounds_error_mm": 1.0728836059570312e-05,
+      "step_volume_error_mm3": 0.0,
+      "hashes_match": true,
+      "step_solid_valid": true
+    },
+    {
+      "part": "D-013",
+      "variant": "B",
+      "bounds_mm": [
+        270.0,
+        25.0,
+        6.0
+      ],
+      "max_glb_bounds_error_mm": 1.0728836059570312e-05,
+      "step_volume_error_mm3": 0.0,
+      "hashes_match": true,
+      "step_solid_valid": true
+    },
+    {
+      "part": "D-025",
+      "variant": "A",
+      "bounds_mm": [
+        250.0,
+        250.0,
+        2.0
+      ],
+      "max_glb_bounds_error_mm": 0.055946409702301025,
+      "step_volume_error_mm3": 4.2928149923682213e-10,
+      "hashes_match": true,
+      "step_solid_valid": true
+    },
+    {
+      "part": "D-025",
+      "variant": "B",
+      "bounds_mm": [
+        250.0,
+        250.0,
+        3.0
+      ],
+      "max_glb_bounds_error_mm": 0.055946409702301025,
+      "step_volume_error_mm3": 6.402842700481415e-10,
+      "hashes_match": true,
+      "step_solid_valid": true
+    }
+  ]
+}

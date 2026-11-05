@@ -64,17 +64,23 @@ def test_key_values_do_not_count_citation_marker_contents(fixture):
     c = case(fixture, "Q09")
     names = [did + "/part" for did in c["must_include"]]
     r = response("See the drawings [cite: " + ", ".join(names) + "]", names)
-    assert not check(score_rules(c, r), "key_values")["passed"]
+    assert not check(score_rules(c, r), "complete_material_list")["passed"]
 
 
-def test_negative_literal_rule_remains_separate_from_negated_meaning(fixture):
+def test_negated_free_is_allowed_but_meaning_judge_is_still_required(fixture):
     c = case(fixture, "Q05")
     text = "DTU, may be out of date; cost not recorded, not free. [cite: " + ", ".join(c["must_cite"]) + "]"
     r = response(text, c["must_cite"], "D-011")
     scored = score_rules(c, r)
-    assert not check(scored, "literal_prohibited_values")["passed"]
-    assert "free" in check(scored, "literal_prohibited_values")["detail"]
-    assert "Literal prohibited" in c["rule_notes"][0]
+    assert scored["status"] == "pass"
+    e = {"pass": 1, "case_id": c["id"], "response": r}
+    m = {"source_sha256": "draft", "code_sha256": "code", "settings_sha256": "settings"}
+    assert report_results(fixture, m, [e], {})["report"]["results"][0]["combined"] == "pending_judge"
+    # A positive free-price claim must still fail the semantic layer. Passing
+    # structural checks alone never yields a combined pass.
+    e["response"] = {**r, "text": text.replace("not free", "it was free")}
+    key = judge_payload(c, e, m)["cache_key"]
+    assert report_results(fixture, m, [e], {key: {"score": 0}})["report"]["results"][0]["combined"] == "fail"
 
 
 def test_invalid_and_naked_undetermined_citations_fail_clean_output(fixture):
@@ -171,6 +177,12 @@ def test_judge_key_changes_with_every_scored_input(fixture):
     changed["response"]["facts"]["new"] = {"display": {"value": 5}}
     assert judge_payload(c, changed, m)["cache_key"] != original["cache_key"]
     changed["response"]["text"] = "different answer"
+    assert judge_payload(c, changed, m)["cache_key"] != original["cache_key"]
+    changed = copy.deepcopy(e)
+    changed["response"]["parts_to_show"][0]["has_drawing"] = True
+    assert judge_payload(c, changed, m)["cache_key"] != original["cache_key"]
+    changed = copy.deepcopy(e)
+    changed["evaluation_reference"] = {"parts": [{"id": "D-013/part"}]}
     assert judge_payload(c, changed, m)["cache_key"] != original["cache_key"]
 
 

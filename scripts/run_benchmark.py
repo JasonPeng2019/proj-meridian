@@ -21,6 +21,7 @@ from urllib.parse import urlparse
 
 from backend.paths import ROOT, configure_environment, inside
 from backend.evaluation.benchmark import compile_draft, fingerprint, judge_payload, load_judgments, report_results
+from backend.evaluation.contracts import catalog_reference
 
 DRAFT = ROOT / "docs/Question-benchmark/benchmark_draft.md"
 REVIEWER = "Automated verification"
@@ -292,6 +293,8 @@ def run(args):
         raise ValueError("Use a new benchmark output directory; reports are never overwritten by run")
     output.mkdir(parents=True)
     fixture = compile_draft(DRAFT)
+    from backend.app.store import Store
+    references = catalog_reference(Store())
     frozen = frozen_inputs()
     manifest = {"schema_version": 1, "started_at": datetime.now(timezone.utc).isoformat(), "commit": git("rev-parse", "HEAD"),
                 "source_sha256": fixture["source_sha256"], "code_sha256": fingerprint({k: frozen[k] for k in ("backend", "scripts", "frontend_source", "frontend_dist", "lock")}),
@@ -321,6 +324,7 @@ def run(args):
                 with httpx.Client(base_url=args.url, timeout=600) as client:
                     for case in fixture["cases"]:
                         entry = {"pass": pass_number, "case_id": case["id"], "question": case["question"], "server_start_status": state}
+                        entry["evaluation_reference"] = references.get(case["id"], {})
                         started = time.perf_counter()
                         try:
                             if case["id"] == "Q11b":

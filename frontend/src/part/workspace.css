@@ -141,6 +141,10 @@
 .part-page.compact .summary-box { padding: 19px; }
 .part-page.compact .viewer-toolbar { padding: 7px 10px; }
 .part-page.compact .drawing-scroll { padding: 20px 12px; }
+.ui-dialog-content.source-history-dialog { width: min(700px,calc(100vw - 32px)); max-height: 85dvh; padding: 0; }
+.source-history-dialog .source-modal-content { padding: 32px; }
+.source-history-dialog .modal-close { top: 14px; right: 14px; }
+.source-history-dialog .source-modal-content p { font-size: 14px; color: #465267; }
 
 @media (max-width: 1100px) {
   .parts-workspace.library-catalog { padding: 28px; }

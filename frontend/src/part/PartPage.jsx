@@ -4,6 +4,7 @@ import ReaderAnswers from '../ReaderAnswers';
 import {Button} from '../components/ui/button';
 import {Badge} from '../components/ui/badge';
 import {Tabs, TabsList, TabsTrigger, TabsContent} from '../components/ui/tabs';
+import {Dialog, DialogContent, DialogTitle, DialogDescription} from '../components/ui/dialog';
 import {useDebug, sourceBadge} from '../debug';
 import Viewer3D, {Weight} from '../viewer3d/Viewer3D.jsx';
 import {api, imageURL, partKey, pathKey, textValue, titleCase, partURL, reviewURL} from '../api';
@@ -125,6 +126,7 @@ function DebugView({part,openFact,navigate,initialSection}) {
 export default function PartPage({partKey: key, initialTab, factId, example:initialExample, navigate, compact=false, onClose, onLoaded}) {
   const debug=useDebug();
   const [liveRevision,setLiveRevision]=useState(0);
+  const sourceTrigger=useRef(null);
   useEffect(()=>{const reload=()=>setLiveRevision(n=>n+1);window.addEventListener('meridian:revision',reload);return()=>window.removeEventListener('meridian:revision',reload)},[]);
   const [part,setPart]=useState(null), [error,setError]=useState(''), [tab,setTab]=useState(initialTab), [example,setExample]=useState(initialExample), [page,setPage]=useState(1), [historyFact,setHistoryFact]=useState(null);
   useEffect(()=>{let live=true;setPart(null);setError('');api(`/api/parts/${pathKey(key)}`).then(d=>{if(live){setPart(d);setExample(initialExample || d.preferred_example || d.model?.selected_example || 'A');onLoaded?.(d)}}).catch(e=>live&&setError(e.message));return()=>{live=false}},[key,liveRevision]);
@@ -138,7 +140,7 @@ export default function PartPage({partKey: key, initialTab, factId, example:init
   const current=['debug','evidence','history'].includes(requested)?(debug?'debug':'detail'):requested;
   const tabs=[...(has3d?[['3d','3D model',Box]]:[]),...(part.has_drawing?[['2d','2D drawing',FileText]]:[]),['detail','Detail',List],...(debug?[['debug','Debug',Fingerprint]]:[])];
   const changeTab=t=>{setTab(t);navigate(partURL(key,t,{...(factId?{fact:factId}:{}),...(t==='3d'?{example}:{})}),{replace:true,keepPanel:compact})};
-  const openFact=(f,mode)=>{if(mode==='source'){const source=f.sources?.[0];const target=source?.part_key||f.part_key||key;navigate(partURL(target,source?.name?.startsWith('BOM:')?'detail':'2d',{fact:f.fact}),{panel:compact,replace:true})}else setHistoryFact(f)};
+  const openFact=(f,mode)=>{if(mode==='source'){const source=f.sources?.[0];const target=source?.part_key||f.part_key||key;navigate(partURL(target,source?.name?.startsWith('BOM:')?'detail':'2d',{fact:f.fact}),{panel:compact,replace:true})}else {sourceTrigger.current=document.activeElement;setHistoryFact(f)}};
   return <Tabs value={current} onValueChange={changeTab} className={`part-page ${compact?'compact':''}`}>
     <header className="part-header">
       <div className="part-title">
@@ -166,11 +168,14 @@ export default function PartPage({partKey: key, initialTab, factId, example:init
         </div>
       </>:current==='debug'?<DebugView part={{...part,facts}} openFact={openFact} navigate={navigate} initialSection={requested==='history'?'history':'records'}/>:<FactDetails part={{...part,facts}} openFact={openFact} navigate={navigate}/>}
     </TabsContent>
-    {historyFact&&<div className="modal-scrim" onClick={()=>setHistoryFact(null)}>
-      <section className="history-modal" role="dialog" aria-modal="true" aria-label={debug?'Fact history':'Source evidence'} onClick={e=>e.stopPropagation()}>
+    {historyFact&&<Dialog open onOpenChange={open=>{if(!open)setHistoryFact(null)}}>
+      <DialogContent className="history-modal source-history-dialog" overlayClassName="modal-scrim" showCloseButton={false} onCloseAutoFocus={event=>{event.preventDefault();sourceTrigger.current?.focus()}}>
+        <DialogTitle className="sr-only">{debug?'Fact history':'Source evidence'}</DialogTitle>
+        <DialogDescription className="sr-only">Original source evidence and the recorded value for this field.</DialogDescription>
         <Button variant="ghost" size="icon" className="modal-close icon-button" aria-label="Close source evidence" onClick={()=>setHistoryFact(null)}><X size={19}/></Button>
         {debug?<HistoryView part={part} fact={historyFact} onSource={id=>{setHistoryFact(null);navigate(partURL(key,'2d',{fact:id}),{keepPanel:compact})}}/>:<SourceView fact={historyFact} onSource={()=>{setHistoryFact(null);openFact(historyFact,'source')}}/>}
-      </section>
-    </div>}
+      </DialogContent>
+    </Dialog>}
+
   </Tabs>;
 }

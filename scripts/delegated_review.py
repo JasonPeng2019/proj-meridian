@@ -26,6 +26,9 @@ class DelegatedStore(Store):
     context = None
 
     def append(self, *args, **extra):
+        if self.context.get('action') == 'defer_unsupported':
+            extra.update(prediction_sha256=self.context['prediction_sha256'],
+                         template_capability_sha256=self.context['template_capability_sha256'])
         extra.update(by=ACTOR, review_kind="delegated", delegated_by="Jason Peng",
                      authorization="User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
                      source_evidence=self.context.get("source_fact_ids", []),
@@ -55,7 +58,7 @@ def run(plan_path: Path, apply=False):
             raise ValueError("A mapping decision requires a current proposal and valid relationship")
         if mapping is not None and action != "approve_mapping":
             raise ValueError("Use approve_mapping for a name relationship")
-        if action in {"confirm", "reject"} and operation.get("prediction_sha256") != prediction_fingerprint(store.raw_fields[target]):
+        if action in {"confirm", "reject", "defer_unsupported"} and operation.get("prediction_sha256") != prediction_fingerprint(store.raw_fields[target]):
             raise ValueError(f"AI prediction changed since audit: {target}")
         if not operation.get("note") or not operation.get("source_fact_ids"):
             raise ValueError("Every delegated operation requires evidence and a reason")
@@ -70,6 +73,12 @@ def run(plan_path: Path, apply=False):
             raise ValueError(f"Unindexed source citation: {target}")
         if action == "defer_unsupported" and ("/template/" not in target or store.fields[target].get("state") != "unknown"):
             raise ValueError("Only unknown unavailable template inputs can be deferred")
+        if action == 'defer_unsupported':
+            body = store.templates[target.split('/')[0]].get('cad_eligibility') or {}
+            if body.get('state') != 'known' or (body.get('value') or {}).get('supported') is not False:
+                raise ValueError('Deferral requires a known unsupported essential body, not unresolved numeric geometry')
+            if operation.get('template_capability_sha256') != store.template_capability_fingerprint(target):
+                raise ValueError('Template capability assessment changed since disposition planning')
         if action == "accept_link" and any(name not in store.rows for name in operation["value"]):
             raise ValueError("Unknown BOM row")
         prepared.append(operation)

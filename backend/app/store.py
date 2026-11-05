@@ -256,6 +256,13 @@ class Store:
             return row.get("sha256", "")
         return (part.get("drawing") or {}).get("sha256", "") if part else ""
 
+    def template_capability_fingerprint(self, target: str) -> str:
+        """Bind an unsupported disposition to raw body assessment and routing."""
+        did = target.split("/", 1)[0]
+        basis = {"cad_eligibility": self.ai.get("templates", {}).get(did, {}).get("cad_eligibility"),
+                 "capabilities_sha256": self.ai.get("template_routing", {}).get(did, {}).get("capabilities_sha256")}
+        return hashlib.sha256(json.dumps(basis, sort_keys=True).encode()).hexdigest()
+
     def _apply(self, event: dict) -> None:
         target = event.get("applies_to", "")
         fingerprint = event.get("based_on", {}).get("sha256")
@@ -273,9 +280,14 @@ class Store:
         kind, status = event.get("type"), event.get("status")
         field = self.fields.get(target)
         owner = self.owners.get(target)
-        if (kind in {"confirm", "reject"} and event.get("prediction_sha256")
+        if ((kind in {"confirm", "reject"} or kind == "defer_unsupported" and status == "accepted")
+                and event.get("prediction_sha256")
                 and event["prediction_sha256"] != prediction_fingerprint(self.raw_fields.get(target, {}))):
             self.changed.append({**event, "change_reason": "AI interpretation changed since review"})
+            return
+        if (kind == "defer_unsupported" and status == "accepted" and event.get("template_capability_sha256")
+                and event["template_capability_sha256"] != self.template_capability_fingerprint(target)):
+            self.changed.append({**event, "change_reason": "Body eligibility or template capabilities changed since disposition"})
             return
         if owner and owner.get("design_review") and kind in {"correction", "set_value", "choose_option", "link", "reject"} and status == "accepted":
             owner["previous_design_review"] = owner.pop("design_review")
@@ -364,8 +376,10 @@ class Store:
         return [old for old in self.changed if not any(
             event.get("applies_to") == old.get("applies_to") and event.get("at", "") > old.get("at", "")
             and event.get("status") == "accepted" and event.get("based_on", {}).get("sha256") == self.fingerprint(old["applies_to"])
-            and (event.get("type") not in {"confirm", "reject"} or not event.get("prediction_sha256")
+            and (event.get("type") not in {"confirm", "reject", "defer_unsupported"} or not event.get("prediction_sha256")
                  or event["prediction_sha256"] == prediction_fingerprint(self.raw_fields.get(old["applies_to"], {})))
+            and (event.get("type") != "defer_unsupported" or not event.get("template_capability_sha256")
+                 or event["template_capability_sha256"] == self.template_capability_fingerprint(old["applies_to"]))
             for event in self.events)]
 
     def append(self, target: str, kind: str, value: Any = None, status: str = "accepted", note: str = "", **extra: Any) -> dict:

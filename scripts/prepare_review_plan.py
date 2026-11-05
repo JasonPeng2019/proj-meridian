@@ -63,7 +63,7 @@ def prepare(batch, output):
     def add(item, path, *, old=False):
         target = item["target"]
         action = item.get("action", item.get("decision", item.get("recommendation")))
-        if action not in {"confirm", "reject", "approve_mapping"}:
+        if action not in {"confirm", "reject", "approve_mapping", "defer_unsupported"}:
             skipped.append({"target": target, "reason": "No supported confirm/reject recommendation"})
             return
         if old and "/template/" in target and target.split('/')[0] in audited:
@@ -102,6 +102,8 @@ def prepare(batch, output):
             operation["value"] = item["value"]
         else:
             operation["prediction_sha256"] = expected_prediction
+        if action == 'defer_unsupported':
+            operation['template_capability_sha256'] = store.template_capability_fingerprint(target)
         operations[target] = operation
 
     for name in ("audit-01-10.json", "audit-11-20.json", "audit-21-30.json"):

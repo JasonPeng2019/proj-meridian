@@ -162,6 +162,9 @@ def run_reader(reader: str, prompt: str, schema: dict, images: list[str], job: s
         attempt = 0
         while True:
             attempt += 1
+            # A retry must never consume a previous attempt's final message.
+            if reader != 'claude' and final_file.exists():
+                final_file.unlink()
             try:
                 completed = subprocess.run(argv, cwd=ROOT, input=stdin, capture_output=True, text=True,
                                            encoding="utf-8", errors="replace", timeout=timeout, env=os.environ.copy())
@@ -171,7 +174,9 @@ def run_reader(reader: str, prompt: str, schema: dict, images: list[str], job: s
             except OSError as exc:
                 stdout, stderr, returncode = "", str(exc), -1
             combined = stdout + "\n" + stderr
-            rate_limit = bool(re.search(r"(?:rate.limit|too many requests|retry.after|429)", combined, re.I))
+            parsed, _ = parse_response(reader, stdout, final_file)
+            rate_limit = (returncode != 0 or parsed is None) and bool(re.search(
+                r"(?:rate.limit|too many requests|retry.after|(?<![a-z0-9])429(?![a-z0-9]))", combined, re.I))
             if rate_limit and attempt <= 4:
                 match = re.search(r"retry.after[^0-9]*(\d+)", combined, re.I)
                 delay = min(180, int(match.group(1)) if match else 15 * (2 ** (attempt - 1)))

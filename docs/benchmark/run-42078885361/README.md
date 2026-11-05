@@ -1,5 +1,7 @@
 # Reviewed-dataset benchmark: run 42078885361
 
+The later [v3 evaluation](../rescore-42078885361-v3/README.md) scores these same unchanged answers **38/42**, with full semantic credit for all 42. The v2 scores below remain the historical evaluation; they are not the latest scoring result.
+
 **34/42 combined passes (81.0%)**, with 8 failures and no pending judgments. Both unchanged passes score 17/21. All 21 paired cases have identical rule outcomes, judge scores and combined outcomes. The prior capture's [corrected evaluation](../rescore-42020759881-v2/README.md) scored **40/42**, superseding its original 22/42 evaluation. This is a new answer capture against updated data, not another replay of those earlier answers. The evaluator and question-contract source hashes are identical to that corrected evaluation; the judge adapter additionally supports bounded concurrency. This comparison does not isolate model variability from changed production evidence/review state.
 
 [Actions capture](https://github.com/JasonPeng2019/proj-meridian/actions/runs/42078885361) used `gpt-6-luna` and commit `6182674ab519a459241a94d7966be4a37cc5edfd`. It captured all 42 executions against the reviewed candidate dataset. The independent local Claude Opus regular-mode judge scored 40 answers as 2 and two as 1. Up to eight resource-gated reader jobs were allowed; heavy builds, CAD and browsers remained sequential on Actions. Human spot-checks of judge decisions: **0; still pending**.

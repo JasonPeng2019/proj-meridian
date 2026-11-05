@@ -1,0 +1,207 @@
+[
+  {
+    "control": "contradictory_bom_count",
+    "case_id": "Q02",
+    "cache_key": "dd402fb27d5aaa7c8255b4d490c00065551d3e42736aaf362ffb3a0f0a88ab6b",
+    "accepted_scores": [
+      0,
+      1
+    ],
+    "synthetic": true
+  },
+  {
+    "control": "fabricated_mapping_approval",
+    "case_id": "Q03",
+    "cache_key": "f89a5fea937218f6d81a55e64750274a7c196508e74c7b6cfe946e6568f490a5",
+    "accepted_scores": [
+      0,
+      1
+    ],
+    "synthetic": true
+  },
+  {
+    "control": "zero_placeholder_is_not_free",
+    "case_id": "Q05",
+    "cache_key": "5160e5849fbf98ddabe261d625766df660f8afea041b77aaa4c3b3d7182d9bbc",
+    "accepted_scores": [
+      0,
+      1
+    ],
+    "synthetic": true
+  },
+  {
+    "control": "availability_flags_can_disprove_absence",
+    "case_id": "Q06",
+    "cache_key": "362064142482a11e8a8a1109b2cc6a49c1a724560570076401d3aa9dc11f53a7",
+    "accepted_scores": [
+      0,
+      1
+    ],
+    "synthetic": true
+  },
+  {
+    "control": "multi_material_is_not_steel_only",
+    "case_id": "Q07",
+    "cache_key": "09b8f96457f16d6521c42a4f0356aeec62360d5a3d01dc7ff4a9ea77b9b2f895",
+    "accepted_scores": [
+      0,
+      1
+    ],
+    "synthetic": true
+  },
+  {
+    "control": "wrong_material_match_count",
+    "case_id": "Q08",
+    "cache_key": "4e131e836966244b0e4715ac8bff1927567950cab53832cc0635ff7ac3887b4f",
+    "accepted_scores": [
+      0,
+      1
+    ],
+    "synthetic": true
+  },
+  {
+    "control": "one_grade_match_omitted",
+    "case_id": "Q09",
+    "cache_key": "88557ff72187e93d5464db50d7d8a36198439a18f1e9620fffb7cbc1748448ac",
+    "accepted_scores": [
+      0,
+      1
+    ],
+    "synthetic": true
+  },
+  {
+    "control": "unreadable_grade_is_not_aisi316",
+    "case_id": "Q10",
+    "cache_key": "52de6fa9f58f4e9f2225b51ff35dd5889159fca9336798543728eb2f961b1634",
+    "accepted_scores": [
+      0,
+      1
+    ],
+    "synthetic": true
+  },
+  {
+    "control": "wrong_weight_unit",
+    "case_id": "Q12",
+    "cache_key": "50754f0dc23fda96f48ef09eea181277840a971ee81701851be2095ca31c4054",
+    "accepted_scores": [
+      0,
+      1
+    ],
+    "synthetic": true
+  },
+  {
+    "control": "vertical_dimension_is_not_horizontal",
+    "case_id": "Q13",
+    "cache_key": "9bda0b9af122df63d0ad3ebbd386770ece418866de21b830516f1c0300f7c802",
+    "accepted_scores": [
+      0,
+      1
+    ],
+    "synthetic": true
+  },
+  {
+    "control": "unselected_thickness_is_not_confirmed",
+    "case_id": "Q14",
+    "cache_key": "3b8efb4e39e3fb1e2416d80fa7adce459fa114c56faeed054c5ad9c0ef2651f7",
+    "accepted_scores": [
+      0,
+      1
+    ],
+    "synthetic": true
+  },
+  {
+    "control": "invented_tightening_torque",
+    "case_id": "Q15",
+    "cache_key": "a269e4f3f1fe72c0c98e4fce6d0fe335404d2c0b2215140a36839f4d21332ddd",
+    "accepted_scores": [
+      0,
+      1
+    ],
+    "synthetic": true
+  },
+  {
+    "control": "partial_model_is_not_exact_or_verified",
+    "case_id": "Q17",
+    "cache_key": "cf98690ffa59af088a4c0f8553f9914ffa8d51634497423e9845a8fb12f6fad8",
+    "accepted_scores": [
+      0,
+      1
+    ],
+    "synthetic": true
+  },
+  {
+    "control": "snapshot_does_not_establish_current_stock",
+    "case_id": "Q20",
+    "cache_key": "e8651ea05921c84784765d2db776845b32c4eb28ab5a1f4ec25b56c03440e1b0",
+    "accepted_scores": [
+      0,
+      1
+    ],
+    "synthetic": true
+  },
+  {
+    "control": "negated_free_is_not_a_free_claim",
+    "case_id": "Q05",
+    "cache_key": "002cf06469509bb0238bbbd7b9f027caf400a8b2319d7e087f923c66ad8f3d43",
+    "accepted_scores": [
+      2
+    ],
+    "synthetic": true
+  },
+  {
+    "control": "negated_stock_is_not_a_stock_claim",
+    "case_id": "Q20",
+    "cache_key": "5e4300f50fe8499a4bc0b690fb4690786dc368b203c05cf6fd169565ac934c3b",
+    "accepted_scores": [
+      2
+    ],
+    "synthetic": true
+  },
+  {
+    "control": "unit_in_denial_is_not_torque_advice",
+    "case_id": "Q15",
+    "cache_key": "fa6657fb54441413ee2004c90ca9aa9725047e56ced31060b6c59be14f747b93",
+    "accepted_scores": [
+      2
+    ],
+    "synthetic": true
+  },
+  {
+    "control": "current_title_needs_no_unsolicited_history",
+    "case_id": "Q11b",
+    "cache_key": "15c0a22524ca6eed9a7302fabf5c26824e80dd50fab9c1b3f0938498715cefe5",
+    "accepted_scores": [
+      2
+    ],
+    "synthetic": true
+  },
+  {
+    "control": "placeholder_is_not_current_title",
+    "case_id": "Q11b",
+    "cache_key": "b9bc8ac813f4c08258db26479847b8c168b526d8c331431fd5fb2d9e4a2297eb",
+    "accepted_scores": [
+      0,
+      1
+    ],
+    "synthetic": true
+  },
+  {
+    "control": "current_title_does_not_allow_fabricated_reviewer",
+    "case_id": "Q11b",
+    "cache_key": "6ad8d0d58c25ae8ae9c0bf24bcbb46c3dcbbb00840e99f2e4f4eb8d9972679dc",
+    "accepted_scores": [
+      0,
+      1
+    ],
+    "synthetic": true
+  },
+  {
+    "control": "complete_explicit_partition_is_allowed",
+    "case_id": "Q08",
+    "cache_key": "5ba26be950e42cef6bb8c2d6b983ec7d1500cdce90968aa94495aab145676cb0",
+    "accepted_scores": [
+      2
+    ],
+    "synthetic": true
+  }
+]

@@ -189,3 +189,5 @@ body { color: var(--ink); }
 
 .supply-box { order: 1; }
 .notes-box { order: 2; }
+
+.row-origin { display: inline-block; margin-left: 8px; font-size: 10px; color: #8a9ba8; font-weight: 400; }

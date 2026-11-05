@@ -1,0 +1,31 @@
+# Updated benchmark execution plan
+
+The canonical question and expected-answer draft is [benchmark_draft.md](benchmark_draft.md). Use its exact wording and stable Q01–Q20 IDs. Q11a and Q11b are separate before/after cases: 21 cases per pass, 42 executions across two unchanged passes. Do not substitute the earlier five demo questions or the assignment's public examples.
+
+The draft remains unapproved ground truth. “Checked” in that document describes source analysis during planning, not a new review by Jason. Keep its expected answers out of chat prompts, retrieval, AI extraction and prep inputs. A machine-readable fixture may be derived from it, with a source hash and explicit reviewed exceptions; it must not become a competing source of truth.
+
+## Implementation order
+
+1. Finish and retain the queued Actions infrastructure checks: frontend build, focused tests, real CAD generation/roundtrips, fresh-runtime regeneration and headless browser checks. Each stage runs after the previous one. Default runs require no provider credentials.
+2. Add deterministic aggregate tools requested by the draft: `machine_summary()` for drawing counts by section and BOM organization; `cost_summary()` for recorded totals, included/missing row counts, missing-price/quantity reasons and snapshot caveats. Expose citable summary facts. Check material listings, interface citations, mapping citations and part attachments against the cases without hardcoding their expected answers into production tools.
+3. Derive benchmark cases and rule checks from the draft. Preserve case IDs, categories, expected citations/parts, abstention alternatives and prerequisites. Report a failure instead of silently weakening a check to match an answer.
+4. Run Q01–Q20, including both Q11 variants, sequentially against GPT-6-luna on Actions. Run the same set twice with no intervening source/code/settings changes. Capture complete tool evidence, rendered answers, attachments, warnings, latency, token counts and relevant fingerprints for each case.
+5. Run the independent meaning judge through the existing local CLI adapter, outside Actions, using Claude Opus regular mode as the configured model distinct from the GPT-6-luna chat model. Give it the case, expected-answer draft, returned facts and actual answer. Cache by all inputs/model/settings. Use at most four dataset-prep/evaluation reader CLI processes in total; coding agents are excluded from that cap. Start with sequential judging to keep local load low.
+6. Produce rule pass rates, judge scores and combined pass rates by category, plus reproducibility across the two passes. A case passes only if all applicable rules pass and the judge score is 2. If judging or a prerequisite is missing, show it explicitly rather than claiming a combined pass. Report measured tokens and provider cost receipts where available; do not invent a dollar figure.
+7. Jason spot-checks about five judge decisions when available. Report the actual number checked; never manufacture that review. Save transcripts, screenshots, machine-readable reports and failure analysis with their source/code/settings hashes.
+
+## State and scoring details to resolve explicitly
+
+- **Q03 and alloy/general-material mappings:** production mapping approvals are still pending. Score the documented approved-mapping condition only when it actually holds. Otherwise report the prerequisite as pending and separately verify that the app abstains. Never insert a Jason approval to make a benchmark pass.
+- **Q08:** record the actual drawing-to-BOM links and deduplication used, particularly D-016, D-017, D-018 and D-025. The draft explicitly flags those links for verification. Unreadable scan fields and unapproved material mappings must retain their uncertainty.
+- **Q11:** use an isolated copy with a clean baseline for Q11a. Propose the draft's exact replacement, `Silicone gasket for f-theta lens`, in chat; inspect the pending check and accept it through the review UI for Q11b. Automated workflow acceptance must use `Automated verification`, never Jason's name, and be reported as a workflow test. A genuine Jason acceptance can be measured separately. Reset to the same baseline for the second pass; preserve the production sheet and decisions.
+- **Q05/Q20 negative wording:** the draft's examples include negation while their literal prohibited-word rules can reject those same examples (for example “not free” and “not in stock”). Keep literal rule results and semantic judge results separate, and document any Jason-approved rule correction. Do not silently count a negated stock claim as a positive availability claim.
+- **Q12/Q13/Q15:** retain the draft's abstention alternatives and attachment checks. A returned naked dimension is not proof of which edge it measures; absence of a torque value is not permission to infer one.
+- **Q17:** compare against the actual disclosed density table and model variants, not the draft's approximate planning weights. The FAILED state and manual-review caveat remain visible.
+- **Q18:** report the recorded subtotal and missing rows accurately. Missing prices establish incomplete evidence, not a verified complete current cost. Document any wording issue in the draft rather than teaching the app an unsupported claim.
+
+## Remote/local boundary and completion evidence
+
+GitHub Actions owns heavy extraction, geometry, full tests, browsers and the live question loop. All heavy jobs/runs queue in `meridian-heavy`; no parallel matrix. Paid question runs are manual and use an Actions secret. CLI agents and judging stay local; heavy local fallback runs, if unavoidable, run one at a time. Project files remain under the existing local root or the hosted runner's `GITHUB_WORKSPACE`.
+
+The previous five-question checks and their 10/10 observation remain historical smoke results. They do not establish any pass rate for this benchmark. The new benchmark is complete only when its own two-pass reports, judge outputs, stated preconditions and actual human spot-check status are saved. This plan update does not claim those new benchmark runs have already happened.

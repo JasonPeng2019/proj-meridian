@@ -1,5 +1,15 @@
 # Project Meridian: MVP Build Spec
 
+## Current execution updates (2026-11-05)
+
+These user-requested updates supersede the historical timing/testing rules below:
+
+- The deadline is nine hours. Keep local work lightweight; run builds, PDF/CAD generation, full tests and browser checks on GitHub-hosted Actions, one heavy stage/run at a time through the shared queue. Dataset-prep CLI readers remain local with a hard cap of four; coding agents are excluded from that reader cap.
+- Focused automated verification is required. Preserve the original evidence and never manufacture Jason's reviews.
+- The current question/benchmark source is [docs/Question-benchmark/benchmark_draft.md](docs/Question-benchmark/benchmark_draft.md). It replaces the five representative demo questions as the planned evaluation set. There are 20 numbered questions and 21 execution cases because Q11 has before/after variants. Its expected answers remain a draft for Jason to check.
+- Follow [the updated benchmark run plan](docs/Question-benchmark/PLAN.md): use these exact question texts, add the missing aggregate tools, evaluate twice, and report rule checks, independent judge scores, combined results, timing, tokens and repeatability separately. Benchmarks must not feed expected answers into chat, extraction or dataset prep.
+- The existing five-question observations are historical smoke checks, not results for the new benchmark. Do not label them as the new benchmark's score.
+
 **Time budget:** 12–14 hours. **Approach:** build in **stacked milestones**. Each milestone is a complete, working, **submittable** version, tagged in git as `stable-m1`, `stable-m2`, and so on. If time runs out at any point, check out the latest tag and submit it.
 
 **This file is the border.** Build only what's in the milestones below. When this file and `proposal.md` disagree, **this file wins** for the build. `proposal.md` is the reference for how anything included here should behave.
@@ -183,7 +193,7 @@ This is the boundary for coding practices and edge cases. Agents should **not** 
 In this order:
 
 1. More parts in 3D (the other 7 flat parts).
-2. The 20-question benchmark and its scoring script. Jason writes the questions from the source files.
+2. The benchmark and its scoring script, using Jason's supplied `docs/Question-benchmark/benchmark_draft.md` and the run plan in that folder. Do not generate a substitute question set.
 3. The diagrams (A12).
 4. AI labels for all drawings (A7 level 3).
 5. Feature colors and measurement labels drawn on the 3D model.

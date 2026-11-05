@@ -216,6 +216,32 @@ def test_explicitly_counted_countersinks_bind_their_own_source_counts():
         verification.countersink_spec({"text": "2 x 8,0 X 90°", "count": 3})
 
 
+@pytest.mark.parametrize("degree", ["\u00b0", "\u00c2\u00b0"])
+def test_equivalent_degree_encodings_preserve_source_text(degree):
+    callout = {"text": f"2 x 13,4 X 90{degree}", "count": 2}
+    original = callout["text"]
+    assert verification.countersink_spec(callout) == {"count": 2, "outer": 13.4, "angle": 90}
+    assert callout["text"] == original
+
+
+def test_mojibake_degree_lines_still_cover_both_equal_diameter_sink_groups():
+    drawing, template, cuts = equal_diameter_source_groups()
+    drawing["callouts"][2]["text"] = "13,4 X 90\u00c2\u00b0"
+    drawing["callouts"][4]["text"] = "14,4 X 90\u00c2\u00b0"
+    original = [item["text"] for item in drawing["callouts"]]
+    rows = verification.callout_coverage(drawing, template, cuts)
+    assert len(rows) == 5
+    assert [row["built_count"] for row in rows] == [8, 8, 8, 2, 2]
+    assert all(row["status"] == "covered" for row in rows)
+    assert [item["text"] for item in drawing["callouts"]] == original
+
+
+@pytest.mark.parametrize("text", ["13,4 X 90A\u00b0", "13,4 X 90\u00c3\u00b0", "13,4 X 90\u00c2",
+                                 "unrelated 13,4 X 90\u00c2\u00b0", "2.5 x 13,4 X 90\u00c2\u00b0"])
+def test_malformed_or_unrelated_degree_text_is_not_a_countersink(text):
+    assert verification.countersink_spec({"text": text}) is None
+
+
 def test_feature_option_selection_is_not_overwritten_by_review_array():
     feature = {"diameter": {"state": "options", "options": [4, 5]}}
     template = {"features": [], "features_review": {"state": "known", "value": [feature]}}

@@ -250,7 +250,9 @@ def analytic_volume(template, cuts, thickness):
 
 
 def countersink_spec(callout):
-    match = re.match(r"\s*(?:(\d+)\s*[xX×]\s*)?(\d+(?:[.,]\d+)?)\s*[xX×]\s*(\d+(?:[.,]\d+)?)\s*°", callout.get("text", ""))
+    # Some preserved extraction receipts encode the degree sign as U+00C2 U+00B0.
+    # Recognize that exact equivalent without rewriting original evidence text.
+    match = re.match(r"\s*(?:(\d+)\s*[xX×]\s*)?(\d+(?:[.,]\d+)?)\s*[xX×]\s*(\d+(?:[.,]\d+)?)\s*(?:\u00c2)?\u00b0", callout.get("text", ""))
     if not match:
         return None
     count, outer, sink_angle = match.groups()

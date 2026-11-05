@@ -3,7 +3,7 @@ name = "project-meridian"
 version = "0.1.0"
 description = "Evidence-grounded drawing intelligence for the OpenLPBF snapshot"
 requires-python = ">=3.12,<3.13"
-dependencies = ["fastapi>=0.115", "uvicorn>=0.34", "pymupdf>=1.25", "pandas>=2.2", "pyyaml>=6", "openai>=2", "python-dotenv>=1", "httpx>=0.28"]
+dependencies = ["fastapi>=0.115", "uvicorn>=0.34", "pymupdf>=1.25", "pillow>=11", "pandas>=2.2", "pyyaml>=6", "openai>=2", "python-dotenv>=1", "httpx>=0.28"]
 
 [project.optional-dependencies]
 cad = ["cadquery>=2.6"]

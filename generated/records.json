@@ -36213,7 +36213,8 @@
         "approval_note_required": true,
         "limitation": "A matching weight does not verify feature positions. No thickness or material is selected automatically.",
         "density_label": "Outside source, not the dataset"
-      }
+      },
+      "cache_hit": true
     },
     "weight_check": {
       "state": "FAILED",

@@ -22,7 +22,7 @@ from playwright.sync_api import sync_playwright
 from backend.paths import ROOT, configure_environment, inside
 
 OUT = inside(ROOT / "docs/verification")
-CLONE = inside(ROOT / ".verification/release-clone")
+CLONE = inside(ROOT / (".verification/release-clone-" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S")))
 BASE = "http://127.0.0.1:8001"
 
 
@@ -48,6 +48,7 @@ def clone_environment():
     env["UV_CACHE_DIR"] = str(inside(ROOT / ".cache/uv"))
     env["MERIDIAN_NO_KEY"] = "1"
     env.pop("OPENAI_API_KEY", None)
+    env.pop("VIRTUAL_ENV", None)
     return env
 
 
@@ -104,6 +105,8 @@ def inspect(client):
     for path in ("/part/D-013/3d?example=B", "/part/bom/box/m5-nut-for-2020-not-5mm/detail", "/review/needs-input", "/readme"):
         assert client.get(path).status_code == 200
     assert client.get("/api/parts/D-003/image?page=3").headers["content-type"] == "image/png"
+    assert client.get("/api/parts/D-013/image?thumb=1").headers["content-type"] == "image/png"
+    assert client.get("/api/parts/D-013/crop", params={"fact": "D-013/drawing/material"}).headers["content-type"] == "image/png"
     return {"status": status, "asset_hashes_checked": len(assets), "d013_decision_replayed": True}
 
 
@@ -127,8 +130,9 @@ def correction_demo(env, report):
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True, args=["--enable-unsafe-swiftshader"])
             page = browser.new_page(viewport={"width": 1600, "height": 1050})
-            errors = []
+            errors, failures = [], []
             page.on("pageerror", lambda e: errors.append(str(e)))
+            page.on("response", lambda r: failures.append({"status": r.status, "url": r.url}) if r.status >= 400 else None)
             page.goto(BASE + "/chat")
             def send(message):
                 box = page.locator(".composer textarea")
@@ -169,6 +173,7 @@ def correction_demo(env, report):
             page.get_by_text("Automated verification", exact=False).first.wait_for()
             page.screenshot(path=str(OUT / "correction-history.png"))
             assert not errors, errors
+            assert not failures, failures
             browser.close()
         with httpx.Client(base_url=BASE) as client:
             saved["history"] = client.get("/api/parts/D-019/history?fact=D-019/drawing/title").json()
@@ -211,6 +216,7 @@ def main():
             browser = p.chromium.launch(headless=True)
             page = browser.new_page(viewport={"width": 1600, "height": 1000})
             page.goto(BASE + "/chat")
+            page.wait_for_function("document.querySelector('.composer textarea')?.disabled === true")
             assert page.locator(".composer textarea").is_disabled()
             page.screenshot(path=str(OUT / "fresh-no-key.png"))
             browser.close()

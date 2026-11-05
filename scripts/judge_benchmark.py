@@ -44,7 +44,7 @@ PAYLOAD:
 """
 
 
-def wait_for_headroom():
+def wait_for_headroom(min_free_gb=3):
     """Read Windows memory/CPU counters without spawning shells or editor helpers."""
     if os.name != "nt":
         return
@@ -70,7 +70,7 @@ def wait_for_headroom():
         memory.length = ctypes.sizeof(memory)
         if not ctypes.windll.kernel32.GlobalMemoryStatusEx(ctypes.byref(memory)):
             raise RuntimeError("Cannot measure local RAM headroom")
-        if memory.available >= 3 * 1024**3 and busy <= 70:
+        if memory.available >= min_free_gb * 1024**3 and busy <= 70:
             return
         if time.monotonic() >= notice:
             print(f"Judge queued: {memory.available // 1024**2} MB free RAM, {busy:.0f}% CPU", flush=True)

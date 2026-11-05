@@ -5,8 +5,8 @@ chat:
   service_tier: default
   secret_file: .codex/.secrets/OpenAI_API_Keys.txt
 prep:
-  concurrency: 4
-  max_concurrency: 4
+  concurrency: 8
+  max_concurrency: 8
   reader_a:
     command: claude
     model: opus

@@ -154,3 +154,91 @@ def test_template_mutation_routes_only_its_drawing_to_refresh(two_parts, monkeyp
     else:
         store.act(target, mutation, 3 if mutation == "set_value" else None)
     assert calls == [["D-001"]]
+
+
+def blocked_geometry_store(two_parts, *, eligibility="supported"):
+    root, generated, templates, _ = two_parts
+    body = {"supported": eligibility == "supported", "constant_thickness": True,
+            "outline_exact": True, "essential_uncertainty": []}
+    templates["D-001"].update(cad_ready=False, blocking_fields=["thickness", "cad_eligibility"],
+                              thickness={"state": "unknown", "value": None, "method": "ai_unsure"},
+                              cad_eligibility=known(body) if eligibility != "unknown" else
+                              {"state": "unknown", "value": None, "method": "ai_unsure"})
+    (generated / "ai_results.json").write_text(json.dumps({"templates": templates}), encoding="utf-8")
+    return Store(root)
+
+
+def test_human_thickness_alternatives_clear_stale_readiness_only_after_effective_replay(two_parts):
+    store = blocked_geometry_store(two_parts)
+    _, generated, _, _ = two_parts
+    source_bytes = (generated / "ai_results.json").read_bytes()
+    untouched = copy.deepcopy(store.templates["D-002"])
+    original_raw = copy.deepcopy(store.raw_fields["D-001/template/thickness"])
+    event = store.append("D-001/template/thickness", "set_value", {"state": "options", "options": [3, 6]})
+    effective = store.templates["D-001"]
+    assert effective["cad_ready"] is True and effective["blocking_fields"] == []
+    variants = list(builder._options(effective))
+    assert [variant["thickness"]["value"] for variant, _ in variants] == [3, 6]
+    for variant, _ in variants:
+        builder._validate_essential(variant)
+    assert effective["thickness"]["state"] == "options" and "selected" not in effective["thickness"]
+    assert store.templates["D-002"] == untouched
+    assert store.raw_fields["D-001/template/thickness"] == original_raw
+    assert store.ai["templates"]["D-001"]["thickness"]["state"] == "unknown"
+    assert (generated / "ai_results.json").read_bytes() == source_bytes
+    assert store.events == [event]
+    restarted = Store(store.root)
+    assert restarted.templates["D-001"]["cad_ready"] is True
+    assert restarted.templates["D-002"] == untouched
+
+
+@pytest.mark.parametrize("eligibility", ["unknown", "unsupported"])
+def test_human_thickness_cannot_override_unknown_or_unsupported_body_assessment(two_parts, eligibility):
+    store = blocked_geometry_store(two_parts, eligibility=eligibility)
+    store.append("D-001/template/thickness", "set_value", {"state": "options", "options": [3, 6]})
+    effective = store.templates["D-001"]
+    assert effective["cad_ready"] is False and effective["blocking_fields"]
+    assert "cad_eligibility" in effective["blocking_fields"][0] if eligibility == "unknown" else "unsupported" in effective["blocking_fields"][0]
+
+
+def test_later_rejection_is_applied_before_readiness_reconciliation(two_parts):
+    store = blocked_geometry_store(two_parts)
+    target = "D-001/template/thickness"
+    accepted = store.append(target, "set_value", {"state": "options", "options": [3, 6]})
+    rejected = store.append(target, "reject")
+    effective = store.templates["D-001"]
+    assert effective["thickness"]["state"] == "unknown"
+    assert effective["cad_ready"] is False and "thickness" in effective["blocking_fields"][0]
+    assert store.events == [accepted, rejected]
+
+
+def test_readiness_never_treats_reviewed_bounds_as_a_single_dimension(two_parts):
+    store = blocked_geometry_store(two_parts)
+    store.append("D-001/template/thickness", "set_value", {"state": "bounds", "lower": 3, "upper": 6})
+    effective = store.templates["D-001"]
+    assert effective["cad_ready"] is False and "bounds" in effective["blocking_fields"][0]
+    assert "value" not in effective["thickness"]
+
+
+def test_missing_outline_blocks_even_when_human_thickness_is_supplied(two_parts):
+    store = blocked_geometry_store(two_parts)
+    _, generated, _, _ = two_parts
+    raw = json.loads((generated / "ai_results.json").read_text(encoding="utf-8"))
+    raw["templates"]["D-001"]["outline"] = {"state": "unknown"}
+    (generated / "ai_results.json").write_text(json.dumps(raw), encoding="utf-8")
+    store.reload()
+    store.append("D-001/template/thickness", "set_value", {"state": "options", "options": [3, 6]})
+    assert store.templates["D-001"]["cad_ready"] is False
+    assert store.templates["D-001"]["blocking_fields"] == ["outline"]
+
+
+def test_readiness_leaves_unedited_blocked_and_already_ready_metadata_unchanged(two_parts):
+    store = blocked_geometry_store(two_parts)
+    blocked = copy.deepcopy(store.templates["D-001"])
+    ready = store.templates["D-002"]
+    ready.update(cad_ready=True, blocking_fields=[], custom_readiness_receipt="preserve")
+    ready["thickness"].update(method="human_decision", correction={"original": 1, "corrected": 2})
+    ready_before = copy.deepcopy(ready)
+    store._refresh_reviewed_readiness()
+    assert store.templates["D-001"] == blocked
+    assert store.templates["D-002"] == ready_before

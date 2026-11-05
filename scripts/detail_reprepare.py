@@ -6,16 +6,18 @@ The complete batch is staged before publishing; every prior decision stays intac
 from __future__ import annotations
 
 import argparse
+import concurrent.futures
 import copy
 import json
 import shutil
+import threading
 import time
 from datetime import datetime, timezone
 from pathlib import Path
 
 from backend.ai import dimensions, eligibility, pipeline, runner
 from backend.paths import GENERATED, ROOT, configure_environment, inside
-from scripts.expand_models import assess, digest, expansion_job, raw_drawings, require_settings, sequential_readers
+from scripts.expand_models import assess, bounded_readers, digest, expansion_job, raw_drawings, require_settings
 
 DETAIL_PROTOCOL = "drawing-detail-reprepare-v2"
 DETAIL_PROMPT = """
@@ -35,6 +37,17 @@ distinguishing a missing source dimension from a generator limitation. Preserve
 all independently supported cuts. Do not label a partial reconstruction complete.
 """
 
+MVP_READING_POLICY = """
+MVP POSSIBLE-READING CONTRACT (not a claim about manufacturing intent): when a
+single thickness dimension prints two stacked numerical readings and the drawing
+does not determine which applies, preserve both as unselected state options and
+build one possible-reading example per printed value. Do not claim these prove
+two discrete manufactured variants. Do not select one, average them, or silently
+discard one because the stack might instead express limits. Explain that remaining
+ambiguity. Explicit tolerances or explicitly identified bounds are not discrete
+alternatives. Every proposed number still needs exact supplied source evidence.
+"""
+
 
 def screen_job(drawing):
     """Qualitative body screening precedes numeric extraction for new evidence."""
@@ -47,6 +60,8 @@ def screen_job(drawing):
             "or extract a complete feature list. Decide only whether the essential body fits the "
             "provided reusable base-body contract. Missing numeric evidence or hole positions alone "
             "does not make a body structurally unsupported; uncertain body shape stays unknown. "
+            "Constant thickness means spatially uniform across the main body, independent of "
+            "an unresolved exact thickness reading. Leave numeric ambiguity to detailed fields. "
             "Never substitute a bounding rectangle/circle for a formed or custom-profiled body. "
             "Return only cad_eligibility: known object with exactly supported, constant_thickness, "
             "outline_exact (booleans), reason (source-specific structural explanation), "
@@ -76,6 +91,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--execute", action="store_true")
     parser.add_argument("--resume", type=Path, help="Resume this batch's staged checkpoint")
+    parser.add_argument('--workers', type=int, choices=range(1, 9), default=8,
+                        help='Concurrent drawing jobs, at most one CLI reader per job')
     args = parser.parse_args()
     require_settings()
     drawings = raw_drawings()
@@ -89,7 +106,7 @@ def main():
     if not args.execute:
         print(json.dumps({"protocol": DETAIL_PROTOCOL, "image_dimension_jobs": image_ids,
                           "template_jobs": [did for did in drawings if routing[did]['action'] == 'detailed_candidate'],
-                          "routing": routing, "reader_concurrency": 1,
+                          "routing": routing, "reader_concurrency": args.workers,
                           "providers": {r: runner.reader_settings(r) for r in ("codex", "claude")}}))
         return
     baseline = {str(p.relative_to(ROOT)): digest(p) for p in (ROOT / "decisions").glob("*.json")}
@@ -111,12 +128,13 @@ def main():
         results = []
         runner.write_json(folder / "previous-output.json", original)
     started = time.monotonic()
+    checkpoint_lock = threading.RLock()
 
     def save(complete=False, **extra):
         runner.write_json(folder / "checkpoint.json", {
             "protocol": DETAIL_PROTOCOL, "complete": complete,
             "raw_drawings_sha256": raw_hash, "source_hashes": source_hashes,
-            "results": results, "routing": routing, **extra})
+            "results": results, "routing": routing, 'reader_concurrency': args.workers, **extra})
 
     def run(job):
         existing = next((r for r in results if r["job"]["id"] == job["id"]), None)
@@ -126,16 +144,21 @@ def main():
             return existing
         print(f"Starting {job['id']}", flush=True)
         result = pipeline.run_retry(pipeline.execute(job))
-        results.append(result)
-        save()
+        with checkpoint_lock:
+            results.append(result)
+            save()
         print(json.dumps({"job": job["id"], "states": result["states"]}), flush=True)
         return result
 
+    def parallel(items, operation):
+        with concurrent.futures.ThreadPoolExecutor(max_workers=args.workers) as pool:
+            futures = [pool.submit(operation, item) for item in items]
+            for future in concurrent.futures.as_completed(futures):
+                future.result()
+
     save()
-    with sequential_readers():
-        for did, decision in list(routing.items()):
-            if decision['action'] != 'screen_required':
-                continue
+    with bounded_readers(args.workers):
+        def screen(did):
             result = run(screen_job(drawings[did]))
             field = pipeline.resolved(result, 'cad_eligibility')
             routing[did] = eligibility.route(drawings[did], original.get('templates', {}).get(did), {
@@ -143,27 +166,34 @@ def main():
                 'capabilities_sha256': eligibility.CAPABILITIES_SHA256, 'cad_eligibility': field})
             if routing[did]['action'] == 'screen_required':
                 routing[did]['reason'] = 'Qualitative screen remains unresolved; detailed geometry is deferred. ' + routing[did]['reason']
+        parallel([did for did, decision in routing.items() if decision['action'] == 'screen_required' or
+                  decision['action'] == 'detailed_candidate' and not decision.get('assessment')], screen)
         save()
         image_ids = [did for did, drawing in sorted(drawings.items())
                      if routing[did]['action'] == 'detailed_candidate' and (drawing.get('degraded') or did == 'D-017')]
-        for did in image_ids:
+        def read_images(did):
             for job in dimensions.jobs(drawings[did]):
                 run(job)
+        parallel(image_ids, read_images)
         ordinary_results = [result for result in results if not result['job']['id'].startswith('screen:')]
         index = pipeline.assemble(ordinary_results, drawings, {}).get("dimension_evidence", {})
         augmented = {did: dimensions.attach(drawing, index.get(did)) for did, drawing in drawings.items()}
         assessments = {}
-        for did, drawing in sorted(augmented.items()):
+        def detail(did):
+            drawing = augmented[did]
             existing = next((r for r in results if r['job']['id'] == f'detail:{did}:{DETAIL_PROTOCOL}'), None)
             if routing[did]['action'] != 'detailed_candidate' and existing is None:
                 assessments[did] = {'drawing': did, 'status': 'blocked' if routing[did]['action'] == 'reuse_unsupported' else 'screen_unresolved',
                                     'reason': routing[did]['reason'], 'source_sha256': drawing['sha256'],
                                     'fresh_detailed_extraction': False, 'routing': routing[did]}
                 print(json.dumps({'drawing': did, 'routing': routing[did]['action'], 'detail_skipped': True}), flush=True)
-                continue
+                return
             job = expansion_job(drawing)
             job["id"] = f"detail:{did}:{DETAIL_PROTOCOL}"
             job["prompt"] += "\n" + DETAIL_PROMPT
+            if did in pipeline.PRIMARY_TEMPLATES and (existing is None or existing['job'].get('mvp_reading_policy')):
+                job['mvp_reading_policy'] = 'ambiguous-stacked-possible-readings-v1'
+                job['prompt'] += '\n' + MVP_READING_POLICY
             result = run(job)
             template, assessment, _ = assess(result, augmented)
             assessments[did] = assessment
@@ -172,11 +202,24 @@ def main():
                               "cuts": len(template.get("features", [])),
                               "features_status": template.get("features_status"),
                               "omissions": template.get("omitted_feature_notes", [])}), flush=True)
+        parallel(sorted(augmented), detail)
     assembled = pipeline.assemble([r for r in results if not r['job']['id'].startswith('screen:')], augmented, {})
     output = copy.deepcopy(json.loads((GENERATED / "ai_results.json").read_text(encoding="utf-8")))
     output["dimension_evidence"] = {**output.get("dimension_evidence", {}), **index}
     output["templates"] = {**output.get("templates", {}), **assembled["templates"]}
     output['template_routing'] = routing
+    for did, template in assembled['templates'].items():
+        body = routing[did].get('assessment') or {}
+        detailed = template.get('cad_eligibility') or {}
+        if (body.get('state') == 'known' and (body.get('value') or {}).get('supported') is True and
+                detailed.get('state') == 'unknown' and template.get('outline', {}).get('state') == 'known'):
+            # Keep the independent detailed uncertainty as evidence. The separate
+            # verified body screen determines structural capability; unknown
+            # numeric fields still block until source-backed input resolves them.
+            template['detail_eligibility_assessment'] = copy.deepcopy(detailed)
+            template['cad_eligibility'] = copy.deepcopy(body)
+            template['blocking_fields'] = [key for key in template.get('blocking_fields', []) if key != 'cad_eligibility']
+            template['cad_ready'] = not template['blocking_fields']
     for did, decision in routing.items():
         if did not in assembled['templates']:
             template = output['templates'].get(did)

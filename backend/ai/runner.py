@@ -241,4 +241,4 @@ def retry_pair(prompt: str, schema: dict, images: list[str], job: str, readers: 
 
 def set_concurrency(value: int) -> None:
     global _semaphore
-    _semaphore = threading.Semaphore(max(1, min(4, value)))
+    _semaphore = threading.Semaphore(max(1, min(8, value)))

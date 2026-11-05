@@ -66,7 +66,7 @@ The initial hosted Linux dependency, CAD and headless-rendering checks have alre
 
 The coordinator dispatches paid checks when needed, with the repository's existing `OPENAI_API_KEY` Actions secret. `benchmark=true` runs the canonical questions twice sequentially; `live_api=true` separately checks the isolated correction UI. Use [Question-benchmark/PLAN.md](Question-benchmark/PLAN.md) for the exact question, scoring and review-state requirements. Expected answers never enter chat or prep prompts. If GitHub secrets cannot be used, execute necessary API checks locally in sequence after checking resource headroom; this is a fallback the coordinator handles.
 
-Independent CLI judging remains local, sequential by default, using hooks-disabled CLI settings and an ignored cache. At most four project CLI workers may be active; the dataset-reader cap is separately enforced at four. Use fewer when resources are tight.
+Independent CLI judging remains local, sequential by default, using hooks-disabled CLI settings and an ignored cache. Jason raised the prep-reader ceiling to eight: independent drawing jobs may overlap, with one proposer/verifier process per job and RAM/CPU admission checks before each spawn. Resume completed receipts instead of repeating paid work. Reduce concurrency when headroom is limited; heavy CAD/build/browser stages still run in succession on Actions.
 
 ## Local fallback and resource limits
 

@@ -11,6 +11,7 @@ import hashlib
 import json
 import re
 import time
+import threading
 from contextlib import contextmanager
 from datetime import datetime, timezone
 
@@ -108,18 +109,30 @@ def require_settings():
 
 
 @contextmanager
-def sequential_readers():
+def bounded_readers(workers=1):
     """Gate every provider spawn, including a bounded repair, using existing limits."""
     original = runner.run_reader
+    if type(workers) is not int or not 1 <= workers <= 8:
+        raise ValueError('Prep supports one to eight concurrent reader processes')
+    launch_lock = threading.Lock()
     def gated(*args, **kwargs):
-        wait_for_headroom()
+        # Sample and launch gradually; provider reasoning remains remote. Each
+        # worker has at most one reader alive (proposal, then verifier/retry).
+        with launch_lock:
+            wait_for_headroom(min_free_gb=3 + .35 * (workers - 1))
         return original(*args, **kwargs)
-    runner.set_concurrency(1)
+    runner.set_concurrency(workers)
     runner.run_reader = gated
     try:
         yield
     finally:
         runner.run_reader = original
+
+
+@contextmanager
+def sequential_readers():
+    with bounded_readers(1):
+        yield
 
 
 def assess(result, drawings):

@@ -21,6 +21,7 @@ CAPABILITIES = {
     "unsupported_essential_geometry": ["bends", "nonplanar or assembled bodies", "stepped or revolved bodies",
                                        "custom rounded, lobed, obround or angled outer contours", "essential grooves"],
     "minor_cut_changes_do_not_expand_base_body_contract": True,
+    "minor_detail_allowance": "Small undimensioned straight corner clips and edge breaks may be explicitly omitted from an otherwise established rectangular main body; never discard essential functional contours.",
 }
 
 

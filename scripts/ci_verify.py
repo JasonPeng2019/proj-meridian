@@ -54,8 +54,9 @@ def cad():
     store = Store()
     before = {p.name: digest(p) for p in (ROOT / "decisions").glob("*.json")}
     from backend.cad.builder import VERSION
+    from backend.loader.build import sha_json
     write('cad-inputs.json', {'ai_results_sha256': digest(ROOT / 'generated/ai_results.json'),
-                            'drawings_sha256': digest(ROOT / 'generated/drawings.json'),
+                            'drawings_sha256': sha_json(json.loads((ROOT / 'generated/drawings.json').read_text(encoding='utf-8'))),
                             'decisions': before, 'generator_version': VERSION})
     store.rebuild_models()
     drawings = json.loads((ROOT / "generated/drawings.json").read_text(encoding="utf-8"))

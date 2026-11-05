@@ -69,7 +69,7 @@ def bundle(tmp_path, monkeypatch):
     for kind in ("glb", "step"):
         (cache / Path(model[kind]).name).write_bytes((artifact / "generated" / model[kind]).read_bytes())
     write(artifact / "docs/ci/cad-inputs.json", {"ai_results_sha256": release.digest(root / "generated/ai_results.json"),
-          "drawings_sha256": release.digest(root / "generated/drawings.json"), "decisions": release.decisions(root), "generator_version": builder.VERSION})
+          "drawings_sha256": release.structured_digest(root / "generated/drawings.json"), "decisions": release.decisions(root), "generator_version": builder.VERSION})
     write(artifact / "docs/ci/cad.json", {"passed": True, "decisions_unchanged": True, "built_parts": 1,
           "variant_count": 1, "expected_variants": {"D-001": 1}, "variants": [{"part": "D-001", "variant": "A"}]})
     write(artifact / "docs/ci/browser-stages.json", [{"mode": "customer", "passed": True}, {"mode": "debug", "passed": True}])
@@ -125,6 +125,19 @@ def test_success_installs_only_verified_exports_and_backs_up_manifest(bundle):
             assert (root / name).read_bytes() == content
     assert not (root / "generated/.publish.lock").exists()
     assert release.read(root / "docs/verification/cad-install-123.json") == report
+
+
+def test_drawings_json_layout_and_line_endings_do_not_change_verified_values(bundle):
+    root, artifact, _ = bundle
+    original = (root / "generated/drawings.json").read_bytes()
+    path = artifact / "generated/drawings.json"
+    # Simulate the same extracted values serialized on a different platform.
+    encoded = json.dumps(release.read(path), indent=4, ensure_ascii=False).replace("\n", "\r\n")
+    path.write_bytes(encoded.encode("utf-8") + b"\r\n")
+    assert path.read_bytes() != original
+    assert release.structured_digest(path) == release.structured_digest(root / "generated/drawings.json")
+    assert release.install(artifact, 124, root=root)["passed"]
+    assert (root / "generated/drawings.json").read_bytes() == original
 
 
 def candidate(bundle):

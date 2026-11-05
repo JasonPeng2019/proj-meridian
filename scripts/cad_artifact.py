@@ -45,6 +45,11 @@ def read(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def structured_digest(path: Path) -> str:
+    """Bind extracted drawing values independently of JSON layout/platform EOLs."""
+    return hashlib.sha256(json.dumps(read(path), sort_keys=True, ensure_ascii=False).encode()).hexdigest()
+
+
 def require(condition, message):
     if not condition:
         raise ValueError(message)
@@ -102,11 +107,11 @@ def validate(artifact: Path, root: Path, candidate_batch: Path | None = None) ->
                     "Candidate original evidence changed: " + name)
     inputs = read(checked(artifact, "docs/ci/cad-inputs.json"))
     current_inputs = {"ai_results_sha256": digest(checked(source, "generated/ai_results.json")),
-                      "drawings_sha256": digest(checked(root, "generated/drawings.json")),
+                      "drawings_sha256": structured_digest(checked(root, "generated/drawings.json")),
                       "decisions": decisions(root), "generator_version": builder.VERSION}
     require(inputs == current_inputs, "Remote CAD input hashes differ from current inputs")
     require(digest(checked(artifact, "generated/ai_results.json")) == inputs["ai_results_sha256"], "Artifact AI data hash mismatch")
-    require(digest(checked(artifact, "generated/drawings.json")) == inputs["drawings_sha256"], "Artifact original drawings hash mismatch")
+    require(structured_digest(checked(artifact, "generated/drawings.json")) == inputs["drawings_sha256"], "Artifact original drawings hash mismatch")
     cad = read(checked(artifact, "docs/ci/cad.json"))
     require(cad.get("passed") is True and cad.get("decisions_unchanged") is True, "Remote CAD verification did not pass")
     stages = read(checked(artifact, "docs/ci/browser-stages.json"))

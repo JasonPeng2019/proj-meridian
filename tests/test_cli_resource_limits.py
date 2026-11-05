@@ -12,7 +12,7 @@ def test_claude_large_prompts_use_stdin_and_reader_concurrency_is_capped(tmp_pat
     monkeypatch.setattr(runner, "CACHE", tmp_path)
     monkeypatch.setattr(runner, "bootstrap_auth", lambda: None)
     monkeypatch.setattr(runner.shutil, "which", lambda name: "claude-stub")
-    monkeypatch.setattr(runner, "_semaphore", threading.Semaphore(4))
+    monkeypatch.setattr(runner, "_semaphore", threading.Semaphore(1))
     runner.set_concurrency(99)
     lock = threading.Lock()
     active = peak = 0
@@ -31,7 +31,7 @@ def test_claude_large_prompts_use_stdin_and_reader_concurrency_is_capped(tmp_pat
 
     monkeypatch.setattr(runner.subprocess, "run", fake_run)
     schema = {"type": "object", "properties": {"ok": {"type": "boolean"}}, "required": ["ok"], "additionalProperties": False}
-    with ThreadPoolExecutor(max_workers=8) as pool:
-        futures = [pool.submit(runner.run_reader, "claude", "evidence " + str(i) + "x" * 110_000, schema, [], str(i)) for i in range(8)]
+    with ThreadPoolExecutor(max_workers=12) as pool:
+        futures = [pool.submit(runner.run_reader, "claude", "evidence " + str(i) + "x" * 110_000, schema, [], str(i)) for i in range(12)]
         assert all(f.result()["valid"] for f in futures)
-    assert 1 < peak <= 4
+    assert 1 < peak <= 8

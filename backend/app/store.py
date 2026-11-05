@@ -91,6 +91,7 @@ class Store:
         self.raw_fields = copy.deepcopy(self.fields)
         for event in self.events:
             self._apply(event)
+        self._refresh_reviewed_readiness()
         # Link decisions rebuild the part index; keep machine-context citations
         # available even when that projection was refreshed during replay.
         for passage in read_json(self.generated / "readme.json", []):
@@ -123,6 +124,44 @@ class Store:
                     if thickness["selected"] in opts:
                         part["preferred_example"] = chr(65 + opts.index(thickness["selected"]))
             part["review_status"] = self.part_review_status(part)
+
+    def _refresh_reviewed_readiness(self) -> None:
+        """Recheck stale prep blockers after effective human geometry replacements.
+
+        This only validates existing values and all documented alternatives. It
+        neither generates geometry nor changes original extraction/reader receipts.
+        Already-ready and untouched templates retain their exact metadata.
+        """
+        for template in self.templates.values():
+            if template.get("cad_ready") is not False and not template.get("blocking_fields"):
+                continue
+            outline = template.get("outline") or {}
+            geometry = [template.get("thickness"), outline]
+            if isinstance(outline, dict):
+                geometry.extend(outline.get(key) for key in (
+                    "type", "length", "width", "outer_diameter", "inner_diameter", "diameter"))
+            if not any(isinstance(field, dict) and field.get("method") == "human_decision"
+                       and field.get("correction") for field in geometry):
+                continue
+            from backend.cad.builder import Unknown, _options, _validate_essential
+
+            candidate = copy.deepcopy(template)
+            candidate.pop("cad_ready", None)
+            candidate.pop("blocking_fields", None)
+            try:
+                if "cad_eligibility" in (template.get("blocking_fields") or []) and not candidate.get("cad_eligibility"):
+                    raise Unknown("cad_eligibility is unresolved")
+                if any(isinstance(field, dict) and field.get("state") == "bounds" for field in geometry):
+                    raise Unknown("Essential geometry has unresolved bounds, not a determined value or discrete alternatives")
+                variants = list(_options(candidate))
+                if not variants:
+                    raise Unknown("No determined geometry alternatives")
+                for variant, _ in variants:
+                    _validate_essential(variant)
+            except (Unknown, ValueError, TypeError, KeyError, AttributeError) as exc:
+                template.update(cad_ready=False, blocking_fields=[str(exc)])
+            else:
+                template.update(cad_ready=True, blocking_fields=[])
 
     def _index(self) -> None:
         self.fields = {}

@@ -40,6 +40,24 @@ def main():
         ]:
             page.goto(BASE+path)
             page.wait_for_timeout(1800)
+            assert not page.evaluate('document.documentElement.scrollWidth > innerWidth'), path
+            if name == 'parts-library':
+                assert not page.locator('.parts-filters').evaluate('(el) => el.open')
+                assert page.locator('.part-result').count() == len(parts)
+            if name == 'model':
+                assert page.locator('.model-panels').count() == 0
+                assert page.locator('.sheet-rail').count() == 0
+                assert not page.locator('.cad-provenance').evaluate('(el) => el.open')
+                assert not page.locator('.cad-weight').evaluate('(el) => el.open')
+                viewer = page.locator('.primary-view').bounding_box()
+                body = page.locator('.part-body').bounding_box()
+                assert viewer['width'] >= body['width'] * .9
+                page.locator('.cad-weight > summary').click()
+                assert page.locator('.cad-weight-detail').is_visible()
+                page.locator('.cad-weight > summary').click()
+            if name == 'bom-detail':
+                assert page.locator('.detail-section[open]').count() == 0
+                assert page.locator('.overview-facts .fact-card').count() <= 8
             page.screenshot(path=str(OUT / (name+'.png')))
             print(name, 'body_chars', len(page.locator('body').inner_text()), 'horizontal_overflow', page.evaluate('document.documentElement.scrollWidth > innerWidth'), flush=True)
         page.goto(BASE+'/parts')
@@ -61,11 +79,13 @@ def main():
         print('review_controls_retained',page.locator('.part-review-controls').is_visible(),'approval_disabled',page.get_by_role('button',name='Approve whole design',exact=True).is_disabled(),flush=True)
         page.screenshot(path=str(OUT/'review-d013-drawing.png'))
         page.goto(BASE+'/review/possible-readings/options:D-025/template/thickness')
+        page.get_by_text('Compare 3D examples', exact=True).click()
         page.wait_for_timeout(1300)
         print('possible_reading_viewers',page.locator('.readings-models .cad-viewer').count(),flush=True)
         page.locator('.readings-comparison').scroll_into_view_if_needed()
         page.screenshot(path=str(OUT/'possible-readings-compare.png'))
         page.goto(BASE+'/review/needs-input')
+        page.locator('.review-filter-options > summary').click()
         page.locator('.review-toolbar select').nth(0).select_option('name_mapping')
         page.wait_for_timeout(250)
         mappings=[i for i in review if i['type']=='name_mapping']
@@ -82,7 +102,9 @@ def main():
         else:
             print('source_changed_reapprove_control','no changed-evidence items in live data; action not submitted',flush=True)
         context.close()
-    result = {'page_errors':errors,'failed_responses':failures,'model_checked':model,'bom_checked':bom}
+    result = {'page_errors':errors,'failed_responses':failures,'model_checked':model,'bom_checked':bom,
+              'default_hierarchy': {'focused_model': True, 'filters_collapsed': True, 'technical_details_collapsed': True,
+                                    'weight_details_expandable': True, 'no_horizontal_overflow': True}}
     (OUT/'browser-check.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
     print(json.dumps(result,indent=2))
     assert not errors, errors

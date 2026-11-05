@@ -30,6 +30,8 @@ Launch coding subagents as `gpt-6.1-sol`, high reasoning, on priority/Fast mode.
 
 ## Resource limits
 
+Default UI screens must stay focused and concise. Show the task, core values and essential uncertainty/check state; put full source text, raw records, fingerprints, reasoning, extra filters and calculations behind tabs or explicit disclosure. Avoid duplicate navigation and repeated warning panels. Keep evidence and review controls accessible when opened.
+
 Keep routine local work lightweight: edits, source inspection, static validation and Git operations. Build the frontend remotely and download its verified static bundle for local use; Node is unnecessary for serving it. Run full verification, PDF/CAD regeneration and browser checks on GitHub-hosted Actions runners. Use `scripts/local_build.ps1` only when a local fallback build is necessary. CLI coding/prep agents remain outside Actions.
 
 Dataset-prep CLI readers have a hard cap of four concurrent processes. Coding agents are excluded from that reader-specific limit, but use a conservative overall budget of at most four active local CLI workers for this project and reduce it when RAM/CPU headroom is limited. Do not raise the prep cap from the command line or configuration.

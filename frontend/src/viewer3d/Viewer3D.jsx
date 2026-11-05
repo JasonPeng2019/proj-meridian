@@ -46,16 +46,11 @@ function Model({ model, section, cut, fit }) {
 
 function Weight({ check, selected }) {
   if (!check) return null;
-  const result = check.examples?.[selected];
-  const attempts = result?.attempts || [];
-  return <div className={`cad-weight cad-weight-${String(check.state).toLowerCase()}`} role={check.state === 'FAILED' ? 'alert' : undefined}>
-    <strong>{check.message || `Weight check: ${check.state}`}</strong>
-    {attempts.length > 0 && <details><summary>Example {selected}: weight calculation</summary>
-      {attempts.map((attempt, index) => <p key={index}>{number(attempt.calculated_g)} g calculated · {number(attempt.drawing_g)} g on drawing · {number(attempt.difference_percent)}% difference · {attempt.matches ? 'matches' : 'does not match'}<br />Using {attempt.source} material: {attempt.material}. <a href={attempt.source_url} target="_blank" rel="noreferrer">Density source</a> ({attempt.looked_up}); outside source, not the dataset. {attempt.note}</p>)}
-      <p>{check.limitation}</p>
-    </details>}
-    {check.approval && <p>Approved by {check.approval.by} on {check.approval.at}. {check.approval.note}</p>}
-  </div>;
+  const attempts = check.examples?.[selected]?.attempts || [];
+  return <details className={`cad-weight cad-weight-${String(check.state).toLowerCase()}`}>
+    <summary><strong>{check.state} weight check</strong><span>{check.state==='FAILED'?'Needs manual review':'View calculation'}</span></summary>
+    <div className="cad-weight-detail">{attempts.map((attempt,index)=><p key={index}>{number(attempt.calculated_g)} g calculated · {number(attempt.drawing_g)} g on drawing · {number(attempt.difference_percent)}% difference.<br/>Using {attempt.source} material: {attempt.material}. <a href={attempt.source_url} target="_blank" rel="noreferrer">Density source</a> ({attempt.looked_up}); outside source, not the dataset. {attempt.note}</p>)}<p>{check.limitation}</p>{check.approval&&<p>Approved by {check.approval.by} on {check.approval.at}. {check.approval.note}</p>}</div>
+  </details>;
 }
 
 export default function Viewer3D({ part, example, onExampleChange }) {
@@ -78,14 +73,14 @@ export default function Viewer3D({ part, example, onExampleChange }) {
   useEffect(() => { setLocalExample(preferred); setSection(false); }, [part?.id, preferred]);
   return <section className="cad-viewer" ref={host} aria-label="3D reconstruction viewer">
     <div className="cad-toolbar">
-      <div className="cad-examples" role="group" aria-label="Possible drawing readings">{examples.map(value => <button type="button" key={value} onClick={() => choose(value)} aria-pressed={value === selected}>Example {value}{examples.length > 1 ? ' · possible reading' : ''}</button>)}</div>
+      <div className="cad-examples" role="group" aria-label="Possible drawing readings">{examples.map(value => <button type="button" key={value} onClick={() => choose(value)} aria-pressed={value === selected}>Example {value}{manifest.models?.[value]?.selections?.thickness!=null?` · ${number(manifest.models[value].selections.thickness)} mm`:''}</button>)}</div>
       {model && <div className="cad-actions">
         <button type="button" onClick={() => setFit(value => value + 1)} title="Fit model in view">Fit</button>
         <button type="button" aria-pressed={section} onClick={() => setSection(value => !value)}>Section</button>
         <button type="button" onClick={() => { if (document.fullscreenElement) document.exitFullscreen?.(); else host.current?.requestFullscreen?.(); }}>Full screen</button>
       </div>}
     </div>
-    {examples.length > 1 && <div className="cad-options">{Object.entries(model?.selections || {}).map(([key, value]) => <span key={key}>{key}: <strong>{number(value)} mm</strong> · possible reading</span>)}<span>Both readings remain available; neither is marked correct by default.</span></div>}
+    {examples.length > 1 && <div className="cad-options">Possible readings · neither is selected as correct</div>}
     <Weight check={manifest.weight_check && reviewed ? {...manifest.weight_check, approval: reviewed} : manifest.weight_check} selected={selected} />
     {manifest.stale && <p className="cad-warning" role="alert">{manifest.stale_message}</p>}
     {model ? <>
@@ -103,8 +98,8 @@ export default function Viewer3D({ part, example, onExampleChange }) {
       </div>
       {section && <label className="cad-section">Section position <input aria-label="Section position" type="range" min="0" max="100" value={cutPercent} onChange={event => setCutPercent(Number(event.target.value))} /><span>Hollow cut; no solid cap</span></label>}
     </> : <div className="cad-empty">{manifest.waiting?.length ? `3D waiting for human input on: ${manifest.waiting.join(', ')}` : part?.drawing?.degraded ? 'No 3D model: this drawing is a degraded scan.' : 'No 3D reconstruction is available for this part.'}</div>}
-    <div className="cad-disclosure"><strong>{reviewLabel}</strong><p>{NOTICE}</p></div>
-    {manifest.omitted?.length > 0 && <div className="cad-warning"><strong>Not shown in this reconstruction</strong><ul>{manifest.omitted.map((item, index) => <li key={index}>{typeof item === 'string' ? item : item.reason || item.name}</li>)}</ul></div>}
+    <div className="cad-disclosure"><span>{reviewed?reviewLabel:'AI reconstruction · not reviewed'}</span><p>{NOTICE}</p></div>
+    {manifest.omitted?.length > 0 && <details className="cad-warning"><summary>Partial reconstruction · some details omitted</summary><ul>{manifest.omitted.map((item, index) => <li key={index}>{typeof item === 'string' ? item : item.reason || item.name}</li>)}</ul></details>}
     {model && <details className="cad-provenance"><summary>Model provenance & STEP download</summary>
       <p>Source drawing: {part?.drawing?.id || template.part || part?.key}. Template: {template.template || 'flat_part'}. Model measured in mm; GLB stored in metres.</p>
       <p>Template SHA-256: <code>{model.template_sha256}</code></p>

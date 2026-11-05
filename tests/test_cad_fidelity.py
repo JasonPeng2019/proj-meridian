@@ -242,6 +242,78 @@ def test_malformed_or_unrelated_degree_text_is_not_a_countersink(text):
     assert verification.countersink_spec({"text": text}) is None
 
 
+def two_sided_step_fixture():
+    drawing = {"id": "D-999", "callouts": [
+        {"name": "plain", "text": "6 x 3,0 THRU ALL", "count": 6, "through": True, "page": 1, "box": [400, 0, 100, 18]},
+        {"name": "primary", "text": "3 x 4,0 THRU ALL", "count": 3, "through": True, "page": 1, "box": [0, 0, 100, 18]},
+        {"name": "sink", "text": "8,0 X 90°", "page": 1, "box": [30, 16, 60, 18]}]}
+    template = {"features_complete": known(True), "features_omitted": known([]),
+                "outline": {"type": "rectangle", "length": known(150), "width": known(80)}}
+    cuts = [{"index": i, "kind": "hole", "face": "top", "through": True, "diameter": 3,
+             "hole_type": "plain", "depth": 8, "radius": 1.5, "x": i * 10 - 25, "y": 20,
+             "fact_ids": ["plain"], "coordinate_evidence": {}} for i in range(6)]
+    for i in range(3):
+        shared = {"kind": "hole", "through": True, "diameter": 4, "depth": 8,
+                  "x": i * 20 - 20, "y": -10, "coordinate_evidence": {}}
+        cuts.append({**shared, "index": 6 + i, "face": "top", "hole_type": "countersunk", "outer": 4,
+                     "radius": 4, "sink_angle": 90, "step_depth": 2, "fact_ids": ["primary", "sink"]})
+        cuts.append({**shared, "index": 9 + i, "face": "bottom", "hole_type": "counterbored", "outer": 5,
+                     "radius": 5, "step_depth": 2, "fact_ids": ["D-999/drawing/source"]})
+    return drawing, template, cuts
+
+
+def test_two_face_steps_share_a_primary_through_bore_but_not_a_step_count():
+    drawing, template, cuts = two_sided_step_fixture()
+    rows = verification.callout_coverage(drawing, template, cuts)
+    assert [row["built_count"] for row in rows] == [6, 3, 3]
+    assert rows[1]["operation_count"] == 6
+    assert all(row["status"] == "covered" for row in rows)
+    # Coincident operations require union probes, never double-subtracted primary volume.
+    assert verification.analytic_volume(template, cuts, 8) is None
+
+
+@pytest.mark.parametrize("defect", ["missing_bore", "misplaced_opposite_bore", "extra_bore", "missing_sink", "extra_opposite_sink"])
+def test_two_sided_step_inventory_rejects_wrong_primary_or_face_specific_counts(defect):
+    drawing, template, cuts = two_sided_step_fixture()
+    if defect == "missing_bore":
+        cuts = [cut for cut in cuts if not (cut["diameter"] == 4 and cut["x"] == 20)]
+    elif defect == "misplaced_opposite_bore":
+        next(cut for cut in cuts if cut["hole_type"] == "counterbored")["x"] += 1
+    elif defect == "extra_bore":
+        cuts.append({**cuts[-1], "x": 60})
+    elif defect == "missing_sink":
+        cuts = [cut for cut in cuts if not (cut["hole_type"] == "countersunk" and cut["x"] == 20)]
+    else:
+        sink = next(cut for cut in cuts if cut["hole_type"] == "countersunk")
+        cuts.append({**sink, "face": "bottom"})
+    with pytest.raises(AssertionError):
+        verification.callout_coverage(drawing, template, cuts)
+
+
+def test_opposite_blind_holes_remain_distinct_primary_instances():
+    drawing = {"id": "D-999", "callouts": [{"name": "blind", "text": "2 x 4,0", "count": 2}]}
+    template = {"features_complete": known(True), "features_omitted": known([])}
+    cuts = [{"index": i, "kind": "hole", "face": face, "through": False, "depth": 3, "diameter": 4,
+             "hole_type": "plain", "x": 0, "y": 0, "fact_ids": ["blind"], "coordinate_evidence": {}}
+            for i, face in enumerate(("top", "bottom"))]
+    assert verification.callout_coverage(drawing, template, cuts)[0]["built_count"] == 2
+    for cut in cuts:
+        cut["through"] = True
+    with pytest.raises(AssertionError):
+        verification.callout_coverage(drawing, template, cuts)
+
+
+def test_same_face_blind_depth_operations_cannot_satisfy_a_two_hole_count():
+    drawing = {"id": "D-999", "callouts": [{"name": "blind", "text": "2 x 4,0", "count": 2}]}
+    template = {"features_complete": known(True), "features_omitted": known([])}
+    cuts = [{"index": i, "kind": "hole", "face": "top", "through": False, "depth": depth, "diameter": 4,
+             "hole_type": "plain", "x": 0, "y": 0, "fact_ids": ["blind"], "coordinate_evidence": {}}
+            for i, depth in enumerate((3, 4))]
+    assert verification.primary_bore_identity(cuts[0]) == verification.primary_bore_identity(cuts[1])
+    with pytest.raises(AssertionError):
+        verification.callout_coverage(drawing, template, cuts)
+
+
 def test_feature_option_selection_is_not_overwritten_by_review_array():
     feature = {"diameter": {"state": "options", "options": [4, 5]}}
     template = {"features": [], "features_review": {"state": "known", "value": [feature]}}

@@ -338,6 +338,18 @@ def countersink_parent(callout, callouts):
     return min(adjacent, key=lambda item: item[0])[1] if len(adjacent) == 1 else None
 
 
+def primary_bore_identity(cut):
+    """Opposite-face operations may share one fully through cylindrical bore."""
+    x, y = round(cut["x"], 7), round(cut["y"], 7)
+    if cut["kind"] == "hole":
+        diameter = round(cut["diameter"], 7)
+        if cut["through"] is True:
+            return (x, y, diameter, "through", 0.0)
+        return (x, y, diameter, cut["face"], 0.0)
+    # Slot count semantics remain face-specific.
+    return (x, y, 0.0, cut["face"], 0.0)
+
+
 def callout_coverage(drawing, template, cuts):
     omissions = value(template.get("features_omitted")) if (template.get("features_omitted") or {}).get("state") == "known" else []
     omissions = omissions if isinstance(omissions, list) else []
@@ -360,10 +372,13 @@ def callout_coverage(drawing, template, cuts):
             variant_cuts = [cut for cut in variant_cuts if cut in parent_cuts]
             built_positions = {position(cut) for cut in matching}
             variant_positions = {position(cut) for cut in variant_cuts}
-            parent_positions = {position(cut) for cut in parent_cuts}
-            covered = bool(matching) if parent is None else len(built_positions) == expected_count and built_positions == parent_positions
+            parent_bores = {primary_bore_identity(cut) for cut in parent_cuts}
+            built_bores = {primary_bore_identity(cut) for cut in matching}
+            variant_bores = {primary_bore_identity(cut) for cut in variant_cuts}
+            # Step counts retain opening-face identity; parent primary-bore counts do not.
+            covered = bool(matching) if parent is None else len(built_positions) == expected_count and built_bores == parent_bores
             variant_covered = bool(variant_cuts) if parent is None else (
-                len(built_positions | variant_positions) == expected_count and built_positions | variant_positions == parent_positions)
+                len(built_positions | variant_positions) == expected_count and built_bores | variant_bores == parent_bores)
             variant_omissions = [cut["step_omitted"] for cut in variant_cuts]
             omitted = [item for item in omissions if callout["name"] in item.get("fact_ids", []) or
                        drawing["id"] + "/drawing/source" in item.get("fact_ids", []) or drawing["id"] in item.get("fact_ids", [])]
@@ -377,13 +392,16 @@ def callout_coverage(drawing, template, cuts):
         if type(count) is not int or callout.get("feature") == "general_note":
             continue
         candidates = counted_callout_cuts(callout, cuts, drawing.get("callouts", []))
-        unique = {(round(cut["x"], 7), round(cut["y"], 7), cut["face"]) for cut in candidates}
+        unique = {primary_bore_identity(cut) for cut in candidates}
         omitted = [item for item in omissions if callout["name"] in item.get("fact_ids", []) or
                    drawing["id"] + "/drawing/source" in item.get("fact_ids", []) or drawing["id"] in item.get("fact_ids", [])]
         covered = len(unique) == count
         status = "covered" if covered else "documented_omission" if omitted and not complete else "unexplained_gap"
         rows.append({"source": callout["name"], "text": callout.get("text"), "expected_count": count,
-                     "built_count": len(unique), "positions_mm": sorted(unique), "status": status,
+                     "built_count": len(unique),
+                     "count_basis": "coincident_through_bores_by_center_and_diameter_otherwise_face_specific",
+                     "operation_count": len(candidates),
+                     "positions_mm": sorted({(round(cut["x"], 7), round(cut["y"], 7), cut["face"]) for cut in candidates}), "status": status,
                      "position_evidence": [{"feature_index": cut["index"], "fact_ids": cut["fact_ids"],
                                             "coordinates": cut["coordinate_evidence"]} for cut in candidates],
                      "omissions": omitted})

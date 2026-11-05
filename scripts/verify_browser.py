@@ -20,7 +20,7 @@ def verify_debug():
         page.on('pageerror',lambda e:errors.append(str(e)))
         page.goto(BASE+'/part/D-013/debug')
         page.locator('.debug-view').wait_for()
-        assert page.locator('.part-tabs').get_by_role('button',name='Debug',exact=True).is_visible()
+        assert page.locator('.part-tabs').get_by_role('tab',name='Debug',exact=True).is_visible()
         page.locator('.debug-tabs').get_by_role('button',name='Model & checks',exact=True).click()
         page.locator('.cad-weight > summary').click()
         assert page.locator('.cad-weight-detail').is_visible()
@@ -195,6 +195,97 @@ def verify_debug():
     (OUT/'debug-browser-check.json').write_text(json.dumps({'debug_launch':True,'calculations':True,'history':True,'raw_sources':True,'laptop_scrollbars':metrics,'searchable_parts':True,'global_awaiting_review_queue':len(unsettled),'human_input_and_review_separate':True,'source_drawing_region_and_pdf':True,'mapping_original_bom_row':True,'source_modal_retains_review':True,'typed_review_formats_and_validation':True,'part_scoped_review_counts':True,'scope_refresh_back_navigation':True,'independent_review_scroll':True,'design_approval_controls_retained':True,'page_errors':errors},indent=2),encoding='utf-8')
 
 
+def verify_redesign(context, errors):
+    """Exercise preserved client behavior without paying for or grading a model answer."""
+    page = context.new_page()
+    page.on('pageerror', lambda error: errors.append({'url': page.url, 'message': str(error)}))
+    record = get('/api/parts/D-013')
+    fact = next(f for f in record['facts'] if f['field'] == 'thickness')
+    answer = f"The drawing records two possible thicknesses. [cite:{fact['fact']}]"
+    status = {**get('/api/status'), 'chat_available': True}
+    page.route('**/api/status', lambda route: route.fulfill(json=status))
+    sent = []
+    def reply(route):
+        sent.append(route.request.post_data_json)
+        route.fulfill(json={'session_id': 'ui-redesign-fixture', 'text': answer,
+                            'facts': {fact['fact']: fact}, 'parts_to_show': [record], 'warnings': []})
+    page.route('**/api/chat', reply)
+    page.goto(BASE+'/chat')
+    composer = page.get_by_role('textbox', name='Message Meridian')
+    composer.fill('Show the recoater plate thickness.')
+    composer.press('Enter')
+    expect(page.locator('.assistant-body .answer-text')).to_contain_text('two possible thicknesses')
+    assert sent[0]['message'] == 'Show the recoater plate thickness.'
+    expect(page.locator('.attached-card')).to_have_count(1)
+    expect(composer).to_have_value('')
+    # A citation still opens the drawing at its evidence location in a side panel.
+    page.locator('.citation').click()
+    expect(page.locator('.part-side-panel .part-title h2')).to_have_text('Recoater Plate')
+    expect(page.locator('.part-side-panel .drawing-viewer')).to_be_visible()
+    page.go_back()
+    expect(page.locator('.part-side-panel')).to_have_count(0)
+    expect(page.locator('.assistant-body .answer-text')).to_contain_text('two possible thicknesses')
+    page.locator('.attached-card').click()
+    expect(page.locator('.part-side-panel .part-title h2')).to_have_text('Recoater Plate')
+    page.go_back()
+    context.grant_permissions(['clipboard-read','clipboard-write'], origin=BASE)
+    page.get_by_title('Copy answer', exact=True).click()
+    assert page.evaluate('navigator.clipboard.readText()') == answer
+    page.get_by_role('button', name='Past chats', exact=True).click()
+    dialog = page.get_by_role('dialog', name='Past chats', exact=True)
+    expect(dialog).to_be_visible()
+    # Native dialog keyboard behavior must keep focus inside and close on Escape.
+    page.keyboard.press('Tab')
+    assert dialog.evaluate('el => el.contains(document.activeElement)')
+    page.keyboard.press('Escape')
+    expect(dialog).to_have_count(0)
+    expect(page.get_by_role('button', name='Past chats', exact=True)).to_be_focused()
+    page.screenshot(path=str(OUT/'redesign-chat-answer.png'))
+    # Tab navigation works with a keyboard and keeps the drawing tools intact.
+    page.goto(BASE+'/part/D-013/detail')
+    page.get_by_role('tab', name='2D drawing', exact=True).focus()
+    page.keyboard.press('ArrowLeft')
+    page.keyboard.press('Enter')
+    expect(page.get_by_role('tab', name='3D model', exact=True)).to_have_attribute('data-state','active')
+    page.get_by_role('tab', name='2D drawing', exact=True).click()
+    zoom = page.locator('.zoom-readout')
+    before = zoom.inner_text()
+    page.get_by_title('Zoom in', exact=True).click()
+    assert zoom.inner_text() != before
+    page.get_by_role('button', name='Fit', exact=True).click()
+    expect(zoom).to_have_text('100%')
+    page.goto(BASE+'/parts')
+    page.locator('.parts-filters > summary').click()
+    page.get_by_label('Available views', exact=True).select_option('3d')
+    assert page.locator('.part-result').count() == sum(bool(p.get('has_3d')) for p in get('/api/parts'))
+    page.get_by_role('button', name='Reset', exact=True).click()
+    assert page.locator('.part-result').count() == len(get('/api/parts'))
+    responsive = []
+    for width, height, label in [(1600,1000,'desktop'),(1366,768,'laptop'),(390,844,'mobile')]:
+        page.set_viewport_size({'width':width,'height':height})
+        for name, path, ready in [('chat','/chat','.composer'),('parts','/parts','.part-result'),
+                                  ('detail','/part/D-013/detail','.summary-box')]:
+            page.goto(BASE+path)
+            page.locator(ready).first.wait_for()
+            assert not page.evaluate('document.documentElement.scrollWidth > innerWidth'), (label,name)
+            if name == 'chat':
+                expect(page.get_by_role('textbox',name='Message Meridian')).to_be_in_viewport()
+            if name == 'parts':
+                expect(page.get_by_placeholder('Search part or material?')).to_be_in_viewport()
+                # A horizontally scrollable table is contained in its own region.
+                assert page.locator('.part-result').count() == len(get('/api/parts'))
+            page.screenshot(path=str(OUT/f'redesign-{label}-{name}.png'))
+            responsive.append({'viewport':label,'screen':name,'no_page_overflow':True})
+    page.close()
+    (OUT/'redesign-browser-check.json').write_text(json.dumps({
+        'chat_reply': 'mocked transport; no paid API or answer-quality claim',
+        'send_enter_clear': True, 'citations_and_attached_parts': True,
+        'back_preserves_conversation': True, 'copy_answer': True,
+        'history_focus_trap_escape_restore': True, 'part_keyboard_tabs': True,
+        'drawing_zoom_fit': True, 'asset_filter_reset': True,
+        'responsive': responsive}, indent=2), encoding='utf-8')
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     parts, review = get('/api/parts'), get('/api/review')
@@ -239,7 +330,7 @@ def main():
                 assert 'FAILED' not in page.locator('.part-page').inner_text()
                 assert 'Needs manual review' not in page.locator('.part-page').inner_text()
                 assert page.locator('.part-title').get_by_text('AI reviewed',exact=True).is_visible()
-                assert page.locator('.part-tabs').get_by_role('button', name='Debug', exact=True).count() == 0
+                assert page.locator('.part-tabs').get_by_role('tab', name='Debug', exact=True).count() == 0
                 viewer = page.locator('.primary-view').bounding_box()
                 body = page.locator('.part-body').bounding_box()
                 assert viewer['width'] >= body['width'] * .9
@@ -270,7 +361,7 @@ def main():
                     render_page.locator('.cad-canvas canvas').wait_for()
                     render_page.wait_for_timeout(1600)
                     assert render_page.locator('.cad-empty').count() == 0, item['key']
-                    assert render_page.locator('.part-tabs').get_by_role('button',name='Debug',exact=True).count() == 0
+                    assert render_page.locator('.part-tabs').get_by_role('tab',name='Debug',exact=True).count() == 0
                     assert 'FAILED' not in render_page.locator('.part-page').inner_text()
                     render_page.screenshot(path=str(OUT/f"render-{item['key']}-{variant}.png"))
                     rendered_models.append({'drawing':item['key'],'variant':variant,'glb_sha256':exported['glb_sha256']})
@@ -315,7 +406,7 @@ def main():
         assert 'længere' not in page.locator('.notes-box').inner_text()
         page.screenshot(path=str(OUT/'english-notes.png'))
         page.goto(BASE+'/review/part/D-013')
-        page.locator('.part-tabs').get_by_role('button',name='2D drawing',exact=True).click()
+        page.locator('.part-tabs').get_by_role('tab',name='2D drawing',exact=True).click()
         print('review_controls_retained',page.locator('.part-review-controls').is_visible(),'approval_disabled',page.get_by_role('button',name='Approve whole design',exact=True).is_disabled(),flush=True)
         page.screenshot(path=str(OUT/'review-d013-drawing.png'))
         page.goto(BASE+'/review/possible-readings/options:D-025/template/thickness')
@@ -341,6 +432,7 @@ def main():
             print('source_changed_reapprove_control_visible',True,flush=True)
         else:
             print('source_changed_reapprove_control','no changed-evidence items in live data; action not submitted',flush=True)
+        verify_redesign(context, errors)
         context.close()
     result = {'page_errors':errors,'failed_responses':failures,'model_checked':model,'models_rendered':rendered_models,'bom_checked':bom,
               'default_hierarchy': {'focused_model': True, 'filters_collapsed': True, 'technical_details_collapsed': True,

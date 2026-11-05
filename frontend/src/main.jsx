@@ -4,5 +4,8 @@ import App from './App.jsx';
 import './styles.css';
 import './clean-layout.css';
 import './engineering.css';
+import './workspace.css';
+import './chat/workspace.css';
+import './part/workspace.css';
 
 createRoot(document.getElementById('root')).render(<App />);

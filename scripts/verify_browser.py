@@ -324,7 +324,11 @@ def verify_redesign(context, errors):
                                   ('drawing','/part/D-003/2d','.drawing-paper')]:
             page.goto(BASE+path)
             page.locator(ready).first.wait_for()
-            assert not page.evaluate('document.documentElement.scrollWidth > innerWidth'), (label,name)
+            if page.evaluate('document.documentElement.scrollWidth > innerWidth'):
+                page.screenshot(path=str(OUT/f'redesign-overflow-{label}-{name}.png'))
+                overflow = page.evaluate('''() => [...document.querySelectorAll('*')].map(el => ({tag:el.tagName,cls:el.className,left:el.getBoundingClientRect().left,right:el.getBoundingClientRect().right,width:el.getBoundingClientRect().width,scroll:el.scrollWidth,client:el.clientWidth})).filter(el => el.right>innerWidth || el.left<0)''')
+                (OUT/'redesign-overflow.json').write_text(json.dumps(overflow,indent=2),encoding='utf-8')
+                raise AssertionError((label,name,'page overflow; see redesign-overflow.json'))
             if name == 'chat':
                 expect(page.get_by_role('textbox',name='Message Meridian')).to_be_in_viewport()
             if name == 'parts':

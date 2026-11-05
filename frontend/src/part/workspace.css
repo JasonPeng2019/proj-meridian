@@ -5,11 +5,15 @@
   color: #172033;
   overflow-y: auto;
   display: block;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
 }
 .library-catalog .parts-browser {
   width: 100%;
   max-width: 1320px;
   min-height: 0;
+  min-width: 0;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -23,9 +27,10 @@
 .library-catalog .parts-browser-header p { margin: 7px 0 0; color: #647084; font-size: 13px; line-height: 1.6; }
 .library-catalog .library-total { display: inline-flex; align-items: center; gap: 8px; flex-shrink: 0; color: #647084; font-size: 12px; }
 .library-catalog .library-total svg { color: #85909e; }
-.library-catalog .library-toolbar { display: flex; align-items: center; gap: 10px; }
+.library-catalog .library-toolbar { display: flex; align-items: center; gap: 10px; min-width: 0; }
 .library-catalog .library-search { flex: 1; width: 100%; max-width: 490px; height: 40px; padding: 0 12px; border: 1px solid #dfe3e8; border-radius: 8px; background: white; color: #647084; }
 .library-catalog .library-search:focus-within { border-color: #70a598; box-shadow: 0 0 0 3px #176b5b0b; }
+.library-catalog .library-search { min-width: 0; }
 .library-catalog .library-search input { width: 100%; height: 38px; padding: 0; border: 0; border-radius: 0; font-size: 13px; color: #172033; box-shadow: none; outline: none; }
 .library-catalog .library-search input::placeholder { color: #7b8594; }
 .library-catalog .library-search button { height: 25px; width: 25px; min-width: 25px; border-radius: 4px; color: #647084; }

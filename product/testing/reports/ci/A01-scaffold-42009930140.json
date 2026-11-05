@@ -1,0 +1,115 @@
+{
+  "scope": "A01 scaffold repair; no V1-V5 gate or live prep credit",
+  "outcome": "PASS",
+  "branch": "harness-v2",
+  "publication_commit": "5a47ff471c3064c982f6de146fc53f8a3e6a4ad6",
+  "native_candidate": "51202ff6b4d28ba9052d34d1a938208b5be10acc",
+  "check_run": "42009930140",
+  "regression_run": "42009930359",
+  "steps": [
+    {
+      "name": "Set up job",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run mkdir -p tmp cache/uv cache/npm reports/ci",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+      "conclusion": "success"
+    },
+    {
+      "name": "Install locked Python test dependencies without CAD",
+      "conclusion": "success"
+    },
+    {
+      "name": "Lightweight foundation checks",
+      "conclusion": "success"
+    },
+    {
+      "name": "Build frontend remotely",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check frozen TypeScript payloads, fixtures and Debug props",
+      "conclusion": "success"
+    },
+    {
+      "name": "Save frontend and its provenance",
+      "conclusion": "success"
+    },
+    {
+      "name": "Save check reports",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+      "conclusion": "success"
+    },
+    {
+      "name": "Complete job",
+      "conclusion": "success"
+    }
+  ],
+  "exact_blob_matches": [
+    {
+      "path": ".gitignore",
+      "sha256": "4a3da03f8ebd61987e3b5c3b80c238598cc46c496927119083eac32d646b8091"
+    },
+    {
+      "path": "development/.env.example",
+      "sha256": "b78caf06ead169de7d3644b0a588bf984e7c008b23844b0012e030c14ff614cc"
+    },
+    {
+      "path": "development/ai_settings.yaml",
+      "sha256": "92eef3213f095e8af80f260a4fe114d18cbfcea058bdab7147a959b3044207db"
+    },
+    {
+      "path": "development/backend/launcher.py",
+      "sha256": "fc8f2094963bace8eeea88f77c214a2b87169f545f4c746249c818ef9ad35112"
+    },
+    {
+      "path": "development/backend/settings.py",
+      "sha256": "77a054f9711f5eb68c6f39886ab54a5ed21da3cfb74a568b6f3beb67f4a5f6c2"
+    },
+    {
+      "path": "development/frontend/package.json",
+      "sha256": "a6cb7529a1f975e11f2f863e688fe35351f4580087def623652dfbdfa493016e"
+    },
+    {
+      "path": "development/frontend/src/vite-env.d.ts",
+      "sha256": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5"
+    },
+    {
+      "path": "testing/reports/b00/A01-scaffold/B00-repair-static.json",
+      "sha256": "f4f91b2bfb38804861b54d700a3c7d77c4c59cca84f54e7f218d6db015699d60"
+    },
+    {
+      "path": "testing/reports/b00/A01-scaffold/SMOKE.md",
+      "sha256": "4343d7dde50da780eaf7a26ae726b9e418771210220de3e1e290ab823e57f9b8"
+    },
+    {
+      "path": "testing/reports/b00/A01-scaffold/smoke_checks.py",
+      "sha256": "51af8236d7ac552104389e5d3a8b52b019d7c906553fdd3ae0612a7220f2b09e"
+    }
+  ],
+  "regression_case_count": 23,
+  "local_build_or_tests": false
+}

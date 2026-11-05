@@ -76,6 +76,46 @@
       "model": "CostSummaryResult"
     },
     {
+      "file": "conversation-read-a.json",
+      "model": "ConversationDetail"
+    },
+    {
+      "file": "conversation-state-a.json",
+      "model": "ConversationState"
+    },
+    {
+      "file": "conversation-read-b.json",
+      "model": "ConversationDetail"
+    },
+    {
+      "file": "conversation-state-b.json",
+      "model": "ConversationState"
+    },
+    {
+      "file": "conversation-new.json",
+      "model": "ConversationDetail"
+    },
+    {
+      "file": "conversation-create-request.json",
+      "model": "ConversationCreateRequest"
+    },
+    {
+      "file": "conversation-list.json",
+      "model": "ConversationListResponse"
+    },
+    {
+      "file": "conversation-send-request.json",
+      "model": "ConversationSendRequest"
+    },
+    {
+      "file": "conversation-context-a.json",
+      "model": "ConversationContext"
+    },
+    {
+      "file": "conversation-send-response.json",
+      "model": "ConversationSendResponse"
+    },
+    {
       "file": "status-configured.json",
       "model": "StatusResponse"
     },

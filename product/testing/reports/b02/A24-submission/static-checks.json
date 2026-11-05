@@ -1,0 +1,179 @@
+{
+  "scope": "A24 early documentation static inspection only",
+  "inspected_at": "2026-11-05T05:32:53.841332-05:00",
+  "base_commit": "a2ac4e9c0ed7ec63b9a1b7d44bd7b4add60094db",
+  "checks": [
+    {
+      "name": "Local Markdown targets",
+      "command": "python -B - (static inspection program on stdin)",
+      "outcome": "PASS",
+      "evidence": "30 local targets exist inside the worktree; external run links not fetched."
+    },
+    {
+      "name": "Current claims and setup boundary",
+      "command": "python -B - (static inspection program on stdin); Get-Content of cited setup/source/report files",
+      "outcome": "PASS",
+      "evidence": "Server absent; App placeholder; uv lock and A01 accepted-candidate receipt present. Pending gate/prep/history and honest status wording retained. Inspection only, no product execution."
+    },
+    {
+      "name": "Private history exclusion",
+      "command": "git check-ignore --no-index development/chat_history/probe.json",
+      "outcome": "PASS",
+      "evidence": "development/chat_history/probe.json; no history created."
+    },
+    {
+      "name": "Staged whitespace",
+      "command": "git diff --cached --check",
+      "outcome": "PASS",
+      "evidence": "Exit 0; no whitespace errors in the staged documentation."
+    },
+    {
+      "name": "Owned paths only",
+      "command": "git diff --cached --name-only",
+      "outcome": "PASS",
+      "evidence": [
+        "development/README.md",
+        "testing/reports/b02/A24-submission/HANDOFF.md",
+        "testing/reports/b02/A24-submission/static-checks.json"
+      ]
+    }
+  ],
+  "local_links": [
+    {
+      "document": "development/README.md",
+      "target": "docs/PLAN.md"
+    },
+    {
+      "document": "development/README.md",
+      "target": "docs/WORKFLOW.md"
+    },
+    {
+      "document": "development/README.md",
+      "target": "pyproject.toml"
+    },
+    {
+      "document": "development/README.md",
+      "target": "backend/launcher.py"
+    },
+    {
+      "document": "development/README.md",
+      "target": "ai_settings.yaml"
+    },
+    {
+      "document": "development/README.md",
+      "target": "backend/settings.py"
+    },
+    {
+      "document": "development/README.md",
+      "target": ".env.example"
+    },
+    {
+      "document": "development/README.md",
+      "target": "backend/loader/drawings.py"
+    },
+    {
+      "document": "development/README.md",
+      "target": "backend/loader/bom.py"
+    },
+    {
+      "document": "development/README.md",
+      "target": "backend/contracts.py"
+    },
+    {
+      "document": "development/README.md",
+      "target": "frontend/src/contracts.ts"
+    },
+    {
+      "document": "development/README.md",
+      "target": "backend/loader/decisions.py"
+    },
+    {
+      "document": "development/README.md",
+      "target": "frontend/src/App.tsx"
+    },
+    {
+      "document": "development/README.md",
+      "target": "../testing/reports/ci/A01-scaffold-42009930140.json"
+    },
+    {
+      "document": "development/README.md",
+      "target": "../testing/reports/ci/B01-inputs-42003114928.json"
+    },
+    {
+      "document": "development/README.md",
+      "target": "../testing/reports/ci/B01-contracts-decisions-42007163333.json"
+    },
+    {
+      "document": "development/README.md",
+      "target": "../testing/reports/qualification/A08-runner/QUALIFICATION.md"
+    },
+    {
+      "document": "development/README.md",
+      "target": "../testing/reports/qualification/A13-cad/QUALIFICATION.md"
+    },
+    {
+      "document": "development/README.md",
+      "target": "../testing/reports/ci/capability-41998597947/harness-v2-browser-41998597947/browser/report.json"
+    },
+    {
+      "document": "development/README.md",
+      "target": "docs/benchmark_draft.md"
+    },
+    {
+      "document": "development/README.md",
+      "target": "USER_TODO.md"
+    },
+    {
+      "document": "development/README.md",
+      "target": "scripts/frontend_artifact.py"
+    },
+    {
+      "document": "development/README.md",
+      "target": "docs/REMOTE_VERIFICATION.md"
+    },
+    {
+      "document": "development/README.md",
+      "target": "../testing/reports/ci/frontend-installed.json"
+    },
+    {
+      "document": "development/README.md",
+      "target": "inputs/project-meridian/ATTRIBUTION.md"
+    },
+    {
+      "document": "development/README.md",
+      "target": "inputs/project-meridian/dataset/context/OpenLPBF-LICENSE.md"
+    },
+    {
+      "document": "development/README.md",
+      "target": "inputs/project-meridian/dataset/manifest.json"
+    },
+    {
+      "document": "development/README.md",
+      "target": "inputs/project-meridian/dataset/README.md"
+    },
+    {
+      "document": "testing/reports/b02/A24-submission/HANDOFF.md",
+      "target": "../../../../development/README.md"
+    },
+    {
+      "document": "testing/reports/b02/A24-submission/HANDOFF.md",
+      "target": "static-checks.json"
+    }
+  ],
+  "documents_sha256": {
+    "development/README.md": "069150607dab79d59101836fe8de79bd026b4838644f2c8d38e0ed34e682d35d",
+    "testing/reports/b02/A24-submission/HANDOFF.md": "3d36a1949afd402e3558d069059fa08eb3537ddb67b33d58f8b60042e2564e7c"
+  },
+  "not_performed": [
+    "tests",
+    "builds",
+    "dependency installs",
+    "live models",
+    "app startup",
+    "remote dispatch",
+    "source-engineering validation",
+    "human review",
+    "V1-V5 gates"
+  ],
+  "source_validation": "NOT PERFORMED; full deterministic extraction acceptance is attributed to PLAN/ROOT handoff and exact remote run, not independently reproduced."
+}

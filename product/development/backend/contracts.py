@@ -14,6 +14,7 @@ import re
 import unicodedata
 from dataclasses import dataclass
 from enum import StrEnum
+from pathlib import Path
 from typing import Annotated, Callable, Generic, Literal, Protocol, Sequence, TypeVar
 from urllib.parse import quote, unquote
 
@@ -29,6 +30,10 @@ SINGLE_MODEL_LABEL = "UNVERIFIED: Sol only; Opus execution failed."  # Debug onl
 PREP_PIPELINE_VERSION = "determine-verify/v1"
 DEBUG_ENV = "MERIDIAN_DEBUG"  # A01 owns parsing; unset/0 disables, 1 explicitly enables.
 CHAT_MODEL = "gpt-6-luna"
+CHAT_CONTEXT_TURNS = 10  # Individual user/assistant messages, INCLUDING the current user message.
+CONVERSATION_TITLE_LIMIT = 80  # Unicode code points after collapsing first-user-message whitespace.
+ConversationId = Annotated[str, StringConstraints(pattern=r"^[A-Za-z0-9][A-Za-z0-9_-]{0,127}$")]
+MessageId = Annotated[str, StringConstraints(pattern=r"^[A-Za-z0-9][A-Za-z0-9_-]{0,127}$")]
 NonEmpty = Annotated[str, StringConstraints(min_length=1)]
 Reason = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1)]
 SHA256 = Annotated[str, StringConstraints(pattern=r"^[0-9a-f]{64}$")]
@@ -1536,8 +1541,10 @@ class ChatTurn(ContractModel):
 
 class ChatRequest(Payload):
     message: NonEmpty
+    # Compatibility input ONLY. M03/M15 ignore it for context and authorization;
+    # the selected server-owned conversation is the sole source of prior turns.
     history: list[ChatTurn] = Field(default_factory=list, max_length=10)
-    conversation_id: str | None = None
+    conversation_id: ConversationId | None = None  # None -> create a new conversation, never reuse a global thread.
 
 
 class ChatObservation(ContractModel):
@@ -1557,7 +1564,7 @@ class ChatResponse(Payload):
     warnings: list[ChatWarning]
     markers: list[ChatMarker] = Field(default_factory=list)
     attachment_layout: Literal["none", "cards", "list"]
-    conversation_id: str | None = None
+    conversation_id: ConversationId | None = None  # Required by the saved-message envelope; optional for old fixtures.
     observation: ChatObservation | None = None
 
     @model_validator(mode="after")
@@ -1568,6 +1575,116 @@ class ChatResponse(Payload):
             raise ValueError("Attachments are unique, citation-ordered; cards for 1-3, list for 4+")
         if any(key != fact.fact for key, fact in self.facts.items()):
             raise ValueError("Fact map keys must equal their stable fact names")
+        return self
+
+
+class ConversationSummary(ContractModel):
+    # Server generates opaque, path-safe IDs and stamps aware UTC times. List order:
+    # updated_at descending, then conversation_id ascending for equal timestamps.
+    conversation_id: ConversationId
+    title: Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=CONVERSATION_TITLE_LIMIT)]
+    created_at: AwareDatetime
+    updated_at: AwareDatetime
+
+    @model_validator(mode="after")
+    def chronological(self) -> ConversationSummary:
+        if self.updated_at < self.created_at:
+            raise ValueError("Conversation update cannot precede creation")
+        return self
+
+
+class SavedUserMessage(ContractModel):
+    id: MessageId
+    role: Literal["user"]
+    text: NonEmpty
+    created_at: AwareDatetime
+
+
+class SavedAssistantMessage(ContractModel):
+    id: MessageId
+    role: Literal["assistant"]
+    # Preserve the complete reply: raw text, facts/sources, markers, attachments,
+    # warnings and observations. Rendering history does not call tools or Luna.
+    response: ChatResponse
+    created_at: AwareDatetime
+
+
+SavedChatMessage = Annotated[SavedUserMessage | SavedAssistantMessage, Field(discriminator="role")]
+
+
+class ConversationListRequest(ContractModel):
+    pass
+
+
+class ConversationCreateRequest(Payload):
+    # Empty body (fixture metadata excepted): no client ID, title, messages or ledger.
+    # New chat starts empty with title "New chat"; the first user message sets
+    # the title by collapsing whitespace and taking its first 80 code points.
+    # M15 generates the title without a model and keeps it on later sends.
+    pass
+
+
+class ConversationRequest(ContractModel):
+    conversation_id: ConversationId  # Decoded path ID; unknown IDs are not_found, never auto-created.
+
+
+class ConversationListResponse(Payload):
+    conversations: list[ConversationSummary]
+
+    @model_validator(mode="after")
+    def ordered(self) -> ConversationListResponse:
+        ids = [item.conversation_id for item in self.conversations]
+        ordered = sorted(self.conversations, key=lambda item: item.conversation_id)
+        ordered.sort(key=lambda item: item.updated_at, reverse=True)
+        if len(set(ids)) != len(ids) or self.conversations != ordered:
+            raise ValueError("Conversation list needs unique IDs in updated-time order")
+        return self
+
+
+class ConversationDetail(Payload):
+    conversation: ConversationSummary
+    messages: list[SavedChatMessage]  # ALL saved messages; no model-window limit or client ledger.
+
+    @model_validator(mode="after")
+    def saved_messages(self) -> ConversationDetail:
+        ids = [message.id for message in self.messages]
+        times = [self.conversation.created_at, *(message.created_at for message in self.messages), self.conversation.updated_at]
+        if len(set(ids)) != len(ids) or times != sorted(times):
+            raise ValueError("Saved messages need unique stable IDs and chronological server timestamps")
+        if any(isinstance(message, SavedAssistantMessage)
+               and message.response.conversation_id != self.conversation.conversation_id for message in self.messages):
+            raise ValueError("Saved assistant replies must belong to this conversation")
+        return self
+
+
+class ConversationSendRequest(Payload):
+    # Preserve the full user text, rejecting empty/whitespace-only input. No client
+    # history, facts, messages, tool results or ledger accepted.
+    message: Annotated[str, StringConstraints(min_length=1, pattern=r"\S")]
+
+
+class ConversationSendResponse(Payload):
+    conversation: ConversationSummary
+    messages: tuple[SavedUserMessage, SavedAssistantMessage]  # Exactly the two committed messages, full reply included.
+
+    @model_validator(mode="after")
+    def committed_pair(self) -> ConversationSendResponse:
+        ConversationDetail(conversation=self.conversation, messages=list(self.messages))
+        return self
+
+
+class ConversationContext(Payload):
+    # SERVER ONLY: M15 projects the selected saved messages + current user message,
+    # takes the last 10 individual messages, and passes ONLY these turns to Luna
+    # (alongside system instructions/current tool exchange). No provider session
+    # or previous_response_id may reintroduce older/another thread's context.
+    conversation_id: ConversationId
+    turns: list[ChatTurn] = Field(min_length=1, max_length=CHAT_CONTEXT_TURNS)
+
+    @model_validator(mode="after")
+    def current_user(self) -> ConversationContext:
+        if self.turns[-1].role != "user":
+            raise ValueError("Model context includes the current user message as its last turn")
         return self
 
 
@@ -1831,6 +1948,71 @@ class CostSummaryResult(Payload):
         return self
 
 
+ChatToolResult = (FindPartResult | GetFactsResult | GetConnectionsResult | PartGroupResult
+                  | MachineSummaryResult | CostSummaryResult | ProposeCorrectionResult)
+
+
+class ToolLedgerEntry(ContractModel):
+    # SERVER ONLY: record successful actual tool returns, never client/model claims.
+    # The result retains the full returned facts/sources/parts. Only facts actually
+    # returned by these calls authorize citations; saved assistant text does not.
+    call_id: NonEmpty
+    user_message_id: MessageId
+    tool_name: Literal["find_part", "get_facts", "get_connections", "parts_in_section", "parts_with_material",
+                       "machine_summary", "cost_summary", "propose_correction"]
+    arguments: dict[str, JsonValue]
+    result: ChatToolResult
+
+    @model_validator(mode="after")
+    def actual_result_type(self) -> ToolLedgerEntry:
+        expected = {"find_part": FindPartResult, "get_facts": GetFactsResult, "get_connections": GetConnectionsResult,
+                    "parts_in_section": PartGroupResult, "parts_with_material": PartGroupResult,
+                    "machine_summary": MachineSummaryResult, "cost_summary": CostSummaryResult,
+                    "propose_correction": ProposeCorrectionResult}[self.tool_name]
+        if not isinstance(self.result, expected):
+            raise ValueError("Ledger result must match its actual tool")
+        facts = getattr(self.result, "facts", {})
+        if any(name != fact.fact for name, fact in facts.items()):
+            raise ValueError("Tool ledger fact keys must equal stable fact names")
+        return self
+
+
+class ConversationLedger(ContractModel):
+    conversation_id: ConversationId
+    entries: list[ToolLedgerEntry] = Field(default_factory=list)  # Full per-thread log, independent of last10 context.
+    # M15 rebuilds the selected thread's fact index from these trusted returns in
+    # order (latest returned value per name). Never merge a global/other ledger;
+    # current-turn unique-match attachment fallback resets on every send.
+
+    @model_validator(mode="after")
+    def unique_calls(self) -> ConversationLedger:
+        if len({entry.call_id for entry in self.entries}) != len(self.entries):
+            raise ValueError("Tool call IDs must be unique within the owning thread")
+        return self
+
+
+class ConversationState(Payload):
+    # SERVER-OWNED DISK SHAPE, never an API request/response. M15 alone reads/writes
+    # this JSON under A01's ignored development/chat_history directory. No DB.
+    # Save full history + ledger atomically; serialize read/append/tool/save for
+    # each thread. Never truncate disk history to the provider window. Corrupt
+    # history is an error, not an empty thread to overwrite. No API key for reads
+    # or empty-thread creation. Provider/key failures are ErrorResponse, never a
+    # fabricated successful reply; retain already saved messages/tool results.
+    schema_version: Literal["chat-history/v1"] = "chat-history/v1"
+    detail: ConversationDetail
+    ledger: ConversationLedger
+
+    @model_validator(mode="after")
+    def owning_thread(self) -> ConversationState:
+        if self.detail.conversation.conversation_id != self.ledger.conversation_id:
+            raise ValueError("Conversation history and ledger must have the same owner")
+        users = {message.id for message in self.detail.messages if message.role == "user"}
+        if any(entry.user_message_id not in users for entry in self.ledger.entries):
+            raise ValueError("Each tool call must belong to a saved user message in this thread")
+        return self
+
+
 class PrepJobRequest(Payload):
     pipeline_version: Literal["determine-verify/v1"] = PREP_PIPELINE_VERSION
     job: NonEmpty
@@ -1906,6 +2088,10 @@ API_ENDPOINTS = (
     Endpoint("GET", "/api/parts/{id}/image", "ImageRequest", "BinaryResponse", "M1", "image/png"),
     Endpoint("GET", "/api/models/{drawing_id}_{example}.glb", "ModelRequest", "BinaryResponse", "M1", "model/gltf-binary"),
     Endpoint("POST", "/api/chat", "ChatRequest", "ChatResponse", "M1"),
+    Endpoint("GET", "/api/conversations", "ConversationListRequest", "ConversationListResponse", "M1"),
+    Endpoint("POST", "/api/conversations", "ConversationCreateRequest", "ConversationDetail", "M1"),
+    Endpoint("GET", "/api/conversations/{conversation_id}", "ConversationRequest", "ConversationDetail", "M1"),
+    Endpoint("POST", "/api/conversations/{conversation_id}/messages", "ConversationSendRequest", "ConversationSendResponse", "M1"),
     Endpoint("GET", "/api/review", "ReviewListRequest", "ReviewListResponse", "M1"),
     Endpoint("POST", "/api/review/{item_id}", "ReviewActionRequest", "ReviewActionResponse", "M1"),
     Endpoint("GET", "/api/parts/{id}/history", "HistoryRequest", "HistoryResponse", "M2"),
@@ -1963,6 +2149,25 @@ class FactTools(Protocol):
     def propose_correction(self, fact_id: str, new_value: JsonValue, reason: str) -> ProposeCorrectionResult: ...
 
 
+class ConversationService(Protocol):
+    # M03 injects this one M15 service, not a second route-owned/global ledger.
+    # List/create/read require no provider/key. Missing thread -> not_found;
+    # send key/provider/validation failures use the existing APIError codes.
+    def list_conversations(self, request: ConversationListRequest) -> ConversationListResponse: ...
+    def create_conversation(self, request: ConversationCreateRequest) -> ConversationDetail: ...
+    def read_conversation(self, request: ConversationRequest) -> ConversationDetail: ...
+    async def send(self, request: ConversationRequest, body: ConversationSendRequest) -> ConversationSendResponse: ...
+
+
+class ConversationServiceFactory(Protocol):
+    # M15 exports create_chat_service with this signature in backend/app/chat.py.
+    # M03 supplies A01's resolved path, M14 tools, and the server-only OpenAI
+    # Responses client (None without a key). No SDK import in contracts.
+    # Compatibility POST /api/chat: create if ID is None, otherwise read that ID;
+    # ignore client history, delegate send, return messages[1].response.
+    def __call__(self, *, history_dir: Path, tools: FactTools, client: object | None) -> ConversationService: ...
+
+
 class PrepRunner(Protocol):
     # M08 owns one serial job/queue, CLI execution, bounded retry, cache and next-launch Opus retry.
     def __call__(self, request: PrepJobRequest) -> PrepProvenance: ...
@@ -2005,6 +2210,8 @@ CONTRACT_ALIASES = {
     "Pattern": Pattern, "Face": Face, "Feature": Feature, "FeatureField": FeatureField,
     "PartsResponse": PartsResponse, "ReviewListResponse": ReviewListResponse,
     "CustomerReviewStatus": CustomerReviewStatus, "MoneyDKK": MoneyDKK,
+    "ConversationId": ConversationId, "MessageId": MessageId,
+    "SavedChatMessage": SavedChatMessage, "ChatToolResult": ChatToolResult,
 }
 
 

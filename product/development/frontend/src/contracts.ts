@@ -107,6 +107,8 @@ export type ChatResponse = {
   "observation"?: ChatObservation | null;
 };
 
+export type ChatToolResult = FindPartResult | GetFactsResult | GetConnectionsResult | PartGroupResult | MachineSummaryResult | CostSummaryResult | ProposeCorrectionResult;
+
 export type ChatTurn = {
   "role": "user" | "assistant";
   "text": string;
@@ -143,6 +145,81 @@ export type ConnectionEvidence = {
   "target_part"?: string | null;
   "resolved": boolean;
   "note"?: string | null;
+};
+
+export type ConversationContext = {
+  "fixture"?: boolean;
+  "synthetic"?: boolean;
+  "fixture_note"?: string | null;
+  "conversation_id": string;
+  "turns": Array<ChatTurn>;
+};
+
+export type ConversationCreateRequest = {
+  "fixture"?: boolean;
+  "synthetic"?: boolean;
+  "fixture_note"?: string | null;
+};
+
+export type ConversationDetail = {
+  "fixture"?: boolean;
+  "synthetic"?: boolean;
+  "fixture_note"?: string | null;
+  "conversation": ConversationSummary;
+  "messages": Array<SavedUserMessage | SavedAssistantMessage>;
+};
+
+export type ConversationId = string;
+
+export type ConversationLedger = {
+  "conversation_id": string;
+  "entries"?: Array<ToolLedgerEntry>;
+};
+
+export type ConversationListRequest = {
+
+};
+
+export type ConversationListResponse = {
+  "fixture"?: boolean;
+  "synthetic"?: boolean;
+  "fixture_note"?: string | null;
+  "conversations": Array<ConversationSummary>;
+};
+
+export type ConversationRequest = {
+  "conversation_id": string;
+};
+
+export type ConversationSendRequest = {
+  "fixture"?: boolean;
+  "synthetic"?: boolean;
+  "fixture_note"?: string | null;
+  "message": string;
+};
+
+export type ConversationSendResponse = {
+  "fixture"?: boolean;
+  "synthetic"?: boolean;
+  "fixture_note"?: string | null;
+  "conversation": ConversationSummary;
+  "messages": [SavedUserMessage, SavedAssistantMessage];
+};
+
+export type ConversationState = {
+  "fixture"?: boolean;
+  "synthetic"?: boolean;
+  "fixture_note"?: string | null;
+  "schema_version"?: "chat-history/v1";
+  "detail": ConversationDetail;
+  "ledger": ConversationLedger;
+};
+
+export type ConversationSummary = {
+  "conversation_id": string;
+  "title": string;
+  "created_at": string;
+  "updated_at": string;
 };
 
 export type Correction = {
@@ -628,6 +705,8 @@ export type MachineSummaryResult = {
 };
 
 export type MappingRelationship = "same" | "kind_of" | "different" | "no_equivalent";
+
+export type MessageId = string;
 
 export type Method = "parsed" | "cleanup_rule" | "exact_match" | "ai_read" | "ai_agreed" | "ai_agreed_after_retry" | "ai_verified" | "ai_verified_after_retry" | "ai_single_model" | "human_decision" | "unresolved";
 
@@ -1125,6 +1204,22 @@ export type RowPattern = {
   "direction_deg": KnownNumberField | OptionsNumberField | UnknownField;
 };
 
+export type SavedAssistantMessage = {
+  "id": string;
+  "role": "assistant";
+  "response": ChatResponse;
+  "created_at": string;
+};
+
+export type SavedChatMessage = SavedUserMessage | SavedAssistantMessage;
+
+export type SavedUserMessage = {
+  "id": string;
+  "role": "user";
+  "text": string;
+  "created_at": string;
+};
+
 export type SlotFeature = {
   "kind"?: "slot";
   "face": "top" | "bottom" | "front" | "back" | "left" | "right" | "outer" | "inner";
@@ -1207,6 +1302,14 @@ export type TemplateOption_str_ = {
 };
 
 export type TextField = KnownTextField | OptionsTextField | UnknownField;
+
+export type ToolLedgerEntry = {
+  "call_id": string;
+  "user_message_id": string;
+  "tool_name": "find_part" | "get_facts" | "get_connections" | "parts_in_section" | "parts_with_material" | "machine_summary" | "cost_summary" | "propose_correction";
+  "arguments": { [key: string]: JsonValue };
+  "result": FindPartResult | GetFactsResult | GetConnectionsResult | PartGroupResult | MachineSummaryResult | CostSummaryResult | ProposeCorrectionResult;
+};
 
 export type UndeterminedDisplay = {
   "state"?: "undetermined";
@@ -1330,6 +1433,38 @@ export const API_ENDPOINTS = [
     "path": "/api/chat",
     "request": "ChatRequest",
     "response": "ChatResponse",
+    "milestone": "M1",
+    "media_type": "application/json"
+  },
+  {
+    "method": "GET",
+    "path": "/api/conversations",
+    "request": "ConversationListRequest",
+    "response": "ConversationListResponse",
+    "milestone": "M1",
+    "media_type": "application/json"
+  },
+  {
+    "method": "POST",
+    "path": "/api/conversations",
+    "request": "ConversationCreateRequest",
+    "response": "ConversationDetail",
+    "milestone": "M1",
+    "media_type": "application/json"
+  },
+  {
+    "method": "GET",
+    "path": "/api/conversations/{conversation_id}",
+    "request": "ConversationRequest",
+    "response": "ConversationDetail",
+    "milestone": "M1",
+    "media_type": "application/json"
+  },
+  {
+    "method": "POST",
+    "path": "/api/conversations/{conversation_id}/messages",
+    "request": "ConversationSendRequest",
+    "response": "ConversationSendResponse",
     "milestone": "M1",
     "media_type": "application/json"
   },
@@ -1476,6 +1611,8 @@ export const SINGLE_MODEL_LABEL = "UNVERIFIED: Sol only; Opus execution failed."
 export const PREP_PIPELINE_VERSION = "determine-verify/v1" as const;
 export const DEBUG_ENV = "MERIDIAN_DEBUG" as const;
 export const CHAT_MODEL = "gpt-6-luna" as const;
+export const CHAT_CONTEXT_TURNS = 10 as const; // Includes the current user message; saved history is unlimited.
+export const CONVERSATION_TITLE_LIMIT = 80 as const;
 
 // API call shapes distinguish decoded path IDs, query values, and POST bodies.
 // PNG/GLB/STEP successes are binary Blob values; every non-2xx JSON response is
@@ -1487,6 +1624,10 @@ export interface ApiCalls {
   image: { path: PartRequest; query: Pick<ImageRequest, "page" | "thumb">; response: Blob };
   model: { path: ModelRequest; response: Blob };
   chat: { body: ChatRequest; response: ChatResponse };
+  conversations: { query: ConversationListRequest; response: ConversationListResponse };
+  create_conversation: { body: ConversationCreateRequest; response: ConversationDetail };
+  conversation: { path: ConversationRequest; response: ConversationDetail };
+  send_conversation: { path: ConversationRequest; body: ConversationSendRequest; response: ConversationSendResponse };
   review: { query: ReviewListRequest; response: ReviewListResponse };
   review_action: { path: ReviewItemRequest; body: ReviewActionRequest; response: ReviewActionResponse };
   history: { path: PartRequest; query: Pick<HistoryRequest, "fact">; response: HistoryResponse };
@@ -1503,6 +1644,10 @@ export interface ApiClient {
   image(request: ImageRequest): Promise<Blob>;
   model(request: ModelRequest): Promise<Blob>;
   chat(request: ChatRequest): Promise<ChatResponse>;
+  conversations(request?: ConversationListRequest): Promise<ConversationListResponse>;
+  create_conversation(request?: ConversationCreateRequest): Promise<ConversationDetail>;
+  conversation(request: ConversationRequest): Promise<ConversationDetail>;
+  send_conversation(path: ConversationRequest, body: ConversationSendRequest): Promise<ConversationSendResponse>;
   review(request?: ReviewListRequest): Promise<ReviewListResponse>;
   review_action(path: ReviewItemRequest, body: ReviewActionRequest): Promise<ReviewActionResponse>;
   history?(request: HistoryRequest): Promise<HistoryResponse>;
@@ -1539,6 +1684,24 @@ export interface FactTools {
   cost_summary(): CostSummaryResult;
   propose_correction(fact_id: string, new_value: JsonValue, reason: string): ProposeCorrectionResult;
 }
+
+// Server-only call boundaries, mirroring Python. These interfaces do not expose
+// disk state/ledger or SDK clients through ApiClient. M03 injects one M15 service.
+export interface ConversationService {
+  list_conversations(request: ConversationListRequest): ConversationListResponse;
+  create_conversation(request: ConversationCreateRequest): ConversationDetail;
+  read_conversation(request: ConversationRequest): ConversationDetail;
+  send(request: ConversationRequest, body: ConversationSendRequest): Promise<ConversationSendResponse>;
+}
+export type ConversationServiceFactory = (dependencies: {
+  history_dir: string; tools: FactTools; client: object | null;
+}) => ConversationService;
+// /api/chat is a compatibility adapter to that same service. Ignore history;
+// absent ID creates a thread; unknown ID errors; return the saved assistant reply.
+// ConversationContext/ConversationState/ConversationLedger are SERVER ONLY.
+// Only selected-thread context.turns goes to Luna (plus system/current tools).
+// Rebuild authorization from trusted stored tool returns, never client history
+// or saved assistant claims. Current-turn unique-match fallback never carries over.
 
 export type PrepRunner = (request: PrepJobRequest) => PrepProvenance;
 export type Determiner = (request: DeterminationRequest) => DeterminationAttempt;
@@ -1596,6 +1759,7 @@ export interface ShellProps {
   status: StatusResponse;
   initial_page?: CustomerPage;
   initial_debug_panel?: DebugPanel; // Ignored unless status.debug_enabled === true.
+  initial_conversation_id?: ConversationId | null; // M04 restores selection across reload; verify by server read.
   on_open_part: OpenPart;
   on_open_source: OpenSource;
 }
@@ -1609,6 +1773,9 @@ export interface PartOpenRequest {
 }
 export type OpenPart = (request: PartOpenRequest) => void;
 export type OpenSource = (target: SourceTarget) => void;
+export type ConversationPartOpenRequest = PartOpenRequest & { conversation_id: ConversationId };
+export type OpenConversationPart = (request: ConversationPartOpenRequest) => void;
+export type OpenConversationSource = (target: SourceTarget, conversation_id: ConversationId) => void;
 
 // A17 Evidence.tsx: values, units, source navigation and three honest review labels.
 // All provenance, uncertainty reasons, review actions and warnings are inside Debug.
@@ -1647,14 +1814,21 @@ export type ClientChatMessage =
   | { id: string; role: "user"; text: string }
   | { id: string; role: "assistant"; response: ChatResponse };
 
-// A18 Chat.tsx: the shell owns the adjacent shared part panel.
+// A18 Chat.tsx loads the complete selected conversation from the server, even
+// without a key. New chat calls create_conversation; reads never call Luna.
+// M04 owns/persists selected_conversation_id and clears its adjacent part panel
+// when selection changes (including New chat). It ignores late part/source
+// callbacks for another conversation. M18 similarly ignores late reads/sends
+// when rendering the selected thread; replies remain saved in their own thread.
 export interface ChatProps {
   api: ApiClient;
   status: StatusResponse;
-  on_open_part: OpenPart;
-  on_open_source: OpenSource;
+  selected_conversation_id: ConversationId | null;
+  on_select_conversation: (conversation_id: ConversationId) => void;
+  on_open_part: OpenConversationPart;
+  on_open_source: OpenConversationSource;
   debug?: DebugContext;
-  initial_messages?: ClientChatMessage[];
+  initial_messages?: ClientChatMessage[]; // Legacy fixture bootstrap only; ignored when a server thread is selected.
 }
 
 // A19 PartPage.tsx: same read-only view in Parts, Chat, and Review. Review

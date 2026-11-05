@@ -251,6 +251,75 @@ def summary_fixtures(records: list[dict]) -> None:
          "fact": fact_name, "facts": {fact_name: fact}, "caveat": "Synthetic recorded snapshot; prices may be out of date and missing costs are unknown."})
 
 
+def history_fixtures(chat: dict, disc: dict) -> None:
+    """Invented threads/disk snapshots only; never open a real chat store."""
+    def at(second: int) -> str:
+        return f"2000-01-01T00:{second // 60:02}:{second % 60:02}+00:00"
+
+    first_text = "Synthetic thread A: show the training bar"
+    messages = []
+    for turn in range(1, 7):
+        reply = copy.deepcopy(chat) if turn == 1 else {**MARKER, "text": f"Synthetic A reply {turn}.",
+                "facts": {}, "parts_to_show": [], "warnings": [], "markers": [], "attachment_layout": "none"}
+        reply["conversation_id"] = "synthetic-thread-a"
+        messages.extend([
+            {"id": f"synthetic-a-u{turn}", "role": "user", "text": first_text if turn == 1 else f"Synthetic A question {turn}",
+             "created_at": at(turn * 2 - 1)},
+            {"id": f"synthetic-a-a{turn}", "role": "assistant", "response": reply, "created_at": at(turn * 2)},
+        ])
+    thread_a = save("conversation-read-a.json", c.ConversationDetail, {
+        "conversation": {"conversation_id": "synthetic-thread-a", "title": first_text, "created_at": at(0), "updated_at": at(12)},
+        "messages": messages,
+    })
+    save("conversation-state-a.json", c.ConversationState, {"detail": thread_a,
+         "ledger": {"conversation_id": "synthetic-thread-a", "entries": [{"call_id": "synthetic-call-a", "user_message_id": "synthetic-a-u1",
+                    "tool_name": "get_facts", "arguments": {"part_id": "D-013/part"},
+                    "result": {**MARKER, "part_id": "D-013/part", "facts": chat["facts"]}}]}})
+    part_id = disc["id"]
+    fact = {"fact": part_id, "part_id": part_id, "display": {"state": "value", "value": disc["display_name"]},
+            "rule": "Synthetic whole-part citation", "badge": "Synthetic fixture", "sources": [
+                {"name": part_id, "says": disc["display_name"], "method": "parsed",
+                 "target": {"kind": "part", "name": part_id, "part_id": part_id}}]}
+    raw = f"[cite: {part_id}]"
+    text = f"Synthetic B reply: {raw}."
+    thread_b = save("conversation-read-b.json", c.ConversationDetail, {
+        "conversation": {"conversation_id": "synthetic-thread-b", "title": "Synthetic thread B: show the training disc",
+                         "created_at": at(60), "updated_at": at(62)},
+        "messages": [
+            {"id": "synthetic-b-u1", "role": "user", "text": "Synthetic thread B: show the training disc", "created_at": at(61)},
+            {"id": "synthetic-b-a1", "role": "assistant", "created_at": at(62), "response": {
+                **MARKER, "conversation_id": "synthetic-thread-b", "text": text, "facts": {part_id: fact}, "warnings": [],
+                "markers": [{"kind": "cite", "names": [part_id], "raw": raw, "start": text.index(raw), "end": text.index(raw) + len(raw), "valid": True}],
+                "attachment_layout": "cards", "parts_to_show": [{"id": part_id, "display_name": disc["display_name"],
+                    "thumbnail": None, "has_drawing": True, "has_3d": False, "examples": [], "model_state": "blocked",
+                    "reason": "citation", "drawing_url": c.image_api_path(part_id)}],
+            }},
+        ],
+    })
+    save("conversation-state-b.json", c.ConversationState, {"detail": thread_b,
+         "ledger": {"conversation_id": "synthetic-thread-b", "entries": [{"call_id": "synthetic-call-b", "user_message_id": "synthetic-b-u1",
+                    "tool_name": "get_facts", "arguments": {"part_id": part_id},
+                    "result": {**MARKER, "part_id": part_id, "facts": {part_id: fact}}}]}})
+    new = save("conversation-new.json", c.ConversationDetail, {"conversation": {
+        "conversation_id": "synthetic-thread-new", "title": "New chat", "created_at": at(120), "updated_at": at(120)}, "messages": []})
+    save("conversation-create-request.json", c.ConversationCreateRequest, {})
+    save("conversation-list.json", c.ConversationListResponse, {
+        "conversations": [new["conversation"], thread_b["conversation"], thread_a["conversation"]]})
+    continuation = "Synthetic A continuation: retain this thread only"
+    save("conversation-send-request.json", c.ConversationSendRequest, {"message": continuation})
+    prior = [{"role": item["role"], "text": item["text"] if item["role"] == "user" else item["response"]["text"]}
+             for item in thread_a["messages"]]
+    save("conversation-context-a.json", c.ConversationContext, {"conversation_id": "synthetic-thread-a",
+         "turns": (prior + [{"role": "user", "text": continuation}])[-10:]})
+    response = {**MARKER, "conversation_id": "synthetic-thread-a", "text": "Synthetic A continuation reply.",
+                "facts": {}, "parts_to_show": [], "warnings": [], "markers": [], "attachment_layout": "none"}
+    save("conversation-send-response.json", c.ConversationSendResponse, {
+        "conversation": {**thread_a["conversation"], "updated_at": at(14)},
+        "messages": [{"id": "synthetic-a-u7", "role": "user", "text": continuation, "created_at": at(13)},
+                     {"id": "synthetic-a-a7", "role": "assistant", "response": response, "created_at": at(14)}],
+    })
+
+
 def main() -> None:
     DEST.mkdir(parents=True, exist_ok=True)
     numbers = [number(value, index) for index, value in enumerate([37.0, 22.0, 4.25, 1.75])]
@@ -389,6 +458,7 @@ def main() -> None:
     prep_records.append(c.PrepProvenance.model_validate(provenance(True)))
     save("prep-cases.json", c.PrepBatchResult, {"records": prep_records, "counts": c.prep_counts(prep_records)})
     summary_fixtures([record, disc, bom_only])
+    history_fixtures(chat, disc)
     for state in ("configured", "missing_key"):
         save("status-" + state.replace("_", "-") + ".json", c.StatusResponse, {
             "chat_available": state == "configured", "chat_state": state,

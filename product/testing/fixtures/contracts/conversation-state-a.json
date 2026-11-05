@@ -1,0 +1,466 @@
+{
+  "fixture": true,
+  "synthetic": true,
+  "fixture_note": "Invented contract fixture only; not dataset evidence, an executed AI run, or a human decision.",
+  "schema_version": "chat-history/v1",
+  "detail": {
+    "fixture": true,
+    "synthetic": true,
+    "fixture_note": "Invented contract fixture only; not dataset evidence, an executed AI run, or a human decision.",
+    "conversation": {
+      "conversation_id": "synthetic-thread-a",
+      "title": "Synthetic thread A: show the training bar",
+      "created_at": "2000-01-01T00:00:00Z",
+      "updated_at": "2000-01-01T00:00:12Z"
+    },
+    "messages": [
+      {
+        "id": "synthetic-a-u1",
+        "role": "user",
+        "text": "Synthetic thread A: show the training bar",
+        "created_at": "2000-01-01T00:00:01Z"
+      },
+      {
+        "id": "synthetic-a-a1",
+        "role": "assistant",
+        "response": {
+          "fixture": true,
+          "synthetic": true,
+          "fixture_note": "Invented contract fixture only; not dataset evidence, an executed AI run, or a human decision.",
+          "text": "🧪 Synthetic example. Material is [undetermined: D-013/drawing/material]. View the fixture [cite: D-013/part].",
+          "facts": {
+            "D-013/drawing/material": {
+              "fixture": false,
+              "synthetic": false,
+              "fixture_note": null,
+              "fact": "D-013/drawing/material",
+              "part_id": "D-013/part",
+              "display": {
+                "state": "undetermined",
+                "reason": "source_conflict",
+                "message": "Synthetic drawing: Training polymer P9. Synthetic BOM: Training alloy Q7. Invented conflict, no source claim."
+              },
+              "rule": "B3 rule 4: conflicting trusted sources",
+              "badge": "From PDF and parts list",
+              "provenance_badge": null,
+              "review": null,
+              "sources": [
+                {
+                  "name": "D-013/drawing/material",
+                  "says": "Training polymer P9",
+                  "method": "parsed",
+                  "target": {
+                    "kind": "drawing",
+                    "name": "D-013/drawing/material",
+                    "part_id": "D-013/part",
+                    "drawing_id": "D-013",
+                    "row_name": null,
+                    "page": 1,
+                    "box": [
+                      12.0,
+                      80.0,
+                      70.0,
+                      6.0
+                    ]
+                  },
+                  "source_sha256": "8d016551a76941cf73cdca0ef95167d9aeb75bb74fb16912a2f6a514bb824a43",
+                  "confidence": "sure",
+                  "source_quality": null,
+                  "note": null,
+                  "review": null,
+                  "provenance": null,
+                  "crop": null
+                },
+                {
+                  "name": "BOM:mock-section/synthetic-training-bar/material",
+                  "says": "Training alloy Q7",
+                  "method": "parsed",
+                  "target": {
+                    "kind": "bom",
+                    "name": "BOM:mock-section/synthetic-training-bar/material",
+                    "part_id": "D-013/part",
+                    "drawing_id": null,
+                    "row_name": "BOM:mock-section/synthetic-training-bar",
+                    "page": null,
+                    "box": null
+                  },
+                  "source_sha256": "ef5ddc6b4d7e28998d1d2e97be2836168f73b1f4a12ae421b8c4070dc184f0fd",
+                  "confidence": "sure",
+                  "source_quality": null,
+                  "note": null,
+                  "review": null,
+                  "provenance": null,
+                  "crop": null
+                }
+              ],
+              "snapshot_note": false,
+              "review_item": null,
+              "correction": null
+            },
+            "D-013/part": {
+              "fixture": false,
+              "synthetic": false,
+              "fixture_note": null,
+              "fact": "D-013/part",
+              "part_id": "D-013/part",
+              "display": {
+                "state": "value",
+                "value": "Synthetic training bar",
+                "label": null,
+                "unit": null
+              },
+              "rule": "Whole-part citation",
+              "badge": "Synthetic fixture",
+              "provenance_badge": null,
+              "review": null,
+              "sources": [
+                {
+                  "name": "D-013/part",
+                  "says": "Synthetic training bar",
+                  "method": "parsed",
+                  "target": {
+                    "kind": "part",
+                    "name": "D-013/part",
+                    "part_id": "D-013/part",
+                    "drawing_id": null,
+                    "row_name": null,
+                    "page": null,
+                    "box": null
+                  },
+                  "source_sha256": null,
+                  "confidence": "sure",
+                  "source_quality": null,
+                  "note": null,
+                  "review": null,
+                  "provenance": null,
+                  "crop": null
+                }
+              ],
+              "snapshot_note": false,
+              "review_item": null,
+              "correction": null
+            }
+          },
+          "parts_to_show": [
+            {
+              "id": "D-013/part",
+              "display_name": "Synthetic training bar",
+              "thumbnail": "/api/parts/D-013%2Fpart/image?page=1&thumb=1",
+              "has_drawing": true,
+              "has_3d": true,
+              "examples": [
+                "A",
+                "B"
+              ],
+              "model_state": "available",
+              "reason": "citation",
+              "explanation": null,
+              "highlights": [
+                {
+                  "kind": "drawing",
+                  "name": "D-013/drawing/material",
+                  "part_id": "D-013/part",
+                  "drawing_id": "D-013",
+                  "row_name": null,
+                  "page": 1,
+                  "box": [
+                    12.0,
+                    80.0,
+                    70.0,
+                    6.0
+                  ]
+                }
+              ],
+              "drawing_url": "/api/parts/D-013%2Fpart/image?page=1&thumb=0",
+              "model_urls": {
+                "A": "/api/models/D-013_A.glb",
+                "B": "/api/models/D-013_B.glb"
+              }
+            }
+          ],
+          "warnings": [],
+          "markers": [
+            {
+              "kind": "undetermined",
+              "names": [
+                "D-013/drawing/material"
+              ],
+              "raw": "[undetermined: D-013/drawing/material]",
+              "start": 33,
+              "end": 71,
+              "valid": true,
+              "error": null
+            },
+            {
+              "kind": "cite",
+              "names": [
+                "D-013/part"
+              ],
+              "raw": "[cite: D-013/part]",
+              "start": 90,
+              "end": 108,
+              "valid": true,
+              "error": null
+            }
+          ],
+          "attachment_layout": "cards",
+          "conversation_id": "synthetic-thread-a",
+          "observation": null
+        },
+        "created_at": "2000-01-01T00:00:02Z"
+      },
+      {
+        "id": "synthetic-a-u2",
+        "role": "user",
+        "text": "Synthetic A question 2",
+        "created_at": "2000-01-01T00:00:03Z"
+      },
+      {
+        "id": "synthetic-a-a2",
+        "role": "assistant",
+        "response": {
+          "fixture": true,
+          "synthetic": true,
+          "fixture_note": "Invented contract fixture only; not dataset evidence, an executed AI run, or a human decision.",
+          "text": "Synthetic A reply 2.",
+          "facts": {},
+          "parts_to_show": [],
+          "warnings": [],
+          "markers": [],
+          "attachment_layout": "none",
+          "conversation_id": "synthetic-thread-a",
+          "observation": null
+        },
+        "created_at": "2000-01-01T00:00:04Z"
+      },
+      {
+        "id": "synthetic-a-u3",
+        "role": "user",
+        "text": "Synthetic A question 3",
+        "created_at": "2000-01-01T00:00:05Z"
+      },
+      {
+        "id": "synthetic-a-a3",
+        "role": "assistant",
+        "response": {
+          "fixture": true,
+          "synthetic": true,
+          "fixture_note": "Invented contract fixture only; not dataset evidence, an executed AI run, or a human decision.",
+          "text": "Synthetic A reply 3.",
+          "facts": {},
+          "parts_to_show": [],
+          "warnings": [],
+          "markers": [],
+          "attachment_layout": "none",
+          "conversation_id": "synthetic-thread-a",
+          "observation": null
+        },
+        "created_at": "2000-01-01T00:00:06Z"
+      },
+      {
+        "id": "synthetic-a-u4",
+        "role": "user",
+        "text": "Synthetic A question 4",
+        "created_at": "2000-01-01T00:00:07Z"
+      },
+      {
+        "id": "synthetic-a-a4",
+        "role": "assistant",
+        "response": {
+          "fixture": true,
+          "synthetic": true,
+          "fixture_note": "Invented contract fixture only; not dataset evidence, an executed AI run, or a human decision.",
+          "text": "Synthetic A reply 4.",
+          "facts": {},
+          "parts_to_show": [],
+          "warnings": [],
+          "markers": [],
+          "attachment_layout": "none",
+          "conversation_id": "synthetic-thread-a",
+          "observation": null
+        },
+        "created_at": "2000-01-01T00:00:08Z"
+      },
+      {
+        "id": "synthetic-a-u5",
+        "role": "user",
+        "text": "Synthetic A question 5",
+        "created_at": "2000-01-01T00:00:09Z"
+      },
+      {
+        "id": "synthetic-a-a5",
+        "role": "assistant",
+        "response": {
+          "fixture": true,
+          "synthetic": true,
+          "fixture_note": "Invented contract fixture only; not dataset evidence, an executed AI run, or a human decision.",
+          "text": "Synthetic A reply 5.",
+          "facts": {},
+          "parts_to_show": [],
+          "warnings": [],
+          "markers": [],
+          "attachment_layout": "none",
+          "conversation_id": "synthetic-thread-a",
+          "observation": null
+        },
+        "created_at": "2000-01-01T00:00:10Z"
+      },
+      {
+        "id": "synthetic-a-u6",
+        "role": "user",
+        "text": "Synthetic A question 6",
+        "created_at": "2000-01-01T00:00:11Z"
+      },
+      {
+        "id": "synthetic-a-a6",
+        "role": "assistant",
+        "response": {
+          "fixture": true,
+          "synthetic": true,
+          "fixture_note": "Invented contract fixture only; not dataset evidence, an executed AI run, or a human decision.",
+          "text": "Synthetic A reply 6.",
+          "facts": {},
+          "parts_to_show": [],
+          "warnings": [],
+          "markers": [],
+          "attachment_layout": "none",
+          "conversation_id": "synthetic-thread-a",
+          "observation": null
+        },
+        "created_at": "2000-01-01T00:00:12Z"
+      }
+    ]
+  },
+  "ledger": {
+    "conversation_id": "synthetic-thread-a",
+    "entries": [
+      {
+        "call_id": "synthetic-call-a",
+        "user_message_id": "synthetic-a-u1",
+        "tool_name": "get_facts",
+        "arguments": {
+          "part_id": "D-013/part"
+        },
+        "result": {
+          "fixture": true,
+          "synthetic": true,
+          "fixture_note": "Invented contract fixture only; not dataset evidence, an executed AI run, or a human decision.",
+          "part_id": "D-013/part",
+          "facts": {
+            "D-013/drawing/material": {
+              "fixture": false,
+              "synthetic": false,
+              "fixture_note": null,
+              "fact": "D-013/drawing/material",
+              "part_id": "D-013/part",
+              "display": {
+                "state": "undetermined",
+                "reason": "source_conflict",
+                "message": "Synthetic drawing: Training polymer P9. Synthetic BOM: Training alloy Q7. Invented conflict, no source claim."
+              },
+              "rule": "B3 rule 4: conflicting trusted sources",
+              "badge": "From PDF and parts list",
+              "provenance_badge": null,
+              "review": null,
+              "sources": [
+                {
+                  "name": "D-013/drawing/material",
+                  "says": "Training polymer P9",
+                  "method": "parsed",
+                  "target": {
+                    "kind": "drawing",
+                    "name": "D-013/drawing/material",
+                    "part_id": "D-013/part",
+                    "drawing_id": "D-013",
+                    "row_name": null,
+                    "page": 1,
+                    "box": [
+                      12.0,
+                      80.0,
+                      70.0,
+                      6.0
+                    ]
+                  },
+                  "source_sha256": "8d016551a76941cf73cdca0ef95167d9aeb75bb74fb16912a2f6a514bb824a43",
+                  "confidence": "sure",
+                  "source_quality": null,
+                  "note": null,
+                  "review": null,
+                  "provenance": null,
+                  "crop": null
+                },
+                {
+                  "name": "BOM:mock-section/synthetic-training-bar/material",
+                  "says": "Training alloy Q7",
+                  "method": "parsed",
+                  "target": {
+                    "kind": "bom",
+                    "name": "BOM:mock-section/synthetic-training-bar/material",
+                    "part_id": "D-013/part",
+                    "drawing_id": null,
+                    "row_name": "BOM:mock-section/synthetic-training-bar",
+                    "page": null,
+                    "box": null
+                  },
+                  "source_sha256": "ef5ddc6b4d7e28998d1d2e97be2836168f73b1f4a12ae421b8c4070dc184f0fd",
+                  "confidence": "sure",
+                  "source_quality": null,
+                  "note": null,
+                  "review": null,
+                  "provenance": null,
+                  "crop": null
+                }
+              ],
+              "snapshot_note": false,
+              "review_item": null,
+              "correction": null
+            },
+            "D-013/part": {
+              "fixture": false,
+              "synthetic": false,
+              "fixture_note": null,
+              "fact": "D-013/part",
+              "part_id": "D-013/part",
+              "display": {
+                "state": "value",
+                "value": "Synthetic training bar",
+                "label": null,
+                "unit": null
+              },
+              "rule": "Whole-part citation",
+              "badge": "Synthetic fixture",
+              "provenance_badge": null,
+              "review": null,
+              "sources": [
+                {
+                  "name": "D-013/part",
+                  "says": "Synthetic training bar",
+                  "method": "parsed",
+                  "target": {
+                    "kind": "part",
+                    "name": "D-013/part",
+                    "part_id": "D-013/part",
+                    "drawing_id": null,
+                    "row_name": null,
+                    "page": null,
+                    "box": null
+                  },
+                  "source_sha256": null,
+                  "confidence": "sure",
+                  "source_quality": null,
+                  "note": null,
+                  "review": null,
+                  "provenance": null,
+                  "crop": null
+                }
+              ],
+              "snapshot_note": false,
+              "review_item": null,
+              "correction": null
+            }
+          }
+        }
+      }
+    ]
+  }
+}

@@ -45,6 +45,8 @@ assert.deepEqual(contracts.debug_context({}, actions), {enabled: false});
 assert.deepEqual(contracts.debug_context({debug_enabled: false}, actions), {enabled: false});
 assert.equal(contracts.debug_context({debug_enabled: true}, actions).on_open_review, actions.on_open_review);
 assert.equal(contracts.PREP_PIPELINE_VERSION, "determine-verify/v1");
+assert.equal(contracts.CHAT_CONTEXT_TURNS, 10);
+assert.equal(contracts.CONVERSATION_TITLE_LIMIT, 80);
 assert.equal(contracts.RECONSTRUCTION_LABEL, "Reconstruction from 2D drawing. Not the original CAD model.");
 const chat = JSON.parse(fs.readFileSync(path.join(root, "testing/fixtures/contracts/chat-response.json"), "utf8"));
 for (const marker of chat.markers) {

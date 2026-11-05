@@ -1,0 +1,48 @@
+{
+  "fixture": true,
+  "synthetic": true,
+  "fixture_note": "Invented contract fixture only; not dataset evidence, an executed AI run, or a human decision.",
+  "conversation_id": "synthetic-thread-a",
+  "turns": [
+    {
+      "role": "assistant",
+      "text": "Synthetic A reply 2."
+    },
+    {
+      "role": "user",
+      "text": "Synthetic A question 3"
+    },
+    {
+      "role": "assistant",
+      "text": "Synthetic A reply 3."
+    },
+    {
+      "role": "user",
+      "text": "Synthetic A question 4"
+    },
+    {
+      "role": "assistant",
+      "text": "Synthetic A reply 4."
+    },
+    {
+      "role": "user",
+      "text": "Synthetic A question 5"
+    },
+    {
+      "role": "assistant",
+      "text": "Synthetic A reply 5."
+    },
+    {
+      "role": "user",
+      "text": "Synthetic A question 6"
+    },
+    {
+      "role": "assistant",
+      "text": "Synthetic A reply 6."
+    },
+    {
+      "role": "user",
+      "text": "Synthetic A continuation: retain this thread only"
+    }
+  ]
+}

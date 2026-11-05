@@ -142,6 +142,8 @@ ROOT can start a ready independent assignment as a slot frees rather than wait f
 
 **Latest-instruction contract refresh:** A02 first updates prep schemas/fixtures/TS mirror for determine-then-verify, plus summary-tool and debug contracts. A05/A06/A07's deterministic work may continue; A08 starts only after that refreshed contract is integrated. A01 updates qualified CLI configuration/debug launch plumbing in its scoped follow-up. The previous prepared blind-reader A08 assignment is superseded before execution.
 
+**Observed CLI limitation:** Keep requested model/settings pins separate from CLI-reported metadata. A successful source-bound stage may have unreported effective fields; retain unknowns and observed partial fields, reject actual reported conflicts and bind cache identity to its settings basis/contract. Missing metadata alone does not invoke fallback. A08's first implementation launch exposed an overly strict success validator; A02 owns the bounded correction alongside the R17 history contract follow-up, then ROOT resumes A08 once with the accepted boundary.
+
 | Launch | Tier | Bounded assignment |
 | --- | --- | --- |
 | A05-drawings | STRONGEST | M1 drawing evidence/PNG/field-box extractor. |
@@ -155,12 +157,16 @@ ROOT can start a ready independent assignment as a slot frees rather than wait f
 
 **Ready:** B01 producers and M02 contracts are available.
 
+A02's history/observability follow-up can start from accepted M02 while A08 settles. A03/A04 consume its accepted history boundary; A09/A10 still wait for the accepted runner. The independent A24 early draft can use the already accepted setup evidence.
+
 | Launch | Tier | Bounded assignment |
 | --- | --- | --- |
+| A02-contracts | STRONGEST | Freeze R17 list/new/read/continue, server-owned thread ledger and UI/service boundaries; correct truthful CLI metadata success/cache handling without changing the determine/verify policy. |
 | A03-server | STRONGER | M0 server/launch/status/fixture endpoints; no paid prep during ordinary launch. |
 | A04-shell | STRONGER | M0 sidebar, page shells and navigation contracts. |
 | A09-vision | STRONGEST | M1 scan/template jobs using A05/A08 interfaces. |
 | A10-matching | STRONGEST | M1 exact/AI link and post-link mapping job definitions using A05/A06/A08. |
+| A24-submission | STRONGER | Optional early setup/architecture draft from accepted M01 evidence while producer contracts settle; no claims of unfinished chat, prep, UI or gates. |
 
 **Completion:** ROOT runs the basic M0 launch smoke check immediately. It is not a sixth formal checkpoint. A09/A10 job interfaces can be orchestrated and both shells compile against fixtures.
 
@@ -186,7 +192,7 @@ ROOT can start a ready independent assignment as a slot frees rather than wait f
 | A03-server | STRONGER | Wire real record/image reads for V1; chat/review endpoints remain explicitly unavailable until their services exist. |
 | A23-checks | STRONG | Initial M23 runner with basic smoke and cumulative V1–V5 command structure; absent suites/checks are pending or failed, never passed. |
 | A20-parts-ui | STRONG | M1 all-parts list/search using frozen record/selection props. |
-| A24-submission | STRONGER | Draft the known setup/architecture/disclosure; reserve observations for actual later runs. |
+| A24-submission | STRONGER | Update the early setup/architecture/disclosure draft with actual record outputs; reserve observations for actual later runs. |
 
 **Completion:** M01–M12's software outputs integrate, M23 can invoke V1's forthcoming suite, and frontend work remains independently authored. Freeze the V1 candidate.
 

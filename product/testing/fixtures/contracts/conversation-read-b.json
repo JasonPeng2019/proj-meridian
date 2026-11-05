@@ -1,0 +1,108 @@
+{
+  "fixture": true,
+  "synthetic": true,
+  "fixture_note": "Invented contract fixture only; not dataset evidence, an executed AI run, or a human decision.",
+  "conversation": {
+    "conversation_id": "synthetic-thread-b",
+    "title": "Synthetic thread B: show the training disc",
+    "created_at": "2000-01-01T00:01:00Z",
+    "updated_at": "2000-01-01T00:01:02Z"
+  },
+  "messages": [
+    {
+      "id": "synthetic-b-u1",
+      "role": "user",
+      "text": "Synthetic thread B: show the training disc",
+      "created_at": "2000-01-01T00:01:01Z"
+    },
+    {
+      "id": "synthetic-b-a1",
+      "role": "assistant",
+      "response": {
+        "fixture": true,
+        "synthetic": true,
+        "fixture_note": "Invented contract fixture only; not dataset evidence, an executed AI run, or a human decision.",
+        "text": "Synthetic B reply: [cite: D-025/part].",
+        "facts": {
+          "D-025/part": {
+            "fixture": false,
+            "synthetic": false,
+            "fixture_note": null,
+            "fact": "D-025/part",
+            "part_id": "D-025/part",
+            "display": {
+              "state": "value",
+              "value": "Synthetic training disc",
+              "label": null,
+              "unit": null
+            },
+            "rule": "Synthetic whole-part citation",
+            "badge": "Synthetic fixture",
+            "provenance_badge": null,
+            "review": null,
+            "sources": [
+              {
+                "name": "D-025/part",
+                "says": "Synthetic training disc",
+                "method": "parsed",
+                "target": {
+                  "kind": "part",
+                  "name": "D-025/part",
+                  "part_id": "D-025/part",
+                  "drawing_id": null,
+                  "row_name": null,
+                  "page": null,
+                  "box": null
+                },
+                "source_sha256": null,
+                "confidence": "sure",
+                "source_quality": null,
+                "note": null,
+                "review": null,
+                "provenance": null,
+                "crop": null
+              }
+            ],
+            "snapshot_note": false,
+            "review_item": null,
+            "correction": null
+          }
+        },
+        "parts_to_show": [
+          {
+            "id": "D-025/part",
+            "display_name": "Synthetic training disc",
+            "thumbnail": null,
+            "has_drawing": true,
+            "has_3d": false,
+            "examples": [],
+            "model_state": "blocked",
+            "reason": "citation",
+            "explanation": null,
+            "highlights": [],
+            "drawing_url": "/api/parts/D-025%2Fpart/image?page=1&thumb=0",
+            "model_urls": {}
+          }
+        ],
+        "warnings": [],
+        "markers": [
+          {
+            "kind": "cite",
+            "names": [
+              "D-025/part"
+            ],
+            "raw": "[cite: D-025/part]",
+            "start": 19,
+            "end": 37,
+            "valid": true,
+            "error": null
+          }
+        ],
+        "attachment_layout": "cards",
+        "conversation_id": "synthetic-thread-b",
+        "observation": null
+      },
+      "created_at": "2000-01-01T00:01:02Z"
+    }
+  ]
+}

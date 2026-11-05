@@ -17,7 +17,12 @@ REPORT = ROOT / "testing/reports/b01/A02-contracts/2026-11-05-static.json"
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--base-revision")
+    parser.add_argument("--report", default=REPORT.relative_to(ROOT).as_posix())
+    parser.add_argument("--history", action="store_true", help="Preserve every existing non-chat class/function")
     args = parser.parse_args()
+    report_path = (ROOT / args.report).resolve()
+    if not report_path.is_relative_to(ROOT / "testing/reports"):
+        raise ValueError("Static evidence belongs under testing/reports")
     paths = [ROOT / "development/backend/contracts.py", *sorted(Path(__file__).parent.glob("*.py"))]
     for path in paths:
         ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
@@ -41,13 +46,21 @@ def main() -> None:
         unchanged = ["DrawingField", "DrawingNumber", "DrawingWord", "DrawingEvidence", "BOMField", "ConnectionEvidence", "BOMRow",
                      "Decision", "DecisionJournal", "ReviewActionRequest", "ReviewActionResponse", "RefreshRequest", "RefreshResult",
                      "PartRecord", "PartSummary", "FactResult", "SourceTarget", "FactSource"]
+        if args.history:
+            unchanged = sorted(set(before) - {"ChatRequest", "ChatResponse"})
         for name in unchanged:
             if before[name] != after[name]:
                 raise ValueError("Unexpected ordinary contract declaration change: " + name)
+        if args.history:
+            functions_before = {item.name: ast.dump(item) for item in ast.parse(baseline).body if isinstance(item, ast.FunctionDef)}
+            functions_after = {item.name: ast.dump(item) for item in ast.parse(paths[0].read_text(encoding="utf-8")).body if isinstance(item, ast.FunctionDef)}
+            if any(functions_after.get(name) != value for name, value in functions_before.items()):
+                raise ValueError("Unexpected existing contract helper change")
     record = {
         "schema": "A02-static-inspection/v1",
         "command": "python -B testing/smoke/A02-contracts/inspect_static.py" + (
-            " --base-revision " + args.base_revision if args.base_revision else ""),
+            " --base-revision " + args.base_revision if args.base_revision else "") + (
+            " --history" if args.history else "") + " --report " + args.report,
         "completed_at": datetime.now(timezone.utc).isoformat(),
         "outcome": "PASS",
         "scope": "Python AST and JSON parsing/inventory/fixture declarations only; no runtime policy/schema/TS checks",
@@ -65,9 +78,9 @@ def main() -> None:
         "real_source_validation": "NOT_PERFORMED_SYNTHETIC_ONLY",
         "live_cli_execution": "NOT_PERFORMED",
     }
-    REPORT.parent.mkdir(parents=True, exist_ok=True)
-    REPORT.write_text(json.dumps(record, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(json.dumps(record, ensure_ascii=False))
+    report_path.parent.mkdir(parents=True, exist_ok=True)
+    report_path.write_text(json.dumps(record, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    print(f"PASS static AST/JSON inspection only; {len(unchanged)} preserved declarations; {len(manifest['entries'])} synthetic examples; {report_path.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":

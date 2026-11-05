@@ -34,6 +34,12 @@ def verify_debug():
         page.goto(BASE+'/part/D-015/debug')
         page.locator('.original-fact > summary').first.click()
         assert page.locator('.original-fact[open]').is_visible()
+        page.goto(BASE+'/review/needs-input/names/material/silicon-rubber%20-%3E%20silicone')
+        page.get_by_text('AI readings & reasons',exact=True).click()
+        assert 'Verification' in page.locator('.reader-answers').inner_text()
+        assert 'Accept' in page.locator('.reader-answers').inner_text()
+        assert 'Proposal' in page.locator('.reader-answers').inner_text()
+        page.screenshot(path=str(OUT/'verified-mapping-readers.png'))
         assert not errors,errors
         browser.close()
     (OUT/'debug-browser-check.json').write_text(json.dumps({'debug_launch':True,'calculations':True,'history':True,'raw_sources':True,'page_errors':errors},indent=2),encoding='utf-8')

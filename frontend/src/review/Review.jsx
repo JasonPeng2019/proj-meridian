@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Check, X, ChevronRight, ArrowUpRight, ShieldCheck, AlertTriangle, FileText, RefreshCw, Search} from 'lucide-react';
+import ReaderAnswers from '../ReaderAnswers';
 import PartPage, {DrawingViewer} from '../part/PartPage';
 import Viewer3D from '../viewer3d/Viewer3D';
 import {api,pathKey,partURL,reviewURL,textValue,titleCase,imageURL} from '../api';
@@ -12,11 +13,6 @@ function Evidence({item,navigate}) {
   const evidence=item.evidence || {}, key=item.part_key||evidence.part_key;
   const fact={fact:item.target,field:item.target?.split('/').at(-1),display:item.value==null?{state:'undetermined',message:'Waiting for human input'}:{state:'value',value:item.value},sources:[{name:item.target,page:evidence.page,box:evidence.box,part_key:key}]};
   return <div className="review-evidence"><h4>Source evidence</h4>{evidence.drawing&&<div className="review-drawing"><DrawingViewer part={{key,display_name:item.title,drawing:evidence.drawing}} fact={evidence.box?fact:null}/></div>}{item.original!==undefined&&<div className="review-values"><div><small>ORIGINAL VALUE</small><div className="source-verbatim">{textValue(item.original)}</div></div><div><small>{item.type==='correction'?'PROPOSED VALUE':'CURRENT READING'}</small><div>{textValue(item.value)}</div></div></div>}{evidence.bom?.map(row=><details className="review-bom" key={row.name}><summary>Parts list row: {row.display_name || row.name}</summary><table className="evidence-table"><thead><tr><th>Field</th><th>Original</th><th>Cleaned</th></tr></thead><tbody>{Object.entries(row.fields||{}).map(([k,f])=><tr key={k}><td>{titleCase(k)}</td><td>{textValue(f.original)}</td><td>{textValue(f.value)}</td></tr>)}</tbody></table><p className="snapshot-note">Recorded in the snapshot, may be out of date.</p></details>)}{evidence&&!evidence.drawing&&!evidence.bom&&<details className="review-more disclosure"><summary>Source references</summary><JsonDetails value={evidence}/></details>}<details className="review-more disclosure"><summary>AI readings & reasons</summary><ReaderAnswers readers={item.readers}/></details>{item.weight_check&&<details className="review-more disclosure"><summary>Weight calculation</summary><JsonDetails value={item.weight_check}/></details>}{item.reason&&<div className="review-reason"><strong>Check result / reason</strong><p>{textValue(item.reason)}</p></div>}{item.check_result&&<details className="review-more disclosure"><summary>Automatic check details</summary><JsonDetails value={item.check_result}/></details>}</div>;
-}
-
-export function ReaderAnswers({readers}) {
-  if(!readers || !Object.keys(readers).length)return <p className="muted">No model readings recorded for this item.</p>;
-  return <div className="reader-answers">{Object.entries(readers).map(([name,reader])=><article key={name}><div className="eyebrow">{name}</div>{(reader.rounds || [reader]).map((round,i)=>{const answer=round.answer||round;let value=answer.value;try{if(answer.value_json!==undefined)value=JSON.parse(answer.value_json)}catch{value=answer.value_json}return <div key={i} className="reader-round"><small>Round {i+1} · {answer.confidence || 'confidence not recorded'}{round.valid===false?' · invalid response':''}</small><div className="reader-value">{answer.state==='unknown'?'Undetermined':textValue(value)}</div>{answer.reason&&<p>{answer.reason}</p>}{answer.changed_because&&<p>Changed because: {answer.changed_because}</p>}</div>})}</article>)}</div>;
 }
 
 function PossibleReadingsPreview({item}) {

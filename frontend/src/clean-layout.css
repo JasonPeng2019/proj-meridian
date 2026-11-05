@@ -186,3 +186,6 @@ body { color: var(--ink); }
 @media (max-width: 850px) { .detail-summary-grid { grid-template-columns: 1fr; } .standard-details { padding: 20px; } }
 
 .detail-summary-grid:has(.supply-box):has(#dimensions-heading) .notes-box { grid-column: auto; }
+
+.supply-box { order: 1; }
+.notes-box { order: 2; }

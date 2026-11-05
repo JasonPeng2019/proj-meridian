@@ -1,0 +1,27 @@
+# Build and verification plan
+
+“Manual” means the coordinator dispatches and monitors a workflow itself. It does not mean Jason must click, run commands, approve execution or confirm a checkpoint. Actual engineering reviews remain actual human decisions; never manufacture them.
+
+## Routine pushes
+
+`Meridian checks` runs remotely on pushes/PRs: focused Python tests without CAD/PDF regeneration/browser/API work, then frontend build. Each branch has a concurrency group that cancels superseded runs. Downloadable artifacts contain test reports and a frontend bundle with source and file hashes.
+
+The frontend is static HTML/JS/CSS. The coordinator downloads the matching successful bundle using `python -m scripts.frontend_artifact fetch --run RUN_ID`; the downloader verifies its source fingerprint and every asset hash before installing under `frontend/dist`. The interactive local FastAPI app serves that bundle without Node or a local frontend build. Keep the previous bundle as a repository-local rollback copy.
+
+## Integration checkpoints
+
+The coordinator dispatches `Meridian integration` through `gh workflow run verify.yml --repo JasonPeng2019/proj-meridian --ref main`. One hosted runner executes full tests, PDF regeneration/cache recovery, real CadQuery generation and geometry roundtrips, then Playwright rendering/screenshots. CAD exits before the browser starts. Heavy runs queue in `meridian-heavy`, with no parallel matrix. Numerical/CAD workers are bounded for the standard hosted Linux runner.
+
+The initial hosted Linux dependency, CAD and headless-rendering checks have already passed. Repeat them when integration changes justify it, not for every documentation edit. Artifacts provide GLB/STEP exports, built frontend, structured data, screenshots and reports for local inspection.
+
+## Paid evaluation
+
+The coordinator dispatches paid checks when needed, with the repository's existing `OPENAI_API_KEY` Actions secret. `benchmark=true` runs the canonical questions twice sequentially; `live_api=true` separately checks the isolated correction UI. Use [Question-benchmark/PLAN.md](Question-benchmark/PLAN.md) for the exact question, scoring and review-state requirements. Expected answers never enter chat or prep prompts. If GitHub secrets cannot be used, execute necessary API checks locally in sequence after checking resource headroom; this is a fallback the coordinator handles.
+
+Independent CLI judging remains local, sequential by default, using hooks-disabled CLI settings and an ignored cache. At most four project CLI workers may be active; the dataset-reader cap is separately enforced at four. Use fewer when resources are tight.
+
+## Local fallback and resource limits
+
+Local work normally consists of edits, static checks, Git, artifact downloads and the interactive app. If a local build is necessary, the coordinator runs `scripts/local_build.ps1`. It holds a shared lock, waits for RAM/CPU headroom across two samples, and limits Node heap/esbuild workers. Heavy local tasks run in succession. Parallelize only when measured available RAM/CPU supports it. Never close unrelated editor windows or processes without authorization. Workspace-local VS Code settings exclude generated/cache/verification trees from indexing and watching.
+
+All local project writes stay under the Avathon repository. Hosted project outputs, caches and verification copies stay under `GITHUB_WORKSPACE`, with runner-managed dependencies provisioned on the disposable VM.

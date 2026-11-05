@@ -30,8 +30,10 @@ Launch coding subagents as `gpt-6.1-sol`, high reasoning, on priority/Fast mode.
 
 ## Resource limits
 
-Keep routine local work lightweight: edits, source inspection, static validation and Git operations. Run full verification, PDF/CAD regeneration and browser checks on GitHub-hosted Actions runners. Build locally when needed to test/use the app, including its frontend, using the shared local build lock and resource gate in `scripts/local_build.ps1`. CLI coding/prep agents remain outside Actions.
+Keep routine local work lightweight: edits, source inspection, static validation and Git operations. Build the frontend remotely and download its verified static bundle for local use; Node is unnecessary for serving it. Run full verification, PDF/CAD regeneration and browser checks on GitHub-hosted Actions runners. Use `scripts/local_build.ps1` only when a local fallback build is necessary. CLI coding/prep agents remain outside Actions.
 
-Dataset-prep CLI readers have a hard cap of four concurrent processes. Coding agents are excluded from that four-reader limit. Do not raise the prep cap from the command line or configuration.
+Dataset-prep CLI readers have a hard cap of four concurrent processes. Coding agents are excluded from that reader-specific limit, but use a conservative overall budget of at most four active local CLI workers for this project and reduce it when RAM/CPU headroom is limited. Do not raise the prep cap from the command line or configuration.
 
 Run heavy stages in succession, never simultaneously. Queue Actions runs in the shared `meridian-heavy` concurrency group. Do not add a parallel matrix or launch concurrent heavy subprocesses. Limit numerical/CAD worker threads. Local builds must wait for enough free RAM and low enough CPU load, cap workers/Node heap, and hold the shared lock until every child exits. Do not parallelize local heavy work without measured resource headroom. Never stop unrelated user processes to free resources.
+
+“Manual” workflow runs mean the coordinator dispatches and monitors them autonomously, not that Jason must click, confirm or run them. Lightweight push checks cancel superseded runs. The coordinator triggers heavy checks at integration checkpoints and paid API checks when needed. Use GitHub Actions secrets; if secrets cannot be used there, run the necessary API checks locally in sequence with resource headroom. Human review of engineering evidence still means actual human review; workflow dispatch authorization must never be misrepresented as a design approval.

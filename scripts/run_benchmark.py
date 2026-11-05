@@ -74,6 +74,21 @@ def clone_environment(clone: Path) -> dict:
     return env
 
 
+def copy_prepared_tree(source: Path, target: Path, clone: Path):
+    source, target, clone = inside(source), inside(target), inside(clone)
+    if target == clone or not target.is_relative_to(clone):
+        raise ValueError("Prepared asset destination must stay inside the disposable clone")
+    # A merge would retain tracked historical CAD-cache entries that the hosted
+    # generator removed. Start from exactly the measured prepared tree instead.
+    for path in source.rglob("*"):
+        inside(path)
+    if target.exists():
+        shutil.rmtree(target)
+    shutil.copytree(source, target)
+    if files_hash(source) != files_hash(target):
+        raise RuntimeError("Prepared clone assets differ before any benchmark request")
+
+
 def make_clone(clone: Path) -> dict:
     import yaml
     clone = inside(clone)
@@ -91,9 +106,7 @@ def make_clone(clone: Path) -> dict:
     # Copy those exact measured inputs, with no local extraction or CAD subprocess.
     for relative in ("generated", "frontend/dist"):
         source = inside(ROOT / relative)
-        for path in source.rglob("*"):
-            inside(path)
-        shutil.copytree(source, inside(clone / relative), dirs_exist_ok=True)
+        copy_prepared_tree(source, clone / relative, clone)
     for relative in ("generated/records.json", "generated/bom.json", "generated/ai_results.json", "generated/models/manifest.json", "frontend/dist/index.html"):
         if not inside(clone / relative).is_file():
             raise ValueError("Run queued build/CAD preparation before the benchmark; missing " + relative)

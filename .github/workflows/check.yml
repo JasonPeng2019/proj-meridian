@@ -1,0 +1,81 @@
+name: Meridian checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: meridian-light-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  MERIDIAN_ROOT: ${{ github.workspace }}
+  UV_PROJECT_ENVIRONMENT: ${{ github.workspace }}/.venv
+  UV_CACHE_DIR: ${{ github.workspace }}/.cache/uv
+  UV_PYTHON_INSTALL_DIR: ${{ github.workspace }}/.runtime/python
+  UV_PYTHON_DOWNLOADS: never
+  TEMP: ${{ github.workspace }}/.tmp
+  TMP: ${{ github.workspace }}/.tmp
+  TMPDIR: ${{ github.workspace }}/.tmp
+  PYTHONPYCACHEPREFIX: ${{ github.workspace }}/.cache/pycache
+  npm_config_cache: ${{ github.workspace }}/.cache/npm
+  MERIDIAN_NO_KEY: '1'
+  OMP_NUM_THREADS: '1'
+  OPENBLAS_NUM_THREADS: '1'
+  MKL_NUM_THREADS: '1'
+  NUMEXPR_NUM_THREADS: '1'
+  UV_CONCURRENT_BUILDS: '1'
+  UV_CONCURRENT_DOWNLOADS: '4'
+  GOMAXPROCS: '2'
+  NODE_OPTIONS: --max-old-space-size=1536
+
+jobs:
+  checks:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - run: mkdir -p .tmp .cache/uv .cache/npm .cache/pycache .runtime/python docs/ci
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - uses: astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9 # v7
+        with:
+          enable-cache: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+      - name: Install locked dependencies without CAD
+        run: |
+          uv sync --locked --extra dev
+          npm --prefix frontend ci --maxsockets=2
+      - name: Verify source hashes and tracked paths
+        run: uv run --locked python scripts/ci_verify.py audit
+      - name: Focused checks without CAD, PDF regeneration, browsers or APIs
+        run: uv run --locked pytest --ignore=tests/test_cad.py --ignore=tests/test_loader.py --junitxml=docs/ci/pytest-light.xml
+      - name: Build frontend remotely
+        run: npm --prefix frontend run build
+      - name: Record frontend artifact provenance
+        run: uv run --locked python -m scripts.frontend_artifact manifest
+      - name: Save downloadable frontend
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: meridian-frontend-${{ github.sha }}
+          retention-days: 7
+          path: |
+            frontend/dist/
+            docs/ci/frontend-build.json
+      - name: Save check reports
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: meridian-checks-${{ github.run_id }}
+          retention-days: 7
+          path: docs/ci/

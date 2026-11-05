@@ -1,9 +1,6 @@
-name: Meridian verification
+name: Meridian integration
 
 on:
-  push:
-    branches: [main]
-  pull_request:
   workflow_dispatch:
     inputs:
       live_api:
@@ -18,7 +15,7 @@ on:
 permissions:
   contents: read
 
-# One remote run at a time, including manual runs and pull requests. All heavy
+# Coordinator-dispatched integration checkpoints. One heavy run at a time. All
 # stages below are sequential steps in a single job; no parallel job matrix.
 concurrency:
   group: meridian-heavy
@@ -78,6 +75,8 @@ jobs:
         run: uv run --locked python scripts/ci_verify.py audit
       - name: Build frontend
         run: npm --prefix frontend run build
+      - name: Record frontend artifact provenance
+        run: uv run --locked python -m scripts.frontend_artifact manifest
       - name: Run tests in one process
         run: uv run --locked pytest --junitxml=docs/ci/pytest.xml
       - name: Generate and roundtrip all six CAD variants

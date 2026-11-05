@@ -123,3 +123,113 @@ loading/format validation. Key presence is not an authentication claim.
 Final B00 result: **PASS for M01's bounded setup checks**, with the expected
 not-yet-implemented server exit. Recovered failed attempts remain recorded
 above; this does not claim that every attempted command succeeded.
+
+## B00 repair — 2026-11-05
+
+Scope: A01 follow-up on current integration base
+`0d859eebb01e7d9840465113284a7e38d7dc6e7b`, branch
+`lane/01044dfacea84d41a122b6c913e71475/A01-scaffold-fix/work`.
+The final candidate is the full branch tip in ignored root `RESULT.json`.
+The latest resource override supersedes the original local-check instructions:
+**no installs, runtime tests, builds, smoke scripts or live readers were run**
+in this repair. The historical B00 outcomes above are not new repair results.
+Remote runtime acceptance is pending ROOT Actions on the exact integrated
+revision, including A02's refreshed contracts. No source-validation PASS,
+determine/verify qualification, UI review or product gate is claimed.
+
+Changes:
+
+- Added `src/vite-env.d.ts` referencing `vite/client` for the reported TS2882
+  CSS import, and `typecheck: tsc --noEmit -p tsconfig.json`. The existing
+  `build: vite build` and lockfile are unchanged. `tsconfig.json` includes the
+  whole `src` tree, including `contracts.ts`; A02's file was not edited.
+- Replaced both pending reader templates with the exact successful B00
+  `sol-2`/`opus-1` argv, using plain executable names and placeholders for
+  model/settings, image, schema, output and state/log paths. Prompts travel on
+  stdin. Claude's image path belongs in that prompt for its Read tool, not an
+  invented image flag. Claude settings/environment templates preserve the
+  qualified regular mode, empty fallback list and hook/tool restrictions.
+- Qualification references commit `0e66458` and both A08 reports. Their
+  synthetic image capability is historical evidence only: it does not qualify
+  the new candidate-bound verification sequence or engineering source truth.
+  Effective Codex model/effort/tier/sandbox and Opus effort/fallback list are
+  not exposed. Reserved `model_providers.openai` overrides must not be used;
+  `--bare` is avoided because it excludes account OAuth. The nonfatal Codex
+  catalog timeout and built-in provider retry defaults remain limitations.
+- Configured `determine-verify/v1`: Sol determiner then Opus verifier,
+  sequential execution, exact candidate/original-evidence binding and explicit
+  field verdict/reason/evidence requirements, one disagreement correction and
+  reverification, retained rounds, persistent disagreement/unsure/invalid
+  unresolved. Only a troubleshot Opus execution failure permits valid
+  source-backed `single_model_unverified` continuation, labelled UNVERIFIED
+  in Debug, outside verified counts, with Opus retried on each launch. The
+  one-job/two-reserved-reader-slot/four-total-process caps are explicit.
+- Added central `ui.debug_enabled: false` and `Settings.debug_enabled` for
+  A03 status. Export `MERIDIAN_DEBUG=1` to enable; unset/`0` disables it.
+  `uv run meridian --debug` / `--no-debug` override the environment; both
+  launch wrappers already forward flags. `.env.example` documents these
+  settings and is not automatically loaded. Review belongs inside Debug;
+  ordinary navigation remains Chat/Parts. No UI/contracts were edited.
+- Added `paths.chat_history: chat_history` relative to `development/`,
+  optional `MERIDIAN_CHAT_HISTORY_DIR`, and `Settings.chat_history_dir` for
+  A15. This resolves a path only; it implements no persistence and reads no
+  key/history. M15 must retain full messages/citations/attachments and the
+  server-owned per-thread ledger, send only the selected last 10 turns to
+  Luna, never trust client history for citation authorization, and allow
+  history reads without a key. Tests use isolated stores under `testing/`.
+- Native `.gitignore` now excludes `/development/chat_history/`.
+  **Outer Git delta for ROOT:** add `/product/development/chat_history/` to
+  Avathon's publishing `.gitignore`; that file is outside this lane/CWD and
+  was not changed. No real user history was opened or created.
+
+The owned `smoke_checks.py` was legitimately updated: replace the obsolete
+`pending_A08`/blind-reader assertions with exact successful-argv comparison
+against the A08 JSON record, template path/literal checks, new pipeline/fallback
+configuration, Debug environment/flag precedence and isolated history path/Git
+exclusion checks. `--templates-only` supplies a separate YAML load/argv check.
+It never invokes either reader. All checker execution remains remote.
+ROOT owns workflow manifests and `testing/ci/checks.py`; neither was edited.
+The existing foundation entry point already calls this A01 smoke file.
+
+### Static inspection and remote handoff
+
+Allowed local static inspection: Python `-B` parses owned Python files with
+`ast.parse`, frontend package/tsconfig JSON with `json.loads`, and settings with
+`yaml.safe_load`; it does not import application modules or execute the checker.
+The exact invocation and inspection results are retained in
+`B00-repair-static.json`. A static comparison also confirms both templates
+preserve the qualified argv after documented substitutions, with no absolute
+paths/key-like literals. Its first `python -c` attempt reported a Sol mismatch
+because PowerShell removed embedded TOML quotes during native argument
+transport. A JSON-normalization `python -c` attempt then exited 1 with
+`SyntaxError: unexpected character after line continuation character` for the
+same quoting issue. Piping the inspection/normalization programs on stdin
+corrected both; both comparison results and the failure diagnostic are retained.
+These were inspection-command transport failures, not reader executions.
+`git diff --check` checks whitespace only.
+These inspections cannot establish TypeScript or runtime correctness.
+
+Commands ROOT must run on **Actions**, from the indicated working directory:
+
+| Exact command | Working directory | Repair outcome |
+| --- | --- | --- |
+| `npm ci --no-fund --no-audit` (only if `node_modules` is absent) | development/frontend | NOT RUN locally; remote pending. |
+| `npm run typecheck` | development/frontend | NOT RUN locally; remote must exit 0, including integrated A02 `contracts.ts`. Report any contracts error verbatim to A02; do not fix it in A01. |
+| `npm run build` | development/frontend | NOT RUN locally; remote pending, build command unchanged. |
+| `rm -rf -- dist` | development/frontend on disposable Linux Actions runner | NOT RUN locally; remove this generated frontend directory after preserving any required remote artifact. No build output is committed. |
+| `uv sync --locked` | development | NOT RUN locally; remote pending, locked form of requested `uv sync`. |
+| `uv run meridian` | development | NOT RUN locally; expected exit 1 with the not-implemented message while A03 is absent. Once A03 is integrated, use A03's launch checks instead of asserting this historical exit. |
+| `uv run python ../testing/reports/b00/A01-scaffold/smoke_checks.py` | development | NOT RUN locally; remote pending. |
+| `uv run python ../testing/reports/b00/A01-scaffold/smoke_checks.py --templates-only` | development | NOT RUN locally; remote YAML load/qualified-argv/path/literal checks pending. |
+| `git diff --check` | root | Exit 0 during static repair inspection. |
+| `git check-ignore --no-index development/chat_history/probe.json` | root | Exit 0; native ignore matches without creating history. |
+
+Keep the environment, cache and any generated logs/test outputs inside the
+Actions checkout's development/testing split. Bind retained Actions results to
+the exact published `harness-v2` revision. The A02 candidate `ab9c786` report was
+read via Git; its focused TS helper commands remain ROOT's CI integration task,
+in addition to the full-tree `npm run typecheck` above. This A01 base still has
+the earlier contracts; ROOT must validate after integrating both owners.
+
+Repair handoff: scoped edits and remote checks authored; runtime validation
+**pending**, not passed. No human decision or proposed USER_TODO is needed.

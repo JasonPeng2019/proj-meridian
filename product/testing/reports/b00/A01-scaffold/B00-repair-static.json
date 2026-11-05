@@ -1,0 +1,117 @@
+{
+  "schema": "A01-b00-repair-static/v1",
+  "inspected_at": "2026-11-05T05:10:02.5309238-05:00",
+  "base_commit": "0d859eebb01e7d9840465113284a7e38d7dc6e7b",
+  "command_argv": [
+    "python",
+    "-B",
+    "-c",
+    "import ast\nimport json\nfrom pathlib import Path\nimport yaml\n\nroot = Path.cwd()\npython_files = [\n    'development/backend/settings.py',\n    'development/backend/launcher.py',\n    'testing/reports/b00/A01-scaffold/smoke_checks.py',\n]\nfor name in python_files:\n    ast.parse((root / name).read_text(encoding='utf-8'), filename=name)\njson_files = ['development/frontend/package.json', 'development/frontend/tsconfig.json']\nfor name in json_files:\n    json.loads((root / name).read_text(encoding='utf-8'))\ndata = yaml.safe_load((root / 'development/ai_settings.yaml').read_text(encoding='utf-8'))\nprint(json.dumps({\n    'python_ast_parsed': python_files,\n    'json_parsed': json_files,\n    'yaml_parsed': 'development/ai_settings.yaml',\n    'reader_argv_lengths': {name: len(reader['command']['argv_template']) for name, reader in data['prep']['readers'].items()},\n    'reader_attempts': {name: reader['command']['qualification']['attempt'] for name, reader in data['prep']['readers'].items()},\n    'pipeline': data['prep']['pipeline'],\n    'debug_default': data['ui']['debug_enabled'],\n    'history_default': data['paths']['chat_history'],\n    'application_imports': False,\n    'runtime_or_smoke_execution': False,\n    'live_readers': False,\n}))"
+  ],
+  "exit_code": 0,
+  "findings": {
+    "python_ast_parsed": [
+      "development/backend/settings.py",
+      "development/backend/launcher.py",
+      "testing/reports/b00/A01-scaffold/smoke_checks.py"
+    ],
+    "json_parsed": [
+      "development/frontend/package.json",
+      "development/frontend/tsconfig.json"
+    ],
+    "yaml_parsed": "development/ai_settings.yaml",
+    "reader_argv_lengths": {
+      "sol": 53,
+      "opus": 29
+    },
+    "reader_attempts": {
+      "sol": "sol-2",
+      "opus": "opus-1"
+    },
+    "pipeline": {
+      "version": "determine-verify/v1",
+      "execution": "sequential",
+      "stages": [
+        {
+          "role": "determiner",
+          "reader": "sol"
+        },
+        {
+          "role": "verifier",
+          "reader": "opus"
+        }
+      ],
+      "verifier_input": "exact_candidate_and_original_evidence",
+      "require_candidate_source_binding": true,
+      "require_per_field_verdict_reason_evidence": true,
+      "max_disagreement_retries": 1,
+      "retain_all_rounds": true,
+      "unresolved_states": [
+        "disagrees",
+        "unsure",
+        "invalid"
+      ]
+    },
+    "debug_default": false,
+    "history_default": "chat_history",
+    "application_imports": false,
+    "runtime_or_smoke_execution": false,
+    "live_readers": false
+  },
+  "runtime_validation": "NOT RUN: pending ROOT Actions",
+  "source_validation": "NOT PERFORMED",
+  "template_inspection": {
+    "command_argv": [
+      "python",
+      "-B",
+      "-c",
+      "import hashlib\nimport json\nfrom pathlib import Path, PureWindowsPath\nimport re\nimport yaml\n\nroot = Path.cwd()\nconfig_path = root / 'development/ai_settings.yaml'\ndata = yaml.safe_load(config_path.read_text(encoding='utf-8'))\nqualification = json.loads((root / 'testing/reports/qualification/A08-runner/qualification.json').read_text(encoding='utf-8'))\nattempts = {a['id']: a for a in qualification['attempts']}\nfindings = {}\nfor name, attempt_id, executable in [('sol', 'sol-2', 'codex'), ('opus', 'opus-1', 'claude')]:\n    command = data['prep']['readers'][name]['command']\n    expected = list(attempts[attempt_id]['argv'])\n    expected[0] = executable\n    substitutions = {\n        '--model': '{model}', '--effort': '{effort}', '--image': '{image}',\n        '--output-schema': '{output_schema_file}', '--output-last-message': '{last_message_file}',\n        '--settings': '{claude_settings_file}', '--json-schema': '{output_schema_json}',\n    }\n    for flag, placeholder in substitutions.items():\n        if flag in expected:\n            expected[expected.index(flag) + 1] = placeholder\n    for i, argument in enumerate(expected):\n        if argument == 'model_reasoning_effort=max':\n            expected[i] = 'model_reasoning_effort={reasoning_effort}'\n        elif argument == 'service_tier=fast':\n            expected[i] = 'service_tier={service_tier}'\n        elif argument.startswith('sqlite_home='):\n            expected[i] = 'sqlite_home=\"{codex_state_dir}\"'\n        elif argument.startswith('log_dir='):\n            expected[i] = 'log_dir=\"{codex_log_dir}\"'\n    findings[name] = {\n        'qualified_argv_preserved_after_documented_substitutions': command['argv_template'] == expected,\n        'no_absolute_path_or_key_like_literal': not re.search(r'(?:[A-Za-z]:[\\\\/]|sk-[A-Za-z0-9_-]{16,}|https?://)', json.dumps(command)) and all(not Path(a).is_absolute() and not PureWindowsPath(a).is_absolute() for a in command['argv_template']),\n        'stdin_prompt': command['prompt_transport'] == 'stdin',\n    }\nprint(json.dumps({'yaml_sha256': hashlib.sha256(config_path.read_bytes()).hexdigest(), 'findings': findings, 'scope': 'Static configuration comparison only; no reader or runtime execution'}))"
+    ],
+    "exit_code": 0,
+    "result": {
+      "yaml_sha256": "92eef3213f095e8af80f260a4fe114d18cbfcea058bdab7147a959b3044207db",
+      "findings": {
+        "sol": {
+          "qualified_argv_preserved_after_documented_substitutions": false,
+          "no_absolute_path_or_key_like_literal": true,
+          "stdin_prompt": true
+        },
+        "opus": {
+          "qualified_argv_preserved_after_documented_substitutions": true,
+          "no_absolute_path_or_key_like_literal": true,
+          "stdin_prompt": true
+        }
+      },
+      "scope": "Static configuration comparison only; no reader or runtime execution"
+    }
+  },
+  "corrected_template_inspection": {
+    "command_argv": [
+      "python",
+      "-B",
+      "-"
+    ],
+    "stdin_program": "import hashlib\nimport json\nfrom pathlib import Path, PureWindowsPath\nimport re\nimport yaml\n\nroot = Path.cwd()\nconfig_path = root / 'development/ai_settings.yaml'\ndata = yaml.safe_load(config_path.read_text(encoding='utf-8'))\nqualification = json.loads((root / 'testing/reports/qualification/A08-runner/qualification.json').read_text(encoding='utf-8'))\nattempts = {a['id']: a for a in qualification['attempts']}\nfindings = {}\nfor name, attempt_id, executable in [('sol', 'sol-2', 'codex'), ('opus', 'opus-1', 'claude')]:\n    command = data['prep']['readers'][name]['command']\n    expected = list(attempts[attempt_id]['argv'])\n    expected[0] = executable\n    substitutions = {\n        '--model': '{model}', '--effort': '{effort}', '--image': '{image}',\n        '--output-schema': '{output_schema_file}', '--output-last-message': '{last_message_file}',\n        '--settings': '{claude_settings_file}', '--json-schema': '{output_schema_json}',\n    }\n    for flag, placeholder in substitutions.items():\n        if flag in expected:\n            expected[expected.index(flag) + 1] = placeholder\n    for i, argument in enumerate(expected):\n        if argument == 'model_reasoning_effort=max':\n            expected[i] = 'model_reasoning_effort={reasoning_effort}'\n        elif argument == 'service_tier=fast':\n            expected[i] = 'service_tier={service_tier}'\n        elif argument.startswith('sqlite_home='):\n            expected[i] = 'sqlite_home=\"{codex_state_dir}\"'\n        elif argument.startswith('log_dir='):\n            expected[i] = 'log_dir=\"{codex_log_dir}\"'\n    findings[name] = {\n        'qualified_argv_preserved_after_documented_substitutions': command['argv_template'] == expected,\n        'no_absolute_path_or_key_like_literal': not re.search(r'(?:[A-Za-z]:[\\\\/]|sk-[A-Za-z0-9_-]{16,}|https?://)', json.dumps(command)) and all(not Path(a).is_absolute() and not PureWindowsPath(a).is_absolute() for a in command['argv_template']),\n        'stdin_prompt': command['prompt_transport'] == 'stdin',\n    }\nprint(json.dumps({'yaml_sha256': hashlib.sha256(config_path.read_bytes()).hexdigest(), 'findings': findings, 'scope': 'Static configuration comparison only; no reader or runtime execution'}))",
+    "exit_code": 0,
+    "result": {
+      "yaml_sha256": "92eef3213f095e8af80f260a4fe114d18cbfcea058bdab7147a959b3044207db",
+      "findings": {
+        "sol": {
+          "qualified_argv_preserved_after_documented_substitutions": true,
+          "no_absolute_path_or_key_like_literal": true,
+          "stdin_prompt": true
+        },
+        "opus": {
+          "qualified_argv_preserved_after_documented_substitutions": true,
+          "no_absolute_path_or_key_like_literal": true,
+          "stdin_prompt": true
+        }
+      },
+      "scope": "Static configuration comparison only; no reader or runtime execution"
+    }
+  },
+  "inspection_diagnostics": [
+    "Initial python -c comparison reported Sol mismatch because Windows PowerShell native argument transport removed embedded TOML double quotes. Corrected by piping the same program on stdin; retained both results.",
+    "A subsequent python -c JSON-normalization attempt exited 1 with SyntaxError: unexpected character after line continuation character; native argument transport again stripped Python quotes. No project change from that failed attempt; corrected normalization uses stdin."
+  ]
+}

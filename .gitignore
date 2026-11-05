@@ -20,3 +20,6 @@ product/testing/runs/
 **/__MACOSX/
 **/.DS_Store
 product/development/frontend/dist/
+
+# Private user conversations are local application data.
+product/development/chat_history/

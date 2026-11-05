@@ -32,3 +32,6 @@ local-config/
 
 # Frontend bundles are downloaded from revision-checked Actions artifacts.
 /development/frontend/dist/
+
+# Private user conversations and per-thread server tool ledgers.
+/development/chat_history/

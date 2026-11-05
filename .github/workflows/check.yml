@@ -58,6 +58,7 @@ jobs:
       - name: Build frontend remotely
         run: |
           npm --prefix ../development/frontend ci --ignore-scripts --no-audit --no-fund
+          npm --prefix ../development/frontend run typecheck
           npm --prefix ../development/frontend run build
           python ci/checks.py manifest
       - name: Check frozen TypeScript payloads, fixtures and Debug props

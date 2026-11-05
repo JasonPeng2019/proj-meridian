@@ -1,0 +1,259 @@
+{
+  "publication_branch": "harness-v2",
+  "publication_commit": "057de661b221179070d48c32aec14219d659783d",
+  "module_run": "42007163333",
+  "contract_and_build_run": "42007162825",
+  "outcome": "PASS",
+  "scope": "A02 contract refresh and A07 M1 decisions with regression modules; no V1-V5 product gate or actual AI prep claim",
+  "native_candidates": {
+    "A02-contract-refresh": "ab9c78656ee37e58aaa206d06cf8c977674901c4",
+    "A07-decisions": "6cb7da533f33394303eeec82cecc9949b5f258d8"
+  },
+  "exact_git_blob_equivalence": {
+    "A02-contract-refresh": [
+      {
+        "path": "development/backend/contracts.py",
+        "sha256": "2c33a6715ece3fd1b42851fa44add0e3a9ae278479b32c114ae1bd5323a38789"
+      },
+      {
+        "path": "development/frontend/src/contracts.ts",
+        "sha256": "50732a79ea9ba230177f6a29a1f36758143ed5e1fe8b9b80a98b79785fa6337d"
+      },
+      {
+        "path": "testing/fixtures/contracts/D-013-stale.json",
+        "sha256": "99635b76af8b79d1ba8e831b9a15a35a6dca466e2df3c527d8f2f3caa7ed708d"
+      },
+      {
+        "path": "testing/fixtures/contracts/D-013.json",
+        "sha256": "56df05d9928b8477dad3beec80ab39f2ea2806bfcf4fe4ee00c403824a0c88f8"
+      },
+      {
+        "path": "testing/fixtures/contracts/D-025.json",
+        "sha256": "69122bf0c057a683a6fd0c4fa6e651583e7b78963a5b07976b460896da4b489b"
+      },
+      {
+        "path": "testing/fixtures/contracts/cost-summary.json",
+        "sha256": "ece5b6ba84fdec6bcb54dc6b6724df7be7c0444cb33ea946572ec6c9283655f2"
+      },
+      {
+        "path": "testing/fixtures/contracts/flat-template.json",
+        "sha256": "2c37ec92524ef9ef0aad63a940652da83125225d2e9408f72f27153610a29965"
+      },
+      {
+        "path": "testing/fixtures/contracts/machine-summary.json",
+        "sha256": "b0bf45a21eaab2d661a8fdd4fa4f0de7165f9fdbab41d656769ac3595aad019f"
+      },
+      {
+        "path": "testing/fixtures/contracts/manifest.json",
+        "sha256": "86c899afaf33a33ffe0ad1684b164fd543df2c7400abb22b48fed5a65efc86b0"
+      },
+      {
+        "path": "testing/fixtures/contracts/prep-cases.json",
+        "sha256": "0d9e5993c9cda5d29d730fdcffed3e9f86b8cffb036f8673ff57a39b6d361046"
+      },
+      {
+        "path": "testing/fixtures/contracts/proposal-result.json",
+        "sha256": "ffb50b9afef1ecfce61f7e4fb40010f467207522550c02af273b283727c35831"
+      },
+      {
+        "path": "testing/fixtures/contracts/review-action-response.json",
+        "sha256": "832040ff053b3eca1c59feb1711966ce56ef733c7d703b7cd753b62e16cc7b63"
+      },
+      {
+        "path": "testing/fixtures/contracts/review-item.json",
+        "sha256": "4bdfa5a87325118b93b10681f83e7523dfd95364b9ada5ba47a3ab30fd059b43"
+      },
+      {
+        "path": "testing/fixtures/contracts/status-configured.json",
+        "sha256": "464178ab8a07822338d601943d913d994c54c498192aae86979c55871f8ca2b9"
+      },
+      {
+        "path": "testing/fixtures/contracts/status-debug-enabled.json",
+        "sha256": "de13557f89dfddf35f62082136a51e754d1d47a096fa4b06a861b97e7334c792"
+      },
+      {
+        "path": "testing/fixtures/contracts/status-missing-key.json",
+        "sha256": "d4d84a57906ec0970fa2cb27e7ed9a76ea4710b35c7c3c5e4881714f023686f5"
+      },
+      {
+        "path": "testing/fixtures/contracts/summary-inputs.json",
+        "sha256": "82c750ec0bb9819e7ff7778a646f9e692e0543b915142dee59ed29b1c739e6de"
+      },
+      {
+        "path": "testing/reports/b01/A02-contracts/2026-11-05-follow-up.md",
+        "sha256": "5d45671b0365b4afca22000eea50e684674d998e26e5e708dad06af01c1a2adc"
+      },
+      {
+        "path": "testing/reports/b01/A02-contracts/2026-11-05-static.json",
+        "sha256": "93dd98fb16d2f0617702e767f33724245f484d51739126c29d1e79a9f6728225"
+      },
+      {
+        "path": "testing/smoke/A02-contracts/build_fixtures.py",
+        "sha256": "799ae880342f9390541fcb913172efbbef864482f8ab2fdc604d16978a4ef889"
+      },
+      {
+        "path": "testing/smoke/A02-contracts/check_contracts.py",
+        "sha256": "bb74034e4d2b44fa2a7f4c3f6566c2233dcda45db5b9acb00ef06d65b33e7bbb"
+      },
+      {
+        "path": "testing/smoke/A02-contracts/check_helpers.cjs",
+        "sha256": "a8353867c8a8a25f1c55696351b4cc90944365343533167676e14881a3792a29"
+      },
+      {
+        "path": "testing/smoke/A02-contracts/check_policy.py",
+        "sha256": "551d6797d063dd00800cfda8a172a8c3646b968947846a157d2998d1c901f4c5"
+      },
+      {
+        "path": "testing/smoke/A02-contracts/check_props.ts",
+        "sha256": "fac2412fd2af1ab99ad9638df7095eec51e3a1819ad03feb118df3c3cfeb1a9a"
+      },
+      {
+        "path": "testing/smoke/A02-contracts/inspect_static.py",
+        "sha256": "f28389160bf6ac47c2289c2d8930f0e46bca4b98cefb2e90a37c62f2437eb433"
+      }
+    ],
+    "A07-decisions": [
+      {
+        "path": "development/backend/loader/decisions.py",
+        "sha256": "dfaaf2d88085ac560aa0d2c3253c54bcc83cbb0d7566a8a5bbcb4764546482dc"
+      },
+      {
+        "path": "testing/reports/b01/A07-decisions/CHECKS.md",
+        "sha256": "e4328b5b762f645ca7ff41c0eae0721bbef9cb1b11d510b2234aa65e545a7dbf"
+      },
+      {
+        "path": "testing/reports/b01/A07-decisions/static-checks.json",
+        "sha256": "b0dccccbd2d3bf6926cbdc2c64eb6c3790f2ab43d6eda988dd5eb9f0bec5e966"
+      },
+      {
+        "path": "testing/tests/test_decisions_m1.py",
+        "sha256": "95b65081ead1194117f02e1a5ca4e49fb8f67ba680de75c8bb2128d9a36c3320"
+      }
+    ]
+  },
+  "python_cases": [
+    {
+      "classname": "tests.test_bom_m1.BOMM1Tests",
+      "name": "test_collisions_ambiguity_forward_missing_and_directed_references",
+      "time": "0.003"
+    },
+    {
+      "classname": "tests.test_bom_m1.BOMM1Tests",
+      "name": "test_core_cleanup_and_snapshot_without_m3_repairs",
+      "time": "0.001"
+    },
+    {
+      "classname": "tests.test_bom_m1.BOMM1Tests",
+      "name": "test_missing_cost_or_amount_is_unrecorded_but_explicit_zero_is_retained",
+      "time": "0.002"
+    },
+    {
+      "classname": "tests.test_bom_m1.BOMM1Tests",
+      "name": "test_stable_identity_and_fingerprint_survive_reordering",
+      "time": "0.003"
+    },
+    {
+      "classname": "tests.test_bom_m1.BOMM1Tests",
+      "name": "test_supplied_rows_headers_original_cells_and_manifest_hash",
+      "time": "0.198"
+    },
+    {
+      "classname": "tests.test_bom_m1.BOMM1Tests",
+      "name": "test_supplied_zero_traps_lists_and_recorded_connections",
+      "time": "0.058"
+    },
+    {
+      "classname": "tests.test_decisions_m1",
+      "name": "test_contract_fixture_pending_review_persists_and_regenerated_evidence_stays_original",
+      "time": "0.048"
+    },
+    {
+      "classname": "tests.test_decisions_m1",
+      "name": "test_pending_rejection_and_supersession_keep_the_latest_accepted_value",
+      "time": "0.014"
+    },
+    {
+      "classname": "tests.test_decisions_m1",
+      "name": "test_only_the_server_review_capability_can_append_human_actions",
+      "time": "0.003"
+    },
+    {
+      "classname": "tests.test_decisions_m1",
+      "name": "test_hashes_and_event_ids_cannot_be_rebased_or_overwritten",
+      "time": "0.004"
+    },
+    {
+      "classname": "tests.test_decisions_m1",
+      "name": "test_exact_stable_names_support_each_m1_overlay_type[D-025/template/thickness-set_value-7.25]",
+      "time": "0.005"
+    },
+    {
+      "classname": "tests.test_decisions_m1",
+      "name": "test_exact_stable_names_support_each_m1_overlay_type[D-025/template/width-choose_option-19.5]",
+      "time": "0.005"
+    },
+    {
+      "classname": "tests.test_decisions_m1",
+      "name": "test_exact_stable_names_support_each_m1_overlay_type[D-025/part-link-value2]",
+      "time": "0.004"
+    },
+    {
+      "classname": "tests.test_decisions_m1",
+      "name": "test_exact_stable_names_support_each_m1_overlay_type[BOM:synthetic-section/synthetic-part/cost-correction-None]",
+      "time": "0.005"
+    },
+    {
+      "classname": "tests.test_decisions_m1",
+      "name": "test_exact_stable_names_support_each_m1_overlay_type[names/material/synthetic-grade -> synthetic-family-name_mapping-kind_of]",
+      "time": "0.005"
+    },
+    {
+      "classname": "tests.test_decisions_m1",
+      "name": "test_durable_append_failure_preserves_prefix_and_corruption_is_explicit",
+      "time": "0.005"
+    },
+    {
+      "classname": "tests.test_decisions_m1",
+      "name": "test_separate_writers_keep_both_events_and_unrelated_names_do_not_overlay",
+      "time": "0.012"
+    },
+    {
+      "classname": "tests.test_drawings",
+      "name": "test_actual_corner_fields_keep_uncertainty_and_missing_titles",
+      "time": "1.407"
+    },
+    {
+      "classname": "tests.test_drawings",
+      "name": "test_actual_d013_coincident_words_and_numbers_are_deduplicated",
+      "time": "0.005"
+    },
+    {
+      "classname": "tests.test_drawings",
+      "name": "test_actual_multipage_images_geometry_and_scan_crops",
+      "time": "0.008"
+    },
+    {
+      "classname": "tests.test_drawings",
+      "name": "test_cropped_rotated_pages_have_source_aligned_text_and_pixels",
+      "time": "0.058"
+    },
+    {
+      "classname": "tests.test_drawings",
+      "name": "test_overlapping_text_is_unresolved_without_drawing_id_special_cases",
+      "time": "0.038"
+    },
+    {
+      "classname": "tests.test_drawings",
+      "name": "test_manifest_validation_rejects_changed_bytes_and_source_output",
+      "time": "0.023"
+    }
+  ],
+  "python_case_count": 23,
+  "contract_evidence": "testing/runs/remote-check-42007162825/harness-v2-checks-42007162825/python-1.txt",
+  "local_heavy_execution": false,
+  "contract_check_steps": {
+    "Lightweight foundation checks": "success",
+    "Build frontend remotely": "success",
+    "Check frozen TypeScript payloads, fixtures and Debug props": "success"
+  }
+}

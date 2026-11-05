@@ -28,6 +28,19 @@ class Settings:
         return (self.root / self.data["paths"][name]).resolve()
 
     @property
+    def debug_enabled(self) -> bool:
+        """A03 exposes this boolean in status; only MERIDIAN_DEBUG=1 enables it."""
+        ui = self.data["ui"]
+        default = "1" if ui["debug_enabled"] else "0"
+        return os.environ.get(ui["debug_env"], default) == "1"
+
+    @property
+    def chat_history_dir(self) -> Path:
+        """M15's private JSON store; resolving its path never reads a key/history."""
+        location = os.environ.get(self.data["chat"]["history_dir_env"])
+        return (self.root / (location or self.data["paths"]["chat_history"])).resolve()
+
+    @property
     def secrets_dir(self) -> Path:
         credentials = self.data["chat"]["credentials"]
         location = os.environ.get(credentials["secrets_dir_env"]) or credentials["secrets_dir"]

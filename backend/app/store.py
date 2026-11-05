@@ -230,7 +230,7 @@ class Store:
                 if "state" in field:
                     field["state"] = "known"
             field.update(method="human_decision", confidence="sure", correction={"original": old, "corrected": value, "by": event["by"], "at": event["at"]})
-            field.pop("review", None)
+            field["review"] = {"status": "human_confirmed", "by": event["by"], "at": event["at"]}
             if target.endswith("/drawing/title"):
                 part = self.owners[target]
                 part["display_name"] = str(value)
@@ -246,10 +246,21 @@ class Store:
                 elif "/template/" in target:
                     field["state"] = "unknown"
                     field.pop("selected", None)
+        elif kind == "defer_unsupported" and status == "accepted" and field and "/template/" in target:
+            # An unavailable reconstruction is not an approval or an invented
+            # geometry value. Keep the unknown input and the original evidence.
+            field["review"] = {"status": "deferred", "by": event["by"], "at": event["at"],
+                               "reason": event.get("note", ""), "review_kind": event.get("review_kind", "human")}
         elif kind == "approve_design":
             part = self.by_id.get(target)
             if part:
                 part["design_review"] = {"by": event["by"], "at": event["at"], "note": event.get("note", "")}
+        if event.get("review_kind") == "delegated":
+            metadata = {"review_kind": "delegated", "display_by": event.get("delegated_by", "Jason Peng") + " - delegated review"}
+            if field:
+                for key in ("review", "correction"):
+                    if isinstance(field.get(key), dict):
+                        field[key].update(metadata)
 
     def part(self, key: str) -> dict:
         part = self.parts.get(key) or self.by_id.get(key)
@@ -275,9 +286,16 @@ class Store:
         event = {"decision_id": "HD-" + uuid.uuid4().hex, "applies_to": target, "type": kind,
                  "value": value, "status": status, "note": note, "by": settings().get("reviewer_name", "Jason Peng"),
                  "at": now(), "based_on": {"sha256": self.fingerprint(target)}, **extra}
-        path = self.decisions_dir / (event["decision_id"] + ".json")
-        with path.open("x", encoding="utf-8") as handle:
-            json.dump(event, handle, ensure_ascii=False, indent=2)
+        path = inside(self.decisions_dir / (event["decision_id"] + ".json"))
+        pending = inside(self.decisions_dir / ("." + event["decision_id"] + ".pending"))
+        try:
+            with pending.open("x", encoding="utf-8") as handle:
+                json.dump(event, handle, ensure_ascii=False, indent=2)
+            # Publish complete JSON atomically without replacing any prior file.
+            os.link(pending, path)
+        finally:
+            if pending.exists():
+                pending.unlink()
         self.reload()
         return event
 
@@ -316,7 +334,7 @@ class Store:
                 items.append(item(target, "link", current, reason=current.get("reason", "Drawing-to-BOM link is unresolved"), candidates=candidates, rows=[{"name": n, "display_name": r.get("display_name"), "section": r.get("section")} for n, r in self.rows.items() if r.get("fields", {}).get("type", {}).get("value") == "Custom"]))
             elif "/template/" in target and current.get("state") == "unknown" and current.get("method") != "human_decision":
                 items.append(item(target, "template", current, reason="Waiting for human input"))
-            elif original.get("method") in AI_METHODS:
+            elif original.get("method") in AI_METHODS and current.get("state") != "options":
                 items.append(item(target, "ai_interpretation", current))
             if current.get("state") == "options":
                 items.append(item(target, "possible_reading", current, id="options:" + target, selected=current.get("selected")))
@@ -447,7 +465,7 @@ class Store:
     def accuracy(self) -> dict:
         latest = {}
         for event in self.events:
-            if event.get("type") in {"confirm", "reject"} and "automated" not in event.get("by", "").lower():
+            if event.get("type") in {"confirm", "reject"} and event.get("review_kind") != "delegated" and "automated" not in event.get("by", "").lower():
                 key = (event["applies_to"], event.get("based_on", {}).get("sha256"))
                 latest[key] = event
         jobs = {job: {"confirmed": 0, "rejected": 0} for job in ("scans", "matching", "templates")}

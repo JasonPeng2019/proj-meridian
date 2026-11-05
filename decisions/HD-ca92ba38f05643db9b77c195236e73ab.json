@@ -1,0 +1,27 @@
+{
+  "decision_id": "HD-ca92ba38f05643db9b77c195236e73ab",
+  "applies_to": "D-030/template/thickness",
+  "type": "set_value",
+  "value": {
+    "state": "known",
+    "value": 4.0,
+    "fact_ids": [
+      "D-030/drawing/source"
+    ],
+    "tolerance_mm": 0.05
+  },
+  "status": "accepted",
+  "note": "Section A-A explicitly prints 4.00 +/-0.05 mm. Resolve this stock thickness only; the undimensioned curved outline remains unavailable.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T14:14:39.635609+00:00",
+  "based_on": {
+    "sha256": "849100de6d2abbbcca5c6e39cd4a1778918b17818cc88c91340612981d9220ee"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious input reviews on 2026-11-05.",
+  "source_evidence": [
+    "D-030/drawing/source"
+  ],
+  "source_locations": []
+}

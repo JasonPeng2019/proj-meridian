@@ -28,6 +28,8 @@ App chat MUST use `gpt-6-luna`. Dataset prep uses Claude Opus at regular speed a
 
 Dataset prep runs Sol as proposer, then Opus verifies that exact proposal against the original evidence; allow one bounded feedback retry. Preserve legacy independent-reader receipts without relabelling them. Retain supported cuts independently, document omitted features, and assess all drawings within the MVP template limits. Never invent geometry or human approvals to increase the model count.
 
+Jason has authorized delegated review of obvious engineering inputs. Record those append-only decisions with the actual inspecting actor, `review_kind: delegated`, and Jason as delegating authority; show `Jason Peng - delegated review` in the live app. Keep this separate from prep-model verification and personal human accuracy/spot-check counts. Do not claim Jason personally inspected an item. Unsupported-template dispositions preserve unknown geometry and do not approve a design. The live product must consume the same decision files and refresh when their revision changes.
+
 Launch coding subagents as `gpt-6.1-sol`, high reasoning, on priority/Fast mode. The project Codex configuration specifies these settings for root coding sessions as well.
 
 ## Resource limits

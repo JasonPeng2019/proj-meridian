@@ -1,0 +1,25 @@
+{
+  "decision_id": "HD-b561439d5ce44685b5b20a662000f68a",
+  "applies_to": "D-001/link",
+  "type": "link",
+  "value": [
+    "BOM:box/front-door"
+  ],
+  "status": "accepted",
+  "note": "The drawing visibly contains a rectangular window opening. The Front Door design intent explicitly requires a window for viewing; the Back Door explicitly says without window. This physical feature resolves the front/back ambiguity that the title and x2 quantity alone could not. Link only the front door; retain the source x2 quantity and the BOM amount 1 as separate statements.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T14:14:00.104971+00:00",
+  "based_on": {
+    "sha256": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious input reviews on 2026-11-05.",
+  "source_evidence": [
+    "D-001/drawing/notes",
+    "D-001/drawing/source",
+    "BOM:box/front-door/design_intent",
+    "BOM:box/back-door/design_intent"
+  ],
+  "source_locations": []
+}

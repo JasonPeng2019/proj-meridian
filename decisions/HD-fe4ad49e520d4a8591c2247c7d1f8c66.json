@@ -1,0 +1,20 @@
+{
+  "decision_id": "HD-fe4ad49e520d4a8591c2247c7d1f8c66",
+  "applies_to": "D-028/template/outline",
+  "type": "defer_unsupported",
+  "value": null,
+  "status": "accepted",
+  "note": "The original outline has two R5.5 semicircular ends; a capsule outline is not implemented. Preserve its printed dimensions and holes without substituting a rectangle.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T14:14:24.022412+00:00",
+  "based_on": {
+    "sha256": "30fb8b6088f535c51107389aa8eb4c7420841cd0f4c6175d3deb90a154e9881f"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious input reviews on 2026-11-05.",
+  "source_evidence": [
+    "D-028/drawing/source"
+  ],
+  "source_locations": []
+}

@@ -1,0 +1,26 @@
+{
+  "decision_id": "HD-90f31920767a444eb39d6ef8169dd3fa",
+  "applies_to": "D-020/template/outline/outer_diameter",
+  "type": "set_value",
+  "value": {
+    "state": "known",
+    "value": 141.0,
+    "fact_ids": [
+      "D-020/drawing/source"
+    ]
+  },
+  "status": "accepted",
+  "note": "The original ring front view explicitly prints diameter 141.0 mm. This determines the ring body only; the O-ring groove and blind-hole inventory remain omitted and are not approved.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T14:14:42.390260+00:00",
+  "based_on": {
+    "sha256": "06242966c0f3c15c3031982fa56585859ff1d64e52f6215a30fcf0e912225fa6"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious input reviews on 2026-11-05.",
+  "source_evidence": [
+    "D-020/drawing/source"
+  ],
+  "source_locations": []
+}

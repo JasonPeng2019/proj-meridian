@@ -1,0 +1,30 @@
+{
+  "decision_id": "HD-5189ee752e4d4f3f85770bc2eb3b9542",
+  "applies_to": "D-013/link",
+  "type": "link",
+  "value": [
+    "BOM:recoater/recoater-head"
+  ],
+  "status": "accepted",
+  "note": "The exact RecoaterPlate.pdf filename appears in two BOM rows, so filename alone is ambiguous. The original design-intent cells distinguish them: the head is adjustable and mounts to the arm, while the stage plate mounts to linear bearings. D-013 explicitly calls itself an adjustment plate for the recoater and has adjustment slots; the supplied RecoaterLegend puts this long slotted strip at the arm/wiper end. D-014 is separately titled Recoater Linear Plate with the note Plate for linear guide. Together these distinguish the head from the bearing-stage plate. Preserve the duplicated BOM datasheet as a source inconsistency; do not rewrite it.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T14:14:01.214176+00:00",
+  "based_on": {
+    "sha256": "826076b03bfbaeee961dc3e57cb642c225d41f1ea9a643d0bb1ca7d296280047"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious input reviews on 2026-11-05.",
+  "source_evidence": [
+    "D-013/drawing/title",
+    "D-013/drawing/notes",
+    "D-013/drawing/source",
+    "BOM:recoater/recoater-head/design_intent",
+    "BOM:recoater/recoater-head/datasheet",
+    "BOM:recoater/recoater-stage-plate/design_intent",
+    "BOM:recoater/recoater-stage-plate/datasheet",
+    "D-014/drawing/title",
+    "D-014/drawing/notes"
+  ],
+  "source_locations": []
+}

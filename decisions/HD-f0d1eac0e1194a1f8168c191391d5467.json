@@ -1,0 +1,39 @@
+{
+  "decision_id": "HD-f0d1eac0e1194a1f8168c191391d5467",
+  "applies_to": "D-002/template/thickness",
+  "type": "set_value",
+  "value": {
+    "state": "known",
+    "value": 2,
+    "fact_ids": [
+      "D-002/drawing/notes",
+      "D-002/drawing/source"
+    ]
+  },
+  "status": "accepted",
+  "note": "Note explicitly specifies 2mm non-magnetic stainless for Left Wall. Resolve nominal sheet stock thickness only; formed bends remain outside MVP. No numeric dimension fact ID exists, so this is delegated visual interpretation of the existing note, not a newly fabricated parsed fact.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T14:13:47.202195+00:00",
+  "based_on": {
+    "sha256": "6822d609aa047ddbcb9446e1215f697ec12f5764ba9aa5ef3906543b9a1887bc"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious input reviews on 2026-11-05.",
+  "source_evidence": [
+    "D-002/drawing/notes",
+    "D-002/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-002/drawing/notes",
+      "page": 1,
+      "box": [
+        741.528,
+        658.943,
+        231.0,
+        111.0
+      ]
+    }
+  ]
+}

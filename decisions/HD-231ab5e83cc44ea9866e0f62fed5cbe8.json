@@ -1,0 +1,20 @@
+{
+  "decision_id": "HD-231ab5e83cc44ea9866e0f62fed5cbe8",
+  "applies_to": "D-029/template/outline",
+  "type": "defer_unsupported",
+  "value": null,
+  "status": "accepted",
+  "note": "The original has an undimensioned curved three-lobed outer profile. Its outline and hole locations cannot be recovered by scaling or a bounding rectangle.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T14:14:26.542047+00:00",
+  "based_on": {
+    "sha256": "066ed91474bb74b652451a34c6b9f5b719d23dba56043b8ba6aa8f5b7479cf15"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious input reviews on 2026-11-05.",
+  "source_evidence": [
+    "D-029/drawing/source"
+  ],
+  "source_locations": []
+}

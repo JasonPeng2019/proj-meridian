@@ -143,6 +143,7 @@ def verify_debug():
                      {'drawing','bom'}.issubset({r['kind'] for r in i.get('source_refs',[])}))
         page.goto(BASE+'/review/ai/'+quote(mapping['id'],safe='/'))
         bom_link=page.locator('button.review-source-link[data-source-name^="BOM:"]').first
+        bom_link.wait_for(state='attached')
         if not bom_link.is_visible():
             page.locator('.review-source-links details > summary').click()
         bom_link.click()

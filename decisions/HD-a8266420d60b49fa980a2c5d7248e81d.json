@@ -1,0 +1,35 @@
+{
+  "decision_id": "HD-a8266420d60b49fa980a2c5d7248e81d",
+  "applies_to": "D-020/template/thickness",
+  "type": "set_value",
+  "value": {
+    "state": "options",
+    "value": null,
+    "options": [
+      9.8,
+      10.2
+    ],
+    "fact_ids": [
+      "D-020/drawing/source"
+    ],
+    "tolerance_range_mm": [
+      9.8,
+      10.2
+    ],
+    "variant_semantics": "printed tolerance bounds"
+  },
+  "status": "accepted",
+  "note": "The side view specifies lower/upper thickness limits 9.8 and 10.2 mm. Preserve the permitted interval and both printed endpoints as bounding reconstructions; neither is selected as the actual manufactured thickness. No nominal value is invented.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T14:14:47.727469+00:00",
+  "based_on": {
+    "sha256": "06242966c0f3c15c3031982fa56585859ff1d64e52f6215a30fcf0e912225fa6"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious input reviews on 2026-11-05.",
+  "source_evidence": [
+    "D-020/drawing/source"
+  ],
+  "source_locations": []
+}

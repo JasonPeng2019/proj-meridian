@@ -1,0 +1,26 @@
+{
+  "decision_id": "HD-a8c3b191263143f5977334418c3072b1",
+  "applies_to": "D-004/template/outline",
+  "type": "defer_unsupported",
+  "value": null,
+  "status": "accepted",
+  "note": "Top/end view shows 25.00 bent side flanges and 3.00 sheet thickness. The 775 x 650 rectangular face projection does not establish a planar part.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T14:13:49.549869+00:00",
+  "based_on": {
+    "sha256": "947fee0986f4799388d5bd41411b2abedcee5d6a644e909238f005fb4802f64b"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious input reviews on 2026-11-05.",
+  "source_evidence": [
+    "D-004/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-004/drawing/source",
+      "page": 1,
+      "box": null
+    }
+  ]
+}

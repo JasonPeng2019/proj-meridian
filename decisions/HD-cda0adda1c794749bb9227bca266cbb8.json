@@ -1,0 +1,28 @@
+{
+  "decision_id": "HD-cda0adda1c794749bb9227bca266cbb8",
+  "applies_to": "D-019/link",
+  "type": "link",
+  "value": [
+    "BOM:optics/silicone-gasket-f-theta-ring"
+  ],
+  "status": "accepted",
+  "note": "The provenance filename explicitly identifies SiliconePakningfTheta.pdf; the drawing note explicitly says 1mm silicone gasket, and the image is an annular gasket. The BOM has exactly one custom silicone f-theta gasket row. This is a unique filename/function/physical-shape combination, not a generic material match. Preserve the separate material field spelling Silicon Rubber; this link does not silently normalize that material or establish blanket section equivalence.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T14:14:02.537605+00:00",
+  "based_on": {
+    "sha256": "581fbaf7562ac75008243463af6956d6f88cd6a0a858cf6c22aa62ce39041e11"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious input reviews on 2026-11-05.",
+  "source_evidence": [
+    "D-019/drawing/source",
+    "D-019/drawing/notes",
+    "D-019/drawing/material",
+    "BOM:optics/silicone-gasket-f-theta-ring/name",
+    "BOM:optics/silicone-gasket-f-theta-ring/material",
+    "BOM:recoater/recoater-blade/datasheet",
+    "BOM:optics/f-theta-seal-ring/material"
+  ],
+  "source_locations": []
+}

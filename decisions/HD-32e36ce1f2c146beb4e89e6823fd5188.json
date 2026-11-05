@@ -1,0 +1,26 @@
+{
+  "decision_id": "HD-32e36ce1f2c146beb4e89e6823fd5188",
+  "applies_to": "D-002/template/outline",
+  "type": "defer_unsupported",
+  "value": null,
+  "status": "accepted",
+  "note": "Main projection is 775 x 578.90, but both edge views and the isometric show bent side/bottom flanges; edge depth is 23.00. A flat rectangular extrusion would discard essential bends.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T14:13:46.452182+00:00",
+  "based_on": {
+    "sha256": "6822d609aa047ddbcb9446e1215f697ec12f5764ba9aa5ef3906543b9a1887bc"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious input reviews on 2026-11-05.",
+  "source_evidence": [
+    "D-002/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-002/drawing/source",
+      "page": 1,
+      "box": null
+    }
+  ]
+}

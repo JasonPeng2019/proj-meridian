@@ -8,6 +8,8 @@ def source_record(store, name: str, *, detail=False):
     owner = store.owners.get(name)
     row = next((row for key, row in store.rows.items() if name == key or name.startswith(key + "/")), None)
     if row:
+        if name != row["name"] and name not in store.fields and not any(f.get("name") == name for f in row.get("fields", {}).values()):
+            return None
         result = {"kind": "bom", "name": name, "label": f"{row.get('display_id', 'BOM')} / {row.get('display_name', row['name'])}",
                   "part_key": owner.get("key") if owner else None,
                   "source_path": field.get("source_path") or row.get("source_path"),

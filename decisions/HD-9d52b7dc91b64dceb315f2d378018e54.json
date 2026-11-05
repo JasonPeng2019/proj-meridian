@@ -1,0 +1,26 @@
+{
+  "decision_id": "HD-9d52b7dc91b64dceb315f2d378018e54",
+  "applies_to": "D-006/template/outline",
+  "type": "defer_unsupported",
+  "value": null,
+  "status": "accepted",
+  "note": "Main 243.50 x 420 projection has essential angled/notched edges; upper, side and isometric views show bent flange and tab. A rectangle would erase the functional contour and bends.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T14:13:51.822065+00:00",
+  "based_on": {
+    "sha256": "b9bd89aa9449889adb5335b1f4f3550be072a37447b1c134fb703435f04fbaad"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious input reviews on 2026-11-05.",
+  "source_evidence": [
+    "D-006/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-006/drawing/source",
+      "page": 1,
+      "box": null
+    }
+  ]
+}

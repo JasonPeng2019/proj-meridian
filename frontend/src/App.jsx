@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {MessageSquare, Box, ShieldCheck, BookOpen, Settings2, ArrowUpRight, Layers, ChevronRight, ArrowLeft, ExternalLink} from 'lucide-react';
 import {DebugContext} from './debug';
 import Chat from './chat/Chat';
@@ -39,7 +39,10 @@ function ReadmePage({hash,navigate}) {
 
 export default function App() {
   const [route,setRoute]=useState(parseLocation),[parts,setParts]=useState([]),[status,setStatus]=useState(null),[error,setError]=useState(''),[messages,setMessages]=useState([]),[session,setSession]=useState(null),[hash,setHash]=useState(window.location.hash),[chatLoading,setChatLoading]=useState(false),[chatEpoch,setChatEpoch]=useState(0);
-  const refresh=()=>{api('/api/parts').then(d=>setParts(Array.isArray(d)?d:d.parts||[])).catch(e=>setError(e.message));api('/api/status').then(setStatus).catch(()=>{})};
+  const seenRevision=useRef(null);
+  const acceptStatus=data=>{if(seenRevision.current&&seenRevision.current!==data.revision){api('/api/parts').then(d=>setParts(Array.isArray(d)?d:d.parts||[])).catch(()=>{});window.dispatchEvent(new CustomEvent('meridian:revision',{detail:data.revision}))}seenRevision.current=data.revision;setStatus(data)};
+  useEffect(()=>{let pending=false;const poll=async()=>{if(document.hidden||pending)return;pending=true;try{acceptStatus(await api('/api/status'))}catch{}finally{pending=false}};const timer=setInterval(poll,10000);document.addEventListener('visibilitychange',poll);return()=>{clearInterval(timer);document.removeEventListener('visibilitychange',poll)}},[]);
+  const refresh=()=>{api('/api/parts').then(d=>setParts(Array.isArray(d)?d:d.parts||[])).catch(e=>setError(e.message));api('/api/status').then(acceptStatus).catch(()=>{})};
   useEffect(()=>{refresh();const pop=()=>{setRoute(parseLocation());setHash(window.location.hash)};window.addEventListener('popstate',pop);window.addEventListener('hashchange',pop);return()=>{window.removeEventListener('popstate',pop);window.removeEventListener('hashchange',pop)}},[]);
   const navigate=(url,options={})=>{const current=window.history.state;const panel=options.panel || options.keepPanel&&current?.panel;const state=panel?{panel:true,base:current?.panel?current.base:window.location.pathname+window.location.search}:null;window.history[options.replace?'replaceState':'pushState'](state,'',url);setRoute(parseLocation());setHash(window.location.hash)};
   const resetChat=()=>{setChatEpoch(n=>n+1);setChatLoading(false);setMessages([]);setSession(null);navigate('/chat')};

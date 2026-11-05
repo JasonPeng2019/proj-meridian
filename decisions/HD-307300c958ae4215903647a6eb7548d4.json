@@ -1,0 +1,26 @@
+{
+  "decision_id": "HD-307300c958ae4215903647a6eb7548d4",
+  "applies_to": "D-003/template/outline",
+  "type": "defer_unsupported",
+  "value": null,
+  "status": "accepted",
+  "note": "The 600 x 775 main plate has an explicitly called-out R3.0 outer corner. Current MVP forbids rounded outer contours, including bounding-rectangle substitutions. The 3 x 45-degree edge break is separate from this radius.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T14:13:48.017772+00:00",
+  "based_on": {
+    "sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious input reviews on 2026-11-05.",
+  "source_evidence": [
+    "D-003/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-003/drawing/source",
+      "page": 1,
+      "box": null
+    }
+  ]
+}

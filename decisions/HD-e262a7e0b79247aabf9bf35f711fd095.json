@@ -1,0 +1,26 @@
+{
+  "decision_id": "HD-e262a7e0b79247aabf9bf35f711fd095",
+  "applies_to": "D-001/template/outline",
+  "type": "defer_unsupported",
+  "value": null,
+  "status": "accepted",
+  "note": "Main view is 492 x 515 with rounded outer corners, with no outer radius dimension. Rectangle/circle/ring cannot reproduce this outline; the 287 x 200 opening also has rounded corners. Do not substitute the bounding rectangle.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T14:13:44.902016+00:00",
+  "based_on": {
+    "sha256": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious input reviews on 2026-11-05.",
+  "source_evidence": [
+    "D-001/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-001/drawing/source",
+      "page": 1,
+      "box": null
+    }
+  ]
+}

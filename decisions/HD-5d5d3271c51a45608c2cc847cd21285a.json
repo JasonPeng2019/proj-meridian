@@ -1,0 +1,26 @@
+{
+  "decision_id": "HD-5d5d3271c51a45608c2cc847cd21285a",
+  "applies_to": "D-023/link",
+  "type": "link",
+  "value": [
+    "BOM:build-plate/build-cylinder"
+  ],
+  "status": "accepted",
+  "note": "The unique BuildCylinder_v2.pdf filename and ByggeCylinder title are corroborated by precise physical evidence: the image shows OD280 and ID252, and its note specifies ?280, t=15 starting tube. The BOM design intent independently gives OD280, ID252 and ?280 t=15. These three specific dimensions and the cylinder form establish identity despite different subsystem labels. No material-family normalization or section-wide equivalence is needed to establish this individual link.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T14:14:04.081100+00:00",
+  "based_on": {
+    "sha256": "5d838d31ad5e803b6c421bc6867447f73756d51509259385e07caf81e453c36d"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious input reviews on 2026-11-05.",
+  "source_evidence": [
+    "D-023/drawing/title",
+    "D-023/drawing/notes",
+    "D-023/drawing/source",
+    "BOM:build-plate/build-cylinder/name",
+    "BOM:build-plate/build-cylinder/design_intent"
+  ],
+  "source_locations": []
+}

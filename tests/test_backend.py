@@ -22,6 +22,43 @@ def test_review_queues_separate_verified_mapping_from_ambiguous_geometry(evidenc
                      "status": "accepted", "by": "Automated in-memory fixture", "at": "2000-01-01T00:00:00Z"})
     assert next(i for i in evidence.review_items() if i["id"] == mapping["id"])["review_queue"] == "resolved"
 
+
+def test_unsupported_disposition_preserves_unknown_geometry_and_delegated_accuracy(evidence):
+    target = "D-019/template/thickness"
+    before = copy.deepcopy(evidence.fields[target])
+    event = {"applies_to": target, "type": "defer_unsupported", "status": "accepted",
+             "by": "Meridian delegated reviewer", "review_kind": "delegated",
+             "at": "2000-01-01T00:00:00Z", "note": "Outside current template capability"}
+    evidence._apply(event)
+    assert evidence.fields[target]["state"] == before["state"]
+    assert evidence.fields[target].get("value") == before.get("value")
+    assert evidence.fields[target]["review"]["status"] == "deferred"
+    assert next(i for i in evidence.review_items() if i["target"] == target)["review_queue"] == "resolved"
+    evidence.events.append({**event, "type": "confirm"})
+    assert evidence.accuracy()["reviewed"] == 0
+
+
+def test_possible_reading_is_one_review_question_without_duplicate_ai_item(evidence):
+    target = "D-019/template/thickness"
+    items = [i for i in evidence.review_items() if i["target"] == target]
+    assert len(items) == 1 and items[0]["type"] == "possible_reading"
+
+
+def test_live_store_reloads_the_same_append_only_decision_files(evidence, monkeypatch):
+    from backend.app import main
+    monkeypatch.setattr(main, "_store", evidence)
+    monkeypatch.setattr(main, "_snapshot_signature", None)
+    monkeypatch.setattr(main, "_snapshot_store", None)
+    initial = main.get_store().revision
+    # Simulate another authorized process writing to the same repository.
+    other = Store(evidence.root)
+    other.append("D-019/template/thickness", "confirm", by="Automated delegated fixture",
+                 review_kind="delegated", delegated_by="Fixture authorization")
+    live = main.get_store()
+    assert live.revision != initial
+    assert live.fields["D-019/template/thickness"]["review"]["display_by"] == "Fixture authorization - delegated review"
+    assert live.accuracy()["reviewed"] == 0
+
 @pytest.fixture
 def evidence(tmp_path, monkeypatch):
     monkeypatch.setattr("backend.app.store.settings", lambda: {"reviewer_name": "Automated verification"})

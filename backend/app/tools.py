@@ -27,7 +27,7 @@ def badge(field: dict) -> str:
         return "Not determined from the evidence"
     if method == "human_decision":
         correction = field.get("correction", {})
-        return f"Entered by {correction.get('by', 'reviewer')} on {correction.get('at', '')[:10]}"
+        return f"Entered by {correction.get('display_by', correction.get('by', 'reviewer'))} on {correction.get('at', '')[:10]}"
     if method in AI_METHODS or method.startswith("ai_"):
         label = {"ai_read": "AI reading of a blurry scan", "ai_agreed_after_retry": "AI interpretation (agreed after a second look)",
                  "ai_verified": "AI proposal verified against evidence", "ai_verified_after_retry": "AI proposal verified after feedback"}.get(method, "AI interpretation")

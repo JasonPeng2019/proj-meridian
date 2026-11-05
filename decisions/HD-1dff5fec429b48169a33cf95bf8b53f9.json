@@ -1,0 +1,28 @@
+{
+  "decision_id": "HD-1dff5fec429b48169a33cf95bf8b53f9",
+  "applies_to": "D-028/link",
+  "type": "link",
+  "value": [
+    "BOM:build-plate/heating-element-plate"
+  ],
+  "status": "accepted",
+  "note": "Varmeelement Plade translates exactly to heating-element plate. The original note explicitly says Aluminium and 3 styk. (three pieces), matching the unique BOM heating-element-plate name, aluminium material and amount 3. This combination distinguishes it from the single thermocouple plate and the large build-base disk; it is more than keyword similarity. Preserve the 2.0/3.0 thickness ambiguity and do not choose a thickness.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T14:14:10.603162+00:00",
+  "based_on": {
+    "sha256": "30fb8b6088f535c51107389aa8eb4c7420841cd0f4c6175d3deb90a154e9881f"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious input reviews on 2026-11-05.",
+  "source_evidence": [
+    "D-028/drawing/title",
+    "D-028/drawing/notes",
+    "BOM:build-plate/heating-element-plate/name",
+    "BOM:build-plate/heating-element-plate/material",
+    "BOM:build-plate/heating-element-plate/amount",
+    "BOM:build-plate/thermocouple-plate/design_intent",
+    "BOM:build-plate/thermocouple-plate/amount"
+  ],
+  "source_locations": []
+}

@@ -1,0 +1,26 @@
+{
+  "decision_id": "HD-98e20c7e70114ebab2a7e3db46355ae8",
+  "applies_to": "D-009/template/outline",
+  "type": "defer_unsupported",
+  "value": null,
+  "status": "accepted",
+  "note": "Multiple views show a hollow profiled canister with sloping walls and a projecting base flange. 270 max width, 230 depth and 395 height are enclosure dimensions, not flat-part outline and extrusion thickness.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T14:13:55.996042+00:00",
+  "based_on": {
+    "sha256": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious input reviews on 2026-11-05.",
+  "source_evidence": [
+    "D-009/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-009/drawing/source",
+      "page": 1,
+      "box": null
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "decision_id": "HD-de709fdffec3445f9b0fd5412bf55924",
+  "applies_to": "D-021/template/outline",
+  "type": "defer_unsupported",
+  "value": null,
+  "status": "accepted",
+  "note": "The drawing shows a welded three-dimensional duct with curved walls and a weld nipple, not one flat constant-thickness part.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T14:14:18.894214+00:00",
+  "based_on": {
+    "sha256": "c8b07157f3b40ef8d2dc18ae915d4f7244479ea6219d4fe3e8bb6ef1fedea1bc"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious input reviews on 2026-11-05.",
+  "source_evidence": [
+    "D-021/drawing/source"
+  ],
+  "source_locations": []
+}

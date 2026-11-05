@@ -1,0 +1,904 @@
+{
+  "authorization": "User explicitly delegated obvious human-input review on 2026-11-05; decisions are by Meridian delegated reviewer, not personal Jason approvals.",
+  "operations": [
+    {
+      "target": "D-001/template/outline",
+      "action": "defer_unsupported",
+      "value": null,
+      "note": "Main view is 492 x 515 with rounded outer corners, with no outer radius dimension. Rectangle/circle/ring cannot reproduce this outline; the 287 x 200 opening also has rounded corners. Do not substitute the bounding rectangle.",
+      "source_fact_ids": [
+        "D-001/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "fact_id": "D-001/drawing/source",
+          "page": 1,
+          "box": null
+        }
+      ],
+      "based_on": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f"
+    },
+    {
+      "target": "D-001/template/thickness",
+      "action": "set_value",
+      "value": {
+        "state": "known",
+        "value": 3,
+        "fact_ids": [
+          "D-001/drawing/notes",
+          "D-001/drawing/source"
+        ]
+      },
+      "note": "Edge view explicitly dimensions 3.00 and note independently says 3mm aluminium. Resolve nominal plate thickness only; rounded outline and feature placement remain unresolved.",
+      "source_fact_ids": [
+        "D-001/drawing/notes",
+        "D-001/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "fact_id": "D-001/drawing/notes",
+          "page": 1,
+          "box": [
+            734.907,
+            653.399,
+            242.971,
+            121.067
+          ]
+        }
+      ],
+      "based_on": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f"
+    },
+    {
+      "target": "D-002/template/outline",
+      "action": "defer_unsupported",
+      "value": null,
+      "note": "Main projection is 775 x 578.90, but both edge views and the isometric show bent side/bottom flanges; edge depth is 23.00. A flat rectangular extrusion would discard essential bends.",
+      "source_fact_ids": [
+        "D-002/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "fact_id": "D-002/drawing/source",
+          "page": 1,
+          "box": null
+        }
+      ],
+      "based_on": "6822d609aa047ddbcb9446e1215f697ec12f5764ba9aa5ef3906543b9a1887bc"
+    },
+    {
+      "target": "D-002/template/thickness",
+      "action": "set_value",
+      "value": {
+        "state": "known",
+        "value": 2,
+        "fact_ids": [
+          "D-002/drawing/notes",
+          "D-002/drawing/source"
+        ]
+      },
+      "note": "Note explicitly specifies 2mm non-magnetic stainless for Left Wall. Resolve nominal sheet stock thickness only; formed bends remain outside MVP. No numeric dimension fact ID exists, so this is delegated visual interpretation of the existing note, not a newly fabricated parsed fact.",
+      "source_fact_ids": [
+        "D-002/drawing/notes",
+        "D-002/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "fact_id": "D-002/drawing/notes",
+          "page": 1,
+          "box": [
+            741.528,
+            658.943,
+            231.0,
+            111.0
+          ]
+        }
+      ],
+      "based_on": "6822d609aa047ddbcb9446e1215f697ec12f5764ba9aa5ef3906543b9a1887bc"
+    },
+    {
+      "target": "D-003/template/outline",
+      "action": "defer_unsupported",
+      "value": null,
+      "note": "The 600 x 775 main plate has an explicitly called-out R3.0 outer corner. Current MVP forbids rounded outer contours, including bounding-rectangle substitutions. The 3 x 45-degree edge break is separate from this radius.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "fact_id": "D-003/drawing/source",
+          "page": 1,
+          "box": null
+        }
+      ],
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+    },
+    {
+      "target": "D-003/template/thickness",
+      "action": "set_value",
+      "value": {
+        "state": "known",
+        "value": 20,
+        "fact_ids": [
+          "D-003/drawing/notes",
+          "D-003/drawing/source"
+        ]
+      },
+      "note": "Section A-A explicitly dimensions 20.0 through plate thickness and note independently says 20mm thick aluminium plate. Resolve thickness only; unsupported R3 outer contour remains.",
+      "source_fact_ids": [
+        "D-003/drawing/notes",
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "fact_id": "D-003/drawing/notes",
+          "page": 1,
+          "box": [
+            729.934,
+            647.146,
+            241.405,
+            120.013
+          ]
+        }
+      ],
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+    },
+    {
+      "target": "D-004/template/outline",
+      "action": "defer_unsupported",
+      "value": null,
+      "note": "Top/end view shows 25.00 bent side flanges and 3.00 sheet thickness. The 775 x 650 rectangular face projection does not establish a planar part.",
+      "source_fact_ids": [
+        "D-004/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "fact_id": "D-004/drawing/source",
+          "page": 1,
+          "box": null
+        }
+      ],
+      "based_on": "947fee0986f4799388d5bd41411b2abedcee5d6a644e909238f005fb4802f64b"
+    },
+    {
+      "target": "D-005/template/outline",
+      "action": "defer_unsupported",
+      "value": null,
+      "note": "Rounded rectangular outer frame 323 x 236, with rounded inner window, relief, stepped window seat and two o-ring grooves. Side 8.2 is overall thickness, not proof of a uniform plate. Both contour and section exceed MVP.",
+      "source_fact_ids": [
+        "D-005/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "fact_id": "D-005/drawing/source",
+          "page": 1,
+          "box": null
+        }
+      ],
+      "based_on": "6f49feb435d02be842ac6933d726b6785cf9cb7cef70e8193976dc4ab265cf26"
+    },
+    {
+      "target": "D-005/template/features_review",
+      "action": "defer_unsupported",
+      "value": null,
+      "note": "Twenty M4 holes have diameter/depth information but no complete XY pattern. The window seat, o-ring grooves and corner relief are essential non-hole/slot geometry. Cannot approve an empty feature set as a faithful frame reconstruction.",
+      "source_fact_ids": [
+        "D-005/drawing/n/20.0@1-1",
+        "D-005/drawing/n/3.3@1-1",
+        "D-005/drawing/n/6.0@1-1",
+        "D-005/drawing/n/4.0@1-1",
+        "D-005/drawing/notes",
+        "D-005/drawing/callout/p1-1",
+        "D-005/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "fact_id": "D-005/drawing/n/20.0@1-1",
+          "page": 1,
+          "box": [
+            318.784,
+            239.655,
+            14.662,
+            18.083
+          ]
+        },
+        {
+          "fact_id": "D-005/drawing/n/3.3@1-1",
+          "page": 1,
+          "box": [
+            365.756,
+            239.655,
+            18.327,
+            18.083
+          ]
+        },
+        {
+          "fact_id": "D-005/drawing/n/6.0@1-1",
+          "page": 1,
+          "box": [
+            405.589,
+            239.655,
+            18.327,
+            18.083
+          ]
+        },
+        {
+          "fact_id": "D-005/drawing/n/4.0@1-1",
+          "page": 1,
+          "box": [
+            396.73,
+            255.557,
+            18.327,
+            18.083
+          ]
+        },
+        {
+          "fact_id": "D-005/drawing/notes",
+          "page": 1,
+          "box": [
+            741.528,
+            658.943,
+            231.0,
+            111.0
+          ]
+        },
+        {
+          "fact_id": "D-005/drawing/callout/p1-1",
+          "page": 1,
+          "box": [
+            260.252,
+            515.874,
+            56.581,
+            32.265
+          ]
+        },
+        {
+          "fact_id": "D-005/drawing/source",
+          "page": 1,
+          "box": null
+        }
+      ],
+      "based_on": "6f49feb435d02be842ac6933d726b6785cf9cb7cef70e8193976dc4ab265cf26"
+    },
+    {
+      "target": "D-006/template/outline",
+      "action": "defer_unsupported",
+      "value": null,
+      "note": "Main 243.50 x 420 projection has essential angled/notched edges; upper, side and isometric views show bent flange and tab. A rectangle would erase the functional contour and bends.",
+      "source_fact_ids": [
+        "D-006/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "fact_id": "D-006/drawing/source",
+          "page": 1,
+          "box": null
+        }
+      ],
+      "based_on": "b9bd89aa9449889adb5335b1f4f3550be072a37447b1c134fb703435f04fbaad"
+    },
+    {
+      "target": "D-007/template/outline",
+      "action": "defer_unsupported",
+      "value": null,
+      "note": "Original shows a stepped turned shaft: diameter 25 body, diameter 8 journals, body length 269.5 and overall 336.1. It is not a flat constant-thickness part. Neither body length nor diameter is a valid single plate thickness.",
+      "source_fact_ids": [
+        "D-007/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "fact_id": "D-007/drawing/source",
+          "page": 1,
+          "box": null
+        }
+      ],
+      "based_on": "e5d57d66cae6ca7bbb2956249e89c11db91d4ea3e258f48658af191e926870c9"
+    },
+    {
+      "target": "D-007/template/thickness",
+      "action": "defer_unsupported",
+      "value": null,
+      "note": "No valid single flat-part thickness exists for the stepped shaft. Diameter 25 body, diameter 8 journals and 269.5 body length are not interchangeable thickness values. Request is unactionable within current flat MVP.",
+      "source_fact_ids": [
+        "D-007/drawing/n/269.5@1-1",
+        "D-007/drawing/n/0.005@1-1",
+        "D-007/drawing/n/0.027@1-1",
+        "D-007/drawing/n/8.0@1-1",
+        "D-007/drawing/n/25.0@1-1",
+        "D-007/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "fact_id": "D-007/drawing/n/269.5@1-1",
+          "page": 1,
+          "box": [
+            450.487,
+            139.209,
+            32.987,
+            18.083
+          ]
+        },
+        {
+          "fact_id": "D-007/drawing/n/0.005@1-1",
+          "page": 1,
+          "box": [
+            659.021,
+            466.737,
+            18.083,
+            32.988
+          ]
+        },
+        {
+          "fact_id": "D-007/drawing/n/0.027@1-1",
+          "page": 1,
+          "box": [
+            671.852,
+            466.737,
+            18.083,
+            32.988
+          ]
+        },
+        {
+          "fact_id": "D-007/drawing/n/8.0@1-1",
+          "page": 1,
+          "box": [
+            671.694,
+            527.685,
+            18.083,
+            18.325
+          ]
+        },
+        {
+          "fact_id": "D-007/drawing/n/25.0@1-1",
+          "page": 1,
+          "box": [
+            864.809,
+            386.598,
+            30.504,
+            26.239
+          ]
+        },
+        {
+          "fact_id": "D-007/drawing/source",
+          "page": 1,
+          "box": null
+        }
+      ],
+      "based_on": "e5d57d66cae6ca7bbb2956249e89c11db91d4ea3e258f48658af191e926870c9"
+    },
+    {
+      "target": "D-007/template/features_review",
+      "action": "defer_unsupported",
+      "value": null,
+      "note": "Section A-A and note describe three curved longitudinal grooves at 120 degrees, with local 90-degree and 2.3 triangular section. Their full axial/curved profiles are not established and they are cylindrical-surface grooves, not supported top-face slots. End chamfers do not fit the feature schema.",
+      "source_fact_ids": [
+        "D-007/drawing/notes",
+        "D-007/drawing/n/90.0@1-1",
+        "D-007/drawing/n/2.3@1-1",
+        "D-007/drawing/callout/p1-1",
+        "D-007/drawing/callout/p1-2",
+        "D-007/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "fact_id": "D-007/drawing/notes",
+          "page": 1,
+          "box": [
+            741.526,
+            658.942,
+            231.0,
+            111.0
+          ]
+        },
+        {
+          "fact_id": "D-007/drawing/n/90.0@1-1",
+          "page": 1,
+          "box": [
+            133.812,
+            457.097,
+            19.953,
+            18.083
+          ]
+        },
+        {
+          "fact_id": "D-007/drawing/n/2.3@1-1",
+          "page": 1,
+          "box": [
+            185.13,
+            407.598,
+            24.913,
+            24.824
+          ]
+        },
+        {
+          "fact_id": "D-007/drawing/callout/p1-1",
+          "page": 1,
+          "box": [
+            704.032,
+            224.405,
+            55.325,
+            43.125
+          ]
+        },
+        {
+          "fact_id": "D-007/drawing/callout/p1-2",
+          "page": 1,
+          "box": [
+            748.031,
+            205.522,
+            55.683,
+            41.932
+          ]
+        },
+        {
+          "fact_id": "D-007/drawing/source",
+          "page": 1,
+          "box": null
+        }
+      ],
+      "based_on": "e5d57d66cae6ca7bbb2956249e89c11db91d4ea3e258f48658af191e926870c9"
+    },
+    {
+      "target": "D-008/template/outline",
+      "action": "defer_unsupported",
+      "value": null,
+      "note": "Isometric and orthographic views show a formed bracket with flanges, a profiled web and six welded nuts. The 349 overall and 310 web lengths describe different formed extents, not an exact planar rectangle.",
+      "source_fact_ids": [
+        "D-008/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "fact_id": "D-008/drawing/source",
+          "page": 1,
+          "box": null
+        }
+      ],
+      "based_on": "2642be4f1d3471cc440aa7830166adfa298a8e1a31cef90911662bb2b4a26448"
+    },
+    {
+      "target": "D-009/template/outline",
+      "action": "defer_unsupported",
+      "value": null,
+      "note": "Multiple views show a hollow profiled canister with sloping walls and a projecting base flange. 270 max width, 230 depth and 395 height are enclosure dimensions, not flat-part outline and extrusion thickness.",
+      "source_fact_ids": [
+        "D-009/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "fact_id": "D-009/drawing/source",
+          "page": 1,
+          "box": null
+        }
+      ],
+      "based_on": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea"
+    },
+    {
+      "target": "D-010/template/outline",
+      "action": "defer_unsupported",
+      "value": null,
+      "note": "Bottom view shows opposing bends with 15.00 and 30.00 flange extents; side view has rounded flange corners and main face has edge relief. The 107 x 70 projected envelope is not an exact planar outline.",
+      "source_fact_ids": [
+        "D-010/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "fact_id": "D-010/drawing/source",
+          "page": 1,
+          "box": null
+        }
+      ],
+      "based_on": "700cc64cb7e7c31d1d7a6d6f506bac453cdcb3c7daf76dc2272ffebfe5e2d911"
+    },
+    {
+      "target": "D-010/template/thickness",
+      "action": "set_value",
+      "value": {
+        "state": "known",
+        "value": 2,
+        "fact_ids": [
+          "D-010/drawing/notes",
+          "D-010/drawing/source"
+        ]
+      },
+      "note": "Motor Plate note explicitly specifies 2mm non-magnetic stainless. Resolve nominal sheet stock thickness only; 15/30 are flange heights and never thickness. Bent main geometry remains outside MVP; no parsed thickness number ID exists.",
+      "source_fact_ids": [
+        "D-010/drawing/notes",
+        "D-010/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "fact_id": "D-010/drawing/notes",
+          "page": 1,
+          "box": [
+            741.528,
+            658.943,
+            231.0,
+            111.0
+          ]
+        }
+      ],
+      "based_on": "700cc64cb7e7c31d1d7a6d6f506bac453cdcb3c7daf76dc2272ffebfe5e2d911"
+    },
+    {
+      "target": "D-011/template/outline",
+      "action": "defer_unsupported",
+      "value": null,
+      "note": "Main view is an L profile with curved elbow (R35 inner and R60 outer), 25-wide legs, overall 348 x 195. It is outside rectangle/circle/ring MVP even though a constant plate thickness is shown.",
+      "source_fact_ids": [
+        "D-011/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "fact_id": "D-011/drawing/source",
+          "page": 1,
+          "box": null
+        }
+      ],
+      "based_on": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67"
+    },
+    {
+      "target": "D-011/template/features_review",
+      "action": "defer_unsupported",
+      "value": null,
+      "note": "Two diameter 6.6 through holes and four diameter 4.2/M5-6H through threaded holes have printed location dimensions (20,80,82,10.5,8), but the essential L-profile body is unsupported and no parsed number IDs exist. Do not transform them onto a rectangular substitute.",
+      "source_fact_ids": [
+        "D-011/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "fact_id": "D-011/drawing/source",
+          "page": 1,
+          "box": null
+        }
+      ],
+      "based_on": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67"
+    },
+    {
+      "target": "D-001/link",
+      "action": "accept_link",
+      "value": [
+        "BOM:box/front-door"
+      ],
+      "note": "The drawing visibly contains a rectangular window opening. The Front Door design intent explicitly requires a window for viewing; the Back Door explicitly says without window. This physical feature resolves the front/back ambiguity that the title and x2 quantity alone could not. Link only the front door; retain the source x2 quantity and the BOM amount 1 as separate statements.",
+      "source_fact_ids": [
+        "D-001/drawing/notes",
+        "D-001/drawing/source",
+        "BOM:box/front-door/design_intent",
+        "BOM:box/back-door/design_intent"
+      ],
+      "source_locations": [],
+      "based_on": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f"
+    },
+    {
+      "target": "D-013/link",
+      "action": "accept_link",
+      "value": [
+        "BOM:recoater/recoater-head"
+      ],
+      "note": "The exact RecoaterPlate.pdf filename appears in two BOM rows, so filename alone is ambiguous. The original design-intent cells distinguish them: the head is adjustable and mounts to the arm, while the stage plate mounts to linear bearings. D-013 explicitly calls itself an adjustment plate for the recoater and has adjustment slots; the supplied RecoaterLegend puts this long slotted strip at the arm/wiper end. D-014 is separately titled Recoater Linear Plate with the note Plate for linear guide. Together these distinguish the head from the bearing-stage plate. Preserve the duplicated BOM datasheet as a source inconsistency; do not rewrite it.",
+      "source_fact_ids": [
+        "D-013/drawing/title",
+        "D-013/drawing/notes",
+        "D-013/drawing/source",
+        "BOM:recoater/recoater-head/design_intent",
+        "BOM:recoater/recoater-head/datasheet",
+        "BOM:recoater/recoater-stage-plate/design_intent",
+        "BOM:recoater/recoater-stage-plate/datasheet",
+        "D-014/drawing/title",
+        "D-014/drawing/notes"
+      ],
+      "source_locations": [],
+      "based_on": "826076b03bfbaeee961dc3e57cb642c225d41f1ea9a643d0bb1ca7d296280047"
+    },
+    {
+      "target": "D-019/link",
+      "action": "accept_link",
+      "value": [
+        "BOM:optics/silicone-gasket-f-theta-ring"
+      ],
+      "note": "The provenance filename explicitly identifies SiliconePakningfTheta.pdf; the drawing note explicitly says 1mm silicone gasket, and the image is an annular gasket. The BOM has exactly one custom silicone f-theta gasket row. This is a unique filename/function/physical-shape combination, not a generic material match. Preserve the separate material field spelling Silicon Rubber; this link does not silently normalize that material or establish blanket section equivalence.",
+      "source_fact_ids": [
+        "D-019/drawing/source",
+        "D-019/drawing/notes",
+        "D-019/drawing/material",
+        "BOM:optics/silicone-gasket-f-theta-ring/name",
+        "BOM:optics/silicone-gasket-f-theta-ring/material",
+        "BOM:recoater/recoater-blade/datasheet",
+        "BOM:optics/f-theta-seal-ring/material"
+      ],
+      "source_locations": [],
+      "based_on": "581fbaf7562ac75008243463af6956d6f88cd6a0a858cf6c22aa62ce39041e11"
+    },
+    {
+      "target": "D-023/link",
+      "action": "accept_link",
+      "value": [
+        "BOM:build-plate/build-cylinder"
+      ],
+      "note": "The unique BuildCylinder_v2.pdf filename and ByggeCylinder title are corroborated by precise physical evidence: the image shows OD280 and ID252, and its note specifies ?280, t=15 starting tube. The BOM design intent independently gives OD280, ID252 and ?280 t=15. These three specific dimensions and the cylinder form establish identity despite different subsystem labels. No material-family normalization or section-wide equivalence is needed to establish this individual link.",
+      "source_fact_ids": [
+        "D-023/drawing/title",
+        "D-023/drawing/notes",
+        "D-023/drawing/source",
+        "BOM:build-plate/build-cylinder/name",
+        "BOM:build-plate/build-cylinder/design_intent"
+      ],
+      "source_locations": [],
+      "based_on": "5d838d31ad5e803b6c421bc6867447f73756d51509259385e07caf81e453c36d"
+    },
+    {
+      "target": "D-024/link",
+      "action": "accept_link",
+      "value": [
+        "BOM:build-plate/build-base"
+      ],
+      "note": "ByggeBase names the build base, and the physical details corroborate it. The source shows a ?250 disk and heater-element holes, while the cylinder is ID252; this is exactly the BOM base design intent of about 1mm radial clearance inside the cylinder plus contained heating elements. The heater-element plate alternative is a separate tiny three-piece retaining plate D-028, not this ?250 disk. The source-specific aluminium note matches directly; no alloy taxonomy or whole-section equivalence is assumed.",
+      "source_fact_ids": [
+        "D-024/drawing/title",
+        "D-024/drawing/notes",
+        "D-024/drawing/source",
+        "BOM:build-plate/build-base/design_intent",
+        "BOM:build-plate/build-cylinder/design_intent",
+        "BOM:build-plate/build-base/material",
+        "BOM:build-plate/heating-element-plate/amount",
+        "D-028/drawing/title",
+        "D-028/drawing/notes"
+      ],
+      "source_locations": [],
+      "based_on": "f6da4da2e0c21231939c15f13535cf068d1c1f778774816f3cb65ddf30f96e3d"
+    },
+    {
+      "target": "D-027/link",
+      "action": "accept_link",
+      "value": [
+        "BOM:build-plate/build-cylinder-clamp-ring"
+      ],
+      "note": "The filename and title explicitly identify Cylinder Sp?nd Ring, i.e. cylinder clamp ring, and the note explicitly permits aluminium. Its ?264 H8 bore corresponds to the ?264.017 locating end visible on the build cylinder D-023. The BOM uniquely describes the ring that clamps the build cylinder to the platform and locates the Z-axis assembly. The larger ring geometry and cylinder fit rule out the small seal-retaining ring. This link does not choose among the aluminium series allowed by the drawing.",
+      "source_fact_ids": [
+        "D-027/drawing/title",
+        "D-027/drawing/notes",
+        "D-027/drawing/source",
+        "D-023/drawing/source",
+        "BOM:build-plate/build-cylinder-clamp-ring/name",
+        "BOM:build-plate/build-cylinder-clamp-ring/design_intent",
+        "BOM:build-plate/build-cylinder-clamp-ring/material",
+        "BOM:build-plate/seal-clamp-plate/design_intent"
+      ],
+      "source_locations": [],
+      "based_on": "9a270f0ddf24b173b85b6879b4fbd1ba9cf67d71cff7b13f722699699a667bcc"
+    },
+    {
+      "target": "D-028/link",
+      "action": "accept_link",
+      "value": [
+        "BOM:build-plate/heating-element-plate"
+      ],
+      "note": "Varmeelement Plade translates exactly to heating-element plate. The original note explicitly says Aluminium and 3 styk. (three pieces), matching the unique BOM heating-element-plate name, aluminium material and amount 3. This combination distinguishes it from the single thermocouple plate and the large build-base disk; it is more than keyword similarity. Preserve the 2.0/3.0 thickness ambiguity and do not choose a thickness.",
+      "source_fact_ids": [
+        "D-028/drawing/title",
+        "D-028/drawing/notes",
+        "BOM:build-plate/heating-element-plate/name",
+        "BOM:build-plate/heating-element-plate/material",
+        "BOM:build-plate/heating-element-plate/amount",
+        "BOM:build-plate/thermocouple-plate/design_intent",
+        "BOM:build-plate/thermocouple-plate/amount"
+      ],
+      "source_locations": [],
+      "based_on": "30fb8b6088f535c51107389aa8eb4c7420841cd0f4c6175d3deb90a154e9881f"
+    },
+    {
+      "target": "D-016/template/outline",
+      "action": "defer_unsupported",
+      "value": null,
+      "note": "The original plate has R15 rounded bottom corners; a rectangle would replace the specified contour. Rounded outer profiles are unsupported by the current templates.",
+      "source_fact_ids": [
+        "D-016/drawing/source"
+      ],
+      "source_locations": [],
+      "based_on": "4f9799f28352975cd39a5c52daf0e1dcb036d379fb58ecf6413f0befc67525f3"
+    },
+    {
+      "target": "D-018/template/outline",
+      "action": "defer_unsupported",
+      "value": null,
+      "note": "The original triangular bracket has R15 rounded transitions. A rectangle, circle or ring cannot represent this contour.",
+      "source_fact_ids": [
+        "D-018/drawing/source"
+      ],
+      "source_locations": [],
+      "based_on": "816b582d82ed383ad0ff5452afde74e98b74981a6e9afb3c8d1ff6dbd6fa50a0"
+    },
+    {
+      "target": "D-021/template/outline",
+      "action": "defer_unsupported",
+      "value": null,
+      "note": "The drawing shows a welded three-dimensional duct with curved walls and a weld nipple, not one flat constant-thickness part.",
+      "source_fact_ids": [
+        "D-021/drawing/source"
+      ],
+      "source_locations": [],
+      "based_on": "c8b07157f3b40ef8d2dc18ae915d4f7244479ea6219d4fe3e8bb6ef1fedea1bc"
+    },
+    {
+      "target": "D-022/template/outline",
+      "action": "defer_unsupported",
+      "value": null,
+      "note": "The original shows a bent and welded perforated inlet box. Its three-dimensional formed profile is outside current flat templates.",
+      "source_fact_ids": [
+        "D-022/drawing/source"
+      ],
+      "source_locations": [],
+      "based_on": "7f3f8efc002bc2545386c1a355341ca61ebd984084b21cb07575331c4c1cc9ee"
+    },
+    {
+      "target": "D-028/template/outline",
+      "action": "defer_unsupported",
+      "value": null,
+      "note": "The original outline has two R5.5 semicircular ends; a capsule outline is not implemented. Preserve its printed dimensions and holes without substituting a rectangle.",
+      "source_fact_ids": [
+        "D-028/drawing/source"
+      ],
+      "source_locations": [],
+      "based_on": "30fb8b6088f535c51107389aa8eb4c7420841cd0f4c6175d3deb90a154e9881f"
+    },
+    {
+      "target": "D-029/template/outline",
+      "action": "defer_unsupported",
+      "value": null,
+      "note": "The original has an undimensioned curved three-lobed outer profile. Its outline and hole locations cannot be recovered by scaling or a bounding rectangle.",
+      "source_fact_ids": [
+        "D-029/drawing/source"
+      ],
+      "source_locations": [],
+      "based_on": "066ed91474bb74b652451a34c6b9f5b719d23dba56043b8ba6aa8f5b7479cf15"
+    },
+    {
+      "target": "D-030/template/outline",
+      "action": "defer_unsupported",
+      "value": null,
+      "note": "The original has an undimensioned curved three-lobed outline. Its contour cannot be represented by current rectangle/circle/ring templates.",
+      "source_fact_ids": [
+        "D-030/drawing/source"
+      ],
+      "source_locations": [],
+      "based_on": "849100de6d2abbbcca5c6e39cd4a1778918b17818cc88c91340612981d9220ee"
+    },
+    {
+      "target": "D-023/template/outline/outer_diameter",
+      "action": "defer_unsupported",
+      "value": null,
+      "note": "The build cylinder is a long stepped hollow cylinder with grooves and a taper. It is not a flat ring. Do not insert a single diameter or axial length into a flat-part approximation.",
+      "source_fact_ids": [
+        "D-023/drawing/source",
+        "D-023/drawing/notes"
+      ],
+      "source_locations": [],
+      "based_on": "5d838d31ad5e803b6c421bc6867447f73756d51509259385e07caf81e453c36d"
+    },
+    {
+      "target": "D-023/template/outline/inner_diameter",
+      "action": "defer_unsupported",
+      "value": null,
+      "note": "The build cylinder is a long stepped hollow cylinder with grooves and a taper. It is not a flat ring. Do not insert a single diameter or axial length into a flat-part approximation.",
+      "source_fact_ids": [
+        "D-023/drawing/source",
+        "D-023/drawing/notes"
+      ],
+      "source_locations": [],
+      "based_on": "5d838d31ad5e803b6c421bc6867447f73756d51509259385e07caf81e453c36d"
+    },
+    {
+      "target": "D-023/template/thickness",
+      "action": "defer_unsupported",
+      "value": null,
+      "note": "The build cylinder is a long stepped hollow cylinder with grooves and a taper. It is not a flat ring. Do not insert a single diameter or axial length into a flat-part approximation.",
+      "source_fact_ids": [
+        "D-023/drawing/source",
+        "D-023/drawing/notes"
+      ],
+      "source_locations": [],
+      "based_on": "5d838d31ad5e803b6c421bc6867447f73756d51509259385e07caf81e453c36d"
+    },
+    {
+      "target": "D-030/template/thickness",
+      "action": "set_value",
+      "value": {
+        "state": "known",
+        "value": 4.0,
+        "fact_ids": [
+          "D-030/drawing/source"
+        ],
+        "tolerance_mm": 0.05
+      },
+      "note": "Section A-A explicitly prints 4.00 +/-0.05 mm. Resolve this stock thickness only; the undimensioned curved outline remains unavailable.",
+      "source_fact_ids": [
+        "D-030/drawing/source"
+      ],
+      "source_locations": [],
+      "based_on": "849100de6d2abbbcca5c6e39cd4a1778918b17818cc88c91340612981d9220ee"
+    },
+    {
+      "target": "D-020/template/outline/outer_diameter",
+      "action": "set_value",
+      "value": {
+        "state": "known",
+        "value": 141.0,
+        "fact_ids": [
+          "D-020/drawing/source"
+        ]
+      },
+      "note": "The original ring front view explicitly prints diameter 141.0 mm. This determines the ring body only; the O-ring groove and blind-hole inventory remain omitted and are not approved.",
+      "source_fact_ids": [
+        "D-020/drawing/source"
+      ],
+      "source_locations": [],
+      "based_on": "06242966c0f3c15c3031982fa56585859ff1d64e52f6215a30fcf0e912225fa6"
+    },
+    {
+      "target": "D-020/template/outline/inner_diameter",
+      "action": "set_value",
+      "value": {
+        "state": "known",
+        "value": 118.6,
+        "fact_ids": [
+          "D-020/drawing/source"
+        ]
+      },
+      "note": "The original ring front view explicitly prints diameter 118.6 mm. This determines the ring body only; the O-ring groove and blind-hole inventory remain omitted and are not approved.",
+      "source_fact_ids": [
+        "D-020/drawing/source"
+      ],
+      "source_locations": [],
+      "based_on": "06242966c0f3c15c3031982fa56585859ff1d64e52f6215a30fcf0e912225fa6"
+    },
+    {
+      "target": "D-020/template/thickness",
+      "action": "set_value",
+      "value": {
+        "state": "options",
+        "value": null,
+        "options": [
+          9.8,
+          10.2
+        ],
+        "fact_ids": [
+          "D-020/drawing/source"
+        ],
+        "tolerance_range_mm": [
+          9.8,
+          10.2
+        ],
+        "variant_semantics": "printed tolerance bounds"
+      },
+      "note": "The side view specifies lower/upper thickness limits 9.8 and 10.2 mm. Preserve the permitted interval and both printed endpoints as bounding reconstructions; neither is selected as the actual manufactured thickness. No nominal value is invented.",
+      "source_fact_ids": [
+        "D-020/drawing/source"
+      ],
+      "source_locations": [],
+      "based_on": "06242966c0f3c15c3031982fa56585859ff1d64e52f6215a30fcf0e912225fa6"
+    },
+    {
+      "target": "D-020/template/thickness",
+      "action": "confirm",
+      "value": null,
+      "note": "Reviewed the original printed thickness limits: retain 9.8 and 10.2 mm bounds with no selected thickness. This confirms the interval reading only, not omitted groove/hole geometry or manufacturing fitness.",
+      "source_fact_ids": [
+        "D-020/drawing/source"
+      ],
+      "source_locations": [],
+      "based_on": "06242966c0f3c15c3031982fa56585859ff1d64e52f6215a30fcf0e912225fa6"
+    },
+    {
+      "target": "D-013/template/thickness",
+      "action": "confirm",
+      "value": null,
+      "note": "Retain the 3 mm and 6 mm possible readings exactly as Jason explicitly requested in HD-6532a09332a04a35b2dcf6593773e0db. No reading is chosen. This closes the redundant demand to select one; the failed weight check and unapproved geometry remain open.",
+      "source_fact_ids": [
+        "D-013/drawing/n/3.0@1-1",
+        "D-013/drawing/n/6.0@1-1",
+        "D-013/drawing/source"
+      ],
+      "source_locations": [],
+      "based_on": "826076b03bfbaeee961dc3e57cb642c225d41f1ea9a643d0bb1ca7d296280047"
+    }
+  ]
+}

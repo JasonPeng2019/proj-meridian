@@ -12,7 +12,7 @@ const tabs=[['parts','Parts'],['awaiting-review','Full queue'],['corrections','C
 function category(item) { if(item.type==='correction')return 'corrections';if(item.type==='possible_reading')return 'possible-readings';return item.review_queue==='human_review'?'ai':'needs-input'; }
 function parseValue(value) {try{return JSON.parse(value)}catch{return value}}
 const itemPartKey=item=>item.part_key||item.evidence?.part_key;
-const settled=item=>['accepted','rejected','human_confirmed','human_rejected','approved','reviewed'].includes(item.status);
+const settled=item=>['accepted','rejected','human_confirmed','human_rejected','approved','reviewed','deferred'].includes(item.status);
 function matchesTab(item,id) {if(id==='awaiting-review')return !settled(item);if(id==='needs-input')return item.review_queue==='human_input'&&!settled(item);if(id==='ai')return item.review_queue==='human_review'&&!settled(item);return category(item)===id;}
 const queueLabel=item=>item.review_queue==='human_input'?'Needs human input':item.review_queue==='human_review'?'Needs human review':'Human decision recorded';
 function scopedURL(url,key) {const [path,query='']=url.split('?');const params=new URLSearchParams(query);if(key)params.set('part',key);else params.delete('part');return path+(params.size?`?${params}`:'');}
@@ -21,6 +21,22 @@ function SourceMaterial({item,navigate}) {
   useEffect(()=>setReference(null),[item.id]);
   const link=ref=>ref.kind==='external'?<a key={ref.name} className="review-source-link" href={ref.url} target="_blank" rel="noopener noreferrer">{ref.label}<ArrowUpRight size={13}/></a>:<button key={ref.name} data-source-name={ref.name} className="review-source-link" onClick={()=>setReference(ref)}><span><strong>{ref.kind==='drawing'?'Drawing':ref.kind==='bom'?'Parts list':'README'}</strong>{ref.label}{ref.kind==='drawing'&&<small>Sheet {ref.page}{ref.box?' / highlighted region':' / complete drawing'}</small>}</span><ArrowUpRight size={14}/></button>;
   return <section className="review-source-material"><h4>Open source material</h4><p>Inspect the original evidence without leaving this review.</p>{refs.length?<div className="review-source-links">{refs.slice(0,6).map(link)}{refs.length>6&&<details><summary>More sources ({refs.length-6})</summary>{refs.slice(6).map(link)}</details>}</div>:<p className="muted">No direct source citation was recorded for this item. Check the retained AI receipts before making a decision.</p>}{reference&&<SourceInspector reference={reference} navigate={navigate} onClose={()=>setReference(null)}/>}</section>;
+}
+
+function reviewTitle(item) {
+  const target=item.target||'',id=item.part_key||target.split('/')[0];
+  if(item.type==='name_mapping')return englishText(item.title||target);
+  if(item.id?.startsWith('design:'))return `${id} / Whole reconstruction`;
+  if(item.type==='weight')return `${id} / Weight check`;
+  if(item.type==='link')return `${id} / Drawing-to-parts-list match`;
+  const path=target.split('/'),tail=path.at(-1),labels={outline:'Outer shape',features_review:'Hole and slot layout',thickness:'Thickness',outer_diameter:'Outer diameter',inner_diameter:'Inner diameter'};
+  const field=labels[tail]||(path.includes('outline')?`Outer ${titleCase(tail).toLowerCase()}`:titleCase(tail));
+  return `${id} / ${field}`;
+}
+function ReviewTask({item}) {
+  if(item.target?.endsWith('/template/outline'))return <p className="review-queue-reason">This asks for the outer profile and its dimensions for 3D reconstruction. The current templates support flat rectangles, circles and rings. Bent, formed or curved profiles remain unavailable; do not substitute a guessed rectangle.</p>;
+  if(item.target?.endsWith('/template/features_review'))return <p className="review-queue-reason">Check which holes and slots can be reconstructed from printed sizes and positions. Missing locations must remain unknown.</p>;
+  return null;
 }
 
 function Evidence({item,navigate}) {
@@ -88,7 +104,7 @@ export default function Review({route,navigate,onChanged}) {
     api('/api/accuracy').then(setAccuracy).catch(()=>{});
     api('/api/parts').then(d=>setSummaries(Array.isArray(d)?d:d.parts||[])).catch(e=>setError(e.message));
   };
-  useEffect(load,[]);
+  useEffect(()=>{load();window.addEventListener('meridian:revision',load);return()=>window.removeEventListener('meridian:revision',load)},[]);
   const act=async(id,action,value,note)=>{
     setBusy(true);setError('');setNotice('');
     try{await api(`/api/review/${pathKey(id)}`,{action,...(value!==undefined?{value}:{}),...(note?{note}:{})});setNotice('Decision saved. Original evidence is preserved.');setRevision(r=>r+1);load();onChanged?.()}
@@ -132,9 +148,9 @@ export default function Review({route,navigate,onChanged}) {
         <select aria-label="Weight check result" value={weight} onChange={event=>setWeight(event.target.value)}><option value="">Any weight check</option><option value="passed">Passed</option><option value="flagged">Flagged</option><option value="failed">FAILED</option><option value="skipped">Skipped</option></select>
       </div></details></div>
       {!items?<Loading label="Loading review evidence..."/>:<div className="review-content">
-        <div className="review-item-list">{filtered.length?filtered.map(item=><button key={item.id} className={`review-item ${selected?.id===item.id?'active':''}`} onClick={()=>navigateScoped(reviewURL(item.id,active))}><div className="row between"><StatusBadge tone={['human_confirmed','accepted','approved','reviewed'].includes(item.status)?'green':'amber'}>{titleCase(item.type)}</StatusBadge><ChevronRight size={14}/></div><strong>{englishText(item.title||item.target)}</strong><small>{item.part_key||item.target}</small><span className="review-item-status">{queueLabel(item)} / {titleCase(item.status||'Pending')}</span></button>):<div className="empty-inline"><ShieldCheck size={25}/><p>{scope?'No matching review items for this part.':'No items in this view.'}</p>{(filter||status||type||method||weight)&&<button className="text-button" onClick={clearFilters}>Clear filters</button>}{scope&&<button className="text-button" onClick={()=>navigate(scopedURL('/review/parts',scope))}>Inspect this part</button>}</div>}</div>
+        <div className="review-item-list">{filtered.length?filtered.map(item=><button key={item.id} className={`review-item ${selected?.id===item.id?'active':''}`} onClick={()=>navigateScoped(reviewURL(item.id,active))}><div className="row between"><StatusBadge tone={['human_confirmed','accepted','approved','reviewed','deferred'].includes(item.status)?'green':'amber'}>{titleCase(item.type)}</StatusBadge><ChevronRight size={14}/></div><strong>{reviewTitle(item)}</strong><small>{item.part_key||item.target}</small><span className="review-item-status">{queueLabel(item)} / {titleCase(item.status||'Pending')}</span></button>):<div className="empty-inline"><ShieldCheck size={25}/><p>{scope?'No matching review items for this part.':'No items in this view.'}</p>{(filter||status||type||method||weight)&&<button className="text-button" onClick={clearFilters}>Clear filters</button>}{scope&&<button className="text-button" onClick={()=>navigate(scopedURL('/review/parts',scope))}>Inspect this part</button>}</div>}</div>
         <div className="review-item-detail">{selected?<>
-          <header><div className="eyebrow">{titleCase(selected.type)} / {titleCase(selected.status)}</div><h2>{englishText(selected.title||selected.target)}</h2>{selected.queue_reason&&<p className="review-queue-reason"><strong>{queueLabel(selected)}.</strong> {selected.queue_reason}</p>}<details className="review-identifier"><summary>Field reference</summary><code>{selected.target}</code></details>{itemPartKey(selected)&&<div className="row wrap"><button className="text-button" onClick={()=>navigate(scopedURL('/review/parts',itemPartKey(selected)))}>Inspect part <ArrowUpRight size={13}/></button><button className="text-button" onClick={()=>navigate(scopedURL(`/review/part/${pathKey(itemPartKey(selected))}`,itemPartKey(selected)))}>Review whole design <ArrowUpRight size={13}/></button></div>}</header>
+          <header><div className="eyebrow">{titleCase(selected.type)} / {titleCase(selected.status)}</div><h2>{reviewTitle(selected)}</h2><ReviewTask item={selected}/>{selected.queue_reason&&<p className="review-queue-reason"><strong>{queueLabel(selected)}.</strong> {selected.queue_reason}</p>}<details className="review-identifier"><summary>Field reference</summary><code>{selected.target}</code></details>{itemPartKey(selected)&&<div className="row wrap"><button className="text-button" onClick={()=>navigate(scopedURL('/review/parts',itemPartKey(selected)))}>Inspect part <ArrowUpRight size={13}/></button><button className="text-button" onClick={()=>navigate(scopedURL(`/review/part/${pathKey(itemPartKey(selected))}`,itemPartKey(selected)))}>Review whole design <ArrowUpRight size={13}/></button></div>}</header>
           <Evidence item={selected} navigate={navigateScoped}/>{selected.type==='possible_reading'&&<ReadingsDisclosure key={selected.id} item={selected}/>}
           <ReviewActions item={selected} navigate={navigateScoped} busy={busy} onAction={(...args)=>act(selected.id,...args)}/>
         </>:<div className="library-empty"><ShieldCheck size={36}/><h3>{route.item?'Item unavailable in this part scope':'Select an item to review'}</h3><p>{route.item?'Choose an item from the list or clear the part scope.':'Source evidence and AI readings will appear here.'}</p></div>}</div>

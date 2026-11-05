@@ -1,0 +1,26 @@
+{
+  "decision_id": "HD-684f092df8a240f28155aa865d6c783c",
+  "applies_to": "D-010/template/outline",
+  "type": "defer_unsupported",
+  "value": null,
+  "status": "accepted",
+  "note": "Bottom view shows opposing bends with 15.00 and 30.00 flange extents; side view has rounded flange corners and main face has edge relief. The 107 x 70 projected envelope is not an exact planar outline.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T14:13:56.817473+00:00",
+  "based_on": {
+    "sha256": "700cc64cb7e7c31d1d7a6d6f506bac453cdcb3c7daf76dc2272ffebfe5e2d911"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious input reviews on 2026-11-05.",
+  "source_evidence": [
+    "D-010/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-010/drawing/source",
+      "page": 1,
+      "box": null
+    }
+  ]
+}

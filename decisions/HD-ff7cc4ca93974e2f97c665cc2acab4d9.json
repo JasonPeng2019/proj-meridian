@@ -1,0 +1,20 @@
+{
+  "decision_id": "HD-ff7cc4ca93974e2f97c665cc2acab4d9",
+  "applies_to": "D-018/template/outline",
+  "type": "defer_unsupported",
+  "value": null,
+  "status": "accepted",
+  "note": "The original triangular bracket has R15 rounded transitions. A rectangle, circle or ring cannot represent this contour.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T14:14:15.846084+00:00",
+  "based_on": {
+    "sha256": "816b582d82ed383ad0ff5452afde74e98b74981a6e9afb3c8d1ff6dbd6fa50a0"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious input reviews on 2026-11-05.",
+  "source_evidence": [
+    "D-018/drawing/source"
+  ],
+  "source_locations": []
+}

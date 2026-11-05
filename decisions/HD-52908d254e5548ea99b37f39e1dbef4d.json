@@ -1,0 +1,26 @@
+{
+  "decision_id": "HD-52908d254e5548ea99b37f39e1dbef4d",
+  "applies_to": "D-007/template/outline",
+  "type": "defer_unsupported",
+  "value": null,
+  "status": "accepted",
+  "note": "Original shows a stepped turned shaft: diameter 25 body, diameter 8 journals, body length 269.5 and overall 336.1. It is not a flat constant-thickness part. Neither body length nor diameter is a valid single plate thickness.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T14:13:52.747991+00:00",
+  "based_on": {
+    "sha256": "e5d57d66cae6ca7bbb2956249e89c11db91d4ea3e258f48658af191e926870c9"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious input reviews on 2026-11-05.",
+  "source_evidence": [
+    "D-007/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-007/drawing/source",
+      "page": 1,
+      "box": null
+    }
+  ]
+}

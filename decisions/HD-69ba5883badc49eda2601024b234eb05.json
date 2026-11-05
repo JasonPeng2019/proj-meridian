@@ -1,0 +1,39 @@
+{
+  "decision_id": "HD-69ba5883badc49eda2601024b234eb05",
+  "applies_to": "D-003/template/thickness",
+  "type": "set_value",
+  "value": {
+    "state": "known",
+    "value": 20,
+    "fact_ids": [
+      "D-003/drawing/notes",
+      "D-003/drawing/source"
+    ]
+  },
+  "status": "accepted",
+  "note": "Section A-A explicitly dimensions 20.0 through plate thickness and note independently says 20mm thick aluminium plate. Resolve thickness only; unsupported R3 outer contour remains.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T14:13:48.759805+00:00",
+  "based_on": {
+    "sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious input reviews on 2026-11-05.",
+  "source_evidence": [
+    "D-003/drawing/notes",
+    "D-003/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-003/drawing/notes",
+      "page": 1,
+      "box": [
+        729.934,
+        647.146,
+        241.405,
+        120.013
+      ]
+    }
+  ]
+}

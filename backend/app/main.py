@@ -5,6 +5,7 @@ import io
 import json
 import mimetypes
 import os
+import threading
 from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Any
@@ -21,13 +22,28 @@ from backend.app.tools import KnowledgeTools
 from backend.app.review_sources import source_record
 
 _store: Store | None = None
+_snapshot_signature = None
+_snapshot_store = None
+_store_lock = threading.RLock()
 chat = Chat()
 
 def get_store() -> Store:
-    global _store
-    if _store is None:
-        _store = Store()
-    return _store
+    global _store, _snapshot_signature, _snapshot_store
+    with _store_lock:
+        if _store is None:
+            _store = Store()
+        if _snapshot_store is not _store:
+            _snapshot_signature = None
+        root = _store.root
+        paths = sorted((root / "decisions").glob("*.json")) + [root / "generated" / p for p in
+            ("records.json", "ai_results.json", "bom.json", "readme.json", "models/manifest.json")]
+        signature = tuple((str(path), path.stat().st_mtime_ns, path.stat().st_size) for path in paths if path.is_file())
+        if _snapshot_signature is not None and signature != _snapshot_signature:
+            # Publish a complete new snapshot, preserving readers of the old one.
+            _store = Store(root)
+        _snapshot_signature = signature
+        _snapshot_store = _store
+        return _store
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):

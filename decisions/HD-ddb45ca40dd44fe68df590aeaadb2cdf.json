@@ -1,0 +1,29 @@
+{
+  "decision_id": "HD-ddb45ca40dd44fe68df590aeaadb2cdf",
+  "applies_to": "D-027/link",
+  "type": "link",
+  "value": [
+    "BOM:build-plate/build-cylinder-clamp-ring"
+  ],
+  "status": "accepted",
+  "note": "The filename and title explicitly identify Cylinder Sp?nd Ring, i.e. cylinder clamp ring, and the note explicitly permits aluminium. Its ?264 H8 bore corresponds to the ?264.017 locating end visible on the build cylinder D-023. The BOM uniquely describes the ring that clamps the build cylinder to the platform and locates the Z-axis assembly. The larger ring geometry and cylinder fit rule out the small seal-retaining ring. This link does not choose among the aluminium series allowed by the drawing.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T14:14:08.280197+00:00",
+  "based_on": {
+    "sha256": "9a270f0ddf24b173b85b6879b4fbd1ba9cf67d71cff7b13f722699699a667bcc"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious input reviews on 2026-11-05.",
+  "source_evidence": [
+    "D-027/drawing/title",
+    "D-027/drawing/notes",
+    "D-027/drawing/source",
+    "D-023/drawing/source",
+    "BOM:build-plate/build-cylinder-clamp-ring/name",
+    "BOM:build-plate/build-cylinder-clamp-ring/design_intent",
+    "BOM:build-plate/build-cylinder-clamp-ring/material",
+    "BOM:build-plate/seal-clamp-plate/design_intent"
+  ],
+  "source_locations": []
+}

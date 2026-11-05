@@ -1,0 +1,26 @@
+{
+  "decision_id": "HD-52e4da222a0f4467b945a264201bb2a8",
+  "applies_to": "D-008/template/outline",
+  "type": "defer_unsupported",
+  "value": null,
+  "status": "accepted",
+  "note": "Isometric and orthographic views show a formed bracket with flanges, a profiled web and six welded nuts. The 349 overall and 310 web lengths describe different formed extents, not an exact planar rectangle.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T14:13:55.217513+00:00",
+  "based_on": {
+    "sha256": "2642be4f1d3471cc440aa7830166adfa298a8e1a31cef90911662bb2b4a26448"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious input reviews on 2026-11-05.",
+  "source_evidence": [
+    "D-008/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-008/drawing/source",
+      "page": 1,
+      "box": null
+    }
+  ]
+}

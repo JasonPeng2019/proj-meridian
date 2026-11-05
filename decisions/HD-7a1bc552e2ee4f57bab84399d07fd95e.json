@@ -1,0 +1,20 @@
+{
+  "decision_id": "HD-7a1bc552e2ee4f57bab84399d07fd95e",
+  "applies_to": "D-016/template/outline",
+  "type": "defer_unsupported",
+  "value": null,
+  "status": "accepted",
+  "note": "The original plate has R15 rounded bottom corners; a rectangle would replace the specified contour. Rounded outer profiles are unsupported by the current templates.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T14:14:13.220686+00:00",
+  "based_on": {
+    "sha256": "4f9799f28352975cd39a5c52daf0e1dcb036d379fb58ecf6413f0befc67525f3"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious input reviews on 2026-11-05.",
+  "source_evidence": [
+    "D-016/drawing/source"
+  ],
+  "source_locations": []
+}

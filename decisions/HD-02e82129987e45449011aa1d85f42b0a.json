@@ -1,0 +1,39 @@
+{
+  "decision_id": "HD-02e82129987e45449011aa1d85f42b0a",
+  "applies_to": "D-010/template/thickness",
+  "type": "set_value",
+  "value": {
+    "state": "known",
+    "value": 2,
+    "fact_ids": [
+      "D-010/drawing/notes",
+      "D-010/drawing/source"
+    ]
+  },
+  "status": "accepted",
+  "note": "Motor Plate note explicitly specifies 2mm non-magnetic stainless. Resolve nominal sheet stock thickness only; 15/30 are flange heights and never thickness. Bent main geometry remains outside MVP; no parsed thickness number ID exists.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T14:13:57.599543+00:00",
+  "based_on": {
+    "sha256": "700cc64cb7e7c31d1d7a6d6f506bac453cdcb3c7daf76dc2272ffebfe5e2d911"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious input reviews on 2026-11-05.",
+  "source_evidence": [
+    "D-010/drawing/notes",
+    "D-010/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-010/drawing/notes",
+      "page": 1,
+      "box": [
+        741.528,
+        658.943,
+        231.0,
+        111.0
+      ]
+    }
+  ]
+}

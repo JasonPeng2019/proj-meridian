@@ -1,0 +1,39 @@
+{
+  "decision_id": "HD-2500ef2c801c4f7ca33251ff0ecb65e8",
+  "applies_to": "D-001/template/thickness",
+  "type": "set_value",
+  "value": {
+    "state": "known",
+    "value": 3,
+    "fact_ids": [
+      "D-001/drawing/notes",
+      "D-001/drawing/source"
+    ]
+  },
+  "status": "accepted",
+  "note": "Edge view explicitly dimensions 3.00 and note independently says 3mm aluminium. Resolve nominal plate thickness only; rounded outline and feature placement remain unresolved.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T14:13:45.648008+00:00",
+  "based_on": {
+    "sha256": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious input reviews on 2026-11-05.",
+  "source_evidence": [
+    "D-001/drawing/notes",
+    "D-001/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-001/drawing/notes",
+      "page": 1,
+      "box": [
+        734.907,
+        653.399,
+        242.971,
+        121.067
+      ]
+    }
+  ]
+}

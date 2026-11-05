@@ -1,0 +1,21 @@
+{
+  "decision_id": "HD-b21b7569b1294922b9d67cecd149b6e6",
+  "applies_to": "D-023/template/outline/outer_diameter",
+  "type": "defer_unsupported",
+  "value": null,
+  "status": "accepted",
+  "note": "The build cylinder is a long stepped hollow cylinder with grooves and a taper. It is not a flat ring. Do not insert a single diameter or axial length into a flat-part approximation.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T14:14:31.681391+00:00",
+  "based_on": {
+    "sha256": "5d838d31ad5e803b6c421bc6867447f73756d51509259385e07caf81e453c36d"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious input reviews on 2026-11-05.",
+  "source_evidence": [
+    "D-023/drawing/source",
+    "D-023/drawing/notes"
+  ],
+  "source_locations": []
+}

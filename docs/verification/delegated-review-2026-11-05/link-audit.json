@@ -1,0 +1,1199 @@
+{
+  "schema_version": 1,
+  "scope": "all 18 unresolved drawing-to-BOM links from input-snapshot.json",
+  "reviewer": "delegated AI evidence reviewer",
+  "personal_review_attributed_to_jason_peng": false,
+  "source_policy": "Original BOM cell excerpts and existing drawing images/fields; source files unchanged; no fabrication geometry, material normalization, section-wide equivalence or thickness selection approved.",
+  "source_context": {
+    "supplied_readme": "project-meridian_Avathon/project-meridian/dataset/README.md",
+    "upstream_readme": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-upstream-readme.md",
+    "filename_mappings": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-source-metadata.json",
+    "readme_finding": "The supplied README identifies drawings and the pinned BOM as potentially inconsistent evidence. The upstream README provides system context but does not map the unresolved filenames directly to BOM row IDs.",
+    "diagrams_visually_inspected": [
+      "Zaxis_legend.png",
+      "RecoaterLegend.png",
+      "PowderLegend.png"
+    ],
+    "diagram_limitation": "Use only visible geometry/labels; some transparent margin labels do not render legibly against the viewer background. No unreadable labels were inferred."
+  },
+  "summary": {
+    "audited": 18,
+    "resolve": 7,
+    "keep_open": 11,
+    "explicit_no_equivalent": 0
+  },
+  "entries": [
+    {
+      "target": "D-001/link",
+      "part_key": "D-001",
+      "recommendation": "resolve",
+      "proposed_value": [
+        "BOM:box/front-door"
+      ],
+      "source_fact_ids": [
+        "D-001/drawing/notes",
+        "D-001/drawing/source",
+        "BOM:box/front-door/design_intent",
+        "BOM:box/back-door/design_intent"
+      ],
+      "original_excerpts": [
+        {
+          "fact_id": "D-001/drawing/notes",
+          "original_excerpt": "Door - x2\n3mm aluminium",
+          "excerpt_origin": "existing source-image transcription; original parsed field is null"
+        },
+        {
+          "fact_id": "D-001/drawing/source",
+          "original_excerpt": "Window opening dimensioned 287.00 by 200.00 within the door panel; 20 x ?4.50 holes surround that opening.",
+          "excerpt_origin": "visual observation of existing drawing image",
+          "image": "generated/images/D-001-p1.png",
+          "page": 1,
+          "upstream_source_path": "CAD/Technical Drawings/Box/Door_x2.PDF"
+        },
+        {
+          "fact_id": "BOM:box/front-door/design_intent",
+          "original_excerpt": "Door with window for viewing the process. Has rubber seal and air tight handle",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:box/back-door/design_intent",
+          "original_excerpt": "Back door without window and rubber seal and air tight handle",
+          "excerpt_origin": "original BOM CSV cell"
+        }
+      ],
+      "reason": "The drawing visibly contains a rectangular window opening. The Front Door design intent explicitly requires a window for viewing; the Back Door explicitly says without window. This physical feature resolves the front/back ambiguity that the title and x2 quantity alone could not. Link only the front door; retain the source x2 quantity and the BOM amount 1 as separate statements.",
+      "candidate_alternatives": [
+        {
+          "id": "BOM:box/back-door",
+          "disposition": "ruled_out",
+          "reason": "Its explicit without-window design intent contradicts the visible opening."
+        },
+        {
+          "id": "BOM:box/window-frame",
+          "disposition": "ruled_out",
+          "reason": "The sheet is explicitly Door - x2 and shows the complete door panel, rather than the separate frame."
+        }
+      ],
+      "review_kind": "delegated AI engineering evidence audit; recommendation only; not Jason Peng personal review"
+    },
+    {
+      "target": "D-006/link",
+      "part_key": "D-006",
+      "recommendation": "keep_open",
+      "proposed_value": null,
+      "source_fact_ids": [
+        "D-006/drawing/notes",
+        "D-006/drawing/source",
+        "BOM:powder/powder-hopper/notes",
+        "BOM:powder/powder-hopper/name",
+        "BOM:powder/powder-handling-mount-bracket/name",
+        "BOM:powder/powder-stepper-bracket/name"
+      ],
+      "original_excerpts": [
+        {
+          "fact_id": "D-006/drawing/notes",
+          "original_excerpt": "Canister Wall\nLeft and right side, one of each.\nNon-magnetic stainless\n3mm (or thicker)",
+          "excerpt_origin": "original field text"
+        },
+        {
+          "fact_id": "D-006/drawing/source",
+          "original_excerpt": "Separate Right side and Left side views are shown.",
+          "excerpt_origin": "visual observation of existing drawing image",
+          "image": "generated/images/D-006-p1.png",
+          "page": 1,
+          "upstream_source_path": "CAD/Technical Drawings/Powder/CanisterWall_LeftAndRight.PDF"
+        },
+        {
+          "fact_id": "BOM:powder/powder-hopper/notes",
+          "original_excerpt": "A few welds had to be filed down",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:powder/powder-hopper/name",
+          "original_excerpt": "Powder hopper",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:powder/powder-handling-mount-bracket/name",
+          "original_excerpt": "Powder handling mount bracket",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:powder/powder-stepper-bracket/name",
+          "original_excerpt": "Powder stepper bracket",
+          "excerpt_origin": "original BOM CSV cell"
+        }
+      ],
+      "reason": "Remain unknown. This is a left/right wall pair for a canister, with bends and weld nuts. The BOM contains no wall-named row and no matching datasheet or design-intent description. A hopper component relationship is plausible but does not establish identity with the whole hopper. Bracket rows lack physical descriptions that could identify this particular wall pair. Neither a definite BOM link nor an explicit no-equivalent [] is supported.",
+      "candidate_alternatives": [
+        {
+          "id": "BOM:powder/powder-hopper",
+          "disposition": "unproven",
+          "reason": "Hopper is a vessel; the drawing names structural canister walls, and no BOM cell says these walls represent that whole row."
+        },
+        {
+          "id": "BOM:powder/powder-handling-mount-bracket",
+          "disposition": "unproven",
+          "reason": "Powder/material context fits but no matching filename or geometry is supplied."
+        },
+        {
+          "id": "BOM:powder/powder-stepper-bracket",
+          "disposition": "unproven",
+          "reason": "No stepper function is stated for this wall pair."
+        }
+      ],
+      "review_kind": "delegated AI engineering evidence audit; recommendation only; not Jason Peng personal review"
+    },
+    {
+      "target": "D-008/link",
+      "part_key": "D-008",
+      "recommendation": "keep_open",
+      "proposed_value": null,
+      "source_fact_ids": [
+        "D-008/drawing/title",
+        "D-008/drawing/notes",
+        "BOM:powder/powder-handling-mount-bracket/name",
+        "BOM:powder/powder-handling-mount-bracket/design_intent",
+        "BOM:powder/powder-stepper-bracket/name",
+        "BOM:powder/powder-stepper-bracket/design_intent"
+      ],
+      "original_excerpts": [
+        {
+          "fact_id": "D-008/drawing/title",
+          "original_excerpt": "Powder Bracket",
+          "excerpt_origin": "original field text"
+        },
+        {
+          "fact_id": "D-008/drawing/notes",
+          "original_excerpt": "Powder bracket.\n2-3mm non-magnetic stainless.\n6x M5 weld nuts - all on inside\nfaces.\nSurfaces [A] should be in same\nplane, and parallel to [B].",
+          "excerpt_origin": "original field text"
+        },
+        {
+          "fact_id": "BOM:powder/powder-handling-mount-bracket/name",
+          "original_excerpt": "Powder handling mount bracket",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:powder/powder-handling-mount-bracket/design_intent",
+          "original_excerpt": "",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:powder/powder-stepper-bracket/name",
+          "original_excerpt": "Powder stepper bracket",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:powder/powder-stepper-bracket/design_intent",
+          "original_excerpt": "",
+          "excerpt_origin": "original BOM CSV cell"
+        }
+      ],
+      "reason": "Remain unknown. The sheet describes a long slotted folded powder bracket with six weld nuts. Its large slot makes it less suggestive of the single-motor plate D-010, but the BOM gives neither bracket candidate a datasheet, dimensions or design intent. Eliminating the stepper bracket by appearance alone would assume its geometry. No explicit [] is justified.",
+      "candidate_alternatives": [
+        {
+          "id": "BOM:powder/powder-handling-mount-bracket",
+          "disposition": "unproven",
+          "reason": "Plausible function but no unique physical or filename match."
+        },
+        {
+          "id": "BOM:powder/powder-stepper-bracket",
+          "disposition": "unproven",
+          "reason": "Name alone does not establish or exclude this geometry."
+        }
+      ],
+      "review_kind": "delegated AI engineering evidence audit; recommendation only; not Jason Peng personal review"
+    },
+    {
+      "target": "D-009/link",
+      "part_key": "D-009",
+      "recommendation": "keep_open",
+      "proposed_value": null,
+      "source_fact_ids": [
+        "D-009/drawing/notes",
+        "D-009/drawing/source",
+        "BOM:powder/powder-hopper/name",
+        "BOM:powder/powder-hopper/notes",
+        "BOM:powder/powder-hopper/datasheet"
+      ],
+      "original_excerpts": [
+        {
+          "fact_id": "D-009/drawing/notes",
+          "original_excerpt": "Powder canister.\nNon-magnetic stainless.\n\nWall thickness as thin as possible.\nMust be powder tight.",
+          "excerpt_origin": "existing source-image transcription; original parsed field is null"
+        },
+        {
+          "fact_id": "D-009/drawing/source",
+          "original_excerpt": "The canister is a vessel narrowing to a bottom slot. The sheet says Has to fit between two walls and that it seals with an o-ring at [B].",
+          "excerpt_origin": "visual observation of existing drawing image",
+          "image": "generated/images/D-009-p1.png",
+          "page": 1,
+          "upstream_source_path": "CAD/Technical Drawings/Powder/PowderCanister.pdf"
+        },
+        {
+          "fact_id": "BOM:powder/powder-hopper/name",
+          "original_excerpt": "Powder hopper",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:powder/powder-hopper/notes",
+          "original_excerpt": "A few welds had to be filed down",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:powder/powder-hopper/datasheet",
+          "original_excerpt": "",
+          "excerpt_origin": "original BOM CSV cell"
+        }
+      ],
+      "reason": "Remain unknown. The image confirms a powder-tight welded vessel with a narrow bottom opening. Powder hopper is the plausible functional row, but that row has no dimensions, filename, design intent or drawing reference. The supplied PowderLegend illustrates a reservoir arrangement from the system context without a BOM row identifier, so it does not supply the missing identity. Similar vessel function is insufficient to certify this version of the canister as the BOM hopper.",
+      "candidate_alternatives": [
+        {
+          "id": "BOM:powder/powder-hopper",
+          "disposition": "unproven",
+          "reason": "Only generic powder-vessel function/material connects it; no definite mapping or exact physical match."
+        },
+        {
+          "id": "BOM:powder/powder-roller-housing",
+          "disposition": "ruled_out_as_direct_match",
+          "reason": "That row is an aluminium roller housing, whereas the drawing explicitly specifies a stainless powder canister."
+        }
+      ],
+      "review_kind": "delegated AI engineering evidence audit; recommendation only; not Jason Peng personal review"
+    },
+    {
+      "target": "D-010/link",
+      "part_key": "D-010",
+      "recommendation": "keep_open",
+      "proposed_value": null,
+      "source_fact_ids": [
+        "D-010/drawing/notes",
+        "D-010/drawing/source",
+        "BOM:powder/powder-stepper-bracket/name",
+        "BOM:powder/powder-stepper-bracket/datasheet",
+        "BOM:build-plate/motor-plate/material",
+        "BOM:build-plate/motor-plate/design_intent"
+      ],
+      "original_excerpts": [
+        {
+          "fact_id": "D-010/drawing/notes",
+          "original_excerpt": "Motor Plate\n2mm non-magnetic stainless",
+          "excerpt_origin": "original field text"
+        },
+        {
+          "fact_id": "D-010/drawing/source",
+          "original_excerpt": "?22.10 THRU circular opening with 4 x ?3.60 THRU ALL surrounding it, on a bent 107.00-wide plate.",
+          "excerpt_origin": "visual observation of existing drawing image",
+          "image": "generated/images/D-010-p1.png",
+          "page": 1,
+          "upstream_source_path": "CAD/Technical Drawings/Powder/PowderMotorPlate.PDF"
+        },
+        {
+          "fact_id": "BOM:powder/powder-stepper-bracket/name",
+          "original_excerpt": "Powder stepper bracket",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:powder/powder-stepper-bracket/datasheet",
+          "original_excerpt": "",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:build-plate/motor-plate/material",
+          "original_excerpt": "Aluminium",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:build-plate/motor-plate/design_intent",
+          "original_excerpt": "Motor plate to hold 3 non-captive stepper motors, end-stop switches",
+          "excerpt_origin": "original BOM CSV cell"
+        }
+      ],
+      "reason": "Remain unknown. The stainless Powder Motor Plate has one circular motor pilot and four surrounding mounting holes. A Powder stepper bracket is plausible, but its BOM row has no filename or physical detail confirming identity. The Build-plate Motor plate is aluminium and has a different subsystem and stated three-motor purpose. The ambiguous stainless bracket must not be resolved just by translating motor to stepper.",
+      "candidate_alternatives": [
+        {
+          "id": "BOM:powder/powder-stepper-bracket",
+          "disposition": "unproven",
+          "reason": "Compatible purpose, material and section, but no unique identity evidence."
+        },
+        {
+          "id": "BOM:build-plate/motor-plate",
+          "disposition": "ruled_out_as_direct_match",
+          "reason": "Aluminium three-motor Build-plate purpose conflicts with this stainless Powder plate."
+        }
+      ],
+      "review_kind": "delegated AI engineering evidence audit; recommendation only; not Jason Peng personal review"
+    },
+    {
+      "target": "D-013/link",
+      "part_key": "D-013",
+      "recommendation": "resolve",
+      "proposed_value": [
+        "BOM:recoater/recoater-head"
+      ],
+      "source_fact_ids": [
+        "D-013/drawing/title",
+        "D-013/drawing/notes",
+        "D-013/drawing/source",
+        "BOM:recoater/recoater-head/design_intent",
+        "BOM:recoater/recoater-head/datasheet",
+        "BOM:recoater/recoater-stage-plate/design_intent",
+        "BOM:recoater/recoater-stage-plate/datasheet",
+        "D-014/drawing/title",
+        "D-014/drawing/notes"
+      ],
+      "original_excerpts": [
+        {
+          "fact_id": "D-013/drawing/title",
+          "original_excerpt": "Recoater Plate",
+          "excerpt_origin": "original field text"
+        },
+        {
+          "fact_id": "D-013/drawing/notes",
+          "original_excerpt": "Alu.\nJusteringsplade til recoater.",
+          "excerpt_origin": "original field text"
+        },
+        {
+          "fact_id": "D-013/drawing/source",
+          "original_excerpt": "Long 270.0 by 25.0 strip with four vertical 5.5 x 10.0 slots.",
+          "excerpt_origin": "visual observation of existing drawing image",
+          "image": "generated/images/D-013-p1.png",
+          "page": 1,
+          "upstream_source_path": "CAD/Technical Drawings/Recoater/RecoaterPlate.pdf"
+        },
+        {
+          "fact_id": "BOM:recoater/recoater-head/design_intent",
+          "original_excerpt": "Adjustable recoater head that mounts to recoater arm",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:recoater/recoater-head/datasheet",
+          "original_excerpt": "RecoaterPlate.pdf (https://v5.airtableusercontent.com/v3/u/33/33/1728496800000/ATcCKE4x9I5XkFrNrK9E-Q/lRMbwuKnugmuS_4yhBOMClg07KL3-T1kHcJebM1Ei_dh1pAbOd90crSN672UtgaJCkqjtYSOaLzcb-jZdlSQ-Z8sllQeTDa7AmrSQ9Z5jPiKVh4z9C5al2uVbkr_Rt0zuqAWTw3Ky6lJa4YlAnjQNw/GVuJTJxD_r5T41JSNweqqjdjZASEXchTQWDWNOfULcE)",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:recoater/recoater-stage-plate/design_intent",
+          "original_excerpt": "Plate that mounts to linear bearings. Must be flat and stiff",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:recoater/recoater-stage-plate/datasheet",
+          "original_excerpt": "RecoaterPlate.pdf (https://v5.airtableusercontent.com/v3/u/33/33/1728496800000/co53XUJl417KLXXZIJxhjg/iPcvQ-xTlO_arTT_qYf6ZXoivN2SPAcKRxOiQnDWPbzARaEyktQXsjTW3j5aCKVhv05YgveOOFkUGf76vicyvuBe_c4QCWBo0IkNxx9bSYrxnCdsSbchO00g_f5XvgxjWY8Bed18np4g3aWBTpHEHA/mCEEROnKWL8vUKSfNigmhcdkS4-JvnkZxkXvgVfnIEI)",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "D-014/drawing/title",
+          "original_excerpt": "Recoater Linear Plate",
+          "excerpt_origin": "original field text"
+        },
+        {
+          "fact_id": "D-014/drawing/notes",
+          "original_excerpt": "Alu.\nPlade til linæer føring",
+          "excerpt_origin": "original field text"
+        }
+      ],
+      "reason": "The exact RecoaterPlate.pdf filename appears in two BOM rows, so filename alone is ambiguous. The original design-intent cells distinguish them: the head is adjustable and mounts to the arm, while the stage plate mounts to linear bearings. D-013 explicitly calls itself an adjustment plate for the recoater and has adjustment slots; the supplied RecoaterLegend puts this long slotted strip at the arm/wiper end. D-014 is separately titled Recoater Linear Plate with the note Plate for linear guide. Together these distinguish the head from the bearing-stage plate. Preserve the duplicated BOM datasheet as a source inconsistency; do not rewrite it.",
+      "candidate_alternatives": [
+        {
+          "id": "BOM:recoater/recoater-stage-plate",
+          "disposition": "ruled_out",
+          "reason": "Its bearing-mount purpose matches the separate D-014 linear guide plate; D-013 is the adjustable strip at the arm/wiper end."
+        },
+        {
+          "id": "BOM:recoater/recoater-clamp",
+          "disposition": "ruled_out",
+          "reason": "Clamp has its own RecoaterSiliconeClamp.pdf datasheet and is described as holding the wiper; D-013 is explicitly the adjustment plate."
+        }
+      ],
+      "review_kind": "delegated AI engineering evidence audit; recommendation only; not Jason Peng personal review"
+    },
+    {
+      "target": "D-016/link",
+      "part_key": "D-016",
+      "recommendation": "keep_open",
+      "proposed_value": null,
+      "source_fact_ids": [
+        "D-016/drawing/title",
+        "D-016/drawing/notes",
+        "BOM:optics/sunny-galvo-adapter-plate/design_intent",
+        "BOM:optics/galvo-box-bracket/design_intent",
+        "BOM:optics/galvo-box-bracket/notes"
+      ],
+      "original_excerpts": [
+        {
+          "fact_id": "D-016/drawing/title",
+          "original_excerpt": "Galvo Bundplade",
+          "excerpt_origin": "original field text"
+        },
+        {
+          "fact_id": "D-016/drawing/notes",
+          "original_excerpt": "Aluminium",
+          "excerpt_origin": "original field text"
+        },
+        {
+          "fact_id": "BOM:optics/sunny-galvo-adapter-plate/design_intent",
+          "original_excerpt": "Plate where galvo and collimator mount together",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:optics/galvo-box-bracket/design_intent",
+          "original_excerpt": "Plate that attach galvo/collimator to top box plate",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:optics/galvo-box-bracket/notes",
+          "original_excerpt": "Changed galvo mount completely to allow for adjustments. Tolerences are slightly too tight and it bind a bit if left assembled for a while\n\nBefore: Galvo too far down. f-theta does not screw in enough so it sticks down",
+          "excerpt_origin": "original BOM CSV cell"
+        }
+      ],
+      "reason": "Remain unknown. Bottom-plate title, large opening and aluminium note suggest a galvo enclosure attachment plate, but the BOM does not specify either candidate geometry or identify GalvoBottomPlate.pdf. Both candidate design intents mention the galvo/collimator. The larger plate versus D-017 may describe an assembly hierarchy, but that is not a proven BOM identity. No [] is supported.",
+      "candidate_alternatives": [
+        {
+          "id": "BOM:optics/sunny-galvo-adapter-plate",
+          "disposition": "unproven",
+          "reason": "No source specifies that adapter geometry or a matching filename."
+        },
+        {
+          "id": "BOM:optics/galvo-box-bracket",
+          "disposition": "unproven",
+          "reason": "Bottom plate may attach to the box, but the drawing does not explicitly state this attachment."
+        }
+      ],
+      "review_kind": "delegated AI engineering evidence audit; recommendation only; not Jason Peng personal review"
+    },
+    {
+      "target": "D-017/link",
+      "part_key": "D-017",
+      "recommendation": "keep_open",
+      "proposed_value": null,
+      "source_fact_ids": [
+        "D-017/drawing/title",
+        "D-017/drawing/notes",
+        "BOM:optics/sunny-galvo-adapter-plate/design_intent",
+        "BOM:optics/galvo-box-bracket/design_intent"
+      ],
+      "original_excerpts": [
+        {
+          "fact_id": "D-017/drawing/title",
+          "original_excerpt": "Galvo Montage Plade",
+          "excerpt_origin": "original field text"
+        },
+        {
+          "fact_id": "D-017/drawing/notes",
+          "original_excerpt": "Galvo Collimator Plade\nAlu",
+          "excerpt_origin": "original field text"
+        },
+        {
+          "fact_id": "BOM:optics/sunny-galvo-adapter-plate/design_intent",
+          "original_excerpt": "Plate where galvo and collimator mount together",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:optics/galvo-box-bracket/design_intent",
+          "original_excerpt": "Plate that attach galvo/collimator to top box plate",
+          "excerpt_origin": "original BOM CSV cell"
+        }
+      ],
+      "reason": "Remain unknown. Galvo Collimator Plate strongly suggests the Sunny Galvo Adapter Plate design intent, but the Galvo box bracket is also explicitly a plate attaching the galvo/collimator. No supplied exact filename, mounting-component reference or BOM dimensions distinguishes those two identities. Translating Montage Plade alone is insufficient.",
+      "candidate_alternatives": [
+        {
+          "id": "BOM:optics/sunny-galvo-adapter-plate",
+          "disposition": "unproven",
+          "reason": "Likely purpose but no exact/unique physical link."
+        },
+        {
+          "id": "BOM:optics/galvo-box-bracket",
+          "disposition": "unproven",
+          "reason": "Its design intent also mentions the galvo/collimator; top-box relationship is not stated on D-017."
+        }
+      ],
+      "review_kind": "delegated AI engineering evidence audit; recommendation only; not Jason Peng personal review"
+    },
+    {
+      "target": "D-018/link",
+      "part_key": "D-018",
+      "recommendation": "keep_open",
+      "proposed_value": null,
+      "source_fact_ids": [
+        "D-018/drawing/title",
+        "D-018/drawing/notes",
+        "D-018/drawing/material",
+        "BOM:optics/galve-support-bracket/material",
+        "BOM:optics/galve-support-bracket/design_intent",
+        "BOM:optics/galve-support-bracket/amount",
+        "BOM:optics/galvo-box-bracket/notes"
+      ],
+      "original_excerpts": [
+        {
+          "fact_id": "D-018/drawing/title",
+          "original_excerpt": "Galvo Mount Side x2",
+          "excerpt_origin": "original field text"
+        },
+        {
+          "fact_id": "D-018/drawing/notes",
+          "original_excerpt": "2 stk.\nAlu.",
+          "excerpt_origin": "original field text"
+        },
+        {
+          "fact_id": "D-018/drawing/material",
+          "original_excerpt": "7075-T6, Plate (SS)",
+          "excerpt_origin": "original field text"
+        },
+        {
+          "fact_id": "BOM:optics/galve-support-bracket/material",
+          "original_excerpt": "Stainless steel,Steel",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:optics/galve-support-bracket/design_intent",
+          "original_excerpt": "Sheet metal bracket that support galvo subsystem",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:optics/galve-support-bracket/amount",
+          "original_excerpt": "2",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:optics/galvo-box-bracket/notes",
+          "original_excerpt": "Changed galvo mount completely to allow for adjustments. Tolerences are slightly too tight and it bind a bit if left assembled for a while\n\nBefore: Galvo too far down. f-theta does not screw in enough so it sticks down",
+          "excerpt_origin": "original BOM CSV cell"
+        }
+      ],
+      "reason": "Remain unknown. The sheet shows two machined triangular aluminium mount sides. The quantity two resembles the support-bracket quantity, but that row specifies stainless/steel sheet metal. The box-bracket notes mention a redesigned galvo mount but do not identify the side pieces as that BOM item. Matching quantity or generic mount wording does not justify choosing either, and cannot establish no equivalent.",
+      "candidate_alternatives": [
+        {
+          "id": "BOM:optics/galve-support-bracket",
+          "disposition": "unproven_with_conflict",
+          "reason": "Two pieces but stainless sheet-metal description conflicts with the aluminium machined side pieces."
+        },
+        {
+          "id": "BOM:optics/galvo-box-bracket",
+          "disposition": "unproven",
+          "reason": "Could be an assembly component; nothing proves that the row denotes these sides."
+        }
+      ],
+      "review_kind": "delegated AI engineering evidence audit; recommendation only; not Jason Peng personal review"
+    },
+    {
+      "target": "D-019/link",
+      "part_key": "D-019",
+      "recommendation": "resolve",
+      "proposed_value": [
+        "BOM:optics/silicone-gasket-f-theta-ring"
+      ],
+      "source_fact_ids": [
+        "D-019/drawing/source",
+        "D-019/drawing/notes",
+        "D-019/drawing/material",
+        "BOM:optics/silicone-gasket-f-theta-ring/name",
+        "BOM:optics/silicone-gasket-f-theta-ring/material",
+        "BOM:recoater/recoater-blade/datasheet",
+        "BOM:optics/f-theta-seal-ring/material"
+      ],
+      "original_excerpts": [
+        {
+          "fact_id": "D-019/drawing/source",
+          "original_excerpt": "Source filename SiliconePakningfTheta.pdf. Annular 1.0-thick gasket, ?118.0 inner and ?141.0 outer, six surrounding holes.",
+          "excerpt_origin": "visual observation of existing drawing image",
+          "image": "generated/images/D-019-p1.png",
+          "page": 1,
+          "upstream_source_path": "CAD/Technical Drawings/Optical/SiliconePakningfTheta.pdf"
+        },
+        {
+          "fact_id": "D-019/drawing/notes",
+          "original_excerpt": "1mm silicone pakning",
+          "excerpt_origin": "original field text"
+        },
+        {
+          "fact_id": "D-019/drawing/material",
+          "original_excerpt": "Silicon Rubber",
+          "excerpt_origin": "original field text"
+        },
+        {
+          "fact_id": "BOM:optics/silicone-gasket-f-theta-ring/name",
+          "original_excerpt": "Silicone gasket f-theta ring",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:optics/silicone-gasket-f-theta-ring/material",
+          "original_excerpt": "Silicone",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:recoater/recoater-blade/datasheet",
+          "original_excerpt": "Silicone270mm_1mm_x2.pdf (https://v5.airtableusercontent.com/v3/u/33/33/1728496800000/7nkQZI3qHzmbKqDJVMj1QQ/lpiYsyE9McQsqcG9BEwIDDRUktmpNADpah9cwvF3OkZ8t4ssN2nkPGYtYrt9tKFjZLEFknWVFiB_7VI4ujj_lQ7zB4J1eDhMuj9lWAA13b2Ka5Phf9x-JGGh8U1vCp8sGPKtYrzL5WzA8EaBXzaVhgdmoYlpGFk_VsXuIDSCTKg/nBIJpR-1lm_2Sm4Qe5ZnUCyO7LmbXfZjaGDYnSS1rFQ)",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:optics/f-theta-seal-ring/material",
+          "original_excerpt": "Aluminium",
+          "excerpt_origin": "original BOM CSV cell"
+        }
+      ],
+      "reason": "The provenance filename explicitly identifies SiliconePakningfTheta.pdf; the drawing note explicitly says 1mm silicone gasket, and the image is an annular gasket. The BOM has exactly one custom silicone f-theta gasket row. This is a unique filename/function/physical-shape combination, not a generic material match. Preserve the separate material field spelling Silicon Rubber; this link does not silently normalize that material or establish blanket section equivalence.",
+      "candidate_alternatives": [
+        {
+          "id": "BOM:recoater/recoater-blade",
+          "disposition": "ruled_out",
+          "reason": "Its explicit Silicone270mm_1mm_x2.pdf file and recoating strip function differ from the f-theta annular gasket."
+        },
+        {
+          "id": "BOM:optics/f-theta-seal-ring",
+          "disposition": "ruled_out",
+          "reason": "This is the aluminium ring, not its 1mm silicone gasket."
+        },
+        {
+          "id": "BOM:raw-materials/silicone-sheet",
+          "disposition": "ruled_out_as_identity",
+          "reason": "Raw stock for gaskets is not the dimensioned finished f-theta gasket."
+        }
+      ],
+      "review_kind": "delegated AI engineering evidence audit; recommendation only; not Jason Peng personal review"
+    },
+    {
+      "target": "D-021/link",
+      "part_key": "D-021",
+      "recommendation": "keep_open",
+      "proposed_value": null,
+      "source_fact_ids": [
+        "D-021/drawing/notes",
+        "BOM:gas-flow/gas-flow-end-duct/material",
+        "BOM:gas-flow/gas-flow-end-duct/name",
+        "BOM:gas-flow/gas-flow-inlet-geometry/name",
+        "BOM:gas-flow/gas-flow-inlet-geometry/design_intent"
+      ],
+      "original_excerpts": [
+        {
+          "fact_id": "D-021/drawing/notes",
+          "original_excerpt": "Blower Outlet\nNon-magnetic stainless\nSheet thickness is free, as thin\nas practical\nAll joints should be welded",
+          "excerpt_origin": "original field text"
+        },
+        {
+          "fact_id": "BOM:gas-flow/gas-flow-end-duct/material",
+          "original_excerpt": "Polymer",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:gas-flow/gas-flow-end-duct/name",
+          "original_excerpt": "Gas flow end duct",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:gas-flow/gas-flow-inlet-geometry/name",
+          "original_excerpt": "Gas flow inlet geometry",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:gas-flow/gas-flow-inlet-geometry/design_intent",
+          "original_excerpt": "",
+          "excerpt_origin": "original BOM CSV cell"
+        }
+      ],
+      "reason": "Remain unknown. The original pages call this Blower Outlet and Gas outlet box and specify welded non-magnetic stainless. End duct has a conflicting Polymer material, and inlet geometry has no physical description or filename. The outlet could be connected to another inlet elsewhere in the flow circuit, but that would be an inferred interface rather than part identity. No exact [] determination is supported.",
+      "candidate_alternatives": [
+        {
+          "id": "BOM:gas-flow/gas-flow-end-duct",
+          "disposition": "unproven_with_conflict",
+          "reason": "Polymer versus stainless source conflict; no filename match."
+        },
+        {
+          "id": "BOM:gas-flow/gas-flow-inlet-geometry",
+          "disposition": "unproven",
+          "reason": "Inlet/outlet relationship cannot be converted into part identity without additional evidence."
+        }
+      ],
+      "review_kind": "delegated AI engineering evidence audit; recommendation only; not Jason Peng personal review"
+    },
+    {
+      "target": "D-022/link",
+      "part_key": "D-022",
+      "recommendation": "keep_open",
+      "proposed_value": null,
+      "source_fact_ids": [
+        "D-022/drawing/notes",
+        "D-022/drawing/source",
+        "BOM:gas-flow/gas-flow-inlet-geometry/name",
+        "BOM:gas-flow/gas-flow-inlet-geometry/material",
+        "BOM:gas-flow/gas-flow-inlet-geometry/datasheet",
+        "BOM:gas-flow/gas-flow-end-duct/material"
+      ],
+      "original_excerpts": [
+        {
+          "fact_id": "D-022/drawing/notes",
+          "original_excerpt": "Inlet Box\nFour corner joints should be\nwelded.\nStainless\nFree choice of thickness\n(as thin as possible)",
+          "excerpt_origin": "existing source-image transcription; original parsed field is null"
+        },
+        {
+          "fact_id": "D-022/drawing/source",
+          "original_excerpt": "Perforated inlet box with four corner joints to be welded and mounting flanges.",
+          "excerpt_origin": "visual observation of existing drawing image",
+          "image": "generated/images/D-022-p1.png",
+          "page": 1,
+          "upstream_source_path": "CAD/Technical Drawings/Gas flow/InletBox.pdf"
+        },
+        {
+          "fact_id": "BOM:gas-flow/gas-flow-inlet-geometry/name",
+          "original_excerpt": "Gas flow inlet geometry",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:gas-flow/gas-flow-inlet-geometry/material",
+          "original_excerpt": "",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:gas-flow/gas-flow-inlet-geometry/datasheet",
+          "original_excerpt": "",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:gas-flow/gas-flow-end-duct/material",
+          "original_excerpt": "Polymer",
+          "excerpt_origin": "original BOM CSV cell"
+        }
+      ],
+      "reason": "Remain unknown. The sheet confirms a welded stainless inlet box with perforated face. Inlet geometry is plausible, but its BOM row supplies no material, shape, dimensions, design intent or datasheet to match that exact physical item. End duct is Polymer. This does not prove the box is absent from the BOM; retain unknown rather than [].",
+      "candidate_alternatives": [
+        {
+          "id": "BOM:gas-flow/gas-flow-inlet-geometry",
+          "disposition": "unproven",
+          "reason": "Generic inlet function alone supplies no exact physical identity."
+        },
+        {
+          "id": "BOM:gas-flow/gas-flow-end-duct",
+          "disposition": "unproven_with_conflict",
+          "reason": "Polymer differs from the stainless drawing."
+        }
+      ],
+      "review_kind": "delegated AI engineering evidence audit; recommendation only; not Jason Peng personal review"
+    },
+    {
+      "target": "D-023/link",
+      "part_key": "D-023",
+      "recommendation": "resolve",
+      "proposed_value": [
+        "BOM:build-plate/build-cylinder"
+      ],
+      "source_fact_ids": [
+        "D-023/drawing/title",
+        "D-023/drawing/notes",
+        "D-023/drawing/source",
+        "BOM:build-plate/build-cylinder/name",
+        "BOM:build-plate/build-cylinder/design_intent"
+      ],
+      "original_excerpts": [
+        {
+          "fact_id": "D-023/drawing/title",
+          "original_excerpt": "ByggeCylinder",
+          "excerpt_origin": "existing source-image transcription; original parsed field is null"
+        },
+        {
+          "fact_id": "D-023/drawing/notes",
+          "original_excerpt": "Baseret på Ø280mm, t=15mm\nEN AW-6082 T6 rør fra Alumeco.\nIndre flade [B] skal slutte tæt med\nen dynamisk keramisk pakning.\n\n55 mm længere ift. version 1",
+          "excerpt_origin": "existing source-image transcription; original parsed field is null"
+        },
+        {
+          "fact_id": "D-023/drawing/source",
+          "original_excerpt": "The drawing shows ?280.0 outside, ?252.0 N8 inside, and the source filename is BuildCylinder_v2.pdf.",
+          "excerpt_origin": "visual observation of existing drawing image",
+          "image": "generated/images/D-023-p1.png",
+          "page": 1,
+          "upstream_source_path": "CAD/Technical Drawings/Z-axis/BuildCylinder_v2.pdf"
+        },
+        {
+          "fact_id": "BOM:build-plate/build-cylinder/name",
+          "original_excerpt": "Build cylinder",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:build-plate/build-cylinder/design_intent",
+          "original_excerpt": "Must be round and very smooth. Careful turning is sufficient in aluminium. OD280, ID252. Ø280, t=15 is enough",
+          "excerpt_origin": "original BOM CSV cell"
+        }
+      ],
+      "reason": "The unique BuildCylinder_v2.pdf filename and ByggeCylinder title are corroborated by precise physical evidence: the image shows OD280 and ID252, and its note specifies ?280, t=15 starting tube. The BOM design intent independently gives OD280, ID252 and ?280 t=15. These three specific dimensions and the cylinder form establish identity despite different subsystem labels. No material-family normalization or section-wide equivalence is needed to establish this individual link.",
+      "candidate_alternatives": [
+        {
+          "id": "BOM:build-plate/build-base",
+          "disposition": "ruled_out",
+          "reason": "The base is specified to be smaller than the cylinder; it is not the hollow OD280/ID252 tube."
+        },
+        {
+          "id": "BOM:build-plate/build-cylinder-clamp-ring",
+          "disposition": "ruled_out",
+          "reason": "A clamping ring differs from the long hollow build cylinder, and has its own distinct D-027 sheet."
+        }
+      ],
+      "review_kind": "delegated AI engineering evidence audit; recommendation only; not Jason Peng personal review"
+    },
+    {
+      "target": "D-024/link",
+      "part_key": "D-024",
+      "recommendation": "resolve",
+      "proposed_value": [
+        "BOM:build-plate/build-base"
+      ],
+      "source_fact_ids": [
+        "D-024/drawing/title",
+        "D-024/drawing/notes",
+        "D-024/drawing/source",
+        "BOM:build-plate/build-base/design_intent",
+        "BOM:build-plate/build-cylinder/design_intent",
+        "BOM:build-plate/build-base/material",
+        "BOM:build-plate/heating-element-plate/amount",
+        "D-028/drawing/title",
+        "D-028/drawing/notes"
+      ],
+      "original_excerpts": [
+        {
+          "fact_id": "D-024/drawing/title",
+          "original_excerpt": "ByggeBase",
+          "excerpt_origin": "original field text"
+        },
+        {
+          "fact_id": "D-024/drawing/notes",
+          "original_excerpt": "Aluminium.\nA Hul til varmeelement\nB Hul til spændelement",
+          "excerpt_origin": "original field text"
+        },
+        {
+          "fact_id": "D-024/drawing/source",
+          "original_excerpt": "?250.0 outside diameter; the note identifies A as hole for heating element and B as hole for clamping element.",
+          "excerpt_origin": "visual observation of existing drawing image",
+          "image": "generated/images/D-024-p1.png",
+          "page": 1,
+          "upstream_source_path": "CAD/Technical Drawings/Z-axis/ByggeBase.PDF"
+        },
+        {
+          "fact_id": "BOM:build-plate/build-base/design_intent",
+          "original_excerpt": "Smaller than Build cylinder - about 1mm in radius work well. Secure build plate concentric and flat from top. Mount to spindle and linear guide rod. Contain heating elements. Accomodate seal. A few millimeters of the ceramic paper seal seem to work.",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:build-plate/build-cylinder/design_intent",
+          "original_excerpt": "Must be round and very smooth. Careful turning is sufficient in aluminium. OD280, ID252. Ø280, t=15 is enough",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:build-plate/build-base/material",
+          "original_excerpt": "Aluminium",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:build-plate/heating-element-plate/amount",
+          "original_excerpt": "3",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "D-028/drawing/title",
+          "original_excerpt": "Varmeelement Plade",
+          "excerpt_origin": "original field text"
+        },
+        {
+          "fact_id": "D-028/drawing/notes",
+          "original_excerpt": "Aluminium.\n3 styk.",
+          "excerpt_origin": "original field text"
+        }
+      ],
+      "reason": "ByggeBase names the build base, and the physical details corroborate it. The source shows a ?250 disk and heater-element holes, while the cylinder is ID252; this is exactly the BOM base design intent of about 1mm radial clearance inside the cylinder plus contained heating elements. The heater-element plate alternative is a separate tiny three-piece retaining plate D-028, not this ?250 disk. The source-specific aluminium note matches directly; no alloy taxonomy or whole-section equivalence is assumed.",
+      "candidate_alternatives": [
+        {
+          "id": "BOM:build-plate/heating-element-plate",
+          "disposition": "ruled_out",
+          "reason": "D-024 contains heater holes as required by base intent; D-028 separately names the heating-element plate and its exact quantity three."
+        },
+        {
+          "id": "BOM:build-plate/build-plate",
+          "disposition": "ruled_out",
+          "reason": "The source BOM build plate is stainless/steel, while D-024 explicitly names an aluminium build base containing heaters."
+        }
+      ],
+      "review_kind": "delegated AI engineering evidence audit; recommendation only; not Jason Peng personal review"
+    },
+    {
+      "target": "D-025/link",
+      "part_key": "D-025",
+      "recommendation": "keep_open",
+      "proposed_value": null,
+      "source_fact_ids": [
+        "D-025/drawing/title",
+        "D-025/drawing/notes",
+        "D-025/drawing/source",
+        "BOM:build-plate/seal-clamp-plate/design_intent",
+        "BOM:build-plate/seal-clamp-plate/notes",
+        "BOM:build-plate/build-cylinder-clamp-ring/design_intent",
+        "D-027/drawing/title"
+      ],
+      "original_excerpts": [
+        {
+          "fact_id": "D-025/drawing/title",
+          "original_excerpt": "Bygge Base Ring",
+          "excerpt_origin": "original field text"
+        },
+        {
+          "fact_id": "D-025/drawing/notes",
+          "original_excerpt": "Aluminium",
+          "excerpt_origin": "original field text"
+        },
+        {
+          "fact_id": "D-025/drawing/source",
+          "original_excerpt": "Thin annular ring: ?250.0 outer, ?224.0 inner, eight countersunk through holes.",
+          "excerpt_origin": "visual observation of existing drawing image",
+          "image": "generated/images/D-025-p1.png",
+          "page": 1,
+          "upstream_source_path": "CAD/Technical Drawings/Z-axis/ByggeBaseRing_Version2.PDF"
+        },
+        {
+          "fact_id": "BOM:build-plate/seal-clamp-plate/design_intent",
+          "original_excerpt": "Ring that clamps down on ceramic seal",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:build-plate/seal-clamp-plate/notes",
+          "original_excerpt": "ID of clamp plate was too small. Filed to enlargen. Check specs.",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:build-plate/build-cylinder-clamp-ring/design_intent",
+          "original_excerpt": "Ring that clamp buildcylinder up to build platform and which locate and hold z-axis motor assembly incl. build base linear stage",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "D-027/drawing/title",
+          "original_excerpt": "Cylinder Spænd Ring",
+          "excerpt_origin": "original field text"
+        }
+      ],
+      "reason": "Remain unknown. The thin ?250/?224 ring with eight screws matches the periphery of D-024 and is consistent with retaining the ceramic seal. That supports a possible seal clamp plate, but neither the drawing nor BOM supplies an explicit seal reference or matching filename, and identifying the purpose from mating geometry would be an engineering inference. The separate cylinder-clamp ring D-027 is distinguishable, but eliminating it does not establish that the source is not a base subcomponent absent as its own BOM row. Do not use [] either.",
+      "candidate_alternatives": [
+        {
+          "id": "BOM:build-plate/seal-clamp-plate",
+          "disposition": "unproven",
+          "reason": "Compatible retaining-ring geometry, but no source states seal-clamping purpose for D-025."
+        },
+        {
+          "id": "BOM:build-plate/build-base",
+          "disposition": "unproven_as_component",
+          "reason": "May be a base subcomponent but is visibly not the complete D-024 base disk."
+        },
+        {
+          "id": "BOM:build-plate/build-cylinder-clamp-ring",
+          "disposition": "ruled_out_as_direct_match",
+          "reason": "The separate D-027 clamp ring is ?330/?264 and has distinct mounting geometry; D-025 is ?250/?224."
+        }
+      ],
+      "review_kind": "delegated AI engineering evidence audit; recommendation only; not Jason Peng personal review"
+    },
+    {
+      "target": "D-027/link",
+      "part_key": "D-027",
+      "recommendation": "resolve",
+      "proposed_value": [
+        "BOM:build-plate/build-cylinder-clamp-ring"
+      ],
+      "source_fact_ids": [
+        "D-027/drawing/title",
+        "D-027/drawing/notes",
+        "D-027/drawing/source",
+        "D-023/drawing/source",
+        "BOM:build-plate/build-cylinder-clamp-ring/name",
+        "BOM:build-plate/build-cylinder-clamp-ring/design_intent",
+        "BOM:build-plate/build-cylinder-clamp-ring/material",
+        "BOM:build-plate/seal-clamp-plate/design_intent"
+      ],
+      "original_excerpts": [
+        {
+          "fact_id": "D-027/drawing/title",
+          "original_excerpt": "Cylinder Spænd Ring",
+          "excerpt_origin": "original field text"
+        },
+        {
+          "fact_id": "D-027/drawing/notes",
+          "original_excerpt": "Brug gerne EN AW-6000, AW-2000\neller AW-7000 serie aluminium.",
+          "excerpt_origin": "original field text"
+        },
+        {
+          "fact_id": "D-027/drawing/source",
+          "original_excerpt": "CylinderSp?ndRing.PDF source; ?330.0 outer, ?264.0 H8 bore and three ?20.0 H7 locating counterbores.",
+          "excerpt_origin": "visual observation of existing drawing image",
+          "image": "generated/images/D-027-p1.png",
+          "page": 1,
+          "upstream_source_path": "CAD/Technical Drawings/Z-axis/CylinderSpændRing.PDF"
+        },
+        {
+          "fact_id": "D-023/drawing/source",
+          "original_excerpt": "The locating end is labelled ?264.017 with ?0.026 tolerance.",
+          "excerpt_origin": "visual observation of existing drawing image",
+          "image": "generated/images/D-023-p1.png",
+          "page": 1,
+          "upstream_source_path": "CAD/Technical Drawings/Z-axis/BuildCylinder_v2.pdf"
+        },
+        {
+          "fact_id": "BOM:build-plate/build-cylinder-clamp-ring/name",
+          "original_excerpt": "Build cylinder clamp ring",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:build-plate/build-cylinder-clamp-ring/design_intent",
+          "original_excerpt": "Ring that clamp buildcylinder up to build platform and which locate and hold z-axis motor assembly incl. build base linear stage",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:build-plate/build-cylinder-clamp-ring/material",
+          "original_excerpt": "Aluminium",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:build-plate/seal-clamp-plate/design_intent",
+          "original_excerpt": "Ring that clamps down on ceramic seal",
+          "excerpt_origin": "original BOM CSV cell"
+        }
+      ],
+      "reason": "The filename and title explicitly identify Cylinder Sp?nd Ring, i.e. cylinder clamp ring, and the note explicitly permits aluminium. Its ?264 H8 bore corresponds to the ?264.017 locating end visible on the build cylinder D-023. The BOM uniquely describes the ring that clamps the build cylinder to the platform and locates the Z-axis assembly. The larger ring geometry and cylinder fit rule out the small seal-retaining ring. This link does not choose among the aluminium series allowed by the drawing.",
+      "candidate_alternatives": [
+        {
+          "id": "BOM:build-plate/seal-clamp-plate",
+          "disposition": "ruled_out",
+          "reason": "Its stated job is clamping ceramic seal; D-027 explicitly names the cylinder clamp and physically fits the cylinder locating end."
+        },
+        {
+          "id": "BOM:build-plate/build-base",
+          "disposition": "ruled_out",
+          "reason": "A large bored clamping ring is distinct from the smaller solid heater-containing base disk."
+        }
+      ],
+      "review_kind": "delegated AI engineering evidence audit; recommendation only; not Jason Peng personal review"
+    },
+    {
+      "target": "D-028/link",
+      "part_key": "D-028",
+      "recommendation": "resolve",
+      "proposed_value": [
+        "BOM:build-plate/heating-element-plate"
+      ],
+      "source_fact_ids": [
+        "D-028/drawing/title",
+        "D-028/drawing/notes",
+        "BOM:build-plate/heating-element-plate/name",
+        "BOM:build-plate/heating-element-plate/material",
+        "BOM:build-plate/heating-element-plate/amount",
+        "BOM:build-plate/thermocouple-plate/design_intent",
+        "BOM:build-plate/thermocouple-plate/amount"
+      ],
+      "original_excerpts": [
+        {
+          "fact_id": "D-028/drawing/title",
+          "original_excerpt": "Varmeelement Plade",
+          "excerpt_origin": "original field text"
+        },
+        {
+          "fact_id": "D-028/drawing/notes",
+          "original_excerpt": "Aluminium.\n3 styk.",
+          "excerpt_origin": "original field text"
+        },
+        {
+          "fact_id": "BOM:build-plate/heating-element-plate/name",
+          "original_excerpt": "Heating element plate",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:build-plate/heating-element-plate/material",
+          "original_excerpt": "Aluminium",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:build-plate/heating-element-plate/amount",
+          "original_excerpt": "3",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:build-plate/thermocouple-plate/design_intent",
+          "original_excerpt": "Plate that secure thermocouple in buildbase",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:build-plate/thermocouple-plate/amount",
+          "original_excerpt": "1",
+          "excerpt_origin": "original BOM CSV cell"
+        }
+      ],
+      "reason": "Varmeelement Plade translates exactly to heating-element plate. The original note explicitly says Aluminium and 3 styk. (three pieces), matching the unique BOM heating-element-plate name, aluminium material and amount 3. This combination distinguishes it from the single thermocouple plate and the large build-base disk; it is more than keyword similarity. Preserve the 2.0/3.0 thickness ambiguity and do not choose a thickness.",
+      "candidate_alternatives": [
+        {
+          "id": "BOM:build-plate/thermocouple-plate",
+          "disposition": "ruled_out",
+          "reason": "The title explicitly says heater element and the quantity is three, whereas thermocouple plate amount is one."
+        },
+        {
+          "id": "BOM:build-plate/build-base",
+          "disposition": "ruled_out",
+          "reason": "D-028 is a tiny three-hole retaining plate, not the large heater-containing base disk."
+        }
+      ],
+      "review_kind": "delegated AI engineering evidence audit; recommendation only; not Jason Peng personal review"
+    },
+    {
+      "target": "D-030/link",
+      "part_key": "D-030",
+      "recommendation": "keep_open",
+      "proposed_value": null,
+      "source_fact_ids": [
+        "D-030/drawing/notes",
+        "D-030/drawing/source",
+        "BOM:build-plate/motor-plate/name",
+        "BOM:build-plate/motor-plate/material",
+        "BOM:build-plate/motor-plate/design_intent",
+        "D-010/drawing/notes"
+      ],
+      "original_excerpts": [
+        {
+          "fact_id": "D-030/drawing/notes",
+          "original_excerpt": "Z-axis MotorPlate\nAluminium",
+          "excerpt_origin": "existing source-image transcription; original parsed field is null"
+        },
+        {
+          "fact_id": "D-030/drawing/source",
+          "original_excerpt": "Z-axis_MotorPlate.pdf depicts one central ?36.00 H6 motor opening with four nearby mounting holes on a three-lobed plate.",
+          "excerpt_origin": "visual observation of existing drawing image",
+          "image": "generated/images/D-030-p1.png",
+          "page": 1,
+          "upstream_source_path": "CAD/Technical Drawings/Z-axis/Z-axis_MotorPlate.pdf"
+        },
+        {
+          "fact_id": "BOM:build-plate/motor-plate/name",
+          "original_excerpt": "Motor plate",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:build-plate/motor-plate/material",
+          "original_excerpt": "Aluminium",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "BOM:build-plate/motor-plate/design_intent",
+          "original_excerpt": "Motor plate to hold 3 non-captive stepper motors, end-stop switches",
+          "excerpt_origin": "original BOM CSV cell"
+        },
+        {
+          "fact_id": "D-010/drawing/notes",
+          "original_excerpt": "Motor Plate\n2mm non-magnetic stainless",
+          "excerpt_origin": "original field text"
+        }
+      ],
+      "reason": "Remain unknown despite the strong name/material suggestion. The original sheet visibly has a single central motor pilot with a surrounding four-hole pattern; BOM motor-plate intent specifically says hold 3 non-captive stepper motors and end-stop switches. The supplied Z-axis legend likewise depicts three motors and a different multi-motor support plate. This may be a design-version mismatch, but no evidence authorizes silently resolving it. The Powder motor plate is a separate stainless part D-010. More version/assembly evidence is needed; no [] claim is justified.",
+      "candidate_alternatives": [
+        {
+          "id": "BOM:build-plate/motor-plate",
+          "disposition": "unproven_with_version_conflict",
+          "reason": "Name/material fit, but one central motor pattern conflicts with the stated three-motor support purpose."
+        },
+        {
+          "id": "BOM:powder/powder-stepper-bracket",
+          "disposition": "ruled_out_as_direct_match",
+          "reason": "Different subsystem and stainless material, with separate Powder motor drawing D-010."
+        }
+      ],
+      "review_kind": "delegated AI engineering evidence audit; recommendation only; not Jason Peng personal review"
+    }
+  ]
+}

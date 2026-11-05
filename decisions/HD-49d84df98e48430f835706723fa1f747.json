@@ -1,0 +1,22 @@
+{
+  "decision_id": "HD-49d84df98e48430f835706723fa1f747",
+  "applies_to": "D-013/template/thickness",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Retain the 3 mm and 6 mm possible readings exactly as Jason explicitly requested in HD-6532a09332a04a35b2dcf6593773e0db. No reading is chosen. This closes the redundant demand to select one; the failed weight check and unapproved geometry remain open.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T14:14:53.105414+00:00",
+  "based_on": {
+    "sha256": "826076b03bfbaeee961dc3e57cb642c225d41f1ea9a643d0bb1ca7d296280047"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious input reviews on 2026-11-05.",
+  "source_evidence": [
+    "D-013/drawing/n/3.0@1-1",
+    "D-013/drawing/n/6.0@1-1",
+    "D-013/drawing/source"
+  ],
+  "source_locations": []
+}

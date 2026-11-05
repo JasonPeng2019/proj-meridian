@@ -1,0 +1,30 @@
+{
+  "decision_id": "HD-63f19afa41c545cdb20b21be21c78119",
+  "applies_to": "D-024/link",
+  "type": "link",
+  "value": [
+    "BOM:build-plate/build-base"
+  ],
+  "status": "accepted",
+  "note": "ByggeBase names the build base, and the physical details corroborate it. The source shows a ?250 disk and heater-element holes, while the cylinder is ID252; this is exactly the BOM base design intent of about 1mm radial clearance inside the cylinder plus contained heating elements. The heater-element plate alternative is a separate tiny three-piece retaining plate D-028, not this ?250 disk. The source-specific aluminium note matches directly; no alloy taxonomy or whole-section equivalence is assumed.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T14:14:05.971840+00:00",
+  "based_on": {
+    "sha256": "f6da4da2e0c21231939c15f13535cf068d1c1f778774816f3cb65ddf30f96e3d"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious input reviews on 2026-11-05.",
+  "source_evidence": [
+    "D-024/drawing/title",
+    "D-024/drawing/notes",
+    "D-024/drawing/source",
+    "BOM:build-plate/build-base/design_intent",
+    "BOM:build-plate/build-cylinder/design_intent",
+    "BOM:build-plate/build-base/material",
+    "BOM:build-plate/heating-element-plate/amount",
+    "D-028/drawing/title",
+    "D-028/drawing/notes"
+  ],
+  "source_locations": []
+}

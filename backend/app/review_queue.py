@@ -1,9 +1,11 @@
 """Separate unresolved engineering input from oversight of an AI answer."""
 
-RESOLVED = {"accepted", "rejected", "human_confirmed", "human_rejected", "approved", "reviewed"}
+RESOLVED = {"accepted", "rejected", "human_confirmed", "human_rejected", "approved", "reviewed", "deferred"}
 
 
 def classify_review(item: dict) -> tuple[str, str]:
+    if item.get("status") == "deferred":
+        return "resolved", "Reconstruction is unavailable in the current template scope; no geometry was approved."
     if item.get("status") in RESOLVED:
         return "resolved", "A human decision is already recorded."
     if item.get("input_reason"):

@@ -15,6 +15,19 @@ from . import runner
 PROTOCOL = "printed-image-dimensions-v1"
 UNITS = {"mm", "deg", "count", "unitless"}
 TOKEN = re.compile(r"[-+]?\d+(?:[.,]\d+)?")
+VALIDATOR_REPLAY = "printed-image-numeric-range-validator-v1"
+
+
+def printed_tokens(text: str) -> list[str]:
+    """An unspaced numeric range separator is not the endpoint's sign."""
+    result, previous_end = [], None
+    for match in TOKEN.finditer(text):
+        token = match.group()
+        if token.startswith("-") and previous_end == match.start():
+            token = token[1:]
+        result.append(token)
+        previous_end = match.end()
+    return result
 
 
 def job(drawing: dict) -> dict:
@@ -107,7 +120,7 @@ def validate(value, current: dict, key: str, refs: list[str]) -> None:
             raise ValueError("Malformed printed image number")
         text, token, number, box = entry["text"], entry["token"], entry["value"], entry["box"]
         if (not isinstance(text, str) or not text.strip() or not isinstance(token, str) or
-                not TOKEN.fullmatch(token) or token not in TOKEN.findall(text) or
+                not TOKEN.fullmatch(token) or token not in printed_tokens(text) or
                 type(number) not in (int, float) or not math.isfinite(number) or
                 not math.isclose(number, float(token.replace(",", ".")), rel_tol=0, abs_tol=1e-9) or
                 not isinstance(entry["unit"], str) or entry["unit"] not in UNITS):
@@ -124,6 +137,73 @@ def validate(value, current: dict, key: str, refs: list[str]) -> None:
         seen.add(identity)
 
 
+def _decode_cached_round(result: dict, index: int):
+    """Read exact historical packets; never recompute their original validation."""
+    from . import pipeline
+
+    if (result.get("protocol") != pipeline.PROTOCOL or
+            result.get("job", {}).get("kind") != "image_dimensions" or
+            not 1 <= len(result.get("rounds", [])) <= 2):
+        return None
+    raw = result["rounds"][index]
+    proposer, verifier = raw.get("codex", {}), raw.get("claude", {})
+    validation = proposer.get("validation", {})
+    keys = [key for key in result["job"]["keys"] if key in validation]
+    if (not keys or set(validation) != set(keys) or any(type(value) is not bool for value in validation.values()) or
+            proposer.get("role") != "proposer" or verifier.get("role") != "verifier" or
+            proposer.get("protocol") != pipeline.PROTOCOL or verifier.get("protocol") != pipeline.PROTOCOL or
+            proposer.get("round") != index or verifier.get("round") != index):
+        return None
+    packet = {"protocol": pipeline.PROTOCOL, "keys": keys, "proposal": proposer.get("answer"),
+              "locally_valid_keys": sorted(key for key in keys if validation[key]),
+              "invalid_keys": [key for key in keys if not validation[key]]}
+    fingerprint = runner.fingerprint(packet)
+    if proposer.get("proposal_fingerprint") != fingerprint or verifier.get("proposal_fingerprint") != fingerprint:
+        return None
+    current = {**result["job"], "keys": keys}
+    previous = {}
+    if index:
+        first = result["rounds"][0].get("codex", {})
+        before = pipeline.decode_answer(first, result["job"])
+        previous = {key: before.get(key) for key in keys if first.get("validation", {}).get(key) is True}
+    proposals = pipeline.decode_answer(proposer, current, retry=index > 0, previous=previous)
+    verdicts = pipeline.decode_verification(verifier, current, fingerprint)
+    if (set(proposals) != set(keys) or set(verdicts) != set(keys) or
+            any(proposals[key].get("state") != "known" or verdicts[key]["decision"] != "accept" for key in keys)):
+        return None
+    return keys, fingerprint, proposals, verdicts
+
+
+def revalidate_cached_result(result: dict) -> dict:
+    """Offline structural replay of an already accepted exact final proposal.
+
+    Original model output, validation flags, fingerprints and round receipts are
+    immutable. No reader, execution or retry function is called by this helper.
+    """
+    updated = copy.deepcopy(result)
+    if not result.get("rounds") or not any(state == "invalid" for state in result.get("states", {}).values()):
+        return updated
+    decoded = _decode_cached_round(result, len(result["rounds"]) - 1)
+    if decoded is None:
+        return updated
+    keys, fingerprint, proposals, verdicts = decoded
+    if any(result["states"].get(key) not in {"invalid", "verified", "verified_after_retry"} for key in keys):
+        return updated
+    updated.setdefault("validator_replays", []).append({
+        "protocol": VALIDATOR_REPLAY, "kind": "local_structural_validation", "provider_calls": 0,
+        "original_result_sha256": runner.fingerprint(result),
+        "raw_rounds_sha256": runner.fingerprint(result["rounds"]),
+        "proposal_fingerprint": fingerprint, "keys": keys,
+        "previous_states": copy.deepcopy(result["states"]), "previous_answers": copy.deepcopy(result["answers"]),
+        "validation": {key: True for key in keys},
+        "reason": "Adjacent numeric range hyphens are separators; original model responses and verifier acceptance are unchanged."})
+    for key in keys:
+        updated["answers"]["codex"][key] = proposals[key]
+        updated["answers"]["claude"][key] = verdicts[key]
+        updated["states"][key] = "verified_after_retry" if len(result["rounds"]) == 2 else "verified"
+    return updated
+
+
 def assemble(result: dict) -> dict:
     """Only verified original-page transcriptions enter the numeric index."""
     from .pipeline import PROTOCOL as PREP_PROTOCOL, VERIFIED_STATES, resolved
@@ -132,6 +212,8 @@ def assemble(result: dict) -> dict:
     pages, fields = {}, []
     for key in current["keys"]:
         reading = resolved(result, key)
+        if result.get("validator_replays"):
+            reading["validator_replays"] = copy.deepcopy(result["validator_replays"])
         pages[key] = reading
         if result.get("protocol") != PREP_PROTOCOL or result["states"].get(key) not in VERIFIED_STATES:
             continue

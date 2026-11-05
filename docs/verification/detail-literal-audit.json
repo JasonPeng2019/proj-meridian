@@ -1,0 +1,3507 @@
+{
+  "actor": "Meridian delegated reviewer",
+  "delegated_by": "Jason Peng",
+  "method": "Direct visual inspection of original existing drawing PNG pages; per-token numeric readings checked by root, without generation or pixel measurement. Recommendations only; no decisions written.",
+  "items": [
+    {
+      "target": "D-001/drawing/visual-n/p1-9e842af67407b1f5",
+      "decision": "confirm",
+      "value": 3,
+      "unit": "mm",
+      "text": "3,00",
+      "token": "3,00",
+      "prediction_sha256": "f4e3fd0f3e5089925a3be5ca4ca6bda5ae7458159b32b1615c22ccaba8b005d9",
+      "based_on": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f",
+      "note": "Directly inspected original page: overall492 x515 and3 thickness,287 x200 window;2x4.5,3x6.6,6x6.6,20x4.5 callouts and note Door x2/3mm aluminium. This confirms the individual printed numeric token only; no missing hole coordinates or corner radii are inferred.",
+      "source_fact_ids": [
+        "D-001/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-001",
+          "page": 1,
+          "image": "generated/images/D-001-p1.png",
+          "box": [
+            235.8,
+            177.3,
+            29,
+            13.2
+          ],
+          "source_sha256": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f"
+        }
+      ]
+    },
+    {
+      "target": "D-001/drawing/visual-n/p1-f696ecbb0352e5b6",
+      "decision": "confirm",
+      "value": 492,
+      "unit": "mm",
+      "text": "492,00",
+      "token": "492,00",
+      "prediction_sha256": "ce7667e5b924f9fd50d14862f293723f41b8a7a7a4187f03a065f14d561ee81c",
+      "based_on": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f",
+      "note": "Directly inspected original page: overall492 x515 and3 thickness,287 x200 window;2x4.5,3x6.6,6x6.6,20x4.5 callouts and note Door x2/3mm aluminium. This confirms the individual printed numeric token only; no missing hole coordinates or corner radii are inferred.",
+      "source_fact_ids": [
+        "D-001/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-001",
+          "page": 1,
+          "image": "generated/images/D-001-p1.png",
+          "box": [
+            632,
+            177.3,
+            44.1,
+            13.2
+          ],
+          "source_sha256": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f"
+        }
+      ]
+    },
+    {
+      "target": "D-001/drawing/visual-n/p1-bb5309c42b3d451d",
+      "decision": "confirm",
+      "value": 2,
+      "unit": "count",
+      "text": "2 x Ø 4,50 THRU ALL",
+      "token": "2",
+      "prediction_sha256": "d2a6919189609bb4a2b924e35f740e5ee98b1f06c3c340d27df75ef48bd45816",
+      "based_on": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f",
+      "note": "Directly inspected original page: overall492 x515 and3 thickness,287 x200 window;2x4.5,3x6.6,6x6.6,20x4.5 callouts and note Door x2/3mm aluminium. This confirms the individual printed numeric token only; no missing hole coordinates or corner radii are inferred.",
+      "source_fact_ids": [
+        "D-001/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-001",
+          "page": 1,
+          "image": "generated/images/D-001-p1.png",
+          "box": [
+            563.7,
+            232.8,
+            126,
+            14.5
+          ],
+          "source_sha256": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f"
+        }
+      ]
+    },
+    {
+      "target": "D-001/drawing/visual-n/p1-79a383303ea71188",
+      "decision": "confirm",
+      "value": 4.5,
+      "unit": "mm",
+      "text": "2 x Ø 4,50 THRU ALL",
+      "token": "4,50",
+      "prediction_sha256": "a370063f9fba7246d1236fc72d4f12d12be842f04fcc6ef1134d95867b533ed8",
+      "based_on": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f",
+      "note": "Directly inspected original page: overall492 x515 and3 thickness,287 x200 window;2x4.5,3x6.6,6x6.6,20x4.5 callouts and note Door x2/3mm aluminium. This confirms the individual printed numeric token only; no missing hole coordinates or corner radii are inferred.",
+      "source_fact_ids": [
+        "D-001/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-001",
+          "page": 1,
+          "image": "generated/images/D-001-p1.png",
+          "box": [
+            563.7,
+            232.8,
+            126,
+            14.5
+          ],
+          "source_sha256": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f"
+        }
+      ]
+    },
+    {
+      "target": "D-001/drawing/visual-n/p1-f6f5c0a88c7e24a8",
+      "decision": "confirm",
+      "value": 3,
+      "unit": "count",
+      "text": "3 x Ø 6,60 THRU ALL",
+      "token": "3",
+      "prediction_sha256": "f4e3fd0f3e5089925a3be5ca4ca6bda5ae7458159b32b1615c22ccaba8b005d9",
+      "based_on": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f",
+      "note": "Directly inspected original page: overall492 x515 and3 thickness,287 x200 window;2x4.5,3x6.6,6x6.6,20x4.5 callouts and note Door x2/3mm aluminium. This confirms the individual printed numeric token only; no missing hole coordinates or corner radii are inferred.",
+      "source_fact_ids": [
+        "D-001/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-001",
+          "page": 1,
+          "image": "generated/images/D-001-p1.png",
+          "box": [
+            370.1,
+            315.5,
+            127.4,
+            14.5
+          ],
+          "source_sha256": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f"
+        }
+      ]
+    },
+    {
+      "target": "D-001/drawing/visual-n/p1-eef7bb1864b51bce",
+      "decision": "confirm",
+      "value": 6.6,
+      "unit": "mm",
+      "text": "3 x Ø 6,60 THRU ALL",
+      "token": "6,60",
+      "prediction_sha256": "2cf87646a465b4ecc77626e33c01f828e4bd48a3866eadd17a5588644dd2e713",
+      "based_on": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f",
+      "note": "Directly inspected original page: overall492 x515 and3 thickness,287 x200 window;2x4.5,3x6.6,6x6.6,20x4.5 callouts and note Door x2/3mm aluminium. This confirms the individual printed numeric token only; no missing hole coordinates or corner radii are inferred.",
+      "source_fact_ids": [
+        "D-001/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-001",
+          "page": 1,
+          "image": "generated/images/D-001-p1.png",
+          "box": [
+            370.1,
+            315.5,
+            127.4,
+            14.5
+          ],
+          "source_sha256": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f"
+        }
+      ]
+    },
+    {
+      "target": "D-001/drawing/visual-n/p1-915e1d5c5e688216",
+      "decision": "confirm",
+      "value": 200,
+      "unit": "mm",
+      "text": "200,00",
+      "token": "200,00",
+      "prediction_sha256": "bfe3cd59061f42c90feccbabd4508c932bb7422c4c2fe6cfc9063221b7cfb0c9",
+      "based_on": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f",
+      "note": "Directly inspected original page: overall492 x515 and3 thickness,287 x200 window;2x4.5,3x6.6,6x6.6,20x4.5 callouts and note Door x2/3mm aluminium. This confirms the individual printed numeric token only; no missing hole coordinates or corner radii are inferred.",
+      "source_fact_ids": [
+        "D-001/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-001",
+          "page": 1,
+          "image": "generated/images/D-001-p1.png",
+          "box": [
+            693.6,
+            331.2,
+            13.9,
+            41.6
+          ],
+          "source_sha256": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f"
+        }
+      ]
+    },
+    {
+      "target": "D-001/drawing/visual-n/p1-73aeb8a54aab9f26",
+      "decision": "confirm",
+      "value": 515,
+      "unit": "mm",
+      "text": "515",
+      "token": "515",
+      "prediction_sha256": "9031f2872aa3464c0d907bd68e660a21eb267243cae26ad1d37aa16da389315a",
+      "based_on": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f",
+      "note": "Directly inspected original page: overall492 x515 and3 thickness,287 x200 window;2x4.5,3x6.6,6x6.6,20x4.5 callouts and note Door x2/3mm aluminium. This confirms the individual printed numeric token only; no missing hole coordinates or corner radii are inferred.",
+      "source_fact_ids": [
+        "D-001/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-001",
+          "page": 1,
+          "image": "generated/images/D-001-p1.png",
+          "box": [
+            815.9,
+            355.9,
+            13.2,
+            24
+          ],
+          "source_sha256": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f"
+        }
+      ]
+    },
+    {
+      "target": "D-001/drawing/visual-n/p1-ce252af373fa8dad",
+      "decision": "confirm",
+      "value": 6,
+      "unit": "count",
+      "text": "6 x Ø 6,60 THRU ALL",
+      "token": "6",
+      "prediction_sha256": "e13bd7510843f1667b7516f19564e4008fe4579d2782b46ec37099aa8698d629",
+      "based_on": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f",
+      "note": "Directly inspected original page: overall492 x515 and3 thickness,287 x200 window;2x4.5,3x6.6,6x6.6,20x4.5 callouts and note Door x2/3mm aluminium. This confirms the individual printed numeric token only; no missing hole coordinates or corner radii are inferred.",
+      "source_fact_ids": [
+        "D-001/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-001",
+          "page": 1,
+          "image": "generated/images/D-001-p1.png",
+          "box": [
+            870.7,
+            382.4,
+            128,
+            14.5
+          ],
+          "source_sha256": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f"
+        }
+      ]
+    },
+    {
+      "target": "D-001/drawing/visual-n/p1-b8f656d98011390f",
+      "decision": "confirm",
+      "value": 6.6,
+      "unit": "mm",
+      "text": "6 x Ø 6,60 THRU ALL",
+      "token": "6,60",
+      "prediction_sha256": "2cf87646a465b4ecc77626e33c01f828e4bd48a3866eadd17a5588644dd2e713",
+      "based_on": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f",
+      "note": "Directly inspected original page: overall492 x515 and3 thickness,287 x200 window;2x4.5,3x6.6,6x6.6,20x4.5 callouts and note Door x2/3mm aluminium. This confirms the individual printed numeric token only; no missing hole coordinates or corner radii are inferred.",
+      "source_fact_ids": [
+        "D-001/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-001",
+          "page": 1,
+          "image": "generated/images/D-001-p1.png",
+          "box": [
+            870.7,
+            382.4,
+            128,
+            14.5
+          ],
+          "source_sha256": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f"
+        }
+      ]
+    },
+    {
+      "target": "D-001/drawing/visual-n/p1-f9d92385e61d8ec5",
+      "decision": "confirm",
+      "value": 287,
+      "unit": "mm",
+      "text": "287,00",
+      "token": "287,00",
+      "prediction_sha256": "ba6f2c21e90fa5f738358ee10aafd6b308810145a55b87dc66383555e54c3acc",
+      "based_on": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f",
+      "note": "Directly inspected original page: overall492 x515 and3 thickness,287 x200 window;2x4.5,3x6.6,6x6.6,20x4.5 callouts and note Door x2/3mm aluminium. This confirms the individual printed numeric token only; no missing hole coordinates or corner radii are inferred.",
+      "source_fact_ids": [
+        "D-001/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-001",
+          "page": 1,
+          "image": "generated/images/D-001-p1.png",
+          "box": [
+            607.8,
+            383,
+            43.5,
+            13.9
+          ],
+          "source_sha256": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f"
+        }
+      ]
+    },
+    {
+      "target": "D-001/drawing/visual-n/p1-e4b74964fa4c84e1",
+      "decision": "confirm",
+      "value": 20,
+      "unit": "count",
+      "text": "20 x Ø 4,50 THRU ALL",
+      "token": "20",
+      "prediction_sha256": "2ad4ac1dec4b1aef33248c773f1275638e97efa921a60c4e63c870115c11f856",
+      "based_on": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f",
+      "note": "Directly inspected original page: overall492 x515 and3 thickness,287 x200 window;2x4.5,3x6.6,6x6.6,20x4.5 callouts and note Door x2/3mm aluminium. This confirms the individual printed numeric token only; no missing hole coordinates or corner radii are inferred.",
+      "source_fact_ids": [
+        "D-001/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-001",
+          "page": 1,
+          "image": "generated/images/D-001-p1.png",
+          "box": [
+            583.9,
+            452.4,
+            135.6,
+            14.5
+          ],
+          "source_sha256": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f"
+        }
+      ]
+    },
+    {
+      "target": "D-001/drawing/visual-n/p1-0e79dbcd0ec180b9",
+      "decision": "confirm",
+      "value": 4.5,
+      "unit": "mm",
+      "text": "20 x Ø 4,50 THRU ALL",
+      "token": "4,50",
+      "prediction_sha256": "a370063f9fba7246d1236fc72d4f12d12be842f04fcc6ef1134d95867b533ed8",
+      "based_on": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f",
+      "note": "Directly inspected original page: overall492 x515 and3 thickness,287 x200 window;2x4.5,3x6.6,6x6.6,20x4.5 callouts and note Door x2/3mm aluminium. This confirms the individual printed numeric token only; no missing hole coordinates or corner radii are inferred.",
+      "source_fact_ids": [
+        "D-001/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-001",
+          "page": 1,
+          "image": "generated/images/D-001-p1.png",
+          "box": [
+            583.9,
+            452.4,
+            135.6,
+            14.5
+          ],
+          "source_sha256": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f"
+        }
+      ]
+    },
+    {
+      "target": "D-001/drawing/visual-n/p1-c0a460d032dc39d5",
+      "decision": "confirm",
+      "value": 2,
+      "unit": "count",
+      "text": "Door - x2\n3mm aluminium",
+      "token": "2",
+      "prediction_sha256": "d2a6919189609bb4a2b924e35f740e5ee98b1f06c3c340d27df75ef48bd45816",
+      "based_on": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f",
+      "note": "Directly inspected original page: overall492 x515 and3 thickness,287 x200 window;2x4.5,3x6.6,6x6.6,20x4.5 callouts and note Door x2/3mm aluminium. This confirms the individual printed numeric token only; no missing hole coordinates or corner radii are inferred.",
+      "source_fact_ids": [
+        "D-001/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-001",
+          "page": 1,
+          "image": "generated/images/D-001-p1.png",
+          "box": [
+            749.7,
+            678.9,
+            105.3,
+            26.5
+          ],
+          "source_sha256": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f"
+        }
+      ]
+    },
+    {
+      "target": "D-001/drawing/visual-n/p1-5961e5bc85823d07",
+      "decision": "confirm",
+      "value": 3,
+      "unit": "mm",
+      "text": "Door - x2\n3mm aluminium",
+      "token": "3",
+      "prediction_sha256": "f4e3fd0f3e5089925a3be5ca4ca6bda5ae7458159b32b1615c22ccaba8b005d9",
+      "based_on": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f",
+      "note": "Directly inspected original page: overall492 x515 and3 thickness,287 x200 window;2x4.5,3x6.6,6x6.6,20x4.5 callouts and note Door x2/3mm aluminium. This confirms the individual printed numeric token only; no missing hole coordinates or corner radii are inferred.",
+      "source_fact_ids": [
+        "D-001/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-001",
+          "page": 1,
+          "image": "generated/images/D-001-p1.png",
+          "box": [
+            749.7,
+            678.9,
+            105.3,
+            26.5
+          ],
+          "source_sha256": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p1-22fa722f2199577b",
+      "decision": "confirm",
+      "value": 3,
+      "unit": "mm",
+      "text": "R3,0",
+      "token": "3,0",
+      "prediction_sha256": "f4e3fd0f3e5089925a3be5ca4ca6bda5ae7458159b32b1615c22ccaba8b005d9",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 1,
+          "image": "generated/images/D-003-p1.png",
+          "box": [
+            648.2,
+            215.3,
+            30.1,
+            27.5
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p1-efcc6fe206ab17d1",
+      "decision": "confirm",
+      "value": 20,
+      "unit": "mm",
+      "text": "20,0",
+      "token": "20,0",
+      "prediction_sha256": "2ad4ac1dec4b1aef33248c773f1275638e97efa921a60c4e63c870115c11f856",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 1,
+          "image": "generated/images/D-003-p1.png",
+          "box": [
+            762.8,
+            221.0,
+            32.6,
+            14.4
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p1-29bbbb0f0a2276da",
+      "decision": "confirm",
+      "value": 40,
+      "unit": "mm",
+      "text": "40,0",
+      "token": "40,0",
+      "prediction_sha256": "ff12f922d90c1877c3b1075789a7bd3ab33c2d11747e6f5fe83899f492ec9496",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 1,
+          "image": "generated/images/D-003-p1.png",
+          "box": [
+            652.6,
+            244.7,
+            15.7,
+            30.7
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p1-74172fcd47de51bf",
+      "decision": "confirm",
+      "value": 297,
+      "unit": "mm",
+      "text": "Ø297,0",
+      "token": "297,0",
+      "prediction_sha256": "e81933929e88d0b50f6fd8bdbfb30f5d3fbe5b58952166c5f9073a54e0bf82ea",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 1,
+          "image": "generated/images/D-003-p1.png",
+          "box": [
+            402.1,
+            266.7,
+            48.8,
+            15.0
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p1-7d46a179e09c1341",
+      "decision": "confirm",
+      "value": 270,
+      "unit": "mm",
+      "text": "270,0",
+      "token": "270,0",
+      "prediction_sha256": "dde2ad3077b2806ef6c0389db89bb44700e5f612b3c3808df3d4a8ded934b28a",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 1,
+          "image": "generated/images/D-003-p1.png",
+          "box": [
+            480.4,
+            267.9,
+            38.2,
+            14.4
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p1-781623069f1ac8de",
+      "decision": "confirm",
+      "value": 0.05,
+      "unit": "mm",
+      "text": "10,0 +0,05 0,00",
+      "token": "+0,05",
+      "prediction_sha256": "1320d33d9a78654119935e10aa09c089560d4970d4e0dd08a6ce9dbe97acd4c9",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 1,
+          "image": "generated/images/D-003-p1.png",
+          "box": [
+            854.2,
+            301.1,
+            67.0,
+            27.5
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p1-0a7783cf4ffcb1e2",
+      "decision": "confirm",
+      "value": 0,
+      "unit": "mm",
+      "text": "10,0 +0,05 0,00",
+      "token": "0,00",
+      "prediction_sha256": "598979e18cafc4b5a0f3471e13e06a674377dd38e11e708287fc77e2c5fffb28",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 1,
+          "image": "generated/images/D-003-p1.png",
+          "box": [
+            854.2,
+            301.1,
+            67.0,
+            27.5
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p1-691a23cac8679b3c",
+      "decision": "confirm",
+      "value": 10,
+      "unit": "mm",
+      "text": "10,0 +0,05 0,00",
+      "token": "10,0",
+      "prediction_sha256": "a26f8c452f6121cce2e026be362d205112bd0ed73f71da10d7a51a966c0ae04d",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 1,
+          "image": "generated/images/D-003-p1.png",
+          "box": [
+            854.2,
+            301.1,
+            67.0,
+            27.5
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p1-834c842415179216",
+      "decision": "confirm",
+      "value": 255.5,
+      "unit": "mm",
+      "text": "255,5",
+      "token": "255,5",
+      "prediction_sha256": "92fa4dd0baadddf1f9051e9ca6b9dc4cab6d152e67ce9b4b2f93a77887130d81",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 1,
+          "image": "generated/images/D-003-p1.png",
+          "box": [
+            670.1,
+            317.4,
+            15.0,
+            37.6
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p1-0fe35002c47a1cfb",
+      "decision": "confirm",
+      "value": 252,
+      "unit": "mm",
+      "text": "Ø252,0",
+      "token": "252,0",
+      "prediction_sha256": "12a30bb34a1acd3b57bcbbd689d93ce5e516266f69e2a92ea99fa038982f3f47",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 1,
+          "image": "generated/images/D-003-p1.png",
+          "box": [
+            765.3,
+            349.3,
+            17.5,
+            49.5
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p1-dbb90a73c3dcfa05",
+      "decision": "confirm",
+      "value": 775,
+      "unit": "mm",
+      "text": "775,0",
+      "token": "775,0",
+      "prediction_sha256": "6b05fe7cc27af49ffff4a63354161cbde8e7e47853dc6dfa90cb804e2ccb94e0",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 1,
+          "image": "generated/images/D-003-p1.png",
+          "box": [
+            375.1,
+            354.3,
+            15.7,
+            34.4
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p1-6bff49d578973de3",
+      "decision": "confirm",
+      "value": 0.081,
+      "unit": "mm",
+      "text": "Ø262,0 H8 +0,081 0,000",
+      "token": "+0,081",
+      "prediction_sha256": "025def5a1cc2f68d6d1c863b60908387d83e74429e1d92096c4e72741ea66e0c",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 1,
+          "image": "generated/images/D-003-p1.png",
+          "box": [
+            840.5,
+            363.1,
+            114.0,
+            28.8
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p1-78bdddd9a0872dd7",
+      "decision": "confirm",
+      "value": 0,
+      "unit": "mm",
+      "text": "Ø262,0 H8 +0,081 0,000",
+      "token": "0,000",
+      "prediction_sha256": "598979e18cafc4b5a0f3471e13e06a674377dd38e11e708287fc77e2c5fffb28",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 1,
+          "image": "generated/images/D-003-p1.png",
+          "box": [
+            840.5,
+            363.1,
+            114.0,
+            28.8
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p1-d4c1ba254166f303",
+      "decision": "confirm",
+      "value": 262,
+      "unit": "mm",
+      "text": "Ø262,0 H8 +0,081 0,000",
+      "token": "262,0",
+      "prediction_sha256": "6ab1ec6d45485d031b9800e2b2bc496e089979cda687991d11f67866c547f588",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 1,
+          "image": "generated/images/D-003-p1.png",
+          "box": [
+            840.5,
+            363.1,
+            114.0,
+            28.8
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p1-d90189919b2ce5ca",
+      "decision": "confirm",
+      "value": 8,
+      "unit": "unitless",
+      "text": "Ø262,0 H8 +0,081 0,000",
+      "token": "8",
+      "prediction_sha256": "1bc0d737667963c9de936f1a06ebba47f4d517d4e40db30d1fd887dcf7b0fc4b",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 1,
+          "image": "generated/images/D-003-p1.png",
+          "box": [
+            840.5,
+            363.1,
+            114.0,
+            28.8
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p1-ceeb730b83b806e6",
+      "decision": "confirm",
+      "value": 250,
+      "unit": "mm",
+      "text": "250,0",
+      "token": "250,0",
+      "prediction_sha256": "a83fd726f4ff3b5351e5319668264bbe3d41de36c1ef125a1225627a80abc1ca",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 1,
+          "image": "generated/images/D-003-p1.png",
+          "box": [
+            693.9,
+            392.5,
+            15.7,
+            35.7
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p1-9fd0d37887b65f32",
+      "decision": "confirm",
+      "value": 60,
+      "unit": "deg",
+      "text": "60°",
+      "token": "60",
+      "prediction_sha256": "805d7dc22bf22caacc84491fc0dc54c6871064387d3f988d4584d9bcd3480e15",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 1,
+          "image": "generated/images/D-003-p1.png",
+          "box": [
+            438.4,
+            424.4,
+            21.9,
+            23.8
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p1-af94544b0dda5a96",
+      "decision": "confirm",
+      "value": 40,
+      "unit": "mm",
+      "text": "40,0",
+      "token": "40,0",
+      "prediction_sha256": "ff12f922d90c1877c3b1075789a7bd3ab33c2d11747e6f5fe83899f492ec9496",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 1,
+          "image": "generated/images/D-003-p1.png",
+          "box": [
+            653.2,
+            470.7,
+            15.0,
+            30.7
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p1-9f78faa31e3b0b8f",
+      "decision": "confirm",
+      "value": 270,
+      "unit": "mm",
+      "text": "270,0",
+      "token": "270,0",
+      "prediction_sha256": "dde2ad3077b2806ef6c0389db89bb44700e5f612b3c3808df3d4a8ded934b28a",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 1,
+          "image": "generated/images/D-003-p1.png",
+          "box": [
+            535.5,
+            511.4,
+            35.1,
+            14.4
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p1-0a94f4847508f16f",
+      "decision": "confirm",
+      "value": 600,
+      "unit": "mm",
+      "text": "600,0",
+      "token": "600,0",
+      "prediction_sha256": "6151cc3a12d3b877b94e2ed9050a5503c988f45d8e16febc6d9abd9cc4527a80",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 1,
+          "image": "generated/images/D-003-p1.png",
+          "box": [
+            534.8,
+            533.9,
+            37.6,
+            14.4
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p1-5d6ee0439201f105",
+      "decision": "confirm",
+      "value": 3,
+      "unit": "mm",
+      "text": "3,0 X 45°",
+      "token": "3,0",
+      "prediction_sha256": "f4e3fd0f3e5089925a3be5ca4ca6bda5ae7458159b32b1615c22ccaba8b005d9",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 1,
+          "image": "generated/images/D-003-p1.png",
+          "box": [
+            338.2,
+            590.3,
+            57.6,
+            26.9
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p1-5a0a55bdd9644fe4",
+      "decision": "confirm",
+      "value": 45,
+      "unit": "deg",
+      "text": "3,0 X 45°",
+      "token": "45",
+      "prediction_sha256": "665d138bf5567504b2b82d7b225a8dc3397a291897785436cf669c45724ec7b4",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 1,
+          "image": "generated/images/D-003-p1.png",
+          "box": [
+            338.2,
+            590.3,
+            57.6,
+            26.9
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p1-b963d1574c3f4157",
+      "decision": "confirm",
+      "value": 20,
+      "unit": "mm",
+      "text": "20mm thick aluminium plate.",
+      "token": "20",
+      "prediction_sha256": "2ad4ac1dec4b1aef33248c773f1275638e97efa921a60c4e63c870115c11f856",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 1,
+          "image": "generated/images/D-003-p1.png",
+          "box": [
+            737.1,
+            692.3,
+            187.3,
+            15.6
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p2-55d10f4b9943c819",
+      "decision": "confirm",
+      "value": 12.0,
+      "unit": "mm",
+      "text": "Ø 6,8 ↧ 15,0\nM8 - 6H ↧ 12,0",
+      "token": "12,0",
+      "prediction_sha256": "83ec28ef8be3300a598c44e1bc8b6053ec62092f1da08a750f4377acae390f98",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 2,
+          "image": "generated/images/D-003-p2.png",
+          "box": [
+            219.2,
+            67.0,
+            95.8,
+            26.3
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p2-0bb4e4cd17ba1de0",
+      "decision": "confirm",
+      "value": 15.0,
+      "unit": "mm",
+      "text": "Ø 6,8 ↧ 15,0\nM8 - 6H ↧ 12,0",
+      "token": "15,0",
+      "prediction_sha256": "7304a872e5d7b4a30fbdb614b5f7e9e8822211f165f70ccedcaa45c02a01a48d",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 2,
+          "image": "generated/images/D-003-p2.png",
+          "box": [
+            219.2,
+            67.0,
+            95.8,
+            26.3
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p2-b6e79d8390bd3c0a",
+      "decision": "confirm",
+      "value": 6,
+      "unit": "unitless",
+      "text": "Ø 6,8 ↧ 15,0\nM8 - 6H ↧ 12,0",
+      "token": "6",
+      "prediction_sha256": "e13bd7510843f1667b7516f19564e4008fe4579d2782b46ec37099aa8698d629",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 2,
+          "image": "generated/images/D-003-p2.png",
+          "box": [
+            219.2,
+            67.0,
+            95.8,
+            26.3
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p2-bf012a0a9a2f7dca",
+      "decision": "confirm",
+      "value": 6.8,
+      "unit": "mm",
+      "text": "Ø 6,8 ↧ 15,0\nM8 - 6H ↧ 12,0",
+      "token": "6,8",
+      "prediction_sha256": "8bf19f592a58361467601ef5fc92c86605de97e94c9b174990bb1714ec9ea415",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 2,
+          "image": "generated/images/D-003-p2.png",
+          "box": [
+            219.2,
+            67.0,
+            95.8,
+            26.3
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p2-dcb26e0fa970e321",
+      "decision": "confirm",
+      "value": 8,
+      "unit": "mm",
+      "text": "Ø 6,8 ↧ 15,0\nM8 - 6H ↧ 12,0",
+      "token": "8",
+      "prediction_sha256": "1bc0d737667963c9de936f1a06ebba47f4d517d4e40db30d1fd887dcf7b0fc4b",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 2,
+          "image": "generated/images/D-003-p2.png",
+          "box": [
+            219.2,
+            67.0,
+            95.8,
+            26.3
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p2-16c0310ecda720e4",
+      "decision": "confirm",
+      "value": 8,
+      "unit": "count",
+      "text": "8",
+      "token": "8",
+      "prediction_sha256": "1bc0d737667963c9de936f1a06ebba47f4d517d4e40db30d1fd887dcf7b0fc4b",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 2,
+          "image": "generated/images/D-003-p2.png",
+          "box": [
+            432.1,
+            70.1,
+            10.0,
+            12.5
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p2-b276709f6c0e432a",
+      "decision": "confirm",
+      "value": 12.0,
+      "unit": "mm",
+      "text": "Ø 5,0 ↧ 15,0\nM6 - 6H ↧ 12,0",
+      "token": "12,0",
+      "prediction_sha256": "83ec28ef8be3300a598c44e1bc8b6053ec62092f1da08a750f4377acae390f98",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 2,
+          "image": "generated/images/D-003-p2.png",
+          "box": [
+            219.2,
+            98.3,
+            95.8,
+            26.9
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p2-4a87355fed55b06a",
+      "decision": "confirm",
+      "value": 15.0,
+      "unit": "mm",
+      "text": "Ø 5,0 ↧ 15,0\nM6 - 6H ↧ 12,0",
+      "token": "15,0",
+      "prediction_sha256": "7304a872e5d7b4a30fbdb614b5f7e9e8822211f165f70ccedcaa45c02a01a48d",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 2,
+          "image": "generated/images/D-003-p2.png",
+          "box": [
+            219.2,
+            98.3,
+            95.8,
+            26.9
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p2-c18fcfa9458eeebc",
+      "decision": "confirm",
+      "value": 5.0,
+      "unit": "mm",
+      "text": "Ø 5,0 ↧ 15,0\nM6 - 6H ↧ 12,0",
+      "token": "5,0",
+      "prediction_sha256": "e909e9f3793b7fe6bf39e911d35255c1e8ab59f8e7cba9307013d059115f700b",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 2,
+          "image": "generated/images/D-003-p2.png",
+          "box": [
+            219.2,
+            98.3,
+            95.8,
+            26.9
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p2-02fe14c0e9615844",
+      "decision": "confirm",
+      "value": 6,
+      "unit": "mm",
+      "text": "Ø 5,0 ↧ 15,0\nM6 - 6H ↧ 12,0",
+      "token": "6",
+      "prediction_sha256": "e13bd7510843f1667b7516f19564e4008fe4579d2782b46ec37099aa8698d629",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 2,
+          "image": "generated/images/D-003-p2.png",
+          "box": [
+            219.2,
+            98.3,
+            95.8,
+            26.9
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p2-0333a646b49941b1",
+      "decision": "confirm",
+      "value": 6,
+      "unit": "unitless",
+      "text": "Ø 5,0 ↧ 15,0\nM6 - 6H ↧ 12,0",
+      "token": "6",
+      "prediction_sha256": "e13bd7510843f1667b7516f19564e4008fe4579d2782b46ec37099aa8698d629",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 2,
+          "image": "generated/images/D-003-p2.png",
+          "box": [
+            219.2,
+            98.3,
+            95.8,
+            26.9
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p2-ad0abbfa2ba2d4cf",
+      "decision": "confirm",
+      "value": 28,
+      "unit": "count",
+      "text": "28",
+      "token": "28",
+      "prediction_sha256": "91bab06c59e04fee03632d98531379dd66f8260d52be8816a33d44c703ea372e",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 2,
+          "image": "generated/images/D-003-p2.png",
+          "box": [
+            430.3,
+            102.7,
+            15.0,
+            13.1
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p2-d40dc2e667b500df",
+      "decision": "confirm",
+      "value": 1.25,
+      "unit": "mm",
+      "text": "Ø 8,3 ↧ 17,2\nTAP FOR M8x1.25 HELICOIL Insert = 1.5 * Dia.",
+      "token": "1.25",
+      "prediction_sha256": "d443ce9d1fa999d7f3dba5eb24cbb39d36b4a51c4f0e05ccedff410505353924",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 2,
+          "image": "generated/images/D-003-p2.png",
+          "box": [
+            130.9,
+            130.2,
+            274.3,
+            28.8
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p2-94d5c00c596251da",
+      "decision": "confirm",
+      "value": 1.5,
+      "unit": "unitless",
+      "text": "Ø 8,3 ↧ 17,2\nTAP FOR M8x1.25 HELICOIL Insert = 1.5 * Dia.",
+      "token": "1.5",
+      "prediction_sha256": "e86cc32a26168246d0380f253b0217f31a93b908b7d2744b085f75d51b2f1e4b",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 2,
+          "image": "generated/images/D-003-p2.png",
+          "box": [
+            130.9,
+            130.2,
+            274.3,
+            28.8
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p2-e1901f08857542bd",
+      "decision": "confirm",
+      "value": 17.2,
+      "unit": "mm",
+      "text": "Ø 8,3 ↧ 17,2\nTAP FOR M8x1.25 HELICOIL Insert = 1.5 * Dia.",
+      "token": "17,2",
+      "prediction_sha256": "d405b0f27322e0880541786de5b659d6ee46851801b1b4219e87d588201f3291",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 2,
+          "image": "generated/images/D-003-p2.png",
+          "box": [
+            130.9,
+            130.2,
+            274.3,
+            28.8
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p2-ca241873d3acaf2d",
+      "decision": "confirm",
+      "value": 8,
+      "unit": "mm",
+      "text": "Ø 8,3 ↧ 17,2\nTAP FOR M8x1.25 HELICOIL Insert = 1.5 * Dia.",
+      "token": "8",
+      "prediction_sha256": "1bc0d737667963c9de936f1a06ebba47f4d517d4e40db30d1fd887dcf7b0fc4b",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 2,
+          "image": "generated/images/D-003-p2.png",
+          "box": [
+            130.9,
+            130.2,
+            274.3,
+            28.8
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p2-3cd78c0fb1ec9ae5",
+      "decision": "confirm",
+      "value": 8.3,
+      "unit": "mm",
+      "text": "Ø 8,3 ↧ 17,2\nTAP FOR M8x1.25 HELICOIL Insert = 1.5 * Dia.",
+      "token": "8,3",
+      "prediction_sha256": "74cec7af022b54bc55776b0cbe66ac9398b4f3933f12ffca7f6a8c5fe0c98e3d",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 2,
+          "image": "generated/images/D-003-p2.png",
+          "box": [
+            130.9,
+            130.2,
+            274.3,
+            28.8
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p2-fd2b523bccc4d489",
+      "decision": "confirm",
+      "value": 6,
+      "unit": "count",
+      "text": "6",
+      "token": "6",
+      "prediction_sha256": "e13bd7510843f1667b7516f19564e4008fe4579d2782b46ec37099aa8698d629",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 2,
+          "image": "generated/images/D-003-p2.png",
+          "box": [
+            433.4,
+            134.6,
+            9.4,
+            13.1
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p2-1b59930767286d42",
+      "decision": "confirm",
+      "value": 10.0,
+      "unit": "mm",
+      "text": "Ø 4,2 ↧ 12,4\nM5 - 6H ↧ 10,0",
+      "token": "10,0",
+      "prediction_sha256": "07d2e1fefb49d1233b6b4594c676c2eb1b4d8c2132c0536e2f5980022657d37e",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 2,
+          "image": "generated/images/D-003-p2.png",
+          "box": [
+            219.2,
+            162.7,
+            95.8,
+            27.5
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p2-ded4443864576f2d",
+      "decision": "confirm",
+      "value": 12.4,
+      "unit": "mm",
+      "text": "Ø 4,2 ↧ 12,4\nM5 - 6H ↧ 10,0",
+      "token": "12,4",
+      "prediction_sha256": "1c702e16729caba88bfecad7c44f7548789d590810ce0cb1e34f6d05c64a07ef",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 2,
+          "image": "generated/images/D-003-p2.png",
+          "box": [
+            219.2,
+            162.7,
+            95.8,
+            27.5
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p2-807b8e8b4a48c27c",
+      "decision": "confirm",
+      "value": 4.2,
+      "unit": "mm",
+      "text": "Ø 4,2 ↧ 12,4\nM5 - 6H ↧ 10,0",
+      "token": "4,2",
+      "prediction_sha256": "b47c424670e85ae72b257ae3e3bcb16007f66a5ed8b6b62ef407d8a389787bb3",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 2,
+          "image": "generated/images/D-003-p2.png",
+          "box": [
+            219.2,
+            162.7,
+            95.8,
+            27.5
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p2-789d2c08b696a87c",
+      "decision": "confirm",
+      "value": 5,
+      "unit": "mm",
+      "text": "Ø 4,2 ↧ 12,4\nM5 - 6H ↧ 10,0",
+      "token": "5",
+      "prediction_sha256": "991b4d69a182d7d06c0948ca11a1ac106295576e293950d98ff52c3311494559",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 2,
+          "image": "generated/images/D-003-p2.png",
+          "box": [
+            219.2,
+            162.7,
+            95.8,
+            27.5
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p2-4a81c28fcc18a108",
+      "decision": "confirm",
+      "value": 6,
+      "unit": "unitless",
+      "text": "Ø 4,2 ↧ 12,4\nM5 - 6H ↧ 10,0",
+      "token": "6",
+      "prediction_sha256": "e13bd7510843f1667b7516f19564e4008fe4579d2782b46ec37099aa8698d629",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 2,
+          "image": "generated/images/D-003-p2.png",
+          "box": [
+            219.2,
+            162.7,
+            95.8,
+            27.5
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p2-f8d20746614e4926",
+      "decision": "confirm",
+      "value": 32,
+      "unit": "count",
+      "text": "32",
+      "token": "32",
+      "prediction_sha256": "f48da6d0fdf13879c3f7f56881abd87580c7859ee477ca8e9f66024e5abdf9a6",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 2,
+          "image": "generated/images/D-003-p2.png",
+          "box": [
+            431.5,
+            167.1,
+            16.3,
+            13.1
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p3-da56d8d1554d3908",
+      "decision": "confirm",
+      "value": 10,
+      "unit": "mm",
+      "text": "⌀ 4,2 ↧ 12,4\nM5 - 6H ↧ 10,0",
+      "token": "10,0",
+      "prediction_sha256": "a26f8c452f6121cce2e026be362d205112bd0ed73f71da10d7a51a966c0ae04d",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 3,
+          "image": "generated/images/D-003-p3.png",
+          "box": [
+            243.6,
+            78.9,
+            95.8,
+            27.5
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p3-60deebfc7e0ef182",
+      "decision": "confirm",
+      "value": 12.4,
+      "unit": "mm",
+      "text": "⌀ 4,2 ↧ 12,4\nM5 - 6H ↧ 10,0",
+      "token": "12,4",
+      "prediction_sha256": "1c702e16729caba88bfecad7c44f7548789d590810ce0cb1e34f6d05c64a07ef",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 3,
+          "image": "generated/images/D-003-p3.png",
+          "box": [
+            243.6,
+            78.9,
+            95.8,
+            27.5
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p3-9e80948b6c56cb44",
+      "decision": "confirm",
+      "value": 4.2,
+      "unit": "mm",
+      "text": "⌀ 4,2 ↧ 12,4\nM5 - 6H ↧ 10,0",
+      "token": "4,2",
+      "prediction_sha256": "b47c424670e85ae72b257ae3e3bcb16007f66a5ed8b6b62ef407d8a389787bb3",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 3,
+          "image": "generated/images/D-003-p3.png",
+          "box": [
+            243.6,
+            78.9,
+            95.8,
+            27.5
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p3-2eac4d8b60f44be2",
+      "decision": "confirm",
+      "value": 5,
+      "unit": "mm",
+      "text": "⌀ 4,2 ↧ 12,4\nM5 - 6H ↧ 10,0",
+      "token": "5",
+      "prediction_sha256": "991b4d69a182d7d06c0948ca11a1ac106295576e293950d98ff52c3311494559",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 3,
+          "image": "generated/images/D-003-p3.png",
+          "box": [
+            243.6,
+            78.9,
+            95.8,
+            27.5
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p3-f8a8d7db45418948",
+      "decision": "confirm",
+      "value": 6,
+      "unit": "unitless",
+      "text": "⌀ 4,2 ↧ 12,4\nM5 - 6H ↧ 10,0",
+      "token": "6",
+      "prediction_sha256": "e13bd7510843f1667b7516f19564e4008fe4579d2782b46ec37099aa8698d629",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 3,
+          "image": "generated/images/D-003-p3.png",
+          "box": [
+            243.6,
+            78.9,
+            95.8,
+            27.5
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p3-a3fa4f376bebc0d6",
+      "decision": "confirm",
+      "value": 8,
+      "unit": "count",
+      "text": "8",
+      "token": "8",
+      "prediction_sha256": "1bc0d737667963c9de936f1a06ebba47f4d517d4e40db30d1fd887dcf7b0fc4b",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 3,
+          "image": "generated/images/D-003-p3.png",
+          "box": [
+            455.9,
+            85.1,
+            11.3,
+            14.4
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p3-8edea1ff1b37de3b",
+      "decision": "confirm",
+      "value": 1,
+      "unit": "unitless",
+      "text": "⌀ 10,5 ↧ 19,0\nTAP FOR M10x1.5 HELICOIL Insert = 1.0 * Dia.",
+      "token": "1.0",
+      "prediction_sha256": "e1d70a18cc129fcc812ebbe309bc5197df6ffa2228c77a4a7b98653ec5605354",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 3,
+          "image": "generated/images/D-003-p3.png",
+          "box": [
+            154.7,
+            112.0,
+            273.1,
+            26.3
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p3-74874acf1e3e931e",
+      "decision": "confirm",
+      "value": 1.5,
+      "unit": "mm",
+      "text": "⌀ 10,5 ↧ 19,0\nTAP FOR M10x1.5 HELICOIL Insert = 1.0 * Dia.",
+      "token": "1.5",
+      "prediction_sha256": "e86cc32a26168246d0380f253b0217f31a93b908b7d2744b085f75d51b2f1e4b",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 3,
+          "image": "generated/images/D-003-p3.png",
+          "box": [
+            154.7,
+            112.0,
+            273.1,
+            26.3
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p3-0a45307b5c3b0c62",
+      "decision": "confirm",
+      "value": 10,
+      "unit": "mm",
+      "text": "⌀ 10,5 ↧ 19,0\nTAP FOR M10x1.5 HELICOIL Insert = 1.0 * Dia.",
+      "token": "10",
+      "prediction_sha256": "a26f8c452f6121cce2e026be362d205112bd0ed73f71da10d7a51a966c0ae04d",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 3,
+          "image": "generated/images/D-003-p3.png",
+          "box": [
+            154.7,
+            112.0,
+            273.1,
+            26.3
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p3-9cf7c36ef7e986b7",
+      "decision": "confirm",
+      "value": 10.5,
+      "unit": "mm",
+      "text": "⌀ 10,5 ↧ 19,0\nTAP FOR M10x1.5 HELICOIL Insert = 1.0 * Dia.",
+      "token": "10,5",
+      "prediction_sha256": "64a38434fa595592f92449d12cf94bc03887a3b083226faddd797dd25727b09f",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 3,
+          "image": "generated/images/D-003-p3.png",
+          "box": [
+            154.7,
+            112.0,
+            273.1,
+            26.3
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p3-860d9150d09bfb1d",
+      "decision": "confirm",
+      "value": 19,
+      "unit": "mm",
+      "text": "⌀ 10,5 ↧ 19,0\nTAP FOR M10x1.5 HELICOIL Insert = 1.0 * Dia.",
+      "token": "19,0",
+      "prediction_sha256": "43dd12dfa013c1b30bab1e1dfe5f8430c5f0244b112fb7ad86b9ed81b181f7f3",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 3,
+          "image": "generated/images/D-003-p3.png",
+          "box": [
+            154.7,
+            112.0,
+            273.1,
+            26.3
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p3-f4dc8a7f3a538065",
+      "decision": "confirm",
+      "value": 4,
+      "unit": "count",
+      "text": "4",
+      "token": "4",
+      "prediction_sha256": "0cde4fbb050ed68e10952403ab1e65536137b89ce44f3e389bd018bd90527d4f",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 3,
+          "image": "generated/images/D-003-p3.png",
+          "box": [
+            455.9,
+            117.7,
+            11.3,
+            13.8
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p3-eecdfc5c77d8a87b",
+      "decision": "confirm",
+      "value": 1,
+      "unit": "unitless",
+      "text": "⌀ 8,3 ↧ 19,5\nTAP FOR M8x1.25 HELICOIL Insert = 1.0 * Dia.",
+      "token": "1.0",
+      "prediction_sha256": "e1d70a18cc129fcc812ebbe309bc5197df6ffa2228c77a4a7b98653ec5605354",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 3,
+          "image": "generated/images/D-003-p3.png",
+          "box": [
+            154.1,
+            144.0,
+            274.3,
+            26.9
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p3-1b4262182d24372b",
+      "decision": "confirm",
+      "value": 1.25,
+      "unit": "mm",
+      "text": "⌀ 8,3 ↧ 19,5\nTAP FOR M8x1.25 HELICOIL Insert = 1.0 * Dia.",
+      "token": "1.25",
+      "prediction_sha256": "d443ce9d1fa999d7f3dba5eb24cbb39d36b4a51c4f0e05ccedff410505353924",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 3,
+          "image": "generated/images/D-003-p3.png",
+          "box": [
+            154.1,
+            144.0,
+            274.3,
+            26.9
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p3-d918d54bc7fbd48e",
+      "decision": "confirm",
+      "value": 19.5,
+      "unit": "mm",
+      "text": "⌀ 8,3 ↧ 19,5\nTAP FOR M8x1.25 HELICOIL Insert = 1.0 * Dia.",
+      "token": "19,5",
+      "prediction_sha256": "a907e1f6e81d78337ca747a4a6e5d141126103c9f160217e0a14724754e7cf14",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 3,
+          "image": "generated/images/D-003-p3.png",
+          "box": [
+            154.1,
+            144.0,
+            274.3,
+            26.9
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p3-03c1449ba9bfac70",
+      "decision": "confirm",
+      "value": 8,
+      "unit": "mm",
+      "text": "⌀ 8,3 ↧ 19,5\nTAP FOR M8x1.25 HELICOIL Insert = 1.0 * Dia.",
+      "token": "8",
+      "prediction_sha256": "1bc0d737667963c9de936f1a06ebba47f4d517d4e40db30d1fd887dcf7b0fc4b",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 3,
+          "image": "generated/images/D-003-p3.png",
+          "box": [
+            154.1,
+            144.0,
+            274.3,
+            26.9
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p3-3d2df9e3c06ee548",
+      "decision": "confirm",
+      "value": 8.3,
+      "unit": "mm",
+      "text": "⌀ 8,3 ↧ 19,5\nTAP FOR M8x1.25 HELICOIL Insert = 1.0 * Dia.",
+      "token": "8,3",
+      "prediction_sha256": "74cec7af022b54bc55776b0cbe66ac9398b4f3933f12ffca7f6a8c5fe0c98e3d",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 3,
+          "image": "generated/images/D-003-p3.png",
+          "box": [
+            154.1,
+            144.0,
+            274.3,
+            26.9
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p3-1bd5d1a5828bc4bc",
+      "decision": "confirm",
+      "value": 3,
+      "unit": "count",
+      "text": "3",
+      "token": "3",
+      "prediction_sha256": "f4e3fd0f3e5089925a3be5ca4ca6bda5ae7458159b32b1615c22ccaba8b005d9",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 3,
+          "image": "generated/images/D-003-p3.png",
+          "box": [
+            455.9,
+            150.2,
+            11.3,
+            13.8
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p3-aa75b460fbe74a4e",
+      "decision": "confirm",
+      "value": 1,
+      "unit": "unitless",
+      "text": "⌀ 8,3 ↧ 13,0\nTAP FOR M8x1.25 HELICOIL Insert = 1.0 * Dia.",
+      "token": "1.0",
+      "prediction_sha256": "e1d70a18cc129fcc812ebbe309bc5197df6ffa2228c77a4a7b98653ec5605354",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 3,
+          "image": "generated/images/D-003-p3.png",
+          "box": [
+            154.7,
+            175.3,
+            273.1,
+            27.5
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p3-542207c25c7e8337",
+      "decision": "confirm",
+      "value": 1.25,
+      "unit": "mm",
+      "text": "⌀ 8,3 ↧ 13,0\nTAP FOR M8x1.25 HELICOIL Insert = 1.0 * Dia.",
+      "token": "1.25",
+      "prediction_sha256": "d443ce9d1fa999d7f3dba5eb24cbb39d36b4a51c4f0e05ccedff410505353924",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 3,
+          "image": "generated/images/D-003-p3.png",
+          "box": [
+            154.7,
+            175.3,
+            273.1,
+            27.5
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p3-935b50677bf9d1d6",
+      "decision": "confirm",
+      "value": 13,
+      "unit": "mm",
+      "text": "⌀ 8,3 ↧ 13,0\nTAP FOR M8x1.25 HELICOIL Insert = 1.0 * Dia.",
+      "token": "13,0",
+      "prediction_sha256": "86cf59ca24fec9de88e9729422bcf2e57c2e2b671edc7e499651dfcc64bbbd38",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 3,
+          "image": "generated/images/D-003-p3.png",
+          "box": [
+            154.7,
+            175.3,
+            273.1,
+            27.5
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p3-213899ed853c0044",
+      "decision": "confirm",
+      "value": 8,
+      "unit": "mm",
+      "text": "⌀ 8,3 ↧ 13,0\nTAP FOR M8x1.25 HELICOIL Insert = 1.0 * Dia.",
+      "token": "8",
+      "prediction_sha256": "1bc0d737667963c9de936f1a06ebba47f4d517d4e40db30d1fd887dcf7b0fc4b",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 3,
+          "image": "generated/images/D-003-p3.png",
+          "box": [
+            154.7,
+            175.3,
+            273.1,
+            27.5
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p3-9022f2951379d888",
+      "decision": "confirm",
+      "value": 8.3,
+      "unit": "mm",
+      "text": "⌀ 8,3 ↧ 13,0\nTAP FOR M8x1.25 HELICOIL Insert = 1.0 * Dia.",
+      "token": "8,3",
+      "prediction_sha256": "74cec7af022b54bc55776b0cbe66ac9398b4f3933f12ffca7f6a8c5fe0c98e3d",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 3,
+          "image": "generated/images/D-003-p3.png",
+          "box": [
+            154.7,
+            175.3,
+            273.1,
+            27.5
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p3-994840ce24e710ba",
+      "decision": "confirm",
+      "value": 5,
+      "unit": "count",
+      "text": "5",
+      "token": "5",
+      "prediction_sha256": "991b4d69a182d7d06c0948ca11a1ac106295576e293950d98ff52c3311494559",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 3,
+          "image": "generated/images/D-003-p3.png",
+          "box": [
+            455.9,
+            182.2,
+            11.3,
+            13.8
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p3-af1aa6c26f7e1892",
+      "decision": "confirm",
+      "value": 0,
+      "unit": "unitless",
+      "text": "0",
+      "token": "0",
+      "prediction_sha256": "598979e18cafc4b5a0f3471e13e06a674377dd38e11e708287fc77e2c5fffb28",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 3,
+          "image": "generated/images/D-003-p3.png",
+          "box": [
+            789.7,
+            341.2,
+            10.6,
+            13.1
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-003/drawing/visual-n/p3-308b9940cc636fa8",
+      "decision": "confirm",
+      "value": 0,
+      "unit": "unitless",
+      "text": "0",
+      "token": "0",
+      "prediction_sha256": "598979e18cafc4b5a0f3471e13e06a674377dd38e11e708287fc77e2c5fffb28",
+      "based_on": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+      "source_fact_ids": [
+        "D-003/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-003",
+          "page": 3,
+          "image": "generated/images/D-003-p3.png",
+          "box": [
+            819.2,
+            369.3,
+            10.6,
+            13.8
+          ],
+          "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+        }
+      ]
+    },
+    {
+      "target": "D-009/drawing/visual-n/p1-0ccafce2e7c83a89",
+      "decision": "confirm",
+      "value": 5.8,
+      "unit": "mm",
+      "text": "8 x Ø 5,80 THRU ALL",
+      "token": "5,80",
+      "prediction_sha256": "a5b8787d68a4ad70153eefd7bd2ed9bd6cc47741ea1e43503775dd6662a33209",
+      "based_on": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea",
+      "note": "Directly inspected original page:230,270maximum,395,322; stacked5/3 seal detail;8x5.8,4x10.5,M8 weld-nut,14.8/M12,8x7/M5,25 and plus/minus1 note. Thread designation tokens remain nominal designations, not drill diameters. Wall thickness is unspecified, as thin as possible; this is not flat-template eligibility or a construction approval.",
+      "source_fact_ids": [
+        "D-009/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-009",
+          "page": 1,
+          "image": "generated/images/D-009-p1.png",
+          "box": [
+            691.0,
+            141.3,
+            131.1,
+            13.9
+          ],
+          "source_sha256": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea"
+        }
+      ]
+    },
+    {
+      "target": "D-009/drawing/visual-n/p1-5a5235d8233f8975",
+      "decision": "confirm",
+      "value": 8,
+      "unit": "count",
+      "text": "8 x Ø 5,80 THRU ALL",
+      "token": "8",
+      "prediction_sha256": "1bc0d737667963c9de936f1a06ebba47f4d517d4e40db30d1fd887dcf7b0fc4b",
+      "based_on": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea",
+      "note": "Directly inspected original page:230,270maximum,395,322; stacked5/3 seal detail;8x5.8,4x10.5,M8 weld-nut,14.8/M12,8x7/M5,25 and plus/minus1 note. Thread designation tokens remain nominal designations, not drill diameters. Wall thickness is unspecified, as thin as possible; this is not flat-template eligibility or a construction approval.",
+      "source_fact_ids": [
+        "D-009/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-009",
+          "page": 1,
+          "image": "generated/images/D-009-p1.png",
+          "box": [
+            691.0,
+            141.3,
+            131.1,
+            13.9
+          ],
+          "source_sha256": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea"
+        }
+      ]
+    },
+    {
+      "target": "D-009/drawing/visual-n/p1-c6d0caa666c656d1",
+      "decision": "confirm",
+      "value": 230,
+      "unit": "mm",
+      "text": "230,00",
+      "token": "230,00",
+      "prediction_sha256": "e7ce9c40d6dcc29198a7c62260e84a20092ed2894f764d6063f45e54350695db",
+      "based_on": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea",
+      "note": "Directly inspected original page:230,270maximum,395,322; stacked5/3 seal detail;8x5.8,4x10.5,M8 weld-nut,14.8/M12,8x7/M5,25 and plus/minus1 note. Thread designation tokens remain nominal designations, not drill diameters. Wall thickness is unspecified, as thin as possible; this is not flat-template eligibility or a construction approval.",
+      "source_fact_ids": [
+        "D-009/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-009",
+          "page": 1,
+          "image": "generated/images/D-009-p1.png",
+          "box": [
+            733.3,
+            210.8,
+            44.1,
+            13.9
+          ],
+          "source_sha256": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea"
+        }
+      ]
+    },
+    {
+      "target": "D-009/drawing/visual-n/p1-d68d08ecc06edf51",
+      "decision": "confirm",
+      "value": 270,
+      "unit": "mm",
+      "text": "270,00 max.",
+      "token": "270,00",
+      "prediction_sha256": "dde2ad3077b2806ef6c0389db89bb44700e5f612b3c3808df3d4a8ded934b28a",
+      "based_on": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea",
+      "note": "Directly inspected original page:230,270maximum,395,322; stacked5/3 seal detail;8x5.8,4x10.5,M8 weld-nut,14.8/M12,8x7/M5,25 and plus/minus1 note. Thread designation tokens remain nominal designations, not drill diameters. Wall thickness is unspecified, as thin as possible; this is not flat-template eligibility or a construction approval.",
+      "source_fact_ids": [
+        "D-009/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-009",
+          "page": 1,
+          "image": "generated/images/D-009-p1.png",
+          "box": [
+            520.8,
+            261.2,
+            78.2,
+            14.5
+          ],
+          "source_sha256": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea"
+        }
+      ]
+    },
+    {
+      "target": "D-009/drawing/visual-n/p1-ab9a2e12333ad0f4",
+      "decision": "confirm",
+      "value": 10.5,
+      "unit": "mm",
+      "text": "4 x Ø 10,50\nfor M8 weld nut inside",
+      "token": "10,50",
+      "prediction_sha256": "64a38434fa595592f92449d12cf94bc03887a3b083226faddd797dd25727b09f",
+      "based_on": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea",
+      "note": "Directly inspected original page:230,270maximum,395,322; stacked5/3 seal detail;8x5.8,4x10.5,M8 weld-nut,14.8/M12,8x7/M5,25 and plus/minus1 note. Thread designation tokens remain nominal designations, not drill diameters. Wall thickness is unspecified, as thin as possible; this is not flat-template eligibility or a construction approval.",
+      "source_fact_ids": [
+        "D-009/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-009",
+          "page": 1,
+          "image": "generated/images/D-009-p1.png",
+          "box": [
+            75.7,
+            371.0,
+            141.9,
+            29.7
+          ],
+          "source_sha256": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea"
+        }
+      ]
+    },
+    {
+      "target": "D-009/drawing/visual-n/p1-9e0870e946b4dd8a",
+      "decision": "confirm",
+      "value": 4,
+      "unit": "count",
+      "text": "4 x Ø 10,50\nfor M8 weld nut inside",
+      "token": "4",
+      "prediction_sha256": "0cde4fbb050ed68e10952403ab1e65536137b89ce44f3e389bd018bd90527d4f",
+      "based_on": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea",
+      "note": "Directly inspected original page:230,270maximum,395,322; stacked5/3 seal detail;8x5.8,4x10.5,M8 weld-nut,14.8/M12,8x7/M5,25 and plus/minus1 note. Thread designation tokens remain nominal designations, not drill diameters. Wall thickness is unspecified, as thin as possible; this is not flat-template eligibility or a construction approval.",
+      "source_fact_ids": [
+        "D-009/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-009",
+          "page": 1,
+          "image": "generated/images/D-009-p1.png",
+          "box": [
+            75.7,
+            371.0,
+            141.9,
+            29.7
+          ],
+          "source_sha256": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea"
+        }
+      ]
+    },
+    {
+      "target": "D-009/drawing/visual-n/p1-53b766c9ffccbaff",
+      "decision": "confirm",
+      "value": 8,
+      "unit": "mm",
+      "text": "4 x Ø 10,50\nfor M8 weld nut inside",
+      "token": "8",
+      "prediction_sha256": "1bc0d737667963c9de936f1a06ebba47f4d517d4e40db30d1fd887dcf7b0fc4b",
+      "based_on": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea",
+      "note": "Directly inspected original page:230,270maximum,395,322; stacked5/3 seal detail;8x5.8,4x10.5,M8 weld-nut,14.8/M12,8x7/M5,25 and plus/minus1 note. Thread designation tokens remain nominal designations, not drill diameters. Wall thickness is unspecified, as thin as possible; this is not flat-template eligibility or a construction approval.",
+      "source_fact_ids": [
+        "D-009/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-009",
+          "page": 1,
+          "image": "generated/images/D-009-p1.png",
+          "box": [
+            75.7,
+            371.0,
+            141.9,
+            29.7
+          ],
+          "source_sha256": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea"
+        }
+      ]
+    },
+    {
+      "target": "D-009/drawing/visual-n/p1-fd730d93127accdd",
+      "decision": "confirm",
+      "value": 395,
+      "unit": "mm",
+      "text": "395,00",
+      "token": "395,00",
+      "prediction_sha256": "8ec1301c5062b8d8c7591fbd1a147d09d432ec716a4e6748c7530ae227fb50ce",
+      "based_on": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea",
+      "note": "Directly inspected original page:230,270maximum,395,322; stacked5/3 seal detail;8x5.8,4x10.5,M8 weld-nut,14.8/M12,8x7/M5,25 and plus/minus1 note. Thread designation tokens remain nominal designations, not drill diameters. Wall thickness is unspecified, as thin as possible; this is not flat-template eligibility or a construction approval.",
+      "source_fact_ids": [
+        "D-009/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-009",
+          "page": 1,
+          "image": "generated/images/D-009-p1.png",
+          "box": [
+            830.4,
+            395.6,
+            14.5,
+            44.8
+          ],
+          "source_sha256": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea"
+        }
+      ]
+    },
+    {
+      "target": "D-009/drawing/visual-n/p1-d9ea689fe772e75f",
+      "decision": "confirm",
+      "value": 322,
+      "unit": "mm",
+      "text": "322,00",
+      "token": "322,00",
+      "prediction_sha256": "cdda33ada9c4654a5c4817743ac0d8de367beb38759aaf24f397390c38d2a8aa",
+      "based_on": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea",
+      "note": "Directly inspected original page:230,270maximum,395,322; stacked5/3 seal detail;8x5.8,4x10.5,M8 weld-nut,14.8/M12,8x7/M5,25 and plus/minus1 note. Thread designation tokens remain nominal designations, not drill diameters. Wall thickness is unspecified, as thin as possible; this is not flat-template eligibility or a construction approval.",
+      "source_fact_ids": [
+        "D-009/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-009",
+          "page": 1,
+          "image": "generated/images/D-009-p1.png",
+          "box": [
+            389.0,
+            415.2,
+            13.9,
+            44.8
+          ],
+          "source_sha256": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea"
+        }
+      ]
+    },
+    {
+      "target": "D-009/drawing/visual-n/p1-68934621ae9fd640",
+      "decision": "confirm",
+      "value": 12,
+      "unit": "mm",
+      "text": "Ø 14,80 THRU\nFor M12 weld nut\noutside",
+      "token": "12",
+      "prediction_sha256": "21c61befd0a76823158c74d29168c2c9d8ac6fa381a1c7aef08f7a7643ee2650",
+      "based_on": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea",
+      "note": "Directly inspected original page:230,270maximum,395,322; stacked5/3 seal detail;8x5.8,4x10.5,M8 weld-nut,14.8/M12,8x7/M5,25 and plus/minus1 note. Thread designation tokens remain nominal designations, not drill diameters. Wall thickness is unspecified, as thin as possible; this is not flat-template eligibility or a construction approval.",
+      "source_fact_ids": [
+        "D-009/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-009",
+          "page": 1,
+          "image": "generated/images/D-009-p1.png",
+          "box": [
+            1032.1,
+            431.6,
+            112.2,
+            44.8
+          ],
+          "source_sha256": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea"
+        }
+      ]
+    },
+    {
+      "target": "D-009/drawing/visual-n/p1-94018e072602badf",
+      "decision": "confirm",
+      "value": 14.8,
+      "unit": "mm",
+      "text": "Ø 14,80 THRU\nFor M12 weld nut\noutside",
+      "token": "14,80",
+      "prediction_sha256": "39b7aedb8f14f551d0aaacb36aef1cf237fdbf5b8480570053168acbe7464e45",
+      "based_on": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea",
+      "note": "Directly inspected original page:230,270maximum,395,322; stacked5/3 seal detail;8x5.8,4x10.5,M8 weld-nut,14.8/M12,8x7/M5,25 and plus/minus1 note. Thread designation tokens remain nominal designations, not drill diameters. Wall thickness is unspecified, as thin as possible; this is not flat-template eligibility or a construction approval.",
+      "source_fact_ids": [
+        "D-009/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-009",
+          "page": 1,
+          "image": "generated/images/D-009-p1.png",
+          "box": [
+            1032.1,
+            431.6,
+            112.2,
+            44.8
+          ],
+          "source_sha256": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea"
+        }
+      ]
+    },
+    {
+      "target": "D-009/drawing/visual-n/p1-d7ca9fa6e5e37d52",
+      "decision": "confirm",
+      "value": 5,
+      "unit": "mm",
+      "text": "5,00",
+      "token": "5,00",
+      "prediction_sha256": "991b4d69a182d7d06c0948ca11a1ac106295576e293950d98ff52c3311494559",
+      "based_on": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea",
+      "note": "Directly inspected original page:230,270maximum,395,322; stacked5/3 seal detail;8x5.8,4x10.5,M8 weld-nut,14.8/M12,8x7/M5,25 and plus/minus1 note. Thread designation tokens remain nominal designations, not drill diameters. Wall thickness is unspecified, as thin as possible; this is not flat-template eligibility or a construction approval.",
+      "source_fact_ids": [
+        "D-009/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-009",
+          "page": 1,
+          "image": "generated/images/D-009-p1.png",
+          "box": [
+            189.2,
+            548.3,
+            12.6,
+            27.8
+          ],
+          "source_sha256": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea"
+        }
+      ]
+    },
+    {
+      "target": "D-009/drawing/visual-n/p1-063df7bc2c989db4",
+      "decision": "confirm",
+      "value": 3,
+      "unit": "mm",
+      "text": "3,00",
+      "token": "3,00",
+      "prediction_sha256": "f4e3fd0f3e5089925a3be5ca4ca6bda5ae7458159b32b1615c22ccaba8b005d9",
+      "based_on": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea",
+      "note": "Directly inspected original page:230,270maximum,395,322; stacked5/3 seal detail;8x5.8,4x10.5,M8 weld-nut,14.8/M12,8x7/M5,25 and plus/minus1 note. Thread designation tokens remain nominal designations, not drill diameters. Wall thickness is unspecified, as thin as possible; this is not flat-template eligibility or a construction approval.",
+      "source_fact_ids": [
+        "D-009/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-009",
+          "page": 1,
+          "image": "generated/images/D-009-p1.png",
+          "box": [
+            201.8,
+            548.3,
+            12.6,
+            27.8
+          ],
+          "source_sha256": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea"
+        }
+      ]
+    },
+    {
+      "target": "D-009/drawing/visual-n/p1-6ce2511c7fba7450",
+      "decision": "confirm",
+      "value": 5,
+      "unit": "mm",
+      "text": "8 x Ø 7,00\nfor M5 weld nut inside",
+      "token": "5",
+      "prediction_sha256": "991b4d69a182d7d06c0948ca11a1ac106295576e293950d98ff52c3311494559",
+      "based_on": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea",
+      "note": "Directly inspected original page:230,270maximum,395,322; stacked5/3 seal detail;8x5.8,4x10.5,M8 weld-nut,14.8/M12,8x7/M5,25 and plus/minus1 note. Thread designation tokens remain nominal designations, not drill diameters. Wall thickness is unspecified, as thin as possible; this is not flat-template eligibility or a construction approval.",
+      "source_fact_ids": [
+        "D-009/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-009",
+          "page": 1,
+          "image": "generated/images/D-009-p1.png",
+          "box": [
+            663.3,
+            575.5,
+            141.9,
+            31.6
+          ],
+          "source_sha256": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea"
+        }
+      ]
+    },
+    {
+      "target": "D-009/drawing/visual-n/p1-446ae49686552329",
+      "decision": "confirm",
+      "value": 7,
+      "unit": "mm",
+      "text": "8 x Ø 7,00\nfor M5 weld nut inside",
+      "token": "7,00",
+      "prediction_sha256": "c27e123daf39e6d9de278480e8b4972ffa0ea63dbbf335517264d8097424cf62",
+      "based_on": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea",
+      "note": "Directly inspected original page:230,270maximum,395,322; stacked5/3 seal detail;8x5.8,4x10.5,M8 weld-nut,14.8/M12,8x7/M5,25 and plus/minus1 note. Thread designation tokens remain nominal designations, not drill diameters. Wall thickness is unspecified, as thin as possible; this is not flat-template eligibility or a construction approval.",
+      "source_fact_ids": [
+        "D-009/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-009",
+          "page": 1,
+          "image": "generated/images/D-009-p1.png",
+          "box": [
+            663.3,
+            575.5,
+            141.9,
+            31.6
+          ],
+          "source_sha256": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea"
+        }
+      ]
+    },
+    {
+      "target": "D-009/drawing/visual-n/p1-4b3b38adc1a69f15",
+      "decision": "confirm",
+      "value": 8,
+      "unit": "count",
+      "text": "8 x Ø 7,00\nfor M5 weld nut inside",
+      "token": "8",
+      "prediction_sha256": "1bc0d737667963c9de936f1a06ebba47f4d517d4e40db30d1fd887dcf7b0fc4b",
+      "based_on": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea",
+      "note": "Directly inspected original page:230,270maximum,395,322; stacked5/3 seal detail;8x5.8,4x10.5,M8 weld-nut,14.8/M12,8x7/M5,25 and plus/minus1 note. Thread designation tokens remain nominal designations, not drill diameters. Wall thickness is unspecified, as thin as possible; this is not flat-template eligibility or a construction approval.",
+      "source_fact_ids": [
+        "D-009/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-009",
+          "page": 1,
+          "image": "generated/images/D-009-p1.png",
+          "box": [
+            663.3,
+            575.5,
+            141.9,
+            31.6
+          ],
+          "source_sha256": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea"
+        }
+      ]
+    },
+    {
+      "target": "D-009/drawing/visual-n/p1-ad2558b0ad8b7e31",
+      "decision": "confirm",
+      "value": 25,
+      "unit": "mm",
+      "text": "Ø 25,00 THRU",
+      "token": "25,00",
+      "prediction_sha256": "c785fce45fbd79ff0519443c10100e0fe8759fd381bb88ecfd701384b6d9a3a5",
+      "based_on": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea",
+      "note": "Directly inspected original page:230,270maximum,395,322; stacked5/3 seal detail;8x5.8,4x10.5,M8 weld-nut,14.8/M12,8x7/M5,25 and plus/minus1 note. Thread designation tokens remain nominal designations, not drill diameters. Wall thickness is unspecified, as thin as possible; this is not flat-template eligibility or a construction approval.",
+      "source_fact_ids": [
+        "D-009/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-009",
+          "page": 1,
+          "image": "generated/images/D-009-p1.png",
+          "box": [
+            660.8,
+            614.0,
+            82.0,
+            13.9
+          ],
+          "source_sha256": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea"
+        }
+      ]
+    },
+    {
+      "target": "D-009/drawing/visual-n/p1-02821e4ccd04b80e",
+      "decision": "confirm",
+      "value": 1,
+      "unit": "mm",
+      "text": "Distance between [A] and [B] is the most\ncritical dimensions. The canister mounts to the holes\nat [A], and should seal with an o-ring at [B].\nShould stay below +/- 1mm.",
+      "token": "1",
+      "prediction_sha256": "e1d70a18cc129fcc812ebbe309bc5197df6ffa2228c77a4a7b98653ec5605354",
+      "based_on": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea",
+      "note": "Directly inspected original page:230,270maximum,395,322; stacked5/3 seal detail;8x5.8,4x10.5,M8 weld-nut,14.8/M12,8x7/M5,25 and plus/minus1 note. Thread designation tokens remain nominal designations, not drill diameters. Wall thickness is unspecified, as thin as possible; this is not flat-template eligibility or a construction approval.",
+      "source_fact_ids": [
+        "D-009/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-009",
+          "page": 1,
+          "image": "generated/images/D-009-p1.png",
+          "box": [
+            103.4,
+            616.5,
+            332.9,
+            53.0
+          ],
+          "source_sha256": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea"
+        }
+      ]
+    },
+    {
+      "target": "D-011/drawing/visual-n/p1-b3a4c993b9ef4aca",
+      "decision": "confirm",
+      "value": 12.0,
+      "unit": "mm",
+      "text": "15,0\n12,0",
+      "token": "12,0",
+      "prediction_sha256": "83ec28ef8be3300a598c44e1bc8b6053ec62092f1da08a750f4377acae390f98",
+      "based_on": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67",
+      "note": "Directly inspected original page: stacked15/12 limits,25section,20/80hole offsets,195/348envelope,R35/R60,82/10.5/8 offsets,2x6.6,4x4.2/M5-6H. Thread designation tokens are not drill diameters; stacked limits are not two selected thickness alternatives. This confirms the printed token only, not a simplified rectangular outline.",
+      "source_fact_ids": [
+        "D-011/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-011",
+          "page": 1,
+          "image": "generated/images/D-011-p1.png",
+          "box": [
+            244.6,
+            240.4,
+            28.4,
+            26.5
+          ],
+          "source_sha256": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67"
+        }
+      ]
+    },
+    {
+      "target": "D-011/drawing/visual-n/p1-a9bb5696b8ca2dfc",
+      "decision": "confirm",
+      "value": 15.0,
+      "unit": "mm",
+      "text": "15,0\n12,0",
+      "token": "15,0",
+      "prediction_sha256": "7304a872e5d7b4a30fbdb614b5f7e9e8822211f165f70ccedcaa45c02a01a48d",
+      "based_on": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67",
+      "note": "Directly inspected original page: stacked15/12 limits,25section,20/80hole offsets,195/348envelope,R35/R60,82/10.5/8 offsets,2x6.6,4x4.2/M5-6H. Thread designation tokens are not drill diameters; stacked limits are not two selected thickness alternatives. This confirms the printed token only, not a simplified rectangular outline.",
+      "source_fact_ids": [
+        "D-011/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-011",
+          "page": 1,
+          "image": "generated/images/D-011-p1.png",
+          "box": [
+            244.6,
+            240.4,
+            28.4,
+            26.5
+          ],
+          "source_sha256": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67"
+        }
+      ]
+    },
+    {
+      "target": "D-011/drawing/visual-n/p1-a12f87528d65baa1",
+      "decision": "confirm",
+      "value": 20.0,
+      "unit": "mm",
+      "text": "20,0",
+      "token": "20,0",
+      "prediction_sha256": "c74a5df08385c110e226a3349304bd60e58e2dbd4aee6bdf9be3407298357e15",
+      "based_on": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67",
+      "note": "Directly inspected original page: stacked15/12 limits,25section,20/80hole offsets,195/348envelope,R35/R60,82/10.5/8 offsets,2x6.6,4x4.2/M5-6H. Thread designation tokens are not drill diameters; stacked limits are not two selected thickness alternatives. This confirms the printed token only, not a simplified rectangular outline.",
+      "source_fact_ids": [
+        "D-011/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-011",
+          "page": 1,
+          "image": "generated/images/D-011-p1.png",
+          "box": [
+            301.4,
+            246.7,
+            14.5,
+            29.0
+          ],
+          "source_sha256": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67"
+        }
+      ]
+    },
+    {
+      "target": "D-011/drawing/visual-n/p1-8cbf9f4fed41d8f4",
+      "decision": "confirm",
+      "value": 25.0,
+      "unit": "mm",
+      "text": "25,0",
+      "token": "25,0",
+      "prediction_sha256": "6196d2fd9c2924a2192b4672effcd1e8db0acbdc53531ee9ccfd9796688586ad",
+      "based_on": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67",
+      "note": "Directly inspected original page: stacked15/12 limits,25section,20/80hole offsets,195/348envelope,R35/R60,82/10.5/8 offsets,2x6.6,4x4.2/M5-6H. Thread designation tokens are not drill diameters; stacked limits are not two selected thickness alternatives. This confirms the printed token only, not a simplified rectangular outline.",
+      "source_fact_ids": [
+        "D-011/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-011",
+          "page": 1,
+          "image": "generated/images/D-011-p1.png",
+          "box": [
+            347.4,
+            253.0,
+            30.3,
+            15.1
+          ],
+          "source_sha256": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67"
+        }
+      ]
+    },
+    {
+      "target": "D-011/drawing/visual-n/p1-66224d78f3170d57",
+      "decision": "confirm",
+      "value": 2,
+      "unit": "count",
+      "text": "2 x Ø 6,6 THRU ALL",
+      "token": "2",
+      "prediction_sha256": "d2a6919189609bb4a2b924e35f740e5ee98b1f06c3c340d27df75ef48bd45816",
+      "based_on": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67",
+      "note": "Directly inspected original page: stacked15/12 limits,25section,20/80hole offsets,195/348envelope,R35/R60,82/10.5/8 offsets,2x6.6,4x4.2/M5-6H. Thread designation tokens are not drill diameters; stacked limits are not two selected thickness alternatives. This confirms the printed token only, not a simplified rectangular outline.",
+      "source_fact_ids": [
+        "D-011/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-011",
+          "page": 1,
+          "image": "generated/images/D-011-p1.png",
+          "box": [
+            414.9,
+            259.4,
+            120.4,
+            15.8
+          ],
+          "source_sha256": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67"
+        }
+      ]
+    },
+    {
+      "target": "D-011/drawing/visual-n/p1-2928d2342a6c19bb",
+      "decision": "confirm",
+      "value": 6.6,
+      "unit": "mm",
+      "text": "2 x Ø 6,6 THRU ALL",
+      "token": "6,6",
+      "prediction_sha256": "2cf87646a465b4ecc77626e33c01f828e4bd48a3866eadd17a5588644dd2e713",
+      "based_on": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67",
+      "note": "Directly inspected original page: stacked15/12 limits,25section,20/80hole offsets,195/348envelope,R35/R60,82/10.5/8 offsets,2x6.6,4x4.2/M5-6H. Thread designation tokens are not drill diameters; stacked limits are not two selected thickness alternatives. This confirms the printed token only, not a simplified rectangular outline.",
+      "source_fact_ids": [
+        "D-011/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-011",
+          "page": 1,
+          "image": "generated/images/D-011-p1.png",
+          "box": [
+            414.9,
+            259.4,
+            120.4,
+            15.8
+          ],
+          "source_sha256": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67"
+        }
+      ]
+    },
+    {
+      "target": "D-011/drawing/visual-n/p1-1e6ea7c105eabb11",
+      "decision": "confirm",
+      "value": 80.0,
+      "unit": "mm",
+      "text": "80,0",
+      "token": "80,0",
+      "prediction_sha256": "3041e76c8e09a67c9ecacadd01bec31fc2fc1c98eed5b3619db5e441ffa1aceb",
+      "based_on": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67",
+      "note": "Directly inspected original page: stacked15/12 limits,25section,20/80hole offsets,195/348envelope,R35/R60,82/10.5/8 offsets,2x6.6,4x4.2/M5-6H. Thread designation tokens are not drill diameters; stacked limits are not two selected thickness alternatives. This confirms the printed token only, not a simplified rectangular outline.",
+      "source_fact_ids": [
+        "D-011/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-011",
+          "page": 1,
+          "image": "generated/images/D-011-p1.png",
+          "box": [
+            300.8,
+            366.6,
+            14.5,
+            29.7
+          ],
+          "source_sha256": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67"
+        }
+      ]
+    },
+    {
+      "target": "D-011/drawing/visual-n/p1-feec601f070e7564",
+      "decision": "confirm",
+      "value": 195.0,
+      "unit": "mm",
+      "text": "195,0",
+      "token": "195,0",
+      "prediction_sha256": "3937e51b9b0d591c27ea83a8899ca77fb56cca57432a34e230528aa8684b2de5",
+      "based_on": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67",
+      "note": "Directly inspected original page: stacked15/12 limits,25section,20/80hole offsets,195/348envelope,R35/R60,82/10.5/8 offsets,2x6.6,4x4.2/M5-6H. Thread designation tokens are not drill diameters; stacked limits are not two selected thickness alternatives. This confirms the printed token only, not a simplified rectangular outline.",
+      "source_fact_ids": [
+        "D-011/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-011",
+          "page": 1,
+          "image": "generated/images/D-011-p1.png",
+          "box": [
+            283.1,
+            410.2,
+            15.1,
+            36.0
+          ],
+          "source_sha256": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67"
+        }
+      ]
+    },
+    {
+      "target": "D-011/drawing/visual-n/p1-d39d651c9564a8f6",
+      "decision": "confirm",
+      "value": 4,
+      "unit": "count",
+      "text": "4 x Ø 4,2 THRU ALL\nM5 - 6H THRU ALL",
+      "token": "4",
+      "prediction_sha256": "0cde4fbb050ed68e10952403ab1e65536137b89ce44f3e389bd018bd90527d4f",
+      "based_on": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67",
+      "note": "Directly inspected original page: stacked15/12 limits,25section,20/80hole offsets,195/348envelope,R35/R60,82/10.5/8 offsets,2x6.6,4x4.2/M5-6H. Thread designation tokens are not drill diameters; stacked limits are not two selected thickness alternatives. This confirms the printed token only, not a simplified rectangular outline.",
+      "source_fact_ids": [
+        "D-011/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-011",
+          "page": 1,
+          "image": "generated/images/D-011-p1.png",
+          "box": [
+            660.8,
+            452.4,
+            121.7,
+            30.9
+          ],
+          "source_sha256": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67"
+        }
+      ]
+    },
+    {
+      "target": "D-011/drawing/visual-n/p1-3292ad9ba46d9f4e",
+      "decision": "confirm",
+      "value": 4.2,
+      "unit": "mm",
+      "text": "4 x Ø 4,2 THRU ALL\nM5 - 6H THRU ALL",
+      "token": "4,2",
+      "prediction_sha256": "b47c424670e85ae72b257ae3e3bcb16007f66a5ed8b6b62ef407d8a389787bb3",
+      "based_on": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67",
+      "note": "Directly inspected original page: stacked15/12 limits,25section,20/80hole offsets,195/348envelope,R35/R60,82/10.5/8 offsets,2x6.6,4x4.2/M5-6H. Thread designation tokens are not drill diameters; stacked limits are not two selected thickness alternatives. This confirms the printed token only, not a simplified rectangular outline.",
+      "source_fact_ids": [
+        "D-011/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-011",
+          "page": 1,
+          "image": "generated/images/D-011-p1.png",
+          "box": [
+            660.8,
+            452.4,
+            121.7,
+            30.9
+          ],
+          "source_sha256": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67"
+        }
+      ]
+    },
+    {
+      "target": "D-011/drawing/visual-n/p1-375481c67a07c95e",
+      "decision": "confirm",
+      "value": 5,
+      "unit": "mm",
+      "text": "4 x Ø 4,2 THRU ALL\nM5 - 6H THRU ALL",
+      "token": "5",
+      "prediction_sha256": "991b4d69a182d7d06c0948ca11a1ac106295576e293950d98ff52c3311494559",
+      "based_on": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67",
+      "note": "Directly inspected original page: stacked15/12 limits,25section,20/80hole offsets,195/348envelope,R35/R60,82/10.5/8 offsets,2x6.6,4x4.2/M5-6H. Thread designation tokens are not drill diameters; stacked limits are not two selected thickness alternatives. This confirms the printed token only, not a simplified rectangular outline.",
+      "source_fact_ids": [
+        "D-011/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-011",
+          "page": 1,
+          "image": "generated/images/D-011-p1.png",
+          "box": [
+            660.8,
+            452.4,
+            121.7,
+            30.9
+          ],
+          "source_sha256": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67"
+        }
+      ]
+    },
+    {
+      "target": "D-011/drawing/visual-n/p1-5b9c615ea553cf6e",
+      "decision": "confirm",
+      "value": 6,
+      "unit": "unitless",
+      "text": "4 x Ø 4,2 THRU ALL\nM5 - 6H THRU ALL",
+      "token": "6",
+      "prediction_sha256": "e13bd7510843f1667b7516f19564e4008fe4579d2782b46ec37099aa8698d629",
+      "based_on": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67",
+      "note": "Directly inspected original page: stacked15/12 limits,25section,20/80hole offsets,195/348envelope,R35/R60,82/10.5/8 offsets,2x6.6,4x4.2/M5-6H. Thread designation tokens are not drill diameters; stacked limits are not two selected thickness alternatives. This confirms the printed token only, not a simplified rectangular outline.",
+      "source_fact_ids": [
+        "D-011/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-011",
+          "page": 1,
+          "image": "generated/images/D-011-p1.png",
+          "box": [
+            660.8,
+            452.4,
+            121.7,
+            30.9
+          ],
+          "source_sha256": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67"
+        }
+      ]
+    },
+    {
+      "target": "D-011/drawing/visual-n/p1-1b7f3ee6edab5546",
+      "decision": "confirm",
+      "value": 35.0,
+      "unit": "mm",
+      "text": "R35,0",
+      "token": "35,0",
+      "prediction_sha256": "4df30dd09a99fec43af2843ed07802fff9e95cbe625f5a79ed1d798679f027a0",
+      "based_on": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67",
+      "note": "Directly inspected original page: stacked15/12 limits,25section,20/80hole offsets,195/348envelope,R35/R60,82/10.5/8 offsets,2x6.6,4x4.2/M5-6H. Thread designation tokens are not drill diameters; stacked limits are not two selected thickness alternatives. This confirms the printed token only, not a simplified rectangular outline.",
+      "source_fact_ids": [
+        "D-011/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-011",
+          "page": 1,
+          "image": "generated/images/D-011-p1.png",
+          "box": [
+            387.1,
+            479.0,
+            39.1,
+            29.0
+          ],
+          "source_sha256": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67"
+        }
+      ]
+    },
+    {
+      "target": "D-011/drawing/visual-n/p1-6192d9e4fb66ead3",
+      "decision": "confirm",
+      "value": 82.0,
+      "unit": "mm",
+      "text": "82,0",
+      "token": "82,0",
+      "prediction_sha256": "e45c5271fc253a34c4796afd1372db22f74c136f3f7f22a5d28c16475239a8a1",
+      "based_on": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67",
+      "note": "Directly inspected original page: stacked15/12 limits,25section,20/80hole offsets,195/348envelope,R35/R60,82/10.5/8 offsets,2x6.6,4x4.2/M5-6H. Thread designation tokens are not drill diameters; stacked limits are not two selected thickness alternatives. This confirms the printed token only, not a simplified rectangular outline.",
+      "source_fact_ids": [
+        "D-011/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-011",
+          "page": 1,
+          "image": "generated/images/D-011-p1.png",
+          "box": [
+            517.6,
+            484.6,
+            29.6,
+            14.5
+          ],
+          "source_sha256": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67"
+        }
+      ]
+    },
+    {
+      "target": "D-011/drawing/visual-n/p1-c84d7d316ecd00ba",
+      "decision": "confirm",
+      "value": 8.0,
+      "unit": "mm",
+      "text": "8,0",
+      "token": "8,0",
+      "prediction_sha256": "0ca599fdd41cf40f81ca67b739c8b9c192a727cf2e4827412d31ddc2880e178e",
+      "based_on": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67",
+      "note": "Directly inspected original page: stacked15/12 limits,25section,20/80hole offsets,195/348envelope,R35/R60,82/10.5/8 offsets,2x6.6,4x4.2/M5-6H. Thread designation tokens are not drill diameters; stacked limits are not two selected thickness alternatives. This confirms the printed token only, not a simplified rectangular outline.",
+      "source_fact_ids": [
+        "D-011/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-011",
+          "page": 1,
+          "image": "generated/images/D-011-p1.png",
+          "box": [
+            861.9,
+            485.9,
+            14.5,
+            24.6
+          ],
+          "source_sha256": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67"
+        }
+      ]
+    },
+    {
+      "target": "D-011/drawing/visual-n/p1-df5d5c1600bb3ec1",
+      "decision": "confirm",
+      "value": 10.5,
+      "unit": "mm",
+      "text": "10,5",
+      "token": "10,5",
+      "prediction_sha256": "64a38434fa595592f92449d12cf94bc03887a3b083226faddd797dd25727b09f",
+      "based_on": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67",
+      "note": "Directly inspected original page: stacked15/12 limits,25section,20/80hole offsets,195/348envelope,R35/R60,82/10.5/8 offsets,2x6.6,4x4.2/M5-6H. Thread designation tokens are not drill diameters; stacked limits are not two selected thickness alternatives. This confirms the printed token only, not a simplified rectangular outline.",
+      "source_fact_ids": [
+        "D-011/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-011",
+          "page": 1,
+          "image": "generated/images/D-011-p1.png",
+          "box": [
+            828.5,
+            500.4,
+            29.0,
+            15.8
+          ],
+          "source_sha256": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67"
+        }
+      ]
+    },
+    {
+      "target": "D-011/drawing/visual-n/p1-ec41fdf843108884",
+      "decision": "confirm",
+      "value": 25.0,
+      "unit": "mm",
+      "text": "25,0",
+      "token": "25,0",
+      "prediction_sha256": "6196d2fd9c2924a2192b4672effcd1e8db0acbdc53531ee9ccfd9796688586ad",
+      "based_on": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67",
+      "note": "Directly inspected original page: stacked15/12 limits,25section,20/80hole offsets,195/348envelope,R35/R60,82/10.5/8 offsets,2x6.6,4x4.2/M5-6H. Thread designation tokens are not drill diameters; stacked limits are not two selected thickness alternatives. This confirms the printed token only, not a simplified rectangular outline.",
+      "source_fact_ids": [
+        "D-011/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-011",
+          "page": 1,
+          "image": "generated/images/D-011-p1.png",
+          "box": [
+            884.6,
+            538.9,
+            15.8,
+            32.2
+          ],
+          "source_sha256": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67"
+        }
+      ]
+    },
+    {
+      "target": "D-011/drawing/visual-n/p1-69f33339c78e5197",
+      "decision": "confirm",
+      "value": 60.0,
+      "unit": "mm",
+      "text": "R60,0",
+      "token": "60,0",
+      "prediction_sha256": "b7da3e0a375abe5afb2d5b3ee0eca8f933a2c898f631b410bd5d01aac5bbd67a",
+      "based_on": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67",
+      "note": "Directly inspected original page: stacked15/12 limits,25section,20/80hole offsets,195/348envelope,R35/R60,82/10.5/8 offsets,2x6.6,4x4.2/M5-6H. Thread designation tokens are not drill diameters; stacked limits are not two selected thickness alternatives. This confirms the printed token only, not a simplified rectangular outline.",
+      "source_fact_ids": [
+        "D-011/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-011",
+          "page": 1,
+          "image": "generated/images/D-011-p1.png",
+          "box": [
+            295.1,
+            578.6,
+            33.4,
+            35.3
+          ],
+          "source_sha256": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67"
+        }
+      ]
+    },
+    {
+      "target": "D-011/drawing/visual-n/p1-78fb5c8a8794a8cd",
+      "decision": "confirm",
+      "value": 348.0,
+      "unit": "mm",
+      "text": "348,0",
+      "token": "348,0",
+      "prediction_sha256": "8d9f9862650f9fb1583a6611efa79d68a03a0c139a073d8e6871140aed32cae4",
+      "based_on": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67",
+      "note": "Directly inspected original page: stacked15/12 limits,25section,20/80hole offsets,195/348envelope,R35/R60,82/10.5/8 offsets,2x6.6,4x4.2/M5-6H. Thread designation tokens are not drill diameters; stacked limits are not two selected thickness alternatives. This confirms the printed token only, not a simplified rectangular outline.",
+      "source_fact_ids": [
+        "D-011/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-011",
+          "page": 1,
+          "image": "generated/images/D-011-p1.png",
+          "box": [
+            573.1,
+            584.9,
+            37.8,
+            15.8
+          ],
+          "source_sha256": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67"
+        }
+      ]
+    }
+  ]
+}

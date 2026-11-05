@@ -141,6 +141,104 @@ def test_image_dimensions_reject_duplicate_tokens_and_wrong_source():
     assert pipeline.decode_answer(output(item("page_1", [number], refs=["D-020/drawing/source"])), current) == {}
 
 
+@pytest.mark.parametrize("text,token,value", [
+    ("Ra 0.8-0.4", "0.4", 0.4), ("Ra 0,8-0,4", "0,4", 0.4),
+    ("0.8 -0.4", "-0.4", -0.4), ("Tolerance -0.4", "-0.4", -0.4),
+    ("-0.8--0.4", "-0.4", -0.4),
+])
+def test_image_dimensions_preserve_numeric_ranges_and_real_negative_signs(text, token, value):
+    drawing, number = image_dimension_fixture()
+    current = dimensions.job(drawing)
+    number.update(text=text, token=token, value=value)
+    assert pipeline.decode_answer(output(item("page_1", [number], refs=current["sources"])), current)
+
+
+@pytest.mark.parametrize("text,token,value", [
+    ("Ra 0.8-0.4", "-0.4", -0.4), ("Tolerance -0.4", "0.4", 0.4),
+    ("0.8 -0.4", "0.4", 0.4), ("Ra 0.8-0.4", "4", 4),
+    ("14.5", "4.5", 4.5),
+])
+def test_image_dimensions_range_fix_does_not_allow_sign_loss_or_digit_substrings(text, token, value):
+    drawing, number = image_dimension_fixture()
+    current = dimensions.job(drawing)
+    number.update(text=text, token=token, value=value)
+    assert pipeline.decode_answer(output(item("page_1", [number], refs=current["sources"])), current) == {}
+
+
+def cached_image_range_result(retried=False):
+    drawing, number = image_dimension_fixture()
+    current = dimensions.job(drawing)
+    number.update(text="Ra 0.8-0.4", token="0.4", value=0.4)
+    proposal = output(item("page_1", [number], refs=current["sources"]))
+    packet = {"protocol": pipeline.PROTOCOL, "keys": current["keys"], "proposal": proposal["answer"],
+              "locally_valid_keys": [], "invalid_keys": current["keys"]}
+    fingerprint = runner.fingerprint(packet)
+    verification = output(verdict("page_1", refs=current["sources"]))
+    verification["answer"]["proposal_fingerprint"] = fingerprint
+    raw = {"codex": {**proposal, "role": "proposer", "validation": {"page_1": False}},
+           "claude": {**verification, "role": "verifier", "validation": {"page_1": True}}}
+    for receipt in raw.values():
+        receipt.update(protocol=pipeline.PROTOCOL, round=0, proposal_fingerprint=fingerprint)
+    rounds = [raw]
+    if retried:
+        repaired = copy.deepcopy(raw)
+        repaired["codex"]["answer"]["items"][0]["changed_because"] = "Corrected the first proposal from original evidence"
+        packet["proposal"] = repaired["codex"]["answer"]
+        fingerprint = runner.fingerprint(packet)
+        for receipt in repaired.values():
+            receipt.update(round=1, proposal_fingerprint=fingerprint)
+        repaired["claude"]["answer"]["proposal_fingerprint"] = fingerprint
+        raw["claude"]["answer"]["items"][0]["decision"] = "reject"
+        rounds.append(repaired)
+    return drawing, {"protocol": pipeline.PROTOCOL, "job": current, "rounds": rounds, "feedback_rounds": [],
+                     "answers": {"codex": {}, "claude": {"page_1": verification["answer"]["items"][0]}},
+                     "states": {"page_1": "invalid"}}
+
+
+@pytest.mark.parametrize("retried", [False, True])
+def test_image_dimensions_cached_validator_replay_is_offline_and_preserves_model_receipts(monkeypatch, retried):
+    drawing, result = cached_image_range_result(retried)
+    original = copy.deepcopy(result)
+    raw_bytes = runner.json_text(result["rounds"])
+    def forbidden(*args, **kwargs):
+        pytest.fail("Offline validation must never execute or call providers")
+    monkeypatch.setattr(runner, "run_reader", forbidden)
+    monkeypatch.setattr(pipeline, "execute", forbidden)
+    monkeypatch.setattr(pipeline, "run_retry", forbidden)
+    updated = dimensions.revalidate_cached_result(result)
+    assert result == original and runner.json_text(updated["rounds"]) == raw_bytes
+    assert updated["states"] == {"page_1": "verified_after_retry" if retried else "verified"}
+    assert updated["rounds"][0]["codex"]["validation"] == {"page_1": False}
+    receipt = updated["validator_replays"][0]
+    assert receipt["original_result_sha256"] == runner.fingerprint(original)
+    assert receipt["raw_rounds_sha256"] == runner.fingerprint(original["rounds"])
+    assert receipt["provider_calls"] == 0 and receipt["previous_states"] == original["states"]
+    assert receipt["previous_answers"] == original["answers"]
+    evidence = dimensions.assemble(updated)
+    assert dimensions.attach(drawing, evidence)["numbers"][0]["value"] == 0.4
+    assert evidence["pages"]["page_1"]["validator_replays"] == updated["validator_replays"]
+    assert dimensions.revalidate_cached_result(updated) == updated
+
+
+@pytest.mark.parametrize("mutation", ["legacy", "reject", "wrong_fingerprint", "changed_proposal", "invalid_field", "third_round"])
+def test_image_dimensions_cached_validator_replay_cannot_upgrade_unverified_or_invalid_proposals(mutation):
+    _, result = cached_image_range_result()
+    raw = result["rounds"][0]
+    if mutation == "legacy":
+        result.pop("protocol")
+    elif mutation == "reject":
+        raw["claude"]["answer"]["items"][0]["decision"] = "reject"
+    elif mutation == "wrong_fingerprint":
+        raw["claude"]["answer"]["proposal_fingerprint"] = "wrong"
+    elif mutation == "changed_proposal":
+        raw["codex"]["answer"]["items"][0]["reason"] = "Changed after verification"
+    elif mutation == "invalid_field":
+        raw["codex"]["valid"] = False
+    else:
+        result["rounds"] *= 3
+    assert dimensions.revalidate_cached_result(result) == result
+
+
 def test_single_page_dimension_jobs_preserve_exact_existing_job_and_cache_identity():
     drawing, _ = image_dimension_fixture()
     assert dimensions.jobs(drawing) == [dimensions.job(drawing)]

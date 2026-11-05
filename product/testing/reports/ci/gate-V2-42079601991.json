@@ -1,0 +1,83 @@
+{
+  "run_id": 42079601991,
+  "repository": "JasonPeng2019/proj-meridian",
+  "branch": "harness-v2",
+  "head_sha": "8ac18fd9a8083dd49fda857882a8fea13548aff0",
+  "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42079601991",
+  "software_outcome": "PASS",
+  "product_outcome": "PENDING",
+  "checks": [
+    {
+      "name": "launch",
+      "outcome": "PASS"
+    },
+    {
+      "name": "contracts",
+      "outcome": "PASS"
+    },
+    {
+      "name": "knowledge",
+      "outcome": "PASS",
+      "counts": {
+        "passed": 278,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "name": "core",
+      "outcome": "PASS",
+      "counts": {
+        "passed": 123,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "name": "geometry",
+      "outcome": "PASS",
+      "counts": {
+        "passed": 80,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "name": "V3_software",
+      "outcome": "PENDING"
+    },
+    {
+      "name": "V4_software",
+      "outcome": "PENDING"
+    },
+    {
+      "name": "V5_software",
+      "outcome": "PENDING"
+    },
+    {
+      "name": "live_readers",
+      "outcome": "PENDING"
+    },
+    {
+      "name": "source_spot_check",
+      "outcome": "PENDING"
+    },
+    {
+      "name": "three_model_fidelity",
+      "outcome": "PENDING"
+    },
+    {
+      "name": "visual_and_fresh_clone",
+      "outcome": "PENDING"
+    },
+    {
+      "name": "live_luna",
+      "outcome": "PENDING"
+    },
+    {
+      "name": "final20_benchmark",
+      "outcome": "PENDING"
+    }
+  ],
+  "scope": "V1/V2 software only. Real three-part fidelity, V3-V5, semantics, benchmark and release observations remain pending."
+}

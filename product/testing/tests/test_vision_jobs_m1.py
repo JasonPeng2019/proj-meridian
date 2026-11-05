@@ -164,6 +164,44 @@ def absent_template_fields(job, d):
     return fields
 
 
+def test_coverage_can_reference_the_native_outline_without_a_duplicate_cut(work):
+    d = drawing(work)
+    job = build_template_job(d, image_root=work, feature_slots=1)
+    fields = absent_template_fields(job, d)
+    outline, ledger = name(job, "outline"), name(job, "proofs")
+    token, page = number(d, "7"), page_ref(d)
+    fields[outline] = known({"type": "circle", "diameter": 7}, [token, page])
+    fields[ledger]["value"]["entries"].extend([
+        proof(outline, path="/type", source_ids=[page]), proof(outline, [token], path="/diameter")])
+    item = coverage_item(d, "native-outline", [outline], kind="outline")
+    fields[name(job, "coverage")] = known(coverage_value(d, [item]), [page])
+    assert checked(job, fields).fields[name(job, "coverage")].evidence_valid
+    item["slot_ids"] = [name(job, "feature-01")]
+    fields[name(job, "coverage")] = known(coverage_value(d, [item]), [page])
+    assert not checked(job, fields).fields[name(job, "coverage")].evidence_valid
+
+
+@pytest.mark.parametrize("aligned", [True, False])
+def test_stacked_decimal_thickness_limits_keep_both_source_endpoints(work, aligned):
+    d = drawing(work)
+    changed = {}
+    for old, text, box in [("7", "7.0", (160, 130, 18, 12)),
+                           ("5", "5.0", (160 if aligned else 210, 138, 18, 12))]:
+        source = next(n for n in d.numbers if n.text == old)
+        changed[old] = source.model_copy(update={"text": text, "box": box})
+    d.numbers = [changed.get(n.text, n) for n in d.numbers]
+    d.words = [DrawingWord(text=changed[w.text].text, page=w.page, box=changed[w.text].box)
+               if w.text in changed else w for w in d.words]
+    job = build_template_job(d, image_root=work, feature_slots=1)
+    fields = template_fields(job, d, token="7.0")
+    target, ledger = name(job, "thickness"), name(job, "proofs")
+    a, b = number(d, "7.0"), number(d, "5.0")
+    groups = job.definition.evidence(job.request).inputs["inventory"].value["printed_limit_candidates"]
+    fields[target] = known(None, [a, b, *groups], state="options", options=[7, 5], basis="printed_alternatives")
+    fields[ledger]["value"]["entries"] = [proof(target, [a], option=0), proof(target, [b], option=1)]
+    assert checked(job, fields).fields[target].evidence_valid is aligned
+
+
 def add_known_hole(job, d, fields):
     target, page = name(job, "feature-01"), page_ref(d)
     fields[target] = known(dict(kind="hole", hole_type="plain", face="top", position={"x": 7, "y": 7},

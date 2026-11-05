@@ -545,7 +545,7 @@ export type HistoryEvent = {
   "id": string;
   "applies_to": string;
   "kind": "extracted" | "cleanup" | "ai_result" | "decision" | "source_changed" | "model_rebuilt";
-  "at": string;
+  "at"?: string | null;
   "message": string;
   "value"?: JsonValue;
   "decision"?: Decision | null;

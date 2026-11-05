@@ -52,7 +52,7 @@ from ..loader.drawings import page_image_path
 from .runner import EvidenceBundle, EvidenceError, EvidenceInput, JobDefinition, with_field_validation
 
 
-VISION_VERSION = "vision-determine-verify/detail-coverage-v2"
+VISION_VERSION = "vision-determine-verify/detail-coverage-v3"
 SUPPORTED_TEMPLATES = frozenset({"D-013", "D-025", "D-026"})
 CORNER_FIELDS = ("title", "notes", "company", "material", "weight", "date", "drawn", "scale")
 _WORKSPACE = Path(__file__).resolve().parents[3]
@@ -315,6 +315,7 @@ _FEATURE = {"anyOf": [
 
 
 def _coverage_schema(slots: list[str]) -> dict[str, Any]:
+    outline = slots[0].rsplit("/", 1)[0] + "/outline"
     text = {"type": "string", "minLength": 1}
     strings = {"type": "array", "items": text}
     references = {**strings, "minItems": 1}
@@ -322,9 +323,9 @@ def _coverage_schema(slots: list[str]) -> dict[str, Any]:
                     "feature_ids": strings})
     feature = _object({"id": text, "description": text, "source_ids": references,
         "view_ids": references,
-        "kind": _enum("hole", "slot", "pocket", "recess", "indent", "chamfer", "fillet", "other"),
+        "kind": _enum("outline", "hole", "slot", "pocket", "recess", "indent", "chamfer", "fillet", "other"),
         "disposition": _enum("supported", "unresolved", "unsupported", "cosmetic_omission"),
-        "slot_ids": {"type": "array", "items": _enum(*slots)},
+        "slot_ids": {"type": "array", "items": _enum(*slots, outline)},
         "face_interpretation": text, "depth_interpretation": text,
         "multiplicity_interpretation": text, "reason": text})
     # No feature-list truncation at the geometry slot bound: unsupported and
@@ -365,6 +366,7 @@ def template_coverage_errors(fields: dict[str, DeterminedField], *, coverage_nam
         return unique(ids) and set(ids) <= source.source_ids.keys() and bool(set(ids) & page_refs)
 
     views, items = value["views"], value["features"]
+    outline_name = coverage_name.rsplit("/", 1)[0] + "/outline"
     view_ids, item_ids = [v["id"] for v in views], [f["id"] for f in items]
     if not unique(view_ids) or not unique(item_ids):
         errors.append("Coverage view and feature group IDs must be unique.")
@@ -402,16 +404,21 @@ def template_coverage_errors(fields: dict[str, DeterminedField], *, coverage_nam
             errors.append(f"Unrepresented feature {identity} cannot claim geometry or absent slots.")
         if disposition == "cosmetic_omission" and item["kind"] not in {"chamfer", "fillet"}:
             errors.append(f"Significant feature {identity} cannot be classified as a cosmetic omission.")
-        if disposition == "supported" and (not slots or item["kind"] not in {"hole", "slot"}):
+        if disposition == "supported" and (not slots or item["kind"] not in {"outline", "hole", "slot"}):
             errors.append(f"Supported feature {identity} needs native hole/slot representation.")
-        if slots and item["kind"] not in {"hole", "slot"}:
+        if slots and item["kind"] not in {"outline", "hole", "slot"}:
             errors.append(f"Feature {identity} cannot be represented by this native geometry subset.")
+        if item["kind"] == "outline" and slots != [outline_name]:
+            errors.append(f"Outline {identity} must reference its existing native outline exactly once.")
         claimed.extend(slots)
         for slot in slots:
             native = fields.get(slot)
-            if (slot not in slot_names or native is None or native.state not in {"known", "unknown"}
+            native_kind = ("outline" if slot == outline_name and native and isinstance(native.value, dict)
+                           and native.value.get("type") in {"rectangle", "circle", "ring"}
+                           else native.value.get("kind") if native and isinstance(native.value, dict) else None)
+            if (slot not in [*slot_names, outline_name] or native is None or native.state not in {"known", "unknown"}
                     or (native.state == "known" and (not isinstance(native.value, dict)
-                        or native.value.get("kind") != item["kind"]))):
+                        or native_kind != item["kind"]))):
                 errors.append(f"Feature {identity} references absent, omitted or incompatible slot {slot}.")
             elif disposition == "supported" and (native.state != "known" or _has_unknown(native.value)):
                 errors.append(f"Feature {identity} must disclose its unresolved physical details.")
@@ -570,6 +577,33 @@ def _printed_groups(drawing: DrawingEvidence, numbers: dict[str, DrawingNumber])
     return groups
 
 
+def _stacked_limit_groups(numbers: dict[str, DrawingNumber]) -> list[list[str]]:
+    """Admit candidate decimal limit pairs, never select a nominal thickness.
+
+    These are only potential shared callouts. The reader must inspect the
+    original dimension line; a verifier must audit that interpretation. Equal
+    font/column alignment excludes the usual smaller +/- tolerance annotations.
+    Only thickness may use these pairs as the two printed endpoint examples.
+    """
+    values = list(numbers.values())
+    groups = []
+    for i, first in enumerate(values):
+        if not re.fullmatch(r"\d+[.,]\d+", first.text) or first.value <= 0:
+            continue
+        for second in values[i + 1:]:
+            if (second.page != first.page or second.value <= 0 or first.value == second.value
+                    or not re.fullmatch(r"\d+[.,]\d+", second.text)):
+                continue
+            a, b = first.box, second.box
+            height = min(a[3], b[3])
+            if (height > 0 and .9 <= a[3] / b[3] <= 1.1
+                    and abs(a[0] - b[0]) <= .1 * height
+                    and abs(a[2] - b[2]) <= .15 * height
+                    and .5 * height <= abs(a[1] - b[1]) <= 1.2 * max(a[3], b[3])):
+                groups.append([first.name, second.name])
+    return groups
+
+
 def _semantic(value: Any) -> bool:
     if not isinstance(value, dict):
         return True
@@ -612,6 +646,13 @@ plain/threaded/countersunk/counterbored holes and slots with optional row/circle
 patterns. The CAD frame is mm, x right/y up, rectangle lower-left origin or
 round-part centre; image y goes down. Weight is grams. Never infer a drill size
 from a thread standard, material from a name, or thickness from appearance.
+The inventory's printed_limit_candidates are only aligned decimal tokens,
+NOT proof that they share a dimension. Inspect the ORIGINAL image/dimension
+line. For two stacked limits on the SAME thickness dimension, retain both
+printed endpoints as options with their group reference and individual proofs;
+explain these are boundary examples, not a selected nominal or discrete stock
+choices. Never average limits, choose one, or use nearby unrelated dimensions,
+smaller +/- tolerance annotations, or a pair belonging to another feature.
 The inventory identifies every supplied number, box, admissibility decision,
 page and corner field. Border/grid/title-block numbers are not dimensions.
 Use known only for supported sure semantic geometry; retain unknown subfields
@@ -634,6 +675,14 @@ Map each supported hole/slot or pattern to its full stable feature-slot ID(s),
 each active slot exactly once. A group's several slots must each represent
 distinct members/subgroups without duplicating their physical cuts. Known
 hole/slot values must contain every required physical detail and numeric proof.
+Represent the stock contour, including a ring's central opening, as kind=outline
+with slot_ids containing the existing outline field ID. Do not duplicate that
+opening as another cut or classify the represented outline as unsupported.
+Use the native circle pattern for a source-supported circular repetition:
+position is its centre, radius/count/start angle describe the original pattern,
+and CAD computes Cartesian member positions. Do not expand it into guessed or
+unknown trigonometric coordinates. Even spacing and angular phase still need
+explicit original-view evidence; never assume a pattern from a count alone.
 Unknown placement, count, face, depth, pattern or other necessary detail uses
 disposition=unresolved, a concrete reason and an unknown slot/subfield; never
 invent through=true, face=top, count=1, a depth or a position to fit the schema.
@@ -706,7 +755,11 @@ not just whether cited IDs exist. Algebraic equality alone does not prove a
 dimension belongs to that feature. Border labels, scales, dates, material-grade
 digits and unrelated equal-valued numbers are inadmissible dimensions. Options
 must be actual printed alternatives for this same field, each with its own
-number; unrelated measurements or reader disagreement must remain unresolved.
+number. For a thickness limit pair, audit the original shared dimension line,
+equal-sized aligned limits and the candidate's explicit boundary-example
+disclosure; neither endpoint is a chosen nominal or proof of discrete stock
+choices. A host-generated limit candidate alone is insufficient. Unrelated
+measurements, tolerance offsets or reader disagreement remain unresolved.
 Unknown, unsure or host-invalid fields cannot receive verified. Every fixed
 field needs an explicit verified/disagrees/unsure verdict with a nonempty
 source-backed reason and evidence references from its original evidence.
@@ -745,6 +798,9 @@ def build_template_job(drawing: DrawingEvidence, *, image_root: Path,
     refs.update({f.name: "drawing" for f in drawing.fields.values()})
     groups = _printed_groups(drawing, admissible)
     group_refs = {f"{drawing.id}/drawing/printed-alternatives/{i+1}": group for i, group in enumerate(groups)}
+    limit_refs = {f"{drawing.id}/drawing/printed-limits/{i+1}": group
+                  for i, group in enumerate(_stacked_limit_groups(admissible))}
+    group_refs.update(limit_refs)
     refs.update({name: "inventory" for name in group_refs})
     names = {k: template_fact_name(drawing.id, k) for k in
              ("outline", "thickness", "material", "weight-on-drawing", "proofs", "coverage")}
@@ -762,7 +818,8 @@ def build_template_job(drawing: DrawingEvidence, *, image_root: Path,
     inputs["inventory"] = EvidenceInput(value={"version": VISION_VERSION, "kind": "flat-template",
         "drawing_id": drawing.id, "field_names": list(schemas), "feature_slots": feature_slots,
         "number_admissibility": {name: name in admissible for name in numbers},
-        "printed_alternatives": group_refs, "cad_units": "mm", "weight_units": "g"})
+        "printed_alternatives": {key: value for key, value in group_refs.items() if key not in limit_refs},
+        "printed_limit_candidates": limit_refs, "cad_units": "mm", "weight_units": "g"})
 
     page_hashes = {page: inputs[f"page:{page}"].sha256 for page in paths}
 
@@ -880,12 +937,14 @@ def build_template_job(drawing: DrawingEvidence, *, image_root: Path,
                     if option is not None:
                         option_numbers.extend(evidence.number_ids)
             if field.state == "options":
-                supporting_ids.update(group for group, ids in group_refs.items()
+                eligible_groups = {group: ids for group, ids in group_refs.items()
+                                   if group not in limit_refs or name == names["thickness"]}
+                supporting_ids.update(group for group, ids in eligible_groups.items()
                                       if group in field.source_ids and set(option_numbers) <= set(ids))
                 evidence_valid = evidence_valid and any(
                     group in field.source_ids and len(option_numbers) == len(field.options)
                     and len(set(option_numbers)) == len(option_numbers) and set(option_numbers) <= set(ids)
-                    for group, ids in group_refs.items())
+                    for group, ids in eligible_groups.items())
             if field.state != "unknown":
                 evidence_valid = evidence_valid and set(field.source_ids) == supporting_ids
             validity[name] = (bool(shape), bool(evidence_valid))

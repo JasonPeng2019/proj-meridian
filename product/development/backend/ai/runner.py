@@ -177,6 +177,71 @@ def _object(properties: dict[str, Any]) -> dict[str, Any]:
             "required": list(properties), "additionalProperties": False}
 
 
+def _compact_schema(schema: dict[str, Any]) -> dict[str, Any]:
+    """Share identical schema nodes without dropping a constraint.
+
+    Claude receives its schema as one argument. Repeated feature/alternative
+    schemas otherwise exceed Windows' command-line limit before it can start.
+    Only schema positions are replaced; property-name maps remain maps.
+    """
+    counts: dict[str, int] = {}
+    # Keep the public per-field/source-ID boundary readable to CLI adapters.
+    fields = schema.get("properties", {}).get("fields", {}).get("properties", {})
+    protected = set()
+    for field in fields.values():
+        protected.update((id(field), id(field.get("properties", {}).get("source_ids"))))
+        alternatives = field.get("properties", {}).get("alternative", {}).get("anyOf", [])
+        if alternatives:
+            alternative = alternatives[0]
+            protected.update((id(alternative), id(alternative.get("properties", {}).get("source_ids"))))
+
+    def children(node: dict[str, Any], visit) -> dict[str, Any]:
+        result = dict(node)
+        for key in ("properties", "patternProperties", "$defs", "definitions"):
+            if isinstance(node.get(key), dict):
+                result[key] = {name: visit(value) for name, value in node[key].items()}
+        for key in ("items", "additionalProperties", "not", "if", "then", "else", "contains"):
+            if isinstance(node.get(key), dict):
+                result[key] = visit(node[key])
+        for key in ("anyOf", "oneOf", "allOf", "prefixItems"):
+            if isinstance(node.get(key), list):
+                result[key] = [visit(value) for value in node[key]]
+        return result
+
+    def count(node):
+        if not isinstance(node, dict):
+            return node
+        key = _json(node)
+        counts[key] = counts.get(key, 0) + 1
+        children(node, count)
+        return node
+
+    count(schema)
+    definitions = dict(schema.get("$defs", {}))
+    shared: dict[str, str] = {}
+
+    def compact(node, *, root=False):
+        if not isinstance(node, dict):
+            return node
+        key = _json(node)
+        reusable = not root and id(node) not in protected and len(key) >= 80 and counts[key] > 1
+        if reusable and key in shared:
+            return {"$ref": "#/$defs/" + shared[key]}
+        result = children(node, compact)
+        if reusable:
+            name = "Shared" + str(len(shared))
+            while name in definitions:
+                name += "_"
+            shared[key] = name
+            definitions[name] = result
+            return {"$ref": "#/$defs/" + name}
+        return result
+
+    result = compact(schema, root=True)
+    result["$defs"] = {**result.get("$defs", {}), **definitions}
+    return result
+
+
 def _field_schema(value: dict[str, Any]) -> dict[str, Any]:
     return _object({
         "state": {"type": "string", "enum": ["known", "options", "unknown", "value", "match", "no_match", "relationship"]},
@@ -823,6 +888,7 @@ class Runner:
             if role == "verification":
                 alternative = field["properties"]["alternative"]["anyOf"][0]
                 alternative["properties"]["source_ids"]["items"] = {"$ref": "#/$defs/SourceId"}
+        schema = _compact_schema(schema)
         schema_path, settings_path = directory / "schema.json", directory / "claude-settings.json"
         _write(schema_path, schema)
         variables = {"model": reader["model"], "reasoning_effort": reader.get("reasoning_effort", ""),
@@ -1061,6 +1127,7 @@ class Runner:
         started = _now()
         result = None
         failure = None
+        launch_error = {}
         # Resource refusal/configuration errors are NOT Opus execution failure.
         with self.reserve_cli_slot() as reservation:
             if (not isinstance(reservation, CliReservation) or not reservation.owner_counted
@@ -1070,9 +1137,14 @@ class Runner:
                 result = _execute(argv, cwd=directory, env=environment, prompt=prompt,
                                   timeout=self.timeout, output_limit=self.output_limit)
             except OSError as exc:
-                classification = FailureClass.MISSING_CLI if isinstance(exc, FileNotFoundError) else FailureClass.INVOCATION
+                argument_limit = exc.errno == 7 or getattr(exc, "winerror", None) == 206
+                launch_error = {"os_errno": exc.errno, "windows_error": getattr(exc, "winerror", None),
+                                "command_line_characters": len(subprocess.list2cmdline(argv))}
+                classification = (FailureClass.MISSING_CLI if isinstance(exc, FileNotFoundError)
+                                  and not argument_limit else FailureClass.INVOCATION)
                 failure = ReaderFailure(classification=classification, execution_failure=True,
-                    message="The pinned CLI could not be started; inspect executable resolution and CLI-account setup.",
+                    message=("The pinned CLI exceeded the OS command-line limit; inspect the saved schema transport."
+                             if argument_limit else "The pinned CLI could not be started; inspect executable resolution and CLI-account setup."),
                     diagnostic_sha256=_sha(str(exc).encode("utf-8")), troubleshooting=[
                         "Attempted direct launch of the configured CLI with shell disabled.",
                         "Inspected the OS launch error; no model substitution or answer repair was attempted."])
@@ -1167,7 +1239,7 @@ class Runner:
                     for kind in ("thread.started", "turn.started", "item.completed", "turn.completed",
                                  "error", "turn.failed", "system", "assistant", "user", "result")
                     if any(event.get("type") == kind for event in events)},
-                "candidate_emitted": answer_present},
+                "candidate_emitted": answer_present, **launch_error},
             "diagnostic_sha256": _sha(result.stdout + b"\n" + result.stderr) if result else None,
             "structured_output": raw}
         _write(directory / "receipt.json", receipt)

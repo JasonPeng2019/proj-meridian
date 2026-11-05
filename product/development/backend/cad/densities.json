@@ -1,0 +1,76 @@
+{
+  "schema": "meridian-densities/v1",
+  "notice": "Outside source, not the dataset. Reference densities for approximate reconstruction mass checking; no material mapping or human approval is supplied by this artifact.",
+  "lookup_date": "2026-11-05",
+  "reference_basis": {
+    "Aluminium": "thyssenkrupp Materials UK, Density of Aluminium, opening paragraph: about 2710 kg/m3. Dividing kg/m3 by 1000 gives 2.71 g/cm3. This is a generic approximate reference; exact alloy entries take priority when that alloy is recorded. No alloy is inferred.",
+    "Steel": "SSAB, 20 questions about steel, question 3: approximate steel density in g/cm3. This is the generic reference only, not a certificate for a specific alloy.",
+    "EN AW-5005": "thyssenkrupp Materials UK, Density of Aluminium, Densities of specific grades, 5005 row: 2700 kg/m3, converted to g/cm3 by division by 1000. Alternate name spellings require a current approved SAME mapping.",
+    "EN AW-6082": "HABA Alu6082, EN AW-6082 / EN AW-AlSi1MgMn, Technical specifications: 2.7 kg/dm3. Numerically identical in g/cm3. Source describes rolled T6/T651 plate, a reference property, not a dataset-specific material certificate.",
+    "Stainless steel 304": "DMV GmbH, Onshore Rig, Material Grades, Austenitic Stainless, DMV 304 row: 7.9 g/cm3. Applies to the specified 304 reference only; generic Stainless steel is not silently assigned this grade.",
+    "Stainless steel 316L": "DMV GmbH, Onshore Rig, Material Grades, Austenitic Stainless, DMV 316L row: 8.0 g/cm3. Applies to the specified 316L reference only. No mapping to unspecified stainless steel is implied."
+  },
+  "references": [
+    {
+      "material": "Aluminium",
+      "density_g_cm3": 2.71,
+      "source_url": "https://www.thyssenkrupp-materials.co.uk/density-of-aluminium.html",
+      "retrieved_at": "2026-11-05T18:03:50.796319+00:00",
+      "outside_dataset": true,
+      "family_mapping": null
+    },
+    {
+      "material": "Steel",
+      "density_g_cm3": 7.85,
+      "source_url": "https://www.ssab.com/en/support/product-material-data/steel/20-questions",
+      "retrieved_at": "2026-11-05T18:03:50.796319+00:00",
+      "outside_dataset": true,
+      "family_mapping": null
+    },
+    {
+      "material": "EN AW-5005",
+      "density_g_cm3": 2.7,
+      "source_url": "https://www.thyssenkrupp-materials.co.uk/density-of-aluminium.html",
+      "retrieved_at": "2026-11-05T18:03:50.796319+00:00",
+      "outside_dataset": true,
+      "family_mapping": null
+    },
+    {
+      "material": "EN AW-6082",
+      "density_g_cm3": 2.7,
+      "source_url": "https://www.haba-gmbh.de/en/cuts/aluminium/haba-alu6082",
+      "retrieved_at": "2026-11-05T18:03:50.796319+00:00",
+      "outside_dataset": true,
+      "family_mapping": null
+    },
+    {
+      "material": "Stainless steel 304",
+      "density_g_cm3": 7.9,
+      "source_url": "https://dmvtubes.com/en/markets/oil-and-gas/onshore/onshore-rig",
+      "retrieved_at": "2026-11-05T18:03:50.796319+00:00",
+      "outside_dataset": true,
+      "family_mapping": null
+    },
+    {
+      "material": "Stainless steel 316L",
+      "density_g_cm3": 8.0,
+      "source_url": "https://dmvtubes.com/en/markets/oil-and-gas/onshore/onshore-rig",
+      "retrieved_at": "2026-11-05T18:03:50.796319+00:00",
+      "outside_dataset": true,
+      "family_mapping": null
+    }
+  ],
+  "unavailable_materials": [
+    {
+      "material": "Stainless steel",
+      "reason": "Manufacturer publishes an alloy-dependent range of 7500-8000 kg/m3, not one scalar. No midpoint, generic 8.0 value or inferred 304/316L grade is accepted.",
+      "source_url": "https://www.thyssenkrupp-materials.co.uk/density-of-stainless-steel",
+      "retrieved_at": "2026-11-05T18:03:50.796319+00:00",
+      "outside_dataset": true
+    },
+    {
+      "materials": ["Ceramic paper", "Elastomer", "Paper", "Polymer", "Silicone"],
+      "reason": "Broad names present in the supplied BOM do not identify a grade, composition or formulation. No supported scalar density is supplied; they remain missing density. This is an unavailable-input disclosure, not a claim of manufacturer research or verified material identity."
+    }
+  ]
+}

@@ -26,7 +26,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "development"))
 
 from backend.ai.runner import (  # noqa: E402
-    _answer, _observed,
+    _answer, _observed, _compact_schema,
     CliReservation, EvidenceBundle, EvidenceError, EvidenceInput, JobDefinition,
     Runner, RunnerError, SerialQueue, with_field_validation,
 )
@@ -41,6 +41,30 @@ REFERENCES = {LENGTH: "SYNTHETIC/number/length", WIDTH: "SYNTHETIC/number/width"
 PEER = ROOT / "testing/fixtures/runner/scripted_cli.py"
 PNG = base64.b64decode("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aXioAAAAASUVORK5CYII=")
 NOTE = "Invented runner fixture. No real drawing, model execution or engineering review."
+
+
+def test_full_template_schema_fits_windows_arguments_without_losing_constraints(workspace):
+    from test_vision_jobs_m1 import drawing
+    from backend.ai.vision_jobs import build_template_job
+    definition = build_template_job(drawing(workspace), image_root=workspace, feature_slots=16).definition
+    for role in ("determination", "verification"):
+        original = definition.schema(role)
+        compact = _compact_schema(original)
+
+        def expand(value, definitions):
+            if isinstance(value, list):
+                return [expand(item, definitions) for item in value]
+            if isinstance(value, dict):
+                if "$ref" in value:
+                    return expand(definitions[value["$ref"].removeprefix("#/$defs/")], definitions)
+                return {key: expand(item, definitions) for key, item in value.items() if key != "$defs"}
+            return value
+
+        assert expand(compact, compact["$defs"]) == original
+        payload = json.dumps(compact, separators=(",", ":"))
+        # list2cmdline applies Windows quoting even on the remote Linux runner.
+        argv = ["C:/bounded-cli/claude.exe", "--model", "claude-opus-5-5", "--json-schema", payload]
+        assert len(subprocess.list2cmdline(argv)) < 30000
 
 
 def test_codex_progress_is_not_mistaken_for_the_final_json(workspace):

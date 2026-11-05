@@ -1840,7 +1840,7 @@ class HistoryEvent(ContractModel):
     id: NonEmpty
     applies_to: NonEmpty
     kind: Literal["extracted", "cleanup", "ai_result", "decision", "source_changed", "model_rebuilt"]
-    at: AwareDatetime
+    at: AwareDatetime | None = None  # Original extraction may have no retained timestamp.
     message: NonEmpty
     value: JsonValue = None
     decision: Decision | None = None

@@ -320,7 +320,7 @@ export type Derivation = {
 
 export type DeterminationAttempt = {
   "requested": ReaderSettings;
-  "effective": ReaderSettings | null;
+  "effective": ObservedReaderSettings | null;
   "status": "success" | "execution_failed" | "invalid_output";
   "failure"?: ReaderFailure | null;
   "prior_failures"?: Array<ReaderFailure>;
@@ -771,6 +771,15 @@ export type NameMapping = {
 
 export type NumericField = KnownNumberField | OptionsNumberField | UnknownField;
 
+export type ObservedReaderSettings = {
+  "provider"?: "codex_cli" | "claude_code" | null;
+  "model"?: string | null;
+  "reasoning"?: string | null;
+  "service_tier"?: string | null;
+  "read_only"?: boolean | null;
+  "settings"?: { [key: string]: JsonValue };
+};
+
 export type OmittedDetail = {
   "name": string;
   "reason": string;
@@ -970,6 +979,8 @@ export type PrepCacheIdentity = {
   "prompt_sha256": string;
   "output_contract_sha256": string;
   "settings": ReaderSettings;
+  "settings_basis": "requested" | "confirmed";
+  "effective_sha256": string | null;
   "mode": "determine_verify" | "single_model_unverified";
 };
 
@@ -1350,7 +1361,7 @@ export type Vector3 = [number, number, number];
 
 export type VerificationAttempt = {
   "requested": ReaderSettings;
-  "effective": ReaderSettings | null;
+  "effective": ObservedReaderSettings | null;
   "status": "success" | "execution_failed" | "invalid_output";
   "failure"?: ReaderFailure | null;
   "prior_failures"?: Array<ReaderFailure>;

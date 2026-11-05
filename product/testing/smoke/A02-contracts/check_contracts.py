@@ -254,9 +254,10 @@ def main() -> None:
             assert chat.facts[marker.names[0]].display.state == "undetermined"
     require_rejection(lambda: c.StatusResponse(chat_available=True, chat_state="missing_key", message="fixture"), "contradictory chat status")
     require_rejection(lambda: c.KnownNumberField(name="D-013/template/invalid", value=9, method="parsed", evidence={}), "uncited numeric template field")
-    from check_policy import check_prep, check_summaries, review_cases
+    from check_policy import check_observability, check_prep, check_summaries, review_cases
     from check_history import check_history
     check_history(fixtures)
+    check_observability(fixtures)
     check_prep(fixtures)
     check_summaries(fixtures)
     statuses = review_cases(fixtures)

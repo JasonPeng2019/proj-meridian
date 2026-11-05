@@ -4,6 +4,7 @@ import type {
   FactTools, PartPageProps, ReviewProps, ShellNavigationItem, Viewer3DProps,
   WarningListProps, PrepRunner, Determiner, Verifier, MachineSummarizer, CostSummarizer,
   ApiClient, ApiCalls, ChatProps, ConversationDetail, ConversationSendResponse, ConversationServiceFactory,
+  ObservedReaderSettings, ReaderSettings, DeterminationAttempt,
 } from "../../../development/frontend/src/contracts";
 
 declare const reviewWithoutDebug: Omit<ReviewProps, "debug">;
@@ -55,6 +56,14 @@ const forged: ApiCalls["send_conversation"]["body"] = {message: "Synthetic", his
 // @ts-expect-error Read shape never exposes the server-owned ledger.
 const leaked: ConversationDetail = {conversation: {conversation_id: "synthetic", title: "Synthetic", created_at: "2000-01-01T00:00:00Z", updated_at: "2000-01-01T00:00:00Z"}, messages: [], ledger: {}};
 declare const serviceFactory: ConversationServiceFactory;
+const observed: ObservedReaderSettings = {provider: null, model: null, reasoning: null,
+  service_tier: null, read_only: null, settings: {fallbackModel: null}};
+declare const attempt: DeterminationAttempt;
+const actual: ObservedReaderSettings | null = attempt.effective;
+const settingsBasis: "requested" | "confirmed" = attempt.cache.settings_basis;
+// @ts-expect-error Requested model stays pinned/non-null even when observations are unknown.
+const unpinned: ReaderSettings["model"] = null;
 void [review, page, navigation, label, disabled, warnings, evidence, part, viewer,
   hidden, machine, cost, runner, determine, verify, summarizeMachine, summarizeCost,
-  list, created, reopened, sent, noSelection, chat, forged, leaked, serviceFactory];
+  list, created, reopened, sent, noSelection, chat, forged, leaked, serviceFactory,
+  observed, actual, settingsBasis, unpinned];

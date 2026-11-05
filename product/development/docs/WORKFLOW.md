@@ -103,7 +103,7 @@ All rows inherit the corresponding PLAN module's full completion criteria. “In
 | **A12-records / M12** | `backend/loader/records.py` | **STRONGEST** — multiple evidence/decision shapes converge here | A02/A05/A06/A07 plus fixed prep fixtures, then A11 outputs; assemble source-separated effective records, stable registries, links and templates. | Drawing-only/BOM-only/multi-row cases work; real prep outputs integrate; no human decision or original evidence disappears on rebuild. |
 | **A13-cad / M13** | `backend/cad/build.py` | **STRONGEST** — geometry, examples and source states must agree | Early CAD/export qualification; full slice uses A02/A12 effective-template contracts. Build supported neutral-grey GLBs, unknown/omission handling and targeted rebuilds. M2 supplies volume; M3 adds labeled STEP output. | Analytic fixture geometry is correct; real uncertain inputs remain pending; accepted changes affect only the relevant outputs. All three real models are required at the M1 release gate. |
 | **A14-tools / M14** | `backend/app/tools.py` | **STRONGEST** — deterministic source resolution defines product truth | A02/A12/A07, approved mapping data and M16's frozen proposal callback; implement read/group/connection/proposal tools and B3 rules 0–5. M3 exposes callouts and README search. | Source conflicts, unsure values, lists, mapping approval, directional material search, badges and snapshot notes follow the intended rules. |
-| **A15-chat / M15** | `backend/app/chat.py` | **STRONGEST** — tool traces, citations and attachment behavior are tightly coupled | A02/A14 and server-only `.secrets` key configuration; implement the OpenAI Responses tool loop using **gpt-6-luna only**, last-10-turn history, result ledger, marker validation, attachment selection/warnings and usage observations. This coding agent itself uses its STRONGEST Sol binding. | Scripted Responses calls exercise real tools and assert Luna-only requests/no model fallback; fabricated/unseen citations fail; a part remains accessible on abstention; recorded usage/errors are genuine. |
+| **A15-chat / M15** | `backend/app/chat.py` | **STRONGEST** — tool traces, citations and attachment behavior are tightly coupled | A02 history boundary/A01 storage settings for the early R17 persistence slice; A14 and server-only `.secrets` key configuration for the full OpenAI Responses tool loop using **gpt-6-luna only**, last-10-turn history, result ledger, marker validation, attachment selection/warnings and usage observations. This coding agent itself uses its STRONGEST Sol binding. | Scripted Responses calls exercise real tools and assert Luna-only requests/no model fallback; fabricated/unseen citations fail; a part remains accessible on abstention; recorded usage/errors are genuine. |
 | **A16-review / M16** | `backend/app/review.py` | **STRONGEST** — human authority, durable state and rebuilds must stay consistent | A02/A07/A12/A13; implement pending items, evidence/string-match checks, actions and refresh/rebuild calls. M2 adds confirmations, rejection, whole-design approval and weight-note constraints. | Chat can propose only; acceptance changes effective values while preserving originals; pending/rejection does not; no approval silently supplies missing information. |
 | **A17-evidence-ui / M17** | `frontend/src/chat/Evidence.tsx` | **STRONGER** — shared source/uncertainty interactions need consistency | A02/A04 navigation contracts and declared payloads; implement readable source tags/hover cards and three honest customer review labels; put detailed provenance, corrections, uncertainty explanations and verification warnings in Debug. M3 adds crops. | Widgets expose real source text/targets; raw markers are hidden; uncertainty differs from provenance; review links exist only for actual items. |
 | **A18-chat-ui / M18** | `frontend/src/chat/Chat.tsx` | **STRONGER** — complete chat/card/panel interaction | A02/A04/A17 plus frozen A19 part-view props; implement messages, composer/errors, cards/list and shared-panel opening. May implement alongside A19 against frozen props. | Supported answers and abstentions expose the relevant drawing/3D; chat remains visible; missing-key and error states are usable. |
@@ -157,7 +157,7 @@ ROOT can start a ready independent assignment as a slot frees rather than wait f
 
 **Ready:** B01 producers and M02 contracts are available.
 
-A02's history/observability follow-up can start from accepted M02 while A08 settles. A03/A04 consume its accepted history boundary; A09/A10 still wait for the accepted runner. The independent A24 early draft can use the already accepted setup evidence.
+A02's history/observability follow-up can start from accepted M02 while A08 settles. A03/A04 consume its accepted history boundary; A09/A10 still wait for the accepted runner. The independent A24 early draft can use the already accepted setup evidence. After M02 history acceptance, A15 may implement its independent JSON history slice while corpus preparation proceeds; the full grounded send loop and its gate remain B06/V2.
 
 | Launch | Tier | Bounded assignment |
 | --- | --- | --- |
@@ -166,6 +166,7 @@ A02's history/observability follow-up can start from accepted M02 while A08 sett
 | A04-shell | STRONGER | M0 sidebar, page shells and navigation contracts. |
 | A09-vision | STRONGEST | M1 scan/template jobs using A05/A08 interfaces. |
 | A10-matching | STRONGEST | M1 exact/AI link and post-link mapping job definitions using A05/A06/A08. |
+| A15-chat | STRONGEST | Optional early R17 local JSON history/list/create/read/context slice after accepted history contracts; full grounded send loop remains B06, and unavailable capability is explicit. |
 | A24-submission | STRONGER | Optional early setup/architecture draft from accepted M01 evidence while producer contracts settle; no claims of unfinished chat, prep, UI or gates. |
 
 **Completion:** ROOT runs the basic M0 launch smoke check immediately. It is not a sixth formal checkpoint. A09/A10 job interfaces can be orchestrated and both shells compile against fixtures.
@@ -219,7 +220,7 @@ Launch **T01-knowledge (STRONGEST)** under the verification protocol below. Pass
 
 | Launch | Tier | Bounded assignment |
 | --- | --- | --- |
-| A15-chat | STRONGEST | Full M1 grounded chat response/marker/attachment loop. |
+| A15-chat | STRONGEST | Complete the M1 grounded chat response/marker/attachment loop using the retained R17 persistence slice. |
 | A16-review | STRONGEST | M1 review items, actions and durable fact/model refresh. |
 | A22-review-ui | STRONGER | M1 pending Review inside optional Debug using the shared part view and frozen payloads. |
 | A03-server | STRONGER | Wire M1 chat/review/model endpoints and inject M16's proposal callback into the tools boundary. |

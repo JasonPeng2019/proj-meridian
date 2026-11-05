@@ -246,6 +246,18 @@ class ReaderSettings(ContractModel):
     settings: dict[str, JsonValue] = Field(default_factory=dict)
 
 
+class ObservedReaderSettings(ContractModel):
+    # Only metadata actually reported by the CLI. Never fill unknowns from the
+    # request: null means unreported, including per-setting null dictionary values.
+    # Full observations use these same fields; missing metadata is not a failure.
+    provider: Literal["codex_cli", "claude_code"] | None = None
+    model: NonEmpty | None = None
+    reasoning: NonEmpty | None = None
+    service_tier: NonEmpty | None = None
+    read_only: bool | None = None
+    settings: dict[str, JsonValue] = Field(default_factory=dict)
+
+
 class FailureClass(StrEnum):
     OAUTH = "oauth"
     USAGE_LIMIT = "usage_limit"
@@ -383,7 +395,9 @@ class PrepCacheIdentity(ContractModel):
     feedback_sha256: SHA256 | None  # Previous Opus verification for correction only.
     prompt_sha256: SHA256
     output_contract_sha256: SHA256
-    settings: ReaderSettings  # Actual effective settings, requested if execution never started.
+    settings: ReaderSettings  # Pinned REQUESTED settings, never promoted to observations.
+    settings_basis: Literal["requested", "confirmed"]  # Requested includes unconfirmed/partial observations.
+    effective_sha256: SHA256 | None  # contract_digest(normalized ObservedReaderSettings), or null for effective=null.
     mode: Literal["determine_verify", "single_model_unverified"]
     # Cache key is contract_digest(this object). Reusing Sol never skips a new
     # Opus launch after unverified fallback; a verifier failure is not reusable success.
@@ -400,9 +414,44 @@ def _stage_settings(settings: ReaderSettings, role: str) -> None:
         raise ValueError("Opus verification cannot enable fast mode or substitute another model")
 
 
+def prep_settings_basis(requested: ReaderSettings, effective: ObservedReaderSettings | None,
+                        role: Literal["determination", "verification"]) -> Literal["requested", "confirmed"]:
+    """Validate pinned requests and actual observations; return the cache basis.
+
+    'confirmed' requires every core field, requested setting, and Opus fast/fallback
+    policy setting to be reported. Accepted tier aliases are Opus standard/regular and Codex
+    fast/priority; absent effort/sandbox/fallback stays null, never copied.
+    """
+    _stage_settings(requested, role)
+    if effective is None:
+        return "requested"
+    tiers = {"fast", "priority"} if role == "determination" else {"regular", "standard"}
+    for name in ("provider", "model", "reasoning", "read_only"):
+        actual = getattr(effective, name)
+        if actual is not None and actual != getattr(requested, name):
+            raise ValueError(f"Reported prep {name} conflicts with the pinned request")
+    if effective.service_tier is not None and effective.service_tier not in tiers:
+        raise ValueError("Reported prep service tier conflicts with the pinned role")
+    if role == "verification":
+        fast_mode = effective.settings.get("fastMode")
+        if ((fast_mode is not None and fast_mode is not False)
+                or effective.settings.get("fallbackModel") not in (None, [])):
+            raise ValueError("Reported Opus fast mode/model substitution conflicts with policy")
+    if effective.settings.get("sandbox") not in (None, "read-only"):
+        raise ValueError("Reported prep sandbox conflicts with the read-only request")
+    for name, actual in effective.settings.items():
+        if actual is not None and name in requested.settings and contract_digest(actual) != contract_digest(requested.settings[name]):
+            raise ValueError(f"Reported prep setting {name} conflicts with the pinned request")
+    complete = all(getattr(effective, name) is not None for name in (
+        "provider", "model", "reasoning", "service_tier", "read_only"))
+    setting_names = set(requested.settings) | ({"fastMode", "fallbackModel"} if role == "verification" else set())
+    complete = complete and all(effective.settings.get(name) is not None for name in setting_names)
+    return "confirmed" if complete else "requested"
+
+
 class PrepAttempt(ContractModel):
     requested: ReaderSettings
-    effective: ReaderSettings | None  # Null means the CLI never confirmed an identity.
+    effective: ObservedReaderSettings | None  # Null/partial is legitimate on success; no requested-value substitution.
     status: Literal["success", "execution_failed", "invalid_output"]
     failure: ReaderFailure | None = None
     prior_failures: list[ReaderFailure] = Field(default_factory=list)
@@ -411,17 +460,17 @@ class PrepAttempt(ContractModel):
     cache: PrepCacheIdentity
 
     def check_attempt(self, role: str, output: BaseModel | None) -> None:
-        _stage_settings(self.requested, role)
+        basis = prep_settings_basis(self.requested, self.effective, role)
         if any(not failure.execution_failure for failure in self.prior_failures):
             raise ValueError("Prior failures record execution troubleshooting only; invalid output is terminal, never repaired/retried")
-        if self.effective:
-            _stage_settings(self.effective, role)
-        if self.cache.role != role or self.cache.settings != (self.effective or self.requested):
-            raise ValueError("Cache identity must retain the actual stage and settings")
+        effective_hash = contract_digest(self.effective) if self.effective is not None else None
+        if (self.cache.role != role or self.cache.settings != self.requested
+                or self.cache.settings_basis != basis or self.cache.effective_sha256 != effective_hash):
+            raise ValueError("Cache must bind the requested pins, observed metadata and truthful settings basis")
         if self.finished_at < self.started_at:
             raise ValueError("Stage cannot finish before starting")
-        if self.status == "success" and (output is None or self.effective is None or self.failure):
-            raise ValueError("Successful stage needs actual identity/output and no current failure")
+        if self.status == "success" and (output is None or self.failure):
+            raise ValueError("Successful stage needs validated output and no current failure; metadata may be unreported")
         if self.status == "execution_failed":
             if output is not None or not self.failure or not self.failure.execution_failure:
                 raise ValueError("Failed execution needs classified failure and no invented output")

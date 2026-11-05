@@ -101,10 +101,21 @@ def provenance(single: bool = False, case: str = "first") -> dict:
                 "finished_at": f"2000-01-01T00:00:0{index * 4 + 3}+00:00",
                 "cache": {**cache, "role": "verification", "settings": settings[1], "prompt_sha256": digest("verification-prompt"),
                           "candidate_sha256": candidate["candidate_sha256"], "feedback_sha256": None}}
+        if case == "observability":
+            sol["effective"] = None  # Synthetic unreported metadata, not a failed stage.
+            opus["effective"] = {"provider": None, "model": "claude-opus-5-5", "reasoning": None,
+                                 "service_tier": "standard", "read_only": None,
+                                 "settings": {"fastMode": False, "fallbackModel": None, "image_input": None}}
+        for attempt in (sol, opus):
+            observed = c.ObservedReaderSettings.model_validate(attempt["effective"]) if attempt["effective"] is not None else None
+            attempt["cache"].update(
+                settings_basis=c.prep_settings_basis(c.ReaderSettings.model_validate(attempt["requested"]), observed, attempt["role"]),
+                effective_sha256=c.contract_digest(observed) if observed is not None else None,
+            )
         rounds.append({"round": index + 1, "determination": sol, "verification": opus})
         previous_candidate, previous_feedback = candidate["candidate_sha256"], output["verification_sha256"]
     outcome = "unverified_fallback" if case == "fallback" else "retry_verified" if case == "retry" else (
-        "first_pass_verified" if case == "first" else "unresolved")
+        "first_pass_verified" if case in {"first", "observability"} else "unresolved")
     return c.PrepProvenance.model_validate({"job": "synthetic-prep", "job_id": "synthetic-" + case,
             "mode": mode, "outcome": outcome, "rounds": rounds, "source": source, "field_names": [name],
             "determination_prompt_sha256": digest("determination-prompt"), "verification_prompt_sha256": digest("verification-prompt"),
@@ -457,6 +468,8 @@ def main() -> None:
                     ("first", "retry", "persistent", "unsure", "invalid", "unsupported", "retry_failure")]
     prep_records.append(c.PrepProvenance.model_validate(provenance(True)))
     save("prep-cases.json", c.PrepBatchResult, {"records": prep_records, "counts": c.prep_counts(prep_records)})
+    observed = [c.PrepProvenance.model_validate(provenance(case="observability"))]
+    save("prep-observability.json", c.PrepBatchResult, {"records": observed, "counts": c.prep_counts(observed)})
     summary_fixtures([record, disc, bom_only])
     history_fixtures(chat, disc)
     for state in ("configured", "missing_key"):

@@ -19,6 +19,7 @@ def main() -> None:
     parser.add_argument("--base-revision")
     parser.add_argument("--report", default=REPORT.relative_to(ROOT).as_posix())
     parser.add_argument("--history", action="store_true", help="Preserve every existing non-chat class/function")
+    parser.add_argument("--observability", action="store_true", help="Preserve every existing class/helper except PrepAttempt/PrepCacheIdentity")
     args = parser.parse_args()
     report_path = (ROOT / args.report).resolve()
     if not report_path.is_relative_to(ROOT / "testing/reports"):
@@ -46,21 +47,27 @@ def main() -> None:
         unchanged = ["DrawingField", "DrawingNumber", "DrawingWord", "DrawingEvidence", "BOMField", "ConnectionEvidence", "BOMRow",
                      "Decision", "DecisionJournal", "ReviewActionRequest", "ReviewActionResponse", "RefreshRequest", "RefreshResult",
                      "PartRecord", "PartSummary", "FactResult", "SourceTarget", "FactSource"]
-        if args.history:
-            unchanged = sorted(set(before) - {"ChatRequest", "ChatResponse"})
+        if args.history or args.observability:
+            allowed = {"PrepAttempt", "PrepCacheIdentity"} if args.observability else {"ChatRequest", "ChatResponse"}
+            unchanged = sorted(set(before) - allowed)
         for name in unchanged:
             if before[name] != after[name]:
                 raise ValueError("Unexpected ordinary contract declaration change: " + name)
-        if args.history:
+        if args.history or args.observability:
             functions_before = {item.name: ast.dump(item) for item in ast.parse(baseline).body if isinstance(item, ast.FunctionDef)}
             functions_after = {item.name: ast.dump(item) for item in ast.parse(paths[0].read_text(encoding="utf-8")).body if isinstance(item, ast.FunctionDef)}
             if any(functions_after.get(name) != value for name, value in functions_before.items()):
                 raise ValueError("Unexpected existing contract helper change")
+        if args.observability:
+            baseline_ts = subprocess.run(["git", "show", args.base_revision + ":development/frontend/src/contracts.ts"],
+                                         cwd=ROOT, capture_output=True, text=True, encoding="utf-8", check=True).stdout
+            if baseline_ts.split("// END GENERATED PAYLOAD TYPES\n")[1] != handwritten:
+                raise ValueError("History/UI/Debug/service handwritten TypeScript changed")
     record = {
         "schema": "A02-static-inspection/v1",
         "command": "python -B testing/smoke/A02-contracts/inspect_static.py" + (
             " --base-revision " + args.base_revision if args.base_revision else "") + (
-            " --history" if args.history else "") + " --report " + args.report,
+            " --history" if args.history else "") + (" --observability" if args.observability else "") + " --report " + args.report,
         "completed_at": datetime.now(timezone.utc).isoformat(),
         "outcome": "PASS",
         "scope": "Python AST and JSON parsing/inventory/fixture declarations only; no runtime policy/schema/TS checks",

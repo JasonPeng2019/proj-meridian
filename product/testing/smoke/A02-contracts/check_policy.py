@@ -34,6 +34,72 @@ def mutation(record: c.PrepProvenance, change, label: str) -> None:
     rejected(lambda: c.PrepProvenance.model_validate(data), label)
 
 
+def check_observability(fixtures: dict) -> None:
+    batch = fixtures["prep-observability.json"]
+    record = batch.records[0]
+    sol, opus = record.rounds[0].determination, record.rounds[0].verification
+    assert sol.status == opus.status == "success"
+    assert sol.effective is None and sol.failure is None and opus.failure is None
+    assert opus.effective.model == "claude-opus-5-5"
+    assert opus.effective.reasoning is None and opus.effective.read_only is None
+    assert opus.effective.settings["fallbackModel"] is None
+    assert sol.cache.settings_basis == opus.cache.settings_basis == "requested"
+    assert sol.cache.effective_sha256 is None
+    assert opus.cache.effective_sha256 == c.contract_digest(opus.effective)
+    assert sol.cache.settings == sol.requested and opus.cache.settings == opus.requested
+    assert record.mode == "determine_verify" and record.outcome == "first_pass_verified"
+    assert all(field.status == "first_pass_verified" for field in record.field_results.values())
+    assert batch.counts.first_pass_verified == 1
+    assert batch.counts.execution_failed_attempts == batch.counts.unverified_fallback == 0
+    assert c.PrepBatchResult.model_validate_json(batch.model_dump_json()) == batch
+    confirmed = fixtures["prep-cases.json"].records[0].rounds[0]
+    for attempt in (confirmed.determination, confirmed.verification):
+        assert attempt.cache.settings_basis == "confirmed"
+        assert attempt.cache.effective_sha256 == c.contract_digest(attempt.effective)
+
+    def change_observation(data, stage, field, value):
+        attempt = data["rounds"][0][stage]
+        if attempt["effective"] is None:
+            attempt["effective"] = c.ObservedReaderSettings().model_dump(mode="json")
+        attempt["effective"][field] = value
+        # Bind the changed observation so rejection cannot be explained by a stale hash.
+        attempt["cache"]["effective_sha256"] = c.contract_digest(attempt["effective"])
+
+    cases = [
+        ("determination", "provider", "claude_code"), ("determination", "model", "other-model"),
+        ("determination", "reasoning", "high"), ("determination", "service_tier", "regular"),
+        ("determination", "read_only", False), ("determination", "settings", {"sandbox": "workspace-write"}),
+        ("determination", "settings", {"image_input": False}),
+        ("verification", "provider", "codex_cli"), ("verification", "model", "gpt-6.1-sol"),
+        ("verification", "reasoning", "max"), ("verification", "service_tier", "fast"),
+        ("verification", "read_only", False), ("verification", "settings", {"fastMode": True}),
+        ("verification", "settings", {"fallbackModel": ["other-model"]}),
+    ]
+    for stage, field, value in cases:
+        mutation(record, lambda data: change_observation(data, stage, field, value), "reported conflict: " + stage + "/" + field)
+    mutation(record, lambda data: data["rounds"][0]["determination"]["cache"].update(settings_basis="confirmed"), "unknown identity promoted to confirmed")
+    mutation(record, lambda data: data["rounds"][0]["verification"]["cache"].update(effective_sha256="0" * 64), "unbound partial observations")
+    mutation(record, lambda data: data["rounds"][0]["determination"]["requested"].update(model="other-model"), "wrong requested model despite unknown effective")
+    mutation(record, lambda data: data["rounds"][0]["determination"]["cache"]["settings"].update(reasoning="high"), "unbound requested pins")
+    mutation(record, lambda data: data["rounds"][0]["verification"].update(output=None), "unknown metadata cannot excuse missing output")
+    mutation(record, lambda data: data.update(mode="single_model_unverified"), "unknown metadata is not fallback")
+    mutation(record, lambda data: data["rounds"][0]["verification"].update(candidate_sha256="0" * 64), "unknown metadata cannot excuse candidate mismatch")
+    mutation(record, lambda data: data["source"]["inputs"].update({"synthetic-drawing": "0" * 64}), "unknown metadata cannot excuse source mismatch")
+    # All-unknown observations and no observations remain distinguishable cache identities.
+    partial = c.ObservedReaderSettings()
+    assert partial.model_dump(mode="json") == {"provider": None, "model": None, "reasoning": None,
+        "service_tier": None, "read_only": None, "settings": {}}
+    changed = dump(sol.cache)
+    changed["effective_sha256"] = c.contract_digest(partial)
+    assert c.contract_digest(changed) != c.contract_digest(sol.cache)
+    assert c.prep_settings_basis(opus.requested, c.ObservedReaderSettings(model="claude-opus-5-5", reasoning="xhigh"), "verification") == "requested"
+    requested_defaults = opus.requested.model_copy(update={"settings": {}})
+    no_fallback_observation = c.ObservedReaderSettings(provider="claude_code", model="claude-opus-5-5", reasoning="xhigh",
+        service_tier="regular", read_only=True, settings={"fastMode": False, "fallbackModel": None})
+    assert c.prep_settings_basis(requested_defaults, no_fallback_observation, "verification") == "requested"
+    print("PASS synthetic observability: source-bound success with null/partial metadata, pinned requests, explicit bound cache basis and reported-conflict rejection; no CLI identity verified")
+
+
 def check_prep(fixtures: dict) -> None:
     batch = fixtures["prep-cases.json"]
     records = {record.job_id.removeprefix("synthetic-"): record for record in batch.records}

@@ -1,0 +1,285 @@
+{
+  "summary": {
+    "run": "20261105T104806207369Z",
+    "complete": true,
+    "assessed_additional_drawings": 27,
+    "new_candidates": [
+      "D-012",
+      "D-014",
+      "D-015",
+      "D-017",
+      "D-019",
+      "D-027"
+    ],
+    "blocked": [
+      "D-001",
+      "D-002",
+      "D-003",
+      "D-004",
+      "D-005",
+      "D-006",
+      "D-007",
+      "D-008",
+      "D-009",
+      "D-010",
+      "D-011",
+      "D-016",
+      "D-018",
+      "D-020",
+      "D-021",
+      "D-022",
+      "D-023",
+      "D-024",
+      "D-028",
+      "D-029",
+      "D-030"
+    ],
+    "total_candidate_parts": 9,
+    "total_candidate_variants": 12,
+    "final_receipt_count": 58,
+    "all_historical_expansion_receipt_count": 62,
+    "fresh_assessment_metrics": {
+      "reader_calls": 36,
+      "provider_calls": 36,
+      "cache_hits": 0,
+      "proposer_calls": 18,
+      "verifier_calls": 18,
+      "feedback_rounds": 2,
+      "feedback_keys": 2,
+      "latency_ms_total": 2710078
+    },
+    "final_source_receipt_metrics_including_reused": {
+      "reader_calls": 58,
+      "provider_calls": 58,
+      "cache_hits": 0,
+      "proposer_calls": 29,
+      "verifier_calls": 29,
+      "feedback_rounds": 2,
+      "feedback_keys": 2,
+      "latency_ms_total": 3785983
+    },
+    "wall_time_ms": 2748531,
+    "protected_originals_and_decisions_unchanged": true,
+    "other_prep_sections_unchanged": true,
+    "metrics_append_only": true,
+    "raw_drawings_and_provider_images_unchanged": true,
+    "paths": {
+      "assessments": "generated/model_assessments.json",
+      "artifact_assessments": "generated/ai_cache/artifacts/model_assessments.json",
+      "journal": "generated/ai_cache/model_expansion/20261105T104806207369Z.json",
+      "baseline": "generated/ai_cache/model_expansion/execution-baseline-20261105T104805042095Z.json",
+      "receipt_index": "generated/ai_cache/model_expansion/receipt-index-20261105T104806207369Z.json",
+      "receipt_cache_keys": "generated/ai_cache/model_expansion/receipt-cache-keys-20261105T104806207369Z.json",
+      "model_candidates": "generated/ai_cache/model_expansion/model-candidates-20261105T104806207369Z.json"
+    }
+  },
+  "candidates": [
+    {
+      "drawing": "D-012",
+      "new": true,
+      "outline": "rectangle",
+      "variant_count": 1,
+      "variants": [
+        {
+          "example": "A",
+          "thickness_mm": 15.0,
+          "selections": {}
+        }
+      ],
+      "features_status": "partial",
+      "omitted_feature_notes": [
+        "Two transverse holes: 2 x 5,0 THRU ALL, M6 - 6H THRU ALL.: The narrow orthographic view and corresponding hidden lines in the main view establish a second hole pair entering a side face, perpendicular to the main-face hole axes. The printed 30,0 offset concerns this pair. Their transverse cutting direction cannot be represented by the template's top/bottom holes; rotating them into Z would change the design.",
+        "DEBURR AND BREAK SHARP EDGES: The note requires edge finishing but supplies no edge-break size or profile, so no numerical finishing cut can be modeled."
+      ],
+      "ai_template_sha256": "c0d1b2415c3b3f78477d3bf7565c24d9bca26116202fe3c920d15a0c6c1afaa4",
+      "source_sha256": "23ba5d97ee7a744cf12072e1338ab62fa5e49c09c5229af4f20a6ff5a455f64a"
+    },
+    {
+      "drawing": "D-013",
+      "new": false,
+      "outline": "rectangle",
+      "variant_count": 2,
+      "variants": [
+        {
+          "example": "A",
+          "thickness_mm": 3.0,
+          "selections": {
+            "thickness": 3.0
+          }
+        },
+        {
+          "example": "B",
+          "thickness_mm": 6.0,
+          "selections": {
+            "thickness": 6.0
+          }
+        }
+      ],
+      "features_status": "partial",
+      "omitted_feature_notes": [
+        "Four visible outline corner chamfers: The main view shows clipped corners, but no numerical chamfer setbacks or angles establish their geometry. They are outside the supported hole/slot subset; the rectangular outline retains the overall envelope.",
+        "DEBURR AND BREAK SHARP EDGES: The note supplies no numerical edge-break size or profile from which to construct a cut."
+      ],
+      "ai_template_sha256": "fcf08f19013005b666302eae4e5ea0150c8b4d2fb79ec485f9612fb881d0aa4a",
+      "source_sha256": "826076b03bfbaeee961dc3e57cb642c225d41f1ea9a643d0bb1ca7d296280047"
+    },
+    {
+      "drawing": "D-014",
+      "new": true,
+      "outline": "rectangle",
+      "variant_count": 1,
+      "variants": [
+        {
+          "example": "A",
+          "thickness_mm": 8.0,
+          "selections": {}
+        }
+      ],
+      "features_status": "partial",
+      "omitted_feature_notes": [
+        "DEBURR AND BREAK SHARP EDGES: The general note specifies edge finishing without a break size or profile. That unspecified edge-break geometry is omitted from the nominal rectangular body and supported hole cuts."
+      ],
+      "ai_template_sha256": "ac11a00107f107016a01a572ddac50b4b3cdcb18dc02c8ec3253fcaf9223c8c8",
+      "source_sha256": "0e6fa42e39eda320d42f45576a0825c5d0c002abd6863188b3c98774d52867f6"
+    },
+    {
+      "drawing": "D-015",
+      "new": true,
+      "outline": "rectangle",
+      "variant_count": 1,
+      "variants": [
+        {
+          "example": "A",
+          "thickness_mm": 1.0,
+          "selections": {}
+        }
+      ],
+      "features_status": "partial",
+      "omitted_feature_notes": [
+        "8 x 3,4 THRU ALL holes: The count, diameter and through operation are established, but the drawing provides no hole-center coordinates, row pitch, end offsets or transverse offset. The visible row cannot establish numeric positions.",
+        "DEBURR AND BREAK SHARP EDGES: The general edge-finish note supplies no edge-break size or profile, so this detail cannot be modeled."
+      ],
+      "ai_template_sha256": "26a762ddbfb894577a7afd36e1aca29c4b24cd70c040e121629eb22e4ca54fb2",
+      "source_sha256": "0828f6fee0d3bc087524df08c8b3fbadc5201212e5f86fcfc08b984fe9e32c60"
+    },
+    {
+      "drawing": "D-017",
+      "new": true,
+      "outline": "rectangle",
+      "variant_count": 1,
+      "variants": [
+        {
+          "example": "A",
+          "thickness_mm": 10.0,
+          "selections": {}
+        }
+      ],
+      "features_status": "partial",
+      "omitted_feature_notes": [
+        "Four countersunk holes: 4x Ø5,5 THRU, Ø10,8 X 90°: The count, primary diameter, through operation and countersink dimensions are printed, but no locating dimensions or dimensioned pattern establish the four centers. Their apparent layout cannot supply missing coordinates.",
+        "Eight M5 threaded holes: The image contains the 8x M5 callout, but the hole centers lack locating dimensions. A separate drill diameter and thread depth or explicit through-thread specification are also absent; none is inferred from M5.",
+        "Two Ø6,0 H7 holes: Both holes are identified as Ø6,0 H7 and lie on the bore-center horizontal line, but their horizontal center coordinates are not dimensioned. No printed pitch or offset establishes their placement.",
+        "Four small outer-corner chamfers, 4x1,0 X 45°: The leader identifies small corner edge breaks. The rectangle/hole/slot template cannot reproduce these chamfers; they are explicitly omitted from the otherwise dimensioned rectangular body.",
+        "Additional bore-edge and general sharp-edge treatment: The close concentric outlines at the Ø42,00 opening and the DEBURR AND BREAK SHARP EDGES note do not independently establish an additional step diameter, depth or angle. Only the supported primary bore is modeled; unspecified edge treatment is omitted."
+      ],
+      "ai_template_sha256": "c5704407be2e43d0172f3d21e941120abf72247b1fabc2c5499a78435d830fc1",
+      "source_sha256": "a460ab37d94f2d8f4c9bac58da15ea9d1e93b4f48ee0825e51adac0ec81f37ae"
+    },
+    {
+      "drawing": "D-019",
+      "new": true,
+      "outline": "ring",
+      "variant_count": 1,
+      "variants": [
+        {
+          "example": "A",
+          "thickness_mm": 1.0,
+          "selections": {}
+        }
+      ],
+      "features_status": "partial",
+      "omitted_feature_notes": [
+        "6 x Ø4,5 THRU ALL holes: The printed count, diameter and through operation are established. The circular layout is visible, but no pitch-circle diameter, hole-center radius or equivalent locating dimensions are printed. The outer and inner diameters do not establish the hole-center radius, so these holes cannot be positioned without guessing.",
+        "DEBURR AND BREAK SHARP EDGES: The finishing note specifies no edge-break size or profile, so no explicit chamfer or rounding cut can be modeled."
+      ],
+      "ai_template_sha256": "184fbca74297e2b9cd13213d10c44886976b77afe7fc3583efa4c2fe9f81147c",
+      "source_sha256": "581fbaf7562ac75008243463af6956d6f88cd6a0a858cf6c22aa62ce39041e11"
+    },
+    {
+      "drawing": "D-025",
+      "new": false,
+      "outline": "ring",
+      "variant_count": 2,
+      "variants": [
+        {
+          "example": "A",
+          "thickness_mm": 2.0,
+          "selections": {
+            "thickness": 2.0
+          }
+        },
+        {
+          "example": "B",
+          "thickness_mm": 3.0,
+          "selections": {
+            "thickness": 3.0
+          }
+        }
+      ],
+      "features_status": "partial",
+      "omitted_feature_notes": [
+        "DEBURR AND BREAK SHARP EDGES: The general finishing note does not specify an edge-break size or profile, so a corresponding chamfer or rounding cut cannot be determined."
+      ],
+      "ai_template_sha256": "1e9c790b96c54673d6c35aea24f8195ed2832b6e946a1e1501a3246b718f177e",
+      "source_sha256": "9b61f2c688fba1b10f502658505c78c0ff99820d3f281822eacdc7283e9b7e9c"
+    },
+    {
+      "drawing": "D-026",
+      "new": false,
+      "outline": "circle",
+      "variant_count": 2,
+      "variants": [
+        {
+          "example": "A",
+          "thickness_mm": 15.0,
+          "selections": {
+            "thickness": 15
+          }
+        },
+        {
+          "example": "B",
+          "thickness_mm": 25.0,
+          "selections": {
+            "thickness": 25
+          }
+        }
+      ],
+      "features_status": "partial",
+      "omitted_feature_notes": [
+        "Ø10,0 counterbore step, depth 15,4, for the 15,0 thickness alternative: The specified depth 15,4 exceeds the 15,0 plate thickness. Skip this step only for that variant and retain the supported Ø5,3 through-hole pattern; do not clamp the depth. The counterbore remains supported for the 25,0 variant.",
+        "DEBURR AND BREAK SHARP EDGES: The general note specifies edge finishing without a numerical size or a defined chamfer or radius profile, so no dimensioned edge-removal geometry can be modeled."
+      ],
+      "ai_template_sha256": "5639d677e28a4fcaa772864b9118ecd8a340f96ecc4069a9d1bafae48ec4f2db",
+      "source_sha256": "a7ee7f4d75acaf2e8fc67ce14ca223d5cb4a2931063f37f4dfb6fadeeb70256e"
+    },
+    {
+      "drawing": "D-027",
+      "new": true,
+      "outline": "ring",
+      "variant_count": 1,
+      "variants": [
+        {
+          "example": "A",
+          "thickness_mm": 15.0,
+          "selections": {}
+        }
+      ],
+      "features_status": "partial",
+      "omitted_feature_notes": [
+        "Undimensioned edge breaks specified by DEBURR AND BREAK SHARP EDGES.: The note supplies no edge-break size or profile. Retain the nominal ring and supported holes without inventing chamfer geometry."
+      ],
+      "ai_template_sha256": "6471500f0f725fc7d8850d93781181e8abe02b3613296d01d244dc6b32046808",
+      "source_sha256": "9a270f0ddf24b173b85b6879b4fbd1ba9cf67d71cff7b13f722699699a667bcc"
+    }
+  ]
+}

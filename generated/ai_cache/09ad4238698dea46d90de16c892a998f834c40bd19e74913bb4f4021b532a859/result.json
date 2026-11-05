@@ -1,0 +1,160 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "df9b50697f3ddbc19854c2850b8c4998fdf326cb027a8937819d253e434a37f4",
+    "items": [
+      {
+        "key": "outline_type",
+        "decision": "needs_input",
+        "reason": "The image shows a formed sheet-metal wall. The side and bottom views show bent flanges, and 23,00 is the flange depth. The isometric view confirms this. The main view is only a projected 775,00 x 578,90 rectangle. No developed flat outline or bend data is dimensioned, so the exact flat outline can't be determined. The proposal is right to mark it unknown, but this essential geometry is still unresolved.",
+        "fact_ids": [
+          "D-002",
+          "D-002/drawing/n/775.0@1-1",
+          "D-002/drawing/n/578.9@1-1",
+          "D-002/drawing/n/23.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "length",
+        "decision": "accept",
+        "reason": "In the main view, 775,00 is dimensioned with leaders across the full horizontal (X) extent of the wall, in millimetres according to the units note. The proposal also correctly says this is not a developed blank dimension.",
+        "fact_ids": [
+          "D-002/drawing/n/775.0@1-1",
+          "D-002/drawing/general/units"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "width",
+        "decision": "accept",
+        "reason": "In the main view, 578,90 is dimensioned vertically across the full Y extent of the wall, in millimetres according to the units note.",
+        "fact_ids": [
+          "D-002/drawing/n/578.9@1-1",
+          "D-002/drawing/general/units"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "outer_diameter",
+        "decision": "accept",
+        "reason": "The part is a noncircular wall with no circular outer contour, so an outer diameter doesn't apply. Leaving it unknown/null follows the task rule for dimensions that don't apply.",
+        "fact_ids": [
+          "D-002"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "inner_diameter",
+        "decision": "accept",
+        "reason": "The part is not a ring. Its only interior openings are holes and a rectangular slot, so an inner diameter doesn't apply. Leaving it unknown/null is correct.",
+        "fact_ids": [
+          "D-002"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "thickness",
+        "decision": "needs_input",
+        "reason": "The only thickness evidence is the NOTES text '2mm non-magnetic stainless'. No dimension leader in any view points to a thickness value, and there is no parsed drawing-number ID for 2 mm. Under the citation rule, a numeric thickness can't be filled from the existing evidence. Thickness is essential geometry, so it remains unresolved.",
+        "fact_ids": [
+          "D-002/drawing/notes"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features",
+        "decision": "needs_input",
+        "reason": "The image confirms these cuts: 7 x Ø5,80, 6 x Ø9,00, two flange groups of 7 x Ø7,00 each, 9 x Ø7,00 on the bottom flange, and a 286,00 x 36,00 opening. None of the hole centres or spacings are dimensioned, and the opening's position isn't dimensioned either. Also, the 36,00 dimension measures from the upper hole row to the bottom of the opening, so it isn't clearly the slot height. The flange holes are on non-top faces. Because the cuts can't be fully determined, the empty unknown array is honest, but the features value can't be completed from the existing evidence.",
+        "fact_ids": [
+          "D-002/drawing/callout/p1-1",
+          "D-002/drawing/callout/p1-2",
+          "D-002/drawing/callout/p1-3",
+          "D-002/drawing/callout/p1-4",
+          "D-002/drawing/callout/p1-5",
+          "D-002/drawing/n/286.0@1-1",
+          "D-002/drawing/n/36.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "cad_eligibility",
+        "decision": "accept",
+        "reason": "supported=false is supported by the evidence. The side views, the bottom view and the isometric view show bent flanges (23,00 depth), and the note specifies M5 weld nuts on the inside of the flanges. One planar rectangle extrusion can't represent this part exactly, and outline_exact=false is correct. constant_thickness=true reflects the single sheet gauge stated in the note. The proposal also states that this note has no parsed number ID. The listed uncertainties and omitted features match the drawing: hole positions are undimensioned and the opening position is undimensioned.",
+        "fact_ids": [
+          "D-002",
+          "D-002/drawing/notes",
+          "D-002/drawing/n/775.0@1-1",
+          "D-002/drawing/n/578.9@1-1",
+          "D-002/drawing/n/23.0@1-1",
+          "D-002/drawing/n/286.0@1-1",
+          "D-002/drawing/n/36.0@1-1",
+          "D-002/drawing/callout/p1-1",
+          "D-002/drawing/callout/p1-2",
+          "D-002/drawing/callout/p1-3",
+          "D-002/drawing/callout/p1-4",
+          "D-002/drawing/callout/p1-5"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 12716,
+      "cache_read_input_tokens": 14311,
+      "output_tokens": 2259,
+      "output_tokens_details": {
+        "thinking_tokens": 385
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 12716,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 2259,
+        "cacheReadInputTokens": 14311,
+        "cacheCreationInputTokens": 12716,
+        "webSearchRequests": 0,
+        "costUSD": 0.1497862,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 385,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 12716,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.1497862,
+    "duration_ms": 20320,
+    "is_error": false
+  },
+  "latency_ms": 21469,
+  "cache_key": "09ad4238698dea46d90de16c892a998f834c40bd19e74913bb4f4021b532a859",
+  "cache_hit": false,
+  "job": "expansion:D-002:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+  "error": null
+}

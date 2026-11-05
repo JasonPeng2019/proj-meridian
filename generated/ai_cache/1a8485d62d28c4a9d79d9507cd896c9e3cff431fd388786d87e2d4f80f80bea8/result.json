@@ -1,0 +1,173 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "5947b745c51150181875c17b098343b130c5800128fd7ed12963ad46e096ceb1",
+    "items": [
+      {
+        "key": "outline_type",
+        "decision": "needs_input",
+        "reason": "The main face-on view in D-029 shows a three-lobed profile with curved concave flanks and rounded lobe ends. It is not a rectangle, circle or ring, so no supported outline type can be determined. The proposed unknown is correct.",
+        "fact_ids": [
+          "D-029"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "length",
+        "decision": "needs_input",
+        "reason": "D-029 has no printed overall X dimension. The parsed numbers include only hole diameters, a counterbore depth, a section step of 3,00 and the thickness of 15,00. The length cannot be determined without pixel measurement, which is not allowed.",
+        "fact_ids": [
+          "D-029"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "width",
+        "decision": "needs_input",
+        "reason": "D-029 has no printed overall Y dimension, and no parsed number is linked to an overall Y extent.",
+        "fact_ids": [
+          "D-029"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "outer_diameter",
+        "decision": "needs_input",
+        "reason": "The outline is not circular. The Ø32,00 and Ø34,00 callouts point to bores, not to the exterior, so no outer diameter applies or can be determined.",
+        "fact_ids": [
+          "D-029",
+          "D-029/drawing/n/32.0@1-1",
+          "D-029/drawing/n/34.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "inner_diameter",
+        "decision": "needs_input",
+        "reason": "The body is not a ring. The central Ø34,00 bore is one of many cuts in a lobed plate, not a ring's inner diameter.",
+        "fact_ids": [
+          "D-029",
+          "D-029/drawing/n/34.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "thickness",
+        "decision": "accept",
+        "reason": "In SECTION A-A, the 15,00 dimension's extension lines span the full width of the sectioned plate. The section shows parallel faces apart from the local counterbore step, and the isometric view shows a flat plate. A single constant thickness of 15 is supported.",
+        "fact_ids": [
+          "D-029",
+          "D-029/drawing/n/15.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features",
+        "decision": "accept",
+        "reason": "No hole has printed locating dimensions in D-029. The callouts give only diameters, counts and depths: Ø4,20/M5 ×20, Ø9,00 ×3 with Ø13,00 counterbores 3,00 deep, Ø32,00 and Ø34,00. No offsets, pitches or pitch-circle diameters are printed, and the outline origin cannot be established. An empty supported subset is therefore correct.",
+        "fact_ids": [
+          "D-029",
+          "D-029/drawing/callout/p1-1",
+          "D-029/drawing/callout/p1-2",
+          "D-029/drawing/callout/p1-3",
+          "D-029/drawing/callout/p1-4"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_complete",
+        "decision": "accept",
+        "reason": "The drawing has many visible cuts and an essential exterior contour, but no feature is included. Since features_omitted is not empty, false is correct.",
+        "fact_ids": [
+          "D-029"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_omitted",
+        "decision": "accept",
+        "reason": "The omissions cover everything visible in D-029: the lobed contour, the central Ø34,00 bore, the upper Ø32,00 bore, the two lower-lobe bores (which have no diameter callout), the 3× Ø9,00 holes with Ø13,00 counterbores 3,00 deep, the 20× Ø4,20 / M5-6H group, and the edge-break note. Each omission cites the matching original IDs. Minor note: four small open circles around the central bore are drawn differently from the cross-marked tapped holes, and their membership in the 20× callout is ambiguous. They are still covered by the omitted small-hole group, and nothing is modeled, so the result is not affected.",
+        "fact_ids": [
+          "D-029",
+          "D-029/drawing/callout/p1-1",
+          "D-029/drawing/callout/p1-2",
+          "D-029/drawing/callout/p1-3",
+          "D-029/drawing/callout/p1-4",
+          "D-029/drawing/n/13.0@1-1",
+          "D-029/drawing/n/3.0@1-2",
+          "D-029/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "cad_eligibility",
+        "decision": "accept",
+        "reason": "supported=false is correct. The main view in D-029 shows an essential three-lobed contour that the rectangle/circle/ring generator cannot express, and no overall or contour dimensions are printed. constant_thickness=true is supported by the 15,00 dimension in SECTION A-A. outline_exact=false is correct because using a bounding shape would replace the essential contour. The listed uncertainties and the minor edge-break omission are accurate.",
+        "fact_ids": [
+          "D-029",
+          "D-029/drawing/n/15.0@1-1",
+          "D-029/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 16339,
+      "cache_read_input_tokens": 17953,
+      "output_tokens": 2669,
+      "output_tokens_details": {
+        "thinking_tokens": 776
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 16339,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 2669,
+        "cacheReadInputTokens": 17953,
+        "cacheCreationInputTokens": 16339,
+        "webSearchRequests": 0,
+        "costUSD": 0.1876986,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 776,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 16339,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.1876986,
+    "duration_ms": 25742,
+    "is_error": false
+  },
+  "latency_ms": 26937,
+  "cache_key": "1a8485d62d28c4a9d79d9507cd896c9e3cff431fd388786d87e2d4f80f80bea8",
+  "cache_hit": false,
+  "job": "expansion:D-029:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+  "error": null
+}

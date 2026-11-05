@@ -1,0 +1,164 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "outline_type",
+        "state": "known",
+        "value_json": "\"rectangle\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-012",
+          "D-012/drawing/n/25.0@1-1",
+          "D-012/drawing/n/120.0@1-1"
+        ],
+        "reason": "The main face-on view establishes a rectangular outline dimensioned 25,0 horizontally and 120,0 vertically.",
+        "changed_because": ""
+      },
+      {
+        "key": "length",
+        "state": "known",
+        "value_json": "25",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-012/drawing/n/25.0@1-1"
+        ],
+        "reason": "The main view's horizontal X dimension is 25,0 mm.",
+        "changed_because": ""
+      },
+      {
+        "key": "width",
+        "state": "known",
+        "value_json": "120",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-012/drawing/n/120.0@1-1"
+        ],
+        "reason": "The main view's vertical Y dimension is 120,0 mm.",
+        "changed_because": ""
+      },
+      {
+        "key": "outer_diameter",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-012"
+        ],
+        "reason": "An outer diameter is inapplicable to the rectangular outline.",
+        "changed_because": ""
+      },
+      {
+        "key": "inner_diameter",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-012"
+        ],
+        "reason": "The outline is not a ring; no outline inner diameter applies.",
+        "changed_because": ""
+      },
+      {
+        "key": "thickness",
+        "state": "known",
+        "value_json": "15",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-012",
+          "D-012/drawing/n/15.0@1-1"
+        ],
+        "reason": "The 15,0 dimension spans the body thickness in the adjacent side view. The views establish a constant rectangular section.",
+        "changed_because": ""
+      },
+      {
+        "key": "features",
+        "state": "known",
+        "value_json": "[{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-012/drawing/n/12.5@1-1\",\"D-012/drawing/n/25.0@1-1\"],\"expression\":\"n0-n1/2\"},\"y\":{\"state\":\"known\",\"value\":-40,\"fact_ids\":[\"D-012/drawing/n/40.0@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":5,\"fact_ids\":[\"D-012/drawing/n/5.0@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M6 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The main-view callout specifies 2 holes. Both lie on the line dimensioned 12,5 from the left edge of the 25,0-wide body, on opposite sides of the transverse centerline. The printed 40,0 offset locates the upper hole; the depicted mirrored pair places the lower hole at the negative of that offset.\",\"fact_ids\":[\"D-012\",\"D-012/drawing/callout/p1-1\",\"D-012/drawing/n/2.0@1-1\",\"D-012/drawing/n/40.0@1-1\",\"D-012/drawing/n/12.5@1-1\",\"D-012/drawing/n/25.0@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-012/drawing/n/12.5@1-1\",\"D-012/drawing/n/25.0@1-1\"],\"expression\":\"n0-n1/2\"},\"y\":{\"state\":\"known\",\"value\":40,\"fact_ids\":[\"D-012/drawing/n/40.0@1-1\"]},\"diameter\":{\"state\":\"known\",\"value\":5,\"fact_ids\":[\"D-012/drawing/n/5.0@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M6 - 6H\",\"placement_basis\":\"dimensioned\",\"fact_ids\":[\"D-012\",\"D-012/drawing/callout/p1-1\",\"D-012/drawing/n/12.5@1-1\",\"D-012/drawing/n/25.0@1-1\",\"D-012/drawing/n/40.0@1-1\",\"D-012/drawing/n/5.0@1-1\"]}]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-012",
+          "D-012/drawing/callout/p1-1",
+          "D-012/drawing/n/2.0@1-1",
+          "D-012/drawing/n/5.0@1-1",
+          "D-012/drawing/n/12.5@1-1",
+          "D-012/drawing/n/25.0@1-1",
+          "D-012/drawing/n/40.0@1-1"
+        ],
+        "reason": "Retains the main-face pair of explicitly drilled and threaded through holes. The upper placement is dimensioned; the lower placement uses the printed count, offset and clear mirrored layout. Thread-symbol concentric circles do not establish counterbores.",
+        "changed_because": ""
+      },
+      {
+        "key": "features_complete",
+        "state": "known",
+        "value_json": "false",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-012",
+          "D-012/drawing/callout/p1-2",
+          "D-012/drawing/general/edge_finish"
+        ],
+        "reason": "The transverse threaded-hole pair and unspecified edge breaks are omitted.",
+        "changed_because": ""
+      },
+      {
+        "key": "features_omitted",
+        "state": "known",
+        "value_json": "[{\"description\":\"Two transverse M6 - 6H through holes shown in the side view.\",\"reason\":\"The second 2 x 5,0 THRU ALL M6 - 6H THRU ALL callout belongs to the perpendicular side-view pair, with a printed 30,0 offset. Their axes run across X, parallel to the main XY face. The template can express only top/bottom holes along Z, so these functional cuts must be omitted rather than relocated onto the main face.\",\"fact_ids\":[\"D-012\",\"D-012/drawing/callout/p1-2\",\"D-012/drawing/n/2.0@1-2\",\"D-012/drawing/n/5.0@1-2\",\"D-012/drawing/n/30.0@1-1\"]},{\"description\":\"Deburring and sharp-edge breaks.\",\"reason\":\"DEBURR AND BREAK SHARP EDGES specifies edge treatment without dimensions establishing a reproducible chamfer or radius.\",\"fact_ids\":[\"D-012/drawing/general/edge_finish\"]}]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-012",
+          "D-012/drawing/callout/p1-2",
+          "D-012/drawing/n/30.0@1-1",
+          "D-012/drawing/general/edge_finish"
+        ],
+        "reason": "The excluded side holes require an unsupported cut orientation; the edge treatment lacks dimensions.",
+        "changed_because": ""
+      },
+      {
+        "key": "cad_eligibility",
+        "state": "known",
+        "value_json": "{\"supported\":true,\"constant_thickness\":true,\"outline_exact\":true,\"reason\":\"Eligible for a partial reconstruction: the main face-on view establishes the rectangular 25,0 by 120,0 body, and the adjacent side-view dimension establishes constant 15,0 thickness. The supported main-face threaded through-hole pair can be retained. The transverse threaded-hole pair cannot be expressed by the top/bottom cut schema, so the model does not reproduce all mounting functions. Undimensioned edge breaks are also omitted.\",\"essential_uncertainty\":[],\"omitted_minor_features\":[\"Two transverse M6 - 6H through holes; unsupported cut orientation and a functional limitation of the partial reconstruction.\",\"Undimensioned edge breaks specified by DEBURR AND BREAK SHARP EDGES.\"]}",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-012",
+          "D-012/drawing/n/25.0@1-1",
+          "D-012/drawing/n/120.0@1-1",
+          "D-012/drawing/n/15.0@1-1",
+          "D-012/drawing/callout/p1-1",
+          "D-012/drawing/callout/p1-2",
+          "D-012/drawing/general/edge_finish"
+        ],
+        "reason": "The essential rectangular body and constant thickness are established by the actual dimension leaders. Eligibility is for the supported partial solid, with the transverse functional cuts explicitly omitted.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 20491,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 5586,
+          "reasoning_output_tokens": 3523
+        }
+      }
+    ]
+  },
+  "latency_ms": 105265,
+  "cache_key": "3a264c4fa7a6b43efef348b04e7b9b1cafb39280626ef66761d7e96f594f3390",
+  "cache_hit": false,
+  "job": "expansion:D-012:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+  "error": null
+}

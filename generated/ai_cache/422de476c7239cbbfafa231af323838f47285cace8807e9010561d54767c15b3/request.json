@@ -1,0 +1,84 @@
+{
+  "protocol": 2,
+  "reader": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "prompt": "PREP PROTOCOL: proposal-verification-v1; role: proposer; round: 0.\nYou are a read-only engineering evidence proposer. Do not edit files,\nrun commands, use other agents, browse the web, or inspect any evidence beyond the supplied inputs.\nReturn the requested JSON schema. Every requested key must appear exactly once. value_json is a\nJSON-encoded value (e.g. a string as \"\\\"text\\\"\", a number as \"5\", an array as \"[3,6]\",\nunknown as \"null\"). State known means one determined value; options means genuinely documented\nalternatives; unknown means the evidence does not determine it. confidence is only sure or unsure.\nUse sure only for a reading supported by the supplied evidence. Copy original spelling and units.\nNever invent evidence IDs. fact_ids must be exact supplied source IDs supporting that item.\nReasons must explain the evidence; changed_because is empty on the first proposal.\n\nFill a flat-part template from this drawing, in millimetres.\nRead the attached full drawing. The main material field and weight are supplied separately.\nRequested keys: outline_type (rectangle/circle/ring), length (X), width (Y), outer_diameter,\ninner_diameter, thickness, features. Only relevant dimensions are known; irrelevant ones are unknown.\nStacked thickness values which are alternatives MUST be state options with a JSON array, sorted ascending.\nDo not select one thickness or invent which example is primary. The outline is centered on X=0,Y=0;\nextrusion Z=0..thickness. Ignore dimension text placement when interpreting actual geometry.\nfeatures value is a JSON array of hole/slot objects. Each has kind, face='top', x,y,\ndiameter (hole) or width,length (slot), through boolean, depth for blind holes,\nhole_type plain/threaded/countersunk/counterbored, optional thread string and required actual\ncountersink_diameter/angle or counterbore_diameter/depth. Never infer a drill diameter from a thread.\nUse explicit pattern only if certain: {type:row,count,spacing,direction} (angle degrees, anchor first\nposition) or {type:circle,count,radius,start_angle} (degrees, center x,y). Hole positions are center\ncoordinates in the same XY frame. A feature with missing dimensions or positions is unknown and\nmust be omitted, with reason describing the omission. The features state is unknown if you cannot\ndetermine all features; return only the certain features in its array and explain missing information.\nAll numeric scalar fields within a feature must be {state:known,value:number,fact_ids:[IDs]}.\nA feature may carry parent fact_ids. Every numeric value must match its cited drawing number.\nFor an arithmetically derived coordinate/radius use {state:known,value:number,fact_ids:[IDs],\nexpression:'n0/2-n1'}, where n0,n1 are cited drawing numbers IN ORDER. Only +,-,*,/ and constants\n0,1,2 are allowed. Do not invent absolute positions from undimensioned views. You may use literal\n0 for a geometrically established center or literal 90/180/270/360 for cardinal pattern directions.\nDo not infer numeric dimensions from pixels, scale, standard hardware, or symmetry unless dimensioned.\nFeatures must use same deterministic ordering: holes before slots, then x ascending, then y ascending.\n\nEvidence:\n{\"callouts\":[{\"box\":[300.823,313.242,89.352,18.093],\"confidence\":\"sure\",\"count\":2,\"feature\":\"unclassified_callout\",\"method\":\"parsed\",\"name\":\"D-008/drawing/callout/p1-1\",\"original\":\"2x 7,00 THRU\",\"page\":1,\"text\":\"2x 7,00 THRU\",\"through\":true,\"value\":\"2x 7,00 THRU\"},{\"box\":[721.616,358.972,89.336,18.083],\"confidence\":\"sure\",\"count\":4,\"feature\":\"unclassified_callout\",\"method\":\"parsed\",\"name\":\"D-008/drawing/callout/p1-2\",\"original\":\"4x 7,00 THRU\",\"page\":1,\"text\":\"4x 7,00 THRU\",\"through\":true,\"value\":\"4x 7,00 THRU\"},{\"box\":[896.054,323.505,68.029,18.083],\"confidence\":\"sure\",\"feature\":\"unclassified_callout\",\"method\":\"parsed\",\"name\":\"D-008/drawing/callout/p1-3\",\"original\":\"10,00 THRU\",\"page\":1,\"text\":\"10,00 THRU\",\"through\":true,\"value\":\"10,00 THRU\"},{\"box\":[543.599,527.893,125.996,18.085],\"confidence\":\"sure\",\"count\":4,\"feature\":\"unclassified_callout\",\"method\":\"parsed\",\"name\":\"D-008/drawing/callout/p1-4\",\"original\":\"4 x 5,30 THRU ALL\",\"page\":1,\"text\":\"4 x 5,30 THRU ALL\",\"through\":true,\"value\":\"4 x 5,30 THRU ALL\"},{\"box\":[303.234,160.511,125.996,18.089],\"confidence\":\"sure\",\"count\":3,\"feature\":\"unclassified_callout\",\"method\":\"parsed\",\"name\":\"D-008/drawing/callout/p1-5\",\"original\":\"3 x 9,00 THRU ALL\",\"page\":1,\"text\":\"3 x 9,00 THRU ALL\",\"through\":true,\"value\":\"3 x 9,00 THRU ALL\"},{\"box\":[978.968,784.149,85.555,7.75],\"confidence\":\"sure\",\"feature\":\"general_note\",\"method\":\"parsed\",\"name\":\"D-008/drawing/general/units\",\"original\":\"DIMENSIONS ARE IN MILLIMETERS\",\"page\":1,\"text\":\"DIMENSIONS ARE IN MILLIMETERS\",\"value\":\"DIMENSIONS ARE IN MILLIMETERS\"},{\"box\":[1016.541,790.957,47.749,8.202],\"confidence\":\"sure\",\"feature\":\"general_note\",\"method\":\"parsed\",\"name\":\"D-008/drawing/general/general_tolerance\",\"original\":\"DIN ISO 2768-1 m\",\"page\":1,\"text\":\"DIN ISO 2768-1 m\",\"value\":\"DIN ISO 2768-1 m\"},{\"box\":[1078.776,781.582,52.887,14.837],\"confidence\":\"sure\",\"feature\":\"general_note\",\"method\":\"parsed\",\"name\":\"D-008/drawing/general/edge_finish\",\"original\":\"DEBURR AND BREAK SHARP EDGES\",\"page\":1,\"text\":\"DEBURR AND BREAK SHARP EDGES\",\"value\":\"DEBURR AND BREAK SHARP EDGES\"}],\"fields\":{\"company\":{\"box\":[974.0,658.0,93.0,49.0],\"confidence\":\"unsure\",\"field_box\":[974.0,658.0,93.0,49.0],\"label_box\":null,\"method\":\"parsed\",\"name\":\"D-008/drawing/company\",\"note\":\"Field is empty or label absent.\",\"original\":null,\"page\":1,\"value\":null},\"date\":{\"box\":[897.013,802.562,76.0,11.0],\"confidence\":\"sure\",\"field_box\":[914.013,802.562,59.0,11.0],\"label_box\":[897.013,803.562,13.623,7.75],\"method\":\"parsed\",\"name\":\"D-008/drawing/date\",\"original\":\"20/12/2023\",\"page\":1,\"value\":\"20/12/2023\"},\"drawn\":{\"box\":[893.295,790.236,78.0,11.0],\"confidence\":\"sure\",\"field_box\":[917.295,790.236,54.0,11.0],\"label_box\":[893.295,791.236,21.062,7.75],\"method\":\"parsed\",\"name\":\"D-008/drawing/drawn\",\"original\":\"MBOKJ\",\"page\":1,\"value\":\"MBOKJ\"},\"material\":{\"box\":[745.28,771.048,135.0,14.0],\"confidence\":\"unsure\",\"field_box\":[784.28,771.048,96.0,14.0],\"label_box\":[745.28,772.048,38.539,10.936],\"method\":\"parsed\",\"name\":\"D-008/drawing/material\",\"note\":\"Field is empty or label absent.\",\"original\":null,\"page\":1,\"value\":null},\"notes\":{\"box\":[741.528,658.943,231.0,111.0],\"confidence\":\"sure\",\"field_box\":[741.528,666.943,231.0,103.0],\"label_box\":[741.528,658.943,15.72,7.75],\"method\":\"parsed\",\"name\":\"D-008/drawing/notes\",\"original\":\"Powder bracket.\\n2-3mm non-magnetic stainless.\\n6x M5 weld nuts - all on inside\\nfaces.\\nSurfaces [A] should be in same\\nplane, and parallel to [B].\",\"page\":1,\"value\":\"Powder bracket.\\n2-3mm non-magnetic stainless.\\n6x M5 weld nuts - all on inside\\nfaces.\\nSurfaces [A] should be in same\\nplane, and parallel to [B].\"},\"scale\":{\"box\":[1082.688,803.564,25.825,7.75],\"confidence\":\"sure\",\"field_box\":[1082.688,803.564,25.825,7.75],\"label_box\":[1082.688,803.564,25.825,7.75],\"method\":\"parsed\",\"name\":\"D-008/drawing/scale\",\"original\":\"1:5\",\"page\":1,\"value\":\"1:5\"},\"title\":{\"box\":[975.328,710.355,181.0,66.0],\"confidence\":\"sure\",\"field_box\":[975.328,718.355,181.0,58.0],\"label_box\":[975.328,710.355,49.95,7.75],\"method\":\"parsed\",\"name\":\"D-008/drawing/title\",\"original\":\"Powder Bracket\",\"page\":1,\"value\":\"Powder Bracket\"},\"weight_g\":{\"box\":[880.717,771.048,93.0,14.0],\"confidence\":\"unsure\",\"field_box\":[924.717,771.048,49.0,14.0],\"label_box\":[880.717,772.048,28.747,10.936],\"method\":\"parsed\",\"name\":\"D-008/drawing/weight_g\",\"note\":\"Field is empty or label absent.\",\"original\":null,\"page\":1,\"value\":null}},\"id\":\"D-008\",\"numbers\":[{\"box\":[391.152,407.63,32.988,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-008/drawing/n/41.0@1-1\",\"original\":\"41,00\",\"page\":1,\"text\":\"41,00\",\"value\":41.0},{\"box\":[651.401,443.331,18.083,32.987],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-008/drawing/n/61.8@1-1\",\"original\":\"61,80\",\"page\":1,\"text\":\"61,80\",\"value\":61.8},{\"box\":[535.815,332.327,40.319,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-008/drawing/n/310.0@1-1\",\"original\":\"310,00\",\"page\":1,\"text\":\"310,00\",\"value\":310.0},{\"box\":[339.585,417.092,18.083,25.657],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-008/drawing/n/3.0@1-1\",\"original\":\"3,00\",\"page\":1,\"text\":\"3,00\",\"value\":3.0},{\"box\":[352.416,417.092,18.083,25.657],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-008/drawing/n/2.0@1-1\",\"original\":\"2,00\",\"page\":1,\"text\":\"2,00\",\"value\":2.0},{\"box\":[329.476,313.242,25.658,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-008/drawing/n/7.0@1-1\",\"original\":\"7,00\",\"page\":1,\"text\":\"7,00\",\"value\":7.0},{\"box\":[243.215,407.626,40.319,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-008/drawing/n/134.0@1-1\",\"original\":\"134,00\",\"page\":1,\"text\":\"134,00\",\"value\":134.0},{\"box\":[750.253,358.972,25.658,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-008/drawing/n/7.0@1-2\",\"original\":\"7,00\",\"page\":1,\"text\":\"7,00\",\"value\":7.0},{\"box\":[896.054,323.505,32.989,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-008/drawing/n/10.0@1-1\",\"original\":\"10,00\",\"page\":1,\"text\":\"10,00\",\"value\":10.0},{\"box\":[543.599,527.895,7.331,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-008/drawing/n/4.0@1-1\",\"original\":\"4\",\"page\":1,\"text\":\"4\",\"value\":4.0},{\"box\":[583.238,527.893,25.651,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-008/drawing/n/5.3@1-1\",\"original\":\"5,30\",\"page\":1,\"text\":\"5,30\",\"value\":5.3},{\"box\":[524.571,657.623,40.319,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-008/drawing/n/349.0@1-1\",\"original\":\"349,00\",\"page\":1,\"text\":\"349,00\",\"value\":349.0},{\"box\":[303.234,160.517,7.331,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-008/drawing/n/3.0@1-2\",\"original\":\"3\",\"page\":1,\"text\":\"3\",\"value\":3.0},{\"box\":[342.873,160.511,25.65,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-008/drawing/n/9.0@1-1\",\"original\":\"9,00\",\"page\":1,\"text\":\"9,00\",\"value\":9.0}],\"page_sizes\":[[1190.550048828125,841.8900146484375]],\"section\":\"Powder\",\"source_filename\":\"PowderBracket.pdf\"}\n\nADDITIONAL MVP ELIGIBILITY CHECK (mandatory, independent of dimension readings):\nReturn the extra requested key cad_eligibility, state known, value_json an object\nwith EXACT keys: supported (boolean), constant_thickness (boolean), outline_exact\n(boolean), reason (nonempty string), essential_uncertainty (array of strings),\nomitted_minor_features (array of strings). Cite original drawing source IDs.\nsupported=true only when this exact part can be represented by the supported\nrectangle/circle/ring outline, a single constant thickness (or explicitly printed\nalternative constant thicknesses), plus the supported hole/slot cuts. The MAIN\noutline must match exactly: do not substitute its bounding rectangle or circle.\nBlock bent, stepped, revolved, profiled, tapered, nonplanar or assembled parts and\nessential notches, lobes, rounded outer corners or other contours the generator\ncannot express. Do not classify an essential contour as an omitted minor detail.\nDo not infer a constant thickness from an unlabeled number, another part, title,\nmaterial, stock convention, scale, pixels, or a familiar standard. Printed numbers\nmust be linked by the actual view/dimension leaders to the dimension claimed;\ndetached text and unrelated numbers are not dimension evidence. All numeric\ngeometry must cite exact supplied parsed drawing-number IDs; the original image\ncan establish their meaning, but never invent missing numbers or evidence IDs.\nIf dimensions are absent/unreadable, keep them unknown. Explain which essential\ndimension/contour is unresolved. A certain outline and thickness can still produce\nan honest partial model when minor holes/slots lack positions or dimensions:\nlist the omissions, retain only fully supported features, and do not guess them.\nUncertainty about a minor hole alone MUST NOT block the main constant-thickness\nsolid. For such partials features may be unknown with only certain features in\nthe array; describe every omission explicitly. The object reason must explain\nthe specific eligibility decision, including the main view and thickness source.\nDo not consult prior AI records, fused application records, existing templates,\nbenchmark expectations, accepted human decisions, or any other drawings.\n",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string",
+              "enum": [
+                "outline_type",
+                "length",
+                "width",
+                "outer_diameter",
+                "inner_diameter",
+                "thickness",
+                "features",
+                "cad_eligibility"
+              ]
+            },
+            "state": {
+              "type": "string",
+              "enum": [
+                "known",
+                "options",
+                "unknown"
+              ]
+            },
+            "value_json": {
+              "type": "string"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "sure",
+                "unsure"
+              ]
+            },
+            "fact_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "reason": {
+              "type": "string"
+            },
+            "changed_because": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "key",
+            "state",
+            "value_json",
+            "confidence",
+            "fact_ids",
+            "reason",
+            "changed_because"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "items"
+    ],
+    "additionalProperties": false
+  },
+  "images": [
+    "1baf6ed6555c453942985abbead41b834b06d09866ff6cc21c6e26b1055823f1"
+  ],
+  "job": "expansion:D-008:flat-part-expansion-v1:proposal-verification-v1:proposal:0"
+}

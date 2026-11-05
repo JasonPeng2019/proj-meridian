@@ -1,0 +1,176 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "outline_type",
+        "state": "known",
+        "value_json": "\"rectangle\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-017",
+          "D-017/drawing/n/180.0@1-1",
+          "D-017/drawing/n/110.0@1-1"
+        ],
+        "reason": "The main face establishes a rectangular plate body. The small corner chamfers are explicitly omitted as edge details.",
+        "changed_because": ""
+      },
+      {
+        "key": "length",
+        "state": "known",
+        "value_json": "180",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-017",
+          "D-017/drawing/n/180.0@1-1",
+          "D-017/drawing/n/0.01@1-1",
+          "D-017/drawing/n/0.06@1-1"
+        ],
+        "reason": "The overall horizontal dimension is 180,00 mm with stacked deviations -0,01 and -0,06. The template records the nominal dimension.",
+        "changed_because": ""
+      },
+      {
+        "key": "width",
+        "state": "known",
+        "value_json": "110",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-017",
+          "D-017/drawing/n/110.0@1-1"
+        ],
+        "reason": "The right-hand overall vertical dimension is 110,0 mm.",
+        "changed_because": ""
+      },
+      {
+        "key": "outer_diameter",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-017"
+        ],
+        "reason": "An outer diameter is not applicable to the rectangular main body.",
+        "changed_because": ""
+      },
+      {
+        "key": "inner_diameter",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-017"
+        ],
+        "reason": "The outline is not a ring. The offset Ø42,00 opening is represented as a hole feature.",
+        "changed_because": ""
+      },
+      {
+        "key": "thickness",
+        "state": "known",
+        "value_json": "10",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-017",
+          "D-017/drawing/n/10.0@1-1"
+        ],
+        "reason": "The side view explicitly dimensions the plate thickness as 10,0 mm. No alternative thickness is shown.",
+        "changed_because": ""
+      },
+      {
+        "key": "features",
+        "state": "known",
+        "value_json": "[{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":28.2,\"fact_ids\":[\"D-017/drawing/n/28.2@1-1\"]},\"y\":{\"state\":\"known\",\"value\":-4.1,\"fact_ids\":[\"D-017/drawing/n/4.1@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":42,\"fact_ids\":[\"D-017/drawing/n/42.0@1-1\"]},\"through\":true,\"hole_type\":\"plain\",\"placement_basis\":\"dimensioned\",\"placement_reason\":\"The bore center is dimensioned 28,2 right of the plate vertical centerline and 4,1 below its horizontal centerline. The lower-edge dimension 50,9 also agrees with 110,0/2 minus 4,1. The isometric view establishes an open through-bore.\",\"fact_ids\":[\"D-017\",\"D-017/drawing/n/28.2@1-1\",\"D-017/drawing/n/4.1@1-1\",\"D-017/drawing/n/50.9@1-1\",\"D-017/drawing/n/110.0@1-1\",\"D-017/drawing/n/42.0@1-1\"]}]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-017",
+          "D-017/drawing/n/28.2@1-1",
+          "D-017/drawing/n/4.1@1-1",
+          "D-017/drawing/n/50.9@1-1",
+          "D-017/drawing/n/110.0@1-1",
+          "D-017/drawing/n/42.0@1-1",
+          "D-017/drawing/n/0.1@1-1",
+          "D-017/drawing/n/0.05@1-1"
+        ],
+        "reason": "The offset Ø42,00 through-bore has independently established diameter and location. Its printed +0,10/+0,05 tolerance is acknowledged; the feature records the nominal diameter. No additional annular step is inferred.",
+        "changed_because": ""
+      },
+      {
+        "key": "features_complete",
+        "state": "known",
+        "value_json": "false",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-017"
+        ],
+        "reason": "The visible inventory includes additional holes and edge details that cannot all be reconstructed from the supplied dimensions.",
+        "changed_because": ""
+      },
+      {
+        "key": "features_omitted",
+        "state": "known",
+        "value_json": "[{\"description\":\"Four countersunk holes: 4x Ø5,5 THRU, Ø10,8 X 90°\",\"reason\":\"The count, primary diameter, through operation and countersink dimensions are printed, but no locating dimensions or dimensioned pattern establish the four centers. Their apparent layout cannot supply missing coordinates.\",\"fact_ids\":[\"D-017\",\"D-017/drawing/callout/p1-1\",\"D-017/drawing/callout/p1-2\",\"D-017/drawing/n/5.5@1-1\",\"D-017/drawing/n/10.8@1-1\",\"D-017/drawing/n/90.0@1-1\"]},{\"description\":\"Eight M5 threaded holes\",\"reason\":\"The image contains the 8x M5 callout, but the hole centers lack locating dimensions. A separate drill diameter and thread depth or explicit through-thread specification are also absent; none is inferred from M5.\",\"fact_ids\":[\"D-017\"]},{\"description\":\"Two Ø6,0 H7 holes\",\"reason\":\"Both holes are identified as Ø6,0 H7 and lie on the bore-center horizontal line, but their horizontal center coordinates are not dimensioned. No printed pitch or offset establishes their placement.\",\"fact_ids\":[\"D-017\",\"D-017/drawing/n/6.0@1-1\",\"D-017/drawing/n/6.0@1-2\"]},{\"description\":\"Four small outer-corner chamfers, 4x1,0 X 45°\",\"reason\":\"The leader identifies small corner edge breaks. The rectangle/hole/slot template cannot reproduce these chamfers; they are explicitly omitted from the otherwise dimensioned rectangular body.\",\"fact_ids\":[\"D-017\",\"D-017/drawing/n/45.0@1-1\"]},{\"description\":\"Additional bore-edge and general sharp-edge treatment\",\"reason\":\"The close concentric outlines at the Ø42,00 opening and the DEBURR AND BREAK SHARP EDGES note do not independently establish an additional step diameter, depth or angle. Only the supported primary bore is modeled; unspecified edge treatment is omitted.\",\"fact_ids\":[\"D-017\",\"D-017/drawing/n/42.0@1-1\",\"D-017/drawing/general/edge_finish\"]}]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-017",
+          "D-017/drawing/callout/p1-1",
+          "D-017/drawing/callout/p1-2",
+          "D-017/drawing/n/5.5@1-1",
+          "D-017/drawing/n/10.8@1-1",
+          "D-017/drawing/n/90.0@1-1",
+          "D-017/drawing/n/6.0@1-1",
+          "D-017/drawing/n/6.0@1-2",
+          "D-017/drawing/n/45.0@1-1",
+          "D-017/drawing/n/42.0@1-1",
+          "D-017/drawing/general/edge_finish"
+        ],
+        "reason": "These omissions preserve the independently dimensioned central bore without guessing the remaining hole coordinates, thread cutting geometry or edge treatment.",
+        "changed_because": ""
+      },
+      {
+        "key": "cad_eligibility",
+        "state": "known",
+        "value_json": "{\"supported\":true,\"constant_thickness\":true,\"outline_exact\":true,\"reason\":\"Eligible for a partial flat-part model: the main face establishes the 180,00 by 110,0 rectangular body, and the side-view 10,0 dimension explicitly establishes its constant thickness. The located Ø42,00 through-bore is supported. Small corner edge breaks are explicitly omitted under the minor-edge-detail allowance. Missing locations for the other holes leave the mounting and alignment geometry incomplete; this is not a complete reconstruction.\",\"essential_uncertainty\":[],\"omitted_minor_features\":[\"Four unlocated Ø5,5 THRU holes with Ø10,8 X 90° countersinks\",\"Eight unlocated M5 threaded holes with unspecified cutting diameter and thread extent\",\"Two Ø6,0 H7 holes without horizontal locating dimensions\",\"Four small outer-corner chamfers, 4x1,0 X 45°\",\"Unspecified bore-edge treatment and general deburring/edge breaks\"]}",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-017",
+          "D-017/drawing/n/180.0@1-1",
+          "D-017/drawing/n/110.0@1-1",
+          "D-017/drawing/n/10.0@1-1",
+          "D-017/drawing/n/42.0@1-1",
+          "D-017/drawing/n/45.0@1-1",
+          "D-017/drawing/callout/p1-1",
+          "D-017/drawing/callout/p1-2",
+          "D-017/drawing/general/edge_finish"
+        ],
+        "reason": "The essential main-body dimensions and constant thickness are directly dimensioned. The supported bore permits an honest partial model, with the remaining cuts and small edge details explicitly omitted.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 20868,
+          "cached_input_tokens": 13056,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 6033,
+          "reasoning_output_tokens": 3987
+        }
+      }
+    ]
+  },
+  "latency_ms": 125688,
+  "cache_key": "4e2b675e57301d117f73856b5ec07812e115baa9d118251ea87931318f15257c",
+  "cache_hit": false,
+  "job": "expansion:D-017:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+  "error": null
+}

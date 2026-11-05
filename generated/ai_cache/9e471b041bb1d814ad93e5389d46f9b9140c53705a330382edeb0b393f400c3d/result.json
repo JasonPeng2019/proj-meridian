@@ -1,0 +1,156 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "138807a0f14683fc8c212dd564ac6de15b2adb32a274e42479f44126ffe4531c",
+    "items": [
+      {
+        "key": "outline_type",
+        "decision": "accept",
+        "reason": "In the main face-on view of D-020, the outer and inner circular boundaries are concentric, and the isometric view shows an annular part. So 'ring' is supported.",
+        "fact_ids": [
+          "D-020"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "length",
+        "decision": "accept",
+        "reason": "For a ring outline, the rectangular X length is an irrelevant key. Leaving it unknown/null follows the template rule that irrelevant dimensions stay unknown.",
+        "fact_ids": [
+          "D-020"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "width",
+        "decision": "accept",
+        "reason": "For a ring outline, the rectangular Y width is an irrelevant key. Leaving it unknown/null follows the template rule that irrelevant dimensions stay unknown.",
+        "fact_ids": [
+          "D-020"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "outer_diameter",
+        "decision": "needs_input",
+        "reason": "The D-020 image shows an outer-diameter callout on the face view, but the supplied numbers array is empty. No parsed drawing-number ID can support a numeric value, so this essential ring dimension stays unresolved and cannot be filled from the image alone.",
+        "fact_ids": [
+          "D-020"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "inner_diameter",
+        "decision": "needs_input",
+        "reason": "The D-020 image shows an inner-diameter callout, but the supplied numbers array is empty. No parsed drawing-number ID supports a numeric value, so this essential dimension stays unresolved.",
+        "fact_ids": [
+          "D-020"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "thickness",
+        "decision": "needs_input",
+        "reason": "The side view of D-020 has a stacked axial thickness callout, but no parsed drawing-number IDs exist to support either number. The stacked pair also looks like an upper/lower limit tolerance rather than alternative thicknesses, so it could not become an options array anyway. The essential thickness stays unresolved.",
+        "fact_ids": [
+          "D-020"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features",
+        "decision": "accept",
+        "reason": "No hole or slot can be fully supported because no numbers were parsed for the drill diameter, depth, count, or placement radius of the blind tapped holes. The O-ring groove is not a hole or slot type. Known [] is therefore the correct supported subset.",
+        "fact_ids": [
+          "D-020"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_complete",
+        "decision": "accept",
+        "reason": "D-020 visibly shows a counted blind drilled-and-tapped hole pattern ('Blinde huller') and an annular O-ring groove (section A-A, isometric view, note 'Ring with o-ring groove'). Both are omitted, so false is correct.",
+        "fact_ids": [
+          "D-020"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_omitted",
+        "decision": "accept",
+        "reason": "The omissions match the visible inventory in D-020: the blind tapped-hole pattern and the circumferential O-ring groove with its 'Radius op til 1mm' detail from section A-A. Each entry cites D-020 and correctly gives the reason: no parsed number IDs, and the groove is outside the supported hole/slot types.",
+        "fact_ids": [
+          "D-020"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "cad_eligibility",
+        "decision": "accept",
+        "reason": "Section A-A and the isometric view of D-020 show a functional annular O-ring groove that makes the profile stepped, not constant thickness. That is an essential contour the ring-plus-hole/slot generator cannot express, so supported=false and constant_thickness=false are correct. The diameter and thickness callouts have no parsed number IDs, so outline_exact=false is also justified. The essential_uncertainty and omitted_minor_features entries are consistent with the evidence.",
+        "fact_ids": [
+          "D-020"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 12961,
+      "cache_read_input_tokens": 14579,
+      "output_tokens": 2081,
+      "output_tokens_details": {
+        "thinking_tokens": 571
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 12961,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 2081,
+        "cacheReadInputTokens": 14579,
+        "cacheCreationInputTokens": 12961,
+        "webSearchRequests": 0,
+        "costUSD": 0.1482398,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 571,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 12961,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.1482398,
+    "duration_ms": 18625,
+    "is_error": false
+  },
+  "latency_ms": 19750,
+  "cache_key": "9e471b041bb1d814ad93e5389d46f9b9140c53705a330382edeb0b393f400c3d",
+  "cache_hit": false,
+  "job": "expansion:D-020:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+  "error": null
+}

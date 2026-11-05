@@ -1,0 +1,94 @@
+{
+  "items": [
+    {
+      "key": "outline_type",
+      "state": "known",
+      "value_json": "\"ring\"",
+      "confidence": "sure",
+      "fact_ids": ["D-027", "D-027/drawing/n/330.0@1-1", "D-027/drawing/n/264.0@1-1"],
+      "reason": "The left main face view shows concentric circular outer and inner boundaries, dimensioned Ø330,0 and Ø264,0.",
+      "changed_because": ""
+    },
+    {
+      "key": "length",
+      "state": "unknown",
+      "value_json": "null",
+      "confidence": "sure",
+      "fact_ids": ["D-027"],
+      "reason": "A separate rectangular X length is not applicable to the ring outline.",
+      "changed_because": ""
+    },
+    {
+      "key": "width",
+      "state": "unknown",
+      "value_json": "null",
+      "confidence": "sure",
+      "fact_ids": ["D-027"],
+      "reason": "A separate rectangular Y width is not applicable to the ring outline.",
+      "changed_because": ""
+    },
+    {
+      "key": "outer_diameter",
+      "state": "known",
+      "value_json": "330",
+      "confidence": "sure",
+      "fact_ids": ["D-027", "D-027/drawing/n/330.0@1-1"],
+      "reason": "The Ø330,0 leader identifies the outer circular boundary. Dimensions are in millimeters.",
+      "changed_because": ""
+    },
+    {
+      "key": "inner_diameter",
+      "state": "known",
+      "value_json": "264",
+      "confidence": "sure",
+      "fact_ids": ["D-027", "D-027/drawing/n/264.0@1-1", "D-027/drawing/n/0.081@1-1", "D-027/drawing/n/0.0@1-2"],
+      "reason": "The inner circular boundary is dimensioned Ø264,0 H8, with +0,081/0,000 tolerance. The nominal diameter is 264 mm.",
+      "changed_because": ""
+    },
+    {
+      "key": "thickness",
+      "state": "known",
+      "value_json": "15",
+      "confidence": "sure",
+      "fact_ids": ["D-027", "D-027/drawing/n/15.0@1-1"],
+      "reason": "The central edge view directly dimensions the separation between the two parallel faces as 15,0 mm.",
+      "changed_because": ""
+    },
+    {
+      "key": "features",
+      "state": "known",
+      "value_json": "[{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-027\",\"D-027/drawing/n/148.5@1-1\"]},\"y\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-027\",\"D-027/drawing/n/148.5@1-1\"]},\"diameter\":{\"state\":\"known\",\"value\":9,\"fact_ids\":[\"D-027/drawing/n/9.0@1-1\"]},\"through\":true,\"hole_type\":\"plain\",\"pattern\":{\"type\":\"circle\",\"count\":{\"state\":\"known\",\"value\":6,\"fact_ids\":[\"D-027/drawing/n/6.0@1-1\"]},\"radius\":{\"state\":\"known\",\"value\":148.5,\"fact_ids\":[\"D-027/drawing/n/148.5@1-1\"]},\"start_angle\":{\"state\":\"known\",\"value\":90,\"fact_ids\":[\"D-027\",\"D-027/drawing/n/6.0@1-1\",\"D-027/drawing/n/60.0@1-1\"]}},\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 6 x Ø9,0 THRU ALL holes lie on the common dashed pitch circle identified by R148,5. The face views show holes on both vertical centerline ends, and the printed 60° agrees with six equal angular intervals. In the left main XY view, anchor the circle at +Y, 90°, and distribute using 360/count. The pattern x,y are its geometrically established center.\",\"fact_ids\":[\"D-027\",\"D-027/drawing/callout/p1-1\",\"D-027/drawing/callout/p1-2\",\"D-027/drawing/n/148.5@1-1\",\"D-027/drawing/n/6.0@1-1\",\"D-027/drawing/n/9.0@1-1\",\"D-027/drawing/n/60.0@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-027\",\"D-027/drawing/n/148.5@1-1\"]},\"y\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-027\",\"D-027/drawing/n/148.5@1-1\"]},\"diameter\":{\"state\":\"known\",\"value\":11,\"fact_ids\":[\"D-027/drawing/n/11.0@1-1\"]},\"through\":true,\"hole_type\":\"countersunk\",\"countersink_diameter\":{\"state\":\"known\",\"value\":24.4,\"fact_ids\":[\"D-027/drawing/n/24.4@1-1\"]},\"countersink_angle\":{\"state\":\"known\",\"value\":90,\"fact_ids\":[\"D-027/drawing/n/90.0@1-1\"]},\"pattern\":{\"type\":\"circle\",\"count\":{\"state\":\"known\",\"value\":3,\"fact_ids\":[\"D-027/drawing/n/3.0@1-2\"]},\"radius\":{\"state\":\"known\",\"value\":148.5,\"fact_ids\":[\"D-027/drawing/n/148.5@1-1\"]},\"start_angle\":{\"state\":\"known\",\"value\":180,\"fact_ids\":[\"D-027\",\"D-027/drawing/n/3.0@1-2\",\"D-027/drawing/n/120.0@1-1\"]}},\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The left main face view calls out 3 x Ø11,0 THRU ALL with Ø24,4 X 90° countersinks and places one stepped hole on the -X centerline. All three centers lie on the R148,5 pitch circle. The opposite face confirms the three-hole 120° arrangement; distribute from 180° using 360/count. The left main face is top by the required +Z convention. The mirrored stepped-hole arrangement in the opposite face view establishes that its counterbores open from bottom. This feature and the bottom counterbored feature operate on the same three primary bores.\",\"fact_ids\":[\"D-027\",\"D-027/drawing/callout/p1-1\",\"D-027/drawing/callout/p1-3\",\"D-027/drawing/callout/p1-4\",\"D-027/drawing/n/148.5@1-1\",\"D-027/drawing/n/3.0@1-2\",\"D-027/drawing/n/11.0@1-1\",\"D-027/drawing/n/24.4@1-1\",\"D-027/drawing/n/90.0@1-1\",\"D-027/drawing/n/120.0@1-1\"]},{\"kind\":\"hole\",\"face\":\"bottom\",\"x\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-027\",\"D-027/drawing/n/148.5@1-1\"]},\"y\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-027\",\"D-027/drawing/n/148.5@1-1\"]},\"diameter\":{\"state\":\"known\",\"value\":11,\"fact_ids\":[\"D-027/drawing/n/11.0@1-1\"]},\"through\":true,\"hole_type\":\"counterbored\",\"counterbore_diameter\":{\"state\":\"known\",\"value\":20,\"fact_ids\":[\"D-027/drawing/n/20.0@1-1\"]},\"counterbore_depth\":{\"state\":\"known\",\"value\":4,\"fact_ids\":[\"D-027/drawing/n/4.0@1-1\"]},\"pattern\":{\"type\":\"circle\",\"count\":{\"state\":\"known\",\"value\":3,\"fact_ids\":[\"D-027/drawing/n/3.0@1-1\"]},\"radius\":{\"state\":\"known\",\"value\":148.5,\"fact_ids\":[\"D-027/drawing/n/148.5@1-1\"]},\"start_angle\":{\"state\":\"known\",\"value\":180,\"fact_ids\":[\"D-027\",\"D-027/drawing/n/3.0@1-1\",\"D-027/drawing/n/120.0@1-1\"]}},\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The right opposite face view specifies three Ø20,0 H7 counterbores, depth 4,0±0,05, on the same three Ø11,0 through bores. Its stepped holes occur on +X and at 120° intervals on R148,5. The flanking face views and central edge view establish opposing opening faces. Reflect the right view's X coordinates into the left main XY frame, giving the same 180°-anchored pattern as the top countersinks; do not reflect bottom features again. The repeated Ø11 primary cuts represent the same bores, with distinct finishing operations on opposite faces.\",\"fact_ids\":[\"D-027\",\"D-027/drawing/n/3.0@1-1\",\"D-027/drawing/n/20.0@1-1\",\"D-027/drawing/n/4.0@1-1\",\"D-027/drawing/n/0.05@1-1\",\"D-027/drawing/n/0.021@1-1\",\"D-027/drawing/n/0.0@1-1\",\"D-027/drawing/n/11.0@1-1\",\"D-027/drawing/n/148.5@1-1\",\"D-027/drawing/n/120.0@1-1\"]}]",
+      "confidence": "sure",
+      "fact_ids": ["D-027", "D-027/drawing/n/148.5@1-1", "D-027/drawing/n/6.0@1-1", "D-027/drawing/n/9.0@1-1", "D-027/drawing/n/3.0@1-2", "D-027/drawing/n/11.0@1-1", "D-027/drawing/n/24.4@1-1", "D-027/drawing/n/90.0@1-1", "D-027/drawing/n/3.0@1-1", "D-027/drawing/n/20.0@1-1", "D-027/drawing/n/4.0@1-1", "D-027/drawing/n/60.0@1-1", "D-027/drawing/n/120.0@1-1"],
+      "reason": "Supported cuts comprise six plain Ø9 through holes and three Ø11 through bores with top Ø24,4 X 90° countersinks and bottom Ø20,0 counterbores 4,0 deep. Separate feature entries encode the opposite-face operations on the same three bores. Circular patterns avoid inventing trigonometric coordinates. All bottom positions remain in the left main view's XY frame.",
+      "changed_because": ""
+    },
+    {
+      "key": "features_complete",
+      "state": "known",
+      "value_json": "false",
+      "confidence": "sure",
+      "fact_ids": ["D-027", "D-027/drawing/general/edge_finish"],
+      "reason": "The hole inventory is supported, but the specified undimensioned edge breaks cannot be reproduced exactly.",
+      "changed_because": ""
+    },
+    {
+      "key": "features_omitted",
+      "state": "known",
+      "value_json": "[{\"description\":\"Undimensioned edge breaks specified by DEBURR AND BREAK SHARP EDGES.\",\"reason\":\"The note supplies no edge-break size or profile. Retain the nominal ring and supported holes without inventing chamfer geometry.\",\"fact_ids\":[\"D-027\",\"D-027/drawing/general/edge_finish\"]}]",
+      "confidence": "sure",
+      "fact_ids": ["D-027", "D-027/drawing/general/edge_finish"],
+      "reason": "The general edge-finishing instruction lacks dimensions for a modeled cut.",
+      "changed_because": ""
+    },
+    {
+      "key": "cad_eligibility",
+      "state": "known",
+      "value_json": "{\"supported\":true,\"constant_thickness\":true,\"outline_exact\":true,\"reason\":\"The left main face view establishes an exact concentric ring body, Ø330,0 outside and Ø264,0 inside. The central edge view directly dimensions its uniform 15,0 thickness. The six plain holes and three through bores with opposite-face countersinks and counterbores are supported cuts within the flat-part template. Only unspecified edge finishing is omitted.\",\"essential_uncertainty\":[],\"omitted_minor_features\":[\"Undimensioned edge breaks required by DEBURR AND BREAK SHARP EDGES.\"]}",
+      "confidence": "sure",
+      "fact_ids": ["D-027", "D-027/drawing/n/330.0@1-1", "D-027/drawing/n/264.0@1-1", "D-027/drawing/n/15.0@1-1", "D-027/drawing/general/edge_finish"],
+      "reason": "The main outline and constant thickness are explicitly dimensioned; no essential contour requires approximation.",
+      "changed_because": ""
+    }
+  ]
+}

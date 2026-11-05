@@ -1,0 +1,195 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "dd42cb65abbc24b4caf3afc56eca7bad3dd34946b480ab58bb436eb651c0335b",
+    "items": [
+      {
+        "key": "outline_type",
+        "decision": "accept",
+        "reason": "In the main face view, D-017 shows a rectangular plate dimensioned 180,00 (D-017/drawing/n/180.0@1-1) by 110,0 (D-017/drawing/n/110.0@1-1). The only change to the outline is the small 4x1,0 X 45° corner chamfer, which is allowed as a minor edge detail.",
+        "fact_ids": [
+          "D-017",
+          "D-017/drawing/n/180.0@1-1",
+          "D-017/drawing/n/110.0@1-1",
+          "D-017/drawing/n/45.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "length",
+        "decision": "accept",
+        "reason": "The overall horizontal dimension leader spans the plate's full width and reads 180,00 with deviations -0,01 and -0,06. The proposal records the nominal 180.",
+        "fact_ids": [
+          "D-017",
+          "D-017/drawing/n/180.0@1-1",
+          "D-017/drawing/n/0.01@1-1",
+          "D-017/drawing/n/0.06@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "width",
+        "decision": "accept",
+        "reason": "The overall vertical dimension on the right side spans the plate's full height and reads 110,0.",
+        "fact_ids": [
+          "D-017",
+          "D-017/drawing/n/110.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "outer_diameter",
+        "decision": "accept",
+        "reason": "The outline is a rectangle, so an outer diameter does not apply. Recording it as unknown/null is correct.",
+        "fact_ids": [
+          "D-017",
+          "D-017/drawing/n/180.0@1-1",
+          "D-017/drawing/n/110.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "inner_diameter",
+        "decision": "accept",
+        "reason": "The body is not a ring. The Ø42,00 opening is offset from the plate centre, so it is correctly treated as a hole feature, and inner_diameter is correctly unknown/null.",
+        "fact_ids": [
+          "D-017",
+          "D-017/drawing/n/42.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "thickness",
+        "decision": "accept",
+        "reason": "In the side view, the 10,0 dimension leaders span the plate's thickness. No stacked alternative thicknesses are printed, so the thickness is a single known value of 10.",
+        "fact_ids": [
+          "D-017",
+          "D-017/drawing/n/10.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features",
+        "decision": "accept",
+        "reason": "The Ø42,00 +0,10/+0,05 bore is supported, with nominal diameter 42. Its X position is 28,2 from the drawn vertical dash-dot centerline to the bore centre, so x=28.2. Its Y position is 4,1 below the horizontal centerline, so y=-4.1 using the expression 0-n0. The arithmetic checks out: 110,0/2 - 4,1 = 50,9, which matches the printed 50,9 from the bottom edge, so the horizontal reference is the plate midline. The vertical reference is the companion part centerline crossing the outline. The isometric view shows the bore is open all the way through. A plain through-hole is a valid subset, and the concentric edge outline is correctly not turned into an invented step.",
+        "fact_ids": [
+          "D-017",
+          "D-017/drawing/n/28.2@1-1",
+          "D-017/drawing/n/4.1@1-1",
+          "D-017/drawing/n/50.9@1-1",
+          "D-017/drawing/n/110.0@1-1",
+          "D-017/drawing/n/42.0@1-1",
+          "D-017/drawing/n/0.1@1-1",
+          "D-017/drawing/n/0.05@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_complete",
+        "decision": "accept",
+        "reason": "The drawing shows 4x countersunk holes, 8x M5 holes, two Ø6,0 H7 holes and corner chamfers, none of which have locating dimensions. These are omitted, so false is correct.",
+        "fact_ids": [
+          "D-017",
+          "D-017/drawing/callout/p1-1",
+          "D-017/drawing/callout/p1-2",
+          "D-017/drawing/n/6.0@1-1",
+          "D-017/drawing/n/6.0@1-2"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_omitted",
+        "decision": "accept",
+        "reason": "Each omission matches the drawing. The 4x Ø5,5 THRU holes with Ø10,8 X 90° countersinks have no locating dimensions. The 8x M5 callout is visible in the image, but the holes have no locations, drill diameter or depth. The two Ø6,0 H7 holes sit on the bore-centre line, but their X positions are not dimensioned. The 4x1,0 X 45° corner chamfers and the general DEBURR AND BREAK SHARP EDGES note do not define a step. Every cited ID exists in the supplied evidence.",
+        "fact_ids": [
+          "D-017",
+          "D-017/drawing/callout/p1-1",
+          "D-017/drawing/callout/p1-2",
+          "D-017/drawing/n/5.5@1-1",
+          "D-017/drawing/n/10.8@1-1",
+          "D-017/drawing/n/90.0@1-1",
+          "D-017/drawing/n/6.0@1-1",
+          "D-017/drawing/n/6.0@1-2",
+          "D-017/drawing/n/45.0@1-1",
+          "D-017/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "cad_eligibility",
+        "decision": "accept",
+        "reason": "The main body is an exact 180,00 x 110,0 rectangle from the main view. The side view's 10,0 dimension establishes a single constant thickness, and the isometric view shows a flat, unstepped plate. The located Ø42 bore is supported. Only small corner chamfers and edge breaks are omitted as minor edge detail. The reason field states clearly that this is a partial model because the mounting and alignment holes are unlocated. So supported=true, constant_thickness=true and outline_exact=true are justified.",
+        "fact_ids": [
+          "D-017",
+          "D-017/drawing/n/180.0@1-1",
+          "D-017/drawing/n/110.0@1-1",
+          "D-017/drawing/n/10.0@1-1",
+          "D-017/drawing/n/42.0@1-1",
+          "D-017/drawing/n/45.0@1-1",
+          "D-017/drawing/callout/p1-1",
+          "D-017/drawing/callout/p1-2",
+          "D-017/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 16878,
+      "cache_read_input_tokens": 18491,
+      "output_tokens": 4311,
+      "output_tokens_details": {
+        "thinking_tokens": 1925
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 16878,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 4311,
+        "cacheReadInputTokens": 18491,
+        "cacheCreationInputTokens": 16878,
+        "webSearchRequests": 0,
+        "costUSD": 0.2249582,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 1925,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 16878,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.2249582,
+    "duration_ms": 39601,
+    "is_error": false
+  },
+  "latency_ms": 40843,
+  "cache_key": "d94b2097b8e614ecf2eba02f20c961bb1e701ea1c478b81e5e93af65b21a4b4a",
+  "cache_hit": false,
+  "job": "expansion:D-017:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+  "error": null
+}

@@ -1,0 +1,159 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "e4fa247cae042475382a405bbd16bd9d9371bfef280fa1779f34dde9aaa637f0",
+    "items": [
+      {
+        "key": "outline_type",
+        "decision": "needs_input",
+        "reason": "The drawing shows a revolved, stepped shaft: a Ø25,0 body (D-007/drawing/n/25.0@1-1, end view), Ø8,0 g8 journals at both ends (D-007/drawing/n/8.0@1-1, D-007/drawing/n/8.0@1-2), and three longitudinal grooves described in D-007/drawing/notes. No rectangle, circle or ring outline matches this part exactly, so unknown is a valid state. Under the protocol, essential geometry left unknown is needs_input. The existing evidence cannot supply a flat outline.",
+        "fact_ids": [
+          "D-007/drawing/n/25.0@1-1",
+          "D-007/drawing/n/8.0@1-1",
+          "D-007/drawing/n/8.0@1-2",
+          "D-007/drawing/notes"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "length",
+        "decision": "accept",
+        "reason": "The top longitudinal view has an overall dimension, 336,1, that runs between the two journal end faces. This supports a length of 336.1 mm on the shaft axis. The units come from D-007/drawing/general/units.",
+        "fact_ids": [
+          "D-007/drawing/n/336.1@1-1",
+          "D-007/drawing/general/units"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "width",
+        "decision": "needs_input",
+        "reason": "The only dimension across the part is the Ø25,0 diameter in the end view (D-007/drawing/n/25.0@1-1). The drawing gives no flat Y width. Unknown is correct, but missing essential geometry is needs_input, and the existing evidence cannot resolve it.",
+        "fact_ids": [
+          "D-007/drawing/n/25.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "outer_diameter",
+        "decision": "accept",
+        "reason": "In the end view, the Ø25,0 leader points to the outer circle of the body. This supports an outer diameter of 25.0 mm for the main cylindrical body.",
+        "fact_ids": [
+          "D-007/drawing/n/25.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "inner_diameter",
+        "decision": "needs_input",
+        "reason": "No bore is shown or dimensioned. The inner circle in the end view is the journal end, and both Ø8,0 g8 callouts (D-007/drawing/n/8.0@1-1, D-007/drawing/n/8.0@1-2) dimension the outside of the journals. Unknown is the correct reading, but the protocol requires needs_input for null geometry, and no ring inner diameter can come from this evidence.",
+        "fact_ids": [
+          "D-007/drawing/n/8.0@1-1",
+          "D-007/drawing/n/8.0@1-2"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "thickness",
+        "decision": "needs_input",
+        "reason": "The drawing prints no constant extrusion thickness. 269,5 ±0,1 dimensions the length of the Ø25 body (D-007/drawing/n/269.5@1-1). The stacked -0,005/-0,027 values are the g8 tolerance limits on Ø8,0 (D-007/drawing/n/0.005@1-1, D-007/drawing/n/0.027@1-1), not alternative thicknesses. Essential thickness is unresolved, and the existing evidence cannot resolve it.",
+        "fact_ids": [
+          "D-007/drawing/n/269.5@1-1",
+          "D-007/drawing/n/0.005@1-1",
+          "D-007/drawing/n/0.027@1-1",
+          "D-007/drawing/n/8.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features",
+        "decision": "needs_input",
+        "reason": "D-007/drawing/notes specifies three identical grooves 120° apart. Section A-A shows only 90° (D-007/drawing/n/90.0@1-1) and 2,3 (D-007/drawing/n/2.3@1-1). The groove profile along the arc and the groove ends along the axis are not dimensioned. These are cuts on the cylindrical surface, not top-face holes or slots. The 1,0 X 45° chamfers (D-007/drawing/callout/p1-1, D-007/drawing/callout/p1-2) cannot be expressed as hole or slot objects. The drawing shows no holes. The empty array with state unknown cannot be completed from the existing evidence.",
+        "fact_ids": [
+          "D-007/drawing/notes",
+          "D-007/drawing/n/90.0@1-1",
+          "D-007/drawing/n/2.3@1-1",
+          "D-007/drawing/callout/p1-1",
+          "D-007/drawing/callout/p1-2"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "cad_eligibility",
+        "decision": "accept",
+        "reason": "supported=false, constant_thickness=false and outline_exact=false are all supported by the drawing. The views show a revolved, stepped shaft: a Ø25,0 body (D-007/drawing/n/25.0@1-1), Ø8,0 journals (D-007/drawing/n/8.0@1-1, D-007/drawing/n/8.0@1-2) and a 269,5 body length (D-007/drawing/n/269.5@1-1). The three essential grooves in D-007/drawing/notes are only partly dimensioned in section A-A (D-007/drawing/n/2.3@1-1, D-007/drawing/n/90.0@1-1). Listing the chamfers (D-007/drawing/callout/p1-1, D-007/drawing/callout/p1-2) and the general note D-007/drawing/general/edge_finish as minor omissions is correct. The object has all the required keys with valid types.",
+        "fact_ids": [
+          "D-007/drawing/n/25.0@1-1",
+          "D-007/drawing/n/8.0@1-1",
+          "D-007/drawing/n/8.0@1-2",
+          "D-007/drawing/n/269.5@1-1",
+          "D-007/drawing/notes",
+          "D-007/drawing/n/2.3@1-1",
+          "D-007/drawing/n/90.0@1-1",
+          "D-007/drawing/callout/p1-1",
+          "D-007/drawing/callout/p1-2",
+          "D-007/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 13035,
+      "cache_read_input_tokens": 14628,
+      "output_tokens": 2890,
+      "output_tokens_details": {
+        "thinking_tokens": 599
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 13035,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 2890,
+        "cacheReadInputTokens": 14628,
+        "cacheCreationInputTokens": 13035,
+        "webSearchRequests": 0,
+        "costUSD": 0.1650216,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 599,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 13035,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.1650216,
+    "duration_ms": 24499,
+    "is_error": false
+  },
+  "latency_ms": 25718,
+  "cache_key": "0c92c81c966b598595971c365f0fa61d89d74cbaca8253e362968d235dfe6d89",
+  "cache_hit": false,
+  "job": "expansion:D-007:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+  "error": null
+}

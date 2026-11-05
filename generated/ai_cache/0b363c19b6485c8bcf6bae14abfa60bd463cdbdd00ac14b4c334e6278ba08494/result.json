@@ -1,0 +1,46 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "length",
+        "state": "known",
+        "value_json": "{\"state\":\"known\",\"value\":30,\"fact_ids\":[\"D-028/drawing/n/19.0@1-1\",\"D-028/drawing/n/5.5@1-1\"],\"expression\":\"n0+2*n1\"}",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-028/drawing/n/19.0@1-1",
+          "D-028/drawing/n/5.5@1-1"
+        ],
+        "reason": "The main view dimensions 19,0 between the end-arc centers and R5,5 for the rounded ends. Overall X length is therefore 19,0 + 2*5,5 = 30 millimetres.",
+        "changed_because": "Added the required arithmetic wrapper with source IDs ordered to match the expression. Reinspection supports the unchanged length of 30 millimetres."
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 20697,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 557,
+          "reasoning_output_tokens": 353
+        }
+      }
+    ]
+  },
+  "latency_ms": 14750,
+  "cache_key": "0b363c19b6485c8bcf6bae14abfa60bd463cdbdd00ac14b4c334e6278ba08494",
+  "cache_hit": false,
+  "job": "expansion:D-028:flat-part-expansion-v1:proposal-verification-v1:proposal:1",
+  "error": null
+}

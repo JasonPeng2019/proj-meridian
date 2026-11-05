@@ -1,0 +1,144 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "outline_type",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-030"
+        ],
+        "reason": "The main face-on view shows a curved, three-lobed profile. None of rectangle, circle or ring describes its actual outline.",
+        "changed_because": ""
+      },
+      {
+        "key": "length",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-030"
+        ],
+        "reason": "No overall X dimension is printed. Measuring the image or substituting a bounding rectangle is prohibited.",
+        "changed_because": ""
+      },
+      {
+        "key": "width",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-030"
+        ],
+        "reason": "No overall Y dimension is printed. Measuring the image or substituting a bounding rectangle is prohibited.",
+        "changed_because": ""
+      },
+      {
+        "key": "outer_diameter",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-030"
+        ],
+        "reason": "An outer diameter is not applicable to this three-lobed profile.",
+        "changed_because": ""
+      },
+      {
+        "key": "inner_diameter",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-030"
+        ],
+        "reason": "The body is not a ring. Its central bore belongs in the cut inventory, not the ring inner-diameter field.",
+        "changed_because": ""
+      },
+      {
+        "key": "thickness",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-030"
+        ],
+        "reason": "SECTION A-A shows a linked thickness callout of 4,00 ±0,05. However, the supplied numbers array is empty, so there is no parsed drawing-number ID permitting a numeric geometry value.",
+        "changed_because": ""
+      },
+      {
+        "key": "features",
+        "state": "known",
+        "value_json": "[]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-030"
+        ],
+        "reason": "No cut meets all required geometry, placement and numeric-citation requirements. The supplied evidence contains no parsed drawing-number IDs, and the surrounding hole locations lack printed positioning dimensions.",
+        "changed_because": ""
+      },
+      {
+        "key": "features_complete",
+        "state": "known",
+        "value_json": "false",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-030"
+        ],
+        "reason": "The visible bore, mounting holes and smaller hole patterns are excluded for the specific reasons recorded in features_omitted.",
+        "changed_because": ""
+      },
+      {
+        "key": "features_omitted",
+        "state": "known",
+        "value_json": "[{\"description\":\"Central through bore\",\"reason\":\"The image includes a diameter and fit callout, but no parsed drawing-number ID is supplied for its numeric geometry. Its position relative to the required centered outer outline is not numerically established.\",\"fact_ids\":[\"D-030\"]},{\"description\":\"Through holes and counterbore steps in the outer lobes\",\"reason\":\"The visible diameter and counterbore-depth callouts have no supplied parsed drawing-number IDs. Hole-center locations are not dimensioned. Neither the primary holes nor their steps can therefore be emitted as supported features.\",\"fact_ids\":[\"D-030\"]},{\"description\":\"Small threaded through-hole pattern around the central bore\",\"reason\":\"The printed count and thread callout do not establish placement: no pitch, offset or pitch-circle dimension is supplied. Numeric geometry also lacks parsed drawing-number IDs.\",\"fact_ids\":[\"D-030\"]},{\"description\":\"Small plain through-hole pattern around the central bore\",\"reason\":\"The printed count and diameter callout do not establish placement: no pitch, offset or pitch-circle dimension is supplied. Numeric geometry also lacks parsed drawing-number IDs.\",\"fact_ids\":[\"D-030\"]},{\"description\":\"Offset threaded through hole below the central bore\",\"reason\":\"The vertical offset is not dimensioned, and the visible drill/thread callout has no supplied parsed drawing-number IDs. Alignment with the vertical axis alone does not establish its complete position.\",\"fact_ids\":[\"D-030\"]}]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-030"
+        ],
+        "reason": "These entries cover the visible cut groups. The unsupported essential outer contour is addressed separately in cad_eligibility.",
+        "changed_because": ""
+      },
+      {
+        "key": "cad_eligibility",
+        "state": "known",
+        "value_json": "{\"supported\":false,\"constant_thickness\":true,\"outline_exact\":false,\"reason\":\"The main face-on view shows an essential curved, three-lobed outer contour that the rectangle/circle/ring generator cannot represent. SECTION A-A establishes a uniform plate thickness, but no parsed drawing-number IDs are supplied for its numeric value or the cut dimensions. The central bore and mounting/cut geometry also remain unsupported as detailed in features_omitted.\",\"essential_uncertainty\":[\"The essential three-lobed outer contour is outside the supported outline types and lacks dimensions defining its complete geometry.\",\"No overall X or Y dimensions are supplied.\",\"The supplied numbers array is empty, preventing numeric geometry from satisfying the mandatory drawing-number citation rule.\",\"Hole locations lack printed offsets, pitches or pitch-circle dimensions establishing their coordinates.\"],\"omitted_minor_features\":[]}",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-030"
+        ],
+        "reason": "The main contour independently blocks MVP reconstruction; it cannot be treated as a minor omitted detail or replaced by a bounding shape.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 19235,
+          "cached_input_tokens": 13056,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 3527,
+          "reasoning_output_tokens": 2211
+        }
+      }
+    ]
+  },
+  "latency_ms": 73922,
+  "cache_key": "6823747f2e8db4bcf2e26aadb31c09a6bea0af586db2e309130742ad15d5e097",
+  "cache_hit": false,
+  "job": "expansion:D-030:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+  "error": null
+}

@@ -1,0 +1,132 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "outline_type",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-005"
+        ],
+        "reason": "The drawing shows a rounded rectangular frame with an internal opening. None of rectangle, circle or ring represents its exact outline.",
+        "changed_because": ""
+      },
+      {
+        "key": "length",
+        "state": "known",
+        "value_json": "323.0",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-005/drawing/n/323.0@1-1"
+        ],
+        "reason": "The main view explicitly dimensions the overall X extent as 323,0 mm.",
+        "changed_because": ""
+      },
+      {
+        "key": "width",
+        "state": "known",
+        "value_json": "236.0",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-005/drawing/n/236.0@1-1"
+        ],
+        "reason": "The main view explicitly dimensions the overall Y extent as 236,0 mm.",
+        "changed_because": ""
+      },
+      {
+        "key": "outer_diameter",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-005"
+        ],
+        "reason": "The outer outline is not circular; an outer diameter is inapplicable.",
+        "changed_because": ""
+      },
+      {
+        "key": "inner_diameter",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-005"
+        ],
+        "reason": "The internal opening is not circular; an inner diameter is inapplicable.",
+        "changed_because": ""
+      },
+      {
+        "key": "thickness",
+        "state": "known",
+        "value_json": "8.2",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-005/drawing/n/8.2@1-1",
+          "D-005"
+        ],
+        "reason": "The side-view dimension 8,2 mm establishes overall thickness. The section shows steps and grooves, so this is not a uniform plate thickness.",
+        "changed_because": ""
+      },
+      {
+        "key": "features",
+        "state": "unknown",
+        "value_json": "[]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-005",
+          "D-005/drawing/notes",
+          "D-005/drawing/n/20.0@1-1",
+          "D-005/drawing/n/3.3@1-1",
+          "D-005/drawing/n/6.0@1-1",
+          "D-005/drawing/n/4.0@1-1",
+          "D-005/drawing/callout/p1-1"
+        ],
+        "reason": "Omitted all 20 M4 threaded holes: drill and thread depths are specified, but XY centers and pattern spacing are not dimensioned. The central opening, stepped window seat, two o-ring grooves and corner machining relief cannot be represented as fully determined supported holes or slots. The edge chamfer and bottom internal corner radii are also outside the feature schema.",
+        "changed_because": ""
+      },
+      {
+        "key": "cad_eligibility",
+        "state": "known",
+        "value_json": "{\"supported\":false,\"constant_thickness\":false,\"outline_exact\":false,\"reason\":\"The main view shows a rounded rectangular frame with an internal opening and corner machining relief, which cannot be represented exactly by the supported rectangle/circle/ring outlines and hole/slot cuts. The side view dimensions overall thickness as 8,2 mm, while Section A-A and Detail B show a stepped window seat and o-ring groove profile rather than a uniform plate section.\",\"essential_uncertainty\":[\"Outer corner radii are not dimensioned.\",\"The opening, window-seat corners and machining relief lack complete contour dimensions.\",\"The complete stepped and grooved section is not fully dimensioned for exact reconstruction.\"],\"omitted_minor_features\":[\"All 20 M4 blind threaded holes lack dimensioned XY positions or an explicit dimensioned pattern.\",\"The specified edge chamfer is outside the supported hole/slot schema.\",\"Bottom internal corner radii are limited by a maximum rather than fixed exactly.\"]}",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-005",
+          "D-005/drawing/n/8.2@1-1",
+          "D-005/drawing/notes",
+          "D-005/drawing/callout/p1-1"
+        ],
+        "reason": "Eligibility is blocked by the essential frame contours and profiled section, independently of the missing hole positions.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 19740,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2934,
+          "reasoning_output_tokens": 2070
+        }
+      }
+    ]
+  },
+  "latency_ms": 75453,
+  "cache_key": "171ce800e854b9ee6cde20ed022d379d720af68be5a0b8892a201009c58234c3",
+  "cache_hit": false,
+  "job": "expansion:D-005:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+  "error": null
+}

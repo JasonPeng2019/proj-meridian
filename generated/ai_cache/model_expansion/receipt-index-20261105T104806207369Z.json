@@ -1,0 +1,1734 @@
+{
+  "summary": {
+    "run": "20261105T104806207369Z",
+    "complete": true,
+    "assessed_additional_drawings": 27,
+    "new_candidates": [
+      "D-012",
+      "D-014",
+      "D-015",
+      "D-017",
+      "D-019",
+      "D-027"
+    ],
+    "blocked": [
+      "D-001",
+      "D-002",
+      "D-003",
+      "D-004",
+      "D-005",
+      "D-006",
+      "D-007",
+      "D-008",
+      "D-009",
+      "D-010",
+      "D-011",
+      "D-016",
+      "D-018",
+      "D-020",
+      "D-021",
+      "D-022",
+      "D-023",
+      "D-024",
+      "D-028",
+      "D-029",
+      "D-030"
+    ],
+    "total_candidate_parts": 9,
+    "total_candidate_variants": 12,
+    "final_receipt_count": 58,
+    "all_historical_expansion_receipt_count": 62,
+    "fresh_assessment_metrics": {
+      "reader_calls": 36,
+      "provider_calls": 36,
+      "cache_hits": 0,
+      "proposer_calls": 18,
+      "verifier_calls": 18,
+      "feedback_rounds": 2,
+      "feedback_keys": 2,
+      "latency_ms_total": 2710078
+    },
+    "final_source_receipt_metrics_including_reused": {
+      "reader_calls": 58,
+      "provider_calls": 58,
+      "cache_hits": 0,
+      "proposer_calls": 29,
+      "verifier_calls": 29,
+      "feedback_rounds": 2,
+      "feedback_keys": 2,
+      "latency_ms_total": 3785983
+    },
+    "wall_time_ms": 2748531,
+    "protected_originals_and_decisions_unchanged": true,
+    "other_prep_sections_unchanged": true,
+    "metrics_append_only": true,
+    "raw_drawings_and_provider_images_unchanged": true,
+    "paths": {
+      "assessments": "generated/model_assessments.json",
+      "artifact_assessments": "generated/ai_cache/artifacts/model_assessments.json",
+      "journal": "generated/ai_cache/model_expansion/20261105T104806207369Z.json",
+      "baseline": "generated/ai_cache/model_expansion/execution-baseline-20261105T104805042095Z.json",
+      "receipt_index": "generated/ai_cache/model_expansion/receipt-index-20261105T104806207369Z.json",
+      "receipt_cache_keys": "generated/ai_cache/model_expansion/receipt-cache-keys-20261105T104806207369Z.json",
+      "model_candidates": "generated/ai_cache/model_expansion/model-candidates-20261105T104806207369Z.json"
+    }
+  },
+  "final_run_cache_keys": [
+    "09ad4238698dea46d90de16c892a998f834c40bd19e74913bb4f4021b532a859",
+    "0b22f18bb789109779daaec6938cad39fd6b422c4310e6e3ba5a5b88adea79bf",
+    "0b363c19b6485c8bcf6bae14abfa60bd463cdbdd00ac14b4c334e6278ba08494",
+    "0c92c81c966b598595971c365f0fa61d89d74cbaca8253e362968d235dfe6d89",
+    "0ddca8ad8ff047fa55595a96879fd5042b3d9b45251fa01017802f35e85acfde",
+    "14822d40a34bdf979607d6f63d6ea91897c5aa11dd73a39c7ff60edb94a30e80",
+    "171ce800e854b9ee6cde20ed022d379d720af68be5a0b8892a201009c58234c3",
+    "1a8485d62d28c4a9d79d9507cd896c9e3cff431fd388786d87e2d4f80f80bea8",
+    "1bd96cff4abc386435e3d688301cd60bcf9434dcb057c62a59434f9735c0274f",
+    "205542df7310808f5432433c6e62d19d3348faa5ea7c1e42662ca555d41aec6b",
+    "257259a8622bb24ac051cd31b2534c750d61ee5562004f760244bda8162cf21c",
+    "25763864a555b95fdcdcc88263acdcbb821cf1b87011234fb39744b790dc05b1",
+    "2e33a333220a2a2855906e78c714874a772b735d928d56f8b9bfc403de51283c",
+    "33604293a7bf72f82809c27134d19071a18f933150c5a7e25b0930896421cc7c",
+    "37c155d42fd193e0a664e9ea94c7900e9b8f61430f357b6d2f82b238c099b1b7",
+    "3a055b7fe1c07becb6c70a05007a341114be0fe2a637acf59483422ef4df98db",
+    "3c90cb9859cad475fd7d12f89f53b61c8cb214aa0187559105500b6ae2a4cda2",
+    "4032bb01887cca8694974a58c9fa297d4e065cc0936dd5690814ade7a61b24e8",
+    "422de476c7239cbbfafa231af323838f47285cace8807e9010561d54767c15b3",
+    "4867bef8d5c491e7fd1be7ee5384ab97e903ef61038876d05b4ea7c621b1fa17",
+    "48aca9a41309be6d61b4ccf703fdf8e1c9d32714422a4b6200f31c2fe2fee13c",
+    "49ac729f10d15d9048839cc3a22fd0cda466dfc0f88d368e7b69086478730e29",
+    "4e2b675e57301d117f73856b5ec07812e115baa9d118251ea87931318f15257c",
+    "5ad1f073c2b567be520d79f810431779476d8d8f405adffabd42b2a179fcd049",
+    "6458908430e3f550e47623d84af7b7152ee93d71d04d613822e0ebd0c99a94ea",
+    "6823747f2e8db4bcf2e26aadb31c09a6bea0af586db2e309130742ad15d5e097",
+    "727ea4da5807561ea751d29a43f0819eb098e331735ef288d20e5d9450140ade",
+    "766805710cd6a677be160a71652fcd8278198d08bd9079f1dd7db5882db4bb3d",
+    "7871ec19a844879bd3c698d65bc5527157fd45f7cc61ef2f4adc1f010604634c",
+    "7ab35fdc782dc9479a18186ca583fecef5f5bb9bfac1c88c364bc9e05443ec6b",
+    "7cd6b4ea9e28fc95bfb1cdc9c74fe72e4a411cd0801ae1452f4e2a629d2b93cf",
+    "81bd5b15c451b2afbb6a9687cd133167edbba96359c17cdd479515fedde0cd8f",
+    "82ea18fe2111d644ef9d64fcc64b63070e0ac6621c71542850b0a698320eee13",
+    "8669e4a4f57135fd21d1af3c503c4fd346d4230ab60087707c9b11974bd8b55e",
+    "86e3577be512eab1dff17ccaaa0490a0824caac108a2a66cd16693d9d65d1e5b",
+    "9958607b906f835a2bdba60882f52ce9d8745a8f4c1552a0631ac87122448f33",
+    "9ade8d09b9fdc402bd56a8a383e88d4e0e10374cd65cc23f7dc8c5f37d92202a",
+    "9e471b041bb1d814ad93e5389d46f9b9140c53705a330382edeb0b393f400c3d",
+    "a222d6d3d855c29ddeea648cc9367248f65c0e0f54bcd49fcd8c766f8c9535d2",
+    "a2553cc327228c8a3f2f30e7f165646c5687328349cec51d529b69c9c4ad7bb5",
+    "a64ebf20852a984c2821679dce0a3840bba3b2b63816a80c38dd17ac862173f0",
+    "ae83eb26138c5c214c33440df1233cd91ed7e5f5590be7cc582b93b4e2f4c146",
+    "bb065bb0bf7e3f92db390f233d96d85f04eb7c4113ab7c5447ae6cd9f57bf872",
+    "bc805665bc2752e9316fd325479b701101a3a479a8c11199c4e49c288e5fd1e3",
+    "c0e7cbbd3fc30c64e73cec629e150e82213c31dbf3d0987d2d1d6c3b2496cd88",
+    "c594eff08db6dcd43132a2401ab4ac7f001fc1ae194320cf39653cfe82cfc284",
+    "cbfd57c7de0553390d2aead33662084a666d9ba7ddcab5edaf7128f861b531bc",
+    "cd358725b40770890cda4bf1a4d08275f44a59e51c6841a9ee359ed0a569aa7e",
+    "d24c7427d4a9fd797c14e5d4846fce154f9be2810be27e2d3d56871137665eaf",
+    "d398f5f794a2dd2cd7472521ec7f2144484cff78a369cc3a44ca55867fd2a890",
+    "d3b81e8d47f81a7f9cd1c1542a24e6e98bc3926a321a4785cf1c6ab0ae06edd3",
+    "d90c3584e5e9e1a983f89b0a7be48f371062bcbe0d31e2396ca0b1bb4fae56b2",
+    "d94b2097b8e614ecf2eba02f20c961bb1e701ea1c478b81e5e93af65b21a4b4a",
+    "dea39bea5739bf3bdb079291fb17257761a7ee2d1b4a12d9d4e455d928d27d8e",
+    "e4998ea9009673301cb7ab06c30e3352374633f8a8f75cb58cbdf29f08c2d8f4",
+    "ebae3e5bb21b21fcc7c94f5899c2054dd6c5c9c2a1fec2c9b3fc4c04b9ee4fe8",
+    "ecfecfd6110db6e5ceb36980d5d398ace96781f2cb84f0e1778e695485cbbbd4",
+    "eee03bce7418d71aa1165ff6dda07f6dec604ead82afc5010ab661c1cc1f74d0"
+  ],
+  "all_expansion_cache_keys": [
+    "09ad4238698dea46d90de16c892a998f834c40bd19e74913bb4f4021b532a859",
+    "0b22f18bb789109779daaec6938cad39fd6b422c4310e6e3ba5a5b88adea79bf",
+    "0b363c19b6485c8bcf6bae14abfa60bd463cdbdd00ac14b4c334e6278ba08494",
+    "0c92c81c966b598595971c365f0fa61d89d74cbaca8253e362968d235dfe6d89",
+    "0ddca8ad8ff047fa55595a96879fd5042b3d9b45251fa01017802f35e85acfde",
+    "14822d40a34bdf979607d6f63d6ea91897c5aa11dd73a39c7ff60edb94a30e80",
+    "171ce800e854b9ee6cde20ed022d379d720af68be5a0b8892a201009c58234c3",
+    "1a8485d62d28c4a9d79d9507cd896c9e3cff431fd388786d87e2d4f80f80bea8",
+    "1bd96cff4abc386435e3d688301cd60bcf9434dcb057c62a59434f9735c0274f",
+    "205542df7310808f5432433c6e62d19d3348faa5ea7c1e42662ca555d41aec6b",
+    "257259a8622bb24ac051cd31b2534c750d61ee5562004f760244bda8162cf21c",
+    "25763864a555b95fdcdcc88263acdcbb821cf1b87011234fb39744b790dc05b1",
+    "2e33a333220a2a2855906e78c714874a772b735d928d56f8b9bfc403de51283c",
+    "33604293a7bf72f82809c27134d19071a18f933150c5a7e25b0930896421cc7c",
+    "37c155d42fd193e0a664e9ea94c7900e9b8f61430f357b6d2f82b238c099b1b7",
+    "3a055b7fe1c07becb6c70a05007a341114be0fe2a637acf59483422ef4df98db",
+    "3a264c4fa7a6b43efef348b04e7b9b1cafb39280626ef66761d7e96f594f3390",
+    "3c90cb9859cad475fd7d12f89f53b61c8cb214aa0187559105500b6ae2a4cda2",
+    "4032bb01887cca8694974a58c9fa297d4e065cc0936dd5690814ade7a61b24e8",
+    "422de476c7239cbbfafa231af323838f47285cace8807e9010561d54767c15b3",
+    "4867bef8d5c491e7fd1be7ee5384ab97e903ef61038876d05b4ea7c621b1fa17",
+    "48aca9a41309be6d61b4ccf703fdf8e1c9d32714422a4b6200f31c2fe2fee13c",
+    "49ac729f10d15d9048839cc3a22fd0cda466dfc0f88d368e7b69086478730e29",
+    "4e2b675e57301d117f73856b5ec07812e115baa9d118251ea87931318f15257c",
+    "5ad1f073c2b567be520d79f810431779476d8d8f405adffabd42b2a179fcd049",
+    "6458908430e3f550e47623d84af7b7152ee93d71d04d613822e0ebd0c99a94ea",
+    "6823747f2e8db4bcf2e26aadb31c09a6bea0af586db2e309130742ad15d5e097",
+    "727ea4da5807561ea751d29a43f0819eb098e331735ef288d20e5d9450140ade",
+    "766805710cd6a677be160a71652fcd8278198d08bd9079f1dd7db5882db4bb3d",
+    "7871ec19a844879bd3c698d65bc5527157fd45f7cc61ef2f4adc1f010604634c",
+    "7ab35fdc782dc9479a18186ca583fecef5f5bb9bfac1c88c364bc9e05443ec6b",
+    "7cd6b4ea9e28fc95bfb1cdc9c74fe72e4a411cd0801ae1452f4e2a629d2b93cf",
+    "81bd5b15c451b2afbb6a9687cd133167edbba96359c17cdd479515fedde0cd8f",
+    "82ea18fe2111d644ef9d64fcc64b63070e0ac6621c71542850b0a698320eee13",
+    "8669e4a4f57135fd21d1af3c503c4fd346d4230ab60087707c9b11974bd8b55e",
+    "86e3577be512eab1dff17ccaaa0490a0824caac108a2a66cd16693d9d65d1e5b",
+    "9958607b906f835a2bdba60882f52ce9d8745a8f4c1552a0631ac87122448f33",
+    "9ade8d09b9fdc402bd56a8a383e88d4e0e10374cd65cc23f7dc8c5f37d92202a",
+    "9e471b041bb1d814ad93e5389d46f9b9140c53705a330382edeb0b393f400c3d",
+    "a222d6d3d855c29ddeea648cc9367248f65c0e0f54bcd49fcd8c766f8c9535d2",
+    "a2553cc327228c8a3f2f30e7f165646c5687328349cec51d529b69c9c4ad7bb5",
+    "a64ebf20852a984c2821679dce0a3840bba3b2b63816a80c38dd17ac862173f0",
+    "ae83eb26138c5c214c33440df1233cd91ed7e5f5590be7cc582b93b4e2f4c146",
+    "b9e7fd9440b4003620d2b4228a503ef548edf77690301e19141dd989b6d22aeb",
+    "bb065bb0bf7e3f92db390f233d96d85f04eb7c4113ab7c5447ae6cd9f57bf872",
+    "bc805665bc2752e9316fd325479b701101a3a479a8c11199c4e49c288e5fd1e3",
+    "c0e7cbbd3fc30c64e73cec629e150e82213c31dbf3d0987d2d1d6c3b2496cd88",
+    "c594eff08db6dcd43132a2401ab4ac7f001fc1ae194320cf39653cfe82cfc284",
+    "c5e9bed3cd83ae970377461d271a8f96cac1af78f3b5fc2d18eefdd6360e2fe2",
+    "cbfd57c7de0553390d2aead33662084a666d9ba7ddcab5edaf7128f861b531bc",
+    "cd358725b40770890cda4bf1a4d08275f44a59e51c6841a9ee359ed0a569aa7e",
+    "d24c7427d4a9fd797c14e5d4846fce154f9be2810be27e2d3d56871137665eaf",
+    "d398f5f794a2dd2cd7472521ec7f2144484cff78a369cc3a44ca55867fd2a890",
+    "d3b81e8d47f81a7f9cd1c1542a24e6e98bc3926a321a4785cf1c6ab0ae06edd3",
+    "d90c3584e5e9e1a983f89b0a7be48f371062bcbe0d31e2396ca0b1bb4fae56b2",
+    "d94b2097b8e614ecf2eba02f20c961bb1e701ea1c478b81e5e93af65b21a4b4a",
+    "dea39bea5739bf3bdb079291fb17257761a7ee2d1b4a12d9d4e455d928d27d8e",
+    "e0d4de9414100777f27fd9d46a37f32d0aa74b69bd8ddc8c592f30f9a8f05f83",
+    "e4998ea9009673301cb7ab06c30e3352374633f8a8f75cb58cbdf29f08c2d8f4",
+    "ebae3e5bb21b21fcc7c94f5899c2054dd6c5c9c2a1fec2c9b3fc4c04b9ee4fe8",
+    "ecfecfd6110db6e5ceb36980d5d398ace96781f2cb84f0e1778e695485cbbbd4",
+    "eee03bce7418d71aa1165ff6dda07f6dec604ead82afc5010ab661c1cc1f74d0"
+  ],
+  "receipts": [
+    {
+      "cache_key": "09ad4238698dea46d90de16c892a998f834c40bd19e74913bb4f4021b532a859",
+      "reader": "claude",
+      "drawing": "D-002",
+      "role": "verification",
+      "round": 0,
+      "job": "expansion:D-002:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T092457659593Z.json",
+        "generated/ai_cache/model_expansion/20261105T103822400475Z.json",
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/09ad4238698dea46d90de16c892a998f834c40bd19e74913bb4f4021b532a859/request.json",
+      "request_sha256": "c02303d233a7c8bc7e31215e58d1e6b4754790f5837d167e66ffce0f314b27ef",
+      "result_path": "generated/ai_cache/09ad4238698dea46d90de16c892a998f834c40bd19e74913bb4f4021b532a859/result.json",
+      "result_sha256": "7602f5774e34a1a0113f124aa18853c92e8f84a45e4be77aa10b3f6a3e76fb04",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "latency_ms": 21469
+    },
+    {
+      "cache_key": "0b22f18bb789109779daaec6938cad39fd6b422c4310e6e3ba5a5b88adea79bf",
+      "reader": "claude",
+      "drawing": "D-021",
+      "role": "verification",
+      "round": 0,
+      "job": "expansion:D-021:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/0b22f18bb789109779daaec6938cad39fd6b422c4310e6e3ba5a5b88adea79bf/request.json",
+      "request_sha256": "a1f2b1ecd64ed305304ac3afab8a6a3da9a2bb42e83cb08263767ae5dae5847c",
+      "result_path": "generated/ai_cache/0b22f18bb789109779daaec6938cad39fd6b422c4310e6e3ba5a5b88adea79bf/result.json",
+      "result_sha256": "335a2757631a9b6126d14630c05e51fd0917be1355692ca64e63a955c6162bde",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "latency_ms": 21313
+    },
+    {
+      "cache_key": "0b363c19b6485c8bcf6bae14abfa60bd463cdbdd00ac14b4c334e6278ba08494",
+      "reader": "codex",
+      "drawing": "D-028",
+      "role": "proposal",
+      "round": 1,
+      "job": "expansion:D-028:flat-part-expansion-v1:proposal-verification-v1:proposal:1",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/0b363c19b6485c8bcf6bae14abfa60bd463cdbdd00ac14b4c334e6278ba08494/request.json",
+      "request_sha256": "afd23c042d06c9f609ccef1682b72ac4e2cef477374ecec9b8eb2d13689d476a",
+      "result_path": "generated/ai_cache/0b363c19b6485c8bcf6bae14abfa60bd463cdbdd00ac14b4c334e6278ba08494/result.json",
+      "result_sha256": "3dc748d7fe1b2fe4e2d8c9b59b532ea6dd9aad8fc66394c05a16015fdc83e580",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      },
+      "latency_ms": 14750
+    },
+    {
+      "cache_key": "0c92c81c966b598595971c365f0fa61d89d74cbaca8253e362968d235dfe6d89",
+      "reader": "claude",
+      "drawing": "D-007",
+      "role": "verification",
+      "round": 0,
+      "job": "expansion:D-007:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T092457659593Z.json",
+        "generated/ai_cache/model_expansion/20261105T103822400475Z.json",
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/0c92c81c966b598595971c365f0fa61d89d74cbaca8253e362968d235dfe6d89/request.json",
+      "request_sha256": "312338aa6157aecb661480b03f90543c0ca07ddecc9ceb2be734a0604a1700f4",
+      "result_path": "generated/ai_cache/0c92c81c966b598595971c365f0fa61d89d74cbaca8253e362968d235dfe6d89/result.json",
+      "result_sha256": "e06534698651718fa418f3c65bcf27f26b1d81c0f48ffa3f677d3cac393fd19e",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "latency_ms": 25718
+    },
+    {
+      "cache_key": "0ddca8ad8ff047fa55595a96879fd5042b3d9b45251fa01017802f35e85acfde",
+      "reader": "claude",
+      "drawing": "D-006",
+      "role": "verification",
+      "round": 0,
+      "job": "expansion:D-006:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T092457659593Z.json",
+        "generated/ai_cache/model_expansion/20261105T103822400475Z.json",
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/0ddca8ad8ff047fa55595a96879fd5042b3d9b45251fa01017802f35e85acfde/request.json",
+      "request_sha256": "9f7255152a2c497d9e1c9b573f7cbd57fe35b6b7b9681d8acdc1ae536561041b",
+      "result_path": "generated/ai_cache/0ddca8ad8ff047fa55595a96879fd5042b3d9b45251fa01017802f35e85acfde/result.json",
+      "result_sha256": "1cd1de1a9d8c959ec4b3b847e7202210f3fea3f5dbbc2e8d18081b021a4fcc9d",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "latency_ms": 22828
+    },
+    {
+      "cache_key": "14822d40a34bdf979607d6f63d6ea91897c5aa11dd73a39c7ff60edb94a30e80",
+      "reader": "claude",
+      "drawing": "D-022",
+      "role": "verification",
+      "round": 0,
+      "job": "expansion:D-022:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/14822d40a34bdf979607d6f63d6ea91897c5aa11dd73a39c7ff60edb94a30e80/request.json",
+      "request_sha256": "30282210b8f8eb04b3e6ba8bc41fb5289e939ef2ef47d9c0808e83631644dfb3",
+      "result_path": "generated/ai_cache/14822d40a34bdf979607d6f63d6ea91897c5aa11dd73a39c7ff60edb94a30e80/result.json",
+      "result_sha256": "f304379058af4d754e69fd920bce420eaf179cba4dcc106cf858e63c396db969",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "latency_ms": 23484
+    },
+    {
+      "cache_key": "171ce800e854b9ee6cde20ed022d379d720af68be5a0b8892a201009c58234c3",
+      "reader": "codex",
+      "drawing": "D-005",
+      "role": "proposal",
+      "round": 0,
+      "job": "expansion:D-005:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T092457659593Z.json",
+        "generated/ai_cache/model_expansion/20261105T103822400475Z.json",
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/171ce800e854b9ee6cde20ed022d379d720af68be5a0b8892a201009c58234c3/request.json",
+      "request_sha256": "39441d5284074681eaa0d1eaaaffc99254456ab9dcb5fc40606e67a5bd2c35fa",
+      "result_path": "generated/ai_cache/171ce800e854b9ee6cde20ed022d379d720af68be5a0b8892a201009c58234c3/result.json",
+      "result_sha256": "b6858657800e738720a5afc8d58afc727b89f8101dd8ccaaa5f97ee7423acf9a",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      },
+      "latency_ms": 75453
+    },
+    {
+      "cache_key": "1a8485d62d28c4a9d79d9507cd896c9e3cff431fd388786d87e2d4f80f80bea8",
+      "reader": "claude",
+      "drawing": "D-029",
+      "role": "verification",
+      "round": 0,
+      "job": "expansion:D-029:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/1a8485d62d28c4a9d79d9507cd896c9e3cff431fd388786d87e2d4f80f80bea8/request.json",
+      "request_sha256": "d35c3e5150cd6fc4297864bbd919cc42d3f20504ba641e0c52816aafaa267606",
+      "result_path": "generated/ai_cache/1a8485d62d28c4a9d79d9507cd896c9e3cff431fd388786d87e2d4f80f80bea8/result.json",
+      "result_sha256": "0c462bca136c4c410fb216d1067bdafc3507171c6c9303f25a6142cf82522a52",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "latency_ms": 26937
+    },
+    {
+      "cache_key": "1bd96cff4abc386435e3d688301cd60bcf9434dcb057c62a59434f9735c0274f",
+      "reader": "codex",
+      "drawing": "D-016",
+      "role": "proposal",
+      "round": 0,
+      "job": "expansion:D-016:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/1bd96cff4abc386435e3d688301cd60bcf9434dcb057c62a59434f9735c0274f/request.json",
+      "request_sha256": "9247fc1a33849de3f42edccbac8da24baa86be1e389aa747a62f1dbd5454842c",
+      "result_path": "generated/ai_cache/1bd96cff4abc386435e3d688301cd60bcf9434dcb057c62a59434f9735c0274f/result.json",
+      "result_sha256": "3f1a43e99ea8efba7bea7efeac643f943cbfe0e904f5f83b2dc2050cd01268f1",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      },
+      "latency_ms": 425313
+    },
+    {
+      "cache_key": "205542df7310808f5432433c6e62d19d3348faa5ea7c1e42662ca555d41aec6b",
+      "reader": "claude",
+      "drawing": "D-027",
+      "role": "verification",
+      "round": 0,
+      "job": "expansion:D-027:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/205542df7310808f5432433c6e62d19d3348faa5ea7c1e42662ca555d41aec6b/request.json",
+      "request_sha256": "aa1c9e4cdb01b53c2b7756fe25b02ed24663e162d7b993abfbdcf8ec1ca3c2f5",
+      "result_path": "generated/ai_cache/205542df7310808f5432433c6e62d19d3348faa5ea7c1e42662ca555d41aec6b/result.json",
+      "result_sha256": "51b9e3badc96e2f2328baf0a17d8caa40d7555329757d5c33a7e8c4f6afed12c",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "latency_ms": 32453
+    },
+    {
+      "cache_key": "257259a8622bb24ac051cd31b2534c750d61ee5562004f760244bda8162cf21c",
+      "reader": "codex",
+      "drawing": "D-007",
+      "role": "proposal",
+      "round": 0,
+      "job": "expansion:D-007:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T092457659593Z.json",
+        "generated/ai_cache/model_expansion/20261105T103822400475Z.json",
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/257259a8622bb24ac051cd31b2534c750d61ee5562004f760244bda8162cf21c/request.json",
+      "request_sha256": "a8eb25f259f76db6668d3c31df26dbc2144bfaf6a725b64795467b0b86cbae62",
+      "result_path": "generated/ai_cache/257259a8622bb24ac051cd31b2534c750d61ee5562004f760244bda8162cf21c/result.json",
+      "result_sha256": "28b5fb84bd94bea022f5c6ec83dae4eceebdf9083ecf4fe3f4381aa9bb1d3cb4",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      },
+      "latency_ms": 80766
+    },
+    {
+      "cache_key": "25763864a555b95fdcdcc88263acdcbb821cf1b87011234fb39744b790dc05b1",
+      "reader": "codex",
+      "drawing": "D-001",
+      "role": "proposal",
+      "round": 0,
+      "job": "expansion:D-001:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T092457659593Z.json",
+        "generated/ai_cache/model_expansion/20261105T103822400475Z.json",
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/25763864a555b95fdcdcc88263acdcbb821cf1b87011234fb39744b790dc05b1/request.json",
+      "request_sha256": "e82bcf119a294d890e6d80d8998fa2133dbc1b44a48091bf5eb813622fc19958",
+      "result_path": "generated/ai_cache/25763864a555b95fdcdcc88263acdcbb821cf1b87011234fb39744b790dc05b1/result.json",
+      "result_sha256": "450e64b1bb343b6bdc1fb418f90ccae1f4929b0711449026b09e9f8ecb71424b",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      },
+      "latency_ms": 56766
+    },
+    {
+      "cache_key": "2e33a333220a2a2855906e78c714874a772b735d928d56f8b9bfc403de51283c",
+      "reader": "codex",
+      "drawing": "D-010",
+      "role": "proposal",
+      "round": 0,
+      "job": "expansion:D-010:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T092457659593Z.json",
+        "generated/ai_cache/model_expansion/20261105T103822400475Z.json",
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/2e33a333220a2a2855906e78c714874a772b735d928d56f8b9bfc403de51283c/request.json",
+      "request_sha256": "dcb9be5a0f594cbdd08d91ba3133855eb44dd37e033d5f697ae0a8fc6dcb99e2",
+      "result_path": "generated/ai_cache/2e33a333220a2a2855906e78c714874a772b735d928d56f8b9bfc403de51283c/result.json",
+      "result_sha256": "74fff97cdb2174f7f20870f6432d155ff4a038646ea1bc9442c1a48ad2148d0f",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      },
+      "latency_ms": 65938
+    },
+    {
+      "cache_key": "33604293a7bf72f82809c27134d19071a18f933150c5a7e25b0930896421cc7c",
+      "reader": "claude",
+      "drawing": "D-010",
+      "role": "verification",
+      "round": 0,
+      "job": "expansion:D-010:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T092457659593Z.json",
+        "generated/ai_cache/model_expansion/20261105T103822400475Z.json",
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/33604293a7bf72f82809c27134d19071a18f933150c5a7e25b0930896421cc7c/request.json",
+      "request_sha256": "ae4636021c8b242a074fa42f2f8f9d6180aacf28738e7bbf2584a21fae952c6a",
+      "result_path": "generated/ai_cache/33604293a7bf72f82809c27134d19071a18f933150c5a7e25b0930896421cc7c/result.json",
+      "result_sha256": "0a3391ae231050a5df53940fb97dd07d0b31c79d54cadac83b529f09fae24c48",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "latency_ms": 26500
+    },
+    {
+      "cache_key": "37c155d42fd193e0a664e9ea94c7900e9b8f61430f357b6d2f82b238c099b1b7",
+      "reader": "codex",
+      "drawing": "D-027",
+      "role": "proposal",
+      "round": 0,
+      "job": "expansion:D-027:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/37c155d42fd193e0a664e9ea94c7900e9b8f61430f357b6d2f82b238c099b1b7/request.json",
+      "request_sha256": "f2fc326c0ea6e5b39e9832e5897e7daa79283c89f91b8d620b44ed7fefb5781c",
+      "result_path": "generated/ai_cache/37c155d42fd193e0a664e9ea94c7900e9b8f61430f357b6d2f82b238c099b1b7/result.json",
+      "result_sha256": "71b744ea0a8ab813346fa5dc7efede520384a88db28645250891b603cf4dea6e",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      },
+      "latency_ms": 166672
+    },
+    {
+      "cache_key": "3a055b7fe1c07becb6c70a05007a341114be0fe2a637acf59483422ef4df98db",
+      "reader": "claude",
+      "drawing": "D-005",
+      "role": "verification",
+      "round": 0,
+      "job": "expansion:D-005:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T092457659593Z.json",
+        "generated/ai_cache/model_expansion/20261105T103822400475Z.json",
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/3a055b7fe1c07becb6c70a05007a341114be0fe2a637acf59483422ef4df98db/request.json",
+      "request_sha256": "836ccb88f1e424df1e7946c5594340791a919d77de054014607fbdbc078be119",
+      "result_path": "generated/ai_cache/3a055b7fe1c07becb6c70a05007a341114be0fe2a637acf59483422ef4df98db/result.json",
+      "result_sha256": "95eeba243bbb963401a51736ce981b3fcc4d5e26c136bd3e272e7f012391f250",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "latency_ms": 19046
+    },
+    {
+      "cache_key": "3a264c4fa7a6b43efef348b04e7b9b1cafb39280626ef66761d7e96f594f3390",
+      "reader": "codex",
+      "drawing": "D-012",
+      "role": "proposal",
+      "round": 0,
+      "job": "expansion:D-012:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+      "used_in_final_run": false,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T103822400475Z.json"
+      ],
+      "request_path": "generated/ai_cache/3a264c4fa7a6b43efef348b04e7b9b1cafb39280626ef66761d7e96f594f3390/request.json",
+      "request_sha256": "5c2404ce79bd3e7b4a6906d5b56c475b096a9f9b3e59235cb588d04468a89828",
+      "result_path": "generated/ai_cache/3a264c4fa7a6b43efef348b04e7b9b1cafb39280626ef66761d7e96f594f3390/result.json",
+      "result_sha256": "4f37ada954cf2d29307473fbd49232826d1cfd4ceee32b7f6c0bca431cac958a",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      },
+      "latency_ms": 105265
+    },
+    {
+      "cache_key": "3c90cb9859cad475fd7d12f89f53b61c8cb214aa0187559105500b6ae2a4cda2",
+      "reader": "codex",
+      "drawing": "D-020",
+      "role": "proposal",
+      "round": 0,
+      "job": "expansion:D-020:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/3c90cb9859cad475fd7d12f89f53b61c8cb214aa0187559105500b6ae2a4cda2/request.json",
+      "request_sha256": "61aa7b146dd6aa0bb5060717143baa7b62bda7bdd818ae0789e58702258ece40",
+      "result_path": "generated/ai_cache/3c90cb9859cad475fd7d12f89f53b61c8cb214aa0187559105500b6ae2a4cda2/result.json",
+      "result_sha256": "82f8c32ffbef07afef23b46cd9ad2651d9bb8b4852c0ff485b63bfed5b19f8d7",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      },
+      "latency_ms": 55453
+    },
+    {
+      "cache_key": "4032bb01887cca8694974a58c9fa297d4e065cc0936dd5690814ade7a61b24e8",
+      "reader": "codex",
+      "drawing": "D-028",
+      "role": "proposal",
+      "round": 0,
+      "job": "expansion:D-028:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/4032bb01887cca8694974a58c9fa297d4e065cc0936dd5690814ade7a61b24e8/request.json",
+      "request_sha256": "91c5801a40738a4ffb4785fe5ff134a7a95c21c9f92c8abe4f4e180bc12b11eb",
+      "result_path": "generated/ai_cache/4032bb01887cca8694974a58c9fa297d4e065cc0936dd5690814ade7a61b24e8/result.json",
+      "result_sha256": "bacbba4392f920e2dbbf3d84f7891b7b3d71595fbbe93c57170b588bee318cdd",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      },
+      "latency_ms": 101031
+    },
+    {
+      "cache_key": "422de476c7239cbbfafa231af323838f47285cace8807e9010561d54767c15b3",
+      "reader": "codex",
+      "drawing": "D-008",
+      "role": "proposal",
+      "round": 0,
+      "job": "expansion:D-008:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T092457659593Z.json",
+        "generated/ai_cache/model_expansion/20261105T103822400475Z.json",
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/422de476c7239cbbfafa231af323838f47285cace8807e9010561d54767c15b3/request.json",
+      "request_sha256": "998672136fcca9bde09d3ca361ebeb7bc6a6fc78b6676a96c97e0a4cf85e5780",
+      "result_path": "generated/ai_cache/422de476c7239cbbfafa231af323838f47285cace8807e9010561d54767c15b3/result.json",
+      "result_sha256": "a94304a7d8bff5fee707fb531a6e97161c3ae1c4305546cfa8bc8f1af90a1127",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      },
+      "latency_ms": 65016
+    },
+    {
+      "cache_key": "4867bef8d5c491e7fd1be7ee5384ab97e903ef61038876d05b4ea7c621b1fa17",
+      "reader": "codex",
+      "drawing": "D-012",
+      "role": "proposal",
+      "round": 0,
+      "job": "expansion:D-012:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/4867bef8d5c491e7fd1be7ee5384ab97e903ef61038876d05b4ea7c621b1fa17/request.json",
+      "request_sha256": "fae90d82138ce15827690559b810f1db17366c11d55cd1b02b9ba4419c3a8adf",
+      "result_path": "generated/ai_cache/4867bef8d5c491e7fd1be7ee5384ab97e903ef61038876d05b4ea7c621b1fa17/result.json",
+      "result_sha256": "fc9dd9369237e634b518c3727542e55d8b9369e4189746c91251dacf3f3b1c5e",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      },
+      "latency_ms": 69812
+    },
+    {
+      "cache_key": "48aca9a41309be6d61b4ccf703fdf8e1c9d32714422a4b6200f31c2fe2fee13c",
+      "reader": "codex",
+      "drawing": "D-029",
+      "role": "proposal",
+      "round": 0,
+      "job": "expansion:D-029:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/48aca9a41309be6d61b4ccf703fdf8e1c9d32714422a4b6200f31c2fe2fee13c/request.json",
+      "request_sha256": "845a3193803ca5fa935aeec04a9f226d3bfea5ad34e2a3e6bcd4d48e06742a53",
+      "result_path": "generated/ai_cache/48aca9a41309be6d61b4ccf703fdf8e1c9d32714422a4b6200f31c2fe2fee13c/result.json",
+      "result_sha256": "c07b40371222e347b68536aeca2e8063802114e3fb67dcd8d5c70a00e33e3329",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      },
+      "latency_ms": 106719
+    },
+    {
+      "cache_key": "49ac729f10d15d9048839cc3a22fd0cda466dfc0f88d368e7b69086478730e29",
+      "reader": "codex",
+      "drawing": "D-021",
+      "role": "proposal",
+      "round": 0,
+      "job": "expansion:D-021:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/49ac729f10d15d9048839cc3a22fd0cda466dfc0f88d368e7b69086478730e29/request.json",
+      "request_sha256": "2dbae59a27350a6399634e2ec1495850e4da4776b8677ead3b8246f368271647",
+      "result_path": "generated/ai_cache/49ac729f10d15d9048839cc3a22fd0cda466dfc0f88d368e7b69086478730e29/result.json",
+      "result_sha256": "6c154055c3a4d5885092730d49e80ae6502c95cadad4cab83bf52e3f3e25343e",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      },
+      "latency_ms": 133297
+    },
+    {
+      "cache_key": "4e2b675e57301d117f73856b5ec07812e115baa9d118251ea87931318f15257c",
+      "reader": "codex",
+      "drawing": "D-017",
+      "role": "proposal",
+      "round": 0,
+      "job": "expansion:D-017:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/4e2b675e57301d117f73856b5ec07812e115baa9d118251ea87931318f15257c/request.json",
+      "request_sha256": "1d7e38f406438bbc872a8ea8b9d97608f6046020998d3dc6821c6545b4566b18",
+      "result_path": "generated/ai_cache/4e2b675e57301d117f73856b5ec07812e115baa9d118251ea87931318f15257c/result.json",
+      "result_sha256": "be7716ef1aafb3b081df7ad4f3112f884df1e503df239d772c73891496d3e2dc",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      },
+      "latency_ms": 125688
+    },
+    {
+      "cache_key": "5ad1f073c2b567be520d79f810431779476d8d8f405adffabd42b2a179fcd049",
+      "reader": "claude",
+      "drawing": "D-009",
+      "role": "verification",
+      "round": 0,
+      "job": "expansion:D-009:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T092457659593Z.json",
+        "generated/ai_cache/model_expansion/20261105T103822400475Z.json",
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/5ad1f073c2b567be520d79f810431779476d8d8f405adffabd42b2a179fcd049/request.json",
+      "request_sha256": "dc631224167037382213ba8a79e3a1ba7638f2c872568634167a6e12f013b9df",
+      "result_path": "generated/ai_cache/5ad1f073c2b567be520d79f810431779476d8d8f405adffabd42b2a179fcd049/result.json",
+      "result_sha256": "7257373c8119cf67f96d85a9350b8e6d88376acd1a2a6b74e3623fbaf5e6549c",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "latency_ms": 22313
+    },
+    {
+      "cache_key": "6458908430e3f550e47623d84af7b7152ee93d71d04d613822e0ebd0c99a94ea",
+      "reader": "claude",
+      "drawing": "D-011",
+      "role": "verification",
+      "round": 0,
+      "job": "expansion:D-011:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T092457659593Z.json",
+        "generated/ai_cache/model_expansion/20261105T103822400475Z.json",
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/6458908430e3f550e47623d84af7b7152ee93d71d04d613822e0ebd0c99a94ea/request.json",
+      "request_sha256": "f8b67ca31a57c145c20f0e0e009d2243342e18a0aa12a65bf5e5f02f743552dc",
+      "result_path": "generated/ai_cache/6458908430e3f550e47623d84af7b7152ee93d71d04d613822e0ebd0c99a94ea/result.json",
+      "result_sha256": "031f5dc0275b4fc2dca29c2b80efa538eaf5d3ef564a733bc66080142bc4bfbe",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "latency_ms": 17781
+    },
+    {
+      "cache_key": "6823747f2e8db4bcf2e26aadb31c09a6bea0af586db2e309130742ad15d5e097",
+      "reader": "codex",
+      "drawing": "D-030",
+      "role": "proposal",
+      "round": 0,
+      "job": "expansion:D-030:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/6823747f2e8db4bcf2e26aadb31c09a6bea0af586db2e309130742ad15d5e097/request.json",
+      "request_sha256": "843f1a83d88c3a78efaadc057930ee7acbeb0b391b571fe2acd04f27056ea807",
+      "result_path": "generated/ai_cache/6823747f2e8db4bcf2e26aadb31c09a6bea0af586db2e309130742ad15d5e097/result.json",
+      "result_sha256": "8f8539e423820d047ee442bdbfa70aa9a5c0afe890aa1c2772038a8f8c2af7b9",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      },
+      "latency_ms": 73922
+    },
+    {
+      "cache_key": "727ea4da5807561ea751d29a43f0819eb098e331735ef288d20e5d9450140ade",
+      "reader": "claude",
+      "drawing": "D-018",
+      "role": "verification",
+      "round": 0,
+      "job": "expansion:D-018:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/727ea4da5807561ea751d29a43f0819eb098e331735ef288d20e5d9450140ade/request.json",
+      "request_sha256": "ef7b43bc9bcb6c480a3ff10b03219c0895fee05db515af98b231d87acb8e77f6",
+      "result_path": "generated/ai_cache/727ea4da5807561ea751d29a43f0819eb098e331735ef288d20e5d9450140ade/result.json",
+      "result_sha256": "bb8851cc8beb8fdc657b4606fdc26059981d59fd68b8728f0a784739a142e269",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "latency_ms": 55266
+    },
+    {
+      "cache_key": "766805710cd6a677be160a71652fcd8278198d08bd9079f1dd7db5882db4bb3d",
+      "reader": "codex",
+      "drawing": "D-014",
+      "role": "proposal",
+      "round": 0,
+      "job": "expansion:D-014:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/766805710cd6a677be160a71652fcd8278198d08bd9079f1dd7db5882db4bb3d/request.json",
+      "request_sha256": "1fd72087cf01548792d9711af25c03b53adce83ba4c11f393ce744d599b7584b",
+      "result_path": "generated/ai_cache/766805710cd6a677be160a71652fcd8278198d08bd9079f1dd7db5882db4bb3d/result.json",
+      "result_sha256": "3abaea7f9b1af9d55ee1f37e2b1ec6c461c30005b326cabf3510f8ad2b924dcc",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      },
+      "latency_ms": 171266
+    },
+    {
+      "cache_key": "7871ec19a844879bd3c698d65bc5527157fd45f7cc61ef2f4adc1f010604634c",
+      "reader": "claude",
+      "drawing": "D-028",
+      "role": "verification",
+      "round": 0,
+      "job": "expansion:D-028:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/7871ec19a844879bd3c698d65bc5527157fd45f7cc61ef2f4adc1f010604634c/request.json",
+      "request_sha256": "cd285ec0e009d8d373197442d6e0f5f40ead193868159ef798d3889f4e2efdf4",
+      "result_path": "generated/ai_cache/7871ec19a844879bd3c698d65bc5527157fd45f7cc61ef2f4adc1f010604634c/result.json",
+      "result_sha256": "e44d88e92d4e7cb516db861da999dd7cea425d7a4bd66b41f57fcc1d71ecaed4",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "latency_ms": 25047
+    },
+    {
+      "cache_key": "7ab35fdc782dc9479a18186ca583fecef5f5bb9bfac1c88c364bc9e05443ec6b",
+      "reader": "codex",
+      "drawing": "D-015",
+      "role": "proposal",
+      "round": 0,
+      "job": "expansion:D-015:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/7ab35fdc782dc9479a18186ca583fecef5f5bb9bfac1c88c364bc9e05443ec6b/request.json",
+      "request_sha256": "2ad79ee4b93e176c58854716c49fddc549d8c16edf5a77b426af5fe6d8bcdd0f",
+      "result_path": "generated/ai_cache/7ab35fdc782dc9479a18186ca583fecef5f5bb9bfac1c88c364bc9e05443ec6b/result.json",
+      "result_sha256": "8dd55849a294239bbeac30eec1cadffbe1628f974fbe90c5a49e8807aa8969e0",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      },
+      "latency_ms": 46813
+    },
+    {
+      "cache_key": "7cd6b4ea9e28fc95bfb1cdc9c74fe72e4a411cd0801ae1452f4e2a629d2b93cf",
+      "reader": "claude",
+      "drawing": "D-001",
+      "role": "verification",
+      "round": 0,
+      "job": "expansion:D-001:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T092457659593Z.json",
+        "generated/ai_cache/model_expansion/20261105T103822400475Z.json",
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/7cd6b4ea9e28fc95bfb1cdc9c74fe72e4a411cd0801ae1452f4e2a629d2b93cf/request.json",
+      "request_sha256": "03b65a2de81cc0097ff8a4d7a33c06783043de4adc4617629bf915cd3eb9b297",
+      "result_path": "generated/ai_cache/7cd6b4ea9e28fc95bfb1cdc9c74fe72e4a411cd0801ae1452f4e2a629d2b93cf/result.json",
+      "result_sha256": "91fede443492bcfbc0e091557e1e4237cad640fd7fbc33bc42a261780e8763fc",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "latency_ms": 17844
+    },
+    {
+      "cache_key": "81bd5b15c451b2afbb6a9687cd133167edbba96359c17cdd479515fedde0cd8f",
+      "reader": "claude",
+      "drawing": "D-014",
+      "role": "verification",
+      "round": 0,
+      "job": "expansion:D-014:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/81bd5b15c451b2afbb6a9687cd133167edbba96359c17cdd479515fedde0cd8f/request.json",
+      "request_sha256": "0cda3ef9c2afc0e203c8977bf567770f173a89cc1036f3a45bb09c780a457f79",
+      "result_path": "generated/ai_cache/81bd5b15c451b2afbb6a9687cd133167edbba96359c17cdd479515fedde0cd8f/result.json",
+      "result_sha256": "fcda8bdfd8cb0b65499f89cb4e6c1db06404623322c749c2878fc1dbfb68683c",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "latency_ms": 48078
+    },
+    {
+      "cache_key": "82ea18fe2111d644ef9d64fcc64b63070e0ac6621c71542850b0a698320eee13",
+      "reader": "codex",
+      "drawing": "D-022",
+      "role": "proposal",
+      "round": 0,
+      "job": "expansion:D-022:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/82ea18fe2111d644ef9d64fcc64b63070e0ac6621c71542850b0a698320eee13/request.json",
+      "request_sha256": "56d49eed421ea3fbc22dcb7b2bd2121306c5d49fabd08bbe63756f647f0ce53f",
+      "result_path": "generated/ai_cache/82ea18fe2111d644ef9d64fcc64b63070e0ac6621c71542850b0a698320eee13/result.json",
+      "result_sha256": "bd2e1569882296e1ae995d68a12899df82e47d009de88e517101e96558a9ff58",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      },
+      "latency_ms": 67297
+    },
+    {
+      "cache_key": "8669e4a4f57135fd21d1af3c503c4fd346d4230ab60087707c9b11974bd8b55e",
+      "reader": "codex",
+      "drawing": "D-009",
+      "role": "proposal",
+      "round": 0,
+      "job": "expansion:D-009:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T092457659593Z.json",
+        "generated/ai_cache/model_expansion/20261105T103822400475Z.json",
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/8669e4a4f57135fd21d1af3c503c4fd346d4230ab60087707c9b11974bd8b55e/request.json",
+      "request_sha256": "d8e767da1df6cf3e4485343295534aa1a912d6f6cd75b7a737c816f4293a67a7",
+      "result_path": "generated/ai_cache/8669e4a4f57135fd21d1af3c503c4fd346d4230ab60087707c9b11974bd8b55e/result.json",
+      "result_sha256": "25f77007455065832133a3f032aa9ec75eb9e20c16fcf7c68c9584071d690076",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      },
+      "latency_ms": 49500
+    },
+    {
+      "cache_key": "86e3577be512eab1dff17ccaaa0490a0824caac108a2a66cd16693d9d65d1e5b",
+      "reader": "codex",
+      "drawing": "D-018",
+      "role": "proposal",
+      "round": 0,
+      "job": "expansion:D-018:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/86e3577be512eab1dff17ccaaa0490a0824caac108a2a66cd16693d9d65d1e5b/request.json",
+      "request_sha256": "62b89132ddc54233e70126773a3aec0ea453a5c8c6e006114e1933536196e71c",
+      "result_path": "generated/ai_cache/86e3577be512eab1dff17ccaaa0490a0824caac108a2a66cd16693d9d65d1e5b/result.json",
+      "result_sha256": "2152f2668dc8b72416b16e52f61ea30737bc83ecd0d9677937e953b76bd615c4",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      },
+      "latency_ms": 74546
+    },
+    {
+      "cache_key": "9958607b906f835a2bdba60882f52ce9d8745a8f4c1552a0631ac87122448f33",
+      "reader": "claude",
+      "drawing": "D-019",
+      "role": "verification",
+      "round": 0,
+      "job": "expansion:D-019:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/9958607b906f835a2bdba60882f52ce9d8745a8f4c1552a0631ac87122448f33/request.json",
+      "request_sha256": "e9589eb47883b2588eb50b6e555b9a5ad1fe5ea5410480c00920c21cbd9477c0",
+      "result_path": "generated/ai_cache/9958607b906f835a2bdba60882f52ce9d8745a8f4c1552a0631ac87122448f33/result.json",
+      "result_sha256": "e24f3d12ed193c4fc143b39755d8726bdf8a34a25bbb2c84ef0da63c13b74193",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "latency_ms": 51906
+    },
+    {
+      "cache_key": "9ade8d09b9fdc402bd56a8a383e88d4e0e10374cd65cc23f7dc8c5f37d92202a",
+      "reader": "codex",
+      "drawing": "D-012",
+      "role": "proposal",
+      "round": 1,
+      "job": "expansion:D-012:flat-part-expansion-v1:proposal-verification-v1:proposal:1",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/9ade8d09b9fdc402bd56a8a383e88d4e0e10374cd65cc23f7dc8c5f37d92202a/request.json",
+      "request_sha256": "cb5a48932a6c5ecf1456f512a106c858a85f3a238fc792e99d2b1170d1a4c116",
+      "result_path": "generated/ai_cache/9ade8d09b9fdc402bd56a8a383e88d4e0e10374cd65cc23f7dc8c5f37d92202a/result.json",
+      "result_sha256": "6644e03f0f8cb991cff8f0b57dbef96e44712136771693f40cdd5ba4e3f4ddcf",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      },
+      "latency_ms": 39313
+    },
+    {
+      "cache_key": "9e471b041bb1d814ad93e5389d46f9b9140c53705a330382edeb0b393f400c3d",
+      "reader": "claude",
+      "drawing": "D-020",
+      "role": "verification",
+      "round": 0,
+      "job": "expansion:D-020:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/9e471b041bb1d814ad93e5389d46f9b9140c53705a330382edeb0b393f400c3d/request.json",
+      "request_sha256": "79a89b3fda3b906cdf135c75b242e324804718e20582154970b4ceba1b9ad02c",
+      "result_path": "generated/ai_cache/9e471b041bb1d814ad93e5389d46f9b9140c53705a330382edeb0b393f400c3d/result.json",
+      "result_sha256": "6cecaabd00257cb76848150c20c23d1ac2daeef8b58848d2048c55e03973d3e4",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "latency_ms": 19750
+    },
+    {
+      "cache_key": "a222d6d3d855c29ddeea648cc9367248f65c0e0f54bcd49fcd8c766f8c9535d2",
+      "reader": "codex",
+      "drawing": "D-002",
+      "role": "proposal",
+      "round": 0,
+      "job": "expansion:D-002:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T092457659593Z.json",
+        "generated/ai_cache/model_expansion/20261105T103822400475Z.json",
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/a222d6d3d855c29ddeea648cc9367248f65c0e0f54bcd49fcd8c766f8c9535d2/request.json",
+      "request_sha256": "24123b2cb1f186ae9b1dd8b879083d5decc86419cffe2a6a1336ee06b3b62acf",
+      "result_path": "generated/ai_cache/a222d6d3d855c29ddeea648cc9367248f65c0e0f54bcd49fcd8c766f8c9535d2/result.json",
+      "result_sha256": "640a07642d9411728124ecea85468c1d532a93bed052654af888111e51af69f8",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      },
+      "latency_ms": 110359
+    },
+    {
+      "cache_key": "a2553cc327228c8a3f2f30e7f165646c5687328349cec51d529b69c9c4ad7bb5",
+      "reader": "codex",
+      "drawing": "D-024",
+      "role": "proposal",
+      "round": 0,
+      "job": "expansion:D-024:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/a2553cc327228c8a3f2f30e7f165646c5687328349cec51d529b69c9c4ad7bb5/request.json",
+      "request_sha256": "a0cc3a59704cf6047ba0e504be3d70ab86ec5ae3a05ce368997397801d559b7a",
+      "result_path": "generated/ai_cache/a2553cc327228c8a3f2f30e7f165646c5687328349cec51d529b69c9c4ad7bb5/result.json",
+      "result_sha256": "0772cdd6da4ed42a9010653f142c02a897608948038dfacfd54f87ea1c50a63a",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      },
+      "latency_ms": 337547
+    },
+    {
+      "cache_key": "a64ebf20852a984c2821679dce0a3840bba3b2b63816a80c38dd17ac862173f0",
+      "reader": "codex",
+      "drawing": "D-004",
+      "role": "proposal",
+      "round": 0,
+      "job": "expansion:D-004:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T092457659593Z.json",
+        "generated/ai_cache/model_expansion/20261105T103822400475Z.json",
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/a64ebf20852a984c2821679dce0a3840bba3b2b63816a80c38dd17ac862173f0/request.json",
+      "request_sha256": "c7aa8e0f3b08bc3ea483f0d6bc18f4a59405213b38bd33a8dc135785f0b60e76",
+      "result_path": "generated/ai_cache/a64ebf20852a984c2821679dce0a3840bba3b2b63816a80c38dd17ac862173f0/result.json",
+      "result_sha256": "92265f8d4774390f6a86d6bf3226c1a5b6481e97f15c1f87fc27832d65be297c",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      },
+      "latency_ms": 122125
+    },
+    {
+      "cache_key": "ae83eb26138c5c214c33440df1233cd91ed7e5f5590be7cc582b93b4e2f4c146",
+      "reader": "claude",
+      "drawing": "D-023",
+      "role": "verification",
+      "round": 0,
+      "job": "expansion:D-023:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/ae83eb26138c5c214c33440df1233cd91ed7e5f5590be7cc582b93b4e2f4c146/request.json",
+      "request_sha256": "4940f89356d923db229a883362586f6f8c4667d42333d471f4643fdf6c338b47",
+      "result_path": "generated/ai_cache/ae83eb26138c5c214c33440df1233cd91ed7e5f5590be7cc582b93b4e2f4c146/result.json",
+      "result_sha256": "6446d35ce17b91e0d7f68bad44ef8e21909525a62c6ce33949014a8d04431435",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "latency_ms": 22031
+    },
+    {
+      "cache_key": "b9e7fd9440b4003620d2b4228a503ef548edf77690301e19141dd989b6d22aeb",
+      "reader": "codex",
+      "drawing": "D-012",
+      "role": "proposal",
+      "round": 0,
+      "job": "expansion:D-012:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+      "used_in_final_run": false,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T092457659593Z.json"
+      ],
+      "request_path": "generated/ai_cache/b9e7fd9440b4003620d2b4228a503ef548edf77690301e19141dd989b6d22aeb/request.json",
+      "request_sha256": "c09826d24f9c8f3938c4461707bd8eca0aeb2f310c25bff2447af4ffa78f6eaf",
+      "result_path": "generated/ai_cache/b9e7fd9440b4003620d2b4228a503ef548edf77690301e19141dd989b6d22aeb/result.json",
+      "result_sha256": "6694ca370dfbd0923b2cb47271f235f2ef104f22e2c28fd450f368a3616747ec",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      },
+      "latency_ms": 79329
+    },
+    {
+      "cache_key": "bb065bb0bf7e3f92db390f233d96d85f04eb7c4113ab7c5447ae6cd9f57bf872",
+      "reader": "claude",
+      "drawing": "D-008",
+      "role": "verification",
+      "round": 0,
+      "job": "expansion:D-008:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T092457659593Z.json",
+        "generated/ai_cache/model_expansion/20261105T103822400475Z.json",
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/bb065bb0bf7e3f92db390f233d96d85f04eb7c4113ab7c5447ae6cd9f57bf872/request.json",
+      "request_sha256": "bb5691ecf34a32d1ac4a583fbb657b613e07f8788b8573fcd818c07ba576bb18",
+      "result_path": "generated/ai_cache/bb065bb0bf7e3f92db390f233d96d85f04eb7c4113ab7c5447ae6cd9f57bf872/result.json",
+      "result_sha256": "57685e612a7331f3a44fcce868248e2c5792a92b027a7229b06e74601bd2d1ef",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "latency_ms": 32984
+    },
+    {
+      "cache_key": "bc805665bc2752e9316fd325479b701101a3a479a8c11199c4e49c288e5fd1e3",
+      "reader": "claude",
+      "drawing": "D-012",
+      "role": "verification",
+      "round": 1,
+      "job": "expansion:D-012:flat-part-expansion-v1:proposal-verification-v1:verification:1",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/bc805665bc2752e9316fd325479b701101a3a479a8c11199c4e49c288e5fd1e3/request.json",
+      "request_sha256": "3ce881a2e347762fd6508294d3767f532d6d53b8a1caa21193f735209b1cc325",
+      "result_path": "generated/ai_cache/bc805665bc2752e9316fd325479b701101a3a479a8c11199c4e49c288e5fd1e3/result.json",
+      "result_sha256": "17b554137ccc83b9c39d935c12c6dfa03de663bf11986885965f36176ea2df33",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "latency_ms": 21469
+    },
+    {
+      "cache_key": "c0e7cbbd3fc30c64e73cec629e150e82213c31dbf3d0987d2d1d6c3b2496cd88",
+      "reader": "codex",
+      "drawing": "D-011",
+      "role": "proposal",
+      "round": 0,
+      "job": "expansion:D-011:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T092457659593Z.json",
+        "generated/ai_cache/model_expansion/20261105T103822400475Z.json",
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/c0e7cbbd3fc30c64e73cec629e150e82213c31dbf3d0987d2d1d6c3b2496cd88/request.json",
+      "request_sha256": "5a47ccdfe2db0c0d31737b5b5617b2ce0b468a5e980bfd2aa5c8db89f89a3c1a",
+      "result_path": "generated/ai_cache/c0e7cbbd3fc30c64e73cec629e150e82213c31dbf3d0987d2d1d6c3b2496cd88/result.json",
+      "result_sha256": "94f354a6058bb788f62473cb66a1b90676b881e1446a147b39fef6df03ee2be9",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      },
+      "latency_ms": 50718
+    },
+    {
+      "cache_key": "c594eff08db6dcd43132a2401ab4ac7f001fc1ae194320cf39653cfe82cfc284",
+      "reader": "codex",
+      "drawing": "D-023",
+      "role": "proposal",
+      "round": 0,
+      "job": "expansion:D-023:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/c594eff08db6dcd43132a2401ab4ac7f001fc1ae194320cf39653cfe82cfc284/request.json",
+      "request_sha256": "b5525d9b70e87f7e40dbf63581da5b4608a7ea2772154bd1fd48201094ae7109",
+      "result_path": "generated/ai_cache/c594eff08db6dcd43132a2401ab4ac7f001fc1ae194320cf39653cfe82cfc284/result.json",
+      "result_sha256": "095e1a464a1cd705fcf552ff8d2a0c84c99f449ca4e733ef58e29389b13fc0b3",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      },
+      "latency_ms": 64578
+    },
+    {
+      "cache_key": "c5e9bed3cd83ae970377461d271a8f96cac1af78f3b5fc2d18eefdd6360e2fe2",
+      "reader": "claude",
+      "drawing": "D-012",
+      "role": "verification",
+      "round": 0,
+      "job": "expansion:D-012:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+      "used_in_final_run": false,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T103822400475Z.json"
+      ],
+      "request_path": "generated/ai_cache/c5e9bed3cd83ae970377461d271a8f96cac1af78f3b5fc2d18eefdd6360e2fe2/request.json",
+      "request_sha256": "96ea92ba82aa262f80e9d69ac34571af6f9321db11d7b62dcb87f6094e542fce",
+      "result_path": "generated/ai_cache/c5e9bed3cd83ae970377461d271a8f96cac1af78f3b5fc2d18eefdd6360e2fe2/result.json",
+      "result_sha256": "ab6cb154c88bcb902cbf946f3d0d2665d876c206914cf77037605d4efd3af701",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "latency_ms": 33047
+    },
+    {
+      "cache_key": "cbfd57c7de0553390d2aead33662084a666d9ba7ddcab5edaf7128f861b531bc",
+      "reader": "claude",
+      "drawing": "D-003",
+      "role": "verification",
+      "round": 0,
+      "job": "expansion:D-003:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T092457659593Z.json",
+        "generated/ai_cache/model_expansion/20261105T103822400475Z.json",
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/cbfd57c7de0553390d2aead33662084a666d9ba7ddcab5edaf7128f861b531bc/request.json",
+      "request_sha256": "2fec2e41cd5f9779179772a2eb32bfb3410dcbe35cbea19945e30b0ba0534ef8",
+      "result_path": "generated/ai_cache/cbfd57c7de0553390d2aead33662084a666d9ba7ddcab5edaf7128f861b531bc/result.json",
+      "result_sha256": "76400b09ded7449ddc9ea765c999c0d4cc6a11aacc6061551213de32e43c3057",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "latency_ms": 30703
+    },
+    {
+      "cache_key": "cd358725b40770890cda4bf1a4d08275f44a59e51c6841a9ee359ed0a569aa7e",
+      "reader": "codex",
+      "drawing": "D-003",
+      "role": "proposal",
+      "round": 0,
+      "job": "expansion:D-003:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T092457659593Z.json",
+        "generated/ai_cache/model_expansion/20261105T103822400475Z.json",
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/cd358725b40770890cda4bf1a4d08275f44a59e51c6841a9ee359ed0a569aa7e/request.json",
+      "request_sha256": "ffc1402b444ec49d958ea49c2a6a6c19c8143d11abf7378fe75ada03927a4125",
+      "result_path": "generated/ai_cache/cd358725b40770890cda4bf1a4d08275f44a59e51c6841a9ee359ed0a569aa7e/result.json",
+      "result_sha256": "00a6e791d9bfdecd59000ac9ddf33411eb2be904a7ff3dbf5cdee658bb31511d",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      },
+      "latency_ms": 77281
+    },
+    {
+      "cache_key": "d24c7427d4a9fd797c14e5d4846fce154f9be2810be27e2d3d56871137665eaf",
+      "reader": "claude",
+      "drawing": "D-004",
+      "role": "verification",
+      "round": 0,
+      "job": "expansion:D-004:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T092457659593Z.json",
+        "generated/ai_cache/model_expansion/20261105T103822400475Z.json",
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/d24c7427d4a9fd797c14e5d4846fce154f9be2810be27e2d3d56871137665eaf/request.json",
+      "request_sha256": "c7ced68b87c7825fd695bdcaaf2442e2c8dc6fd8389d860e6768c52c6ac648d1",
+      "result_path": "generated/ai_cache/d24c7427d4a9fd797c14e5d4846fce154f9be2810be27e2d3d56871137665eaf/result.json",
+      "result_sha256": "c94b22017cd9544fb46b2216e8896701062106ca9f97b2e20c3b536d94c96d96",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "latency_ms": 19750
+    },
+    {
+      "cache_key": "d398f5f794a2dd2cd7472521ec7f2144484cff78a369cc3a44ca55867fd2a890",
+      "reader": "codex",
+      "drawing": "D-006",
+      "role": "proposal",
+      "round": 0,
+      "job": "expansion:D-006:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T092457659593Z.json",
+        "generated/ai_cache/model_expansion/20261105T103822400475Z.json",
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/d398f5f794a2dd2cd7472521ec7f2144484cff78a369cc3a44ca55867fd2a890/request.json",
+      "request_sha256": "f5a78bcd6152049e2071f2dfdffd8b9bf404aa5c441a8614b1bc28c62601deb1",
+      "result_path": "generated/ai_cache/d398f5f794a2dd2cd7472521ec7f2144484cff78a369cc3a44ca55867fd2a890/result.json",
+      "result_sha256": "8e4c4a62921e1ed435a61c091f5307d520596aa8543226f4952bdd6a93ebc800",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      },
+      "latency_ms": 65047
+    },
+    {
+      "cache_key": "d3b81e8d47f81a7f9cd1c1542a24e6e98bc3926a321a4785cf1c6ab0ae06edd3",
+      "reader": "claude",
+      "drawing": "D-012",
+      "role": "verification",
+      "round": 0,
+      "job": "expansion:D-012:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/d3b81e8d47f81a7f9cd1c1542a24e6e98bc3926a321a4785cf1c6ab0ae06edd3/request.json",
+      "request_sha256": "22499872c8f5f2bfc9e8a1f93fa1c6b5086ced03e7759872c9062ec167f13634",
+      "result_path": "generated/ai_cache/d3b81e8d47f81a7f9cd1c1542a24e6e98bc3926a321a4785cf1c6ab0ae06edd3/result.json",
+      "result_sha256": "9cb9ceea75013e4277f4a6e4fb253364a3f940bf8273f6d3760bbfd1928e076c",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "latency_ms": 35422
+    },
+    {
+      "cache_key": "d90c3584e5e9e1a983f89b0a7be48f371062bcbe0d31e2396ca0b1bb4fae56b2",
+      "reader": "claude",
+      "drawing": "D-024",
+      "role": "verification",
+      "round": 0,
+      "job": "expansion:D-024:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/d90c3584e5e9e1a983f89b0a7be48f371062bcbe0d31e2396ca0b1bb4fae56b2/request.json",
+      "request_sha256": "d475972246ef4db8215a65aa476e5d2d21b5ace2a2cc8294277d5fd1e03a5a05",
+      "result_path": "generated/ai_cache/d90c3584e5e9e1a983f89b0a7be48f371062bcbe0d31e2396ca0b1bb4fae56b2/result.json",
+      "result_sha256": "ada05909ba0672f8ef34f4c424c234d5db1c30e82958c5b915a9eb8218c0983b",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "latency_ms": 77094
+    },
+    {
+      "cache_key": "d94b2097b8e614ecf2eba02f20c961bb1e701ea1c478b81e5e93af65b21a4b4a",
+      "reader": "claude",
+      "drawing": "D-017",
+      "role": "verification",
+      "round": 0,
+      "job": "expansion:D-017:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/d94b2097b8e614ecf2eba02f20c961bb1e701ea1c478b81e5e93af65b21a4b4a/request.json",
+      "request_sha256": "ee74cfe02921effd0e0d77c25efbc5dac73be3ec7aa96639a7aba3dfbbca2a37",
+      "result_path": "generated/ai_cache/d94b2097b8e614ecf2eba02f20c961bb1e701ea1c478b81e5e93af65b21a4b4a/result.json",
+      "result_sha256": "0b2b1d74d881ee5b1420b6637606fadb5000057bea7a7e1d933fe5fa6394faef",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "latency_ms": 40843
+    },
+    {
+      "cache_key": "dea39bea5739bf3bdb079291fb17257761a7ee2d1b4a12d9d4e455d928d27d8e",
+      "reader": "claude",
+      "drawing": "D-030",
+      "role": "verification",
+      "round": 0,
+      "job": "expansion:D-030:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/dea39bea5739bf3bdb079291fb17257761a7ee2d1b4a12d9d4e455d928d27d8e/request.json",
+      "request_sha256": "147e40bd8c2f4e3683c7a193dddf1a37ff6eeb58158be7ea2bc7893d2711ba2f",
+      "result_path": "generated/ai_cache/dea39bea5739bf3bdb079291fb17257761a7ee2d1b4a12d9d4e455d928d27d8e/result.json",
+      "result_sha256": "3e8b41516115a2a4b953247f246ccb6a7e4981f2860cd6143721046bf518004c",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "latency_ms": 31078
+    },
+    {
+      "cache_key": "e0d4de9414100777f27fd9d46a37f32d0aa74b69bd8ddc8c592f30f9a8f05f83",
+      "reader": "claude",
+      "drawing": "D-012",
+      "role": "verification",
+      "round": 0,
+      "job": "expansion:D-012:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+      "used_in_final_run": false,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T092457659593Z.json"
+      ],
+      "request_path": "generated/ai_cache/e0d4de9414100777f27fd9d46a37f32d0aa74b69bd8ddc8c592f30f9a8f05f83/request.json",
+      "request_sha256": "fa46c0565bbe327fa5bf28e8f6b82c3636bf2561af1e29ce77ae1582c667f16f",
+      "result_path": "generated/ai_cache/e0d4de9414100777f27fd9d46a37f32d0aa74b69bd8ddc8c592f30f9a8f05f83/result.json",
+      "result_sha256": "674011de8872663d50d15390a867d73af3290b9a981d45989ce03c06ad09f839",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "latency_ms": 85094
+    },
+    {
+      "cache_key": "e4998ea9009673301cb7ab06c30e3352374633f8a8f75cb58cbdf29f08c2d8f4",
+      "reader": "claude",
+      "drawing": "D-016",
+      "role": "verification",
+      "round": 0,
+      "job": "expansion:D-016:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/e4998ea9009673301cb7ab06c30e3352374633f8a8f75cb58cbdf29f08c2d8f4/request.json",
+      "request_sha256": "34eb55f01242512a530487c35d8909e5539e18387a57b93a13b2842869f5fff1",
+      "result_path": "generated/ai_cache/e4998ea9009673301cb7ab06c30e3352374633f8a8f75cb58cbdf29f08c2d8f4/result.json",
+      "result_sha256": "82c321a843fbaa4987cec232e2559be8ebf5b28b61bdb55368a7473ac8871846",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "latency_ms": 22547
+    },
+    {
+      "cache_key": "ebae3e5bb21b21fcc7c94f5899c2054dd6c5c9c2a1fec2c9b3fc4c04b9ee4fe8",
+      "reader": "codex",
+      "drawing": "D-019",
+      "role": "proposal",
+      "round": 0,
+      "job": "expansion:D-019:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/ebae3e5bb21b21fcc7c94f5899c2054dd6c5c9c2a1fec2c9b3fc4c04b9ee4fe8/request.json",
+      "request_sha256": "9d7928f5a32b9dfb049c674087aa8be62321dd72ab85d3d6c96bd89904248ada",
+      "result_path": "generated/ai_cache/ebae3e5bb21b21fcc7c94f5899c2054dd6c5c9c2a1fec2c9b3fc4c04b9ee4fe8/result.json",
+      "result_sha256": "1b519d86ecb3df13f1741c7fd43d7202b3f267c7bca6c9dcc2d2f01d6377699f",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      },
+      "latency_ms": 51672
+    },
+    {
+      "cache_key": "ecfecfd6110db6e5ceb36980d5d398ace96781f2cb84f0e1778e695485cbbbd4",
+      "reader": "claude",
+      "drawing": "D-028",
+      "role": "verification",
+      "round": 1,
+      "job": "expansion:D-028:flat-part-expansion-v1:proposal-verification-v1:verification:1",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/ecfecfd6110db6e5ceb36980d5d398ace96781f2cb84f0e1778e695485cbbbd4/request.json",
+      "request_sha256": "8a8c79f7a946290b6b6a02997f5537c9ec45f6a9bb71811064f49b606b7e0101",
+      "result_path": "generated/ai_cache/ecfecfd6110db6e5ceb36980d5d398ace96781f2cb84f0e1778e695485cbbbd4/result.json",
+      "result_sha256": "070b6c89b10905a585a4cab21c79641bd1c7949519792942d59008d54501692e",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "latency_ms": 12515
+    },
+    {
+      "cache_key": "eee03bce7418d71aa1165ff6dda07f6dec604ead82afc5010ab661c1cc1f74d0",
+      "reader": "claude",
+      "drawing": "D-015",
+      "role": "verification",
+      "round": 0,
+      "job": "expansion:D-015:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+      "used_in_final_run": true,
+      "journals": [
+        "generated/ai_cache/model_expansion/20261105T104806207369Z.json"
+      ],
+      "request_path": "generated/ai_cache/eee03bce7418d71aa1165ff6dda07f6dec604ead82afc5010ab661c1cc1f74d0/request.json",
+      "request_sha256": "e0ee921c328059a1955c379fb184e2a6d09194bf49b22bfc0f96c5cef240cbfe",
+      "result_path": "generated/ai_cache/eee03bce7418d71aa1165ff6dda07f6dec604ead82afc5010ab661c1cc1f74d0/result.json",
+      "result_sha256": "c8779c11d2ee963e692b36d6456ae9cc0d504779ec587a96a8f3e174ac95ff18",
+      "valid_provider_result": true,
+      "settings": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "latency_ms": 17156
+    }
+  ]
+}

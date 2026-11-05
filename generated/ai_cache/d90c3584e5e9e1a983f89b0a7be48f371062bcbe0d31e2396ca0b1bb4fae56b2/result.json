@@ -1,0 +1,204 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "3cf221cbf0b0b77769303a4a0eeaa1616ca1635321fea12653d7ac0748a63a38",
+    "items": [
+      {
+        "key": "outline_type",
+        "decision": "accept",
+        "reason": "The main left face-on view of D-024 shows a circular outer silhouette. Its outermost circle matches the flange dimensioned Ø250,0 (D-024/drawing/n/250.0@1-1) in the opposite face view. The stepped axial profile is handled under cad_eligibility.",
+        "fact_ids": [
+          "D-024",
+          "D-024/drawing/n/250.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "length",
+        "decision": "accept",
+        "reason": "The outline is a circle, so a rectangular X length does not apply. Unknown/null is the correct state.",
+        "fact_ids": [
+          "D-024"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "width",
+        "decision": "accept",
+        "reason": "The outline is a circle, so a rectangular Y width does not apply. Unknown/null is the correct state.",
+        "fact_ids": [
+          "D-024"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "outer_diameter",
+        "decision": "accept",
+        "reason": "The leader for Ø250,0 with tolerance 0,0/-0,3 points to the outermost flange circle in the face view. That sets the outer diameter at 250.",
+        "fact_ids": [
+          "D-024",
+          "D-024/drawing/n/250.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "inner_diameter",
+        "decision": "accept",
+        "reason": "The blank has no annular inner boundary. The central bore is a blind Ø10 feature, not a ring ID, so unknown/null is correct.",
+        "fact_ids": [
+          "D-024"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "thickness",
+        "decision": "accept",
+        "reason": "In the central side view, the 50,0 dimension spans the full axial extent, from the flange side to the plain body end. This supports 50 as the overall axial thickness. The proposal correctly says this is an envelope value, not a constant plate thickness; the side view also prints 3,0, 7,0 and 29,0 steps.",
+        "fact_ids": [
+          "D-024",
+          "D-024/drawing/n/50.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features",
+        "decision": "accept",
+        "reason": "Section A-A cuts along the main horizontal centerline. It shows the Ø10 bores at the X=-70 and X=0 positions opening from the flat face, and the Ø22 pocket at X=+80 opening from the same face. The left view shows the Ø22 recesses as visible circles, while the opposite view shows them hidden. That makes the left view the flat face, which is top (+Z) and consistent with first-angle projection. The 70,0 (n/70.0@1-2) and 80,0 ±0,1 (n/80.0@1-1) dimensions come from the main vertical axis. The 4 x Ø10,0 H7 ⊽40,5 callout (n/4.0@1-1, n/10.0@1-3, n/40.5@1-1) and the 3x Ø22,0 H9 ⊽15,5 callout (n/22.0@1-1, n/15.5@1-1) supply the hole sizes. The Ø5,0 H7 ⊽20,5 hole (n/5.0@1-3, n/20.5@1-1) is visible in the main view, with its center dimensioned 20,0 left and 34,6 below the center (n/20.0@1-1, n/34.6@1-1), so (-20,-34.6) on top is correct. In the opposite face view, 70,0 (n/70.0@1-1) locates the hole indicated by the 3 x Ø5,0 ⊽10,0 callout (n/3.0@1-2, n/5.0@1-2, n/10.0@1-1). Mirroring that view gives X=-70 on the bottom face, which matches the small bores under the section. The 0-n0 expressions are valid. The ordering is correct: x ascending, then y.",
+        "fact_ids": [
+          "D-024",
+          "D-024/drawing/n/70.0@1-2",
+          "D-024/drawing/n/70.0@1-1",
+          "D-024/drawing/n/80.0@1-1",
+          "D-024/drawing/n/4.0@1-1",
+          "D-024/drawing/n/10.0@1-3",
+          "D-024/drawing/n/40.5@1-1",
+          "D-024/drawing/n/40.5@1-2",
+          "D-024/drawing/n/22.0@1-1",
+          "D-024/drawing/n/15.5@1-1",
+          "D-024/drawing/n/5.0@1-3",
+          "D-024/drawing/n/20.5@1-1",
+          "D-024/drawing/n/20.0@1-1",
+          "D-024/drawing/n/34.6@1-1",
+          "D-024/drawing/n/3.0@1-2",
+          "D-024/drawing/n/5.0@1-2",
+          "D-024/drawing/n/10.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_complete",
+        "decision": "accept",
+        "reason": "Several visible features are left out of the supported subset. These are the off-axis Ø10 and Ø22 members, the remaining Ø5 holes, the 10x Ø3,3/M4 holes, the M5 and M3 HELICOIL holes, and the stepped flange/groove profile. So false is correct.",
+        "fact_ids": [
+          "D-024",
+          "D-024/drawing/n/3.3@1-1",
+          "D-024/drawing/n/5.2@1-1",
+          "D-024/drawing/n/3.2@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_omitted",
+        "decision": "accept",
+        "reason": "Each omission matches content visible in the drawing and cites the right callout IDs: the stepped body (Ø224,0, Ø230,0, 3,0, 7,0, 29,0, 50,0), the off-axis 4x Ø10 members, the 3x Ø22 off-axis recesses, the remaining 3x Ø5, the 10x Ø3,3 ⊽10,1 / M4-6H ⊽8,0 holes, the 3x Ø5,2 ⊽8,2 M5 HELICOIL holes, the 8x Ø3,2 ⊽5,0 M3 HELICOIL holes, and the edge-break note. The 3x count on the Ø22 callout has no parsed number ID, and the small holes have no dimensioned centers or pitch circles. Omitting them rather than guessing a layout is justified.",
+        "fact_ids": [
+          "D-024",
+          "D-024/drawing/n/224.0@1-1",
+          "D-024/drawing/n/230.0@1-1",
+          "D-024/drawing/n/3.0@1-3",
+          "D-024/drawing/n/7.0@1-1",
+          "D-024/drawing/n/29.0@1-1",
+          "D-024/drawing/n/50.0@1-1",
+          "D-024/drawing/n/60.0@1-1",
+          "D-024/drawing/n/120.0@1-1",
+          "D-024/drawing/n/10.0@1-2",
+          "D-024/drawing/n/3.3@1-1",
+          "D-024/drawing/n/10.1@1-1",
+          "D-024/drawing/n/8.0@1-2",
+          "D-024/drawing/n/3.0@1-1",
+          "D-024/drawing/n/5.2@1-1",
+          "D-024/drawing/n/8.2@1-1",
+          "D-024/drawing/n/8.0@1-1",
+          "D-024/drawing/n/3.2@1-1",
+          "D-024/drawing/n/5.0@1-1",
+          "D-024/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "cad_eligibility",
+        "decision": "accept",
+        "reason": "The side view and section A-A show a stepped, revolved body: a Ø250,0 flange, Ø224,0 and Ø230,0 portions, and axial steps of 3,0, 7,0 and 29,0 within the 50,0 overall length, plus grooves at the flange. These are essential contours, and a single constant-thickness circle cannot represent them. So supported=false and constant_thickness=false are correct. The face-view silhouette is exactly the Ø250 circle. The reason correctly names the main view and the source of the thickness.",
+        "fact_ids": [
+          "D-024",
+          "D-024/drawing/n/250.0@1-1",
+          "D-024/drawing/n/224.0@1-1",
+          "D-024/drawing/n/230.0@1-1",
+          "D-024/drawing/n/50.0@1-1",
+          "D-024/drawing/n/3.0@1-3",
+          "D-024/drawing/n/7.0@1-1",
+          "D-024/drawing/n/29.0@1-1"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 22395,
+      "cache_read_input_tokens": 24006,
+      "output_tokens": 7793,
+      "output_tokens_details": {
+        "thinking_tokens": 4776
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 22395,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 7793,
+        "cacheReadInputTokens": 24006,
+        "cacheCreationInputTokens": 22395,
+        "webSearchRequests": 0,
+        "costUSD": 0.3398372,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 4776,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 22395,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.3398372,
+    "duration_ms": 75935,
+    "is_error": false
+  },
+  "latency_ms": 77094,
+  "cache_key": "d90c3584e5e9e1a983f89b0a7be48f371062bcbe0d31e2396ca0b1bb4fae56b2",
+  "cache_hit": false,
+  "job": "expansion:D-024:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+  "error": null
+}

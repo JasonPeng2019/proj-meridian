@@ -1,0 +1,157 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "outline_type",
+        "state": "known",
+        "value_json": "\"rectangle\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-014",
+          "D-014/drawing/n/96.0@1-1",
+          "D-014/drawing/n/167.0@1-1"
+        ],
+        "reason": "The right-hand, principally dimensioned face-on view establishes a rectangular outline. This view defines the main XY frame.",
+        "changed_because": ""
+      },
+      {
+        "key": "length",
+        "state": "known",
+        "value_json": "96",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-014/drawing/n/96.0@1-1"
+        ],
+        "reason": "The horizontal overall dimension of the main view is 96,0 millimetres, along X.",
+        "changed_because": ""
+      },
+      {
+        "key": "width",
+        "state": "known",
+        "value_json": "167",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-014/drawing/n/167.0@1-1"
+        ],
+        "reason": "The vertical overall dimension of the main view is 167,0 millimetres, along Y.",
+        "changed_because": ""
+      },
+      {
+        "key": "outer_diameter",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-014"
+        ],
+        "reason": "An outer diameter is irrelevant to the rectangular outline.",
+        "changed_because": ""
+      },
+      {
+        "key": "inner_diameter",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-014"
+        ],
+        "reason": "The outline is not a ring; no outline inner diameter applies.",
+        "changed_because": ""
+      },
+      {
+        "key": "thickness",
+        "state": "known",
+        "value_json": "8",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-014",
+          "D-014/drawing/n/8.0@1-3"
+        ],
+        "reason": "The side-view dimension 8,0 spans the two planar faces and establishes a single nominal constant thickness.",
+        "changed_because": ""
+      },
+      {
+        "key": "features",
+        "state": "known",
+        "value_json": "[{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-43,\"fact_ids\":[\"D-014/drawing/n/18.0@1-1\",\"D-014/drawing/n/25.0@1-1\"],\"expression\":\"0-n0-n1\"},\"y\":{\"state\":\"known\",\"value\":51.5,\"fact_ids\":[\"D-014/drawing/n/51.5@1-1\"]},\"diameter\":{\"state\":\"known\",\"value\":4.2,\"fact_ids\":[\"D-014/drawing/n/4.2@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M5 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8-hole callout and main-view layout establish four mirrored columns and two rows. This outer-left column is X=-(18,0+25,0); the lower threaded row is Y=51,5 above the horizontal centerline.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-43,\"fact_ids\":[\"D-014/drawing/n/18.0@1-1\",\"D-014/drawing/n/25.0@1-1\"],\"expression\":\"0-n0-n1\"},\"y\":{\"state\":\"known\",\"value\":77.5,\"fact_ids\":[\"D-014/drawing/n/51.5@1-1\",\"D-014/drawing/n/26.0@1-1\"],\"expression\":\"n0+n1\"},\"diameter\":{\"state\":\"known\",\"value\":4.2,\"fact_ids\":[\"D-014/drawing/n/4.2@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M5 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8-hole callout establishes four mirrored columns and two rows. This outer-left column is X=-(18,0+25,0); the upper row follows the printed 26,0 pitch above Y=51,5.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-35,\"fact_ids\":[\"D-014/drawing/n/35.0@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":-71.5,\"fact_ids\":[\"D-014/drawing/n/10.5@1-1\",\"D-014/drawing/n/21.0@1-1\",\"D-014/drawing/n/40.0@1-1\"],\"expression\":\"0-n0-n1-n2\"},\"diameter\":{\"state\":\"known\",\"value\":6.6,\"fact_ids\":[\"D-014/drawing/n/6.6@1-1\"]},\"through\":true,\"hole_type\":\"countersunk\",\"countersink_diameter\":{\"state\":\"known\",\"value\":13.4,\"fact_ids\":[\"D-014/drawing/n/13.4@1-1\"]},\"countersink_angle\":{\"state\":\"known\",\"value\":90,\"fact_ids\":[\"D-014/drawing/n/90.0@1-1\"]},\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The 8 x callout and layout establish two mirrored columns at X=±35,0 and four rows. The lowest row is below the centerline by 10,5+21,0+40,0. Countersink mouths appear in the right main view and isometric, establishing top openings.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-2\",\"D-014/drawing/callout/p1-3\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-35,\"fact_ids\":[\"D-014/drawing/n/35.0@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":-31.5,\"fact_ids\":[\"D-014/drawing/n/10.5@1-1\",\"D-014/drawing/n/21.0@1-1\"],\"expression\":\"0-n0-n1\"},\"diameter\":{\"state\":\"known\",\"value\":6.6,\"fact_ids\":[\"D-014/drawing/n/6.6@1-1\"]},\"through\":true,\"hole_type\":\"countersunk\",\"countersink_diameter\":{\"state\":\"known\",\"value\":13.4,\"fact_ids\":[\"D-014/drawing/n/13.4@1-1\"]},\"countersink_angle\":{\"state\":\"known\",\"value\":90,\"fact_ids\":[\"D-014/drawing/n/90.0@1-1\"]},\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The 8 x callout establishes two mirrored columns at X=±35,0 and four rows. This row is below the centerline by 10,5+21,0. The right main view and isometric establish top countersink openings.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-2\",\"D-014/drawing/callout/p1-3\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-35,\"fact_ids\":[\"D-014/drawing/n/35.0@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":-10.5,\"fact_ids\":[\"D-014/drawing/n/10.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":6.6,\"fact_ids\":[\"D-014/drawing/n/6.6@1-1\"]},\"through\":true,\"hole_type\":\"countersunk\",\"countersink_diameter\":{\"state\":\"known\",\"value\":13.4,\"fact_ids\":[\"D-014/drawing/n/13.4@1-1\"]},\"countersink_angle\":{\"state\":\"known\",\"value\":90,\"fact_ids\":[\"D-014/drawing/n/90.0@1-1\"]},\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The 8 x callout establishes two mirrored columns at X=±35,0 and four rows. The 10,5 dimension's actual witness lines locate this row below the horizontal centerline, irrespective of displaced dimension text. The right main view and isometric establish top openings.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-2\",\"D-014/drawing/callout/p1-3\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-35,\"fact_ids\":[\"D-014/drawing/n/35.0@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":29.5,\"fact_ids\":[\"D-014/drawing/n/40.0@1-2\",\"D-014/drawing/n/10.5@1-1\"],\"expression\":\"n0-n1\"},\"diameter\":{\"state\":\"known\",\"value\":6.6,\"fact_ids\":[\"D-014/drawing/n/6.6@1-1\"]},\"through\":true,\"hole_type\":\"countersunk\",\"countersink_diameter\":{\"state\":\"known\",\"value\":13.4,\"fact_ids\":[\"D-014/drawing/n/13.4@1-1\"]},\"countersink_angle\":{\"state\":\"known\",\"value\":90,\"fact_ids\":[\"D-014/drawing/n/90.0@1-1\"]},\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The 8 x callout establishes two mirrored columns at X=±35,0 and four rows. The upper row is 40,0 above the row at Y=-10,5. The right main view and isometric establish top countersink openings.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-2\",\"D-014/drawing/callout/p1-3\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-18,\"fact_ids\":[\"D-014/drawing/n/18.0@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":51.5,\"fact_ids\":[\"D-014/drawing/n/51.5@1-1\"]},\"diameter\":{\"state\":\"known\",\"value\":4.2,\"fact_ids\":[\"D-014/drawing/n/4.2@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M5 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8-hole callout and main-view layout establish four mirrored columns and two rows. The inner-left column is 18,0 left of the vertical centerline; the lower threaded row is 51,5 above the horizontal centerline.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-18,\"fact_ids\":[\"D-014/drawing/n/18.0@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":77.5,\"fact_ids\":[\"D-014/drawing/n/51.5@1-1\",\"D-014/drawing/n/26.0@1-1\"],\"expression\":\"n0+n1\"},\"diameter\":{\"state\":\"known\",\"value\":4.2,\"fact_ids\":[\"D-014/drawing/n/4.2@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M5 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8-hole callout establishes four mirrored columns and two rows. The inner-left column is X=-18,0; the upper row follows the printed 26,0 pitch above Y=51,5.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-1\"]},{\"kind\":\"hole\",\"face\":\"bottom\",\"x\":{\"state\":\"known\",\"value\":12.5,\"fact_ids\":[\"D-014/drawing/n/12.5@1-1\"]},\"y\":{\"state\":\"known\",\"value\":-53.5,\"fact_ids\":[\"D-014/drawing/n/53.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":6.6,\"fact_ids\":[\"D-014/drawing/n/6.6@1-2\"]},\"through\":true,\"hole_type\":\"countersunk\",\"countersink_diameter\":{\"state\":\"known\",\"value\":14.4,\"fact_ids\":[\"D-014/drawing/n/14.4@1-1\"]},\"countersink_angle\":{\"state\":\"known\",\"value\":90,\"fact_ids\":[\"D-014/drawing/n/90.0@1-2\"]},\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The opposite left face view shows the 2 x countersink mouths. Its 12,5 left-of-center offset mirrors to X=+12,5 in the right main XY frame, with Y preserved. The lower hole is 53,5 below the horizontal centerline. The right main view and isometric show plain exits, establishing bottom countersink openings.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-4\",\"D-014/drawing/callout/p1-5\"]},{\"kind\":\"hole\",\"face\":\"bottom\",\"x\":{\"state\":\"known\",\"value\":12.5,\"fact_ids\":[\"D-014/drawing/n/12.5@1-1\"]},\"y\":{\"state\":\"known\",\"value\":6.5,\"fact_ids\":[\"D-014/drawing/n/60.0@1-1\",\"D-014/drawing/n/53.5@1-1\"],\"expression\":\"n0-n1\"},\"diameter\":{\"state\":\"known\",\"value\":6.6,\"fact_ids\":[\"D-014/drawing/n/6.6@1-2\"]},\"through\":true,\"hole_type\":\"countersunk\",\"countersink_diameter\":{\"state\":\"known\",\"value\":14.4,\"fact_ids\":[\"D-014/drawing/n/14.4@1-1\"]},\"countersink_angle\":{\"state\":\"known\",\"value\":90,\"fact_ids\":[\"D-014/drawing/n/90.0@1-2\"]},\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The opposite left face view shows the 2 x countersink mouths. Its 12,5 leftward offset mirrors to X=+12,5 in the right main XY frame. The printed 60,0 vertical pitch above the lower hole at Y=-53,5 gives this upper position. Plain exits in the right main view and isometric establish bottom countersink openings.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-4\",\"D-014/drawing/callout/p1-5\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":18,\"fact_ids\":[\"D-014/drawing/n/18.0@1-1\"]},\"y\":{\"state\":\"known\",\"value\":51.5,\"fact_ids\":[\"D-014/drawing/n/51.5@1-1\"]},\"diameter\":{\"state\":\"known\",\"value\":4.2,\"fact_ids\":[\"D-014/drawing/n/4.2@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M5 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8-hole callout and main-view layout establish four mirrored columns and two rows. This inner-right column mirrors the dimensioned 18,0 inner-column offset; the lower threaded row is Y=51,5.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":18,\"fact_ids\":[\"D-014/drawing/n/18.0@1-1\"]},\"y\":{\"state\":\"known\",\"value\":77.5,\"fact_ids\":[\"D-014/drawing/n/51.5@1-1\",\"D-014/drawing/n/26.0@1-1\"],\"expression\":\"n0+n1\"},\"diameter\":{\"state\":\"known\",\"value\":4.2,\"fact_ids\":[\"D-014/drawing/n/4.2@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M5 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8-hole callout establishes four mirrored columns and two rows. This inner-right column mirrors the 18,0 offset; the upper row is 26,0 above Y=51,5.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":35,\"fact_ids\":[\"D-014/drawing/n/35.0@1-1\"]},\"y\":{\"state\":\"known\",\"value\":-71.5,\"fact_ids\":[\"D-014/drawing/n/10.5@1-1\",\"D-014/drawing/n/21.0@1-1\",\"D-014/drawing/n/40.0@1-1\"],\"expression\":\"0-n0-n1-n2\"},\"diameter\":{\"state\":\"known\",\"value\":6.6,\"fact_ids\":[\"D-014/drawing/n/6.6@1-1\"]},\"through\":true,\"hole_type\":\"countersunk\",\"countersink_diameter\":{\"state\":\"known\",\"value\":13.4,\"fact_ids\":[\"D-014/drawing/n/13.4@1-1\"]},\"countersink_angle\":{\"state\":\"known\",\"value\":90,\"fact_ids\":[\"D-014/drawing/n/90.0@1-1\"]},\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The 8 x callout establishes two mirrored columns and four rows. The right column is dimensioned 35,0 from the vertical centerline; the lowest row is below the horizontal centerline by 10,5+21,0+40,0. The right main view and isometric establish top openings.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-2\",\"D-014/drawing/callout/p1-3\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":35,\"fact_ids\":[\"D-014/drawing/n/35.0@1-1\"]},\"y\":{\"state\":\"known\",\"value\":-31.5,\"fact_ids\":[\"D-014/drawing/n/10.5@1-1\",\"D-014/drawing/n/21.0@1-1\"],\"expression\":\"0-n0-n1\"},\"diameter\":{\"state\":\"known\",\"value\":6.6,\"fact_ids\":[\"D-014/drawing/n/6.6@1-1\"]},\"through\":true,\"hole_type\":\"countersunk\",\"countersink_diameter\":{\"state\":\"known\",\"value\":13.4,\"fact_ids\":[\"D-014/drawing/n/13.4@1-1\"]},\"countersink_angle\":{\"state\":\"known\",\"value\":90,\"fact_ids\":[\"D-014/drawing/n/90.0@1-1\"]},\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The 8 x callout establishes two mirrored columns and four rows. The right column is X=35,0; this row is below the centerline by 10,5+21,0. The right main view and isometric establish top countersink openings.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-2\",\"D-014/drawing/callout/p1-3\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":35,\"fact_ids\":[\"D-014/drawing/n/35.0@1-1\"]},\"y\":{\"state\":\"known\",\"value\":-10.5,\"fact_ids\":[\"D-014/drawing/n/10.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":6.6,\"fact_ids\":[\"D-014/drawing/n/6.6@1-1\"]},\"through\":true,\"hole_type\":\"countersunk\",\"countersink_diameter\":{\"state\":\"known\",\"value\":13.4,\"fact_ids\":[\"D-014/drawing/n/13.4@1-1\"]},\"countersink_angle\":{\"state\":\"known\",\"value\":90,\"fact_ids\":[\"D-014/drawing/n/90.0@1-1\"]},\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The 8 x callout establishes two mirrored columns and four rows. The right column is X=35,0. The actual 10,5 dimension witness lines place this row below the horizontal centerline. The right main view and isometric establish top openings.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-2\",\"D-014/drawing/callout/p1-3\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":35,\"fact_ids\":[\"D-014/drawing/n/35.0@1-1\"]},\"y\":{\"state\":\"known\",\"value\":29.5,\"fact_ids\":[\"D-014/drawing/n/40.0@1-2\",\"D-014/drawing/n/10.5@1-1\"],\"expression\":\"n0-n1\"},\"diameter\":{\"state\":\"known\",\"value\":6.6,\"fact_ids\":[\"D-014/drawing/n/6.6@1-1\"]},\"through\":true,\"hole_type\":\"countersunk\",\"countersink_diameter\":{\"state\":\"known\",\"value\":13.4,\"fact_ids\":[\"D-014/drawing/n/13.4@1-1\"]},\"countersink_angle\":{\"state\":\"known\",\"value\":90,\"fact_ids\":[\"D-014/drawing/n/90.0@1-1\"]},\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The 8 x callout establishes two mirrored columns and four rows. The right column is X=35,0; the upper row is 40,0 above the row at Y=-10,5. The right main view and isometric establish top countersink openings.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-2\",\"D-014/drawing/callout/p1-3\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":43,\"fact_ids\":[\"D-014/drawing/n/18.0@1-1\",\"D-014/drawing/n/25.0@1-1\"],\"expression\":\"n0+n1\"},\"y\":{\"state\":\"known\",\"value\":51.5,\"fact_ids\":[\"D-014/drawing/n/51.5@1-1\"]},\"diameter\":{\"state\":\"known\",\"value\":4.2,\"fact_ids\":[\"D-014/drawing/n/4.2@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M5 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8-hole callout establishes four mirrored columns and two rows. This outer-right column mirrors the dimensioned inner offset plus outer pitch, X=18,0+25,0; the lower threaded row is Y=51,5.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":43,\"fact_ids\":[\"D-014/drawing/n/18.0@1-1\",\"D-014/drawing/n/25.0@1-1\"],\"expression\":\"n0+n1\"},\"y\":{\"state\":\"known\",\"value\":77.5,\"fact_ids\":[\"D-014/drawing/n/51.5@1-1\",\"D-014/drawing/n/26.0@1-1\"],\"expression\":\"n0+n1\"},\"diameter\":{\"state\":\"known\",\"value\":4.2,\"fact_ids\":[\"D-014/drawing/n/4.2@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M5 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8-hole callout establishes four mirrored columns and two rows. This outer-right column is X=18,0+25,0 by the mirrored layout; the upper row is 26,0 above Y=51,5.\",\"fact_ids\":[\"D-014\",\"D-014/drawing/callout/p1-1\"]}]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-014",
+          "D-014/drawing/callout/p1-1",
+          "D-014/drawing/callout/p1-2",
+          "D-014/drawing/callout/p1-3",
+          "D-014/drawing/callout/p1-4",
+          "D-014/drawing/callout/p1-5"
+        ],
+        "reason": "The supported cuts comprise eight M5 - 6H threaded through-holes with explicitly printed 4,2 diameter, eight 6,6 through-holes countersunk 13,4 X 90° from top, and two 6,6 through-holes countersunk 14,4 X 90° from bottom. The opposed face views and isometric establish the opening faces. All positions use the right main view's centered XY frame; rear-view positions are mirrored in X. Printed counts, offsets and pitches support the stated layout interpretations.",
+        "changed_because": ""
+      },
+      {
+        "key": "features_complete",
+        "state": "known",
+        "value_json": "false",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-014",
+          "D-014/drawing/general/edge_finish"
+        ],
+        "reason": "All eighteen visible hole cuts are supported, but the required edge-break geometry is unspecified and omitted.",
+        "changed_because": ""
+      },
+      {
+        "key": "features_omitted",
+        "state": "known",
+        "value_json": "[{\"description\":\"DEBURR AND BREAK SHARP EDGES\",\"reason\":\"The general note specifies edge finishing without a break size or profile. That unspecified edge-break geometry is omitted from the nominal rectangular body and supported hole cuts.\",\"fact_ids\":[\"D-014/drawing/general/edge_finish\"]}]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-014/drawing/general/edge_finish"
+        ],
+        "reason": "No dimension establishes the size or profile of the instructed edge breaks.",
+        "changed_because": ""
+      },
+      {
+        "key": "cad_eligibility",
+        "state": "known",
+        "value_json": "{\"supported\":true,\"constant_thickness\":true,\"outline_exact\":true,\"reason\":\"The right-hand main face-on view establishes the rectangular 96,0 by 167,0 body, and the side-view thickness leader establishes a single constant nominal thickness of 8,0. The opposed views and isometric establish the supported through-holes and countersink opening faces. The template can represent this body and all dimensioned hole cuts; only unspecified edge finishing is omitted.\",\"essential_uncertainty\":[],\"omitted_minor_features\":[\"Unspecified edge-break geometry required by DEBURR AND BREAK SHARP EDGES.\"]}",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-014",
+          "D-014/drawing/n/96.0@1-1",
+          "D-014/drawing/n/167.0@1-1",
+          "D-014/drawing/n/8.0@1-3",
+          "D-014/drawing/general/edge_finish"
+        ],
+        "reason": "The drawing establishes an exact main rectangular outline and dimensioned constant thickness, with no essential unsupported external contour. Unspecified edge breaks are a minor omission.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 21734,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 11073,
+          "reasoning_output_tokens": 4566
+        }
+      }
+    ]
+  },
+  "latency_ms": 171266,
+  "cache_key": "766805710cd6a677be160a71652fcd8278198d08bd9079f1dd7db5882db4bb3d",
+  "cache_hit": false,
+  "job": "expansion:D-014:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+  "error": null
+}

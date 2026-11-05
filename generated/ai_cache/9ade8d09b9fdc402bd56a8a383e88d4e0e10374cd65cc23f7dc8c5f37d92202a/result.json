@@ -1,0 +1,52 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "cad_eligibility",
+        "state": "known",
+        "value_json": "{\"supported\":true,\"constant_thickness\":true,\"outline_exact\":true,\"reason\":\"Eligible for a partial model: the central face-on view establishes the rectangular 25,0 by 120,0 main outline, and the left orthographic view dimensions its constant thickness as 15,0, in millimetres. The main-face through holes fit the supported cutting direction. The transverse threaded-hole pair requires unsupported side-face cuts and is explicitly omitted; the partial model does not reproduce the complete mounting-hole configuration.\",\"essential_uncertainty\":[],\"omitted_minor_features\":[\"The transverse threaded-hole pair identified by the left-view M6 - 6H THRU ALL callout is omitted because its cutting direction is outside the top/bottom feature template.\",\"Unspecified edge breaks required by DEBURR AND BREAK SHARP EDGES are omitted.\"]}",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-012",
+          "D-012/drawing/n/25.0@1-1",
+          "D-012/drawing/n/120.0@1-1",
+          "D-012/drawing/n/15.0@1-1",
+          "D-012/drawing/callout/p1-1",
+          "D-012/drawing/callout/p1-2",
+          "D-012/drawing/general/units",
+          "D-012/drawing/general/edge_finish"
+        ],
+        "reason": "The original orthographic views establish a constant-thickness rectangular body. The transverse holes are established features with an unsupported cutting direction, so their omission limits reconstruction completeness without creating uncertainty about the essential body geometry.",
+        "changed_because": "Reinspection confirms that the transverse holes represent a known template limitation, not unresolved body geometry. Their omission is now recorded explicitly in omitted_minor_features, essential_uncertainty is empty, and eligibility is expressly limited to a partial model."
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 21326,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1683,
+          "reasoning_output_tokens": 1279
+        }
+      }
+    ]
+  },
+  "latency_ms": 39313,
+  "cache_key": "9ade8d09b9fdc402bd56a8a383e88d4e0e10374cd65cc23f7dc8c5f37d92202a",
+  "cache_hit": false,
+  "job": "expansion:D-012:flat-part-expansion-v1:proposal-verification-v1:proposal:1",
+  "error": null
+}

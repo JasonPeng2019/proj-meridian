@@ -1,0 +1,152 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "outline_type",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-029"
+        ],
+        "reason": "The main view shows an essential three-lobed profile with curved connecting flanks. It is neither a rectangle, circle nor ring.",
+        "changed_because": ""
+      },
+      {
+        "key": "length",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-029"
+        ],
+        "reason": "No overall X dimension is printed. The profile cannot be measured from pixels or drawing scale.",
+        "changed_because": ""
+      },
+      {
+        "key": "width",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-029"
+        ],
+        "reason": "No overall Y dimension is printed. The profile cannot be measured from pixels or drawing scale.",
+        "changed_because": ""
+      },
+      {
+        "key": "outer_diameter",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-029"
+        ],
+        "reason": "An outer diameter is not applicable to the three-lobed outline. The printed diameter callouts describe holes.",
+        "changed_because": ""
+      },
+      {
+        "key": "inner_diameter",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-029"
+        ],
+        "reason": "The body is not a ring. Its individual bore diameters do not establish a template inner diameter.",
+        "changed_because": ""
+      },
+      {
+        "key": "thickness",
+        "state": "known",
+        "value_json": "15",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-029",
+          "D-029/drawing/n/15.0@1-1"
+        ],
+        "reason": "The 15,00 dimension spans the full plate thickness in SECTION A-A. The section and isometric show a constant-thickness plate.",
+        "changed_because": ""
+      },
+      {
+        "key": "features",
+        "state": "known",
+        "value_json": "[]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-029"
+        ],
+        "reason": "No cut has a fully established position relative to the required centered outline. The hole centerlines identify local axes, but no printed offsets, pitches or pattern radii locate the holes in that frame.",
+        "changed_because": ""
+      },
+      {
+        "key": "features_complete",
+        "state": "known",
+        "value_json": "false",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-029"
+        ],
+        "reason": "The visible hole inventory is identifiable, but its positions are undimensioned and some bore diameters are not independently called out. These cuts and the essential exterior profile remain unresolved.",
+        "changed_because": ""
+      },
+      {
+        "key": "features_omitted",
+        "state": "known",
+        "value_json": "[{\"description\":\"Essential three-lobed outer profile and curved connecting flanks\",\"reason\":\"The contour cannot be expressed by the rectangle/circle/ring template. Overall dimensions, contour radii and profile coordinates are absent; this is an essential contour, not a minor edge detail.\",\"fact_ids\":[\"D-029\"]},{\"description\":\"Central Ø 34,00 H6 THRU bore\",\"reason\":\"The diameter and through operation are established, but the intersecting centerlines do not establish its position relative to the required centered exterior outline. No locating dimensions are printed.\",\"fact_ids\":[\"D-029\",\"D-029/drawing/n/34.0@1-1\",\"D-029/drawing/callout/p1-4\"]},{\"description\":\"Upper-lug Ø 32,00 H6 THRU bore\",\"reason\":\"The diameter and through operation are established, but no dimension locates its center relative to the centered outline or another established datum.\",\"fact_ids\":[\"D-029\",\"D-029/drawing/n/32.0@1-1\",\"D-029/drawing/callout/p1-3\"]},{\"description\":\"Large bores in the two lower lobes\",\"reason\":\"The bores are visible, but their diameters and center positions are not independently dimensioned. The upper-lug diameter cannot be extended to them from visual similarity.\",\"fact_ids\":[\"D-029\"]},{\"description\":\"3 x Ø 9,00 THRU ALL holes with Ø 13,00 H6 recesses of depth 3,00\",\"reason\":\"The primary and recess dimensions are printed, but no offsets, pitch or pattern radius establish the three hole centers. The cuts therefore cannot be placed without guessing.\",\"fact_ids\":[\"D-029\",\"D-029/drawing/callout/p1-2\",\"D-029/drawing/n/3.0@1-1\",\"D-029/drawing/n/9.0@1-1\",\"D-029/drawing/n/13.0@1-1\",\"D-029/drawing/n/3.0@1-2\"]},{\"description\":\"20 x Ø 4,20 THRU ALL, M5 - 6H THRU ALL threaded holes\",\"reason\":\"The count, drill diameter, thread and through operation are explicit. No printed pitch-circle diameters, offsets or spacings establish their centers; visible arrangements alone do not determine their placement.\",\"fact_ids\":[\"D-029\",\"D-029/drawing/callout/p1-1\",\"D-029/drawing/n/20.0@1-1\",\"D-029/drawing/n/4.2@1-1\"]},{\"description\":\"DEBURR AND BREAK SHARP EDGES\",\"reason\":\"The general edge-finishing instruction supplies no dimensions for explicit chamfer or edge-break geometry.\",\"fact_ids\":[\"D-029\",\"D-029/drawing/general/edge_finish\"]}]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-029",
+          "D-029/drawing/callout/p1-1",
+          "D-029/drawing/callout/p1-2",
+          "D-029/drawing/callout/p1-3",
+          "D-029/drawing/callout/p1-4",
+          "D-029/drawing/general/edge_finish"
+        ],
+        "reason": "Each excluded contour, cut group and edge detail is identified with its specific missing geometry or placement evidence.",
+        "changed_because": ""
+      },
+      {
+        "key": "cad_eligibility",
+        "state": "known",
+        "value_json": "{\"supported\":false,\"constant_thickness\":true,\"outline_exact\":false,\"reason\":\"The main face-on view has an essential three-lobed outer profile with curved flanks, which the rectangle/circle/ring generator cannot reproduce. SECTION A-A explicitly establishes a constant 15,00 mm thickness, but no overall dimensions or contour construction dimensions establish the exterior. Hole locations are also undimensioned. A bounding rectangle or circle would change the main body.\",\"essential_uncertainty\":[\"Overall X/Y dimensions and the radii or coordinates defining the essential lobed exterior are absent.\",\"No printed locating dimensions establish the functional bore centers relative to the centered outline.\",\"The large bores in the lower lobes lack independent diameter callouts.\"],\"omitted_minor_features\":[\"DEBURR AND BREAK SHARP EDGES has no specified edge-break dimensions.\"]}",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-029",
+          "D-029/drawing/n/15.0@1-1",
+          "D-029/drawing/general/edge_finish"
+        ],
+        "reason": "Constant thickness is supported by the section, but the essential exterior contour is outside the MVP template and cannot be replaced by a bounding shape.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 21003,
+          "cached_input_tokens": 13056,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 4383,
+          "reasoning_output_tokens": 2864
+        }
+      }
+    ]
+  },
+  "latency_ms": 106719,
+  "cache_key": "48aca9a41309be6d61b4ccf703fdf8e1c9d32714422a4b6200f31c2fe2fee13c",
+  "cache_hit": false,
+  "job": "expansion:D-029:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+  "error": null
+}

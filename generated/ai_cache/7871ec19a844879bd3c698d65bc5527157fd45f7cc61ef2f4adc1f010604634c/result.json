@@ -1,0 +1,175 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "addca048a9ea8590aca9474a0bef8b4e0d663b3948f705cde4998ad323823361",
+    "items": [
+      {
+        "key": "outline_type",
+        "decision": "needs_input",
+        "reason": "The original main view shows an obround (slot-shaped) outline: R5,5 semicircular ends whose centers are 19,0 apart, and an overall width of 11,0. That shape is not a rectangle, circle or ring, so the permitted outline types cannot represent it. The unknown state is accurate, but it leaves essential outline geometry unresolved. Supporting this outline would need a human decision or a new outline capability.",
+        "fact_ids": [
+          "D-028",
+          "D-028/drawing/n/5.5@1-1",
+          "D-028/drawing/n/19.0@1-1",
+          "D-028/drawing/n/11.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "length",
+        "decision": "reject",
+        "reason": "The geometry is correct: the 19,0 dimension spans the arc and hole centers, and R5,5 equals 11,0/2, so the overall length is 19,0+2*5,5=30. However, the packet marks this key locally invalid. The derived value is given as a plain scalar, without the required arithmetic expression wrapper (for example n0+2*n1 with cited IDs in order). The existing evidence is enough to resubmit it correctly.",
+        "fact_ids": [
+          "D-028/drawing/n/19.0@1-1",
+          "D-028/drawing/n/5.5@1-1"
+        ],
+        "repairable": true
+      },
+      {
+        "key": "width",
+        "decision": "accept",
+        "reason": "In the main view, the vertical dimension 11,0 spans the full top-to-bottom tangent edges of the obround. That is the overall Y width.",
+        "fact_ids": [
+          "D-028/drawing/n/11.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "outer_diameter",
+        "decision": "accept",
+        "reason": "The outline is not a circle or ring, so this field does not apply. Leaving it unknown follows the rule that irrelevant dimensions stay unknown.",
+        "fact_ids": [
+          "D-028"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "inner_diameter",
+        "decision": "accept",
+        "reason": "The outline is not a ring, so this field does not apply. The central Ø8,0 is a hole and is correctly handled in features.",
+        "fact_ids": [
+          "D-028"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "thickness",
+        "decision": "accept",
+        "reason": "The side view has one thickness dimension (leaders spanning the plate edge) with 3,0 and 2,0 stacked on it. These are alternative constant thicknesses, correctly given as options sorted ascending: [2,3].",
+        "fact_ids": [
+          "D-028",
+          "D-028/drawing/n/3.0@1-1",
+          "D-028/drawing/n/2.0@1-2"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features",
+        "decision": "accept",
+        "reason": "The original image matches the proposal. The '2 x Ø4,5 THRU ALL' leader points to the end holes, which sit concentric with the R5,5 arc centers on the horizontal centerline. The 19,0 dimension spans those centers, giving x=-9.5 and x=+9.5 (0-n0/2 and n0/2) with y=0. The single 'Ø8,0 ±0,15 THRU' hole sits where the centerlines cross, at (0,0). The image shows no '2 x' on the Ø8,0 callout, so the parsed duplicate count in p1-2 is a parsing error. All three holes are through, so face=top is valid. All are plain, and the ordering is correct.",
+        "fact_ids": [
+          "D-028",
+          "D-028/drawing/callout/p1-1",
+          "D-028/drawing/n/2.0@1-1",
+          "D-028/drawing/n/4.5@1-1",
+          "D-028/drawing/n/8.0@1-1",
+          "D-028/drawing/n/19.0@1-1",
+          "D-028/drawing/n/11.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_complete",
+        "decision": "accept",
+        "reason": "All three visible holes are supported. The general note 'DEBURR AND BREAK SHARP EDGES' requires edge breaks of no specified size, and they are omitted, so false is correct.",
+        "fact_ids": [
+          "D-028",
+          "D-028/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_omitted",
+        "decision": "accept",
+        "reason": "The only omitted cut or detail is the undimensioned edge break from the general note, and the omission cites it correctly. No other cuts appear in the main, side or isometric views.",
+        "fact_ids": [
+          "D-028/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "cad_eligibility",
+        "decision": "accept",
+        "reason": "supported=false is correct. The main view is an obround with R5,5 semicircular ends, an essential rounded outer contour that rectangle, circle and ring cannot represent exactly, and a 30x11 bounding rectangle would be invalid. constant_thickness=true is correct: the side view prints stacked alternatives 2,0 and 3,0, and the isometric view shows a flat constant-thickness plate. outline_exact=false is correct.",
+        "fact_ids": [
+          "D-028",
+          "D-028/drawing/n/5.5@1-1",
+          "D-028/drawing/n/19.0@1-1",
+          "D-028/drawing/n/11.0@1-1",
+          "D-028/drawing/n/3.0@1-1",
+          "D-028/drawing/n/2.0@1-2",
+          "D-028/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 16178,
+      "cache_read_input_tokens": 17795,
+      "output_tokens": 2580,
+      "output_tokens_details": {
+        "thinking_tokens": 559
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 16178,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 2580,
+        "cacheReadInputTokens": 17795,
+        "cacheCreationInputTokens": 16178,
+        "webSearchRequests": 0,
+        "costUSD": 0.184599,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 559,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 16178,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.184599,
+    "duration_ms": 23848,
+    "is_error": false
+  },
+  "latency_ms": 25047,
+  "cache_key": "7871ec19a844879bd3c698d65bc5527157fd45f7cc61ef2f4adc1f010604634c",
+  "cache_hit": false,
+  "job": "expansion:D-028:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+  "error": null
+}

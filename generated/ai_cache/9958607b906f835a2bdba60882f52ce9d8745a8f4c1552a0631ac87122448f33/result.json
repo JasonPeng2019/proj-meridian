@@ -1,0 +1,171 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "808c2ea654b40d2d45fa0f54bf882954baf7c3f79fb8f29b0314e8d000d16422",
+    "items": [
+      {
+        "key": "outline_type",
+        "decision": "accept",
+        "reason": "The main face-on view in drawing D-019 shows two concentric circles: an outer boundary and an inner opening. The isometric view shows a flat annular gasket, so the outline is a ring.",
+        "fact_ids": [
+          "D-019"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "length",
+        "decision": "accept",
+        "reason": "For a ring outline, length (X) does not apply. The size is set by the Ø141,0 and Ø118,0 diameters, so leaving length unknown is correct and does not leave any essential geometry undetermined.",
+        "fact_ids": [
+          "D-019"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "width",
+        "decision": "accept",
+        "reason": "For a ring outline, width (Y) does not apply. The ring size is set by its diameters, so leaving width unknown is correct.",
+        "fact_ids": [
+          "D-019"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "outer_diameter",
+        "decision": "accept",
+        "reason": "In the main view, the Ø141,0 leader ends on the outermost circle. The units note says dimensions are in millimetres, so the outer diameter is 141.0 mm.",
+        "fact_ids": [
+          "D-019/drawing/n/141.0@1-1",
+          "D-019/drawing/general/units"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "inner_diameter",
+        "decision": "accept",
+        "reason": "In the main view, the Ø118,0 leader ends on the inner circle of the opening, so the inner diameter is 118.0 mm.",
+        "fact_ids": [
+          "D-019/drawing/n/118.0@1-1",
+          "D-019/drawing/general/units"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "thickness",
+        "decision": "accept",
+        "reason": "In the side view on the left, the 1,0 dimension is drawn between extension lines across the thin edge of the part, so it is the thickness. The NOTE '1mm silicone pakning' agrees. There is only one thickness and no alternatives.",
+        "fact_ids": [
+          "D-019/drawing/n/1.0@1-1",
+          "D-019/drawing/notes"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features",
+        "decision": "accept",
+        "reason": "The callout '6 x 4,5 THRU ALL' gives the hole count, diameter and through operation. The holes sit on a dash-dot pitch circle, but no pitch-circle diameter or radius is printed, so none of the six can be positioned without guessing. The central opening is already covered by inner_diameter. An empty supported subset is therefore correct.",
+        "fact_ids": [
+          "D-019",
+          "D-019/drawing/callout/p1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_complete",
+        "decision": "accept",
+        "reason": "The six Ø4,5 through-holes cannot be positioned and the edge-break detail has no size, so the feature set is incomplete. false is correct.",
+        "fact_ids": [
+          "D-019",
+          "D-019/drawing/callout/p1-1",
+          "D-019/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_omitted",
+        "decision": "accept",
+        "reason": "Both omissions match the original drawing. (1) The 6 x Ø4,5 THRU ALL holes have a printed count, diameter and through operation, and they lie on a visible pitch circle, but no pitch-circle dimension is printed, so they cannot be located. (2) The 'DEBURR AND BREAK SHARP EDGES' note gives no size or profile. Each omission cites the correct source IDs.",
+        "fact_ids": [
+          "D-019",
+          "D-019/drawing/callout/p1-1",
+          "D-019/drawing/n/6.0@1-1",
+          "D-019/drawing/n/4.5@1-1",
+          "D-019/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "cad_eligibility",
+        "decision": "accept",
+        "reason": "The ring outline is fully dimensioned (Ø141,0 and Ø118,0) in the main face-on view, and the side view gives a single constant thickness of 1,0. There are no bends, steps or unsupported contours. The only gaps are the bolt-hole positions, which lack a pitch-circle diameter, and the unsized edge break. Under the rules, these lead to an honest partial model, not a blocked one. supported=true with the hole and edge omissions listed is consistent, and the reason correctly says the functional part is not fully reproduced.",
+        "fact_ids": [
+          "D-019",
+          "D-019/drawing/n/141.0@1-1",
+          "D-019/drawing/n/118.0@1-1",
+          "D-019/drawing/n/1.0@1-1",
+          "D-019/drawing/callout/p1-1",
+          "D-019/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 14220,
+      "cache_read_input_tokens": 15839,
+      "output_tokens": 2041,
+      "output_tokens_details": {
+        "thinking_tokens": 270
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 14220,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 2041,
+        "cacheReadInputTokens": 15839,
+        "cacheCreationInputTokens": 14220,
+        "webSearchRequests": 0,
+        "costUSD": 0.1577638,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 270,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 14220,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.1577638,
+    "duration_ms": 17455,
+    "is_error": false
+  },
+  "latency_ms": 51906,
+  "cache_key": "9958607b906f835a2bdba60882f52ce9d8745a8f4c1552a0631ac87122448f33",
+  "cache_hit": false,
+  "job": "expansion:D-019:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+  "error": null
+}

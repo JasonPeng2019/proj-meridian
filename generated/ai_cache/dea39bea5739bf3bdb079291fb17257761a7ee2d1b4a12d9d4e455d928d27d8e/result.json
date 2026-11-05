@@ -1,0 +1,156 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "363fe8e38bc261e4a2ec639db7d7de6bd85382588dcbfa0d321446c771fd910f",
+    "items": [
+      {
+        "key": "outline_type",
+        "decision": "needs_input",
+        "reason": "D-030 main face-on view shows a curved three-lobed profile with concave flanks and rounded lobe ends; it is none of rectangle/circle/ring. The proposed unknown is the correct reading, but under protocol an unknown essential outline is needs_input; resolving it requires a human decision or unsupported-contour handling, not more reading of existing evidence.",
+        "fact_ids": [
+          "D-030"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "length",
+        "decision": "needs_input",
+        "reason": "D-030 prints no overall X dimension for the three-lobed outline; numbers array is empty. Bounding-box or pixel measurement is prohibited, so length cannot be determined.",
+        "fact_ids": [
+          "D-030"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "width",
+        "decision": "needs_input",
+        "reason": "D-030 prints no overall Y dimension for the three-lobed outline; numbers array is empty. Width cannot be determined without guessing.",
+        "fact_ids": [
+          "D-030"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "outer_diameter",
+        "decision": "accept",
+        "reason": "D-030 outline is a three-lobed contour, not a circle or ring; no overall outer diameter is printed. Unknown/not-applicable is correct per the 'irrelevant dimensions are unknown' rule.",
+        "fact_ids": [
+          "D-030"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "inner_diameter",
+        "decision": "accept",
+        "reason": "D-030 body is not a ring; the central Ø36,00 H6 THRU bore is a cut, not a ring inner-diameter field. Unknown is correct.",
+        "fact_ids": [
+          "D-030"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "thickness",
+        "decision": "needs_input",
+        "reason": "D-030 SECTION A-A shows a leader-linked 4,00 ±0,05 thickness dimension, but the supplied numbers array is empty, so no parsed drawing-number ID exists to cite for numeric geometry. Unknown is a protocol-correct proposal but must be needs_input; new parsed number evidence is required.",
+        "fact_ids": [
+          "D-030"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features",
+        "decision": "accept",
+        "reason": "With no parsed drawing-number IDs in D-030, no hole diameter can be cited; in addition, the lobe holes (Ø13,50 with Ø20,00 counterbore), the 4x Ø5,00/M6 and 4x Ø4,50 patterns, and the Ø10,20/M12 hole have no printed positional, pitch or PCD dimensions. Known [] is the correct supported subset.",
+        "fact_ids": [
+          "D-030"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_complete",
+        "decision": "accept",
+        "reason": "D-030 shows a central bore, three counterbored lobe holes, two 4-hole patterns and an offset M12 hole, all omitted; false is correct.",
+        "fact_ids": [
+          "D-030"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_omitted",
+        "decision": "accept",
+        "reason": "The omissions match the visible D-030 inventory: Ø36,00 H6 central bore; three lobe holes with Ø13,50 THRU and counterbore Ø20,00 ↓4,00; 4x Ø5,00 THRU M6-6H; 4x Ø4,50 THRU; Ø10,20 THRU M12-6H below the center. Each reason (no parsed number IDs, undimensioned positions/no PCD) is accurate, and each cites D-030.",
+        "fact_ids": [
+          "D-030"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "cad_eligibility",
+        "decision": "accept",
+        "reason": "D-030 main view shows an essential three-lobed curved contour that the rectangle/circle/ring generator cannot express, so supported=false and outline_exact=false are correct. SECTION A-A shows a uniform plate apart from the hole steps, so constant_thickness=true is reasonable, but the numeric 4,00 lacks a parsed ID. The listed essential uncertainties are accurate.",
+        "fact_ids": [
+          "D-030"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 13415,
+      "cache_read_input_tokens": 15029,
+      "output_tokens": 3067,
+      "output_tokens_details": {
+        "thinking_tokens": 1461
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 13415,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 3067,
+        "cacheReadInputTokens": 15029,
+        "cacheCreationInputTokens": 13415,
+        "webSearchRequests": 0,
+        "costUSD": 0.1716818,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 1461,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 13415,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.1716818,
+    "duration_ms": 29943,
+    "is_error": false
+  },
+  "latency_ms": 31078,
+  "cache_key": "dea39bea5739bf3bdb079291fb17257761a7ee2d1b4a12d9d4e455d928d27d8e",
+  "cache_hit": false,
+  "job": "expansion:D-030:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+  "error": null
+}

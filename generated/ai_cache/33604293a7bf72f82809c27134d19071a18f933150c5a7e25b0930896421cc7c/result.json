@@ -1,0 +1,156 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "89baa5868d80583bea4d8c525474b749654cd4ea1998f2b89065f815997b859d",
+    "items": [
+      {
+        "key": "outline_type",
+        "decision": "needs_input",
+        "reason": "The proposed unknown is correct on the evidence. The drawing image (D-010) shows a Z-bent plate: the lower profile has opposing flanges dimensioned 15,00 and 30,00, the left view has rounded outer corners, and there is an edge relief notch at the lower left of the face view. None of rectangle, circle or ring represents this outline exactly. Because essential geometry is unknown, the protocol requires needs_input. A new proposal cannot fix this; it needs a human decision or a developed flat-blank drawing.",
+        "fact_ids": [
+          "D-010",
+          "D-010/drawing/n/15.0@1-1",
+          "D-010/drawing/n/30.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "length",
+        "decision": "accept",
+        "reason": "107,00 runs between extension lines at the outer faces of the two flanges in the lower profile view. It matches the full X span of the face view, so 107 is the overall formed X extent. As the proposer says, it is not a developed flat-blank length.",
+        "fact_ids": [
+          "D-010/drawing/n/107.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "width",
+        "decision": "accept",
+        "reason": "In the left view, 70,00 spans the full vertical extent of the part. That matches the top-to-bottom height of the face view, so it is the overall Y extent.",
+        "fact_ids": [
+          "D-010/drawing/n/70.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "outer_diameter",
+        "decision": "accept",
+        "reason": "The outer outline is not circular (see D-010), so outer diameter does not apply. Unknown is the correct state for an irrelevant dimension.",
+        "fact_ids": [
+          "D-010"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "inner_diameter",
+        "decision": "accept",
+        "reason": "The part is not a ring. The Ø22,10 opening is a hole feature (D-010/drawing/callout/p1-2), not a ring bore, so inner diameter does not apply.",
+        "fact_ids": [
+          "D-010",
+          "D-010/drawing/callout/p1-2"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "thickness",
+        "decision": "needs_input",
+        "reason": "The only mention of thickness is the note text '2mm non-magnetic stainless' (D-010/drawing/notes). No parsed drawing number for thickness exists, and no dimension leader links one to any view. 15,00 and 30,00 are flange heights in the lower profile, not thickness. Under the protocol thickness stays unknown, so the answer is needs_input. Settling it needs a human decision on the note or a dimensioned thickness.",
+        "fact_ids": [
+          "D-010/drawing/notes",
+          "D-010/drawing/n/15.0@1-1",
+          "D-010/drawing/n/30.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features",
+        "decision": "needs_input",
+        "reason": "The drawing has seven holes: four Ø3,60 THRU ALL, one Ø22,10 THRU and two Ø5,80 THRU ALL. The only location dimension is 35,30, the vertical distance from the Ø22,10 center line to the Ø5,80 hole centers. No horizontal positions, no hole-pattern spacings and no datum to the outline are given, so no hole can be fully placed. The proposal correctly omits all seven. Because the feature set is incomplete, the answer is needs_input, and placing the holes needs new dimensions.",
+        "fact_ids": [
+          "D-010/drawing/callout/p1-1",
+          "D-010/drawing/callout/p1-2",
+          "D-010/drawing/callout/p1-3",
+          "D-010/drawing/n/3.6@1-1",
+          "D-010/drawing/n/22.1@1-1",
+          "D-010/drawing/n/5.8@1-1",
+          "D-010/drawing/n/35.3@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "cad_eligibility",
+        "decision": "accept",
+        "reason": "supported=false is supported by the drawing. The lower profile view shows a nonplanar part with opposing bends, flange heights 15,00 and 30,00, and an overall span of 107,00. The left view shows rounded outer corners, and the face view shows an edge relief notch. A single rectangle, circle or ring extrusion cannot represent this. constant_thickness=false is consistent with the protocol, because the 2mm appears only in the note (D-010/drawing/notes) and no parsed number dimensions it. The essential uncertainties listed are accurate, and the three omitted hole groups match the callouts, which have no full XY locations. The bends, not the missing hole positions, are correctly given as the reason the part is unsupported.",
+        "fact_ids": [
+          "D-010",
+          "D-010/drawing/notes",
+          "D-010/drawing/n/15.0@1-1",
+          "D-010/drawing/n/30.0@1-1",
+          "D-010/drawing/n/107.0@1-1",
+          "D-010/drawing/callout/p1-1",
+          "D-010/drawing/callout/p1-2",
+          "D-010/drawing/callout/p1-3"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 12623,
+      "cache_read_input_tokens": 14218,
+      "output_tokens": 2649,
+      "output_tokens_details": {
+        "thinking_tokens": 746
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 12623,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 2649,
+        "cacheReadInputTokens": 14218,
+        "cacheCreationInputTokens": 12623,
+        "webSearchRequests": 0,
+        "costUSD": 0.1568236,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 746,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 12623,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.1568236,
+    "duration_ms": 25297,
+    "is_error": false
+  },
+  "latency_ms": 26500,
+  "cache_key": "33604293a7bf72f82809c27134d19071a18f933150c5a7e25b0930896421cc7c",
+  "cache_hit": false,
+  "job": "expansion:D-010:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+  "error": null
+}

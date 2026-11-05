@@ -1,0 +1,140 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "7e0109c3210546f1999e8d6cac549a8ac3d275e0e52654ecb2db02b4ef4e68ac",
+    "items": [
+      {
+        "key": "outline_type",
+        "decision": "needs_input",
+        "reason": "Drawing D-009 shows a hollow sheet-metal powder canister. The side views have an elongated-hexagon profile that narrows into a neck, and the base has a projecting flange; the isometric view confirms this. No rectangle, circle or ring matches the main outline, so the proposed unknown/null is consistent with the evidence. Under the protocol, unknown essential outline geometry must be returned as needs_input. A supported outline cannot be produced from the existing evidence.",
+        "fact_ids": [
+          "D-009"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "length",
+        "decision": "accept",
+        "reason": "D-009 supplies no parsed drawing-number IDs (numbers: []). The visible 270,00 max. and 230,00 values are envelope dimensions of a formed enclosure, not the X length of a flat rectangular part. Unknown is correct.",
+        "fact_ids": [
+          "D-009"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "width",
+        "decision": "accept",
+        "reason": "There is no rectangular flat-part outline and no parsed number IDs in D-009. The 230,00 and 395,00 values dimension the canister envelope, not a flat-part Y width. Unknown is correct.",
+        "fact_ids": [
+          "D-009"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "outer_diameter",
+        "decision": "accept",
+        "reason": "The D-009 views show a noncircular, profiled canister. An outer diameter does not apply to the main outline, so unknown is correct.",
+        "fact_ids": [
+          "D-009"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "inner_diameter",
+        "decision": "accept",
+        "reason": "The part is not a ring. The Ø25,00 THRU openings and the other holes are local cuts, not a template inner diameter. Unknown is correct.",
+        "fact_ids": [
+          "D-009"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "thickness",
+        "decision": "needs_input",
+        "reason": "The note field (D-009/drawing/notes) says only 'Wall thickness as thin as possible', which is qualitative. The stacked 5,00/3,00 values near [B] are local base/flange dimensions, not alternative constant thicknesses for the whole part, and none of them has a parsed number ID. The proposed unknown is right, but the protocol requires unknown essential thickness to be needs_input. A new value or a human decision would be needed.",
+        "fact_ids": [
+          "D-009",
+          "D-009/drawing/notes"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features",
+        "decision": "accept",
+        "reason": "The holes (8x Ø5,80 THRU ALL, 8x Ø7,00, Ø25,00 THRU, 4x Ø10,50, Ø14,80 THRU) and the long slot lie on several faces of a formed enclosure. They have no center coordinates in one centered top-face XY frame and no parsed number IDs. An unknown state with an empty array, plus an explicit list of omissions, is correct.",
+        "fact_ids": [
+          "D-009"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "cad_eligibility",
+        "decision": "accept",
+        "reason": "D-009 shows a hollow formed canister with a profiled/tapered body, a neck and a base flange. It cannot be represented by an exact rectangle, circle or ring extruded to one constant thickness. The only thickness guidance is the qualitative 'as thin as possible' note. Therefore supported=false, constant_thickness=false and outline_exact=false are correct, and the essential uncertainties and omitted features are listed faithfully.",
+        "fact_ids": [
+          "D-009",
+          "D-009/drawing/notes"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 10590,
+      "cache_read_input_tokens": 12184,
+      "output_tokens": 2173,
+      "output_tokens_details": {
+        "thinking_tokens": 741
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 10590,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 2173,
+        "cacheReadInputTokens": 12184,
+        "cacheCreationInputTokens": 10590,
+        "webSearchRequests": 0,
+        "costUSD": 0.13063280000000002,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 741,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 10590,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.13063280000000002,
+    "duration_ms": 21106,
+    "is_error": false
+  },
+  "latency_ms": 22313,
+  "cache_key": "5ad1f073c2b567be520d79f810431779476d8d8f405adffabd42b2a179fcd049",
+  "cache_hit": false,
+  "job": "expansion:D-009:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+  "error": null
+}

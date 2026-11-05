@@ -1,0 +1,173 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "de9577ec04d38c1f7b9f8e6cc76ec26fe6391bd38d6b2a09def0de2d200db793",
+    "items": [
+      {
+        "key": "outline_type",
+        "decision": "accept",
+        "reason": "The main face-on view in drawing D-015 shows a plain rectangular strip with square corners and no notches or contours.",
+        "fact_ids": [
+          "D-015"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "length",
+        "decision": "accept",
+        "reason": "The horizontal overall dimension 270,0 runs between the left and right outline edges of the main view. Units are millimetres.",
+        "fact_ids": [
+          "D-015/drawing/n/270.0@1-1",
+          "D-015/drawing/general/units"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "width",
+        "decision": "accept",
+        "reason": "The vertical dimension 14,0 on the right of the main view runs between the top and bottom edges of the strip.",
+        "fact_ids": [
+          "D-015/drawing/n/14.0@1-1",
+          "D-015/drawing/general/units"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "outer_diameter",
+        "decision": "accept",
+        "reason": "The outline is a rectangle, so this value does not apply and unknown/null is correct.",
+        "fact_ids": [
+          "D-015"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "inner_diameter",
+        "decision": "accept",
+        "reason": "The outline is a rectangle, so this value does not apply and unknown/null is correct.",
+        "fact_ids": [
+          "D-015"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "thickness",
+        "decision": "accept",
+        "reason": "The 1,0 dimension in the left side view is linked by arrows to the thin edge profile. The note 'Silikone Wiper af 1mm silikone plade' agrees with it. No alternative thicknesses are printed.",
+        "fact_ids": [
+          "D-015/drawing/n/1.0@1-1",
+          "D-015/drawing/notes",
+          "D-015/drawing/general/units"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features",
+        "decision": "accept",
+        "reason": "The callout gives the count and the 3,4 through diameter. However, no hole pitch, end offset or transverse position is printed. The centerline only shows that the holes lie in a row and gives no numeric spacing. No cut is fully supported, so an empty features list is correct.",
+        "fact_ids": [
+          "D-015",
+          "D-015/drawing/callout/p1-1",
+          "D-015/drawing/n/8.0@1-1",
+          "D-015/drawing/n/3.4@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_complete",
+        "decision": "accept",
+        "reason": "The eight visible through holes are omitted because their positions are not dimensioned, so features_complete=false is correct.",
+        "fact_ids": [
+          "D-015",
+          "D-015/drawing/callout/p1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_omitted",
+        "decision": "accept",
+        "reason": "The list correctly omits the 8 x Ø3,4 THRU ALL holes because no centre, pitch or offset dimensions are printed. It also correctly omits the unsized edge break from the general note. Both entries cite the original source IDs.",
+        "fact_ids": [
+          "D-015",
+          "D-015/drawing/callout/p1-1",
+          "D-015/drawing/n/8.0@1-1",
+          "D-015/drawing/n/3.4@1-1",
+          "D-015/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "cad_eligibility",
+        "decision": "accept",
+        "reason": "The main view establishes an exact 270,0 x 14,0 rectangle, and the side view gives a constant 1,0 thickness. The undimensioned hole positions only affect the cuts, which the protocol allows to be omitted in a partial model. The proposal clearly labels the model as partial and lists the omissions, so supported=true for the main body is consistent.",
+        "fact_ids": [
+          "D-015",
+          "D-015/drawing/n/270.0@1-1",
+          "D-015/drawing/n/14.0@1-1",
+          "D-015/drawing/n/1.0@1-1",
+          "D-015/drawing/callout/p1-1",
+          "D-015/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 14164,
+      "cache_read_input_tokens": 15779,
+      "output_tokens": 1797,
+      "output_tokens_details": {
+        "thinking_tokens": 260
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 14164,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 1797,
+        "cacheReadInputTokens": 15779,
+        "cacheCreationInputTokens": 14164,
+        "webSearchRequests": 0,
+        "costUSD": 0.1524238,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 260,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 14164,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.1524238,
+    "duration_ms": 15981,
+    "is_error": false
+  },
+  "latency_ms": 17156,
+  "cache_key": "eee03bce7418d71aa1165ff6dda07f6dec604ead82afc5010ab661c1cc1f74d0",
+  "cache_hit": false,
+  "job": "expansion:D-015:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+  "error": null
+}

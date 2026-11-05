@@ -1,0 +1,157 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "ebe603c95319bc28007f6487f5e130b985de8cbe0bb97be6566ad766ca28e7e4",
+    "items": [
+      {
+        "key": "outline_type",
+        "decision": "accept",
+        "reason": "The main (front) view shows a plain rectangular outline with no notches, lobes or rounded corners. It is dimensioned 25,0 (+0,1/-0,5) horizontally and 120,0 vertically, so 'rectangle' is supported.",
+        "fact_ids": [
+          "D-012/drawing/n/25.0@1-1",
+          "D-012/drawing/n/120.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "length",
+        "decision": "accept",
+        "reason": "The horizontal dimension 25,0 with tolerance +0,1/-0,5 spans the full width of the main rectangle between its extension lines. The nominal X extent is 25.0 mm, and the units note confirms millimetres.",
+        "fact_ids": [
+          "D-012/drawing/n/25.0@1-1",
+          "D-012/drawing/n/0.1@1-1",
+          "D-012/drawing/n/0.5@1-1",
+          "D-012/drawing/general/units"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "width",
+        "decision": "accept",
+        "reason": "The vertical dimension 120,0 runs from the top edge to the bottom edge of the main view rectangle, so the Y extent is 120.0 mm.",
+        "fact_ids": [
+          "D-012/drawing/n/120.0@1-1",
+          "D-012/drawing/general/units"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "outer_diameter",
+        "decision": "accept",
+        "reason": "The outline is a rectangle, so an outer diameter does not apply. Unknown/null is the correct state for a dimension that is not relevant.",
+        "fact_ids": [
+          "D-012/drawing/n/25.0@1-1",
+          "D-012/drawing/n/120.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "inner_diameter",
+        "decision": "accept",
+        "reason": "The outline is a rectangle, not a ring, so an inner diameter does not apply. Unknown/null is correct.",
+        "fact_ids": [
+          "D-012/drawing/n/25.0@1-1",
+          "D-012/drawing/n/120.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "thickness",
+        "decision": "accept",
+        "reason": "In the left side view, the dimension 15,0 ±1,0 spans the full width of that view's extension lines. This is a single nominal thickness with a symmetric tolerance, not stacked alternatives, so known 15.0 is correct.",
+        "fact_ids": [
+          "D-012/drawing/n/15.0@1-1",
+          "D-012/drawing/general/units"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features",
+        "decision": "accept",
+        "reason": "For the upper hole in the main view, the 12,5 ±0,1 dimension runs from the left edge to the hole centre. Combined with the 25,0 width, x = 12.5 - 25/2 = 0. The 40,0 dimension runs from the horizontal centre line up to that hole, giving y = 40. Callout p1-1 explicitly prints Ø5,0 THRU ALL and M6 - 6H THRU ALL, so the 5.0 diameter is printed on the drawing and not inferred from the thread. The lower hole in the main view has no explicit position dimension, so leaving it out is a conservative omission. The two side-face holes (callout p1-2 and the 30,0 dimension) run perpendicular to the main face, which the hidden lines in the main view confirm, so they cannot be face='top' cuts. Because not every feature is captured, the 'unknown' state with only the certain hole listed is correct.",
+        "fact_ids": [
+          "D-012/drawing/n/12.5@1-1",
+          "D-012/drawing/n/25.0@1-1",
+          "D-012/drawing/n/40.0@1-1",
+          "D-012/drawing/n/5.0@1-1",
+          "D-012/drawing/callout/p1-1",
+          "D-012/drawing/callout/p1-2",
+          "D-012/drawing/n/30.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "cad_eligibility",
+        "decision": "accept",
+        "reason": "The outline is an exact 25,0 x 120,0 rectangle, and the thickness is a constant 15,0 ±1,0 from the side view. However, the left view shows a second pair of Ø5,0 / M6 - 6H through holes (callout p1-2, 30,0 from the centre line) drilled into the 15 mm face. The main view shows them as hidden through-lines running perpendicular to the top face. The supported top-face-only cut representation cannot express these orthogonal holes, so supported=false, constant_thickness=true and outline_exact=true are correct, and the listed omissions match the evidence.",
+        "fact_ids": [
+          "D-012/drawing/n/25.0@1-1",
+          "D-012/drawing/n/120.0@1-1",
+          "D-012/drawing/n/15.0@1-1",
+          "D-012/drawing/callout/p1-1",
+          "D-012/drawing/callout/p1-2",
+          "D-012/drawing/n/30.0@1-1"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 13130,
+      "cache_read_input_tokens": 14716,
+      "output_tokens": 3224,
+      "output_tokens_details": {
+        "thinking_tokens": 1340
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 13130,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 3224,
+        "cacheReadInputTokens": 14716,
+        "cacheCreationInputTokens": 13130,
+        "webSearchRequests": 0,
+        "costUSD": 0.1724792,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 1340,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 13130,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.1724792,
+    "duration_ms": 29003,
+    "is_error": false
+  },
+  "latency_ms": 85094,
+  "cache_key": "e0d4de9414100777f27fd9d46a37f32d0aa74b69bd8ddc8c592f30f9a8f05f83",
+  "cache_hit": false,
+  "job": "expansion:D-012:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+  "error": null
+}

@@ -1,0 +1,168 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "9685f1dba4c7089a71512059d3e728b491f79308e8910cc18a3ea7574a91f74f",
+    "items": [
+      {
+        "key": "outline_type",
+        "decision": "accept",
+        "reason": "In the main face-on view of D-018, the outline has a long diagonal edge, an R15,0 rounded corner at the top and a rounded lower-left transition. It is not a rectangle, circle or ring, so unknown/null is correct and the bounding rectangle must not be used instead.",
+        "fact_ids": [
+          "D-018",
+          "D-018/drawing/callout/p1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "length",
+        "decision": "accept",
+        "reason": "95,0 is the horizontal overall dimension below the main view. It runs from the lower-left extent to the right vertical edge, which makes it the X extent.",
+        "fact_ids": [
+          "D-018/drawing/n/95.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "width",
+        "decision": "accept",
+        "reason": "120,0 is the vertical overall dimension on the right of the main view. It runs from the bottom edge to the top edge, which makes it the Y extent.",
+        "fact_ids": [
+          "D-018/drawing/n/120.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "outer_diameter",
+        "decision": "accept",
+        "reason": "The profile is not circular, so an outer diameter does not apply and unknown/null is correct.",
+        "fact_ids": [
+          "D-018"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "inner_diameter",
+        "decision": "accept",
+        "reason": "The profile is not a ring and the main view has no central bore, so an inner diameter does not apply.",
+        "fact_ids": [
+          "D-018"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "thickness",
+        "decision": "accept",
+        "reason": "In the narrow left side view, 10,0 is dimensioned across the plate width with extension lines. The side view, top view and isometric view all show a uniform flat plate, so the thickness is a constant 10,0.",
+        "fact_ids": [
+          "D-018",
+          "D-018/drawing/n/10.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features",
+        "decision": "accept",
+        "reason": "The only cuts are the 6x M4 holes, 10,1 deep. The main view and the isometric view show them entering the bottom edge and the right edge, not the top or bottom face. Their center positions and pitches are not dimensioned, and M4 gives no drill diameter. That leaves no fully supported top/bottom cut, so an empty known list is correct.",
+        "fact_ids": [
+          "D-018",
+          "D-018/drawing/n/10.1@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_complete",
+        "decision": "accept",
+        "reason": "The visible threaded holes are left out, so false is correct.",
+        "fact_ids": [
+          "D-018",
+          "D-018/drawing/n/10.1@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_omitted",
+        "decision": "accept",
+        "reason": "Both omissions are accurate. First, 6x M4 holes, 10,1 deep, are shown as three entering the bottom edge and three entering the right edge. They have no dimensioned positions and no drill diameter, and they open from the edges. Second, the DEBURR AND BREAK SHARP EDGES note gives no size. The proposal correctly treats the profiled contour as an eligibility blocker rather than a minor omission.",
+        "fact_ids": [
+          "D-018",
+          "D-018/drawing/n/10.1@1-1",
+          "D-018/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "cad_eligibility",
+        "decision": "accept",
+        "reason": "supported=false is correct. The main outline is essential and cannot be expressed as a rectangle, circle or ring: it has a diagonal edge, an R15,0 corner and a rounded lower-left corner. constant_thickness=true is supported by the 10,0 dimension in the side view. outline_exact=false is correct. The holes on the edge faces cannot be modeled, so listing them as omitted is right.",
+        "fact_ids": [
+          "D-018",
+          "D-018/drawing/n/95.0@1-1",
+          "D-018/drawing/n/120.0@1-1",
+          "D-018/drawing/n/15.0@1-1",
+          "D-018/drawing/n/10.0@1-1",
+          "D-018/drawing/n/10.1@1-1",
+          "D-018/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 30281,
+      "output_tokens": 1870,
+      "output_tokens_details": {
+        "thinking_tokens": 251
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 1870,
+        "cacheReadInputTokens": 30281,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.0434722,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 251,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 0,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.0434722,
+    "duration_ms": 17521,
+    "is_error": false
+  },
+  "latency_ms": 55266,
+  "cache_key": "727ea4da5807561ea751d29a43f0819eb098e331735ef288d20e5d9450140ade",
+  "cache_hit": false,
+  "job": "expansion:D-018:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+  "error": null
+}

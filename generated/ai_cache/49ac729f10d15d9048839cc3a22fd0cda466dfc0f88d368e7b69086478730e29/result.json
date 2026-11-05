@@ -1,0 +1,157 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "outline_type",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-021"
+        ],
+        "reason": "The views show a welded outlet assembly with curved sheet profiles, a flange and a nipple. Its main outline is not an exact rectangle, circle or ring.",
+        "changed_because": ""
+      },
+      {
+        "key": "length",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-021",
+          "D-021/drawing/n/282.0@1-1"
+        ],
+        "reason": "282,00 dimensions the outlet portion, not the overall length of a single flat rectangular body.",
+        "changed_because": ""
+      },
+      {
+        "key": "width",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-021",
+          "D-021/drawing/n/32.0@1-1",
+          "D-021/drawing/n/60.0@1-1"
+        ],
+        "reason": "32,00 dimensions the duct opening and 60,00 dimensions its projection from the flange. Neither establishes the width of a single flat template body.",
+        "changed_because": ""
+      },
+      {
+        "key": "outer_diameter",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-021"
+        ],
+        "reason": "The main body is not circular. No applicable outer diameter is dimensioned.",
+        "changed_because": ""
+      },
+      {
+        "key": "inner_diameter",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-021"
+        ],
+        "reason": "The main body is not a ring. The G2 nipple designation does not supply a numeric inner diameter.",
+        "changed_because": ""
+      },
+      {
+        "key": "thickness",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-021/drawing/notes"
+        ],
+        "reason": "The note explicitly states: 'Sheet thickness is free, as thin as practical'. No numeric sheet thickness or documented thickness alternatives are specified.",
+        "changed_because": ""
+      },
+      {
+        "key": "features",
+        "state": "known",
+        "value_json": "[]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-021",
+          "D-021/drawing/callout/p1-1",
+          "D-021/drawing/callout/p1-2"
+        ],
+        "reason": "Hole counts and diameters are supplied, but no cut has all required geometry and placement established in the centered XY frame of a supported flat outline.",
+        "changed_because": ""
+      },
+      {
+        "key": "features_complete",
+        "state": "known",
+        "value_json": "false",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-021",
+          "D-021/drawing/callout/p1-1",
+          "D-021/drawing/callout/p1-2"
+        ],
+        "reason": "The flange holes, duct opening, nipple connection and other assembly details cannot all be represented by supported, fully positioned flat-part cuts.",
+        "changed_because": ""
+      },
+      {
+        "key": "features_omitted",
+        "state": "known",
+        "value_json": "[{\"description\":\"7 x Ø 7,00 THRU ALL flange holes\",\"reason\":\"The count and diameter are established. The printed 80,50 pitches and 12,00 offset do not establish every center relative to the centered flange outline; its overall dimensions and the required opening-to-outline datum are missing.\",\"fact_ids\":[\"D-021\",\"D-021/drawing/callout/p1-2\",\"D-021/drawing/n/7.0@1-1\",\"D-021/drawing/n/7.0@1-2\",\"D-021/drawing/n/80.5@1-1\",\"D-021/drawing/n/80.5@1-2\",\"D-021/drawing/n/12.0@1-1\"]},{\"description\":\"2 x Ø 10,00 THRU ALL flange holes\",\"reason\":\"The count, diameter and partial offsets 64,50 and 46,00 are supplied. The duct-edge reference is not dimensionally located relative to the centered flange outline, so complete centered XY coordinates cannot be established.\",\"fact_ids\":[\"D-021\",\"D-021/drawing/callout/p1-1\",\"D-021/drawing/n/2.0@1-1\",\"D-021/drawing/n/10.0@1-1\",\"D-021/drawing/n/64.5@1-1\",\"D-021/drawing/n/46.0@1-1\"]},{\"description\":\"Machine-wall flange opening and duct passage\",\"reason\":\"The views show an outlet opening, with 282,00 and 32,00 duct dimensions, but do not establish a complete cut contour and its position within a dimensioned flange outline. The passage also belongs to a nonplanar welded assembly.\",\"fact_ids\":[\"D-021\",\"D-021/drawing/n/282.0@1-1\",\"D-021/drawing/n/32.0@1-1\"]},{\"description\":\"G2 threaded weld nipple, nipple bore and mating opening\",\"reason\":\"The nipple length is 50,00, but no numeric bore, mating-hole diameter or complete connection placement is supplied. 'Adjust hole as needed' leaves the mating opening unresolved. A drill diameter cannot be inferred from G2.\",\"fact_ids\":[\"D-021\",\"D-021/drawing/n/50.0@1-1\"]},{\"description\":\"Curved back, curved inside, formed top and bottom, and welded assembly geometry\",\"reason\":\"These are essential nonplanar profiles and separate components, not minor contours that can be dropped to obtain a rectangular plate. Their complete profiles, bend geometry and sheet thickness are not dimensioned.\",\"fact_ids\":[\"D-021\",\"D-021/drawing/notes\"]},{\"description\":\"DEBURR AND BREAK SHARP EDGES\",\"reason\":\"No edge-break size is specified; this finishing detail is omitted.\",\"fact_ids\":[\"D-021/drawing/general/edge_finish\"]}]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-021",
+          "D-021/drawing/notes",
+          "D-021/drawing/callout/p1-1",
+          "D-021/drawing/callout/p1-2",
+          "D-021/drawing/general/edge_finish"
+        ],
+        "reason": "The omissions distinguish unresolved cuts and essential assembly geometry from the minor undimensioned edge finish.",
+        "changed_because": ""
+      },
+      {
+        "key": "cad_eligibility",
+        "state": "known",
+        "value_json": "{\"supported\":false,\"constant_thickness\":false,\"outline_exact\":false,\"reason\":\"The main orthographic views and exploded view show a welded, nonplanar outlet assembly comprising curved sheets, top and bottom pieces, a machine-wall flange and a nipple. It cannot be represented by one exact rectangle/circle/ring extruded through a single constant thickness. The thickness source explicitly states 'Sheet thickness is free, as thin as practical'.\",\"essential_uncertainty\":[\"No numeric sheet thickness is specified.\",\"No supported exact main flat outline and corresponding overall in-plane dimensions are established.\",\"Curved profiles, bends, the duct passage and nipple connection lack complete geometry for reconstruction.\",\"The flange outline and cut datums do not establish all hole positions in the required centered XY frame.\"],\"omitted_minor_features\":[\"Undimensioned edge breaks: DEBURR AND BREAK SHARP EDGES.\"]}",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-021",
+          "D-021/drawing/notes",
+          "D-021/drawing/general/edge_finish"
+        ],
+        "reason": "The essential assembled and curved geometry blocks the MVP flat-part representation independently of the unresolved mounting-hole placements.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 24500,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 5202,
+          "reasoning_output_tokens": 3624
+        }
+      }
+    ]
+  },
+  "latency_ms": 133297,
+  "cache_key": "49ac729f10d15d9048839cc3a22fd0cda466dfc0f88d368e7b69086478730e29",
+  "cache_hit": false,
+  "job": "expansion:D-021:flat-part-expansion-v1:proposal-verification-v1:proposal:0",
+  "error": null
+}

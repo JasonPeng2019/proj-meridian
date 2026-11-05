@@ -1,0 +1,138 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "b47c53322b505d01fe18e16ef25c512b7ac1fc940308aadfda9ae2c150cc0e3b",
+    "items": [
+      {
+        "key": "outline_type",
+        "decision": "accept",
+        "reason": "The main view in D-001 shows a plate outline with clearly rounded outer corners. That is not an exact rectangle, circle or ring, so using a bounding rectangle would misstate the part. Leaving it unknown is supported by the evidence.",
+        "fact_ids": [
+          "D-001"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "length",
+        "decision": "needs_input",
+        "reason": "The image shows an overall horizontal dimension leader across the main view. However, D-001 supplies an empty numbers list, so no parsed drawing-number ID can support a numeric X length. The value is essential geometry and stays unresolved until parsed number evidence is supplied.",
+        "fact_ids": [
+          "D-001"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "width",
+        "decision": "needs_input",
+        "reason": "The image shows an overall vertical dimension leader on the main view. However, D-001 has no parsed drawing-number IDs, so no numeric Y width can be cited. The value is essential geometry and stays unresolved without new parsed number evidence.",
+        "fact_ids": [
+          "D-001"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "outer_diameter",
+        "decision": "accept",
+        "reason": "The outer outline in D-001 is a rounded rectangle, not a circle, so outer diameter does not apply. Unknown is correct.",
+        "fact_ids": [
+          "D-001"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "inner_diameter",
+        "decision": "accept",
+        "reason": "The central opening in D-001 is a rounded rectangular cutout, not a circular bore, and the part is not a ring. Inner diameter does not apply, so unknown is correct.",
+        "fact_ids": [
+          "D-001"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "thickness",
+        "decision": "needs_input",
+        "reason": "The edge view in D-001 has a dimension spanning the plate thickness. However, the supplied numbers list is empty, so no parsed drawing-number ID supports a numeric thickness. Thickness is essential geometry and stays unresolved.",
+        "fact_ids": [
+          "D-001"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features",
+        "decision": "needs_input",
+        "reason": "D-001 shows several hole groups with diameter callouts and a central rounded rectangular opening. None of the hole centers are dimensioned to the outline, the opening has no position or corner radii, and no parsed number IDs exist for any diameter. Omitting every feature and marking the state unknown is honest, but the features cannot be determined without new evidence.",
+        "fact_ids": [
+          "D-001"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "cad_eligibility",
+        "decision": "accept",
+        "reason": "In D-001, the main view's essential rounded outer corners cannot be expressed by the supported rectangle, circle or ring outlines, so supported=false and outline_exact=false are correct. The edge view shows a uniform plate with one thickness dimension, which supports constant_thickness=true qualitatively. The listed uncertainties and omissions match the evidence, including the empty parsed-numbers list.",
+        "fact_ids": [
+          "D-001"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 12187,
+      "cache_read_input_tokens": 8638,
+      "output_tokens": 1773,
+      "output_tokens_details": {
+        "thinking_tokens": 503
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 12187,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 1773,
+        "cacheReadInputTokens": 8638,
+        "cacheCreationInputTokens": 12187,
+        "webSearchRequests": 0,
+        "costUSD": 0.13469960000000003,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 503,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 12187,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.13469960000000003,
+    "duration_ms": 16693,
+    "is_error": false
+  },
+  "latency_ms": 17844,
+  "cache_key": "7cd6b4ea9e28fc95bfb1cdc9c74fe72e4a411cd0801ae1452f4e2a629d2b93cf",
+  "cache_hit": false,
+  "job": "expansion:D-001:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+  "error": null
+}

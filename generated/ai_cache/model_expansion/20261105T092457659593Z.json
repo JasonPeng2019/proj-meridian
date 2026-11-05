@@ -1,0 +1,2071 @@
+{
+  "run": "20261105T092457659593Z",
+  "protocol": "flat-part-expansion-v1",
+  "raw_drawings_sha256": "d10cc1f73af4b07ecc86ba63a7fc5a70d027b4e8cfdc9dd1056cbeef57bd8a82",
+  "max_concurrent_readers": 1,
+  "cad_generated_locally": false,
+  "assessments": {
+    "D-013": {
+      "drawing": "D-013",
+      "status": "preserved",
+      "reason": "Existing template preserved unchanged"
+    },
+    "D-025": {
+      "drawing": "D-025",
+      "status": "preserved",
+      "reason": "Existing template preserved unchanged"
+    },
+    "D-026": {
+      "drawing": "D-026",
+      "status": "preserved",
+      "reason": "Existing template preserved unchanged"
+    },
+    "D-001": {
+      "drawing": "D-001",
+      "status": "blocked",
+      "reason": "Essential geometry unresolved: outline_type, thickness, cad_eligibility The main view shows essential rounded outer corners that the supported rectangle/circle/ring outlines cannot represent. The central rounded rectangular opening also requires an unsupported contour. The edge view depicts a uniform plate with a dimension across its thickness, supporting constant thickness qualitatively; however, the supplied numbers list contains no parsed drawing-number IDs for numeric geometry. outline_type: The main view in D-001 shows a plate outline with clearly rounded outer corners. That is not an exact rectangle, circle or ring, so using a bounding rectangle would misstate the part. Leaving it unknown is supported by the evidence. thickness: The edge view in D-001 has a dimension spanning the plate thickness. However, the supplied numbers list is empty, so no parsed drawing-number ID supports a numeric thickness. Thickness is essential geometry and stays unresolved. cad_eligibility: In D-001, the main view's essential rounded outer corners cannot be expressed by the supported rectangle, circle or ring outlines, so supported=false and outline_exact=false are correct. The edge view shows a uniform plate with one thickness dimension, which supports constant_thickness=true qualitatively. The listed uncertainties and omissions match the evidence, including the empty parsed-numbers list.",
+      "blocking_fields": [
+        "outline_type",
+        "thickness",
+        "cad_eligibility"
+      ],
+      "omitted_minor_features": [
+        "Upper-left hole group: center coordinates are not dimensioned; parsed diameter IDs are absent.",
+        "Left-side hole group: center coordinates are not dimensioned; parsed diameter IDs are absent.",
+        "Right-side hole group: center coordinates are not dimensioned; parsed diameter IDs are absent.",
+        "Hole group surrounding the central opening: center coordinates are not dimensioned; parsed diameter IDs are absent."
+      ],
+      "features_state": "unknown",
+      "source_sha256": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f",
+      "protocol": "proposal-verification-v1",
+      "states": {
+        "outline_type": "needs_input",
+        "length": "needs_input",
+        "width": "needs_input",
+        "outer_diameter": "needs_input",
+        "inner_diameter": "needs_input",
+        "thickness": "needs_input",
+        "features": "needs_input",
+        "cad_eligibility": "verified"
+      },
+      "feedback_rounds": []
+    },
+    "D-002": {
+      "drawing": "D-002",
+      "status": "blocked",
+      "reason": "Essential geometry unresolved: outline_type, thickness, cad_eligibility The main view gives a rectangular projection dimensioned 775,00 by 578,90, but the orthographic and isometric views show bent flanges, with a 23,00 depth dimension. The note '2mm non-magnetic stainless' explicitly supplies the sheet gauge, supporting constant sheet thickness. This formed wall, additionally specified with M5 weld nuts on inside of flanges, cannot be represented exactly by one planar rectangle/circle/ring extrusion and supported top-face cuts. Its projected bounding rectangle is not an exact flat-part outline. outline_type: The image shows a formed sheet-metal wall. The side and bottom views show bent flanges, and 23,00 is the flange depth. The isometric view confirms this. The main view is only a projected 775,00 x 578,90 rectangle. No developed flat outline or bend data is dimensioned, so the exact flat outline can't be determined. The proposal is right to mark it unknown, but this essential geometry is still unresolved. thickness: The only thickness evidence is the NOTES text '2mm non-magnetic stainless'. No dimension leader in any view points to a thickness value, and there is no parsed drawing-number ID for 2 mm. Under the citation rule, a numeric thickness can't be filled from the existing evidence. Thickness is essential geometry, so it remains unresolved. cad_eligibility: supported=false is supported by the evidence. The side views, the bottom view and the isometric view show bent flanges (23,00 depth), and the note specifies M5 weld nuts on the inside of the flanges. One planar rectangle extrusion can't represent this part exactly, and outline_exact=false is correct. constant_thickness=true reflects the single sheet gauge stated in the note. The proposal also states that this note has no parsed number ID. The listed uncertainties and omitted features match the drawing: hole positions are undimensioned and the opening position is undimensioned.",
+      "blocking_fields": [
+        "outline_type",
+        "thickness",
+        "cad_eligibility"
+      ],
+      "omitted_minor_features": [
+        "7 x Ø 5,80 THRU ALL in the main panel: center positions and pattern spacing are not dimensioned.",
+        "6 x Ø 9,00 THRU ALL in the main panel: center positions and pattern spacing are not dimensioned.",
+        "7 x Ø 7,00 THRU ALL on each of the two side flanges: center positions are not dimensioned; these are cuts on flange faces.",
+        "9 x Ø 7,00 THRU ALL on the horizontal flange: center positions are not dimensioned; these are cuts on a flange face.",
+        "286,00 by 36,00 rectangular opening: its center position is not dimensioned."
+      ],
+      "features_state": "unknown",
+      "source_sha256": "6822d609aa047ddbcb9446e1215f697ec12f5764ba9aa5ef3906543b9a1887bc",
+      "protocol": "proposal-verification-v1",
+      "states": {
+        "outline_type": "needs_input",
+        "length": "verified",
+        "width": "verified",
+        "outer_diameter": "needs_input",
+        "inner_diameter": "needs_input",
+        "thickness": "needs_input",
+        "features": "needs_input",
+        "cad_eligibility": "verified"
+      },
+      "feedback_rounds": []
+    },
+    "D-003": {
+      "drawing": "D-003",
+      "status": "blocked",
+      "reason": "Essential geometry unresolved: outline_type, thickness, cad_eligibility The main view explicitly calls out an outer-corner radius, so the exact outer contour cannot be represented by the supported rectangle/circle/ring outlines. Section A-A and the plate note establish constant plate thickness. Independently, the supplied parsed numbers list is empty, preventing compliant numeric geometry for the base dimensions and cuts. outline_type: Sheet 1 main view of D-003 shows a rectangular plate with an 'R3,0' leader on the outer corner. Detail C also shows a 3,0 X 45° edge chamfer. The plain rectangle option would not match this outline exactly, so 'unknown' is a reasonable proposal. However, outline is essential geometry and the value is null, so it needs input. A human must decide whether the rounded corners can be approximated, or the generator must support rounded corners. thickness: Section A-A of D-003 shows a constant-thickness dimension of 20,0. The sheet 1 note also reads '20mm thick aluminium plate'. However, the parsed 'numbers' list is empty and the parsed notes field is null ('Too blurry to read'), so no parsed number ID can support the value. This essential thickness stays unknown under the citation rule. cad_eligibility: The sheet 1 main view of D-003 explicitly shows an 'R3,0' outer-corner radius, which makes the exact outline non-representable, so outline_exact=false and supported=false are correct. Section A-A (20,0) and the note '20mm thick aluminium plate' support constant_thickness=true. The proposal correctly states that parsed numbers are empty, so the base and cut dimensions cannot be cited. The omitted minor items (hole-table holes without positions, the Detail C 3,0 X 45° chamfer) are described accurately and are not used as the reason for blocking.",
+      "blocking_fields": [
+        "outline_type",
+        "thickness",
+        "cad_eligibility"
+      ],
+      "omitted_minor_features": [
+        "Bottom-side A/B/C/D threaded and insert holes: center coordinates and numeric citations unavailable.",
+        "Top-side A/B/C/G threaded and insert holes: center coordinates and numeric citations unavailable.",
+        "Detail C edge chamfer: unsupported feature type and no parsed numeric citations."
+      ],
+      "features_state": "unknown",
+      "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "protocol": "proposal-verification-v1",
+      "states": {
+        "outline_type": "needs_input",
+        "length": "needs_input",
+        "width": "needs_input",
+        "outer_diameter": "needs_input",
+        "inner_diameter": "needs_input",
+        "thickness": "needs_input",
+        "features": "needs_input",
+        "cad_eligibility": "verified"
+      },
+      "feedback_rounds": []
+    },
+    "D-004": {
+      "drawing": "D-004",
+      "status": "blocked",
+      "reason": "Essential geometry unresolved: outline_type, cad_eligibility The main view shows a rectangular panel, but the edge/end and isometric views establish essential bent side flanges dimensioned 25,00. The 3,00 wall-thickness dimension and '3 mm non-magnetic stainless' note establish constant sheet thickness. This nonplanar formed part, additionally specifying M5 weld nuts on inside of flanges, cannot be represented exactly by one flat rectangle/circle/ring extrusion with hole/slot cuts. outline_type: The edge view shows a formed U-section: the 775,00 span has upturned flanges dimensioned 25,00, and the isometric view shows the bent side flanges. So no exact planar rectangle/circle/ring outline is established, and unknown is the correct state. cad_eligibility: The edge view, the side views and the isometric view establish essential bent flanges (25,00) on a 3,00 sheet. This is a nonplanar formed part, which cannot be expressed exactly as a single flat extrusion, so supported=false and outline_exact=false are correct. constant_thickness=true is supported by the 3,00 dimension and the note. The weld-nut note and the omissions for the undimensioned hole positions are described accurately.",
+      "blocking_fields": [
+        "outline_type",
+        "cad_eligibility"
+      ],
+      "omitted_minor_features": [
+        "Top and bottom main-panel edge mounting-hole groups: XY locations and spacing are undimensioned.",
+        "Intermediate main-panel mounting-hole groups: XY locations and spacing are undimensioned.",
+        "Small-hole groups surrounding the two left openings: centers and pattern dimensions are undimensioned.",
+        "Rectangular small-hole group above the central opening: positions are undimensioned.",
+        "Small-hole group around the central opening: center, pitch radius and angular placement are undimensioned.",
+        "Lower left opening: center is undimensioned.",
+        "Upper left opening: center and an unambiguous diameter callout are missing.",
+        "Central large through opening: center is undimensioned.",
+        "Both flange through-hole rows: centers and spacing are undimensioned, and their faces are outside the supported top-face cut model."
+      ],
+      "features_state": "unknown",
+      "source_sha256": "947fee0986f4799388d5bd41411b2abedcee5d6a644e909238f005fb4802f64b",
+      "protocol": "proposal-verification-v1",
+      "states": {
+        "outline_type": "needs_input",
+        "length": "verified",
+        "width": "verified",
+        "outer_diameter": "needs_input",
+        "inner_diameter": "needs_input",
+        "thickness": "verified",
+        "features": "needs_input",
+        "cad_eligibility": "verified"
+      },
+      "feedback_rounds": []
+    },
+    "D-005": {
+      "drawing": "D-005",
+      "status": "blocked",
+      "reason": "Essential geometry unresolved: outline_type, cad_eligibility The main view shows a rounded rectangular frame with an internal opening and corner machining relief, which cannot be represented exactly by the supported rectangle/circle/ring outlines and hole/slot cuts. The side view dimensions overall thickness as 8,2 mm, while Section A-A and Detail B show a stepped window seat and o-ring groove profile rather than a uniform plate section. outline_type: In the main view, the part is a frame with rounded outer corners, a rounded-rectangular inner opening (297,2 x 210,2 / 286,7 x 199,7) and corner machining reliefs. None of rectangle, circle or ring represents it exactly, so unknown/null is correct. cad_eligibility: supported=false is correct. The main view shows undimensioned rounded outer corners, an inner frame opening and corner machining reliefs, which the supported outline types cannot express. The side view (8,2), Section A-A and Detail B (2,0 / 3,3 steps, o-ring grooves) show a stepped, non-constant section, and the side view has a 3,0 X 45° chamfer. constant_thickness=false and outline_exact=false are therefore correct, and the listed uncertainties and omissions are accurate.",
+      "blocking_fields": [
+        "outline_type",
+        "cad_eligibility"
+      ],
+      "omitted_minor_features": [
+        "All 20 M4 blind threaded holes lack dimensioned XY positions or an explicit dimensioned pattern.",
+        "The specified edge chamfer is outside the supported hole/slot schema.",
+        "Bottom internal corner radii are limited by a maximum rather than fixed exactly."
+      ],
+      "features_state": "unknown",
+      "source_sha256": "6f49feb435d02be842ac6933d726b6785cf9cb7cef70e8193976dc4ab265cf26",
+      "protocol": "proposal-verification-v1",
+      "states": {
+        "outline_type": "needs_input",
+        "length": "verified",
+        "width": "verified",
+        "outer_diameter": "needs_input",
+        "inner_diameter": "needs_input",
+        "thickness": "verified",
+        "features": "needs_input",
+        "cad_eligibility": "verified"
+      },
+      "feedback_rounds": []
+    },
+    "D-006": {
+      "drawing": "D-006",
+      "status": "blocked",
+      "reason": "Essential geometry unresolved: outline_type, cad_eligibility The main view contains essential angled and notched outer contours, while the end and isometric views show bent flanges. The linked 3,00 end-view dimension establishes nominal constant sheet thickness, with the note allowing '3mm (or thicker)'. The formed wall cannot be represented exactly by a rectangle, circle or ring extruded along Z with top-face hole/slot cuts. outline_type: In the main view of D-006, the right side has angled chamfer edges and a stepped, notched lower-right contour. The top view (50,00 vertical leg, 24,25/30,00/36,50 offsets) and the isometric views show bent flanges and a formed tab. None of rectangle, circle or ring matches this outline exactly, so unknown is correct. cad_eligibility: supported=false is correct. The main view shows essential angled and notched contours, and the top and isometric views show bent flanges and a formed tab, which the rectangle/circle/ring generator cannot express. constant_thickness=true follows from the top-view sheet dimension 3,00 and the note '3mm (or thicker)'. outline_exact=false is correct. The listed uncertainties and omissions match the drawing.",
+      "blocking_fields": [
+        "outline_type",
+        "cad_eligibility"
+      ],
+      "omitted_minor_features": [
+        "Main-face through holes: complete absolute X positions are missing.",
+        "Flange through holes for weld nuts: complete positions are missing.",
+        "Bent-tab through holes: complete positions are missing."
+      ],
+      "features_state": "unknown",
+      "source_sha256": "b9bd89aa9449889adb5335b1f4f3550be072a37447b1c134fb703435f04fbaad",
+      "protocol": "proposal-verification-v1",
+      "states": {
+        "outline_type": "needs_input",
+        "length": "verified",
+        "width": "verified",
+        "outer_diameter": "needs_input",
+        "inner_diameter": "needs_input",
+        "thickness": "verified",
+        "features": "needs_input",
+        "cad_eligibility": "verified"
+      },
+      "feedback_rounds": []
+    },
+    "D-007": {
+      "drawing": "D-007",
+      "status": "blocked",
+      "reason": "Essential geometry unresolved: outline_type, thickness, cad_eligibility The longitudinal views show a stepped shaft, with a Ø25,0 cylindrical body, Ø8,0 end journals and three curved longitudinal grooves. The end view confirms the cylindrical body. No single constant plate-thickness dimension is supplied; 269,5 dimensions the body length. The complete part cannot be represented exactly by a rectangle/circle/ring extrusion with supported top-face hole/slot cuts. outline_type: The drawing shows a revolved, stepped shaft: a Ø25,0 body (D-007/drawing/n/25.0@1-1, end view), Ø8,0 g8 journals at both ends (D-007/drawing/n/8.0@1-1, D-007/drawing/n/8.0@1-2), and three longitudinal grooves described in D-007/drawing/notes. No rectangle, circle or ring outline matches this part exactly, so unknown is a valid state. Under the protocol, essential geometry left unknown is needs_input. The existing evidence cannot supply a flat outline. thickness: The drawing prints no constant extrusion thickness. 269,5 ±0,1 dimensions the length of the Ø25 body (D-007/drawing/n/269.5@1-1). The stacked -0,005/-0,027 values are the g8 tolerance limits on Ø8,0 (D-007/drawing/n/0.005@1-1, D-007/drawing/n/0.027@1-1), not alternative thicknesses. Essential thickness is unresolved, and the existing evidence cannot resolve it. cad_eligibility: supported=false, constant_thickness=false and outline_exact=false are all supported by the drawing. The views show a revolved, stepped shaft: a Ø25,0 body (D-007/drawing/n/25.0@1-1), Ø8,0 journals (D-007/drawing/n/8.0@1-1, D-007/drawing/n/8.0@1-2) and a 269,5 body length (D-007/drawing/n/269.5@1-1). The three essential grooves in D-007/drawing/notes are only partly dimensioned in section A-A (D-007/drawing/n/2.3@1-1, D-007/drawing/n/90.0@1-1). Listing the chamfers (D-007/drawing/callout/p1-1, D-007/drawing/callout/p1-2) and the general note D-007/drawing/general/edge_finish as minor omissions is correct. The object has all the required keys with valid types.",
+      "blocking_fields": [
+        "outline_type",
+        "thickness",
+        "cad_eligibility"
+      ],
+      "omitted_minor_features": [
+        "Chamfers identified by the two 1,0 X 45° callouts.",
+        "General DEBURR AND BREAK SHARP EDGES instruction."
+      ],
+      "features_state": "unknown",
+      "source_sha256": "e5d57d66cae6ca7bbb2956249e89c11db91d4ea3e258f48658af191e926870c9",
+      "protocol": "proposal-verification-v1",
+      "states": {
+        "outline_type": "needs_input",
+        "length": "verified",
+        "width": "needs_input",
+        "outer_diameter": "verified",
+        "inner_diameter": "needs_input",
+        "thickness": "needs_input",
+        "features": "needs_input",
+        "cad_eligibility": "verified"
+      },
+      "feedback_rounds": []
+    },
+    "D-008": {
+      "drawing": "D-008",
+      "status": "blocked",
+      "reason": "Essential geometry unresolved: outline_type, cad_eligibility The main orthographic views and isometric view show a bent, nonplanar bracket with an essential profiled web, flanges and six M5 weld nuts. It cannot be represented exactly by a rectangle, circle or ring with top-face cuts. The front-view stacked 2,00/3,00 thickness dimension and '2-3mm' note establish alternative sheet gauges, but the complete formed assembly is not a single constant-thickness planar extrusion. outline_type: The D-008 views (top, front, left/right ends and isometric) show a formed sheet-metal bracket with bent flanges and a profiled/sloped web. Its outline is not a rectangle, circle or ring. The proposal correctly leaves this null, but the protocol requires needs_input for an unknown essential outline. No flat developed blank is supplied, so this can't be fixed from the existing evidence. cad_eligibility: supported=false is correct. The front view shows bent flanges, with datums A/B on different planes and a 61,80 height. The top and plan views show a profiled sloped web edge, and the isometric confirms a nonplanar formed bracket with M5 weld nuts attached. A rectangle, circle or ring extrusion can't represent this exactly, so outline_exact=false is right. constant_thickness=false is acceptable because the formed part is not one planar constant-thickness extrusion, even though the sheet gauge is 2,00/3,00. The essential uncertainty and the list of omitted holes and slot match the evidence, and the blocking reason is the essential geometry, not the minor holes.",
+      "blocking_fields": [
+        "outline_type",
+        "cad_eligibility"
+      ],
+      "omitted_minor_features": [
+        "Three Ø9,00 THRU ALL holes: center coordinates missing.",
+        "Four Ø5,30 THRU ALL holes: center coordinates missing.",
+        "Two Ø7,00 THRU holes for weld nuts: center coordinates missing.",
+        "Four Ø7,00 THRU holes for weld nuts: center coordinates missing.",
+        "One Ø10,00 THRU hole: center coordinates missing.",
+        "Long opening: width, length and position missing."
+      ],
+      "features_state": "unknown",
+      "source_sha256": "2642be4f1d3471cc440aa7830166adfa298a8e1a31cef90911662bb2b4a26448",
+      "protocol": "proposal-verification-v1",
+      "states": {
+        "outline_type": "needs_input",
+        "length": "verified",
+        "width": "verified",
+        "outer_diameter": "needs_input",
+        "inner_diameter": "needs_input",
+        "thickness": "verified",
+        "features": "needs_input",
+        "cad_eligibility": "verified"
+      },
+      "feedback_rounds": []
+    },
+    "D-009": {
+      "drawing": "D-009",
+      "status": "blocked",
+      "reason": "Essential geometry unresolved: outline_type, thickness, cad_eligibility The main orthographic and isometric views depict a hollow canister with a profiled body, sloping walls and a projecting mounting flange. This geometry cannot be represented by an exact rectangle, circle or ring with a single constant extrusion thickness and top-face hole/slot cuts. The wall-thickness note is qualitative, and the local base dimensions do not establish the required extrusion thickness. No parsed drawing-number IDs are supplied for numeric geometry. outline_type: Drawing D-009 shows a hollow sheet-metal powder canister. The side views have an elongated-hexagon profile that narrows into a neck, and the base has a projecting flange; the isometric view confirms this. No rectangle, circle or ring matches the main outline, so the proposed unknown/null is consistent with the evidence. Under the protocol, unknown essential outline geometry must be returned as needs_input. A supported outline cannot be produced from the existing evidence. thickness: The note field (D-009/drawing/notes) says only 'Wall thickness as thin as possible', which is qualitative. The stacked 5,00/3,00 values near [B] are local base/flange dimensions, not alternative constant thicknesses for the whole part, and none of them has a parsed number ID. The proposed unknown is right, but the protocol requires unknown essential thickness to be needs_input. A new value or a human decision would be needed. cad_eligibility: D-009 shows a hollow formed canister with a profiled/tapered body, a neck and a base flange. It cannot be represented by an exact rectangle, circle or ring extruded to one constant thickness. The only thickness guidance is the qualitative 'as thin as possible' note. Therefore supported=false, constant_thickness=false and outline_exact=false are correct, and the essential uncertainties and omitted features are listed faithfully.",
+      "blocking_fields": [
+        "outline_type",
+        "thickness",
+        "cad_eligibility"
+      ],
+      "omitted_minor_features": [
+        "Upper plan-view long slot and surrounding holes: complete dimensions and positions unresolved.",
+        "Lower plan-view paired circular openings and surrounding holes: complete dimensions and positions unresolved.",
+        "Side-view weld-nut holes: complete dimensions and positions unresolved.",
+        "Section-view through-hole: complete dimensions and position unresolved."
+      ],
+      "features_state": "unknown",
+      "source_sha256": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea",
+      "protocol": "proposal-verification-v1",
+      "states": {
+        "outline_type": "needs_input",
+        "length": "needs_input",
+        "width": "needs_input",
+        "outer_diameter": "needs_input",
+        "inner_diameter": "needs_input",
+        "thickness": "needs_input",
+        "features": "needs_input",
+        "cad_eligibility": "verified"
+      },
+      "feedback_rounds": []
+    },
+    "D-010": {
+      "drawing": "D-010",
+      "status": "blocked",
+      "reason": "Essential geometry unresolved: outline_type, thickness, cad_eligibility The main face view and lower profile show a nonplanar plate with opposing bends and flange extents 15,00 and 30,00. Rounded flange corners and an edge relief also require unsupported contours. A rectangle/circle/ring extrusion cannot represent this exact part. The only thickness wording is the material note '2mm non-magnetic stainless'; no supplied parsed drawing-number ID provides a dimension-linked thickness, so constant thickness is not established under this protocol. outline_type: The proposed unknown is correct on the evidence. The drawing image (D-010) shows a Z-bent plate: the lower profile has opposing flanges dimensioned 15,00 and 30,00, the left view has rounded outer corners, and there is an edge relief notch at the lower left of the face view. None of rectangle, circle or ring represents this outline exactly. Because essential geometry is unknown, the protocol requires needs_input. A new proposal cannot fix this; it needs a human decision or a developed flat-blank drawing. thickness: The only mention of thickness is the note text '2mm non-magnetic stainless' (D-010/drawing/notes). No parsed drawing number for thickness exists, and no dimension leader links one to any view. 15,00 and 30,00 are flange heights in the lower profile, not thickness. Under the protocol thickness stays unknown, so the answer is needs_input. Settling it needs a human decision on the note or a dimensioned thickness. cad_eligibility: supported=false is supported by the drawing. The lower profile view shows a nonplanar part with opposing bends, flange heights 15,00 and 30,00, and an overall span of 107,00. The left view shows rounded outer corners, and the face view shows an edge relief notch. A single rectangle, circle or ring extrusion cannot represent this. constant_thickness=false is consistent with the protocol, because the 2mm appears only in the note (D-010/drawing/notes) and no parsed number dimensions it. The essential uncertainties listed are accurate, and the three omitted hole groups match the callouts, which have no full XY locations. The bends, not the missing hole positions, are correctly given as the reason the part is unsupported.",
+      "blocking_fields": [
+        "outline_type",
+        "thickness",
+        "cad_eligibility"
+      ],
+      "omitted_minor_features": [
+        "Four Ø3,60 through holes: complete XY locations and pattern spacing are missing.",
+        "One Ø22,10 through hole: complete XY location is missing.",
+        "Two Ø5,80 through holes: complete XY locations are missing."
+      ],
+      "features_state": "unknown",
+      "source_sha256": "700cc64cb7e7c31d1d7a6d6f506bac453cdcb3c7daf76dc2272ffebfe5e2d911",
+      "protocol": "proposal-verification-v1",
+      "states": {
+        "outline_type": "needs_input",
+        "length": "verified",
+        "width": "verified",
+        "outer_diameter": "needs_input",
+        "inner_diameter": "needs_input",
+        "thickness": "needs_input",
+        "features": "needs_input",
+        "cad_eligibility": "verified"
+      },
+      "feedback_rounds": []
+    },
+    "D-011": {
+      "drawing": "D-011",
+      "status": "blocked",
+      "reason": "Essential geometry unresolved: outline_type, thickness, cad_eligibility The main view shows an essential L-shaped profile with a curved elbow that the rectangle/circle/ring generator cannot express. The dimensioned side view indicates constant plate thickness with stacked alternatives, but their numeric values lack supplied parsed drawing-number IDs. The essential contour alone prevents eligibility. outline_type: The D-011 main view shows an L-shaped arm. Its elbow has R35,0 and R60,0 arcs, so it is not a rectangle, circle or ring. Unknown is the correct state for an outline the generator cannot express. thickness: The side view prints stacked 15,0 and 12,0 linked to the thickness dimension. However, D-011 supplies no parsed drawing-number IDs, so the options cannot be cited and the value stays unknown. cad_eligibility: The D-011 main view has an essential curved L contour (R35,0/R60,0 elbow) that the rectangle/circle/ring generator cannot represent. That makes supported=false and outline_exact=false correct. The side view shows a single plate with stacked thickness alternatives, so constant_thickness=true is consistent. The uncertainties and omitted holes are described honestly.",
+      "blocking_fields": [
+        "outline_type",
+        "thickness",
+        "cad_eligibility"
+      ],
+      "omitted_minor_features": [
+        "Upright-leg plain through holes: diameters and positions lack parsed drawing-number IDs.",
+        "Horizontal-leg threaded through holes: diameters, thread dimensions and positions lack parsed drawing-number IDs."
+      ],
+      "features_state": "unknown",
+      "source_sha256": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67",
+      "protocol": "proposal-verification-v1",
+      "states": {
+        "outline_type": "needs_input",
+        "length": "needs_input",
+        "width": "needs_input",
+        "outer_diameter": "needs_input",
+        "inner_diameter": "needs_input",
+        "thickness": "needs_input",
+        "features": "needs_input",
+        "cad_eligibility": "verified"
+      },
+      "feedback_rounds": []
+    },
+    "D-012": {
+      "drawing": "D-012",
+      "status": "blocked",
+      "reason": "Essential geometry unresolved: cad_eligibility The main orthographic view establishes an exact 25,0 by 120,0 rectangle, and the left orthographic view explicitly establishes a constant 15,0 thickness. However, the drawing also shows two M6 through holes entering the perpendicular narrow face. The exact part therefore requires cuts on two perpendicular faces, which the supported top-face-only hole/slot representation cannot express. cad_eligibility: The outline is an exact 25,0 x 120,0 rectangle, and the thickness is a constant 15,0 ±1,0 from the side view. However, the left view shows a second pair of Ø5,0 / M6 - 6H through holes (callout p1-2, 30,0 from the centre line) drilled into the 15 mm face. The main view shows them as hidden through-lines running perpendicular to the top face. The supported top-face-only cut representation cannot express these orthogonal holes, so supported=false, constant_thickness=true and outline_exact=true are correct, and the listed omissions match the evidence.",
+      "blocking_fields": [
+        "cad_eligibility"
+      ],
+      "omitted_minor_features": [
+        "The second threaded through hole on the 25,0-wide face is omitted because its longitudinal position is not explicitly dimensioned.",
+        "The two threaded through holes entering the perpendicular 15,0-wide face are omitted because their orientation cannot be represented by face='top' cuts."
+      ],
+      "features_state": "unknown",
+      "source_sha256": "23ba5d97ee7a744cf12072e1338ab62fa5e49c09c5229af4f20a6ff5a455f64a",
+      "protocol": "proposal-verification-v1",
+      "states": {
+        "outline_type": "verified",
+        "length": "verified",
+        "width": "verified",
+        "outer_diameter": "needs_input",
+        "inner_diameter": "needs_input",
+        "thickness": "verified",
+        "features": "needs_input",
+        "cad_eligibility": "verified"
+      },
+      "feedback_rounds": []
+    }
+  },
+  "usage": [
+    {
+      "drawing": "D-001",
+      "metrics": {
+        "agreed": 0,
+        "agreed_after_retry": 0,
+        "verified": 1,
+        "verified_after_retry": 0,
+        "sent_to_review": 7,
+        "scan_undetermined": 0,
+        "mapping_approvals_required": 0,
+        "mapping_suggestions_unsure": 0,
+        "status_counts": {
+          "needs_input": 7,
+          "verified": 1
+        },
+        "by_job": {
+          "template": {
+            "needs_input": 7,
+            "verified": 1
+          }
+        },
+        "jobs": 1,
+        "exact_links": 0,
+        "reader_calls": 2,
+        "cache_hits": 0,
+        "provider_calls": 2,
+        "latency_ms_total": 74610,
+        "proposer_calls": 1,
+        "verifier_calls": 1,
+        "feedback_rounds": 0,
+        "feedback_keys": 0,
+        "protocols": [
+          "proposal-verification-v1"
+        ],
+        "configured_readers": {
+          "claude": {
+            "model": "opus",
+            "fast_mode": false,
+            "mode": "regular",
+            "reader": "claude"
+          },
+          "codex": {
+            "model": "gpt-6.1-sol",
+            "reasoning_effort": "xhigh",
+            "service_tier": "fast",
+            "reader": "codex"
+          }
+        },
+        "roles": {
+          "codex": "proposer",
+          "claude": "verifier"
+        }
+      },
+      "calls": [
+        {
+          "reader": "codex",
+          "role": "proposer",
+          "cache_key": "25763864a555b95fdcdcc88263acdcbb821cf1b87011234fb39744b790dc05b1",
+          "cache_hit": false,
+          "settings": {
+            "model": "gpt-6.1-sol",
+            "reasoning_effort": "xhigh",
+            "service_tier": "fast",
+            "reader": "codex"
+          },
+          "metadata": {
+            "events": [
+              {
+                "type": "turn.completed",
+                "usage": {
+                  "input_tokens": 18068,
+                  "cached_input_tokens": 0,
+                  "cache_write_input_tokens": 0,
+                  "output_tokens": 2325,
+                  "reasoning_output_tokens": 1552
+                }
+              }
+            ]
+          },
+          "latency_ms": 56766
+        },
+        {
+          "reader": "claude",
+          "role": "verifier",
+          "cache_key": "7cd6b4ea9e28fc95bfb1cdc9c74fe72e4a411cd0801ae1452f4e2a629d2b93cf",
+          "cache_hit": false,
+          "settings": {
+            "model": "opus",
+            "fast_mode": false,
+            "mode": "regular",
+            "reader": "claude"
+          },
+          "metadata": {
+            "usage": {
+              "input_tokens": 4,
+              "cache_creation_input_tokens": 12187,
+              "cache_read_input_tokens": 8638,
+              "output_tokens": 1773,
+              "output_tokens_details": {
+                "thinking_tokens": 503
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 12187,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "global",
+              "iterations": [],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            "modelUsage": {
+              "claude-opus-5-5": {
+                "inputTokens": 4,
+                "outputTokens": 1773,
+                "cacheReadInputTokens": 8638,
+                "cacheCreationInputTokens": 12187,
+                "webSearchRequests": 0,
+                "costUSD": 0.13469960000000003,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 503,
+                "cacheCreationEphemeral5mInputTokens": 0,
+                "cacheCreationEphemeral1hInputTokens": 12187,
+                "canonicalModel": "claude-opus-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            },
+            "total_cost_usd": 0.13469960000000003,
+            "duration_ms": 16693,
+            "is_error": false
+          },
+          "latency_ms": 17844
+        }
+      ]
+    },
+    {
+      "drawing": "D-002",
+      "metrics": {
+        "agreed": 0,
+        "agreed_after_retry": 0,
+        "verified": 3,
+        "verified_after_retry": 0,
+        "sent_to_review": 5,
+        "scan_undetermined": 0,
+        "mapping_approvals_required": 0,
+        "mapping_suggestions_unsure": 0,
+        "status_counts": {
+          "needs_input": 5,
+          "verified": 3
+        },
+        "by_job": {
+          "template": {
+            "needs_input": 5,
+            "verified": 3
+          }
+        },
+        "jobs": 1,
+        "exact_links": 0,
+        "reader_calls": 2,
+        "cache_hits": 0,
+        "provider_calls": 2,
+        "latency_ms_total": 131828,
+        "proposer_calls": 1,
+        "verifier_calls": 1,
+        "feedback_rounds": 0,
+        "feedback_keys": 0,
+        "protocols": [
+          "proposal-verification-v1"
+        ],
+        "configured_readers": {
+          "claude": {
+            "model": "opus",
+            "fast_mode": false,
+            "mode": "regular",
+            "reader": "claude"
+          },
+          "codex": {
+            "model": "gpt-6.1-sol",
+            "reasoning_effort": "xhigh",
+            "service_tier": "fast",
+            "reader": "codex"
+          }
+        },
+        "roles": {
+          "codex": "proposer",
+          "claude": "verifier"
+        }
+      },
+      "calls": [
+        {
+          "reader": "codex",
+          "role": "proposer",
+          "cache_key": "a222d6d3d855c29ddeea648cc9367248f65c0e0f54bcd49fcd8c766f8c9535d2",
+          "cache_hit": false,
+          "settings": {
+            "model": "gpt-6.1-sol",
+            "reasoning_effort": "xhigh",
+            "service_tier": "fast",
+            "reader": "codex"
+          },
+          "metadata": {
+            "events": [
+              {
+                "type": "turn.completed",
+                "usage": {
+                  "input_tokens": 19872,
+                  "cached_input_tokens": 0,
+                  "cache_write_input_tokens": 0,
+                  "output_tokens": 4310,
+                  "reasoning_output_tokens": 3078
+                }
+              }
+            ]
+          },
+          "latency_ms": 110359
+        },
+        {
+          "reader": "claude",
+          "role": "verifier",
+          "cache_key": "09ad4238698dea46d90de16c892a998f834c40bd19e74913bb4f4021b532a859",
+          "cache_hit": false,
+          "settings": {
+            "model": "opus",
+            "fast_mode": false,
+            "mode": "regular",
+            "reader": "claude"
+          },
+          "metadata": {
+            "usage": {
+              "input_tokens": 4,
+              "cache_creation_input_tokens": 12716,
+              "cache_read_input_tokens": 14311,
+              "output_tokens": 2259,
+              "output_tokens_details": {
+                "thinking_tokens": 385
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 12716,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "global",
+              "iterations": [],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            "modelUsage": {
+              "claude-opus-5-5": {
+                "inputTokens": 4,
+                "outputTokens": 2259,
+                "cacheReadInputTokens": 14311,
+                "cacheCreationInputTokens": 12716,
+                "webSearchRequests": 0,
+                "costUSD": 0.1497862,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 385,
+                "cacheCreationEphemeral5mInputTokens": 0,
+                "cacheCreationEphemeral1hInputTokens": 12716,
+                "canonicalModel": "claude-opus-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            },
+            "total_cost_usd": 0.1497862,
+            "duration_ms": 20320,
+            "is_error": false
+          },
+          "latency_ms": 21469
+        }
+      ]
+    },
+    {
+      "drawing": "D-003",
+      "metrics": {
+        "agreed": 0,
+        "agreed_after_retry": 0,
+        "verified": 1,
+        "verified_after_retry": 0,
+        "sent_to_review": 7,
+        "scan_undetermined": 0,
+        "mapping_approvals_required": 0,
+        "mapping_suggestions_unsure": 0,
+        "status_counts": {
+          "needs_input": 7,
+          "verified": 1
+        },
+        "by_job": {
+          "template": {
+            "needs_input": 7,
+            "verified": 1
+          }
+        },
+        "jobs": 1,
+        "exact_links": 0,
+        "reader_calls": 2,
+        "cache_hits": 0,
+        "provider_calls": 2,
+        "latency_ms_total": 107984,
+        "proposer_calls": 1,
+        "verifier_calls": 1,
+        "feedback_rounds": 0,
+        "feedback_keys": 0,
+        "protocols": [
+          "proposal-verification-v1"
+        ],
+        "configured_readers": {
+          "claude": {
+            "model": "opus",
+            "fast_mode": false,
+            "mode": "regular",
+            "reader": "claude"
+          },
+          "codex": {
+            "model": "gpt-6.1-sol",
+            "reasoning_effort": "xhigh",
+            "service_tier": "fast",
+            "reader": "codex"
+          }
+        },
+        "roles": {
+          "codex": "proposer",
+          "claude": "verifier"
+        }
+      },
+      "calls": [
+        {
+          "reader": "codex",
+          "role": "proposer",
+          "cache_key": "cd358725b40770890cda4bf1a4d08275f44a59e51c6841a9ee359ed0a569aa7e",
+          "cache_hit": false,
+          "settings": {
+            "model": "gpt-6.1-sol",
+            "reasoning_effort": "xhigh",
+            "service_tier": "fast",
+            "reader": "codex"
+          },
+          "metadata": {
+            "events": [
+              {
+                "type": "turn.completed",
+                "usage": {
+                  "input_tokens": 24222,
+                  "cached_input_tokens": 12928,
+                  "cache_write_input_tokens": 0,
+                  "output_tokens": 2702,
+                  "reasoning_output_tokens": 1987
+                }
+              }
+            ]
+          },
+          "latency_ms": 77281
+        },
+        {
+          "reader": "claude",
+          "role": "verifier",
+          "cache_key": "cbfd57c7de0553390d2aead33662084a666d9ba7ddcab5edaf7128f861b531bc",
+          "cache_hit": false,
+          "settings": {
+            "model": "opus",
+            "fast_mode": false,
+            "mode": "regular",
+            "reader": "claude"
+          },
+          "metadata": {
+            "usage": {
+              "input_tokens": 4,
+              "cache_creation_input_tokens": 16733,
+              "cache_read_input_tokens": 11564,
+              "output_tokens": 2953,
+              "output_tokens_details": {
+                "thinking_tokens": 1109
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 16733,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "global",
+              "iterations": [],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            "modelUsage": {
+              "claude-opus-5-5": {
+                "inputTokens": 4,
+                "outputTokens": 2953,
+                "cacheReadInputTokens": 11564,
+                "cacheCreationInputTokens": 16733,
+                "webSearchRequests": 0,
+                "costUSD": 0.19525279999999998,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 1109,
+                "cacheCreationEphemeral5mInputTokens": 0,
+                "cacheCreationEphemeral1hInputTokens": 16733,
+                "canonicalModel": "claude-opus-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            },
+            "total_cost_usd": 0.19525279999999998,
+            "duration_ms": 29560,
+            "is_error": false
+          },
+          "latency_ms": 30703
+        }
+      ]
+    },
+    {
+      "drawing": "D-004",
+      "metrics": {
+        "agreed": 0,
+        "agreed_after_retry": 0,
+        "verified": 4,
+        "verified_after_retry": 0,
+        "sent_to_review": 4,
+        "scan_undetermined": 0,
+        "mapping_approvals_required": 0,
+        "mapping_suggestions_unsure": 0,
+        "status_counts": {
+          "needs_input": 4,
+          "verified": 4
+        },
+        "by_job": {
+          "template": {
+            "needs_input": 4,
+            "verified": 4
+          }
+        },
+        "jobs": 1,
+        "exact_links": 0,
+        "reader_calls": 2,
+        "cache_hits": 0,
+        "provider_calls": 2,
+        "latency_ms_total": 141875,
+        "proposer_calls": 1,
+        "verifier_calls": 1,
+        "feedback_rounds": 0,
+        "feedback_keys": 0,
+        "protocols": [
+          "proposal-verification-v1"
+        ],
+        "configured_readers": {
+          "claude": {
+            "model": "opus",
+            "fast_mode": false,
+            "mode": "regular",
+            "reader": "claude"
+          },
+          "codex": {
+            "model": "gpt-6.1-sol",
+            "reasoning_effort": "xhigh",
+            "service_tier": "fast",
+            "reader": "codex"
+          }
+        },
+        "roles": {
+          "codex": "proposer",
+          "claude": "verifier"
+        }
+      },
+      "calls": [
+        {
+          "reader": "codex",
+          "role": "proposer",
+          "cache_key": "a64ebf20852a984c2821679dce0a3840bba3b2b63816a80c38dd17ac862173f0",
+          "cache_hit": false,
+          "settings": {
+            "model": "gpt-6.1-sol",
+            "reasoning_effort": "xhigh",
+            "service_tier": "fast",
+            "reader": "codex"
+          },
+          "metadata": {
+            "events": [
+              {
+                "type": "turn.completed",
+                "usage": {
+                  "input_tokens": 20558,
+                  "cached_input_tokens": 0,
+                  "cache_write_input_tokens": 0,
+                  "output_tokens": 4304,
+                  "reasoning_output_tokens": 3106
+                }
+              }
+            ]
+          },
+          "latency_ms": 122125
+        },
+        {
+          "reader": "claude",
+          "role": "verifier",
+          "cache_key": "d24c7427d4a9fd797c14e5d4846fce154f9be2810be27e2d3d56871137665eaf",
+          "cache_hit": false,
+          "settings": {
+            "model": "opus",
+            "fast_mode": false,
+            "mode": "regular",
+            "reader": "claude"
+          },
+          "metadata": {
+            "usage": {
+              "input_tokens": 4,
+              "cache_creation_input_tokens": 13824,
+              "cache_read_input_tokens": 15415,
+              "output_tokens": 1959,
+              "output_tokens_details": {
+                "thinking_tokens": 323
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 13824,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "global",
+              "iterations": [],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            "modelUsage": {
+              "claude-opus-5-5": {
+                "inputTokens": 4,
+                "outputTokens": 1959,
+                "cacheReadInputTokens": 15415,
+                "cacheCreationInputTokens": 13824,
+                "webSearchRequests": 0,
+                "costUSD": 0.152871,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 323,
+                "cacheCreationEphemeral5mInputTokens": 0,
+                "cacheCreationEphemeral1hInputTokens": 13824,
+                "canonicalModel": "claude-opus-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            },
+            "total_cost_usd": 0.152871,
+            "duration_ms": 18556,
+            "is_error": false
+          },
+          "latency_ms": 19750
+        }
+      ]
+    },
+    {
+      "drawing": "D-005",
+      "metrics": {
+        "agreed": 0,
+        "agreed_after_retry": 0,
+        "verified": 4,
+        "verified_after_retry": 0,
+        "sent_to_review": 4,
+        "scan_undetermined": 0,
+        "mapping_approvals_required": 0,
+        "mapping_suggestions_unsure": 0,
+        "status_counts": {
+          "needs_input": 4,
+          "verified": 4
+        },
+        "by_job": {
+          "template": {
+            "needs_input": 4,
+            "verified": 4
+          }
+        },
+        "jobs": 1,
+        "exact_links": 0,
+        "reader_calls": 2,
+        "cache_hits": 0,
+        "provider_calls": 2,
+        "latency_ms_total": 94499,
+        "proposer_calls": 1,
+        "verifier_calls": 1,
+        "feedback_rounds": 0,
+        "feedback_keys": 0,
+        "protocols": [
+          "proposal-verification-v1"
+        ],
+        "configured_readers": {
+          "claude": {
+            "model": "opus",
+            "fast_mode": false,
+            "mode": "regular",
+            "reader": "claude"
+          },
+          "codex": {
+            "model": "gpt-6.1-sol",
+            "reasoning_effort": "xhigh",
+            "service_tier": "fast",
+            "reader": "codex"
+          }
+        },
+        "roles": {
+          "codex": "proposer",
+          "claude": "verifier"
+        }
+      },
+      "calls": [
+        {
+          "reader": "codex",
+          "role": "proposer",
+          "cache_key": "171ce800e854b9ee6cde20ed022d379d720af68be5a0b8892a201009c58234c3",
+          "cache_hit": false,
+          "settings": {
+            "model": "gpt-6.1-sol",
+            "reasoning_effort": "xhigh",
+            "service_tier": "fast",
+            "reader": "codex"
+          },
+          "metadata": {
+            "events": [
+              {
+                "type": "turn.completed",
+                "usage": {
+                  "input_tokens": 19740,
+                  "cached_input_tokens": 0,
+                  "cache_write_input_tokens": 0,
+                  "output_tokens": 2934,
+                  "reasoning_output_tokens": 2070
+                }
+              }
+            ]
+          },
+          "latency_ms": 75453
+        },
+        {
+          "reader": "claude",
+          "role": "verifier",
+          "cache_key": "3a055b7fe1c07becb6c70a05007a341114be0fe2a637acf59483422ef4df98db",
+          "cache_hit": false,
+          "settings": {
+            "model": "opus",
+            "fast_mode": false,
+            "mode": "regular",
+            "reader": "claude"
+          },
+          "metadata": {
+            "usage": {
+              "input_tokens": 4,
+              "cache_creation_input_tokens": 12302,
+              "cache_read_input_tokens": 13895,
+              "output_tokens": 1890,
+              "output_tokens_details": {
+                "thinking_tokens": 292
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 12302,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "global",
+              "iterations": [],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            "modelUsage": {
+              "claude-opus-5-5": {
+                "inputTokens": 4,
+                "outputTokens": 1890,
+                "cacheReadInputTokens": 13895,
+                "cacheCreationInputTokens": 12302,
+                "webSearchRequests": 0,
+                "costUSD": 0.139011,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 292,
+                "cacheCreationEphemeral5mInputTokens": 0,
+                "cacheCreationEphemeral1hInputTokens": 12302,
+                "canonicalModel": "claude-opus-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            },
+            "total_cost_usd": 0.139011,
+            "duration_ms": 17930,
+            "is_error": false
+          },
+          "latency_ms": 19046
+        }
+      ]
+    },
+    {
+      "drawing": "D-006",
+      "metrics": {
+        "agreed": 0,
+        "agreed_after_retry": 0,
+        "verified": 4,
+        "verified_after_retry": 0,
+        "sent_to_review": 4,
+        "scan_undetermined": 0,
+        "mapping_approvals_required": 0,
+        "mapping_suggestions_unsure": 0,
+        "status_counts": {
+          "needs_input": 4,
+          "verified": 4
+        },
+        "by_job": {
+          "template": {
+            "needs_input": 4,
+            "verified": 4
+          }
+        },
+        "jobs": 1,
+        "exact_links": 0,
+        "reader_calls": 2,
+        "cache_hits": 0,
+        "provider_calls": 2,
+        "latency_ms_total": 87875,
+        "proposer_calls": 1,
+        "verifier_calls": 1,
+        "feedback_rounds": 0,
+        "feedback_keys": 0,
+        "protocols": [
+          "proposal-verification-v1"
+        ],
+        "configured_readers": {
+          "claude": {
+            "model": "opus",
+            "fast_mode": false,
+            "mode": "regular",
+            "reader": "claude"
+          },
+          "codex": {
+            "model": "gpt-6.1-sol",
+            "reasoning_effort": "xhigh",
+            "service_tier": "fast",
+            "reader": "codex"
+          }
+        },
+        "roles": {
+          "codex": "proposer",
+          "claude": "verifier"
+        }
+      },
+      "calls": [
+        {
+          "reader": "codex",
+          "role": "proposer",
+          "cache_key": "d398f5f794a2dd2cd7472521ec7f2144484cff78a369cc3a44ca55867fd2a890",
+          "cache_hit": false,
+          "settings": {
+            "model": "gpt-6.1-sol",
+            "reasoning_effort": "xhigh",
+            "service_tier": "fast",
+            "reader": "codex"
+          },
+          "metadata": {
+            "events": [
+              {
+                "type": "turn.completed",
+                "usage": {
+                  "input_tokens": 19701,
+                  "cached_input_tokens": 0,
+                  "cache_write_input_tokens": 0,
+                  "output_tokens": 2776,
+                  "reasoning_output_tokens": 1752
+                }
+              }
+            ]
+          },
+          "latency_ms": 65047
+        },
+        {
+          "reader": "claude",
+          "role": "verifier",
+          "cache_key": "0ddca8ad8ff047fa55595a96879fd5042b3d9b45251fa01017802f35e85acfde",
+          "cache_hit": false,
+          "settings": {
+            "model": "opus",
+            "fast_mode": false,
+            "mode": "regular",
+            "reader": "claude"
+          },
+          "metadata": {
+            "usage": {
+              "input_tokens": 4,
+              "cache_creation_input_tokens": 12580,
+              "cache_read_input_tokens": 14171,
+              "output_tokens": 2250,
+              "output_tokens_details": {
+                "thinking_tokens": 651
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 12580,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "global",
+              "iterations": [],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            "modelUsage": {
+              "claude-opus-5-5": {
+                "inputTokens": 4,
+                "outputTokens": 2250,
+                "cacheReadInputTokens": 14171,
+                "cacheCreationInputTokens": 12580,
+                "webSearchRequests": 0,
+                "costUSD": 0.14849020000000002,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 651,
+                "cacheCreationEphemeral5mInputTokens": 0,
+                "cacheCreationEphemeral1hInputTokens": 12580,
+                "canonicalModel": "claude-opus-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            },
+            "total_cost_usd": 0.14849020000000002,
+            "duration_ms": 21651,
+            "is_error": false
+          },
+          "latency_ms": 22828
+        }
+      ]
+    },
+    {
+      "drawing": "D-007",
+      "metrics": {
+        "agreed": 0,
+        "agreed_after_retry": 0,
+        "verified": 3,
+        "verified_after_retry": 0,
+        "sent_to_review": 5,
+        "scan_undetermined": 0,
+        "mapping_approvals_required": 0,
+        "mapping_suggestions_unsure": 0,
+        "status_counts": {
+          "needs_input": 5,
+          "verified": 3
+        },
+        "by_job": {
+          "template": {
+            "needs_input": 5,
+            "verified": 3
+          }
+        },
+        "jobs": 1,
+        "exact_links": 0,
+        "reader_calls": 2,
+        "cache_hits": 0,
+        "provider_calls": 2,
+        "latency_ms_total": 106484,
+        "proposer_calls": 1,
+        "verifier_calls": 1,
+        "feedback_rounds": 0,
+        "feedback_keys": 0,
+        "protocols": [
+          "proposal-verification-v1"
+        ],
+        "configured_readers": {
+          "claude": {
+            "model": "opus",
+            "fast_mode": false,
+            "mode": "regular",
+            "reader": "claude"
+          },
+          "codex": {
+            "model": "gpt-6.1-sol",
+            "reasoning_effort": "xhigh",
+            "service_tier": "fast",
+            "reader": "codex"
+          }
+        },
+        "roles": {
+          "codex": "proposer",
+          "claude": "verifier"
+        }
+      },
+      "calls": [
+        {
+          "reader": "codex",
+          "role": "proposer",
+          "cache_key": "257259a8622bb24ac051cd31b2534c750d61ee5562004f760244bda8162cf21c",
+          "cache_hit": false,
+          "settings": {
+            "model": "gpt-6.1-sol",
+            "reasoning_effort": "xhigh",
+            "service_tier": "fast",
+            "reader": "codex"
+          },
+          "metadata": {
+            "events": [
+              {
+                "type": "turn.completed",
+                "usage": {
+                  "input_tokens": 19768,
+                  "cached_input_tokens": 12928,
+                  "cache_write_input_tokens": 0,
+                  "output_tokens": 3156,
+                  "reasoning_output_tokens": 2070
+                }
+              }
+            ]
+          },
+          "latency_ms": 80766
+        },
+        {
+          "reader": "claude",
+          "role": "verifier",
+          "cache_key": "0c92c81c966b598595971c365f0fa61d89d74cbaca8253e362968d235dfe6d89",
+          "cache_hit": false,
+          "settings": {
+            "model": "opus",
+            "fast_mode": false,
+            "mode": "regular",
+            "reader": "claude"
+          },
+          "metadata": {
+            "usage": {
+              "input_tokens": 4,
+              "cache_creation_input_tokens": 13035,
+              "cache_read_input_tokens": 14628,
+              "output_tokens": 2890,
+              "output_tokens_details": {
+                "thinking_tokens": 599
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 13035,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "global",
+              "iterations": [],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            "modelUsage": {
+              "claude-opus-5-5": {
+                "inputTokens": 4,
+                "outputTokens": 2890,
+                "cacheReadInputTokens": 14628,
+                "cacheCreationInputTokens": 13035,
+                "webSearchRequests": 0,
+                "costUSD": 0.1650216,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 599,
+                "cacheCreationEphemeral5mInputTokens": 0,
+                "cacheCreationEphemeral1hInputTokens": 13035,
+                "canonicalModel": "claude-opus-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            },
+            "total_cost_usd": 0.1650216,
+            "duration_ms": 24499,
+            "is_error": false
+          },
+          "latency_ms": 25718
+        }
+      ]
+    },
+    {
+      "drawing": "D-008",
+      "metrics": {
+        "agreed": 0,
+        "agreed_after_retry": 0,
+        "verified": 4,
+        "verified_after_retry": 0,
+        "sent_to_review": 4,
+        "scan_undetermined": 0,
+        "mapping_approvals_required": 0,
+        "mapping_suggestions_unsure": 0,
+        "status_counts": {
+          "needs_input": 4,
+          "verified": 4
+        },
+        "by_job": {
+          "template": {
+            "needs_input": 4,
+            "verified": 4
+          }
+        },
+        "jobs": 1,
+        "exact_links": 0,
+        "reader_calls": 2,
+        "cache_hits": 0,
+        "provider_calls": 2,
+        "latency_ms_total": 98000,
+        "proposer_calls": 1,
+        "verifier_calls": 1,
+        "feedback_rounds": 0,
+        "feedback_keys": 0,
+        "protocols": [
+          "proposal-verification-v1"
+        ],
+        "configured_readers": {
+          "claude": {
+            "model": "opus",
+            "fast_mode": false,
+            "mode": "regular",
+            "reader": "claude"
+          },
+          "codex": {
+            "model": "gpt-6.1-sol",
+            "reasoning_effort": "xhigh",
+            "service_tier": "fast",
+            "reader": "codex"
+          }
+        },
+        "roles": {
+          "codex": "proposer",
+          "claude": "verifier"
+        }
+      },
+      "calls": [
+        {
+          "reader": "codex",
+          "role": "proposer",
+          "cache_key": "422de476c7239cbbfafa231af323838f47285cace8807e9010561d54767c15b3",
+          "cache_hit": false,
+          "settings": {
+            "model": "gpt-6.1-sol",
+            "reasoning_effort": "xhigh",
+            "service_tier": "fast",
+            "reader": "codex"
+          },
+          "metadata": {
+            "events": [
+              {
+                "type": "turn.completed",
+                "usage": {
+                  "input_tokens": 19841,
+                  "cached_input_tokens": 0,
+                  "cache_write_input_tokens": 0,
+                  "output_tokens": 2615,
+                  "reasoning_output_tokens": 1552
+                }
+              }
+            ]
+          },
+          "latency_ms": 65016
+        },
+        {
+          "reader": "claude",
+          "role": "verifier",
+          "cache_key": "bb065bb0bf7e3f92db390f233d96d85f04eb7c4113ab7c5447ae6cd9f57bf872",
+          "cache_hit": false,
+          "settings": {
+            "model": "opus",
+            "fast_mode": false,
+            "mode": "regular",
+            "reader": "claude"
+          },
+          "metadata": {
+            "usage": {
+              "input_tokens": 4,
+              "cache_creation_input_tokens": 13068,
+              "cache_read_input_tokens": 14654,
+              "output_tokens": 3281,
+              "output_tokens_details": {
+                "thinking_tokens": 1580
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 13068,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "global",
+              "iterations": [],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            "modelUsage": {
+              "claude-opus-5-5": {
+                "inputTokens": 4,
+                "outputTokens": 3281,
+                "cacheReadInputTokens": 14654,
+                "cacheCreationInputTokens": 13068,
+                "webSearchRequests": 0,
+                "costUSD": 0.1731108,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 1580,
+                "cacheCreationEphemeral5mInputTokens": 0,
+                "cacheCreationEphemeral1hInputTokens": 13068,
+                "canonicalModel": "claude-opus-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            },
+            "total_cost_usd": 0.1731108,
+            "duration_ms": 31763,
+            "is_error": false
+          },
+          "latency_ms": 32984
+        }
+      ]
+    },
+    {
+      "drawing": "D-009",
+      "metrics": {
+        "agreed": 0,
+        "agreed_after_retry": 0,
+        "verified": 1,
+        "verified_after_retry": 0,
+        "sent_to_review": 7,
+        "scan_undetermined": 0,
+        "mapping_approvals_required": 0,
+        "mapping_suggestions_unsure": 0,
+        "status_counts": {
+          "needs_input": 7,
+          "verified": 1
+        },
+        "by_job": {
+          "template": {
+            "needs_input": 7,
+            "verified": 1
+          }
+        },
+        "jobs": 1,
+        "exact_links": 0,
+        "reader_calls": 2,
+        "cache_hits": 0,
+        "provider_calls": 2,
+        "latency_ms_total": 71813,
+        "proposer_calls": 1,
+        "verifier_calls": 1,
+        "feedback_rounds": 0,
+        "feedback_keys": 0,
+        "protocols": [
+          "proposal-verification-v1"
+        ],
+        "configured_readers": {
+          "claude": {
+            "model": "opus",
+            "fast_mode": false,
+            "mode": "regular",
+            "reader": "claude"
+          },
+          "codex": {
+            "model": "gpt-6.1-sol",
+            "reasoning_effort": "xhigh",
+            "service_tier": "fast",
+            "reader": "codex"
+          }
+        },
+        "roles": {
+          "codex": "proposer",
+          "claude": "verifier"
+        }
+      },
+      "calls": [
+        {
+          "reader": "codex",
+          "role": "proposer",
+          "cache_key": "8669e4a4f57135fd21d1af3c503c4fd346d4230ab60087707c9b11974bd8b55e",
+          "cache_hit": false,
+          "settings": {
+            "model": "gpt-6.1-sol",
+            "reasoning_effort": "xhigh",
+            "service_tier": "fast",
+            "reader": "codex"
+          },
+          "metadata": {
+            "events": [
+              {
+                "type": "turn.completed",
+                "usage": {
+                  "input_tokens": 18076,
+                  "cached_input_tokens": 12928,
+                  "cache_write_input_tokens": 0,
+                  "output_tokens": 1806,
+                  "reasoning_output_tokens": 1034
+                }
+              }
+            ]
+          },
+          "latency_ms": 49500
+        },
+        {
+          "reader": "claude",
+          "role": "verifier",
+          "cache_key": "5ad1f073c2b567be520d79f810431779476d8d8f405adffabd42b2a179fcd049",
+          "cache_hit": false,
+          "settings": {
+            "model": "opus",
+            "fast_mode": false,
+            "mode": "regular",
+            "reader": "claude"
+          },
+          "metadata": {
+            "usage": {
+              "input_tokens": 4,
+              "cache_creation_input_tokens": 10590,
+              "cache_read_input_tokens": 12184,
+              "output_tokens": 2173,
+              "output_tokens_details": {
+                "thinking_tokens": 741
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 10590,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "global",
+              "iterations": [],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            "modelUsage": {
+              "claude-opus-5-5": {
+                "inputTokens": 4,
+                "outputTokens": 2173,
+                "cacheReadInputTokens": 12184,
+                "cacheCreationInputTokens": 10590,
+                "webSearchRequests": 0,
+                "costUSD": 0.13063280000000002,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 741,
+                "cacheCreationEphemeral5mInputTokens": 0,
+                "cacheCreationEphemeral1hInputTokens": 10590,
+                "canonicalModel": "claude-opus-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            },
+            "total_cost_usd": 0.13063280000000002,
+            "duration_ms": 21106,
+            "is_error": false
+          },
+          "latency_ms": 22313
+        }
+      ]
+    },
+    {
+      "drawing": "D-010",
+      "metrics": {
+        "agreed": 0,
+        "agreed_after_retry": 0,
+        "verified": 3,
+        "verified_after_retry": 0,
+        "sent_to_review": 5,
+        "scan_undetermined": 0,
+        "mapping_approvals_required": 0,
+        "mapping_suggestions_unsure": 0,
+        "status_counts": {
+          "needs_input": 5,
+          "verified": 3
+        },
+        "by_job": {
+          "template": {
+            "needs_input": 5,
+            "verified": 3
+          }
+        },
+        "jobs": 1,
+        "exact_links": 0,
+        "reader_calls": 2,
+        "cache_hits": 0,
+        "provider_calls": 2,
+        "latency_ms_total": 92438,
+        "proposer_calls": 1,
+        "verifier_calls": 1,
+        "feedback_rounds": 0,
+        "feedback_keys": 0,
+        "protocols": [
+          "proposal-verification-v1"
+        ],
+        "configured_readers": {
+          "claude": {
+            "model": "opus",
+            "fast_mode": false,
+            "mode": "regular",
+            "reader": "claude"
+          },
+          "codex": {
+            "model": "gpt-6.1-sol",
+            "reasoning_effort": "xhigh",
+            "service_tier": "fast",
+            "reader": "codex"
+          }
+        },
+        "roles": {
+          "codex": "proposer",
+          "claude": "verifier"
+        }
+      },
+      "calls": [
+        {
+          "reader": "codex",
+          "role": "proposer",
+          "cache_key": "2e33a333220a2a2855906e78c714874a772b735d928d56f8b9bfc403de51283c",
+          "cache_hit": false,
+          "settings": {
+            "model": "gpt-6.1-sol",
+            "reasoning_effort": "xhigh",
+            "service_tier": "fast",
+            "reader": "codex"
+          },
+          "metadata": {
+            "events": [
+              {
+                "type": "turn.completed",
+                "usage": {
+                  "input_tokens": 19312,
+                  "cached_input_tokens": 0,
+                  "cache_write_input_tokens": 0,
+                  "output_tokens": 2605,
+                  "reasoning_output_tokens": 1552
+                }
+              }
+            ]
+          },
+          "latency_ms": 65938
+        },
+        {
+          "reader": "claude",
+          "role": "verifier",
+          "cache_key": "33604293a7bf72f82809c27134d19071a18f933150c5a7e25b0930896421cc7c",
+          "cache_hit": false,
+          "settings": {
+            "model": "opus",
+            "fast_mode": false,
+            "mode": "regular",
+            "reader": "claude"
+          },
+          "metadata": {
+            "usage": {
+              "input_tokens": 4,
+              "cache_creation_input_tokens": 12623,
+              "cache_read_input_tokens": 14218,
+              "output_tokens": 2649,
+              "output_tokens_details": {
+                "thinking_tokens": 746
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 12623,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "global",
+              "iterations": [],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            "modelUsage": {
+              "claude-opus-5-5": {
+                "inputTokens": 4,
+                "outputTokens": 2649,
+                "cacheReadInputTokens": 14218,
+                "cacheCreationInputTokens": 12623,
+                "webSearchRequests": 0,
+                "costUSD": 0.1568236,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 746,
+                "cacheCreationEphemeral5mInputTokens": 0,
+                "cacheCreationEphemeral1hInputTokens": 12623,
+                "canonicalModel": "claude-opus-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            },
+            "total_cost_usd": 0.1568236,
+            "duration_ms": 25297,
+            "is_error": false
+          },
+          "latency_ms": 26500
+        }
+      ]
+    },
+    {
+      "drawing": "D-011",
+      "metrics": {
+        "agreed": 0,
+        "agreed_after_retry": 0,
+        "verified": 1,
+        "verified_after_retry": 0,
+        "sent_to_review": 7,
+        "scan_undetermined": 0,
+        "mapping_approvals_required": 0,
+        "mapping_suggestions_unsure": 0,
+        "status_counts": {
+          "needs_input": 7,
+          "verified": 1
+        },
+        "by_job": {
+          "template": {
+            "needs_input": 7,
+            "verified": 1
+          }
+        },
+        "jobs": 1,
+        "exact_links": 0,
+        "reader_calls": 2,
+        "cache_hits": 0,
+        "provider_calls": 2,
+        "latency_ms_total": 68499,
+        "proposer_calls": 1,
+        "verifier_calls": 1,
+        "feedback_rounds": 0,
+        "feedback_keys": 0,
+        "protocols": [
+          "proposal-verification-v1"
+        ],
+        "configured_readers": {
+          "claude": {
+            "model": "opus",
+            "fast_mode": false,
+            "mode": "regular",
+            "reader": "claude"
+          },
+          "codex": {
+            "model": "gpt-6.1-sol",
+            "reasoning_effort": "xhigh",
+            "service_tier": "fast",
+            "reader": "codex"
+          }
+        },
+        "roles": {
+          "codex": "proposer",
+          "claude": "verifier"
+        }
+      },
+      "calls": [
+        {
+          "reader": "codex",
+          "role": "proposer",
+          "cache_key": "c0e7cbbd3fc30c64e73cec629e150e82213c31dbf3d0987d2d1d6c3b2496cd88",
+          "cache_hit": false,
+          "settings": {
+            "model": "gpt-6.1-sol",
+            "reasoning_effort": "xhigh",
+            "service_tier": "fast",
+            "reader": "codex"
+          },
+          "metadata": {
+            "events": [
+              {
+                "type": "turn.completed",
+                "usage": {
+                  "input_tokens": 18080,
+                  "cached_input_tokens": 0,
+                  "cache_write_input_tokens": 0,
+                  "output_tokens": 2194,
+                  "reasoning_output_tokens": 1552
+                }
+              }
+            ]
+          },
+          "latency_ms": 50718
+        },
+        {
+          "reader": "claude",
+          "role": "verifier",
+          "cache_key": "6458908430e3f550e47623d84af7b7152ee93d71d04d613822e0ebd0c99a94ea",
+          "cache_hit": false,
+          "settings": {
+            "model": "opus",
+            "fast_mode": false,
+            "mode": "regular",
+            "reader": "claude"
+          },
+          "metadata": {
+            "usage": {
+              "input_tokens": 4,
+              "cache_creation_input_tokens": 10492,
+              "cache_read_input_tokens": 12084,
+              "output_tokens": 1638,
+              "output_tokens_details": {
+                "thinking_tokens": 424
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 10492,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "global",
+              "iterations": [],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            "modelUsage": {
+              "claude-opus-5-5": {
+                "inputTokens": 4,
+                "outputTokens": 1638,
+                "cacheReadInputTokens": 12084,
+                "cacheCreationInputTokens": 10492,
+                "webSearchRequests": 0,
+                "costUSD": 0.1191288,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 424,
+                "cacheCreationEphemeral5mInputTokens": 0,
+                "cacheCreationEphemeral1hInputTokens": 10492,
+                "canonicalModel": "claude-opus-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            },
+            "total_cost_usd": 0.1191288,
+            "duration_ms": 16466,
+            "is_error": false
+          },
+          "latency_ms": 17781
+        }
+      ]
+    },
+    {
+      "drawing": "D-012",
+      "metrics": {
+        "agreed": 0,
+        "agreed_after_retry": 0,
+        "verified": 5,
+        "verified_after_retry": 0,
+        "sent_to_review": 1,
+        "scan_undetermined": 0,
+        "mapping_approvals_required": 0,
+        "mapping_suggestions_unsure": 0,
+        "status_counts": {
+          "verified": 5,
+          "needs_input": 1
+        },
+        "by_job": {
+          "template": {
+            "verified": 5,
+            "needs_input": 1
+          }
+        },
+        "jobs": 1,
+        "exact_links": 0,
+        "reader_calls": 2,
+        "cache_hits": 0,
+        "provider_calls": 2,
+        "latency_ms_total": 164423,
+        "proposer_calls": 1,
+        "verifier_calls": 1,
+        "feedback_rounds": 0,
+        "feedback_keys": 0,
+        "protocols": [
+          "proposal-verification-v1"
+        ],
+        "configured_readers": {
+          "claude": {
+            "model": "opus",
+            "fast_mode": false,
+            "mode": "regular",
+            "reader": "claude"
+          },
+          "codex": {
+            "model": "gpt-6.1-sol",
+            "reasoning_effort": "xhigh",
+            "service_tier": "fast",
+            "reader": "codex"
+          }
+        },
+        "roles": {
+          "codex": "proposer",
+          "claude": "verifier"
+        }
+      },
+      "calls": [
+        {
+          "reader": "codex",
+          "role": "proposer",
+          "cache_key": "b9e7fd9440b4003620d2b4228a503ef548edf77690301e19141dd989b6d22aeb",
+          "cache_hit": false,
+          "settings": {
+            "model": "gpt-6.1-sol",
+            "reasoning_effort": "xhigh",
+            "service_tier": "fast",
+            "reader": "codex"
+          },
+          "metadata": {
+            "events": [
+              {
+                "type": "turn.completed",
+                "usage": {
+                  "input_tokens": 19469,
+                  "cached_input_tokens": 0,
+                  "cache_write_input_tokens": 0,
+                  "output_tokens": 3281,
+                  "reasoning_output_tokens": 2070
+                }
+              }
+            ]
+          },
+          "latency_ms": 79329
+        },
+        {
+          "reader": "claude",
+          "role": "verifier",
+          "cache_key": "e0d4de9414100777f27fd9d46a37f32d0aa74b69bd8ddc8c592f30f9a8f05f83",
+          "cache_hit": false,
+          "settings": {
+            "model": "opus",
+            "fast_mode": false,
+            "mode": "regular",
+            "reader": "claude"
+          },
+          "metadata": {
+            "usage": {
+              "input_tokens": 4,
+              "cache_creation_input_tokens": 13130,
+              "cache_read_input_tokens": 14716,
+              "output_tokens": 3224,
+              "output_tokens_details": {
+                "thinking_tokens": 1340
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 13130,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "global",
+              "iterations": [],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            "modelUsage": {
+              "claude-opus-5-5": {
+                "inputTokens": 4,
+                "outputTokens": 3224,
+                "cacheReadInputTokens": 14716,
+                "cacheCreationInputTokens": 13130,
+                "webSearchRequests": 0,
+                "costUSD": 0.1724792,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 1340,
+                "cacheCreationEphemeral5mInputTokens": 0,
+                "cacheCreationEphemeral1hInputTokens": 13130,
+                "canonicalModel": "claude-opus-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            },
+            "total_cost_usd": 0.1724792,
+            "duration_ms": 29003,
+            "is_error": false
+          },
+          "latency_ms": 85094
+        }
+      ]
+    }
+  ],
+  "complete": false
+}

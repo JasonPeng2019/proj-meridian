@@ -1,0 +1,138 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "724cb2f895ab466cde721380eac59e584ffb8201bc9840f68f4e8a914e81ee6a",
+    "items": [
+      {
+        "key": "outline_type",
+        "decision": "accept",
+        "reason": "The D-011 main view shows an L-shaped arm. Its elbow has R35,0 and R60,0 arcs, so it is not a rectangle, circle or ring. Unknown is the correct state for an outline the generator cannot express.",
+        "fact_ids": [
+          "D-011"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "length",
+        "decision": "needs_input",
+        "reason": "The drawing prints an overall X extent of 348,0, but the supplied numbers list for D-011 is empty. No parsed drawing-number ID exists to cite, so the value stays unknown. New parsed evidence is needed.",
+        "fact_ids": [
+          "D-011"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "width",
+        "decision": "needs_input",
+        "reason": "The drawing prints an overall Y extent of 195,0, but the D-011 numbers list is empty and has no citable ID. The value is unknown and essential geometry is incomplete.",
+        "fact_ids": [
+          "D-011"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "outer_diameter",
+        "decision": "accept",
+        "reason": "D-011 is an L-shaped arm, not a circle or ring. An outer diameter does not apply, and the R60,0 elbow radius is not an overall diameter.",
+        "fact_ids": [
+          "D-011"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "inner_diameter",
+        "decision": "accept",
+        "reason": "D-011 is not a ring, so an inner diameter does not apply. Unknown/null is correct.",
+        "fact_ids": [
+          "D-011"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "thickness",
+        "decision": "needs_input",
+        "reason": "The side view prints stacked 15,0 and 12,0 linked to the thickness dimension. However, D-011 supplies no parsed drawing-number IDs, so the options cannot be cited and the value stays unknown.",
+        "fact_ids": [
+          "D-011"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features",
+        "decision": "needs_input",
+        "reason": "The drawing shows 2x Ø6,6 THRU ALL holes on the upright leg and 4x Ø4,2 / M5-6H THRU ALL holes on the horizontal leg, with 20,0, 80,0, 82,0, 10,5 and 8,0 locating them. D-011 supplies no parsed number IDs, so the features cannot be cited and the state is correctly unknown with an empty array.",
+        "fact_ids": [
+          "D-011"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "cad_eligibility",
+        "decision": "accept",
+        "reason": "The D-011 main view has an essential curved L contour (R35,0/R60,0 elbow) that the rectangle/circle/ring generator cannot represent. That makes supported=false and outline_exact=false correct. The side view shows a single plate with stacked thickness alternatives, so constant_thickness=true is consistent. The uncertainties and omitted holes are described honestly.",
+        "fact_ids": [
+          "D-011"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 10492,
+      "cache_read_input_tokens": 12084,
+      "output_tokens": 1638,
+      "output_tokens_details": {
+        "thinking_tokens": 424
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 10492,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 1638,
+        "cacheReadInputTokens": 12084,
+        "cacheCreationInputTokens": 10492,
+        "webSearchRequests": 0,
+        "costUSD": 0.1191288,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 424,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 10492,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.1191288,
+    "duration_ms": 16466,
+    "is_error": false
+  },
+  "latency_ms": 17781,
+  "cache_key": "6458908430e3f550e47623d84af7b7152ee93d71d04d613822e0ebd0c99a94ea",
+  "cache_hit": false,
+  "job": "expansion:D-011:flat-part-expansion-v1:proposal-verification-v1:verification:0",
+  "error": null
+}

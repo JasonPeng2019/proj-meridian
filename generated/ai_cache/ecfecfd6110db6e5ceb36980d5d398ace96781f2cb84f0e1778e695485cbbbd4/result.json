@@ -1,0 +1,78 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "67b210125686622bf6ada56716d8c13dfdc92b5a5bbb28490108c088b9259b9d",
+    "items": [
+      {
+        "key": "length",
+        "decision": "accept",
+        "reason": "In the main face-on view of the original drawing (D-028 image), the horizontal dimension 19,0 (D-028/drawing/n/19.0@1-1) is drawn with extension lines from the two end-arc centers, which are also the centers of the 2 x Ø4,5 holes. The R5,5 leader (D-028/drawing/n/5.5@1-1, callout D-028/drawing/callout/p1-3) points to the outer end arc of the obround outline. The vertical 11,0 (D-028/drawing/n/11.0@1-1) equals 2*5,5, which confirms the ends are full semicircles tangent to the straight edges. So the overall X extent is 19,0 + 2*5,5 = 30 mm. The cited IDs are in the same order as the expression n0+2*n1, which uses only allowed operators and constants. This verdict covers the length value only. It does not say whether the obround outline fits the rectangle/circle/ring outline types.",
+        "fact_ids": [
+          "D-028/drawing/n/19.0@1-1",
+          "D-028/drawing/n/5.5@1-1",
+          "D-028/drawing/callout/p1-3",
+          "D-028/drawing/n/11.0@1-1"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 15647,
+      "cache_read_input_tokens": 12105,
+      "output_tokens": 979,
+      "output_tokens_details": {
+        "thinking_tokens": 296
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 15647,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 979,
+        "cacheReadInputTokens": 12105,
+        "cacheCreationInputTokens": 15647,
+        "webSearchRequests": 0,
+        "costUSD": 0.147193,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 296,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 15647,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.147193,
+    "duration_ms": 11355,
+    "is_error": false
+  },
+  "latency_ms": 12515,
+  "cache_key": "ecfecfd6110db6e5ceb36980d5d398ace96781f2cb84f0e1778e695485cbbbd4",
+  "cache_hit": false,
+  "job": "expansion:D-028:flat-part-expansion-v1:proposal-verification-v1:verification:1",
+  "error": null
+}

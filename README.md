@@ -56,6 +56,8 @@ CadQuery builds supported flat outlines and features in millimetres, exports STE
 
 Human actions are individual JSON events under `decisions/`, bound to source fingerprints. They overlay immutable extraction, survive regeneration, and reopen for review if dependent evidence changes. Original predictions, proposals, rejections and invalidated approvals remain in history. The app is a single-user local demonstration; it is not a multiuser or manufacturing approval system.
 
+Open **Past chats** from Chat to reopen or delete a saved conversation; **New chat** starts a separate one. Conversations survive refresh and server restart, are stored only in ignored `.runtime/chats/`, and retain up to 100 exchanges within an 8 MB limit. Each new answer retrieves current evidence. Conversations from before this feature was installed cannot be recovered.
+
 ## Verification and observations
 
 The current planned question/benchmark set is [docs/Question-benchmark/benchmark_draft.md](docs/Question-benchmark/benchmark_draft.md); see [its execution plan](docs/Question-benchmark/PLAN.md). It contains 20 numbered questions and 21 before/after execution cases. Its expected answers are still a draft for Jason to check. The five-question measurements below are historical smoke checks, not scores for that new benchmark.

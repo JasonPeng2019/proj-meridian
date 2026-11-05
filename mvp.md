@@ -378,6 +378,9 @@ The flat template subset listed in M1, using `proposal.md` B5's example shape. E
 | GET | `/api/parts/{id}/image?page=1&thumb=0` | a PNG | M1 |
 | GET | `/api/models/{drawing_id}_{example}.glb` | a GLB | M1 |
 | POST | `/api/chat` | the chat API response | M1 |
+| GET | `/api/chats` | saved conversation titles, IDs, timestamps and message counts | Extension |
+| GET | `/api/chats/{id}` | a saved conversation with answers, citations and attachments | Extension |
+| DELETE | `/api/chats/{id}` | deletes only that saved conversation | Extension |
 | GET | `/api/review` | pending review items | M1 |
 | POST | `/api/review/{item_id}` | `{"action": "accept|reject|set_value|choose_option|approve_mapping", "value": ..., "note": ...}` in M1; adds `confirm`, `approve_design` in M2 | M1 |
 | GET | `/api/parts/{id}/history` | the part's timeline | M2 |

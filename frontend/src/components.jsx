@@ -2,6 +2,12 @@ import React from 'react';
 import {AlertCircle, Loader2, ExternalLink} from 'lucide-react';
 import {textValue} from './api';
 
+export function DeferredJsonDetails({value}) {
+  const anchor=React.useRef(null),[open,setOpen]=React.useState(false);
+  React.useEffect(()=>{const disclosure=anchor.current?.closest('details');if(!disclosure){setOpen(true);return;}const update=()=>setOpen(disclosure.open);update();disclosure.addEventListener('toggle',update);return()=>disclosure.removeEventListener('toggle',update)},[value]);
+  return <div ref={anchor}>{open&&<JsonDetails value={value}/>}</div>;
+}
+
 export function Loading({label='Loading…'}) { return <div className="empty-state"><Loader2 className="spin" size={23}/><span>{label}</span></div>; }
 export function ErrorMessage({children, retry}) { return <div className="notice error"><AlertCircle size={17}/><div>{children}</div>{retry && <button onClick={retry}>Try again</button>}</div>; }
 export function StatusBadge({children, tone=''}) { return <span className={`status-badge ${tone}`}>{children}</span>; }

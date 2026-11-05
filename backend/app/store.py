@@ -437,6 +437,8 @@ class Store:
             if part_key is None:
                 items.append({"id": mapping["name"], "target": mapping["name"], "type": "name_mapping", "title": f"{mapping.get('left')} → {mapping.get('right')}", "value": mapping.get("relationship"), "status": mapping.get("review", {}).get("status", "pending"), "readers": review_readers(mapping.get("readers", {})), "evidence": mapping.get("evidence"), "kind": mapping.get("kind"), "options": ["same", "kind_of", "different", "no_equivalent"]})
         for target, original in self.raw_fields.items():
+            if '/template/detail_eligibility_assessment' in target:
+                continue  # Retained earlier assessment, not an active input.
             if not relevant(target):
                 continue
             current = self.fields[target]
@@ -551,7 +553,7 @@ class Store:
         return {"decision": event, "revision": self.revision, "status": "saved"}
 
     def validate_design(self, part: dict, note: str) -> None:
-        waiting = [n for n, f in self.fields.items() if self.owners.get(n) is part and "/template/" in n and f.get("state") == "unknown" and (f.get("method") != "human_decision" or n.endswith(("/thickness", "/outline")))]
+        waiting = [n for n, f in self.fields.items() if self.owners.get(n) is part and "/template/" in n and '/template/detail_eligibility_assessment' not in n and f.get("state") == "unknown" and (f.get("method") != "human_decision" or n.endswith(("/thickness", "/outline")))]
         template = self.templates.get((part.get("drawing") or {}).get("id"), {})
         if template.get("feature_protocol") == "supported-feature-subset-v1" and not (
                 template.get("features_complete", {}).get("state") == "known" and

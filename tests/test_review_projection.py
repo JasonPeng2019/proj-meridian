@@ -56,6 +56,17 @@ def test_review_payload_does_not_repeat_whole_drawing_or_hidden_raw_reader_recor
     assert (part, store.fields) == original
 
 
+def test_retained_earlier_assessment_is_visible_as_evidence_but_not_an_active_input():
+    store, part, _ = projection_store()
+    name = 'D-001/template/detail_eligibility_assessment'
+    field = {'name': name, 'state': 'unknown', 'value': None, 'method': 'ai_unsure'}
+    store.fields[name] = field
+    store.raw_fields[name] = copy.deepcopy(field)
+    store.owners[name] = part
+    assert not any(item['target'] == name for item in store.review_items())
+    assert store.raw_fields[name] == field
+
+
 def test_projected_review_retains_source_regions_bom_values_and_full_on_demand_receipts():
     store, part, _ = projection_store()
     item = store.review_items()[0]

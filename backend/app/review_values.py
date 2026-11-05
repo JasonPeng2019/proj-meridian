@@ -8,7 +8,7 @@ import re
 
 
 SIZE = re.compile(r"(?:^|_)(thickness|length|width|diameter|radius|depth)$")
-NUMBER = re.compile(r"(?:^|_)(thickness|length|width|diameter|radius|depth|offset|x|y|angle|count)$")
+NUMBER = re.compile(r"(?:^|_)(thickness|length|width|diameter|radius|depth|offset|x|y|z|angle|count)$")
 
 
 def _number(value, name, *, positive=False, integer=False):
@@ -81,9 +81,17 @@ def _thickness_limits(template):
     return limits
 
 
+def _rectangle_dimensions(template, name):
+    outline = (template or {}).get("outline") or {}
+    if (not isinstance(outline, dict) or outline.get("state", "known") != "known" or
+            outline.get("confidence") == "unsure" or _unwrap(outline.get("type"), "Outer shape") != "rectangle"):
+        raise ValueError(f"{name} requires an established rectangular outline")
+    return tuple(_number(_unwrap(outline.get(key), key), key, positive=True) for key in ("length", "width"))
+
+
 def _features(value, source, template):
     if not isinstance(value, list):
-        raise ValueError("Reviewed holes and slots must be a JSON array")
+        raise ValueError("Reviewed holes, slots and corner clips must be a JSON array")
     result = []
     thicknesses = _thickness_limits(template)
     for index, original in enumerate(value):
@@ -96,12 +104,33 @@ def _features(value, source, template):
         kind = _unwrap(feature.get("kind"), f"{name} kind")
         if isinstance(kind, str):
             kind = kind.strip().lower()
-        if kind not in ("hole", "slot"):
-            raise ValueError(f"{name}: supported kinds are hole and slot")
+        if kind not in ("hole", "slot", "corner_chamfer"):
+            raise ValueError(f"{name}: supported kinds are hole, slot and corner_chamfer")
         feature["kind"] = kind
+        if kind == "corner_chamfer":
+            length, width = _rectangle_dimensions(template, name)
+            corners = _unwrap(feature.get("corners"), f"{name} corners")
+            allowed_corners = {"x_min_y_min", "x_min_y_max", "x_max_y_min", "x_max_y_max"}
+            if (not isinstance(corners, list) or not corners or
+                    any(not isinstance(corner, str) or corner not in allowed_corners for corner in corners) or
+                    len(corners) != len(set(corners))):
+                raise ValueError(f"{name} corners must be a nonempty unique list of named rectangle corners")
+            allowed = {"kind", "corners", "x_setback", "y_setback", "state", "confidence", "method",
+                       "fact_ids", "fact_id", "name", "label", "note", "placement_basis", "placement_reason"}
+            if set(feature) - allowed:
+                raise ValueError(f"{name} corner clip has unsupported fields; use full-thickness setbacks only")
+            feature["corners"] = corners
+            for key, half_span in (("x_setback", length / 2), ("y_setback", width / 2)):
+                feature[key] = _dimension(feature.get(key), f"{name} {key}", source)
+                if feature[key]["value"] >= half_span:
+                    raise ValueError(f"{name} corner setbacks must be smaller than the rectangle half-dimensions")
+            feature.update(state="known", method="human_decision", fact_ids=[source])
+            result.append(feature)
+            continue
         face = _unwrap(feature.get("face"), f"{name} face")
-        if face not in ("top", "bottom"):
-            raise ValueError(f"{name}: supported faces are top and bottom")
+        side = face in ("x_min", "x_max", "y_min", "y_max")
+        if face not in ("top", "bottom") and not side:
+            raise ValueError(f"{name}: supported faces are top, bottom, x_min, x_max, y_min and y_max")
         feature["face"] = face
         through = _unwrap(feature.get("through"), f"{name} through")
         if type(through) is not bool:
@@ -109,12 +138,39 @@ def _features(value, source, template):
         feature["through"] = through
         for key in ("x", "y"):
             feature[key] = _dimension(feature.get(key), f"{name} {key} (source position)", source, positive=False)
+        depth_limits = thicknesses
+        if side:
+            if kind != "hole" or _unwrap(feature.get("hole_type"), f"{name} hole_type") not in ("plain", "threaded"):
+                raise ValueError(f"{name} side faces support only plain or threaded holes")
+            if "pattern" in feature:
+                raise ValueError(f"{name} side holes require individual explicit positions, without patterns")
+            length, width = _rectangle_dimensions(template, name)
+            feature["z"] = _dimension(feature.get("z"), f"{name} z (source position)", source)
+            z = feature["z"]["value"]
+            thickness_field = (template or {}).get("thickness")
+            variants = thickness_field.get("options") if isinstance(thickness_field, dict) and thickness_field.get("state") == "options" else [thickness_field]
+            if not isinstance(variants, list) or not variants:
+                raise ValueError(f"{name} requires established plate thickness values")
+            side_thicknesses = [_number(_unwrap(value, "Thickness"), "Thickness", positive=True) for value in variants]
+            if any(z >= thickness for thickness in side_thicknesses):
+                raise ValueError(f"{name} z must lie strictly inside every established plate thickness")
+            x, y = feature["x"]["value"], feature["y"]["value"]
+            if face.startswith("x_"):
+                boundary, span = (-length / 2 if face == "x_min" else length / 2), length
+                on_face = abs(x - boundary) <= 1e-6 and -width / 2 < y < width / 2
+            else:
+                boundary, span = (-width / 2 if face == "y_min" else width / 2), width
+                on_face = abs(y - boundary) <= 1e-6 and -length / 2 < x < length / 2
+            if not on_face:
+                raise ValueError(f"{name} global x/y entry must lie on its named rectangular side face")
+            depth_limits = [span]
         depth = None
         if not through or "depth" in feature:
             feature["depth"] = _dimension(feature.get("depth"), f"{name} depth", source)
             depth = feature["depth"]["value"]
-            if not through and thicknesses and any(depth > thickness + 1e-6 for thickness in thicknesses):
-                raise ValueError(f"{name} depth exceeds a supported plate thickness")
+            if (side or not through) and depth_limits and any(depth > limit + 1e-6 for limit in depth_limits):
+                limit_name = "body span along its side-normal axis" if side else "supported plate thickness"
+                raise ValueError(f"{name} depth exceeds the {limit_name}")
         if kind == "slot":
             if feature.get("allow_primary_hole_without_unresolved_step"):
                 raise ValueError(f"{name} primary-hole fallback only applies to holes")
@@ -130,6 +186,8 @@ def _features(value, source, template):
             if hole_type not in ("plain", "threaded", "counterbored", "countersunk"):
                 raise ValueError(f"{name} hole_type must be plain, threaded, counterbored or countersunk")
             feature["hole_type"] = hole_type
+            if side and hole_type == "threaded" and (not isinstance(feature.get("thread"), str) or not feature["thread"].strip()):
+                raise ValueError(f"{name} threaded side hole requires its explicit thread callout")
             fallback = feature.get("allow_primary_hole_without_unresolved_step", False)
             if type(fallback) is not bool:
                 raise ValueError(f"{name} primary-hole fallback must be boolean")

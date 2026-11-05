@@ -248,7 +248,8 @@ class Store:
                 elif "/template/" in target:
                     field["state"] = "unknown"
                     field.pop("selected", None)
-        elif kind == "defer_unsupported" and status == "accepted" and field and "/template/" in target:
+        elif (kind == "defer_unsupported" and status == "accepted" and field and "/template/" in target
+              and field.get("state") == "unknown"):
             # An unavailable reconstruction is not an approval or an invented
             # geometry value. Keep the unknown input and the original evidence.
             field["review"] = {"status": "deferred", "by": event["by"], "at": event["at"],

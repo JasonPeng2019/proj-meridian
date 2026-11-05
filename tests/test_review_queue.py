@@ -33,3 +33,18 @@ def test_pipeline_gaps_need_intervention(entry):
 @pytest.mark.parametrize("status", ["accepted", "rejected", "human_confirmed", "human_rejected", "approved", "reviewed"])
 def test_recorded_human_decisions_leave_both_open_queues(status):
     assert classify_review({"type": "template", "status": status})[0] == "resolved"
+
+
+@pytest.mark.parametrize("state", ["unknown", "known"])
+def test_old_unavailable_disposition_does_not_approve_new_prep_value(state):
+    from backend.app.store import Store
+    store = Store.__new__(Store)
+    target = "D-001/template/thickness"
+    field = {"state": state, "value": None if state == "unknown" else 3}
+    store.ai = {}
+    store.fields = {target: field}
+    store.owners = {}
+    store._apply({"applies_to": target, "type": "defer_unsupported", "status": "accepted",
+                  "by": "Meridian delegated reviewer", "at": "2026-11-05T00:00:00Z",
+                  "review_kind": "delegated", "delegated_by": "Jason Peng"})
+    assert (field.get("review", {}).get("status") == "deferred") is (state == "unknown")

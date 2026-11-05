@@ -103,6 +103,72 @@ def test_blind_and_step_depth_cannot_exceed_known_thickness():
         validate("features_review", [hole(hole_type="counterbored", counterbore_diameter=8, counterbore_depth=3)], template=template)
 
 
+def rectangular_template(thickness=4):
+    return {"outline": {"state": "known", "type": "rectangle", "length": {"state": "known", "value": 40}, "width": 20},
+            "thickness": {"state": "known", "value": thickness}}
+
+
+@pytest.mark.parametrize("face,x,y,span", [("x_min", -20, 0, 40), ("x_max", 20, 0, 40),
+                                          ("y_min", 0, -10, 20), ("y_max", 0, 10, 20)])
+def test_side_holes_preserve_global_entry_and_limit_depth_by_body_span(face, x, y, span):
+    template = rectangular_template()
+    original = hole(face=face, x=x, y=y, z=2, through=False, depth=span)
+    before = copy.deepcopy(original)
+    result = validate("features_review", [original], template=template)[0]
+    assert result["depth"]["value"] == span > 4
+    assert result["z"] == {"state": "known", "value": 2, "method": "human_decision", "fact_ids": ["D-TEST/drawing/source"]}
+    assert result["x"]["value"] == x and result["y"]["value"] == y and original == before
+    with pytest.raises(ValueError, match="body span"):
+        validate("features_review", [{**original, "depth": span + 1}], template=template)
+
+
+@pytest.mark.parametrize("changes", [
+    {"x": -19}, {"y": 10}, {"z": None}, {"z": 0}, {"z": 4}, {"z": "2"},
+    {"hole_type": "counterbored"}, {"hole_type": "threaded"}, {"pattern": None}, {"kind": "slot"},
+])
+def test_invalid_side_holes_need_clarification(changes):
+    feature = hole(face="x_min", x=-20, y=0, z=2)
+    with pytest.raises(ValueError):
+        validate("features_review", [{**feature, **changes}], template=rectangular_template())
+
+
+def test_side_holes_require_established_body_and_every_thickness_variant():
+    feature = hole(face="x_min", x=-20, y=0, z=2, hole_type="threaded", thread="M6")
+    assert validate("features_review", [feature], template=rectangular_template())[0]["thread"] == "M6"
+    for template in (None, {"outline": {"type": "circle", "outer_diameter": 40}, "thickness": 4},
+                     {**rectangular_template(), "thickness": {"state": "unknown", "value": None}},
+                     {**rectangular_template(), "thickness": {"state": "options", "options": [2, 4]}},
+                     {**rectangular_template(), "thickness": {"state": "options", "options": [4, {"state": "unknown", "value": 8}]}}):
+        with pytest.raises(ValueError):
+            validate("features_review", [feature], template=template)
+
+
+def corner_clip(**changes):
+    return {"kind": "corner_chamfer", "corners": ["x_min_y_min", "x_max_y_max"],
+            "x_setback": 1, "y_setback": 2, **changes}
+
+
+def test_corner_clips_use_explicit_corner_subset_and_sourced_positive_setbacks():
+    original = corner_clip()
+    before = copy.deepcopy(original)
+    feature = validate("features_review", [original], template=rectangular_template())[0]
+    assert feature["corners"] == ["x_min_y_min", "x_max_y_max"]
+    assert feature["x_setback"]["value"] == 1 and feature["y_setback"]["value"] == 2
+    assert feature["x_setback"]["fact_ids"] == feature["fact_ids"] == ["D-TEST/drawing/source"]
+    assert "face" not in feature and "through" not in feature and original == before
+
+
+@pytest.mark.parametrize("changes", [
+    {"corners": []}, {"corners": ["top_left"]}, {"corners": ["x_min_y_min"] * 2},
+    {"x_setback": 0}, {"x_setback": 20}, {"y_setback": 10}, {"y_setback": None},
+    {"x_setback": {"state": "unknown", "value": 1}}, {"face": "top"}, {"through": True},
+    {"depth": 1}, {"x": 0}, {"pattern": {}},
+])
+def test_corner_clips_reject_missing_or_incompatible_geometry(changes):
+    with pytest.raises(ValueError):
+        validate("features_review", [corner_clip(**changes)], template=rectangular_template())
+
+
 def test_thickness_alternatives_keep_options_state_and_input_untouched():
     value = {"state": "options", "options": [2, {"state": "known", "value": 4}], "note": "Source readings"}
     before = copy.deepcopy(value)

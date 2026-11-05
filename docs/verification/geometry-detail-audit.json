@@ -1,0 +1,1535 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-11-05T15:27:06.758918+00:00",
+  "actor": "Codex geometry_detail_audit subagent",
+  "review_kind": "AI technical audit only; no engineering disposition or human approval",
+  "approval_state": "Delegated approvals paused by user; this file authors no approvals",
+  "scope": {
+    "drawings": 30,
+    "pages_inspected": 33,
+    "shipped_modeled_drawings": 9,
+    "shipped_examples": 12,
+    "method": "Read-only visual inspection of existing original fullpage PNGs using view_image, and static inspection of templates, manifest and builder. No local CAD generation, rendering, tests or browser used. Models assessed from exact input features and shipped manifest rather than a newly rendered visual."
+  },
+  "source_snapshots": {
+    "generated/models/manifest.json": "52b9a31108edae7347e28e48f2bed168a005ddb7574100f7dc9993e4e24b5169",
+    "generated/ai_results.json": "2d24d1277d75737d6da5360080ad341a145aa6651ac685e5ab3af827d0bcf274",
+    "generated/drawings.json": "d10cc1f73af4b07ecc86ba63a7fc5a70d027b4e8cfdc9dd1056cbeef57bd8a82",
+    "backend/cad/builder.py": "cbd7f288cd0033ccaa6816034aa272f4d42cd88caee0e292695b930e82d28fb6"
+  },
+  "baseline_builder": "flat-part-13",
+  "rules": {
+    "mvp": "mvp.md lines8,112,123: keep independently supported cuts, unknown essential geometry blocks generation, no bounding-box substitutions; current supported outlines rectangle/circle/ring and hole/slot cuts.",
+    "proposal": "proposal.md B5 lines938-985 includes corners, side faces and pockets in full design, but mvp.md wins over proposal. Path grooves, bent/welded pieces and bonus revolved profiles require explicit scope extension.",
+    "inference": "No geometry measured from pixels. Pattern/symmetry interpretations must be marked as such. Scan values must acquire page/image-grounded facts through fresh Sol proposer then Opus verifier; absence of parsed number ID is ingestion state, not proof the dimension is unprinted."
+  },
+  "critical_actions": [
+    "Implement D-012 side-axis holes and D-017 four dimensioned corner clips, then freshly prepare their exact feature proposals and verify against originals.",
+    "Consider exact rounded/capsule outline support for D-016 and D-028; both have dimensioned nominal geometry without inventing contour.",
+    "Repair scan geometry ingestion for D-003/D-011/D-020/D-023 before claiming numbers are unavailable solely because PDF contains no text.",
+    "Do not fabricate holes for D-015/D-019/D-017 where coordinates are genuinely unprinted.",
+    "Preserve independent supported primary bores for D-02615mm conflict; all counterbores for25mm.",
+    "Do not turn D-020R65.5 hole radius into groove radius; establish the section datums first."
+  ],
+  "shipped_models": [
+    {
+      "part": "D-012",
+      "page": 1,
+      "image": "generated/images/D-012-p1.png",
+      "summary": "Primary face holes retained; two dimensioned transverse mounting holes are absent.",
+      "source_sha256": "23ba5d97ee7a744cf12072e1338ab62fa5e49c09c5229af4f20a6ff5a455f64a",
+      "examples": [
+        "A"
+      ],
+      "current_outline": {
+        "state": "known",
+        "type": "rectangle",
+        "length": {
+          "state": "known",
+          "value": 25,
+          "confidence": "sure",
+          "method": "ai_verified",
+          "fact_ids": [
+            "D-012/drawing/n/25.0@1-1"
+          ],
+          "note": "X is horizontal in the main face-on view; its overall dimension is 25,0, with tolerance +0,1/-0,5. Verification: The horizontal overall dimension of the main view is 25,0 with tolerance +0,1/-0,5 (D-012/drawing/n/0.1@1-1 and n/0.5@1-1). The nominal X length is 25."
+        },
+        "width": {
+          "state": "known",
+          "value": 120,
+          "confidence": "sure",
+          "method": "ai_verified",
+          "fact_ids": [
+            "D-012/drawing/n/120.0@1-1"
+          ],
+          "note": "Y is vertical in the main face-on view; its overall dimension is 120,0. Verification: The vertical overall dimension of the main view is 120,0, and its extension lines span the full body height. Y = 120."
+        }
+      },
+      "current_thickness": {
+        "state": "known",
+        "value": 15,
+        "confidence": "sure",
+        "method": "ai_verified",
+        "fact_ids": [
+          "D-012",
+          "D-012/drawing/n/15.0@1-1"
+        ]
+      },
+      "current_build_operations": {
+        "A": [
+          {
+            "name": "Feature 1 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "face": "top"
+          },
+          {
+            "name": "Feature 2 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "face": "top"
+          }
+        ]
+      },
+      "manifest_omissions": [
+        "Two transverse holes: 2 x 5,0 THRU ALL, M6 - 6H THRU ALL.: The narrow orthographic view and corresponding hidden lines in the main view establish a second hole pair entering a side face, perpendicular to the main-face hole axes. The printed 30,0 offset concerns this pair. Their transverse cutting direction cannot be represented by the template's top/bottom holes; rotating them into Z would change the design.",
+        "DEBURR AND BREAK SHARP EDGES: The note requires edge finishing but supplies no edge-break size or profile, so no numerical finishing cut can be modeled."
+      ],
+      "findings": [
+        {
+          "feature": "Transverse pair of M6 holes",
+          "original_observation": "Narrow left orthographic view calls out 2 x diameter5.0 THRU ALL / M6-6H THRU ALL. Printed30.0 locates upper center above mid-height; lower is mirrored. Both centers lie on the narrow-face centerline. Corresponding hidden lines occur in main view.",
+          "dimension_support": "Diameter5, count2, through operation,30 offset,15 thickness and centerline support a nominal side-axis pair. Mirrored placement is drawing-pattern interpretation, not a second printed coordinate.",
+          "builder_capability": "Current flat-part-13 holes only accept top/bottom and cut along Z; cannot represent axes through25mm body width.",
+          "classification": "missing_implementation",
+          "action": "Extend rectangular side-axis cuts. In existing XY frame use Y=+/-30 and Z=15/2, cut through X; retain explicit centerline/mirror interpretation and cosmetic M6 representation. Do not rotate holes into Z.",
+          "fact_ids": [
+            "D-012",
+            "D-012/drawing/callout/p1-2",
+            "D-012/drawing/n/30.0@1-1",
+            "D-012/drawing/n/15.0@1-1",
+            "D-012/drawing/n/5.0@1-2"
+          ],
+          "page": 1
+        },
+        {
+          "feature": "Edge breaks",
+          "original_observation": "General DEBURR AND BREAK SHARP EDGES note.",
+          "dimension_support": "No size/profile.",
+          "builder_capability": "No general edge finishing.",
+          "classification": "unresolved_source",
+          "action": "Keep omitted; no invented chamfer.",
+          "fact_ids": [
+            "D-012/drawing/general/edge_finish"
+          ],
+          "page": 1
+        }
+      ]
+    },
+    {
+      "part": "D-013",
+      "page": 1,
+      "image": "generated/images/D-013-p1.png",
+      "summary": "All14 counted main cuts are represented; clipped outline corners remain simplified.",
+      "source_sha256": "826076b03bfbaeee961dc3e57cb642c225d41f1ea9a643d0bb1ca7d296280047",
+      "examples": [
+        "A",
+        "B"
+      ],
+      "current_outline": {
+        "state": "known",
+        "type": "rectangle",
+        "length": {
+          "state": "known",
+          "value": 270.0,
+          "confidence": "sure",
+          "method": "ai_verified",
+          "fact_ids": [
+            "D-013/drawing/n/270.0@1-1"
+          ],
+          "note": "The overall horizontal dimension is 270,0 mm. Verification: The overall horizontal dimension 270,0 spans the full outline in the main view."
+        },
+        "width": {
+          "state": "known",
+          "value": 25.0,
+          "confidence": "sure",
+          "method": "ai_verified",
+          "fact_ids": [
+            "D-013/drawing/n/25.0@1-1"
+          ],
+          "note": "The overall vertical dimension is 25,0 mm. Verification: The overall vertical dimension 25,0 spans the full outline height in the main view."
+        }
+      },
+      "current_thickness": {
+        "state": "options",
+        "options": [
+          3.0,
+          6.0
+        ],
+        "confidence": "sure",
+        "method": "ai_verified",
+        "fact_ids": [
+          "D-013/drawing/n/3.0@1-1",
+          "D-013/drawing/n/6.0@1-1"
+        ]
+      },
+      "current_build_operations": {
+        "A": [
+          {
+            "name": "Feature 1 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "face": "top"
+          },
+          {
+            "name": "Feature 2 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "face": "top"
+          },
+          {
+            "name": "Feature 3 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "face": "top"
+          },
+          {
+            "name": "Feature 4 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "face": "top"
+          },
+          {
+            "name": "Feature 5 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "face": "top"
+          },
+          {
+            "name": "Feature 6 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "face": "top"
+          },
+          {
+            "name": "Feature 7 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "face": "top"
+          },
+          {
+            "name": "Feature 8 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "face": "top"
+          },
+          {
+            "name": "Feature 9 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "face": "top"
+          },
+          {
+            "name": "Feature 10 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "face": "top"
+          },
+          {
+            "name": "Feature 11 (slot)",
+            "kind": "slot",
+            "count": 1,
+            "hole_type": null,
+            "face": "top"
+          },
+          {
+            "name": "Feature 12 (slot)",
+            "kind": "slot",
+            "count": 1,
+            "hole_type": null,
+            "face": "top"
+          },
+          {
+            "name": "Feature 13 (slot)",
+            "kind": "slot",
+            "count": 1,
+            "hole_type": null,
+            "face": "top"
+          },
+          {
+            "name": "Feature 14 (slot)",
+            "kind": "slot",
+            "count": 1,
+            "hole_type": null,
+            "face": "top"
+          }
+        ],
+        "B": [
+          {
+            "name": "Feature 1 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "face": "top"
+          },
+          {
+            "name": "Feature 2 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "face": "top"
+          },
+          {
+            "name": "Feature 3 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "face": "top"
+          },
+          {
+            "name": "Feature 4 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "face": "top"
+          },
+          {
+            "name": "Feature 5 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "face": "top"
+          },
+          {
+            "name": "Feature 6 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "face": "top"
+          },
+          {
+            "name": "Feature 7 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "face": "top"
+          },
+          {
+            "name": "Feature 8 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "face": "top"
+          },
+          {
+            "name": "Feature 9 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "face": "top"
+          },
+          {
+            "name": "Feature 10 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "face": "top"
+          },
+          {
+            "name": "Feature 11 (slot)",
+            "kind": "slot",
+            "count": 1,
+            "hole_type": null,
+            "face": "top"
+          },
+          {
+            "name": "Feature 12 (slot)",
+            "kind": "slot",
+            "count": 1,
+            "hole_type": null,
+            "face": "top"
+          },
+          {
+            "name": "Feature 13 (slot)",
+            "kind": "slot",
+            "count": 1,
+            "hole_type": null,
+            "face": "top"
+          },
+          {
+            "name": "Feature 14 (slot)",
+            "kind": "slot",
+            "count": 1,
+            "hole_type": null,
+            "face": "top"
+          }
+        ]
+      },
+      "manifest_omissions": [
+        "Four visible outline corner chamfers: The main view shows clipped corners, but no numerical chamfer setbacks or angles establish their geometry. They are outside the supported hole/slot subset; the rectangular outline retains the overall envelope.",
+        "DEBURR AND BREAK SHARP EDGES: The note supplies no numerical edge-break size or profile from which to construct a cut."
+      ],
+      "findings": [
+        {
+          "feature": "Four clipped outline corners",
+          "original_observation": "Main face has four clipped corners. Side view repeats small clipped regions; no numerical corner setback/angle accompanies them.",
+          "dimension_support": "No printed clip size;270x25 envelope is dimensioned.",
+          "builder_capability": "Rectangle sharp corners only in baseline builder.",
+          "classification": "unresolved_source",
+          "action": "Retain explicit omitted corner detail; cannot supply a clip size from pixels.",
+          "fact_ids": [
+            "D-013"
+          ],
+          "page": 1
+        },
+        {
+          "feature": "Thread geometry and edge finishing",
+          "original_observation": "8xM3/diameter2.5 and2xM5/diameter4.2 plus4 slots5.5x10 are printed. Threads are represented as drill bores.",
+          "dimension_support": "Drill sizes and counts supported; helical geometry intentionally omitted. Deburr size absent.",
+          "builder_capability": "Hole and slot cuts plus cosmetic threads supported.",
+          "classification": "documented_representation_limit",
+          "action": "Retain14 physical openings and current provenance. Keep mirrored row placement explicitly interpreted; no reason to replace supported cuts with blanks.",
+          "fact_ids": [
+            "D-013/drawing/callout/p1-1",
+            "D-013/drawing/callout/p1-2",
+            "D-013/drawing/callout/p1-3",
+            "D-013/drawing/general/edge_finish"
+          ],
+          "page": 1
+        }
+      ]
+    },
+    {
+      "part": "D-014",
+      "page": 1,
+      "image": "generated/images/D-014-p1.png",
+      "summary": "All18 physical hole operations including two reverse-face countersinks are represented; no dimensioned pocket or groove observed.",
+      "source_sha256": "0e6fa42e39eda320d42f45576a0825c5d0c002abd6863188b3c98774d52867f6",
+      "examples": [
+        "A"
+      ],
+      "current_outline": {
+        "state": "known",
+        "type": "rectangle",
+        "length": {
+          "state": "known",
+          "value": 96,
+          "confidence": "sure",
+          "method": "ai_verified",
+          "fact_ids": [
+            "D-014/drawing/n/96.0@1-1"
+          ],
+          "note": "The horizontal overall dimension of the main view is 96,0 millimetres, along X. Verification: 96,0 is the horizontal overall dimension across the full width of the right main view, which is X."
+        },
+        "width": {
+          "state": "known",
+          "value": 167,
+          "confidence": "sure",
+          "method": "ai_verified",
+          "fact_ids": [
+            "D-014/drawing/n/167.0@1-1"
+          ],
+          "note": "The vertical overall dimension of the main view is 167,0 millimetres, along Y. Verification: 167,0 is the vertical overall dimension on the right side of the main view, spanning the top and bottom edges, which is Y."
+        }
+      },
+      "current_thickness": {
+        "state": "known",
+        "value": 8,
+        "confidence": "sure",
+        "method": "ai_verified",
+        "fact_ids": [
+          "D-014",
+          "D-014/drawing/n/8.0@1-3"
+        ]
+      },
+      "current_build_operations": {
+        "A": [
+          {
+            "name": "Feature 1 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "face": "top"
+          },
+          {
+            "name": "Feature 2 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "face": "top"
+          },
+          {
+            "name": "Feature 3 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "countersunk",
+            "face": "top"
+          },
+          {
+            "name": "Feature 4 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "countersunk",
+            "face": "top"
+          },
+          {
+            "name": "Feature 5 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "countersunk",
+            "face": "top"
+          },
+          {
+            "name": "Feature 6 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "countersunk",
+            "face": "top"
+          },
+          {
+            "name": "Feature 7 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "face": "top"
+          },
+          {
+            "name": "Feature 8 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "face": "top"
+          },
+          {
+            "name": "Feature 9 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "countersunk",
+            "face": "bottom"
+          },
+          {
+            "name": "Feature 10 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "countersunk",
+            "face": "bottom"
+          },
+          {
+            "name": "Feature 11 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "face": "top"
+          },
+          {
+            "name": "Feature 12 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "face": "top"
+          },
+          {
+            "name": "Feature 13 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "countersunk",
+            "face": "top"
+          },
+          {
+            "name": "Feature 14 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "countersunk",
+            "face": "top"
+          },
+          {
+            "name": "Feature 15 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "countersunk",
+            "face": "top"
+          },
+          {
+            "name": "Feature 16 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "countersunk",
+            "face": "top"
+          },
+          {
+            "name": "Feature 17 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "face": "top"
+          },
+          {
+            "name": "Feature 18 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "face": "top"
+          }
+        ]
+      },
+      "manifest_omissions": [
+        "DEBURR AND BREAK SHARP EDGES: The general note specifies edge finishing without a break size or profile. That unspecified edge-break geometry is omitted from the nominal rectangular body and supported hole cuts."
+      ],
+      "findings": [
+        {
+          "feature": "Reverse-face countersinks",
+          "original_observation": "Left opposite face calls out2xdiameter6.6 THRU withdiameter14.4x90 countersinks; right face8xdiameter6.6 withdiameter13.4x90.",
+          "dimension_support": "Opposite face reflection matters. Current model has two bottom countersinks atX12.5,Y-53.5/6.5 and eight top countersinks.8M5/diameter4.2 complete18 holes.",
+          "builder_capability": "Supports top/bottom countersinks.",
+          "classification": "retained_feature_check",
+          "action": "Fresh verifier explicitly verify opposite-face X reflection and opening faces and count18; keep steps, do not suppress them as uncertainty. Only general undimensioned deburring omitted.",
+          "fact_ids": [
+            "D-014",
+            "D-014/drawing/callout/p1-1",
+            "D-014/drawing/callout/p1-2",
+            "D-014/drawing/callout/p1-3",
+            "D-014/drawing/callout/p1-4",
+            "D-014/drawing/callout/p1-5"
+          ],
+          "page": 1
+        }
+      ]
+    },
+    {
+      "part": "D-015",
+      "page": 1,
+      "image": "generated/images/D-015-p1.png",
+      "summary": "Current model is a blank270x14x1 strip; all eight printed holes are absent for missing locating dimensions.",
+      "source_sha256": "0828f6fee0d3bc087524df08c8b3fbadc5201212e5f86fcfc08b984fe9e32c60",
+      "examples": [
+        "A"
+      ],
+      "current_outline": {
+        "state": "known",
+        "type": "rectangle",
+        "length": {
+          "state": "known",
+          "value": 270,
+          "confidence": "sure",
+          "method": "ai_verified",
+          "fact_ids": [
+            "D-015/drawing/n/270.0@1-1",
+            "D-015/drawing/general/units"
+          ],
+          "note": "The horizontal overall dimension is 270,0 mm. Verification: The horizontal overall dimension 270,0 runs between the left and right outline edges of the main view. Units are millimetres."
+        },
+        "width": {
+          "state": "known",
+          "value": 14,
+          "confidence": "sure",
+          "method": "ai_verified",
+          "fact_ids": [
+            "D-015/drawing/n/14.0@1-1",
+            "D-015/drawing/general/units"
+          ],
+          "note": "The vertical overall dimension of the main view is 14,0 mm. Verification: The vertical dimension 14,0 on the right of the main view runs between the top and bottom edges of the strip."
+        }
+      },
+      "current_thickness": {
+        "state": "known",
+        "value": 1,
+        "confidence": "sure",
+        "method": "ai_verified",
+        "fact_ids": [
+          "D-015/drawing/n/1.0@1-1",
+          "D-015/drawing/notes",
+          "D-015/drawing/general/units"
+        ]
+      },
+      "current_build_operations": {
+        "A": []
+      },
+      "manifest_omissions": [
+        "8 x 3,4 THRU ALL holes: The count, diameter and through operation are established, but the drawing provides no hole-center coordinates, row pitch, end offsets or transverse offset. The visible row cannot establish numeric positions.",
+        "DEBURR AND BREAK SHARP EDGES: The general edge-finish note supplies no edge-break size or profile, so this detail cannot be modeled."
+      ],
+      "findings": [
+        {
+          "feature": "Eight through holes",
+          "original_observation": "Original shows8xdiameter3.4 THRU ALL in a row. Only length270,width14,thickness1 are printed.",
+          "dimension_support": "Hole count/type/diameter known; no numeric transverse offset, end offset or pitch printed. D-013 mating geometry cannot silently become D-015 source.",
+          "builder_capability": "Through holes/row patterns supported if positions known.",
+          "classification": "unresolved_source",
+          "action": "Record known8x3.4 and unknown positions separately; retain explicit partial geometry or unavailable status per product policy, never invent row pitch from pixels.",
+          "fact_ids": [
+            "D-015",
+            "D-015/drawing/callout/p1-1",
+            "D-015/drawing/n/3.4@1-1"
+          ],
+          "page": 1
+        }
+      ]
+    },
+    {
+      "part": "D-017",
+      "page": 1,
+      "image": "generated/images/D-017-p1.png",
+      "summary": "Current180x110x10 body has only located42mm through bore;14 smaller holes and four dimensioned corner clips are absent.",
+      "source_sha256": "a460ab37d94f2d8f4c9bac58da15ea9d1e93b4f48ee0825e51adac0ec81f37ae",
+      "examples": [
+        "A"
+      ],
+      "current_outline": {
+        "state": "known",
+        "type": "rectangle",
+        "length": {
+          "state": "known",
+          "value": 180,
+          "confidence": "sure",
+          "method": "ai_verified",
+          "fact_ids": [
+            "D-017",
+            "D-017/drawing/n/180.0@1-1",
+            "D-017/drawing/n/0.01@1-1",
+            "D-017/drawing/n/0.06@1-1"
+          ],
+          "note": "The overall horizontal dimension is 180,00 mm with stacked deviations -0,01 and -0,06. The template records the nominal dimension. Verification: The overall horizontal dimension leader spans the plate's full width and reads 180,00 with deviations -0,01 and -0,06. The proposal records the nominal 180."
+        },
+        "width": {
+          "state": "known",
+          "value": 110,
+          "confidence": "sure",
+          "method": "ai_verified",
+          "fact_ids": [
+            "D-017",
+            "D-017/drawing/n/110.0@1-1"
+          ],
+          "note": "The right-hand overall vertical dimension is 110,0 mm. Verification: The overall vertical dimension on the right side spans the plate's full height and reads 110,0."
+        }
+      },
+      "current_thickness": {
+        "state": "known",
+        "value": 10,
+        "confidence": "sure",
+        "method": "ai_verified",
+        "fact_ids": [
+          "D-017",
+          "D-017/drawing/n/10.0@1-1"
+        ]
+      },
+      "current_build_operations": {
+        "A": [
+          {
+            "name": "Feature 1 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "plain",
+            "face": "top"
+          }
+        ]
+      },
+      "manifest_omissions": [
+        "Four countersunk holes: 4x Ø5,5 THRU, Ø10,8 X 90°: The count, primary diameter, through operation and countersink dimensions are printed, but no locating dimensions or dimensioned pattern establish the four centers. Their apparent layout cannot supply missing coordinates.",
+        "Eight M5 threaded holes: The image contains the 8x M5 callout, but the hole centers lack locating dimensions. A separate drill diameter and thread depth or explicit through-thread specification are also absent; none is inferred from M5.",
+        "Two Ø6,0 H7 holes: Both holes are identified as Ø6,0 H7 and lie on the bore-center horizontal line, but their horizontal center coordinates are not dimensioned. No printed pitch or offset establishes their placement.",
+        "Four small outer-corner chamfers, 4x1,0 X 45°: The leader identifies small corner edge breaks. The rectangle/hole/slot template cannot reproduce these chamfers; they are explicitly omitted from the otherwise dimensioned rectangular body.",
+        "Additional bore-edge and general sharp-edge treatment: The close concentric outlines at the Ø42,00 opening and the DEBURR AND BREAK SHARP EDGES note do not independently establish an additional step diameter, depth or angle. Only the supported primary bore is modeled; unspecified edge treatment is omitted."
+      ],
+      "findings": [
+        {
+          "feature": "Four outer corner chamfers",
+          "original_observation": "Leader4x1.0x45 degrees points to outer outline corner; top view and isometric show clipped outline corners.",
+          "dimension_support": "Count4,size1mm,angle45 degrees are printed; actual1mm token was not independently parsed as a number fact.",
+          "builder_capability": "Baseline builder cannot clip rectangle corners.",
+          "classification": "missing_implementation",
+          "action": "Add exact through-thickness corner clips, cite fullpage plus angle fact; do not confuse with unspecified all-edge chamfer.",
+          "fact_ids": [
+            "D-017",
+            "D-017/drawing/n/45.0@1-1"
+          ],
+          "page": 1
+        },
+        {
+          "feature": "Four countersunk through holes",
+          "original_observation": "4xdiameter5.5 THRU /diameter10.8x90 callout; visible four-hole layout.",
+          "dimension_support": "Count,diameters andangle known; centers unlocated numerically.",
+          "builder_capability": "Countersink supported; coordinates missing.",
+          "classification": "unresolved_source",
+          "action": "Keep dimensions in inventory and unknown center placement. No pixel-derived centers.",
+          "fact_ids": [
+            "D-017",
+            "D-017/drawing/callout/p1-1",
+            "D-017/drawing/callout/p1-2"
+          ],
+          "page": 1
+        },
+        {
+          "feature": "Eight M5 holes",
+          "original_observation": "8xM5 label points to smaller holes.",
+          "dimension_support": "No printed drilling diameter/depth or numeric centers; M5 label cannot be converted to an arbitrary drill size.",
+          "builder_capability": "Cosmetic threads require supplied drill diameter.",
+          "classification": "unresolved_source",
+          "action": "Keep unresolved rather than assuming standard tap drill and measured positions.",
+          "fact_ids": [
+            "D-017"
+          ],
+          "page": 1
+        },
+        {
+          "feature": "Two6H7 holes and close bore outlines",
+          "original_observation": "Two diameter6.0H7 holes share42bore horizontal centerline; neither X position is dimensioned. Close concentric bore lines do not specify recess dimensions.",
+          "dimension_support": "Hole diameter known; X positions absent. Additional bore step/chamfer size absent.",
+          "builder_capability": "Plain bore supported; unsupported step parameters unavailable.",
+          "classification": "unresolved_source",
+          "action": "Keep6mm centers and bore-edge treatment unknown. Do not invent a counterbore from close circles.",
+          "fact_ids": [
+            "D-017",
+            "D-017/drawing/n/6.0@1-1",
+            "D-017/drawing/n/6.0@1-2",
+            "D-017/drawing/n/42.0@1-1"
+          ],
+          "page": 1
+        }
+      ]
+    },
+    {
+      "part": "D-019",
+      "page": 1,
+      "image": "generated/images/D-019-p1.png",
+      "summary": "Current141/118x1 ring is missing all six printed through holes because hole-circle radius is unprinted.",
+      "source_sha256": "581fbaf7562ac75008243463af6956d6f88cd6a0a858cf6c22aa62ce39041e11",
+      "examples": [
+        "A"
+      ],
+      "current_outline": {
+        "state": "known",
+        "type": "ring",
+        "outer_diameter": {
+          "state": "known",
+          "value": 141.0,
+          "confidence": "sure",
+          "method": "ai_verified",
+          "fact_ids": [
+            "D-019/drawing/n/141.0@1-1"
+          ],
+          "note": "The Ø141,0 dimension in the main view identifies the outer circular boundary. Dimensions are in millimetres. Verification: In the main view, the Ø141,0 leader ends on the outermost circle. The units note says dimensions are in millimetres, so the outer diameter is 141.0 mm."
+        },
+        "inner_diameter": {
+          "state": "known",
+          "value": 118.0,
+          "confidence": "sure",
+          "method": "ai_verified",
+          "fact_ids": [
+            "D-019/drawing/n/118.0@1-1"
+          ],
+          "note": "The Ø118,0 dimension in the main view identifies the inner circular boundary. Dimensions are in millimetres. Verification: In the main view, the Ø118,0 leader ends on the inner circle of the opening, so the inner diameter is 118.0 mm."
+        }
+      },
+      "current_thickness": {
+        "state": "known",
+        "value": 1.0,
+        "confidence": "sure",
+        "method": "ai_verified",
+        "fact_ids": [
+          "D-019/drawing/n/1.0@1-1",
+          "D-019/drawing/notes"
+        ]
+      },
+      "current_build_operations": {
+        "A": []
+      },
+      "manifest_omissions": [
+        "6 x Ø4,5 THRU ALL holes: The printed count, diameter and through operation are established. The circular layout is visible, but no pitch-circle diameter, hole-center radius or equivalent locating dimensions are printed. The outer and inner diameters do not establish the hole-center radius, so these holes cannot be positioned without guessing.",
+        "DEBURR AND BREAK SHARP EDGES: The finishing note specifies no edge-break size or profile, so no explicit chamfer or rounding cut can be modeled."
+      ],
+      "findings": [
+        {
+          "feature": "Six4.5mm through holes",
+          "original_observation": "6xdiameter4.5THRU ALL; visible pitch circle has no diameter/radius dimension.",
+          "dimension_support": "Outer141 andinner118 do not determine hole radius. Centerline anchors may establish angles but not radius.",
+          "builder_capability": "Circular through-hole patterns supported.",
+          "classification": "unresolved_source",
+          "action": "Retain known count/diameter and unresolved pitch radius. Do not average OD/ID or copy D-020R65.5 without source authorization.",
+          "fact_ids": [
+            "D-019",
+            "D-019/drawing/callout/p1-1",
+            "D-019/drawing/n/4.5@1-1"
+          ],
+          "page": 1
+        }
+      ]
+    },
+    {
+      "part": "D-025",
+      "page": 1,
+      "image": "generated/images/D-025-p1.png",
+      "summary": "Eight countersunk holes retained in both thickness examples; no additional dimensioned indents observed.",
+      "source_sha256": "9b61f2c688fba1b10f502658505c78c0ff99820d3f281822eacdc7283e9b7e9c",
+      "examples": [
+        "A",
+        "B"
+      ],
+      "current_outline": {
+        "state": "known",
+        "type": "ring",
+        "outer_diameter": {
+          "state": "known",
+          "value": 250.0,
+          "confidence": "sure",
+          "method": "ai_verified",
+          "fact_ids": [
+            "D-025",
+            "D-025/drawing/n/250.0@1-1"
+          ],
+          "note": "The outer circular boundary is dimensioned Ø250,0 ±0,2, in millimetres; 250.0 is the nominal diameter. Verification: The outer circle is printed as Ø250,0 ±0,2. The nominal value is 250.0 mm."
+        },
+        "inner_diameter": {
+          "state": "known",
+          "value": 224.0,
+          "confidence": "sure",
+          "method": "ai_verified",
+          "fact_ids": [
+            "D-025",
+            "D-025/drawing/n/224.0@1-1",
+            "D-025/drawing/n/0.3@1-1",
+            "D-025/drawing/n/0.0@1-1"
+          ],
+          "note": "The inner circular boundary is dimensioned Ø224,0 with +0,3/0,0 tolerance, in millimetres; 224.0 is the nominal diameter. Verification: The inner circle is printed as Ø224,0 with a +0,3/0,0 tolerance. The nominal value is 224.0 mm."
+        }
+      },
+      "current_thickness": {
+        "state": "options",
+        "options": [
+          2.0,
+          3.0
+        ],
+        "confidence": "sure",
+        "method": "ai_verified",
+        "fact_ids": [
+          "D-025",
+          "D-025/drawing/n/2.0@1-1",
+          "D-025/drawing/n/3.0@1-1"
+        ]
+      },
+      "current_build_operations": {
+        "A": [
+          {
+            "name": "Feature 1 (hole)",
+            "kind": "hole",
+            "count": 8,
+            "hole_type": "countersunk",
+            "face": "top"
+          }
+        ],
+        "B": [
+          {
+            "name": "Feature 1 (hole)",
+            "kind": "hole",
+            "count": 8,
+            "hole_type": "countersunk",
+            "face": "top"
+          }
+        ]
+      },
+      "manifest_omissions": [
+        "DEBURR AND BREAK SHARP EDGES: The general finishing note does not specify an edge-break size or profile, so a corresponding chamfer or rounding cut cannot be determined."
+      ],
+      "findings": [
+        {
+          "feature": "Countersunk circular pattern",
+          "original_observation": "8xdiameter3.4THRU ALL,diameter6.9x90,R115.5 andcardinal centers.",
+          "dimension_support": "Hole count andradius explicit;45degree intervals are interpreted from counted layout, not printed angular dimension. Sinkdepth1.75 fits both2and3mm.",
+          "builder_capability": "Supported.",
+          "classification": "retained_feature_check",
+          "action": "Keep8countersinks and interpreted pattern provenance. Only undimensioned general edge finish remains omitted.",
+          "fact_ids": [
+            "D-025",
+            "D-025/drawing/callout/p1-1",
+            "D-025/drawing/callout/p1-2",
+            "D-025/drawing/callout/p1-3"
+          ],
+          "page": 1
+        }
+      ]
+    },
+    {
+      "part": "D-026",
+      "page": 1,
+      "image": "generated/images/D-026-p1.png",
+      "summary": "Three primary bores retained in both examples;15.4deep counterbores intentionally absent only from15mm example.",
+      "source_sha256": "a7ee7f4d75acaf2e8fc67ce14ca223d5cb4a2931063f37f4dfb6fadeeb70256e",
+      "examples": [
+        "A",
+        "B"
+      ],
+      "current_outline": {
+        "state": "known",
+        "type": "circle",
+        "outer_diameter": {
+          "state": "known",
+          "value": 250,
+          "confidence": "sure",
+          "method": "ai_verified",
+          "fact_ids": [
+            "D-026",
+            "D-026/drawing/n/250.0@1-1"
+          ],
+          "note": "The outer circle is dimensioned Ø250,0; drawing dimensions are in millimetres. Verification: The outer circle is dimensioned Ø250,0, and the general note DIMENSIONS ARE IN MILLIMETERS gives the unit. The value 250 matches."
+        }
+      },
+      "current_thickness": {
+        "state": "options",
+        "options": [
+          15,
+          25
+        ],
+        "confidence": "sure",
+        "method": "ai_verified",
+        "fact_ids": [
+          "D-026",
+          "D-026/drawing/n/15.0@1-1",
+          "D-026/drawing/n/25.0@1-1"
+        ]
+      },
+      "current_build_operations": {
+        "A": [
+          {
+            "name": "Feature 1 (hole)",
+            "kind": "hole",
+            "count": 3,
+            "hole_type": "plain",
+            "face": "bottom"
+          }
+        ],
+        "B": [
+          {
+            "name": "Feature 1 (hole)",
+            "kind": "hole",
+            "count": 3,
+            "hole_type": "counterbored",
+            "face": "bottom"
+          }
+        ]
+      },
+      "manifest_omissions": [
+        "Ø10,0 counterbore step, depth 15,4, for the 15,0 thickness alternative: The specified depth 15,4 exceeds the 15,0 plate thickness. Skip this step only for that variant and retain the supported Ø5,3 through-hole pattern; do not clamp the depth. The counterbore remains supported for the 25,0 variant.",
+        "DEBURR AND BREAK SHARP EDGES: The general note specifies edge finishing without a numerical size or a defined chamfer or radius profile, so no dimensioned edge-removal geometry can be modeled.",
+        "Feature 1 (hole): counterbore step omitted for 15 mm thickness: documented depth 15.4 mm exceeds primary-hole depth 15 mm. Known 5.3 mm primary hole retained; step depth was not clamped. The printed counterbore depth 15,4 exceeds the documented 15,0 thickness alternative. Retain the separately dimensioned Ø5,3 THRU ALL primary holes, skip the counterbore step for the 15,0 variant, and report that omission. The 15,4-deep counterbore fits the 25,0 variant."
+      ],
+      "findings": [
+        {
+          "feature": "Counterbore depth versus thickness alternatives",
+          "original_observation": "Printed3xdiameter5.3THRU ALL /counterborediameter10depth15.4 andthickness alternatives15/25.",
+          "dimension_support": "15.4exceeds15; fits25. Three equal angular intervals are layout interpretation.",
+          "builder_capability": "Supports bottom counterbores and independent primary-hole fallback without depth clamping.",
+          "classification": "source_conflict_with_retained_primary",
+          "action": "Keep all3primaryholes in15mm example and all3counterbores in25mm. Verify opening face against hidden/visible circles; do not change15.4to15or promote one thickness silently.",
+          "fact_ids": [
+            "D-026",
+            "D-026/drawing/callout/p1-2",
+            "D-026/drawing/n/15.4@1-1",
+            "D-026/drawing/n/15.0@1-1",
+            "D-026/drawing/n/25.0@1-1"
+          ],
+          "page": 1
+        }
+      ]
+    },
+    {
+      "part": "D-027",
+      "page": 1,
+      "image": "generated/images/D-027-p1.png",
+      "summary": "All9physical bores and opposite-face steps retained; manifest12operation total counts three primary bores twice.",
+      "source_sha256": "9a270f0ddf24b173b85b6879b4fbd1ba9cf67d71cff7b13f722699699a667bcc",
+      "examples": [
+        "A"
+      ],
+      "current_outline": {
+        "state": "known",
+        "type": "ring",
+        "outer_diameter": {
+          "state": "known",
+          "value": 330,
+          "confidence": "sure",
+          "method": "ai_verified",
+          "fact_ids": [
+            "D-027",
+            "D-027/drawing/n/330.0@1-1"
+          ],
+          "note": "The Ø330,0 leader identifies the outer circular boundary. Dimensions are in millimeters. Verification: In the left face view, the Ø330,0 leader ends on the outer circle. The drawing note states that dimensions are in millimetres."
+        },
+        "inner_diameter": {
+          "state": "known",
+          "value": 264,
+          "confidence": "sure",
+          "method": "ai_verified",
+          "fact_ids": [
+            "D-027",
+            "D-027/drawing/n/264.0@1-1",
+            "D-027/drawing/n/0.081@1-1",
+            "D-027/drawing/n/0.0@1-2"
+          ],
+          "note": "The inner circular boundary is dimensioned Ø264,0 H8, with +0,081/0,000 tolerance. The nominal diameter is 264 mm. Verification: In the left face view, the Ø264,0 H8 leader (+0,081/0,000) ends on the inner circle. The nominal diameter is 264."
+        }
+      },
+      "current_thickness": {
+        "state": "known",
+        "value": 15,
+        "confidence": "sure",
+        "method": "ai_verified",
+        "fact_ids": [
+          "D-027",
+          "D-027/drawing/n/15.0@1-1"
+        ]
+      },
+      "current_build_operations": {
+        "A": [
+          {
+            "name": "Feature 1 (hole)",
+            "kind": "hole",
+            "count": 6,
+            "hole_type": "plain",
+            "face": "top"
+          },
+          {
+            "name": "Feature 2 (hole)",
+            "kind": "hole",
+            "count": 3,
+            "hole_type": "countersunk",
+            "face": "top"
+          },
+          {
+            "name": "Feature 3 (hole)",
+            "kind": "hole",
+            "count": 3,
+            "hole_type": "counterbored",
+            "face": "bottom"
+          }
+        ]
+      },
+      "manifest_omissions": [
+        "Undimensioned edge breaks specified by DEBURR AND BREAK SHARP EDGES.: The note supplies no edge-break size or profile. Retain the nominal ring and supported holes without inventing chamfer geometry."
+      ],
+      "findings": [
+        {
+          "feature": "Opposite-face countersink/counterbore on same3holes",
+          "original_observation": "Left face3xdiameter11THRU/diameter24.4x90; right face3xcounterborediameter20H7depth4. Six additionaldiameter9THRU holes.60/120degree annotations.",
+          "dimension_support": "Steps andholepattern dimensions printed.",
+          "builder_capability": "Supports both faces; repeated11mmprimary cuts intentional.",
+          "classification": "retained_feature_check",
+          "action": "Verify9physicalbores:6plain+3withtopcountersink/bottomcounterbore. Do not report12distinctholes or omit bottomrecess. Undimensioned deburring remains omitted.",
+          "fact_ids": [
+            "D-027",
+            "D-027/drawing/callout/p1-1",
+            "D-027/drawing/callout/p1-2",
+            "D-027/drawing/callout/p1-3",
+            "D-027/drawing/callout/p1-4",
+            "D-027/drawing/n/20.0@1-1",
+            "D-027/drawing/n/4.0@1-1"
+          ],
+          "page": 1
+        }
+      ]
+    }
+  ],
+  "unsupported_drawings": [
+    {
+      "part": "D-001",
+      "pages": [
+        1
+      ],
+      "images": [
+        "generated/images/D-001-p1.png"
+      ],
+      "original_observation": "Door frame with rounded exterior corners and a rectangular window; degraded scan.",
+      "dimensioned_geometry": "492 x 515 x 3 envelope; 287 x 200 opening; counted hole diameter callouts.",
+      "remaining_source_uncertainty": "Exterior and opening corner radii, opening position and hole positions are unprinted. Essential contour is not exact.",
+      "classification": "outside_current_subset",
+      "action": "Retain legible dimensions as scan facts. Do not replace the rounded outline with a sharp box or locate the window using pixels.",
+      "fact_ids": [
+        "D-001"
+      ]
+    },
+    {
+      "part": "D-002",
+      "pages": [
+        1
+      ],
+      "images": [
+        "generated/images/D-002-p1.png"
+      ],
+      "original_observation": "Bent left wall with flanges and a rectangular opening.",
+      "dimensioned_geometry": "775 x 578.9 envelope, 23 flange, 2 sheet thickness, 286 x 36 opening.",
+      "remaining_source_uncertainty": "Bend radius/allowance, opening position and many hole centers are absent.",
+      "classification": "outside_current_subset",
+      "action": "Keep unavailable under flat MVP; retain opening dimensions separately from unknown bent-body geometry.",
+      "fact_ids": [
+        "D-002"
+      ]
+    },
+    {
+      "part": "D-003",
+      "pages": [
+        1,
+        2,
+        3
+      ],
+      "images": [
+        "generated/images/D-003-p1.png",
+        "generated/images/D-003-p2.png",
+        "generated/images/D-003-p3.png"
+      ],
+      "original_observation": "Main platform with central stepped bore, two wide cutouts and blind threaded holes; three scan pages.",
+      "dimensioned_geometry": "Page 1: 600 x 775 x 20 slab; R3 exterior corner callout; diameter 252 through opening and diameter 262 H8 recess, depth 10 (+0.05/0), in section A-A. Two 270 x 40 cutouts, located vertically 255.5 and 250 from the bore horizontal axis. Pages 2/3 give tagged blind drill diameters, depths and counts.",
+      "remaining_source_uncertainty": "Bore-to-outer-body datum is not explicitly dimensioned in a way established by this audit. Slot horizontal centering is a symmetry interpretation; their visible corner radii are unprinted. R3 is led to one exterior corner; all-corner application needs explicit interpretation. Tagged hole centers are unlocated. Parsed number facts are absent because these are scans.",
+      "classification": "dimensioned_recess_plus_ingestion_and_implementation_gaps",
+      "action": "Prioritize image-grounded scan facts and exact section mapping in fresh prep. The diameter 262 x 10 recess has printed dimensions; absence of a parsed number ID is an ingestion limitation. Rounded exterior outline and rectangular cutouts need builder support. Establish each necessary datum before generating and omit independently unlocated holes.",
+      "fact_ids": [
+        "D-003"
+      ]
+    },
+    {
+      "part": "D-004",
+      "pages": [
+        1
+      ],
+      "images": [
+        "generated/images/D-004-p1.png"
+      ],
+      "original_observation": "Bent top plate with side flanges and a large circular opening.",
+      "dimensioned_geometry": "775 x 650 x 3; 25 flange; diameter 120 and diameter 24 openings.",
+      "remaining_source_uncertainty": "Opening and hole positions, bend details are incomplete.",
+      "classification": "outside_current_subset",
+      "action": "Keep outside flat MVP; do not flatten the formed body.",
+      "fact_ids": [
+        "D-004"
+      ]
+    },
+    {
+      "part": "D-005",
+      "pages": [
+        1
+      ],
+      "images": [
+        "generated/images/D-005-p1.png"
+      ],
+      "original_observation": "Window clamp frame with two O-ring grooves, a window ledge, blind M4 holes and corner reliefs.",
+      "dimensioned_geometry": "323 x 236 x 8.2; ledge 297.2 x 210.2; opening 286.7 x 199.7; Detail B has 3.3 and 2.0 dimensions for the groove section; 3 x 45 degrees external treatment; 20 x diameter 3.3 drill depth 6 / M4 thread depth 4.",
+      "remaining_source_uncertainty": "Plan-view corner radii, groove path positions, corner relief profile and hole center coordinates are incomplete. Maximum bottom radius 0.5 is a bound, not an exact radius. Relief note says resize as needed.",
+      "classification": "dimensioned_groove_cross_section_with_unresolved_path",
+      "action": "Retain cross-section dimensions separately. Width/depth alone do not define the complete groove path. Do not generate a complete frame from an invented rectangular ring.",
+      "fact_ids": [
+        "D-005",
+        "D-005/drawing/n/3.3@1-2",
+        "D-005/drawing/n/2.0@1-1"
+      ]
+    },
+    {
+      "part": "D-006",
+      "pages": [
+        1
+      ],
+      "images": [
+        "generated/images/D-006-p1.png"
+      ],
+      "original_observation": "Canister wall formed in mirrored left/right versions.",
+      "dimensioned_geometry": "420 height, 243.5 width, 3 sheet thickness, 50 flange.",
+      "remaining_source_uncertainty": "Essential lower contour and bend geometry are unlocated.",
+      "classification": "outside_current_subset",
+      "action": "Keep unavailable; no traced custom outline.",
+      "fact_ids": [
+        "D-006"
+      ]
+    },
+    {
+      "part": "D-007",
+      "pages": [
+        1
+      ],
+      "images": [
+        "generated/images/D-007-p1.png"
+      ],
+      "original_observation": "Stepped dispenser shaft with three curved longitudinal grooves having triangular cross-sections.",
+      "dimensioned_geometry": "Main diameter 25 x 269.5; diameter 8 shafts extending 29 and 37.6; total 336.1; groove section 90 degrees and 2.3; three grooves 120 degrees apart; end chamfers 1 x 45 degrees.",
+      "remaining_source_uncertainty": "Curve path law and longitudinal end geometry are not quantified. These are not straight constant cuts.",
+      "classification": "dimensioned_groove_cross_section_with_unresolved_path",
+      "action": "Preserve printed section facts. Revolved body and curved sweeps exceed MVP; do not invent a sweep path.",
+      "fact_ids": [
+        "D-007"
+      ]
+    },
+    {
+      "part": "D-008",
+      "pages": [
+        1
+      ],
+      "images": [
+        "generated/images/D-008-p1.png"
+      ],
+      "original_observation": "Formed powder bracket with a slot and weld nuts.",
+      "dimensioned_geometry": "349 overall, 310 main span, 134 depth, 61.8 height; 2/3 sheet options.",
+      "remaining_source_uncertainty": "Essential custom edge/bend geometry and slot length/position are incomplete.",
+      "classification": "outside_current_subset",
+      "action": "Keep unavailable under flat MVP.",
+      "fact_ids": [
+        "D-008"
+      ]
+    },
+    {
+      "part": "D-009",
+      "pages": [
+        1
+      ],
+      "images": [
+        "generated/images/D-009-p1.png"
+      ],
+      "original_observation": "Welded powder canister; degraded scan.",
+      "dimensioned_geometry": "230 x 395 main envelope; width 270 maximum between walls; printed hole callouts.",
+      "remaining_source_uncertainty": "Wall thickness is explicitly a free choice, as thin as possible. Essential panel transitions and flange geometry are incomplete.",
+      "classification": "outside_current_subset",
+      "action": "Do not select a wall gauge or replace the assembly with a solid box. No eligible exact flat body is established.",
+      "fact_ids": [
+        "D-009"
+      ]
+    },
+    {
+      "part": "D-010",
+      "pages": [
+        1
+      ],
+      "images": [
+        "generated/images/D-010-p1.png"
+      ],
+      "original_observation": "Bent motor plate with opposing flanges.",
+      "dimensioned_geometry": "107 x 70 main envelope, 2 sheet thickness, 15/30 flanges, diameter 22.1 opening.",
+      "remaining_source_uncertainty": "Bend radii and hole centers are not fully located.",
+      "classification": "outside_current_subset",
+      "action": "Keep outside flat MVP; a printed bore diameter does not establish a complete body.",
+      "fact_ids": [
+        "D-010"
+      ]
+    },
+    {
+      "part": "D-011",
+      "pages": [
+        1
+      ],
+      "images": [
+        "generated/images/D-011-p1.png"
+      ],
+      "original_observation": "Rounded L-shaped recoater arm with constant extrusion thickness; degraded scan.",
+      "dimensioned_geometry": "348 x 195 envelope; 25 arm width; R35 inner and R60 outer turn; 12/15 thickness options; 2 x diameter 6.6 and 4 x diameter 4.2/M5 through holes; row pitch 82, end offset 10.5, transverse offset 8; other pair offsets 20/80.",
+      "remaining_source_uncertainty": "No parsed number facts because scan; custom curved L outline is unsupported by current subset.",
+      "classification": "dimensioned_outline_missing_implementation",
+      "action": "Candidate for an explicitly authorized custom outline extension. Fresh image-grounded prep can verify the dimensioned nominal L profile and located cuts without tracing pixels.",
+      "fact_ids": [
+        "D-011"
+      ]
+    },
+    {
+      "part": "D-016",
+      "pages": [
+        1
+      ],
+      "images": [
+        "generated/images/D-016-p1.png"
+      ],
+      "original_observation": "Flat plate with two rounded lower corners and a large located through bore.",
+      "dimensioned_geometry": "200 x 283.5 x 10; lower R15 corners; diameter 145 bore centered on vertical axis, 188.5 below top.",
+      "remaining_source_uncertainty": "Small countersunk/M6 hole centers are unlocated; an M6 drilling diameter is not printed.",
+      "classification": "dimensioned_outline_missing_implementation",
+      "action": "Add per-corner rounded outline support if scope allows. Then retain exact body plus located diameter 145 bore and list unlocated holes separately. Do not replace rounded corners with sharp ones.",
+      "fact_ids": [
+        "D-016",
+        "D-016/drawing/n/15.0@1-1",
+        "D-016/drawing/n/145.0@1-1",
+        "D-016/drawing/n/188.5@1-1"
+      ]
+    },
+    {
+      "part": "D-018",
+      "pages": [
+        1
+      ],
+      "images": [
+        "generated/images/D-018-p1.png"
+      ],
+      "original_observation": "Rounded triangular Galvo mount side with blind M4 holes on orthogonal edges.",
+      "dimensioned_geometry": "95 x 120 x 10; R15; 15 end land; 6 x M4 depth 10.1.",
+      "remaining_source_uncertainty": "Slope/corner construction and hole pitch are not fully located; drilling diameter absent.",
+      "classification": "outside_current_subset",
+      "action": "No exact body from the envelope. Side-hole capability alone does not resolve missing centers.",
+      "fact_ids": [
+        "D-018"
+      ]
+    },
+    {
+      "part": "D-020",
+      "pages": [
+        1
+      ],
+      "images": [
+        "generated/images/D-020-p1.png"
+      ],
+      "original_observation": "Seal ring with essential annular O-ring groove; degraded scan.",
+      "dimensioned_geometry": "Visible OD141, ID118.6 and thickness options 10.2/9.8. Six diameter 3.3 blind drills depth 8 / M4 depth 6 on R65.5. Section shows 5.2 (+0.2/0), 3.2 +/-0.1 and radius up to 1.",
+      "remaining_source_uncertainty": "Section dimension witness lines must be mapped to groove surfaces and its opening face. R65.5 appears to locate the hole circle; it cannot be assumed to be a groove radius. This audit does not establish the complete groove radial/axial datum. Parsed number facts are absent.",
+      "classification": "dimensioned_groove_candidate_requires_section_verification",
+      "action": "Fresh scan prep must establish inner/outer groove radius, depth, opening and datum before implementation. Current template treats absence of number IDs as absence of readable evidence, which needs ingestion repair. Retain ring and blind-hole facts separately; no fully defined groove claim.",
+      "fact_ids": [
+        "D-020"
+      ]
+    },
+    {
+      "part": "D-021",
+      "pages": [
+        1,
+        2
+      ],
+      "images": [
+        "generated/images/D-021-p1.png",
+        "generated/images/D-021-p2.png"
+      ],
+      "original_observation": "Welded blower outlet with custom curved panels and a nipple; two pages.",
+      "dimensioned_geometry": "282 length, 60 projection, 32 height and flange hole pitches 80.5.",
+      "remaining_source_uncertainty": "Sheet gauge is free choice and curved panel paths are not dimensioned.",
+      "classification": "outside_current_subset",
+      "action": "Keep outside MVP; do not invent wall gauge or panel profiles.",
+      "fact_ids": [
+        "D-021"
+      ]
+    },
+    {
+      "part": "D-022",
+      "pages": [
+        1
+      ],
+      "images": [
+        "generated/images/D-022-p1.png"
+      ],
+      "original_observation": "Welded perforated inlet box; degraded scan.",
+      "dimensioned_geometry": "162 body span, 200 flange width, 120 overall height, 62.5 depth, 100 degrees bend and diameter 3 perforations.",
+      "remaining_source_uncertainty": "Sheet gauge is free choice; perforation count/pitch and formed profile are incomplete.",
+      "classification": "outside_current_subset",
+      "action": "Keep unavailable under flat MVP.",
+      "fact_ids": [
+        "D-022"
+      ]
+    },
+    {
+      "part": "D-023",
+      "pages": [
+        1
+      ],
+      "images": [
+        "generated/images/D-023-p1.png"
+      ],
+      "original_observation": "Stepped hollow build cylinder with outer lands and an interior lead-in; degraded scan.",
+      "dimensioned_geometry": "Length 280; inner diameter 252; outer diameter 262; shoulder diameters 262.017/264.017/280; axial stations 12/21/36; 20 lead-in at 10 (+2/0) degrees; 14 section callout.",
+      "remaining_source_uncertainty": "Fresh section mapping must establish land boundaries. Marking outer faces nonfunctional does not license invented geometry.",
+      "classification": "dimensioned_stepped_profile_outside_MVP",
+      "action": "Candidate for authorized bonus revolved-profile work. Verify exact stations and section first; do not substitute a constant-thickness ring.",
+      "fact_ids": [
+        "D-023"
+      ]
+    },
+    {
+      "part": "D-024",
+      "pages": [
+        1
+      ],
+      "images": [
+        "generated/images/D-024-p1.png"
+      ],
+      "original_observation": "Stepped round build base with blind bores, recesses and exterior lands.",
+      "dimensioned_geometry": "Overall 50; diameters 224/230/250; axial 3/7/29; four diameter 10 H7 bores depth 40.5; three diameter 22 H9 recesses depth 15.5; diameter 5 H7 depth 20.5; opposite-face diameter 5 drill depth 10 and diameter 5.2 helicoil drill depth 8.2.",
+      "remaining_source_uncertainty": "Outer groove section is not fully located; some hole centers lack datums. Three diameter 22 centers need radius 70 and angle association independently checked.",
+      "classification": "dimensioned_blind_features_with_profile_gaps",
+      "action": "Inventory dimensioned blind features separately from unresolved main profile. Four diameter 10 x 40.5 are called-out bores, not necessarily counterbores. Current flat outline cannot represent the complete stepped body.",
+      "fact_ids": [
+        "D-024",
+        "D-024/drawing/n/40.5@1-1",
+        "D-024/drawing/n/22.0@1-1",
+        "D-024/drawing/n/15.5@1-1"
+      ]
+    },
+    {
+      "part": "D-028",
+      "pages": [
+        1
+      ],
+      "images": [
+        "generated/images/D-028-p1.png"
+      ],
+      "original_observation": "Pill-shaped heater element plate with three through holes.",
+      "dimensioned_geometry": "Width 11; end radii 5.5; end-center spacing 19 gives total length 30. Thickness options 2/3; center diameter 8; two end diameter 4.5 holes.",
+      "remaining_source_uncertainty": "No essential nominal gap under explicit tangency and symmetry interpretation. End-hole centers coincide with drawn endcap centers.",
+      "classification": "dimensioned_outline_missing_implementation",
+      "action": "Optional exact capsule outline candidate: centers at X +/-9.5, Y0, center bore at origin. Do not model as a sharp 30 x 11 rectangle.",
+      "fact_ids": [
+        "D-028",
+        "D-028/drawing/n/19.0@1-1",
+        "D-028/drawing/n/11.0@1-1",
+        "D-028/drawing/n/5.5@1-1",
+        "D-028/drawing/n/8.0@1-1",
+        "D-028/drawing/n/4.5@1-1"
+      ]
+    },
+    {
+      "part": "D-029",
+      "pages": [
+        1
+      ],
+      "images": [
+        "generated/images/D-029-p1.png"
+      ],
+      "original_observation": "Custom three-lobed 15mm Z-axis bottom plate with shallow counterbores.",
+      "dimensioned_geometry": "Three diameter 9 through / diameter 13 H6 counterbores depth 3; diameter 32 and diameter 34 through openings; twenty diameter 4.2/M5 through holes.",
+      "remaining_source_uncertainty": "Principal lobe curves, overall scale and hole centers are undimensioned.",
+      "classification": "dimensioned_recess_size_but_unknown_essential_outline",
+      "action": "Counterbore feature type is supported already; complete model is blocked by essential contour and placement. Preserve sizes without tracing the outline or guessing centers.",
+      "fact_ids": [
+        "D-029"
+      ]
+    },
+    {
+      "part": "D-030",
+      "pages": [
+        1
+      ],
+      "images": [
+        "generated/images/D-030-p1.png"
+      ],
+      "original_observation": "Custom three-lobed Z-axis motor plate; degraded scan.",
+      "dimensioned_geometry": "diameter 36 through; diameter 13.5 through / diameter 20 H6 counterbore depth 4; four diameter 5/M6 and four diameter 4.5 through; diameter 10.2/M12 through. The 4 +/-0.05 section dimension is local counterbore depth, not established overall thickness.",
+      "remaining_source_uncertainty": "Principal contour/scale, overall thickness and hole centers are missing.",
+      "classification": "dimensioned_recess_size_but_unknown_essential_outline",
+      "action": "Retain supported feature sizes as scan facts. Do not guess the body or use counterbore depth as plate thickness; unavailable under MVP.",
+      "fact_ids": [
+        "D-030"
+      ]
+    }
+  ],
+  "rerun_requirements": [
+    "Use gpt-6.1-sol xhigh priority/Fast as proposer and Claude Opus regular as verifier of the exact proposal fingerprint; at most one bounded feedback retry.",
+    "Prompt for a complete feature inventory first: every visible hole/recess/groove/indent/chamfer, callout, face, count, position, size, depth and source or explicit unknown.",
+    "For each omitted feature classify missing source dimension, image-ingestion limitation, source conflict, unsupported implementation or deliberate representation limit separately.",
+    "Do not treat no parsed number ID as permission to invent a new measurement. Build page-grounded scan facts only from legible printed dimensions with provenance.",
+    "Verify physical openings separately from repeated opposite-face machining operations.",
+    "No new confirm/reject or design approvals during this repair; retain legacy reader and decision receipts unchanged."
+  ],
+  "limitations": [
+    "This is an AI desk audit, not human inspection or a design approval.",
+    "D-020 section datum mapping remains uncertain and is explicitly deferred to fresh proposer/verifier inspection.",
+    "No claim of complete manufacturing CAD or tolerance/thread-form reconstruction.",
+    "Every supplied PNG inspected, but unprinted coordinates and curves remain unavailable."
+  ],
+  "implementation_followup": "CAD support agent reported side-axis holes and full-thickness corner clips implemented after this baseline audit. This artifact does not claim these changes have been remotely regenerated or verified; fresh template prep and remote CAD checks remain necessary."
+}

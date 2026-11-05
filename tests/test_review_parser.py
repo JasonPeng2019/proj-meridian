@@ -131,6 +131,59 @@ def test_actual_provider_feature_aliases_are_normalized_without_human_format_rep
     assert not store.saved
 
 
+def feature_store(store):
+    target = "D-TEST/template/features_review"
+    store.fields = {target: {"state": "unknown", "value": None}}
+    store.templates = {"D-TEST": {"outline": {"state": "known", "type": "rectangle", "length": 40, "width": 20},
+                                  "thickness": {"state": "known", "value": 4}}}
+    return target
+
+
+def test_side_hole_format_preview_preserves_explicit_xyz_and_does_not_save(store, provider):
+    target = feature_store(store)
+    feature = {"type": "hole", "face": "x_min", "center": {"x": -20, "y": 0, "z": 2},
+               "diameter": 3, "through": False, "depth": 12, "hole_type": "plain"}
+    provider[0].output_text = json.dumps({"status": "ready", "value_json": json.dumps([feature]),
+                                        "summary": "Plain side hole at (-20, 0, 2) mm, diameter 3 mm, blind depth 12 mm.", "questions": []})
+    parser = ReviewParser()
+    statement = "One plain hole on x_min at global x=-20, y=0, z=2 mm, diameter 3 mm, blind depth 12 mm."
+    result = asyncio.run(parser.parse(store, target, statement))
+    assert result["status"] == "ready" and result["value"][0]["z"]["value"] == 2
+    assert result["value"][0]["depth"]["value"] == 12
+    assert "center" not in result["value"][0] and not store.saved
+    _, provenance = parser.resolve(store, target, result["receipt"])
+    assert provenance["original_input"] == statement and provenance["purpose"] == "format_only"
+    assert len(provider[1]) == 1 and provider[1][0]["model"] == "gpt-6-luna"
+    assert "not plate thickness" in provider[1][0]["instructions"]
+
+
+def test_corner_clip_format_preview_remains_a_reviewable_unsaved_value(store, provider):
+    target = feature_store(store)
+    feature = {"kind": "corner_chamfer", "corners": ["x_min_y_min"], "x_setback": 1, "y_setback": 2}
+    provider[0].output_text = json.dumps({"status": "ready", "value_json": json.dumps([feature]),
+                                        "summary": "Full-thickness clip at x_min_y_min, setbacks X=1 mm and Y=2 mm.", "questions": []})
+    result = asyncio.run(ReviewParser().parse(store, target, "Full-thickness straight corner clip at x_min_y_min only; x setback 1 mm, y setback 2 mm."))
+    assert result["status"] == "ready" and result["value"][0]["corners"] == ["x_min_y_min"]
+    assert result["value"][0]["y_setback"]["value"] == 2
+    assert "receipt" in result and not store.saved
+    context = json.loads(provider[1][0]["input"][0]["content"])["context"]
+    assert "corner_chamfer" in context["expected"]
+
+
+@pytest.mark.parametrize("feature", [
+    {"kind": "hole", "face": "x_min", "x": -20, "y": 0, "diameter": 3, "through": True, "hole_type": "plain"},
+    {"kind": "hole", "face": "x_min", "x": -19, "y": 0, "z": 2, "diameter": 3, "through": True, "hole_type": "plain"},
+    {"kind": "corner_chamfer", "corners": ["x_min_y_min"], "x_setback": 1},
+    {"kind": "hole", "face": "x_min", "x": -20, "y": 0, "z": 2, "center": {"z": 3}},
+])
+def test_incomplete_new_feature_formats_return_clarification_without_receipt(store, provider, feature):
+    target = feature_store(store)
+    provider[0].output_text = json.dumps({"status": "ready", "value_json": json.dumps([feature]),
+                                        "summary": "Interpreted feature proposal.", "questions": []})
+    result = asyncio.run(ReviewParser().parse(store, target, "A reviewed source feature, with missing details."))
+    assert result["status"] == "needs_clarification" and "receipt" not in result and not store.saved
+
+
 @pytest.mark.parametrize("feature", [
     {"kind": "hole", "type": "slot"},
     {"kind": "hole", "x": 2, "centre": {"x": 0, "y": 0}},

@@ -129,6 +129,15 @@ def main():
     from backend.loader.records import assemble_records
     bom = json.loads((GENERATED / "bom.json").read_text(encoding="utf-8"))
     assemble_records(drawings, bom)
+    # Restore only matching shipped caches; new geometry must not masquerade as
+    # an already verified old mesh while remote reconstruction is pending.
+    from backend.app.store import Store
+    from backend.cad.builder import build_all
+    store = Store()
+    for did, template in store.templates.items():
+        template["bom_materials"] = [row["fields"]["material"] for row in store.parts[did].get("bom", [])
+                                     if row.get("fields", {}).get("material")]
+    build_all(store.templates, allow_generation=False)
     runner.write_json(folder / "summary.json", {"complete": True, "protocol": DETAIL_PROTOCOL,
                       "metrics": metrics, "decisions_unchanged": True,
                       "eligible_drawings": [did for did, a in assessments.items() if a["status"] == "ready_for_cad"]})

@@ -181,3 +181,11 @@
 .review-parsed-value { font-weight: 600; color: #2f526c; font-size: 13px; }
 .review-parsed-preview ul { padding-left: 20px; margin-top: 8px; }
 .review-save-value { margin-top: 14px; }
+
+.reconstruction-flag { display: flex; align-items: flex-start; gap: 11px; margin: 0; padding: 13px 24px; border-bottom: 1px solid #b94a51; background: #fff0f1; color: #94232d; flex-shrink: 0; font-size: 12px; line-height: 1.55; }
+.reconstruction-flag > svg { flex-shrink: 0; margin-top: 2px; }
+.reconstruction-flag strong { color: #94232d; font-size: 13px; }
+.reconstruction-flag p { margin: 2px 0 0; }
+.reconstruction-flag details { margin-top: 5px; }
+.reconstruction-flag summary { cursor: pointer; }
+.reconstruction-flag ul { margin: 7px 0; padding-left: 18px; max-height: 180px; overflow-y: auto; }

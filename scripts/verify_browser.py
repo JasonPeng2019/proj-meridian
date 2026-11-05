@@ -20,6 +20,14 @@ def verify_debug():
         page.on('pageerror',lambda e:errors.append(str(e)))
         page.goto(BASE+'/part/D-013/debug')
         page.locator('.debug-view').wait_for()
+        flag=page.get_by_role('alert',name='Reconstruction completeness warning')
+        expect(flag).to_be_visible()
+        expect(flag).to_contain_text('Incomplete 3D reconstruction')
+        assert flag.bounding_box()['y']<page.locator('.part-tabs').bounding_box()['y']
+        flag.get_by_text('Missing details and reasons',exact=True).click()
+        expect(flag.locator('li').first).to_be_visible()
+        page.screenshot(path=str(OUT/'engineering-incomplete-reconstruction.png'))
+        flag.get_by_text('Missing details and reasons',exact=True).click()
         assert page.locator('.part-tabs').get_by_role('button',name='Debug',exact=True).is_visible()
         page.locator('.debug-tabs').get_by_role('button',name='Model & checks',exact=True).click()
         page.locator('.cad-weight > summary').click()
@@ -410,6 +418,7 @@ def main():
                 assert page.locator('.cad-provenance').count() == 0
                 assert page.locator('.cad-weight').count() == 0
                 assert page.locator('.cad-check-summary').count() == 0
+                assert page.locator('.reconstruction-flag').count() == 0
                 assert 'FAILED' not in page.locator('.part-page').inner_text()
                 assert 'Needs manual review' not in page.locator('.part-page').inner_text()
                 model_record = get('/api/parts/'+model)

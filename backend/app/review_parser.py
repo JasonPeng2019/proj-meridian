@@ -46,7 +46,7 @@ Outline: {state:'known',type:'rectangle',length:{state:'known',value:number},wid
 or circle with outer_diameter, ring with outer_diameter+inner_diameter. Square means
 rectangle with equal dimensions. Only flat rectangle/square/circle/ring are supported.
 Thickness is separate and must not be included in an outline. Positive sizes only.
-Reviewed features: JSON array, only hole/slot, face top/bottom, explicit centre x/y,
+Reviewed features: JSON array, hole/slot/corner_chamfer. Top/bottom holes and slots use explicit centre x/y,
 through boolean; blind cuts require depth. Holes require diameter and hole_type
 plain/threaded/counterbored/countersunk; an explicitly ordinary hole is plain.
 Exact feature field names and structure (example only, never default values):
@@ -56,6 +56,23 @@ Feature kind/face/hole_type are plain enum strings, dimensions are numbers,
 and through is a plain boolean. Reuse no numeric example value unless stated by the user.
 Stepped holes need their step diameter and counterbore_depth or countersink_angle.
 Slots require length>=width and direction (degrees or horizontal/vertical).
+Side holes are supported only on an established rectangular body: face is exactly
+x_min/x_max/y_min/y_max, kind hole, hole_type plain/threaded, explicit global x/y/z
+entry position in the same centered XY frame, Z=0..thickness. The side-normal
+coordinate must be on that rectangle boundary, and z strictly inside every
+thickness alternative. Blind side-hole depth is limited by the body's span along
+that side-normal axis, not plate thickness. State each side hole individually;
+side patterns and stepped side holes are unsupported. Threaded side holes need
+both an explicit drill diameter and literal thread callout. Do not derive a drill
+diameter from the thread or assume z=thickness/2, a face or any missing coordinate.
+Corner clips use {kind:'corner_chamfer',corners:[named corners],x_setback:number,
+y_setback:number}. Allowed corners are x_min_y_min, x_min_y_max, x_max_y_min,
+x_max_y_max; list only the explicit unique subset. Both positive setbacks are
+required and smaller than the rectangle half-dimensions. This is a straight
+full-thickness outline clip, not a surface bevel, pocket, radius or stepped profile.
+No face/x/y/z/through/depth/pattern belongs on a corner clip. Do not assume all
+corners share one setback or invent an omitted setback/45-degree angle; ask for
+missing inputs. Numeric review values are source-attributed by backend validation.
 Never silently omit an unsupported feature or call an incomplete feature list complete.
 Generic strings remain plain strings. Booleans must be actual booleans. Numbers
 must be actual finite numbers. Array/object fields must be JSON arrays/objects.
@@ -89,9 +106,9 @@ def _normalize_feature_format(value):
             if alias not in feature:
                 continue
             centre = plain(feature[alias])
-            if not isinstance(centre, dict) or set(centre) - {"x", "y"}:
-                raise ValueError("The interpreted feature centre must contain only its explicit x/y positions.")
-            for axis in ("x", "y"):
+            if not isinstance(centre, dict) or set(centre) - {"x", "y", "z"}:
+                raise ValueError("The interpreted feature centre must contain only its explicit x/y/z positions.")
+            for axis in ("x", "y", "z"):
                 if axis not in centre:
                     continue
                 if axis in feature and plain(feature[axis]) != plain(centre[axis]):
@@ -119,13 +136,13 @@ def _context(store, item):
     if target.endswith("/template/outline"):
         expected = "known supported flat outline object; all dimensions in mm"
     elif tail == "features_review":
-        expected = "array of fully specified supported holes and slots; dimensions/centre positions in mm, angles degrees"
+        expected = "array of fully specified holes, slots or rectangular full-thickness corner_chamfer clips; top/bottom x/y or side-hole global x/y/z entry positions in mm, angles degrees"
     elif type(current) is bool or tail == "features_complete":
         expected = "boolean"
     elif tail in {"weight_g", "mass_g"}:
         expected = "finite number in grams; convert explicitly stated mass units to grams"
     elif type(current) in (int, float) or NUMBER.search(tail):
-        expected = "positive integer" if tail.endswith("count") else "positive number in mm" if SIZE.search(tail) else "signed number in degrees" if tail.endswith("angle") else "signed number in mm" if tail in {"x", "y", "offset"} or tail.endswith("_offset") else "number; unit must be explicit if input includes a unit"
+        expected = "positive integer" if tail.endswith("count") else "positive number in mm" if SIZE.search(tail) else "signed number in degrees" if tail.endswith("angle") else "signed number in mm" if tail in {"x", "y", "z", "offset"} or tail.endswith("_offset") else "number; unit must be explicit if input includes a unit"
     elif isinstance(current, list):
         expected = "array"
     elif isinstance(current, dict):

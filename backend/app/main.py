@@ -18,6 +18,7 @@ from backend.paths import ROOT, configure_environment, inside
 from backend.app.chat import Chat, MODEL, api_key
 from backend.app.store import Store, read_json, settings
 from backend.app.tools import KnowledgeTools
+from backend.app.review_sources import source_record
 
 _store: Store | None = None
 chat = Chat()
@@ -105,6 +106,18 @@ def image(key: str, page: int = 1, thumb: int = 0):
         return Response(buffer.getvalue(), media_type="image/png")
     return FileResponse(path, media_type="image/png")
 
+
+@app.get("/api/parts/{key:path}/pdf")
+def original_pdf(key: str):
+    drawing = get_store().part(unquote(key)).get("drawing") or {}
+    source = drawing.get("source_path")
+    if not source:
+        raise HTTPException(404, "No original PDF is recorded")
+    path = inside(get_store().root / source)
+    if path.suffix.lower() != ".pdf" or not path.is_file():
+        raise HTTPException(404, "Original PDF is unavailable")
+    return FileResponse(path, media_type="application/pdf", filename=drawing.get("source_filename") or path.name)
+
 @app.get("/api/parts/{key:path}/crop")
 def crop(key: str, fact: str):
     store = get_store()
@@ -159,6 +172,14 @@ def model(filename: str):
 @app.get("/api/review")
 def review():
     return get_store().review_items()
+
+
+@app.get("/api/review-source")
+def review_source(name: str):
+    source = source_record(get_store(), name, detail=True)
+    if source is None:
+        raise HTTPException(404, "Source is not in the indexed evidence")
+    return source
 
 @app.post("/api/review/{item_id:path}")
 def review_action(item_id: str, body: ReviewInput):

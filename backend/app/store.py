@@ -15,6 +15,7 @@ import yaml
 
 from backend.paths import ROOT, inside
 from backend.app.review_queue import classify_review
+from backend.app.review_sources import review_sources
 
 AI_METHODS = {"ai_read", "ai_agreed", "ai_agreed_after_retry", "ai_verified", "ai_verified_after_retry"}
 
@@ -335,6 +336,7 @@ class Store:
             items.append(item(event["applies_to"], "source_changed", {}, id="changed:" + event["decision_id"], value=event.get("value"), reason="Source changed since approval", previous_decision=event))
         for entry in items:
             entry["review_queue"], entry["queue_reason"] = classify_review(entry)
+            entry["source_refs"] = review_sources(self, entry)
         return items
 
     def evidence_for(self, target: str) -> dict:

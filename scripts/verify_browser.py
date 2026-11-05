@@ -2,6 +2,7 @@
 from pathlib import Path
 import json
 import urllib.request
+from urllib.parse import quote
 from playwright.sync_api import sync_playwright, expect
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -123,9 +124,38 @@ def verify_debug():
         assert controls.evaluate('el => el.scrollHeight <= el.clientHeight || el.scrollTop > 0')
         expect(page.locator('.part-review-items').locator('xpath=..').locator('summary')).to_be_in_viewport()
         page.screenshot(path=str(OUT/'engineering-design-review.png'))
+        # Source links must open the actual evidence without losing the review.
+        page.goto(BASE+'/review/ai/D-014/template/outline/length?part=D-014')
+        cited='D-014/drawing/n/96.0@1-1'
+        page.locator(f'button.review-source-link[data-source-name="{cited}"]').click()
+        dialog=page.get_by_role('dialog',name='Source material',exact=True)
+        expect(dialog.locator('.drawing-highlight')).to_have_attribute('title',cited)
+        expect(dialog.locator('.drawing-highlight')).to_be_in_viewport()
+        expect(dialog.get_by_text('Sheet 1 / 1',exact=True)).to_be_visible()
+        pdf=dialog.get_by_role('link',name='Original PDF')
+        response=page.request.get(BASE+pdf.get_attribute('href'))
+        assert response.ok and response.body().startswith(b'%PDF')
+        page.screenshot(path=str(OUT/'review-source-drawing.png'))
+        page.keyboard.press('Escape')
+        expect(dialog).to_have_count(0)
+        assert '/review/ai/D-014/template/outline/length?part=D-014' in page.url
+        mapping=next(i for i in get('/api/review') if i['type']=='name_mapping' and
+                     {'drawing','bom'}.issubset({r['kind'] for r in i.get('source_refs',[])}))
+        page.goto(BASE+'/review/ai/'+quote(mapping['id'],safe='/'))
+        bom_link=page.locator('button.review-source-link[data-source-name^="BOM:"]').first
+        if not bom_link.is_visible():
+            page.locator('.review-source-links details > summary').click()
+        bom_link.click()
+        expect(dialog.locator('.review-source-table tbody tr').first).to_be_visible()
+        assert dialog.locator('.review-source-table tbody tr').count()>3
+        expect(dialog.get_by_role('columnheader',name='Original',exact=True)).to_be_visible()
+        page.screenshot(path=str(OUT/'review-source-bom.png'))
+        dialog.get_by_role('button',name='Close source material',exact=True).click()
+        expect(dialog).to_have_count(0)
+        assert quote(mapping['id'],safe='/') in page.url
         assert not errors,errors
         browser.close()
-    (OUT/'debug-browser-check.json').write_text(json.dumps({'debug_launch':True,'calculations':True,'history':True,'raw_sources':True,'laptop_scrollbars':metrics,'searchable_parts':True,'global_awaiting_review_queue':len(unsettled),'human_input_and_review_separate':True,'part_scoped_review_counts':True,'scope_refresh_back_navigation':True,'independent_review_scroll':True,'design_approval_controls_retained':True,'page_errors':errors},indent=2),encoding='utf-8')
+    (OUT/'debug-browser-check.json').write_text(json.dumps({'debug_launch':True,'calculations':True,'history':True,'raw_sources':True,'laptop_scrollbars':metrics,'searchable_parts':True,'global_awaiting_review_queue':len(unsettled),'human_input_and_review_separate':True,'source_drawing_region_and_pdf':True,'mapping_original_bom_row':True,'source_modal_retains_review':True,'part_scoped_review_counts':True,'scope_refresh_back_navigation':True,'independent_review_scroll':True,'design_approval_controls_retained':True,'page_errors':errors},indent=2),encoding='utf-8')
 
 
 def main():

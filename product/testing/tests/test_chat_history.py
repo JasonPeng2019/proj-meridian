@@ -173,6 +173,22 @@ def test_titles_full_text_stable_ids_and_updated_order_without_model(workspace):
         assert reopened.conversation.created_at == AT
 
 
+def test_title_truncating_on_word_separator_reopens_without_changing_saved_history(workspace):
+    store = chat.ConversationStore(workspace)
+    selected = new(store)
+    text = "Synthetic " * 8 + "trailing text"
+    with store.server_thread(selected) as thread:
+        thread.append_user(c.ConversationSendRequest(message=text))
+        thread.append_assistant(minimal_reply(selected.conversation_id, "Synthetic reply"))
+    saved = disk_file(workspace, selected).read_bytes()
+    reopened = chat.ConversationStore(workspace)
+    detail = reopened.read_conversation(selected)
+    assert detail.conversation.title == " ".join(["Synthetic"] * 8)
+    assert detail.messages[0].text == text and len(detail.messages) == 2
+    assert reopened.list_conversations(c.ConversationListRequest()).conversations[0] == detail.conversation
+    assert disk_file(workspace, selected).read_bytes() == saved
+
+
 def test_factory_no_key_no_tool_calls_public_boundaries_and_explicit_unavailable_send(workspace):
     class Untouchable:
         def __getattr__(self, name):

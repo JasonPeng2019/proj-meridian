@@ -79,7 +79,9 @@ def _storage_error() -> ChatServiceError:
 
 
 def _title(text: str) -> str:
-    return " ".join(text.split())[:CONVERSATION_TITLE_LIMIT]
+    # Truncation can land on a separator; match the stored title's whitespace
+    # normalization so an otherwise valid conversation can be reopened.
+    return " ".join(text.split())[:CONVERSATION_TITLE_LIMIT].rstrip()
 
 
 def _unique_fields(pairs: list[tuple[str, object]]) -> dict[str, object]:

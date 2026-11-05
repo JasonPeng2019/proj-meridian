@@ -127,6 +127,17 @@ def test_find_part_returns_whole_part_fact_with_drawing_target_and_no_context_le
     assert tools.get_connections(found.unique_part_id).message == "No connections recorded."
 
 
+@pytest.mark.parametrize("text", ["drawing D-001", "part D-001", "Show D-001/part"])
+def test_find_part_recognizes_complete_drawing_ids_in_normal_tool_queries(workspace, text):
+    tools = tools_for(workspace)
+    result = tools.find_part(text)
+    assert result.unique_part_id == "D-001/part"
+    assert [part.id for part in result.parts] == ["D-001/part"]
+    assert result.facts["D-001/part"].sources[0].target.drawing_id == "D-001"
+    assert tools.find_part("drawing D-0019").parts == []
+    assert tools.find_part("drawing D-999").parts == []
+
+
 def test_machine_summary_keeps_drawing_and_bom_sections_separate_and_counts_actual_sources(workspace):
     tools = tools_for(workspace)
     result = tools.machine_summary()

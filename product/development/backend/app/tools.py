@@ -313,6 +313,9 @@ class FactTools:
         if not query:
             raise ValueError("Part search text must not be empty.")
         compact = _compact(query)
+        # Tool callers naturally include words such as "drawing D-025". Match
+        # complete stable IDs in that phrase without accepting D-0250 or paths.
+        mentioned_ids = set(re.findall(r"(?<![\w/-])d-\d{3}(?:/part)?(?![\w/-])", query))
         matches = []
         for record in self.registry.records:
             identities = [record.id] + ([record.drawing.id] if record.drawing else [])
@@ -320,7 +323,8 @@ class FactTools:
             labels = [record.display_name] + [row.display_name for row in record.bom]
             labels += [str(effective_value(field)) for row in record.bom for key, field in row.fields.items()
                        if key in {"product_name"} and _trusted(field)]
-            exact_id = any(query == _normal(identity) for identity in identities)
+            exact_id = any(query == _normal(identity) or _normal(identity) in mentioned_ids
+                           for identity in identities)
             exact_name = any(compact == _compact(label) for label in labels)
             partial = any(compact in _compact(label) for label in labels)
             words = query.split()

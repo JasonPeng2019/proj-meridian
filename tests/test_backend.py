@@ -9,6 +9,19 @@ from backend.app.chat import collect_evidence, validate_markers
 from backend.app.store import Store
 from backend.app.tools import KnowledgeTools
 
+
+def test_review_queues_separate_verified_mapping_from_ambiguous_geometry(evidence):
+    items = evidence.review_items()
+    mapping = next(i for i in items if i["type"] == "name_mapping")
+    possible = [i for i in items if i.get("state") == "options" or i["type"] == "possible_reading"]
+    assert mapping["review_queue"] == "human_review"
+    assert possible and all(i["review_queue"] == "human_input" for i in possible)
+    assert all(i["queue_reason"] for i in items)
+    # In-memory replay only; no production decisions or manufactured approvals.
+    evidence._apply({"applies_to": mapping["target"], "type": "name_mapping", "value": "same",
+                     "status": "accepted", "by": "Automated in-memory fixture", "at": "2000-01-01T00:00:00Z"})
+    assert next(i for i in evidence.review_items() if i["id"] == mapping["id"])["review_queue"] == "resolved"
+
 @pytest.fixture
 def evidence(tmp_path, monkeypatch):
     monkeypatch.setattr("backend.app.store.settings", lambda: {"reviewer_name": "Automated verification"})

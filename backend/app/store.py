@@ -14,6 +14,7 @@ from typing import Any
 import yaml
 
 from backend.paths import ROOT, inside
+from backend.app.review_queue import classify_review
 
 AI_METHODS = {"ai_read", "ai_agreed", "ai_agreed_after_retry", "ai_verified", "ai_verified_after_retry"}
 
@@ -300,6 +301,7 @@ class Store:
                     "title": target, "value": field.get("value"), "original": field.get("original"),
                     "status": field.get("review", {}).get("status", "pending"), "readers": field.get("readers", {}),
                     "method": field.get("method"), "options": field.get("options", []),
+                    "state": field.get("state"),
                     "evidence": self.evidence_for(target), **extra}
         for proposal in self.pending_corrections():
             target = proposal["applies_to"]
@@ -321,11 +323,18 @@ class Store:
             if part.get("has_3d"):
                 weight = part.get("weight_check") or {}
                 state = str(weight.get("state", weight.get("status", ""))).lower()
-                items.append(item(part["id"], "ai_interpretation", {}, id="design:" + part["id"], title=part["display_name"] + " — whole design", weight_check=weight, status="human_confirmed" if part.get("design_review") else "not_reviewed"))
+                try:
+                    self.validate_design(part, "")
+                    input_reason = ""
+                except ValueError as error:
+                    input_reason = str(error)
+                items.append(item(part["id"], "ai_interpretation", {}, id="design:" + part["id"], title=part["display_name"] + " — whole design", weight_check=weight, status="human_confirmed" if part.get("design_review") else "not_reviewed", input_reason=input_reason))
                 if state in {"failed", "flagged", "flagged_for_review"}:
                     items.append(item(part["id"], "weight", {}, id="weight:" + part["id"], title=part["display_name"] + " — weight check", weight_check=weight, status="human_confirmed" if part.get("design_review") else "pending"))
         for event in self.pending_changed():
             items.append(item(event["applies_to"], "source_changed", {}, id="changed:" + event["decision_id"], value=event.get("value"), reason="Source changed since approval", previous_decision=event))
+        for entry in items:
+            entry["review_queue"], entry["queue_reason"] = classify_review(entry)
         return items
 
     def evidence_for(self, target: str) -> dict:

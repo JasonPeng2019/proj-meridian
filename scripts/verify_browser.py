@@ -93,8 +93,11 @@ def verify_debug():
         expect(page.locator('.review-item').first).to_be_visible()
         assert 'part=D-014' in page.url
         scoped=[i for i in get('/api/review') if (i.get('part_key') or (i.get('evidence',{}).get('part_key') if isinstance(i.get('evidence'),dict) else None))=='D-014']
-        for label,kind in [('Corrections','correction'),('AI interpretations','ai_interpretation'),('Possible readings','possible_reading')]:
+        for label,kind in [('Corrections','correction'),('Possible readings','possible_reading')]:
             expected=sum(i['type']==kind or (kind=='ai_interpretation' and i['type']=='part') for i in scoped)
+            expect(page.get_by_role('navigation',name='Review categories').get_by_role('button',name=label).locator('span')).to_have_text(str(expected))
+        for label,queue in [('Needs human input','human_input'),('Needs human review','human_review')]:
+            expected=sum(i.get('review_queue')==queue for i in scoped)
             expect(page.get_by_role('navigation',name='Review categories').get_by_role('button',name=label).locator('span')).to_have_text(str(expected))
         assert all('D-014' in value for value in page.locator('.review-item > small').all_text_contents())
         page.locator('.review-item').first.click()
@@ -122,7 +125,7 @@ def verify_debug():
         page.screenshot(path=str(OUT/'engineering-design-review.png'))
         assert not errors,errors
         browser.close()
-    (OUT/'debug-browser-check.json').write_text(json.dumps({'debug_launch':True,'calculations':True,'history':True,'raw_sources':True,'laptop_scrollbars':metrics,'searchable_parts':True,'global_awaiting_review_queue':len(unsettled),'part_scoped_review_counts':True,'scope_refresh_back_navigation':True,'independent_review_scroll':True,'design_approval_controls_retained':True,'page_errors':errors},indent=2),encoding='utf-8')
+    (OUT/'debug-browser-check.json').write_text(json.dumps({'debug_launch':True,'calculations':True,'history':True,'raw_sources':True,'laptop_scrollbars':metrics,'searchable_parts':True,'global_awaiting_review_queue':len(unsettled),'human_input_and_review_separate':True,'part_scoped_review_counts':True,'scope_refresh_back_navigation':True,'independent_review_scroll':True,'design_approval_controls_retained':True,'page_errors':errors},indent=2),encoding='utf-8')
 
 
 def main():
@@ -254,11 +257,11 @@ def main():
         print('possible_reading_viewers',page.locator('.readings-models .cad-viewer').count(),flush=True)
         page.locator('.readings-comparison').scroll_into_view_if_needed()
         page.screenshot(path=str(OUT/'possible-readings-compare.png'))
-        page.goto(BASE+'/review/needs-input')
+        page.goto(BASE+'/review/ai')
         page.locator('.review-filter-options > summary').click()
         page.locator('.review-toolbar select').nth(0).select_option('name_mapping')
         page.wait_for_timeout(250)
-        mappings=[i for i in review if i['type']=='name_mapping']
+        mappings=[i for i in review if i['type']=='name_mapping' and i.get('review_queue')=='human_review']
         visible=page.locator('.review-item').count()
         assert visible==len(mappings), (visible,len(mappings))
         print('all_name_mappings_visible',visible,'pending_approval',sum(i.get('status')=='pending_approval' for i in mappings),flush=True)

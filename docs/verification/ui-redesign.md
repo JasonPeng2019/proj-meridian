@@ -4,10 +4,10 @@ Meridian follows the visual design of the **public homepage at
 https://embedder.com/**, as Jason explicitly selected on 2026-11-05. The reference
 HTML and both stylesheets were downloaded for inspection under the ignored
 `.verification/design-reference/embedder` directory. Their palette, typography
-scale, slim navigation, two-tone heading, fine rules and small corner radii guide
+scale, fine rules and small corner radii guide
 the implementation. Embedder branding, marketing text, photographs and proprietary
-fonts are not shipped. The striped hero uses Meridian's original D-014 drawing;
-clicking it opens that evidence. Geist is self-hosted with its open font license.
+fonts are not shipped. The original chat welcome and prompts remain in place.
+Geist is self-hosted with its open font license.
 
 The pre-package UI from commit `9d066dc` is the layout baseline, as Jason
 requested. The original sidebar, Meridian mark, chat, card catalog and native

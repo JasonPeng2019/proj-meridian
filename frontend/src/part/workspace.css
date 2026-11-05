@@ -84,6 +84,10 @@
 .part-page .cad-section input { accent-color: var(--part-mint); }
 .part-page .cad-canvas { border-color: var(--part-border); }
 .part-page .cad-empty { color: var(--part-muted); }
+.part-page .cad-weight { color: #a6c9c0; background: #a6c9c008; border-color: #a6c9c038; border-radius: 3px; }
+.part-page .cad-weight-failed { color: #ed9b9b; background: #ed9b9b08; border-color: #ed9b9b38; }
+.part-page .cad-weight-detail p { color: #c4bfb1; }
+.part-page .cad-provenance summary { color: var(--part-mint); }
 
 .part-page .standard-details, .part-page .detail-view.evidence-view, .part-page .debug-view, .part-page .history-view { background: var(--part-bg); color: var(--part-ink); }
 .part-page .summary-box { border-color: var(--part-border); border-radius: 4px; background: transparent; }

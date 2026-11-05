@@ -65,7 +65,7 @@ function Message({message,navigate}) {
       {message.warnings?.length?<div className="answer-text muted">Unavailable</div>:<AnswerText text={message.text} facts={message.facts||{}} navigate={navigate}/>}
       <PartCards parts={message.parts_to_show} navigate={navigate}/>
       {debug&&<details className="answer-debug" open={debugOpen} onToggle={e=>setDebugOpen(e.currentTarget.open)}><summary>Debug</summary>{debugOpen&&<JsonDetails value={{answer:message.text,warnings:message.warnings,usage:message.usage,latency_ms:message.latency_ms,tools:message.tool_trace,facts:message.facts}}/>}</details>}
-      <div className="answer-tools"><Button variant="ghost" size="sm" title="Copy answer" aria-label={copied?'Answer copied':'Copy answer'} onClick={async()=>{try{await navigator.clipboard.writeText(message.warnings?.length?'Unavailable':message.text);setCopied(true);setTimeout(()=>setCopied(false),1500)}catch{setCopied(false)}}>{copied?<Check size={14}/>:<Copy size={14}/>}<span>{copied?'Copied':'Copy'}</span></Button></div>
+      <div className="answer-tools"><Button variant="ghost" size="sm" title="Copy answer" aria-label={copied?'Answer copied':'Copy answer'} onClick={async()=>{try{await navigator.clipboard.writeText(message.warnings?.length?'Unavailable':message.text);setCopied(true);setTimeout(()=>setCopied(false),1500)}catch{setCopied(false)}}}>{copied?<Check size={14}/>:<Copy size={14}/>}<span>{copied?'Copied':'Copy'}</span></Button></div>
     </div>
   </article>;
 }

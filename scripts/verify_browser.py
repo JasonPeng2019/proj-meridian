@@ -271,7 +271,7 @@ def verify_redesign(context, errors):
             if name == 'chat':
                 expect(page.get_by_role('textbox',name='Message Meridian')).to_be_in_viewport()
             if name == 'parts':
-                expect(page.get_by_placeholder('Search part or material?')).to_be_in_viewport()
+                expect(page.get_by_role('textbox', name='Search parts')).to_be_in_viewport()
                 # A horizontally scrollable table is contained in its own region.
                 assert page.locator('.part-result').count() == len(get('/api/parts'))
             page.screenshot(path=str(OUT/f'redesign-{label}-{name}.png'))

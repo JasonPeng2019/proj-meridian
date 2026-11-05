@@ -638,8 +638,13 @@ def create_model_rebuilder(output_dir: Path) -> c.ModelRebuilder:
     output = _output_path(output_dir)
 
     def rebuild(record: c.PartRecord, template: c.FlatTemplate) -> c.ModelStatus:
-        record = c.PartRecord.model_validate(record.model_dump(mode="python"))
-        template = c.FlatTemplate.model_validate(template.model_dump(mode="python"))
+        try:
+            template = c.FlatTemplate.model_validate(template.model_dump(mode="python"))
+            record = c.PartRecord.model_validate(record.model_dump(mode="python"))
+        except ValueError:
+            # A mutated/inconsistent record is not an effective source input.
+            # Do not retain assets or hashes obtained from that invalid record.
+            return c.ModelStatus(state="blocked", message="The part or template record is invalid; no reconstruction was built.")
         try:
             _record_binding(record, template)
         except _BuildIssue as issue:

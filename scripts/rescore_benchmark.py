@@ -20,6 +20,23 @@ def sha(path: Path) -> str:
     return hashlib.sha256(inside(path).read_bytes()).hexdigest()
 
 
+def oracle_code_hashes() -> dict:
+    # Store projection and material matching are part of this oracle too. Bind
+    # all backend Python, including helpers imported by either implementation.
+    return {p.relative_to(ROOT).as_posix(): sha(p) for p in sorted((ROOT / "backend").rglob("*.py"))
+            if "__pycache__" not in p.parts}
+
+
+def preflight_outputs(output: Path, capture: Path):
+    for name in ("evaluation.json", "reference.json", "judge-inputs.jsonl", "report.json"):
+        path = output / name
+        resolved = inside(path)
+        if not resolved.is_relative_to(output) or resolved.is_relative_to(capture):
+            raise ValueError("Evaluation output target escapes its own directory")
+        if path.is_symlink() or (path.exists() and path.stat().st_nlink > 1):
+            raise ValueError("Evaluation output files must not be symlinks or hardlinks")
+
+
 def reference_for_capture(manifest: dict, reference_root: Path = ROOT) -> tuple[dict, dict]:
     from backend.app.store import Store
     required = ["records.json", "bom.json", "ai_results.json", "models/manifest.json", "readme.json"]
@@ -42,13 +59,17 @@ def rescore(capture: Path, output: Path, judge_results: Path | None = None, refe
     capture, output = inside(capture), inside(output)
     if output == capture or output.is_relative_to(capture):
         raise ValueError("Revised evaluation must be separate from the immutable capture")
+    preflight_outputs(output, capture)
     fixture = json.loads((capture / "cases.json").read_text(encoding="utf-8"))
     manifest = json.loads((capture / "manifest.json").read_text(encoding="utf-8"))
     if fixture != compile_draft(capture / "benchmark_draft.md") or fixture["source_sha256"] != manifest["source_sha256"]:
         raise ValueError("Frozen cases/draft/manifest do not agree")
     original_hashes = {name: sha(capture / name) for name in (
         "cases.json", "manifest.json", "benchmark_draft.md", "executions.jsonl", "report.json", "judge-results.jsonl")}
+    oracle_before = oracle_code_hashes()
     references, reference_hashes = reference_for_capture(manifest, inside(reference_root))
+    if oracle_code_hashes() != oracle_before:
+        raise RuntimeError("Oracle implementation changed while constructing reference")
     executions = [json.loads(line) for line in (capture / "executions.jsonl").read_text(encoding="utf-8").splitlines() if line.strip()]
     by_id = {c["id"]: c for c in fixture["cases"]}
     identities = [(e["pass"], e["case_id"]) for e in executions]
@@ -60,6 +81,7 @@ def rescore(capture: Path, output: Path, judge_results: Path | None = None, refe
         execution["evaluation_reference"] = references.get(execution["case_id"], {})
     provenance = {"evaluation_version": VERSION, "capture": capture.relative_to(ROOT).as_posix(),
                   "capture_hashes": original_hashes, "reference_input_hashes": reference_hashes,
+                  "reference_sha256": fingerprint(references), "oracle_code_hashes": oracle_before,
                   "evaluation_code_hashes": {name: sha(ROOT / name) for name in (
                       "backend/evaluation/benchmark.py", "backend/evaluation/contracts.py", "scripts/rescore_benchmark.py", "scripts/judge_benchmark.py")},
                   "contracts": {c["id"]: contract(c) for c in fixture["cases"]}}

@@ -4,6 +4,7 @@ from __future__ import annotations
 import copy
 import hashlib
 import json
+import os
 
 import pytest
 
@@ -312,6 +313,40 @@ def test_replay_rejects_reusing_output_after_capture_changes(saved_capture, tmp_
     with pytest.raises(ValueError, match="different evaluation"):
         replay.rescore(saved_capture, output)
     assert (output / "evaluation.json").read_bytes() == receipt
+
+
+def test_replay_binds_oracle_output_even_when_source_hashes_are_unchanged(saved_capture, tmp_path, monkeypatch):
+    output = tmp_path / "revised"
+    replay.rescore(saved_capture, output)
+    before = (output / "evaluation.json").read_bytes()
+    monkeypatch.setattr(replay, "reference_for_capture", lambda manifest, reference_root=ROOT:
+                        ({"Q08": {"parts": [{"key": "changed"}]}}, {"generated/test.json": "pinned"}))
+    with pytest.raises(ValueError, match="different evaluation"):
+        replay.rescore(saved_capture, output)
+    assert (output / "evaluation.json").read_bytes() == before
+
+
+def test_replay_binds_oracle_implementation_even_if_output_is_unchanged(saved_capture, tmp_path, monkeypatch):
+    output = tmp_path / "revised"
+    monkeypatch.setattr(replay, "oracle_code_hashes", lambda: {"backend/app/tools.py": "original"})
+    replay.rescore(saved_capture, output)
+    monkeypatch.setattr(replay, "oracle_code_hashes", lambda: {"backend/app/tools.py": "changed"})
+    with pytest.raises(ValueError, match="different evaluation"):
+        replay.rescore(saved_capture, output)
+
+
+def test_replay_rejects_capture_hardlink_before_any_output_write(saved_capture, tmp_path):
+    output = tmp_path / "revised"
+    replay.rescore(saved_capture, output)
+    target = output / "report.json"
+    target.unlink()
+    os.link(saved_capture / "report.json", target)
+    before = {p.name: p.read_bytes() for p in saved_capture.iterdir()}
+    receipt = (output / "evaluation.json").read_bytes()
+    with pytest.raises(ValueError, match="hardlinks"):
+        replay.rescore(saved_capture, output)
+    assert (output / "evaluation.json").read_bytes() == receipt
+    assert {p.name: p.read_bytes() for p in saved_capture.iterdir()} == before
 
 
 def test_reference_reconstruction_rejects_changed_pinned_inputs_before_store_use(monkeypatch):

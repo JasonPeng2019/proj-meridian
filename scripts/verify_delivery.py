@@ -61,20 +61,27 @@ def main():
         env = os.environ.copy()
         for key in ('VIRTUAL_ENV', 'OPENAI_API_KEY', 'ANTHROPIC_API_KEY', 'MERIDIAN_DEBUG_UI', 'UV_PYTHON_DOWNLOADS'):
             env.pop(key, None)
-        env.update(MERIDIAN_ROOT=str(app), MERIDIAN_NO_KEY='1', UV_PYTHON_PREFERENCE='only-managed',
+        env.update(MERIDIAN_ROOT=str(app), MERIDIAN_NO_KEY='1', UV_MANAGED_PYTHON='1',
                    PYTHONPYCACHEPREFIX=str(app / '.cache/pycache'))
         before = {name: digest(app / name) for name in json.loads((app / 'DELIVERY-MANIFEST.json').read_text())['files']}
         with (out / 'delivery-startup.log').open('w', encoding='utf-8') as log:
-            proc = subprocess.Popen(['sh', './start.sh'], cwd=app, env=env, stdout=log, stderr=log, start_new_session=True)
+            command = ['cmd', '/c', 'start.bat'] if os.name == 'nt' else ['sh', './start.sh']
+            proc = subprocess.Popen(command, cwd=app, env=env, stdout=log, stderr=log,
+                                    start_new_session=os.name != 'nt',
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
             try:
                 wait('http://127.0.0.1:8001', proc)
                 result = inspect(app, 'http://127.0.0.1:8001')
-                absent = subprocess.check_output([str(app / '.venv/bin/python'), '-c',
+                executable = app / ('.venv/Scripts/python.exe' if os.name == 'nt' else '.venv/bin/python')
+                absent = subprocess.check_output([str(executable), '-c',
                     "import importlib.util,json;print(json.dumps({n:importlib.util.find_spec(n) is None for n in ('cadquery','pytest','playwright')}))"], cwd=app, env=env, text=True)
                 result['optional_dependencies_absent'] = json.loads(absent)
                 assert all(result['optional_dependencies_absent'].values())
             finally:
-                os.killpg(proc.pid, signal.SIGTERM)
+                if os.name == 'nt':
+                    subprocess.run(['taskkill', '/PID', str(proc.pid), '/T', '/F'], capture_output=True, check=True)
+                else:
+                    os.killpg(proc.pid, signal.SIGTERM)
                 proc.wait(timeout=20)
         assert all(digest(app / name) == value for name, value in before.items()), 'Startup changed supplied data/source files'
         result['automatic_python_download'] = any((app / '.runtime/python').glob('cpython-*'))

@@ -88,3 +88,44 @@ jobs:
           retention-days: 14
           if-no-files-found: error
           path: dist/delivery/
+
+  windows-startup:
+    needs: delivery
+    runs-on: windows-latest
+    timeout-minutes: 20
+    env:
+      GH_CONFIG_DIR: ${{ github.workspace }}/.runtime/gh
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Prepare workspace-local writable state
+        shell: pwsh
+        run: New-Item -ItemType Directory -Force .tmp,.cache/uv,.runtime/python,.runtime/gh,dist/delivery | Out-Null
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: '3.12'
+      - uses: astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9
+        with:
+          enable-cache: false
+      - name: Install the verifier outside the extracted app
+        run: uv sync --locked --extra dev
+      - name: Download exactly the Linux job's packaged app
+        run: gh run download ${{ github.run_id }} --repo ${{ github.repository }} --name meridian-delivery-${{ github.run_id }} --dir dist/delivery
+      - name: Follow Windows README launcher with automatic Python setup
+        shell: pwsh
+        run: |
+          $archive = (Get-ChildItem dist/delivery/meridian-v1-*.zip).FullName
+          uv run --locked python -m scripts.verify_delivery native --archive $archive
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          Move-Item -LiteralPath dist/delivery/verification-native.json -Destination dist/delivery/verification-windows.json
+      - name: Save Windows launch verification
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: meridian-windows-${{ github.run_id }}
+          retention-days: 14
+          path: |
+            dist/delivery/verification-windows.json
+            dist/delivery/delivery-startup.log

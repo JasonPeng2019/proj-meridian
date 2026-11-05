@@ -54,10 +54,12 @@ def review_sources(store, item: dict) -> list[dict]:
     for reader in (item.get("readers") or {}).values():
         if not isinstance(reader, dict):
             continue
-        for round_ in reader.get("rounds", [reader]):
-            if round_.get("valid") is False or round_.get("validation_passed") is False:
+        for round_ in reader.get("rounds") or [reader]:
+            if not isinstance(round_, dict) or round_.get("valid") is False or round_.get("validation_passed") is False:
                 continue
             answer = round_.get("answer", round_)
+            if not isinstance(answer, dict):
+                continue
             for name in answer.get("fact_ids", []):
                 add(name)
     if not names and item.get("type") == "name_mapping":

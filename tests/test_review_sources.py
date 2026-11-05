@@ -43,3 +43,14 @@ def test_cyclic_receipt_references_terminate_without_inventing_sources():
     store = source_store()
     store.fields["D-001/template/length"]["fact_ids"].append("D-001/template/length")
     assert len(review_sources(store, {"id": "length", "target": "D-001/template/length"})) == 2
+
+
+def test_empty_reader_response_keeps_original_sources_and_other_valid_receipts():
+    store = source_store()
+    item = {"id": "length", "target": "D-001/template/length", "readers": {
+        "empty_legacy": {"answer": None},
+        "empty_round": {"rounds": [None, {"answer": None}]},
+        "valid": {"rounds": [{"answer": {"fact_ids": ["BOM:box/door"]}}]},
+    }}
+    refs = review_sources(store, item)
+    assert {r["name"] for r in refs} == {"D-001/drawing/n/42@1", "D-001/drawing/source", "BOM:box/door"}

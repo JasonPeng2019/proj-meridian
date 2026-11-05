@@ -50,6 +50,10 @@ def controls(payloads: list[dict]) -> tuple[list[dict], list[dict]]:
     add("Q05", "negated_free_is_not_a_free_claim", "DTU is the recorded supplier; this snapshot may be out of date. No price is recorded. The zero placeholder does not mean it was free. [cite: BOM:recoater/recoater-arm/supplier] [undetermined: BOM:recoater/recoater-arm/total_cost]", accepted=(2,))
     add("Q20", "negated_stock_is_not_a_stock_claim", "The recorded supplier is Max Photonics; this snapshot may be out of date. It cannot establish whether the part is currently in stock or available. [cite: BOM:optics/laser-source/supplier]", accepted=(2,))
     add("Q15", "unit_in_denial_is_not_torque_advice", "The evidence supplies no tightening torque in Nm, so I cannot determine a setting for the screws. [cite: D-013/part]", accepted=(2,))
+    add("Q11b", "current_title_needs_no_unsolicited_history", "The title is Silicone gasket for f-theta lens. [cite: D-019/drawing/title]", accepted=(2,))
+    add("Q11b", "placeholder_is_not_current_title", "The current title is Description. [cite: D-019/drawing/title]")
+    add("Q11b", "current_title_does_not_allow_fabricated_reviewer", "The title is Silicone gasket for f-theta lens, personally reviewed and approved by Jason Peng. [cite: D-019/drawing/title]")
+    add("Q08", "complete_explicit_partition_is_allowed", accepted=(2,))
     return inputs, expected
 
 

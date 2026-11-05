@@ -10,6 +10,7 @@ import pytest
 
 from backend.paths import ROOT
 from backend.evaluation.benchmark import compile_draft, judge_payload, score_rules
+from backend.evaluation.contracts import VERSION
 from scripts import rescore_benchmark as replay
 
 
@@ -247,7 +248,7 @@ def test_judge_cache_key_changes_with_attachment_evidence_or_reference(cases):
     changed["evaluation_reference"]["parts"].pop()
     assert judge_payload(cases["Q09"], changed, manifest)["cache_key"] != original["cache_key"]
     assert original["returned_parts"] == execution["response"]["parts_to_show"]
-    assert original["evaluation_contract"]["version"] == 2
+    assert original["evaluation_contract"]["version"] == VERSION
 
 
 @pytest.fixture

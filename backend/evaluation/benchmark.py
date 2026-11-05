@@ -123,6 +123,50 @@ def markers(text: str) -> dict[str, set[str]]:
     return result
 
 
+def matching_counts(text: str, expected_parts: list[dict]) -> list[dict]:
+    """Check totals or explicitly enumerated groups, never infer a new oracle.
+
+    A subgroup count is supported only by distinct cited reference identities in
+    its adjacent bullet list, plus an explicit, source-linked remainder. Meaning
+    and claims about physical identity remain the independent judge's job.
+    """
+    text = text.replace("*", "")
+    expected = {p["id"] for p in expected_parts}
+
+    def identities(fragment):
+        refs = markers(fragment)
+        cited = refs["cite"] | refs["undetermined"]
+        return {p["id"] for p in expected_parts if any(
+            name == p["id"] or name.startswith(p["id"].rsplit("/", 1)[0] + "/") for name in cited)}
+
+    rows = []
+    for match in re.finditer(r"\b(\d+)\s+(?:matching\s+)?parts\b", MARKER.sub(lambda m: " " * len(m[0]), text), re.I):
+        count = int(match[1])
+        row = {"stated": count, "scope": "catalog", "expected": len(expected), "passed": count == len(expected)}
+        if not row["passed"]:
+            end = text.find("\n", match.end())
+            heading = text[text.rfind("\n", 0, match.start()) + 1:end if end >= 0 else len(text)]
+            tail = text[end + 1:] if end >= 0 else ""
+            lines = tail.splitlines(keepends=True)
+            while lines and not lines[0].strip():
+                lines.pop(0)
+            bullets = []
+            while lines and re.match(r"^\s*[-+]\s+", lines[0]):
+                bullets.append(lines.pop(0))
+            groups = [identities(line) for line in bullets]
+            listed = set().union(*groups) if groups else set()
+            remainder = "".join(lines)
+            explicit_remainder = bool(re.search(r"\b(?:more|additional|remaining|other)\b", MARKER.sub("", remainder), re.I))
+            total_claim = bool(re.search(r"\b(?:total|altogether|in all)\b", heading, re.I))
+            if (not total_claim and count == len(bullets) == len(listed)
+                    and all(len(group) == 1 for group in groups)
+                    and explicit_remainder and expected - listed
+                    and expected - listed <= identities(remainder)):
+                row.update(scope="enumerated_group_with_explicit_remainder", expected=len(listed), passed=True)
+        rows.append(row)
+    return rows
+
+
 def score_rules(case: dict, response: dict, preconditions: list[dict] | None = None,
                 reference: dict | None = None) -> dict:
     text = response.get("text", "")
@@ -149,6 +193,8 @@ def score_rules(case: dict, response: dict, preconditions: list[dict] | None = N
         required = ["Max Photonics"]
     if cid == "Q17":
         required = ["25", "15"]
+    if cid == "Q11b":
+        required = ["Silicone gasket for f-theta lens"]
     missing = [v for v in required if not contains(shown_text, v)]
     check("key_values", abstain or not missing, {"required": required, "missing": missing})
 
@@ -184,9 +230,9 @@ def score_rules(case: dict, response: dict, preconditions: list[dict] | None = N
             check("complete_material_list", all(identified(p) for p in expected_parts),
                   {"expected_count": len(expected_parts), "missing": [p["key"] for p in expected_parts if not identified(p)]})
         if cid == "Q08" and expected_parts:
-            counts = [int(n) for n in re.findall(r"\b(\d+)\s+(?:matching\s+)?parts\b", shown_text.replace("*", ""), re.I)]
-            check("consistent_matching_count", all(n == len(expected_parts) for n in counts),
-                  {"matching_records": len(expected_parts), "stated_parts_counts": counts})
+            counts = matching_counts(text, expected_parts)
+            check("consistent_matching_count", all(row["passed"] for row in counts),
+                  {"matching_records": len(expected_parts), "counts": counts})
     if cid == "Q12" and not abstain:
         # Accept grams or kilograms, including sensible rounding of a conversion.
         weight = value("D-023/drawing/weight_g")

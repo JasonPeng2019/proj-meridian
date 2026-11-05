@@ -1,4 +1,4 @@
-"""Sequential local CLI meaning judge for benchmark reports downloaded from Actions.
+"""Bounded local CLI meaning judge for benchmark reports downloaded from Actions.
 
 This never starts the app, CAD, builds or browsers. Expected answers are sent only
 to the independent judge, never to chat/prep. Raw reader cache remains ignored.
@@ -6,10 +6,12 @@ to the independent judge, never to chat/prep. Raw reader cache remains ignored.
 from __future__ import annotations
 
 import argparse
+import concurrent.futures
 import hashlib
 import json
 import os
 import re
+import threading
 import time
 from pathlib import Path
 
@@ -79,46 +81,82 @@ def wait_for_headroom(min_free_gb=3):
     raise RuntimeError("Local judge stayed queued for resource headroom; no additional CLI was started")
 
 
-def main():
-    configure_environment()
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--input", required=True, help="Downloaded judge-inputs.jsonl under the repo")
-    parser.add_argument("--output", required=True, help="Append-only judge-results.jsonl under the repo")
-    parser.add_argument("--limit", type=int, help="Optional cap for a diagnostic batch")
-    args = parser.parse_args()
-    source, output = inside(args.input), inside(args.output)
-    payloads = [json.loads(line) for line in source.read_text(encoding="utf-8").splitlines() if line.strip()]
+def judge_payloads(payloads, output, *, workers=1, limit=None):
+    """Judge distinct content keys concurrently; duplicate retries stay serial."""
+    if type(workers) is not int or not 1 <= workers <= 8:
+        raise ValueError("Judge workers must be an integer from one to eight")
+    output = inside(output)
     existing = {}
     if output.exists():
         existing = {row["cache_key"]: row for line in output.read_text(encoding="utf-8").splitlines() if line.strip() for row in [json.loads(line)] if row.get("valid")}
     output.parent.mkdir(parents=True, exist_ok=True)
     from backend.ai import runner
     runner.CACHE = inside(ROOT / ".cache/benchmark-judge")
-    runner.set_concurrency(1)
-    attempted = 0
+    runner.set_concurrency(workers)
+    groups = {}
     for payload in payloads:
         key = payload["cache_key"]
         assert re.fullmatch(r"[a-f0-9]{64}", key)
         assert payload["judge"] == JUDGE
         assert payload["chat_model"] == "gpt-6-luna"
-        if key in existing:
-            continue
-        if args.limit is not None and attempted >= args.limit:
-            break
-        attempted += 1
-        wait_for_headroom()
-        result = runner.run_reader("claude", PROMPT + json.dumps(payload, ensure_ascii=False, sort_keys=True), SCHEMA, [], "benchmark-judge:" + payload["case_id"])
-        answer = result.get("answer") or {}
-        valid = bool(result.get("valid")) and type(answer.get("score")) is int and answer["score"] in (0, 1, 2) and isinstance(answer.get("unsupported_claims"), list) and isinstance(answer.get("reason"), str)
-        row = {"cache_key": key, "judge": JUDGE, "valid": valid, "case_id": payload["case_id"], "score": answer.get("score") if valid else None,
-               "unsupported_claims": answer.get("unsupported_claims", []), "reason": answer.get("reason", "Judge output invalid"),
-               "latency_ms": result.get("latency_ms"), "reader_cache_key": result.get("cache_key"), "cache_hit": result.get("cache_hit"), "metadata": result.get("metadata")}
-        with output.open("a", encoding="utf-8") as handle:
-            handle.write(json.dumps(row, ensure_ascii=False) + "\n")
-        if valid:
-            existing[key] = row
-        print(f"{payload['case_id']}: judge {row['score'] if valid else 'INVALID'}", flush=True)
-    print(f"Judged {attempted} uncached payloads sequentially. Human spot-checks: none performed by this script.")
+        groups.setdefault(key, []).append(payload)
+    launch_lock, writer_lock = threading.Lock(), threading.Lock()
+    stopped = threading.Event()
+    attempted = 0
+
+    def judge_group(group):
+        nonlocal attempted
+        for payload in group:
+            key = payload["cache_key"]
+            with writer_lock:
+                if stopped.is_set() or key in existing:
+                    return
+                if limit is not None and attempted >= limit:
+                    return
+                attempted += 1
+            with launch_lock:
+                if stopped.is_set():
+                    return
+                wait_for_headroom(min_free_gb=3 + .35 * (workers - 1))
+            result = runner.run_reader("claude", PROMPT + json.dumps(payload, ensure_ascii=False, sort_keys=True), SCHEMA, [], "benchmark-judge:" + payload["case_id"])
+            answer = result.get("answer") or {}
+            valid = bool(result.get("valid")) and type(answer.get("score")) is int and answer["score"] in (0, 1, 2) and isinstance(answer.get("unsupported_claims"), list) and isinstance(answer.get("reason"), str)
+            row = {"cache_key": key, "judge": JUDGE, "valid": valid, "case_id": payload["case_id"], "score": answer.get("score") if valid else None,
+                   "unsupported_claims": answer.get("unsupported_claims", []), "reason": answer.get("reason", "Judge output invalid"),
+                   "latency_ms": result.get("latency_ms"), "reader_cache_key": result.get("cache_key"), "cache_hit": result.get("cache_hit"), "metadata": result.get("metadata")}
+            with writer_lock:
+                with output.open("a", encoding="utf-8") as handle:
+                    handle.write(json.dumps(row, ensure_ascii=False) + "\n")
+                if valid:
+                    existing[key] = row
+                print(f"{payload['case_id']}: judge {row['score'] if valid else 'INVALID'}", flush=True)
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as pool:
+        work = [[payload] for payload in payloads] if workers == 1 else groups.values()
+        futures = [pool.submit(judge_group, group) for group in work]
+        try:
+            for future in concurrent.futures.as_completed(futures):
+                future.result()
+        except BaseException:
+            stopped.set()
+            for future in futures:
+                future.cancel()
+            raise
+    return attempted
+
+
+def main():
+    configure_environment()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--input", required=True, help="Downloaded judge-inputs.jsonl under the repo")
+    parser.add_argument("--output", required=True, help="Append-only judge-results.jsonl under the repo")
+    parser.add_argument("--limit", type=int, help="Optional cap for a diagnostic batch")
+    parser.add_argument("--workers", type=int, choices=range(1, 9), default=1, help="Maximum independent judge readers (default: 1)")
+    args = parser.parse_args()
+    source, output = inside(args.input), inside(args.output)
+    payloads = [json.loads(line) for line in source.read_text(encoding="utf-8").splitlines() if line.strip()]
+    attempted = judge_payloads(payloads, output, workers=args.workers, limit=args.limit)
+    print(f"Judged {attempted} uncached payloads with {args.workers} worker(s). Human spot-checks: none performed by this script.")
 
 
 if __name__ == "__main__":

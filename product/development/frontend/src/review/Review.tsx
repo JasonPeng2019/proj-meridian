@@ -165,10 +165,10 @@ function ReviewPanel({ api, debug, reviewer_name, on_open_part, on_open_source,
           {selected.review.by && <> · {publicText(selected.review.by)}</>}
           {selected.review.at && <> · <time dateTime={selected.review.at}>{publicText(selected.review.at)}</time></>}</p>}
         {selected.status === "source_changed" && <p className="mr-alert">The saved source binding is no longer current. Propose a new correction against the current source before reviewing.</p>}
-        <CheckEvidence check={selected.check_result} sources={selected.sources} on_open_source={on_open_source} />
+        <CheckEvidence check={selected.check_result} sources={selected.sources ?? []} on_open_source={on_open_source} />
         <section><h3>Original source evidence</h3>
-          {selected.sources.length === 0 && <p>No navigable source evidence is available.</p>}
-          {selected.sources.map((source, index) => <details className="mr-source" key={`${source.name}-${index}`}
+          {(selected.sources ?? []).length === 0 && <p>No navigable source evidence is available.</p>}
+          {(selected.sources ?? []).map((source, index) => <details className="mr-source" key={`${source.name}-${index}`}
             open={source.name === selected.applies_to || source.name === source.target.row_name}>
             <summary>{publicText(source.name)}{source.target.page ? ` · page ${source.target.page}` : ""}</summary>
             {source.says !== null && typeof source.says === "object" && !Array.isArray(source.says)
@@ -183,7 +183,7 @@ function ReviewPanel({ api, debug, reviewer_name, on_open_part, on_open_source,
           </details>)}
         </section>
         <section><h3>Preparation evidence</h3>{selected.ai_answers
-          ? <MethodBadge debug={debug} method={selected.sources[0]?.method ?? "unresolved"}
+          ? <MethodBadge debug={debug} method={selected.sources?.[0]?.method ?? "unresolved"}
               badge="Saved preparation evidence" provenance={selected.ai_answers} fact_name={selected.applies_to} />
           : <p className="mr-muted">No AI preparation answers are recorded for this item.</p>}</section>
         <details className="mr-source"><summary>Saved source binding</summary>
@@ -207,7 +207,7 @@ function ReviewPanel({ api, debug, reviewer_name, on_open_part, on_open_source,
           {busy && <p role="status">Saving decision…</p>}
         </section>}
         {actionResult && <section className="mr-saved" aria-label="Saved decision result"><h3>Decision saved</h3>
-          {actionResult.refresh.warnings.map((warning, index) => <p key={index} className="mr-alert">{publicText(warning)}</p>)}
+          {(actionResult.refresh.warnings ?? []).map((warning, index) => <p key={index} className="mr-alert">{publicText(warning)}</p>)}
           {Object.keys(actionResult.refresh.facts).length > 0 && <p>Facts refreshed for {actionResult.refresh.part_ids.map(publicText).join(", ")}.</p>}
           {Object.entries(actionResult.refresh.models).map(([part, model]) => <p key={part}>
             {publicText(part)} · Model: {publicText(model.state)}{model.message ? ` · ${publicText(model.message)}` : ""}</p>)}

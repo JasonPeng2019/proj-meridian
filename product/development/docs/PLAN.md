@@ -2,6 +2,8 @@
 
 **Immediate execution priority (latest user instruction):** Finish the actual app's real-part question → grounded Luna answer → drawing/details → saved-conversation reopening flow before unrelated work. M12/M14/M15/M03 and M19/M20/M04 integrate as one vertical slice; this does not narrow the original 27-module/M1–M3 completion requirements. Source-only deterministic records may power initial app use with unknown scan/AI fields left unresolved; they do not count as the required full determine/verify prep run or a passed product gate.
 
+**Geometry detail update:** Redo actual preparation with explicit, source-bound all-view feature coverage. M09 enumerates every drawn machining feature/group (holes, blind/countersunk/counterbored holes, slots, recesses and repeated instances), maps it to supported template fields or an explicit unsupported/unresolved item, and requires Opus to audit completeness against the source images. M11 preserves these details; unresolved significant features block a misleading model. M13 verifies genuine voids, depths and repeated instances independently of outer bounds. Minor cosmetic omissions remain explicit in Debug. No invented dimensions or silent feature-slot truncation; bump prep identities to invalidate old results. This strengthens existing M09/M11/M13 deliverables without adding a module or semantic checkpoint.
+
 ## Minimal working product
 
 This plan turns the supplied design into bounded coding modules. **M1 is the minimum complete submission.** M0 enables parallel development but is not submittable; M2 and M3 improve the working M1 in that order. The 12–14 hour budget and milestone times in the MVP are targets, not reasons to tag an incomplete version.

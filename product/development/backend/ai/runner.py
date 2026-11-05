@@ -1078,6 +1078,7 @@ class Runner:
                         "Inspected the OS launch error; no model substitution or answer repair was attempted."])
         effective, observations, events, raw = None, {}, [], None
         parsing_error = None
+        answer_present = False
         if result is not None:
             try:
                 events = _events(result.stdout)
@@ -1104,8 +1105,15 @@ class Runner:
                         FailureClass.OUTPUT_PARSE, "The CLI answer is invalid JSON; no repair attempted.")
             if result.truncated:
                 parsing_error = _OutputError(FailureClass.OUTPUT_SCHEMA, "CLI output exceeded the bounded capture limit.")
-            answer_present = raw is not None or (directory / "last-message.json").exists() or any(
-                "structured_output" in event or _mapping(event.get("item")).get("type") == "agent_message"
+            # A CLI may create an empty last-message file before inference, and
+            # emit commentary while still working. Neither is a final answer.
+            # Preserve a real timeout/authentication error in those cases.
+            last_message = directory / "last-message.json"
+            nonempty_last_message = last_message.is_file() and last_message.stat().st_size > 0
+            answer_present = raw is not None or nonempty_last_message or any(
+                event.get("structured_output") is not None
+                or (_mapping(event.get("item")).get("type") == "agent_message"
+                    and _mapping(event.get("item")).get("phase") == "final_answer")
                 or any(isinstance(block, dict) and block.get("name") == "StructuredOutput"
                        for block in _blocks(event)) for event in events)
             if parsing_error and (failure is None or answer_present or result.truncated
@@ -1153,6 +1161,13 @@ class Runner:
             "child_pid": result.pid if result else None, "elapsed_seconds": result.elapsed_seconds if result else None,
             "exit_code": result.returncode if result else None,
             "timed_out": result.timed_out if result else False, "usage": _usage(events),
+            "transport": {"stdout_bytes": len(result.stdout) if result else 0,
+                "stderr_bytes": len(result.stderr) if result else 0,
+                "event_counts": {kind: sum(event.get("type") == kind for event in events)
+                    for kind in ("thread.started", "turn.started", "item.completed", "turn.completed",
+                                 "error", "turn.failed", "system", "assistant", "user", "result")
+                    if any(event.get("type") == kind for event in events)},
+                "candidate_emitted": answer_present},
             "diagnostic_sha256": _sha(result.stdout + b"\n" + result.stderr) if result else None,
             "structured_output": raw}
         _write(directory / "receipt.json", receipt)

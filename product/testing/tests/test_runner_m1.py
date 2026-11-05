@@ -534,6 +534,23 @@ def test_two_owners_share_one_serial_prep_queue(workspace):
     assert case.budget.active == 0
 
 
+@pytest.mark.parametrize("role", ["determination", "verification"])
+def test_progress_and_empty_final_file_do_not_mask_execution_timeout(workspace, role):
+    steps = ([determination(action="timeout_progress")] if role == "determination" else
+             [determination(), verification(action="timeout_progress")])
+    case = Case(workspace, steps)
+    case.runner = case.make_runner(timeout_seconds=0.5)
+    record = case.runner(case.request())
+    attempt = getattr(record.rounds[0], role)
+    assert attempt.status == "execution_failed"
+    assert attempt.failure.classification == "timeout" and attempt.output is None
+    assert record.outcome == ("unresolved" if role == "determination" else "unverified_fallback")
+    assert case.budget.active == 0
+    receipt = next(item for item in case.receipts() if item.get("role") == role)
+    assert receipt["timed_out"] and not receipt["transport"]["candidate_emitted"]
+    assert receipt["transport"]["stdout_bytes"] > 0
+
+
 def test_timeout_kills_owned_child_and_releases_slot_with_truthful_fallback(workspace):
     case = Case(workspace, [determination(), verification(sleep=2)])
     case.runner = case.make_runner(timeout_seconds=0.5)

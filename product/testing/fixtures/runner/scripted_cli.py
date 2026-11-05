@@ -74,11 +74,24 @@ time.sleep(step.get("sleep", 0))
 action = step.get("action", "success")
 if action == "mutate_source":
     Path(step["source_path"]).write_text("SYNTHETIC MUTATION", encoding="utf-8")
-if action == "oauth_synthetic":
+if action == "timeout_progress":
+    if role == "determination":
+        Path(argv[argv.index("--output-last-message") + 1]).write_text("", encoding="utf-8")
+        emit({"type": "thread.started", "thread_id": "SYNTHETIC-PROGRESS-NOT-A-CANDIDATE"})
+        emit({"type": "item.completed", "item": {"type": "agent_message", "phase": "commentary",
+            "text": "SYNTHETIC progress only; no final answer has been emitted."}})
+    else:
+        emit({"type": "system", "subtype": "init", "model": expected_model})
+        emit({"type": "assistant", "message": {"model": expected_model, "content": [
+            {"type": "text", "text": "SYNTHETIC progress only; no verdict has been emitted."}]}})
+    time.sleep(2)
+    exit_code = 0
+elif action == "oauth_synthetic":
     emit({"type": "system", "subtype": "init", "model": expected_model, "fastMode": False})
     emit({"type": "assistant", "message": {"model": "<synthetic>", "content": [
         {"type": "text", "text": "SYNTHETIC OAuth authentication failure before inference"}]}})
-    emit({"type": "result", "is_error": True, "errors": ["SYNTHETIC OAuth authentication failure"]})
+    emit({"type": "result", "is_error": True, "structured_output": None,
+          "errors": ["SYNTHETIC OAuth authentication failure"]})
     exit_code = 1
 elif action in {"oauth", "rate_limit", "invocation", "network"}:
     messages = {"oauth": "Synthetic OAuth authentication failure", "rate_limit": "Synthetic rate limit 429",

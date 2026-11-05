@@ -52,6 +52,16 @@ and retired locally; isolated remote verification may use its own port 8000.
 
 ## Routine pushes
 
+Delivery checkpoints use `delivery.yml` in the same serial heavy queue. Package
+the current prepared catalog, evidence, append-only decisions, model recovery
+caches and built frontend with a per-file manifest. Follow README startup from
+the extracted ZIP without a Git checkout or preinstalled Python, then export,
+reload and test the container with Compose. Verify all drawing/model assets and
+persistence after recreation. Publish ZIP, image, checksums and verification
+reports together; keep credentials, personal chats and machine state excluded.
+The coordinator dispatches this autonomously and performs no local container
+builds or archive compression.
+
 `Meridian checks` runs remotely on pushes/PRs: focused Python tests without CAD/PDF regeneration/browser/API work, then frontend build. Each branch has a concurrency group that cancels superseded runs. Downloadable artifacts contain test reports and a frontend bundle with source and file hashes.
 
 The frontend is static HTML/JS/CSS. The coordinator downloads the matching successful bundle using `python -m scripts.frontend_artifact fetch --run RUN_ID`; the downloader verifies its source fingerprint and every asset hash before installing under `frontend/dist`. The interactive local FastAPI app serves that bundle without Node or a local frontend build. Keep the previous bundle as a repository-local rollback copy.

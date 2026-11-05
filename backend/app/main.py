@@ -293,6 +293,7 @@ def cli():
     parser = argparse.ArgumentParser(description="Meridian local evidence workbench")
     parser.add_argument("command", nargs="?", choices=["serve", "rebuild", "prep", "models"], default="serve")
     parser.add_argument("--port", type=int, default=8001)
+    parser.add_argument("--host", default="127.0.0.1", help="Bind address; containers use 0.0.0.0")
     debug = parser.add_mutually_exclusive_group()
     debug.add_argument("--debug-ui", action="store_true", help="Show the engineering Debug tab")
     debug.add_argument("--hide-debug", action="store_true", help="Hide Debug, including when enabled by the environment")
@@ -321,7 +322,7 @@ def cli():
         get_store().rebuild_models()
     print("Meridian: http://127.0.0.1:" + str(args.port))
     import uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=args.port)
+    uvicorn.run(app, host=args.host, port=args.port)
 
 if __name__ == "__main__":
     cli()

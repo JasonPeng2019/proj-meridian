@@ -350,7 +350,7 @@ def verify_redesign(context, errors):
             if name == 'parts':
                 expect(page.get_by_placeholder('Search part or material\u2026')).to_be_in_viewport()
                 # The original card catalog stays inside the page at each viewport.
-                assert page.locator('.part-result').count() == len(get('/api/parts'))
+                assert page.locator('.part-result').count() == sum(bool(p.get('has_drawing')) for p in get('/api/parts'))
             if name == 'drawing':
                 expect(page.get_by_title('Zoom in', exact=True)).to_be_in_viewport()
                 expect(page.get_by_role('button', name='Fit', exact=True)).to_be_in_viewport()

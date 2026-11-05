@@ -1,17 +1,17 @@
 {
   "schema_version": 1,
-  "commit": "fb463807553567530298511e9ed1a6766cbe97c0",
-  "source_sha256": "342704bdaafb6141ca241156a4d76b8c6a30cbece9027063e313a09a47b68594",
-  "run_id": "42056816065",
+  "commit": "1e0f74ca67d014168f55ed83381d3b200808665d",
+  "source_sha256": "ff139076e29ce4a3348a0b816d7251d5cf8f90a9199227609f27f2bba99591aa",
+  "run_id": "42060157924",
   "files": {
     "assets/geist-cyrillic-ext-wght-normal-DjL33-gN.woff2": "2317fa4bb293c9c0b110e18315d529235c47a0ddd3338cea3d8c7955e927899e",
     "assets/geist-cyrillic-wght-normal-BEAKL7Jp.woff2": "6894439694946a589d157ece003086960a6a4013d74a813dab7602efdb3d8c09",
     "assets/geist-latin-ext-wght-normal-DC-KSUi6.woff2": "824f485b5d26e2f2da3c2b236132ece1bc8e4e43373452950bb0e40548b4313f",
     "assets/geist-latin-wght-normal-BgDaEnEv.woff2": "19f9c92546aa300c312235e3125af1b81394d8db9a4bc4a425cd5b641d2d54e1",
     "assets/geist-vietnamese-wght-normal-6IgcOCM7.woff2": "8fa40e5d248247735eb97a0bd593b8852440430600d6ba01364c31fe0abc1fe1",
-    "assets/index-B7tszZ-5.js": "1436b54192aa6af0750fac74a2f1835ec07d7ced524d97f69d97ab7011410268",
-    "assets/index-BeU9WzGe.css": "7927e3461f04b4f5afcaabf866cbe55c948066afa2724de618f2dccafaf54d9a",
-    "index.html": "423f33b548741398f5bb8faf67991fb19fb847fcc21b0b87b6ba28e98e4c12dc",
+    "assets/index-Ca3y0B8S.css": "e968a89b6d79f325e6fe8ad8b636631ce54ba26fa57cabc351f88590753a16a0",
+    "assets/index-DmNsVvKI.js": "c37375ea7930d08e110d625c6d4adcbea59da4da2670095ef87fe10ea59b8c93",
+    "index.html": "8803aa09d1ecaebac0b52efe52b737da99602a3381aec2fdf919bd4ae7a68203",
     "licenses/Geist-OFL.txt": "d13775b2801a4675cdfefc76dea5b417f033ac4bb8ff6c098a2ef61bc2bfc0a8"
   },
   "purpose": "Only shipped UI; verified remote Embedder bundle promoted to frontend/dist",
@@ -25,7 +25,8 @@
   "live_openai_smoke": {
     "answer_received": true,
     "latency_ms": 5903,
-    "fixture_deleted": true
+    "fixture_deleted": true,
+    "source_commit": "435acb42ff66d801bfb2e47423f44b028f1e7ce6"
   },
   "anthropic_live_check": "Not run: no Anthropic API key configured; native transport covered with mocked HTTP.",
   "api_contract_sources": [

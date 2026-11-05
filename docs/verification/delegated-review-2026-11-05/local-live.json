@@ -3,23 +3,21 @@
     "chat_available": true,
     "chat_model": "gpt-6-luna",
     "debug_ui": true,
-    "revision": "c45b1c973caef7a1",
+    "revision": "9568bca34138b0c4",
     "parts": 204,
     "drawings": 30,
     "models": 9,
     "reviewer_name": "Jason Peng"
   },
-  "frontend_run": "42046334769",
-  "frontend_commit": "9d066dc9e5db34d92b1a1218d16b9eb0ce55babb",
-  "served_asset": "/assets/index-MCo2pw2I.js",
-  "served_asset_sha256": "b271ddcd10d14de70697fdfd9ef07dd4a19741b6a2032d020a0380d592bbdb25",
-  "typed_editor_present": true,
+  "frontend_run": "42048378613",
+  "frontend_commit": "ac0122a8c176cca7a99048d0201dce0d4991a682",
+  "served_asset": "/assets/index-CiDHB4IO.js",
+  "natural_language_parser_ui_present": true,
   "queue": {
     "resolved": 29,
     "human_review": 173,
-    "human_input": 42
+    "human_input": 41
   },
-  "d013_prior_human_correction_preserved": true,
   "runtime_process": "python.exe",
-  "pid": 60972
+  "pid": 66676
 }

@@ -151,12 +151,28 @@ def server_check(live=False, debug=False):
             proc.wait(timeout=15)
 
 
+
+def browser_checks():
+    # The customer and engineer runs are independent; collect both reports even
+    # when one fails, keeping each browser/server stage strictly sequential.
+    results = []
+    for debug in (False, True):
+        try:
+            server_check(debug=debug)
+            results.append({"mode": "debug" if debug else "customer", "passed": True})
+        except subprocess.CalledProcessError as error:
+            results.append({"mode": "debug" if debug else "customer", "passed": False,
+                            "exit_code": error.returncode})
+    (OUT / "browser-stages.json").write_text(json.dumps(results, indent=2), encoding="utf-8")
+    if not all(result["passed"] for result in results):
+        raise RuntimeError("Browser verification failed; see browser-stages.json and per-mode reports")
+
 def main():
     configure_environment()
     parser = argparse.ArgumentParser()
     parser.add_argument("stage", choices=["audit", "cad", "browser", "live"])
     stage = parser.parse_args().stage
-    {"audit": audit, "cad": cad, "browser": lambda: (server_check(), server_check(debug=True)),  "live": lambda: server_check(True)}[stage]()
+    {"audit": audit, "cad": cad, "browser": browser_checks,  "live": lambda: server_check(True)}[stage]()
 
 
 if __name__ == "__main__":

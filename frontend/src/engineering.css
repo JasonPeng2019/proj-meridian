@@ -39,7 +39,16 @@
 .review-header-actions { display: flex; align-items: center; gap: 14px; }
 .review-global-count { font-size: 12px; white-space: nowrap; }
 .review-header-actions .accuracy-card { max-width: none; position: relative; padding: 8px 10px; }
-.review-header-actions .accuracy-card > .structured { position: absolute; top: 100%; right: 0; z-index: 40; width: 360px; max-height: 300px; overflow: auto; padding: 16px; border: 1px solid #dde9e3; background: #fff; box-shadow: 0 8px 28px #263e5817; }
+.review-header-actions .accuracy-card > .accuracy-panel { position: absolute; top: calc(100% + 6px); right: 0; z-index: 40; width: min(390px, calc(100vw - 40px)); max-height: min(420px, calc(100dvh - 180px)); overflow: auto; padding: 18px; color: #536b7d; border: 1px solid #dde9e3; border-radius: 8px; background: #fff; box-shadow: 0 8px 28px #263e5817; }
+.accuracy-summary { display: flex; flex-direction: column; gap: 4px; margin: 0 0 14px; }
+.accuracy-summary strong { font-size: 25px; color: #315d51; }
+.accuracy-summary span,.accuracy-scope-note { font-size: 12px; line-height: 1.5; }
+.accuracy-jobs { width: 100%; border-collapse: collapse; font-size: 12px; }
+.accuracy-jobs th,.accuracy-jobs td { padding: 7px 5px; border-bottom: 1px solid #e7eeeb; text-align: right; }
+.accuracy-jobs th:first-child { text-align: left; font-weight: 500; }
+.accuracy-panel > details { margin-top: 12px; font-size: 12px; }
+.accuracy-panel .structured { margin-top: 10px; }
+.accuracy-raw { margin-top: 10px; max-height: 240px; overflow: auto; font-size: 10px; white-space: pre; }
 .review-intro { padding: 14px 28px; }
 .review-tabs { gap: 22px; overflow-x: auto; }
 .review-tabs > button { flex-shrink: 0; color: #61798b; font-size: 13px; }

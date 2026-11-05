@@ -59,6 +59,18 @@ function ReadingsDisclosure({item}) {
   return <details className="review-more disclosure" onToggle={event=>setOpen(event.currentTarget.open)}><summary>Compare 3D examples</summary>{open&&<PossibleReadingsPreview item={item}/>}</details>;
 }
 
+function AccuracyCard({accuracy}) {
+  const rate=typeof accuracy.accuracy==='number'?`${(accuracy.accuracy*100).toFixed(1)}%`:'No reviewed sample';
+  const scope={scope:accuracy.scope,note:accuracy.note,delegated_reviewed:accuracy.delegated_reviewed,excluded_decisions:accuracy.excluded_decisions};
+  return <details className="accuracy-card"><summary><ShieldCheck size={17}/>Human review accuracy</summary><div className="accuracy-panel" role="region" aria-label="Human review accuracy details">
+    <p className="accuracy-summary"><strong>{rate}</strong><span>{accuracy.reviewed||0} reviewed AI proposals</span></p>
+    <table className="accuracy-jobs" aria-label="Reviewed original AI proposals"><thead><tr><th>Category</th><th>Confirmed</th><th>Rejected</th></tr></thead><tbody>{Object.entries(accuracy.jobs||{}).map(([name,counts])=><tr key={name}><th>{titleCase(name)}</th><td>{counts.confirmed}</td><td>{counts.rejected}</td></tr>)}</tbody></table>
+    <p className="accuracy-scope-note">This measures the reviewed sample, not the entire dataset or whole-design approval.</p>
+    <details><summary>Metric scope & exclusions</summary><DeferredJsonDetails value={scope}/></details>
+    {accuracy.prep&&<details><summary>Prep pipeline metrics</summary><pre className="accuracy-raw">{JSON.stringify(accuracy.prep,null,2)}</pre></details>}
+  </div></details>;
+}
+
 function ReviewActions({item,onAction,busy,navigate}) {
   const [value,setValue]=useState(''),[note,setNote]=useState('');
   useEffect(()=>{setValue('');setNote('')},[item.id]);
@@ -121,7 +133,7 @@ export default function Review({route,navigate,onChanged}) {
   const reviewItems=key=>{clearFilters();const local=allItems.filter(item=>itemPartKey(item)===key),queue=['needs-input','corrections','possible-readings','ai'].find(id=>local.some(item=>matchesTab(item,id)&&!settled(item)))||'ai';navigate(scopedURL(`/review/${queue}`,key))};
   const filtered=scopedItems.filter(item=>matchesTab(item,active)&&(!filter||[item.title,item.target,item.part_key,englishText(item.title)].join(' ').toLowerCase().includes(filter.toLowerCase()))&&(!status||item.status===status)&&(!type||item.type===type)&&(!method||item.method===method)&&(!weight||String((item.weight_check||(summaries||[]).find(part=>partKey(part)===itemPartKey(item))?.weight_check)?.state||'').toLowerCase()===weight));
   return <div className="review-page">
-    <header className="workspace-header"><div><span className="workspace-label">ENGINEERING WORKSPACE</span><h1>Engineering workspace</h1></div><div className="review-header-actions">{items&&<button className="text-button review-global-count" aria-label="Show all items awaiting human review" onClick={()=>{clearFilters();navigate('/review/awaiting-review')}}>{allItems.filter(item=>!settled(item)).length} awaiting human review</button>}{accuracy&&<details className="accuracy-card"><summary><ShieldCheck size={17}/>Human review accuracy</summary><DeferredJsonDetails value={accuracy}/></details>}<button className="button secondary" onClick={load}><RefreshCw size={14}/>Refresh</button></div></header>
+    <header className="workspace-header"><div><span className="workspace-label">ENGINEERING WORKSPACE</span><h1>Engineering workspace</h1></div><div className="review-header-actions">{items&&<button className="text-button review-global-count" aria-label="Show all items awaiting human review" onClick={()=>{clearFilters();navigate('/review/awaiting-review')}}>{allItems.filter(item=>!settled(item)).length} awaiting human review</button>}{accuracy&&<AccuracyCard accuracy={accuracy}/>}<button className="button secondary" onClick={load}><RefreshCw size={14}/>Refresh</button></div></header>
     {error&&<ErrorMessage>{error}</ErrorMessage>}
     {notice&&<div className="notice success"><Check size={16}/>{notice}</div>}
     <nav className="review-tabs" aria-label="Review categories">{tabs.map(([id,label])=><button key={id} className={active===id?'active':''} onClick={()=>{if(id==='awaiting-review'){clearFilters();navigate('/review/awaiting-review')}else navigate(scopedURL(`/review/${id}`,scope))}}>{label}<span>{id==='parts'?(summaries||[]).length:id==='awaiting-review'?allItems.filter(item=>!settled(item)).length:scopedItems.filter(item=>matchesTab(item,id)).length}</span></button>)}</nav>

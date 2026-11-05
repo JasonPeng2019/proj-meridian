@@ -85,6 +85,19 @@ def verify_debug():
         expect(pane).to_have_js_property('scrollTop',0)
 
         page.goto(BASE+'/review/awaiting-review')
+        accuracy_summary=page.locator('.accuracy-card > summary')
+        expect(accuracy_summary).to_be_visible()
+        header_height=page.locator('.review-page > .workspace-header').evaluate('el => el.getBoundingClientRect().height')
+        accuracy_summary.click()
+        accuracy_panel=page.get_by_role('region',name='Human review accuracy details',exact=True)
+        expect(accuracy_panel).to_be_visible()
+        expect(accuracy_panel.get_by_role('table',name='Reviewed original AI proposals')).to_be_visible()
+        expect(accuracy_panel).to_contain_text(f"{get('/api/accuracy')['reviewed']} reviewed AI proposals")
+        assert abs(page.locator('.review-page > .workspace-header').evaluate('el => el.getBoundingClientRect().height')-header_height)<2
+        assert accuracy_panel.bounding_box()['y']+accuracy_panel.bounding_box()['height']<=1000
+        page.screenshot(path=str(OUT/'human-review-accuracy.png'))
+        accuracy_summary.press('Enter')
+        expect(accuracy_panel).not_to_be_visible()
         unsettled=[i for i in get('/api/review') if i.get('status') not in ['accepted','rejected','human_confirmed','human_rejected','approved','reviewed','deferred']]
         expect(page.locator('.review-item')).to_have_count(len(unsettled))
         expect(page.get_by_role('button',name='Show all items awaiting human review',exact=True)).to_have_text(f'{len(unsettled)} awaiting human review')

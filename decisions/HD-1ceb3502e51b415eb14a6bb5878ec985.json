@@ -1,0 +1,33 @@
+{
+  "decision_id": "HD-1ceb3502e51b415eb14a6bb5878ec985",
+  "applies_to": "D-028/template/features_complete",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Confirm false: the retained three holes omit undimensioned edge finishing, and supported holes do not make the obround outer profile an available template.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:39.842677+00:00",
+  "based_on": {
+    "sha256": "30fb8b6088f535c51107389aa8eb4c7420841cd0f4c6175d3deb90a154e9881f"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-028/drawing/general/edge_finish",
+    "D-028/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-028",
+      "page": 1,
+      "image": "generated/images/D-028-p1.png",
+      "visual_description": "Confirm false: the retained three holes omit undimensioned edge finishing, and supported holes do not make the obround outer profile an available template."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-21-30.json",
+    "sha256": "0837e5ed6eafe2465f7840be73edf1543e5cd9e4087c3aacc5f2e4da2e1f14a2"
+  },
+  "prediction_sha256": "1f636aa64c974f284834632d37a20a2227e124a02cb06240d24d99fadccc0e2e"
+}

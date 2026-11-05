@@ -1,0 +1,32 @@
+{
+  "decision_id": "HD-0e2b9e4c8c2b4ee69729705013d15779",
+  "applies_to": "D-026/template/cad_eligibility",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Direct original PNG reinspection supports a circular constant-thickness disk; datum A and the opposite planar face support a parallel plate. Active eligibility comes from the separate shape-only screen, with the unknown detailed assessment preserved. Thickness [15,25] remains unselected under the explicit MVP possible-reading policy. The 15.4 mm counterbore conflict at 15 mm affects the step only; primary 5.3 mm through bores remain independently supported. This confirms the supported main body, not a complete design.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:43.001761+00:00",
+  "based_on": {
+    "sha256": "a7ee7f4d75acaf2e8fc67ce14ca223d5cb4a2931063f37f4dfb6fadeeb70256e"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-026/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-026",
+      "image": null,
+      "page": null,
+      "box": null
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  },
+  "prediction_sha256": "27e1033c02389e9a4093a505ba61189eec5e8732478e1cc328a490a70262acaf"
+}

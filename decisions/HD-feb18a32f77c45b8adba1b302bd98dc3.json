@@ -1,0 +1,33 @@
+{
+  "decision_id": "HD-feb18a32f77c45b8adba1b302bd98dc3",
+  "applies_to": "D-022/template/thickness",
+  "type": "defer_unsupported",
+  "value": null,
+  "status": "accepted",
+  "note": "Original drawing inspected: Formed and welded perforated box has a free-choice gauge and unsupported bends and profile. Defer this unresolved template input because the essential main body is outside the current supported geometry. Preserve its unknown value; this disposition does not approve the design, invent missing geometry, or select a numeric interpretation.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:43.160336+00:00",
+  "based_on": {
+    "sha256": "7f3f8efc002bc2545386c1a355341ca61ebd984084b21cb07575331c4c1cc9ee"
+  },
+  "prediction_sha256": "f8d3ad6be2d0cf831a34d5e8aa084f8b48311b6369e013e43b8d74290a73a970",
+  "template_capability_sha256": "38e23f8f142cda668849e550a01669f0f4c30c91028674133b65e47d381503b5",
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-022/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-022",
+      "image": null,
+      "page": null,
+      "box": null
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  }
+}

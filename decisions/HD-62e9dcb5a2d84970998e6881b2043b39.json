@@ -1,0 +1,381 @@
+{
+  "decision_id": "HD-62e9dcb5a2d84970998e6881b2043b39",
+  "applies_to": "names/section/ -> raw-materials",
+  "type": "name_mapping",
+  "value": "no_equivalent",
+  "status": "accepted",
+  "note": "Checked the full supplied drawing section inventory (Box, Gas Flow, Optical, Powder, Recoater, Z-axis) against all3 original BOM rows in Raw Materials. No equivalent drawing section exists in this corpus; approve no_equivalent for the group label only. This is not a claim that the machine lacks these physical components or that an individual row cannot have other evidence.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:43.224336+00:00",
+  "based_on": {
+    "sha256": "bfb6d234fd054ca71682b207b556873b1cbc41d869d14b0b5546be8dde577e65"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-001/drawing/source",
+    "D-002/drawing/source",
+    "D-003/drawing/source",
+    "D-004/drawing/source",
+    "D-005/drawing/source",
+    "D-006/drawing/source",
+    "D-007/drawing/source",
+    "D-008/drawing/source",
+    "D-009/drawing/source",
+    "D-010/drawing/source",
+    "D-011/drawing/source",
+    "D-012/drawing/source",
+    "D-013/drawing/source",
+    "D-014/drawing/source",
+    "D-015/drawing/source",
+    "D-016/drawing/source",
+    "D-017/drawing/source",
+    "D-018/drawing/source",
+    "D-019/drawing/source",
+    "D-020/drawing/source",
+    "D-021/drawing/source",
+    "D-022/drawing/source",
+    "D-023/drawing/source",
+    "D-024/drawing/source",
+    "D-025/drawing/source",
+    "D-026/drawing/source",
+    "D-027/drawing/source",
+    "D-028/drawing/source",
+    "D-029/drawing/source",
+    "D-030/drawing/source",
+    "BOM:raw-materials/silicone-sheet/part_family",
+    "BOM:raw-materials/loctite-222/part_family",
+    "BOM:raw-materials/montage-pasta/part_family"
+  ],
+  "source_locations": [
+    {
+      "kind": "drawing",
+      "name": "D-001/drawing/source",
+      "part_key": "D-001",
+      "page": 1,
+      "box": null,
+      "label": "D-001 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-001.pdf",
+      "source_filename": "Door_x2.PDF"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-002/drawing/source",
+      "part_key": "D-002",
+      "page": 1,
+      "box": null,
+      "label": "D-002 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-002.pdf",
+      "source_filename": "LeftWall.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-003/drawing/source",
+      "part_key": "D-003",
+      "page": 1,
+      "box": null,
+      "label": "D-003 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-003.pdf",
+      "source_filename": "MainPlatform_Loop2.PDF"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-004/drawing/source",
+      "part_key": "D-004",
+      "page": 1,
+      "box": null,
+      "label": "D-004 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-004.pdf",
+      "source_filename": "TopPlate.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-005/drawing/source",
+      "part_key": "D-005",
+      "page": 1,
+      "box": null,
+      "label": "D-005 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-005.pdf",
+      "source_filename": "WindowFrame.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-006/drawing/source",
+      "part_key": "D-006",
+      "page": 1,
+      "box": null,
+      "label": "D-006 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-006.pdf",
+      "source_filename": "CanisterWall_LeftAndRight.PDF"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-007/drawing/source",
+      "part_key": "D-007",
+      "page": 1,
+      "box": null,
+      "label": "D-007 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-007.pdf",
+      "source_filename": "DispenserShaft_v6.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-008/drawing/source",
+      "part_key": "D-008",
+      "page": 1,
+      "box": null,
+      "label": "D-008 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-008.pdf",
+      "source_filename": "PowderBracket.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-009/drawing/source",
+      "part_key": "D-009",
+      "page": 1,
+      "box": null,
+      "label": "D-009 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-009.pdf",
+      "source_filename": "PowderCanister.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-010/drawing/source",
+      "part_key": "D-010",
+      "page": 1,
+      "box": null,
+      "label": "D-010 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-010.pdf",
+      "source_filename": "PowderMotorPlate.PDF"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-011/drawing/source",
+      "part_key": "D-011",
+      "page": 1,
+      "box": null,
+      "label": "D-011 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-011.pdf",
+      "source_filename": "RecoaterArm.PDF"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-012/drawing/source",
+      "part_key": "D-012",
+      "page": 1,
+      "box": null,
+      "label": "D-012 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-012.pdf",
+      "source_filename": "RecoaterMountBlock.PDF"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-013/drawing/source",
+      "part_key": "D-013",
+      "page": 1,
+      "box": null,
+      "label": "D-013 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-013.pdf",
+      "source_filename": "RecoaterPlate.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-014/drawing/source",
+      "part_key": "D-014",
+      "page": 1,
+      "box": null,
+      "label": "D-014 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-014.pdf",
+      "source_filename": "RecoaterStagePlate.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-015/drawing/source",
+      "part_key": "D-015",
+      "page": 1,
+      "box": null,
+      "label": "D-015 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-015.pdf",
+      "source_filename": "Silicone270mm_1mm_x2.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-016/drawing/source",
+      "part_key": "D-016",
+      "page": 1,
+      "box": null,
+      "label": "D-016 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-016.pdf",
+      "source_filename": "GalvoBottomPlate.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-017/drawing/source",
+      "part_key": "D-017",
+      "page": 1,
+      "box": null,
+      "label": "D-017 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-017.pdf",
+      "source_filename": "GalvoMountPlate.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-018/drawing/source",
+      "part_key": "D-018",
+      "page": 1,
+      "box": null,
+      "label": "D-018 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-018.pdf",
+      "source_filename": "GalvoMountSide_x2.PDF"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-019/drawing/source",
+      "part_key": "D-019",
+      "page": 1,
+      "box": null,
+      "label": "D-019 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-019.pdf",
+      "source_filename": "SiliconePakningfTheta.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-020/drawing/source",
+      "part_key": "D-020",
+      "page": 1,
+      "box": null,
+      "label": "D-020 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-020.pdf",
+      "source_filename": "f-theta-SealRing.PDF"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-021/drawing/source",
+      "part_key": "D-021",
+      "page": 1,
+      "box": null,
+      "label": "D-021 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-021.pdf",
+      "source_filename": "BlowerOutlet.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-022/drawing/source",
+      "part_key": "D-022",
+      "page": 1,
+      "box": null,
+      "label": "D-022 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-022.pdf",
+      "source_filename": "InletBox.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-023/drawing/source",
+      "part_key": "D-023",
+      "page": 1,
+      "box": null,
+      "label": "D-023 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-023.pdf",
+      "source_filename": "BuildCylinder_v2.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-024/drawing/source",
+      "part_key": "D-024",
+      "page": 1,
+      "box": null,
+      "label": "D-024 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-024.pdf",
+      "source_filename": "ByggeBase.PDF"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-025/drawing/source",
+      "part_key": "D-025",
+      "page": 1,
+      "box": null,
+      "label": "D-025 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-025.pdf",
+      "source_filename": "ByggeBaseRing_Version2.PDF"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-026/drawing/source",
+      "part_key": "D-026",
+      "page": 1,
+      "box": null,
+      "label": "D-026 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-026.pdf",
+      "source_filename": "ByggePlade.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-027/drawing/source",
+      "part_key": "D-027",
+      "page": 1,
+      "box": null,
+      "label": "D-027 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-027.pdf",
+      "source_filename": "CylinderSpændRing.PDF"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-028/drawing/source",
+      "part_key": "D-028",
+      "page": 1,
+      "box": null,
+      "label": "D-028 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-028.pdf",
+      "source_filename": "VarmeElementPlade.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-029/drawing/source",
+      "part_key": "D-029",
+      "page": 1,
+      "box": null,
+      "label": "D-029 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-029.pdf",
+      "source_filename": "Z-axis_BottomPlate.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-030/drawing/source",
+      "part_key": "D-030",
+      "page": 1,
+      "box": null,
+      "label": "D-030 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-030.pdf",
+      "source_filename": "Z-axis_MotorPlate.pdf"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:raw-materials/silicone-sheet/part_family",
+      "label": "BOM-190 / Silicone sheet",
+      "part_key": "bom/raw-materials/silicone-sheet",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-190"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:raw-materials/loctite-222/part_family",
+      "label": "BOM-191 / Loctite 222",
+      "part_key": "bom/raw-materials/loctite-222",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-191"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:raw-materials/montage-pasta/part_family",
+      "label": "BOM-192 / Montage pasta",
+      "part_key": "bom/raw-materials/montage-pasta",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-192"
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-mapping-audit.json",
+    "sha256": "68192ac62e6302349418083eaba9bfbd473a988791c670f9279d8f62dcb0c9f9"
+  }
+}

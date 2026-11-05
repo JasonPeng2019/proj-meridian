@@ -1,0 +1,35 @@
+{
+  "decision_id": "HD-fb8c5947377d467f86e311700342f106",
+  "applies_to": "D-020/template/features_review",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Confirm empty populated cut list under current input: original visibly shows6x Ø3,3 blind drill depth8,0, M4 - 6H depth6,0 and R65,5 placement radius, but supplied drawing-number and callout indexes are empty. These numeric source values are present visually, not absent from the drawing. No cut is populated or geometry invented here; annular groove is outside current hole/slot feature types.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:39.508069+00:00",
+  "based_on": {
+    "sha256": "06242966c0f3c15c3031982fa56585859ff1d64e52f6215a30fcf0e912225fa6"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-020/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-020",
+      "page": 1,
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-020.pdf",
+      "fact_id": "D-020/drawing/source",
+      "box": null,
+      "image": "generated/images/D-020-p1.png",
+      "visual_description": "Confirm empty populated cut list under current input: original visibly shows6x Ø3,3 blind drill depth8,0, M4 - 6H depth6,0 and R65,5 placement radius, but supplied drawing-number and callout indexes are empty. These numeric source values are present visually, not absent from the drawing. No cut is populated or geometry invented here; annular groove is outside current hole/slot feature types."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-11-20.json",
+    "sha256": "332d43089d177738c95270e02b8bf3ec14d366a9fd31daf660b1db7405813578"
+  },
+  "prediction_sha256": "650432330df14ab4c3637cc15adb17ea367e79e813bb57169373201cd3e9f90e"
+}

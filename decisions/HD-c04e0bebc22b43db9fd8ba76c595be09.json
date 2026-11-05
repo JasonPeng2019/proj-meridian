@@ -1,0 +1,38 @@
+{
+  "decision_id": "HD-c04e0bebc22b43db9fd8ba76c595be09",
+  "applies_to": "D-011/drawing/visual-n/p1-1e6ea7c105eabb11",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Directly inspected original page: stacked15/12 limits,25section,20/80hole offsets,195/348envelope,R35/R60,82/10.5/8 offsets,2x6.6,4x4.2/M5-6H. Thread designation tokens are not drill diameters; stacked limits are not two selected thickness alternatives. This confirms the printed token only, not a simplified rectangular outline.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:41.125565+00:00",
+  "based_on": {
+    "sha256": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-011/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-011",
+      "page": 1,
+      "image": "generated/images/D-011-p1.png",
+      "box": [
+        300.8,
+        366.6,
+        14.5,
+        29.7
+      ],
+      "source_sha256": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67"
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-literal-audit.json",
+    "sha256": "d3a54c7b1739712f1ac4710fd09ce56d103a32b72b400a824808311f62a8ed94"
+  },
+  "prediction_sha256": "3041e76c8e09a67c9ecacadd01bec31fc2fc1c98eed5b3619db5e441ffa1aceb"
+}

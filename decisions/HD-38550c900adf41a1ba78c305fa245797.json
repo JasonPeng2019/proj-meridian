@@ -1,0 +1,92 @@
+{
+  "decision_id": "HD-38550c900adf41a1ba78c305fa245797",
+  "applies_to": "D-019/template/cad_eligibility",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "The constant-thickness annular blank is supported with the documented unlocated holes omitted.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:42.805239+00:00",
+  "based_on": {
+    "sha256": "581fbaf7562ac75008243463af6956d6f88cd6a0a858cf6c22aa62ce39041e11"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-019/drawing/source",
+    "D-019/drawing/n/141.0@1-1",
+    "D-019/drawing/n/118.0@1-1",
+    "D-019/drawing/n/1.0@1-1",
+    "D-019/drawing/notes",
+    "D-019/drawing/callout/p1-1",
+    "D-019/drawing/general/edge_finish"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-019/drawing/n/141.0@1-1",
+      "page": 1,
+      "box": [
+        728.205,
+        230.219,
+        36.113,
+        36.113
+      ]
+    },
+    {
+      "fact_id": "D-019/drawing/n/118.0@1-1",
+      "page": 1,
+      "box": [
+        673.172,
+        230.001,
+        32.155,
+        37.61
+      ]
+    },
+    {
+      "fact_id": "D-019/drawing/n/1.0@1-1",
+      "page": 1,
+      "box": [
+        323.877,
+        242.209,
+        18.327,
+        18.083
+      ]
+    },
+    {
+      "fact_id": "D-019/drawing/notes",
+      "page": 1,
+      "box": [
+        741.526,
+        658.942,
+        231.0,
+        111.0
+      ]
+    },
+    {
+      "fact_id": "D-019/drawing/callout/p1-1",
+      "page": 1,
+      "box": [
+        449.788,
+        231.957,
+        118.667,
+        18.083
+      ]
+    },
+    {
+      "fact_id": "D-019/drawing/general/edge_finish",
+      "page": 1,
+      "box": [
+        1078.776,
+        781.582,
+        52.887,
+        14.837
+      ]
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  },
+  "prediction_sha256": "92bc12ab37b69b35a3e0b95a523689f1d97788105356f9ed4f3d0ff76afb33ed"
+}

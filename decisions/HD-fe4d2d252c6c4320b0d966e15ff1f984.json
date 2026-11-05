@@ -1,0 +1,36 @@
+{
+  "decision_id": "HD-fe4d2d252c6c4320b0d966e15ff1f984",
+  "applies_to": "D-015/template/outline/length",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Printed overall face length 270 mm.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:42.708192+00:00",
+  "based_on": {
+    "sha256": "0828f6fee0d3bc087524df08c8b3fbadc5201212e5f86fcfc08b984fe9e32c60"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-015/drawing/n/270.0@1-1"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-015/drawing/n/270.0@1-1",
+      "page": 1,
+      "box": [
+        658.685,
+        290.007,
+        32.988,
+        18.083
+      ]
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  },
+  "prediction_sha256": "c9a4a0c5276f6b847fb8b14d6380c4353f2bf7588d9f3c926365b8efab03a11d"
+}

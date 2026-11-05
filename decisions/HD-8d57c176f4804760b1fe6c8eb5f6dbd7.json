@@ -1,0 +1,47 @@
+{
+  "decision_id": "HD-8d57c176f4804760b1fe6c8eb5f6dbd7",
+  "applies_to": "D-019/template/outline/inner_diameter",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Printed inside diameter is 118 mm, distinct from D-020's 118.6 mm.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:42.778717+00:00",
+  "based_on": {
+    "sha256": "581fbaf7562ac75008243463af6956d6f88cd6a0a858cf6c22aa62ce39041e11"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-019/drawing/n/118.0@1-1",
+    "D-019/drawing/general/units"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-019/drawing/n/118.0@1-1",
+      "page": 1,
+      "box": [
+        673.172,
+        230.001,
+        32.155,
+        37.61
+      ]
+    },
+    {
+      "fact_id": "D-019/drawing/general/units",
+      "page": 1,
+      "box": [
+        978.968,
+        784.149,
+        85.555,
+        7.75
+      ]
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  },
+  "prediction_sha256": "c23e2034a062cdf9fc3c58eaed225d9a61b73de2f28721e43ae0f70a0af737be"
+}

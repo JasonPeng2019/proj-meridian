@@ -1,0 +1,386 @@
+{
+  "examples": [
+    "A",
+    "B"
+  ],
+  "models": {
+    "A": {
+      "glb": "models/D-013_A.glb",
+      "step": "models/D-013_A_reconstruction_from_drawing.step",
+      "bounds_mm": {
+        "min": [
+          -135.0,
+          -12.5,
+          0.0
+        ],
+        "max": [
+          135.0,
+          12.5,
+          3.0
+        ],
+        "size": [
+          270.0,
+          25.0,
+          3.0
+        ]
+      },
+      "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
+      "volume_mm3": 19555.321493945325,
+      "template_sha256": "3a31294ccbf43e76433e51b0ec2a5b245e78a2d567415ee605581dbee327ba67",
+      "selections": {
+        "thickness": 3.0
+      },
+      "labels": [
+        {
+          "name": "Feature 1 (hole)",
+          "kind": "hole",
+          "count": 2,
+          "hole_type": "threaded",
+          "requested_hole_type": "threaded",
+          "step_omitted": null,
+          "thread": "M5 - 6H",
+          "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+          "fact_ids": [
+            "D-013",
+            "D-013/drawing/callout/p1-1",
+            "D-013/drawing/n/2.0@1-1",
+            "D-013/drawing/n/4.2@1-1",
+            "D-013/drawing/n/82.0@1-1",
+            "D-013/drawing/n/4.5@1-1"
+          ],
+          "method": "ai_verified_after_retry",
+          "feature_index": 0
+        },
+        {
+          "name": "Feature 2 (hole)",
+          "kind": "hole",
+          "count": 1,
+          "hole_type": "threaded",
+          "requested_hole_type": "threaded",
+          "step_omitted": null,
+          "thread": "M3 - 6H",
+          "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+          "fact_ids": [
+            "D-013",
+            "D-013/drawing/callout/p1-2",
+            "D-013/drawing/n/8.0@1-1",
+            "D-013/drawing/n/2.5@1-1",
+            "D-013/drawing/n/17.9@1-1",
+            "D-013/drawing/n/7.5@1-1"
+          ],
+          "method": "ai_verified_after_retry",
+          "feature_index": 1
+        },
+        {
+          "name": "Feature 3 (hole)",
+          "kind": "hole",
+          "count": 1,
+          "hole_type": "threaded",
+          "requested_hole_type": "threaded",
+          "step_omitted": null,
+          "thread": "M3 - 6H",
+          "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+          "fact_ids": [
+            "D-013",
+            "D-013/drawing/callout/p1-2",
+            "D-013/drawing/n/8.0@1-1",
+            "D-013/drawing/n/2.5@1-1",
+            "D-013/drawing/n/17.9@1-1",
+            "D-013/drawing/n/35.7@1-1",
+            "D-013/drawing/n/7.5@1-1"
+          ],
+          "method": "ai_verified_after_retry",
+          "feature_index": 2
+        },
+        {
+          "name": "Feature 4 (slot)",
+          "kind": "slot",
+          "count": 4,
+          "hole_type": null,
+          "requested_hole_type": "plain",
+          "step_omitted": null,
+          "thread": null,
+          "thread_representation": null,
+          "fact_ids": [
+            "D-013",
+            "D-013/drawing/callout/p1-3",
+            "D-013/drawing/n/4.0@1-1",
+            "D-013/drawing/n/5.5@1-1",
+            "D-013/drawing/n/10.0@1-1",
+            "D-013/drawing/n/41.0@1-1",
+            "D-013/drawing/n/82.0@1-2",
+            "D-013/drawing/n/2.3@1-1"
+          ],
+          "method": "ai_verified_after_retry",
+          "feature_index": 3
+        }
+      ],
+      "waiting": [
+        "features_complete"
+      ],
+      "omitted": [
+        "Four small straight outer corner clips, one at each corner of the main rectangular outline.: The original views show the clips, but neither X/Y setbacks nor a dimensioned 45-degree chamfer callout is supplied. Their dimensions cannot be inferred from pixels or from the generic edge-finish note.",
+        "DEBURR AND BREAK SHARP EDGES.: The general manufacturing note supplies no edge-break size, angle or radius. It does not determine an additional modeled bevel or rounding.",
+        "Six remaining holes from the 8 x 2,5 THRU ALL M3 - 6H THRU ALL callout: the four holes left of the central vertical axis and the two farther-right holes beyond the directly dimensioned pair.: The printed 17,9 centerline offset and following 35,7 adjacent-hole dimension establish only the first two holes right of center. The other six X positions are not individually dimensioned, and the view does not resolve the conflict between extending a uniform 35,7 pitch across all eight holes and mirroring the visible layout about X=0: twice 17,9 is 35,8, not 35,7. Their drill diameter, thread, through operation and lower-row Y axis are established, but their complete placements are not. No guessed row or mirrored coordinates are emitted."
+      ],
+      "features_all_determined": false,
+      "glb_units": "metres",
+      "cad_units": "mm",
+      "glb_to_mm": 1000,
+      "glb_sha256": "b98a9481e8e258cdd257e1f0182e7b107e1c4c64f349ebc5aafc00672be29a7e",
+      "step_sha256": "d7ff48d086e690f8eb093ab3edda2e96d7c660439133c0d7a0c0ffe12f9080a3"
+    },
+    "B": {
+      "glb": "models/D-013_B.glb",
+      "step": "models/D-013_B_reconstruction_from_drawing.step",
+      "bounds_mm": {
+        "min": [
+          -135.0,
+          -12.5,
+          0.0
+        ],
+        "max": [
+          135.0,
+          12.5,
+          6.0
+        ],
+        "size": [
+          270.0,
+          25.0,
+          6.0
+        ]
+      },
+      "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
+      "volume_mm3": 39110.64298789065,
+      "template_sha256": "3a31294ccbf43e76433e51b0ec2a5b245e78a2d567415ee605581dbee327ba67",
+      "selections": {
+        "thickness": 6.0
+      },
+      "labels": [
+        {
+          "name": "Feature 1 (hole)",
+          "kind": "hole",
+          "count": 2,
+          "hole_type": "threaded",
+          "requested_hole_type": "threaded",
+          "step_omitted": null,
+          "thread": "M5 - 6H",
+          "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+          "fact_ids": [
+            "D-013",
+            "D-013/drawing/callout/p1-1",
+            "D-013/drawing/n/2.0@1-1",
+            "D-013/drawing/n/4.2@1-1",
+            "D-013/drawing/n/82.0@1-1",
+            "D-013/drawing/n/4.5@1-1"
+          ],
+          "method": "ai_verified_after_retry",
+          "feature_index": 0
+        },
+        {
+          "name": "Feature 2 (hole)",
+          "kind": "hole",
+          "count": 1,
+          "hole_type": "threaded",
+          "requested_hole_type": "threaded",
+          "step_omitted": null,
+          "thread": "M3 - 6H",
+          "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+          "fact_ids": [
+            "D-013",
+            "D-013/drawing/callout/p1-2",
+            "D-013/drawing/n/8.0@1-1",
+            "D-013/drawing/n/2.5@1-1",
+            "D-013/drawing/n/17.9@1-1",
+            "D-013/drawing/n/7.5@1-1"
+          ],
+          "method": "ai_verified_after_retry",
+          "feature_index": 1
+        },
+        {
+          "name": "Feature 3 (hole)",
+          "kind": "hole",
+          "count": 1,
+          "hole_type": "threaded",
+          "requested_hole_type": "threaded",
+          "step_omitted": null,
+          "thread": "M3 - 6H",
+          "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+          "fact_ids": [
+            "D-013",
+            "D-013/drawing/callout/p1-2",
+            "D-013/drawing/n/8.0@1-1",
+            "D-013/drawing/n/2.5@1-1",
+            "D-013/drawing/n/17.9@1-1",
+            "D-013/drawing/n/35.7@1-1",
+            "D-013/drawing/n/7.5@1-1"
+          ],
+          "method": "ai_verified_after_retry",
+          "feature_index": 2
+        },
+        {
+          "name": "Feature 4 (slot)",
+          "kind": "slot",
+          "count": 4,
+          "hole_type": null,
+          "requested_hole_type": "plain",
+          "step_omitted": null,
+          "thread": null,
+          "thread_representation": null,
+          "fact_ids": [
+            "D-013",
+            "D-013/drawing/callout/p1-3",
+            "D-013/drawing/n/4.0@1-1",
+            "D-013/drawing/n/5.5@1-1",
+            "D-013/drawing/n/10.0@1-1",
+            "D-013/drawing/n/41.0@1-1",
+            "D-013/drawing/n/82.0@1-2",
+            "D-013/drawing/n/2.3@1-1"
+          ],
+          "method": "ai_verified_after_retry",
+          "feature_index": 3
+        }
+      ],
+      "waiting": [
+        "features_complete"
+      ],
+      "omitted": [
+        "Four small straight outer corner clips, one at each corner of the main rectangular outline.: The original views show the clips, but neither X/Y setbacks nor a dimensioned 45-degree chamfer callout is supplied. Their dimensions cannot be inferred from pixels or from the generic edge-finish note.",
+        "DEBURR AND BREAK SHARP EDGES.: The general manufacturing note supplies no edge-break size, angle or radius. It does not determine an additional modeled bevel or rounding.",
+        "Six remaining holes from the 8 x 2,5 THRU ALL M3 - 6H THRU ALL callout: the four holes left of the central vertical axis and the two farther-right holes beyond the directly dimensioned pair.: The printed 17,9 centerline offset and following 35,7 adjacent-hole dimension establish only the first two holes right of center. The other six X positions are not individually dimensioned, and the view does not resolve the conflict between extending a uniform 35,7 pitch across all eight holes and mirroring the visible layout about X=0: twice 17,9 is 35,8, not 35,7. Their drill diameter, thread, through operation and lower-row Y axis are established, but their complete placements are not. No guessed row or mirrored coordinates are emitted."
+      ],
+      "features_all_determined": false,
+      "glb_units": "metres",
+      "cad_units": "mm",
+      "glb_to_mm": 1000,
+      "glb_sha256": "45b289a1880e026ad16908dab051e5f4a97f51391e416ac804dfd9674af99240",
+      "step_sha256": "5c112921b02687a2486ded7c4f47fd38d50f28d7200d5d8ecc227c6a34899d1c"
+    }
+  },
+  "waiting": [
+    "features_complete"
+  ],
+  "omitted": [
+    "Four small straight outer corner clips, one at each corner of the main rectangular outline.: The original views show the clips, but neither X/Y setbacks nor a dimensioned 45-degree chamfer callout is supplied. Their dimensions cannot be inferred from pixels or from the generic edge-finish note.",
+    "DEBURR AND BREAK SHARP EDGES.: The general manufacturing note supplies no edge-break size, angle or radius. It does not determine an additional modeled bevel or rounding.",
+    "Six remaining holes from the 8 x 2,5 THRU ALL M3 - 6H THRU ALL callout: the four holes left of the central vertical axis and the two farther-right holes beyond the directly dimensioned pair.: The printed 17,9 centerline offset and following 35,7 adjacent-hole dimension establish only the first two holes right of center. The other six X positions are not individually dimensioned, and the view does not resolve the conflict between extending a uniform 35,7 pitch across all eight holes and mirroring the visible layout about X=0: twice 17,9 is 35,8, not 35,7. Their drill diameter, thread, through operation and lower-row Y axis are established, but their complete placements are not. No guessed row or mirrored coordinates are emitted."
+  ],
+  "template_sha256": "3a31294ccbf43e76433e51b0ec2a5b245e78a2d567415ee605581dbee327ba67",
+  "source_sha256": "826076b03bfbaeee961dc3e57cb642c225d41f1ea9a643d0bb1ca7d296280047",
+  "generator_version": "flat-part-14",
+  "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
+  "review": {
+    "status": "not_reviewed"
+  },
+  "label": "Partial AI reconstruction. Not reviewed by a person",
+  "units": "mm",
+  "features_status": "partial",
+  "features_all_determined": false,
+  "omitted_feature_notes": [
+    "Four small straight outer corner clips, one at each corner of the main rectangular outline.: The original views show the clips, but neither X/Y setbacks nor a dimensioned 45-degree chamfer callout is supplied. Their dimensions cannot be inferred from pixels or from the generic edge-finish note.",
+    "DEBURR AND BREAK SHARP EDGES.: The general manufacturing note supplies no edge-break size, angle or radius. It does not determine an additional modeled bevel or rounding.",
+    "Six remaining holes from the 8 x 2,5 THRU ALL M3 - 6H THRU ALL callout: the four holes left of the central vertical axis and the two farther-right holes beyond the directly dimensioned pair.: The printed 17,9 centerline offset and following 35,7 adjacent-hole dimension establish only the first two holes right of center. The other six X positions are not individually dimensioned, and the view does not resolve the conflict between extending a uniform 35,7 pitch across all eight holes and mirroring the visible layout about X=0: twice 17,9 is 35,8, not 35,7. Their drill diameter, thread, through operation and lower-row Y axis are established, but their complete placements are not. No guessed row or mirrored coordinates are emitted."
+  ],
+  "weight_check": {
+    "state": "FAILED",
+    "message": "FAILED weight check: needs manual approval",
+    "examples": {
+      "A": {
+        "attempts": [
+          {
+            "material": "3.3315 (EN-AW 5005)",
+            "source": "drawing",
+            "names": [
+              "3.3315 (EN-AW 5005)",
+              "EN-AW 5005",
+              "EN AW-5005",
+              "5005",
+              "3.3315"
+            ],
+            "density_g_cm3": 2.7,
+            "source_url": "https://materialsdata.nist.gov/bitstream/handle/11115/168/Properties%20of%20Aluminum%20Mill%20Products.pdf?isAllowed=y&sequence=3",
+            "source_title": "ASM Aluminum Mill and Engineered Wrought Products, Table 6 (NIST archive)",
+            "looked_up": "2026-11-05",
+            "note": "5005 alloy density. Outside source, not the dataset.",
+            "calculated_g": 52.7994,
+            "drawing_g": 87.5,
+            "difference_percent": 39.66,
+            "matches": false,
+            "outside_source": true
+          },
+          {
+            "material": "Aluminium",
+            "source": "parts list",
+            "names": [
+              "Aluminium",
+              "Aluminum"
+            ],
+            "density_g_cm3": 2.7,
+            "source_url": "https://materialsdata.nist.gov/bitstream/handle/11115/168/Properties%20of%20Aluminum%20Mill%20Products.pdf?isAllowed=y&sequence=3",
+            "source_title": "ASM Aluminum Mill and Engineered Wrought Products (NIST archive)",
+            "looked_up": "2026-11-05",
+            "note": "Approximate family density; alloy is unspecified. Outside source, not the dataset.",
+            "calculated_g": 52.7994,
+            "drawing_g": 87.5,
+            "difference_percent": 39.66,
+            "matches": false,
+            "outside_source": true
+          }
+        ],
+        "matches": false,
+        "drawing_g": 87.5
+      },
+      "B": {
+        "attempts": [
+          {
+            "material": "3.3315 (EN-AW 5005)",
+            "source": "drawing",
+            "names": [
+              "3.3315 (EN-AW 5005)",
+              "EN-AW 5005",
+              "EN AW-5005",
+              "5005",
+              "3.3315"
+            ],
+            "density_g_cm3": 2.7,
+            "source_url": "https://materialsdata.nist.gov/bitstream/handle/11115/168/Properties%20of%20Aluminum%20Mill%20Products.pdf?isAllowed=y&sequence=3",
+            "source_title": "ASM Aluminum Mill and Engineered Wrought Products, Table 6 (NIST archive)",
+            "looked_up": "2026-11-05",
+            "note": "5005 alloy density. Outside source, not the dataset.",
+            "calculated_g": 105.5987,
+            "drawing_g": 87.5,
+            "difference_percent": 20.68,
+            "matches": false,
+            "outside_source": true
+          },
+          {
+            "material": "Aluminium",
+            "source": "parts list",
+            "names": [
+              "Aluminium",
+              "Aluminum"
+            ],
+            "density_g_cm3": 2.7,
+            "source_url": "https://materialsdata.nist.gov/bitstream/handle/11115/168/Properties%20of%20Aluminum%20Mill%20Products.pdf?isAllowed=y&sequence=3",
+            "source_title": "ASM Aluminum Mill and Engineered Wrought Products (NIST archive)",
+            "looked_up": "2026-11-05",
+            "note": "Approximate family density; alloy is unspecified. Outside source, not the dataset.",
+            "calculated_g": 105.5987,
+            "drawing_g": 87.5,
+            "difference_percent": 20.68,
+            "matches": false,
+            "outside_source": true
+          }
+        ],
+        "matches": false,
+        "drawing_g": 87.5
+      }
+    },
+    "drawing_g": 87.5,
+    "tolerance_percent": 5,
+    "requires_approval": true,
+    "approval_note_required": true,
+    "limitation": "A matching weight does not verify feature positions. No thickness or material is selected automatically.",
+    "density_label": "Outside source, not the dataset"
+  }
+}

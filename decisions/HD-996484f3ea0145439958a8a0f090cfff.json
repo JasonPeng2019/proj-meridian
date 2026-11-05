@@ -1,0 +1,48 @@
+{
+  "decision_id": "HD-996484f3ea0145439958a8a0f090cfff",
+  "applies_to": "D-002/link",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Original page-1 note identifies Left Wall and 2mm non-magnetic stainless, with a large enclosure panel and three edge flanges. CSV physical row 10 is Left Side Box | Box | Custom | Stainless steel | Amount 1; its Notes refer to holes along top bend and side bowing, and interfaces list Print Platform, Top Side, Front Side Box, Back Box. This directly supports the Left Side Box link. Row 33 Recoater Wall instead identifies a recoater mount and cites RecoaterWall PDFs.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:44:52.986451+00:00",
+  "based_on": {
+    "sha256": "6822d609aa047ddbcb9446e1215f697ec12f5764ba9aa5ef3906543b9a1887bc"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-002/drawing/notes",
+    "D-002/drawing/material",
+    "BOM:box/left-side-box",
+    "BOM:recoater/recoater-wall",
+    "D-002/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-002",
+      "page": 1,
+      "image": "generated/images/D-002-p1.png",
+      "description": "Page 1: main face, both side flanges, lower flange, upper-right isometric, lower-right NOTE."
+    },
+    {
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": 10,
+      "fact_id": "BOM:box/left-side-box",
+      "description": "BOM-009 / Left Side Box"
+    },
+    {
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": 33,
+      "fact_id": "BOM:recoater/recoater-wall",
+      "description": "BOM-032 / Recoater Wall"
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-01-10.json",
+    "sha256": "c4436a050c4381b409dc881144e91529c59db4fcc80139a4f53b9b787ca0914b"
+  },
+  "prediction_sha256": "bdec91fc12559fb0408ffb8aba1326f888deb42e67f34b99c2eda6ad2fd04e29"
+}

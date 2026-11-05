@@ -1,0 +1,32 @@
+{
+  "decision_id": "HD-9d44dbe620184e278b9a8415854d0f1d",
+  "applies_to": "D-003/template/features_complete",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "False correctly reports unresolved outline, edge bevel,cutout corners and seven unlocated tagged-hole groups.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:42.381648+00:00",
+  "based_on": {
+    "sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-003/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-003",
+      "image": null,
+      "page": null,
+      "box": null
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  },
+  "prediction_sha256": "1f636aa64c974f284834632d37a20a2227e124a02cb06240d24d99fadccc0e2e"
+}

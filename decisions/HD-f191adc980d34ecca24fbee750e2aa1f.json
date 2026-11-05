@@ -1,0 +1,768 @@
+{
+  "decision_id": "HD-f191adc980d34ecca24fbee750e2aa1f",
+  "applies_to": "names/section/ -> electric",
+  "type": "name_mapping",
+  "value": "no_equivalent",
+  "status": "accepted",
+  "note": "Checked the full supplied drawing section inventory (Box, Gas Flow, Optical, Powder, Recoater, Z-axis) against all46 original BOM rows in Electric. No equivalent drawing section exists in this corpus; approve no_equivalent for the group label only. This is not a claim that the machine lacks these physical components or that an individual row cannot have other evidence.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:43.212332+00:00",
+  "based_on": {
+    "sha256": "35b5700ff7d01c51bcc598e1366150d3f1e4bb8d6d16ab7fa3a259e5e222eebe"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-001/drawing/source",
+    "D-002/drawing/source",
+    "D-003/drawing/source",
+    "D-004/drawing/source",
+    "D-005/drawing/source",
+    "D-006/drawing/source",
+    "D-007/drawing/source",
+    "D-008/drawing/source",
+    "D-009/drawing/source",
+    "D-010/drawing/source",
+    "D-011/drawing/source",
+    "D-012/drawing/source",
+    "D-013/drawing/source",
+    "D-014/drawing/source",
+    "D-015/drawing/source",
+    "D-016/drawing/source",
+    "D-017/drawing/source",
+    "D-018/drawing/source",
+    "D-019/drawing/source",
+    "D-020/drawing/source",
+    "D-021/drawing/source",
+    "D-022/drawing/source",
+    "D-023/drawing/source",
+    "D-024/drawing/source",
+    "D-025/drawing/source",
+    "D-026/drawing/source",
+    "D-027/drawing/source",
+    "D-028/drawing/source",
+    "D-029/drawing/source",
+    "D-030/drawing/source",
+    "BOM:electric/glams/part_family",
+    "BOM:electric/electrical-cabinet/part_family",
+    "BOM:electric/24vdc-psu-20a/part_family",
+    "BOM:electric/electric-cabinet-fan/part_family",
+    "BOM:electric/35mm-din-rail/part_family",
+    "BOM:electric/kabelforskruning/part_family",
+    "BOM:electric/din-relay/part_family",
+    "BOM:electric/40x40-cable-duct/part_family",
+    "BOM:electric/endestops-mech-plunger/part_family",
+    "BOM:electric/5v-psu/part_family",
+    "BOM:electric/12v-psu/part_family",
+    "BOM:electric/heater-pid/part_family",
+    "BOM:electric/din-solidstate-relay/part_family",
+    "BOM:electric/termoelement-type-k/part_family",
+    "BOM:electric/klemraekker-gra/part_family",
+    "BOM:electric/klemraekker-bla/part_family",
+    "BOM:electric/klemraekker-gul-gron/part_family",
+    "BOM:electric/laske-3-polet/part_family",
+    "BOM:electric/laske-2-polet/part_family",
+    "BOM:electric/klemraekker-endestop/part_family",
+    "BOM:electric/klemraekker-markeringer/part_family",
+    "BOM:electric/400v-power-cable/part_family",
+    "BOM:electric/230v-power-plug/part_family",
+    "BOM:electric/self-cutting-panel-screw/part_family",
+    "BOM:electric/15mm-din-rail/part_family",
+    "BOM:electric/compact-screw-terminal/part_family",
+    "BOM:electric/5-pin-connector-male/part_family",
+    "BOM:electric/vfd/part_family",
+    "BOM:electric/kabelforskruning-oring/part_family",
+    "BOM:electric/5-pin-connector-female/part_family",
+    "BOM:electric/pluto-d20-safety-plc/part_family",
+    "BOM:electric/inca-1-tina-estop/part_family",
+    "BOM:electric/adam-dyn-info-m12-5/part_family",
+    "BOM:electric/eva-general-code/part_family",
+    "BOM:electric/m12-c61-6m-cable/part_family",
+    "BOM:electric/safety-contactor/part_family",
+    "BOM:electric/smile-41-ewwwp-estop-box/part_family",
+    "BOM:electric/m12-c63-6m-cable/part_family",
+    "BOM:electric/2-pin-connector-female-chassis/part_family",
+    "BOM:electric/2-pin-connector-male-cable-mount/part_family",
+    "BOM:electric/19-usb-hub/part_family",
+    "BOM:electric/5v-4a-power-to-usb-hub-5-5-x2-1mm-jack/part_family",
+    "BOM:electric/3p-n-e-male/part_family",
+    "BOM:electric/3p-n-e-female/part_family",
+    "BOM:electric/e-stop/part_family",
+    "BOM:electric/switch-for-vfd/part_family"
+  ],
+  "source_locations": [
+    {
+      "kind": "drawing",
+      "name": "D-001/drawing/source",
+      "part_key": "D-001",
+      "page": 1,
+      "box": null,
+      "label": "D-001 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-001.pdf",
+      "source_filename": "Door_x2.PDF"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-002/drawing/source",
+      "part_key": "D-002",
+      "page": 1,
+      "box": null,
+      "label": "D-002 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-002.pdf",
+      "source_filename": "LeftWall.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-003/drawing/source",
+      "part_key": "D-003",
+      "page": 1,
+      "box": null,
+      "label": "D-003 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-003.pdf",
+      "source_filename": "MainPlatform_Loop2.PDF"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-004/drawing/source",
+      "part_key": "D-004",
+      "page": 1,
+      "box": null,
+      "label": "D-004 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-004.pdf",
+      "source_filename": "TopPlate.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-005/drawing/source",
+      "part_key": "D-005",
+      "page": 1,
+      "box": null,
+      "label": "D-005 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-005.pdf",
+      "source_filename": "WindowFrame.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-006/drawing/source",
+      "part_key": "D-006",
+      "page": 1,
+      "box": null,
+      "label": "D-006 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-006.pdf",
+      "source_filename": "CanisterWall_LeftAndRight.PDF"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-007/drawing/source",
+      "part_key": "D-007",
+      "page": 1,
+      "box": null,
+      "label": "D-007 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-007.pdf",
+      "source_filename": "DispenserShaft_v6.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-008/drawing/source",
+      "part_key": "D-008",
+      "page": 1,
+      "box": null,
+      "label": "D-008 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-008.pdf",
+      "source_filename": "PowderBracket.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-009/drawing/source",
+      "part_key": "D-009",
+      "page": 1,
+      "box": null,
+      "label": "D-009 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-009.pdf",
+      "source_filename": "PowderCanister.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-010/drawing/source",
+      "part_key": "D-010",
+      "page": 1,
+      "box": null,
+      "label": "D-010 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-010.pdf",
+      "source_filename": "PowderMotorPlate.PDF"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-011/drawing/source",
+      "part_key": "D-011",
+      "page": 1,
+      "box": null,
+      "label": "D-011 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-011.pdf",
+      "source_filename": "RecoaterArm.PDF"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-012/drawing/source",
+      "part_key": "D-012",
+      "page": 1,
+      "box": null,
+      "label": "D-012 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-012.pdf",
+      "source_filename": "RecoaterMountBlock.PDF"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-013/drawing/source",
+      "part_key": "D-013",
+      "page": 1,
+      "box": null,
+      "label": "D-013 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-013.pdf",
+      "source_filename": "RecoaterPlate.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-014/drawing/source",
+      "part_key": "D-014",
+      "page": 1,
+      "box": null,
+      "label": "D-014 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-014.pdf",
+      "source_filename": "RecoaterStagePlate.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-015/drawing/source",
+      "part_key": "D-015",
+      "page": 1,
+      "box": null,
+      "label": "D-015 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-015.pdf",
+      "source_filename": "Silicone270mm_1mm_x2.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-016/drawing/source",
+      "part_key": "D-016",
+      "page": 1,
+      "box": null,
+      "label": "D-016 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-016.pdf",
+      "source_filename": "GalvoBottomPlate.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-017/drawing/source",
+      "part_key": "D-017",
+      "page": 1,
+      "box": null,
+      "label": "D-017 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-017.pdf",
+      "source_filename": "GalvoMountPlate.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-018/drawing/source",
+      "part_key": "D-018",
+      "page": 1,
+      "box": null,
+      "label": "D-018 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-018.pdf",
+      "source_filename": "GalvoMountSide_x2.PDF"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-019/drawing/source",
+      "part_key": "D-019",
+      "page": 1,
+      "box": null,
+      "label": "D-019 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-019.pdf",
+      "source_filename": "SiliconePakningfTheta.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-020/drawing/source",
+      "part_key": "D-020",
+      "page": 1,
+      "box": null,
+      "label": "D-020 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-020.pdf",
+      "source_filename": "f-theta-SealRing.PDF"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-021/drawing/source",
+      "part_key": "D-021",
+      "page": 1,
+      "box": null,
+      "label": "D-021 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-021.pdf",
+      "source_filename": "BlowerOutlet.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-022/drawing/source",
+      "part_key": "D-022",
+      "page": 1,
+      "box": null,
+      "label": "D-022 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-022.pdf",
+      "source_filename": "InletBox.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-023/drawing/source",
+      "part_key": "D-023",
+      "page": 1,
+      "box": null,
+      "label": "D-023 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-023.pdf",
+      "source_filename": "BuildCylinder_v2.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-024/drawing/source",
+      "part_key": "D-024",
+      "page": 1,
+      "box": null,
+      "label": "D-024 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-024.pdf",
+      "source_filename": "ByggeBase.PDF"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-025/drawing/source",
+      "part_key": "D-025",
+      "page": 1,
+      "box": null,
+      "label": "D-025 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-025.pdf",
+      "source_filename": "ByggeBaseRing_Version2.PDF"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-026/drawing/source",
+      "part_key": "D-026",
+      "page": 1,
+      "box": null,
+      "label": "D-026 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-026.pdf",
+      "source_filename": "ByggePlade.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-027/drawing/source",
+      "part_key": "D-027",
+      "page": 1,
+      "box": null,
+      "label": "D-027 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-027.pdf",
+      "source_filename": "CylinderSpændRing.PDF"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-028/drawing/source",
+      "part_key": "D-028",
+      "page": 1,
+      "box": null,
+      "label": "D-028 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-028.pdf",
+      "source_filename": "VarmeElementPlade.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-029/drawing/source",
+      "part_key": "D-029",
+      "page": 1,
+      "box": null,
+      "label": "D-029 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-029.pdf",
+      "source_filename": "Z-axis_BottomPlate.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-030/drawing/source",
+      "part_key": "D-030",
+      "page": 1,
+      "box": null,
+      "label": "D-030 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-030.pdf",
+      "source_filename": "Z-axis_MotorPlate.pdf"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/glams/part_family",
+      "label": "BOM-105 / GLAMS",
+      "part_key": "bom/electric/glams",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-105"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/electrical-cabinet/part_family",
+      "label": "BOM-106 / Electrical cabinet",
+      "part_key": "bom/electric/electrical-cabinet",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-106"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/24vdc-psu-20a/part_family",
+      "label": "BOM-107 / 24VDC PSU 20A",
+      "part_key": "bom/electric/24vdc-psu-20a",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-107"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/electric-cabinet-fan/part_family",
+      "label": "BOM-108 / Electric cabinet fan",
+      "part_key": "bom/electric/electric-cabinet-fan",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-108"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/35mm-din-rail/part_family",
+      "label": "BOM-109 / 35mm DIN rail",
+      "part_key": "bom/electric/35mm-din-rail",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-109"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/kabelforskruning/part_family",
+      "label": "BOM-110 / Kabelforskruning",
+      "part_key": "bom/electric/kabelforskruning",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-110"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/din-relay/part_family",
+      "label": "BOM-111 / DIN Relay",
+      "part_key": "bom/electric/din-relay",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-111"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/40x40-cable-duct/part_family",
+      "label": "BOM-112 / 40x40 Cable Duct",
+      "part_key": "bom/electric/40x40-cable-duct",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-112"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/endestops-mech-plunger/part_family",
+      "label": "BOM-113 / Endestops Mech Plunger",
+      "part_key": "bom/electric/endestops-mech-plunger",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-113"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/5v-psu/part_family",
+      "label": "BOM-114 / 5V PSU",
+      "part_key": "bom/electric/5v-psu",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-114"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/12v-psu/part_family",
+      "label": "BOM-115 / 12V PSU",
+      "part_key": "bom/electric/12v-psu",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-115"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/heater-pid/part_family",
+      "label": "BOM-116 / Heater PID",
+      "part_key": "bom/electric/heater-pid",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-116"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/din-solidstate-relay/part_family",
+      "label": "BOM-117 / DIN solidstate relay",
+      "part_key": "bom/electric/din-solidstate-relay",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-117"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/termoelement-type-k/part_family",
+      "label": "BOM-118 / Termoelement type K",
+      "part_key": "bom/electric/termoelement-type-k",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-118"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/klemraekker-gra/part_family",
+      "label": "BOM-119 / Klemrækker Grå",
+      "part_key": "bom/electric/klemraekker-gra",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-119"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/klemraekker-bla/part_family",
+      "label": "BOM-120 / Klemrækker Blå",
+      "part_key": "bom/electric/klemraekker-bla",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-120"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/klemraekker-gul-gron/part_family",
+      "label": "BOM-121 / Klemrækker Gul/Grøn",
+      "part_key": "bom/electric/klemraekker-gul-gron",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-121"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/laske-3-polet/part_family",
+      "label": "BOM-122 / Laske 3-polet",
+      "part_key": "bom/electric/laske-3-polet",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-122"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/laske-2-polet/part_family",
+      "label": "BOM-123 / Laske 2-polet",
+      "part_key": "bom/electric/laske-2-polet",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-123"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/klemraekker-endestop/part_family",
+      "label": "BOM-124 / Klemrækker endestop",
+      "part_key": "bom/electric/klemraekker-endestop",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-124"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/klemraekker-markeringer/part_family",
+      "label": "BOM-125 / Klemrækker markeringer",
+      "part_key": "bom/electric/klemraekker-markeringer",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-125"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/400v-power-cable/part_family",
+      "label": "BOM-126 / 400V power cable",
+      "part_key": "bom/electric/400v-power-cable",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-126"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/230v-power-plug/part_family",
+      "label": "BOM-127 / 230V power plug",
+      "part_key": "bom/electric/230v-power-plug",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-127"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/self-cutting-panel-screw/part_family",
+      "label": "BOM-128 / Self-cutting panel screw",
+      "part_key": "bom/electric/self-cutting-panel-screw",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-128"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/15mm-din-rail/part_family",
+      "label": "BOM-129 / 15mm DIN rail",
+      "part_key": "bom/electric/15mm-din-rail",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-129"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/compact-screw-terminal/part_family",
+      "label": "BOM-130 / Compact Screw Terminal",
+      "part_key": "bom/electric/compact-screw-terminal",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-130"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/5-pin-connector-male/part_family",
+      "label": "BOM-131 / 5-pin Connector Male",
+      "part_key": "bom/electric/5-pin-connector-male",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-131"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/vfd/part_family",
+      "label": "BOM-132 / VFD",
+      "part_key": "bom/electric/vfd",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-132"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/kabelforskruning-oring/part_family",
+      "label": "BOM-133 / Kabelforskruning Oring",
+      "part_key": "bom/electric/kabelforskruning-oring",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-133"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/5-pin-connector-female/part_family",
+      "label": "BOM-134 / 5-pin Connector Female",
+      "part_key": "bom/electric/5-pin-connector-female",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-134"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/pluto-d20-safety-plc/part_family",
+      "label": "BOM-135 / Pluto D20 Safety PLC",
+      "part_key": "bom/electric/pluto-d20-safety-plc",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-135"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/inca-1-tina-estop/part_family",
+      "label": "BOM-136 / Inca 1 Tina Estop",
+      "part_key": "bom/electric/inca-1-tina-estop",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-136"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/adam-dyn-info-m12-5/part_family",
+      "label": "BOM-137 / Adam DYN-Info M12-5",
+      "part_key": "bom/electric/adam-dyn-info-m12-5",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-137"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/eva-general-code/part_family",
+      "label": "BOM-138 / Eva General Code",
+      "part_key": "bom/electric/eva-general-code",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-138"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/m12-c61-6m-cable/part_family",
+      "label": "BOM-139 / M12-C61, 6m cable",
+      "part_key": "bom/electric/m12-c61-6m-cable",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-139"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/safety-contactor/part_family",
+      "label": "BOM-140 / Safety contactor",
+      "part_key": "bom/electric/safety-contactor",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-140"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/smile-41-ewwwp-estop-box/part_family",
+      "label": "BOM-141 / Smile 41 EWWWP Estop Box",
+      "part_key": "bom/electric/smile-41-ewwwp-estop-box",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-141"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/m12-c63-6m-cable/part_family",
+      "label": "BOM-142 / M12-C63, 6m cable",
+      "part_key": "bom/electric/m12-c63-6m-cable",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-142"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/2-pin-connector-female-chassis/part_family",
+      "label": "BOM-143 / 2-pin connector female chassis",
+      "part_key": "bom/electric/2-pin-connector-female-chassis",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-143"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/2-pin-connector-male-cable-mount/part_family",
+      "label": "BOM-144 / 2-pin connector male cable mount",
+      "part_key": "bom/electric/2-pin-connector-male-cable-mount",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-144"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/19-usb-hub/part_family",
+      "label": "BOM-145 / 19\" USB hub",
+      "part_key": "bom/electric/19-usb-hub",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-145"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/5v-4a-power-to-usb-hub-5-5-x2-1mm-jack/part_family",
+      "label": "BOM-146 / 5V 4A power to USB hub 5.5,x2.1mm jack",
+      "part_key": "bom/electric/5v-4a-power-to-usb-hub-5-5-x2-1mm-jack",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-146"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/3p-n-e-male/part_family",
+      "label": "BOM-147 / 3P+N+E Male",
+      "part_key": "bom/electric/3p-n-e-male",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-147"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/3p-n-e-female/part_family",
+      "label": "BOM-148 / 3P+N+E Female",
+      "part_key": "bom/electric/3p-n-e-female",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-148"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/e-stop/part_family",
+      "label": "BOM-149 / E-stop",
+      "part_key": "bom/electric/e-stop",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-149"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:electric/switch-for-vfd/part_family",
+      "label": "BOM-150 / Switch for VFD",
+      "part_key": "bom/electric/switch-for-vfd",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-150"
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-mapping-audit.json",
+    "sha256": "68192ac62e6302349418083eaba9bfbd473a988791c670f9279d8f62dcb0c9f9"
+  }
+}

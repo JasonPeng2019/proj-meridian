@@ -1,0 +1,103 @@
+{
+  "decision_id": "HD-df25c11706f547ed94544a33cc8eade0",
+  "applies_to": "D-017/template/features_review",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Direct original PNG reinspection supports a 42 mm through bore at X +28.2 and Y -4.1; 50.9 above bottom minus half 110 equals -4.1. The printed 4 x 1.0 x 45 degree leader and end-view clip lines support all four full-thickness 1 mm corner clips. The exact 1 mm ledger ID is p1-d0fe5c50afad87b3. No guessed small-hole coordinates or thread drill sizes are retained.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:43.060807+00:00",
+  "based_on": {
+    "sha256": "a460ab37d94f2d8f4c9bac58da15ea9d1e93b4f48ee0825e51adac0ec81f37ae"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-017/drawing/source",
+    "D-017/drawing/n/42.0@1-1",
+    "D-017/drawing/n/28.2@1-1",
+    "D-017/drawing/n/4.1@1-1",
+    "D-017/drawing/n/50.9@1-1",
+    "D-017/drawing/visual-n/p1-d0fe5c50afad87b3",
+    "D-017/drawing/visual-n/p1-ee618980ae103848",
+    "D-017/drawing/visual-n/p1-ecee833e5bb88bde"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-017/drawing/n/42.0@1-1",
+      "page": 1,
+      "box": [
+        602.198,
+        299.344,
+        32.988,
+        18.083
+      ]
+    },
+    {
+      "fact_id": "D-017/drawing/n/28.2@1-1",
+      "page": 1,
+      "box": [
+        495.447,
+        544.822,
+        25.657,
+        18.083
+      ]
+    },
+    {
+      "fact_id": "D-017/drawing/n/4.1@1-1",
+      "page": 1,
+      "box": [
+        621.077,
+        475.504,
+        18.083,
+        18.327
+      ]
+    },
+    {
+      "fact_id": "D-017/drawing/n/50.9@1-1",
+      "page": 1,
+      "box": [
+        650.679,
+        473.934,
+        18.083,
+        25.657
+      ]
+    },
+    {
+      "fact_id": "D-017/drawing/visual-n/p1-d0fe5c50afad87b3",
+      "page": 1,
+      "box": [
+        616.7,
+        324.8,
+        68.1,
+        13.2
+      ]
+    },
+    {
+      "fact_id": "D-017/drawing/visual-n/p1-ee618980ae103848",
+      "page": 1,
+      "box": [
+        616.7,
+        324.8,
+        68.1,
+        13.2
+      ]
+    },
+    {
+      "fact_id": "D-017/drawing/visual-n/p1-ecee833e5bb88bde",
+      "page": 1,
+      "box": [
+        616.7,
+        324.8,
+        68.1,
+        13.2
+      ]
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  },
+  "prediction_sha256": "407a2551defea7be522fa2a472f5f6013407c0b2c1cecf0ab3b17d50e6349ddf"
+}

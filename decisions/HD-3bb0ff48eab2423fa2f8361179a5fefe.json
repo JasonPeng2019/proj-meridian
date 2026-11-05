@@ -1,0 +1,37 @@
+{
+  "decision_id": "HD-3bb0ff48eab2423fa2f8361179a5fefe",
+  "applies_to": "D-019/template/features_review",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "No located cuts retained. Six 4.5 mm through holes are shown on an undimensioned construction circle; its radius cannot be borrowed from another drawing.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:42.797239+00:00",
+  "based_on": {
+    "sha256": "581fbaf7562ac75008243463af6956d6f88cd6a0a858cf6c22aa62ce39041e11"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-019/drawing/source",
+    "D-019/drawing/callout/p1-1"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-019/drawing/callout/p1-1",
+      "page": 1,
+      "box": [
+        449.788,
+        231.957,
+        118.667,
+        18.083
+      ]
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  },
+  "prediction_sha256": "650432330df14ab4c3637cc15adb17ea367e79e813bb57169373201cd3e9f90e"
+}

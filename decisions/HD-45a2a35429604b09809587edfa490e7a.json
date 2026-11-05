@@ -1,0 +1,33 @@
+{
+  "decision_id": "HD-45a2a35429604b09809587edfa490e7a",
+  "applies_to": "D-009/template/cad_eligibility",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Original page 1 shows a hollow canister with tapered/sloping profiled end walls, narrow lower outlet and projecting mounting flange. Note only says wall thickness as thin as possible; local base 3.00/5.00 markings do not establish one extrusion thickness. Visible dimensions 270.00 max, 230.00, 395.00 and A/B critical 322.00 do not turn it into a supported basic flat outline. Upper long slot/8 x diameter 5.80, lower paired diameter 25.00 openings/8 x diameter 7.00, side 4 x diameter 10.50 weld-nut holes and section diameter 14.80 through hole all lack complete dimensions/center coordinates. Parsed drawing numbers list is empty. Proposed supported=false, constant_thickness=false and outline_exact=false, with all listed omissions, accurately describe current template limits only.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:46:06.914072+00:00",
+  "based_on": {
+    "sha256": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-009/drawing/notes",
+    "D-009/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-009",
+      "page": 1,
+      "image": "generated/images/D-009-p1.png",
+      "description": "Page 1: profiled end/body views, upper/lower plans, section A-A, NOTE and title strip."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-01-10.json",
+    "sha256": "c4436a050c4381b409dc881144e91529c59db4fcc80139a4f53b9b787ca0914b"
+  },
+  "prediction_sha256": "c9fa626e0c9a319397e85417ae9e106b31d6db595f2a8b38cf420c87c1c1fbca"
+}

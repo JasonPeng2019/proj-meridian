@@ -1,0 +1,33 @@
+{
+  "decision_id": "HD-a685a208b0ec4e888f59261b12023a59",
+  "applies_to": "D-001/drawing/company",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "The original page-1 lower-right company box visibly reads DTU MPP.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:44:48.879488+00:00",
+  "based_on": {
+    "sha256": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-001/drawing/company",
+    "D-001/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-001",
+      "page": 1,
+      "image": "generated/images/D-001-p1.png",
+      "description": "Page 1: main front plate, left edge thickness view, lower-right NOTE/company boxes."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-01-10.json",
+    "sha256": "c4436a050c4381b409dc881144e91529c59db4fcc80139a4f53b9b787ca0914b"
+  },
+  "prediction_sha256": "edb01b97dfe13f0630d27eef6cbdd0b9ea41abba2bcdff74e8f90f47a94a813b"
+}

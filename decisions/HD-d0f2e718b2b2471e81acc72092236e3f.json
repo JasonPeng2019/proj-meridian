@@ -1,0 +1,50 @@
+{
+  "decision_id": "HD-d0f2e718b2b2471e81acc72092236e3f",
+  "applies_to": "D-020/drawing/notes",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Original page1 and existing title-block corner PNG visibly show notes = \"Ring with o-ring groove\\nAluminium\". Confirm this transcription only; material/weight metadata is not a design or calculated-weight approval.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:39.463544+00:00",
+  "based_on": {
+    "sha256": "06242966c0f3c15c3031982fa56585859ff1d64e52f6215a30fcf0e912225fa6"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-020/drawing/notes",
+    "D-020/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-020",
+      "page": 1,
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-020.pdf",
+      "fact_id": "D-020/drawing/notes",
+      "box": [
+        734.907,
+        653.399,
+        242.971,
+        121.067
+      ],
+      "image": "generated/images/D-020-p1.png",
+      "visual_description": "Original page1 and existing title-block corner PNG visibly show notes = \"Ring with o-ring groove\\nAluminium\". Confirm this transcription only; material/weight metadata is not a design or calculated-weight approval."
+    },
+    {
+      "drawing": "D-020",
+      "page": 1,
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-020.pdf",
+      "fact_id": "D-020/drawing/source",
+      "box": null,
+      "image": "generated/images/D-020-p1.png",
+      "visual_description": "Original page1 and existing title-block corner PNG visibly show notes = \"Ring with o-ring groove\\nAluminium\". Confirm this transcription only; material/weight metadata is not a design or calculated-weight approval."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-11-20.json",
+    "sha256": "332d43089d177738c95270e02b8bf3ec14d366a9fd31daf660b1db7405813578"
+  },
+  "prediction_sha256": "92b0193cc7cf01e6a073b915d9b2918f948fd71631cf97b3102d74b463cc06a1"
+}

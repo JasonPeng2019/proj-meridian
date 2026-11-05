@@ -1,0 +1,35 @@
+{
+  "decision_id": "HD-0fc9f5e173884e458c946f9abf708426",
+  "applies_to": "D-020/template/cad_eligibility",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Original face view visibly gives Ø141,0/Ø118,6 annulus; section A-A and isometric show an essential annular O-ring recess and stepped axial profile. Side/section views carry10,2/9,8 axial limits and5,2/3,2 groove-related dimensions. Current constant-thickness ring plus hole/slot template cannot express that groove. Supplied parsed drawing-number index is empty, despite those source dimensions visibly existing. Confirm unsupported current-template disposition and unknown populated base geometry only; no whole-design approval or universal CAD-impossibility claim.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:39.518065+00:00",
+  "based_on": {
+    "sha256": "06242966c0f3c15c3031982fa56585859ff1d64e52f6215a30fcf0e912225fa6"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-020/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-020",
+      "page": 1,
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-020.pdf",
+      "fact_id": "D-020/drawing/source",
+      "box": null,
+      "image": "generated/images/D-020-p1.png",
+      "visual_description": "Original face view visibly gives Ø141,0/Ø118,6 annulus; section A-A and isometric show an essential annular O-ring recess and stepped axial profile. Side/section views carry10,2/9,8 axial limits and5,2/3,2 groove-related dimensions. Current constant-thickness ring plus hole/slot template cannot express that groove. Supplied parsed drawing-number index is empty, despite those source dimensions visibly existing. Confirm unsupported current-template disposition and unknown populated base geometry only; no whole-design approval or universal CAD-impossibility claim."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-11-20.json",
+    "sha256": "332d43089d177738c95270e02b8bf3ec14d366a9fd31daf660b1db7405813578"
+  },
+  "prediction_sha256": "d45245447bbbec0652aae2ce5313de9c582c319b0033633004792b984f158057"
+}

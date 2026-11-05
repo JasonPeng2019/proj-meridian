@@ -1,0 +1,60 @@
+{
+  "decision_id": "HD-6916f58e6fb2417facdbc02bb75320c8",
+  "applies_to": "names/section/optical -> optics",
+  "type": "name_mapping",
+  "value": "same",
+  "status": "accepted",
+  "note": "The supplied drawing group Optical and BOM group Optics both contain the F-theta/galvo optical assembly, including D020 F-theta seal ring and its linked BOM row. Approve same for these source section labels without changing original section names.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:43.260880+00:00",
+  "based_on": {
+    "sha256": "8a351338cfdb4bc0be7808f1f111fe429f519eb113745ef027bc8fb60781530a"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-020/drawing/source",
+    "D-020/drawing/title",
+    "BOM:optics/f-theta-seal-ring/part_family"
+  ],
+  "source_locations": [
+    {
+      "kind": "drawing",
+      "name": "D-020/drawing/source",
+      "part_key": "D-020",
+      "page": 1,
+      "box": null,
+      "label": "D-020 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-020.pdf",
+      "source_filename": "f-theta-SealRing.PDF"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-020/drawing/title",
+      "part_key": "D-020",
+      "page": 1,
+      "box": [
+        968.877,
+        705.43,
+        193.977,
+        69.036
+      ],
+      "label": "D-020 / title",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-020.pdf",
+      "source_filename": "f-theta-SealRing.PDF"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:optics/f-theta-seal-ring/part_family",
+      "label": "BOM-079 / F-theta seal ring",
+      "part_key": "D-020",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-079"
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-mapping-audit.json",
+    "sha256": "68192ac62e6302349418083eaba9bfbd473a988791c670f9279d8f62dcb0c9f9"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "decision_id": "HD-2b4cfb6c8c1f425eaa9b8dd544cdaffd",
+  "applies_to": "D-016/template/thickness",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Original left orthographic view gives 10,0 mm between parallel planar faces. Confirm nominal thickness 10.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:46:42.764757+00:00",
+  "based_on": {
+    "sha256": "4f9799f28352975cd39a5c52daf0e1dcb036d379fb58ecf6413f0befc67525f3"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-016/drawing/n/10.0@1-1",
+    "D-016/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-016",
+      "page": 1,
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-016.pdf",
+      "fact_id": "D-016/drawing/n/10.0@1-1",
+      "box": [
+        200.072,
+        149.181,
+        25.657,
+        18.083
+      ],
+      "image": "generated/images/D-016-p1.png",
+      "visual_description": "Original left orthographic view gives 10,0 mm between parallel planar faces. Confirm nominal thickness 10."
+    },
+    {
+      "drawing": "D-016",
+      "page": 1,
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-016.pdf",
+      "fact_id": "D-016/drawing/source",
+      "box": null,
+      "image": "generated/images/D-016-p1.png",
+      "visual_description": "Original left orthographic view gives 10,0 mm between parallel planar faces. Confirm nominal thickness 10."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-11-20.json",
+    "sha256": "332d43089d177738c95270e02b8bf3ec14d366a9fd31daf660b1db7405813578"
+  },
+  "prediction_sha256": "268b29d0c62788abee5d7c1d1a7fc35047fe18ed670a8556342500fed0b19b6e"
+}

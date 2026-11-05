@@ -1,0 +1,134 @@
+{
+  "decision_id": "HD-d64f4d7c2bbb4de9aed7ebcb243d7c02",
+  "applies_to": "D-030/link",
+  "type": "link",
+  "value": [
+    "BOM:build-plate/motor-plate"
+  ],
+  "status": "accepted",
+  "note": "Direct original PNG inspection reads Z-axis MotorPlate and Aluminium. Original BOM CSV row 49 uniquely names Motor plate in the build mechanism and lists Aluminium; its design intent concerns the non-captive stepper/end-stop assembly, consistent with the Z-axis motor-plate identity. The Powder stepper bracket is a different stainless component. The specific matching component name, material note and build-axis role support this link despite the different grouping labels; no global Z-axis/Build-plate equivalence is approved. Geometry and whole-design approval remain separate.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:43.282858+00:00",
+  "based_on": {
+    "sha256": "849100de6d2abbbcca5c6e39cd4a1778918b17818cc88c91340612981d9220ee"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-030/drawing/source",
+    "D-030/drawing/notes",
+    "BOM:build-plate/motor-plate/name",
+    "BOM:build-plate/motor-plate/part_family",
+    "BOM:build-plate/motor-plate/material",
+    "BOM:build-plate/motor-plate/design_intent",
+    "BOM:build-plate/motor-plate/amount",
+    "BOM:powder/powder-stepper-bracket/name",
+    "BOM:powder/powder-stepper-bracket/part_family",
+    "BOM:powder/powder-stepper-bracket/material",
+    "BOM:powder/powder-stepper-bracket/amount"
+  ],
+  "source_locations": [
+    {
+      "kind": "drawing",
+      "name": "D-030/drawing/source",
+      "part_key": "D-030",
+      "page": 1,
+      "box": null,
+      "label": "D-030 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-030.pdf",
+      "source_filename": "Z-axis_MotorPlate.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-030/drawing/notes",
+      "part_key": "D-030",
+      "page": 1,
+      "box": [
+        734.907,
+        653.399,
+        242.971,
+        121.067
+      ],
+      "label": "D-030 / notes",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-030.pdf",
+      "source_filename": "Z-axis_MotorPlate.pdf"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:build-plate/motor-plate/name",
+      "label": "BOM-048 / Motor plate",
+      "part_key": "bom/build-plate/motor-plate",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-048"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:build-plate/motor-plate/part_family",
+      "label": "BOM-048 / Motor plate",
+      "part_key": "bom/build-plate/motor-plate",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-048"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:build-plate/motor-plate/material",
+      "label": "BOM-048 / Motor plate",
+      "part_key": "bom/build-plate/motor-plate",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-048"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:build-plate/motor-plate/design_intent",
+      "label": "BOM-048 / Motor plate",
+      "part_key": "bom/build-plate/motor-plate",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-048"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:build-plate/motor-plate/amount",
+      "label": "BOM-048 / Motor plate",
+      "part_key": "bom/build-plate/motor-plate",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-048"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:powder/powder-stepper-bracket/name",
+      "label": "BOM-092 / Powder stepper bracket",
+      "part_key": "bom/powder/powder-stepper-bracket",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-092"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:powder/powder-stepper-bracket/part_family",
+      "label": "BOM-092 / Powder stepper bracket",
+      "part_key": "bom/powder/powder-stepper-bracket",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-092"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:powder/powder-stepper-bracket/material",
+      "label": "BOM-092 / Powder stepper bracket",
+      "part_key": "bom/powder/powder-stepper-bracket",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-092"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:powder/powder-stepper-bracket/amount",
+      "label": "BOM-092 / Powder stepper bracket",
+      "part_key": "bom/powder/powder-stepper-bracket",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-092"
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\link-followup-audit.json",
+    "sha256": "68c193ade657e3815a5fa431859cedc84953915546d154c5073bb76a973daa20"
+  }
+}

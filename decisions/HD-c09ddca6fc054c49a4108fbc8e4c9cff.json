@@ -1,0 +1,40 @@
+{
+  "decision_id": "HD-c09ddca6fc054c49a4108fbc8e4c9cff",
+  "applies_to": "D-021/template/cad_eligibility",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Page 1 note explicitly says sheet thickness is free, as thin as practical, and all joints should be welded. The orthographic and page 2 exploded views show separate curved and formed sheets plus a G2 nipple. Confirm supported=false, constant_thickness=false and outline_exact=false for the current flat rectangle/circle/ring template, without claiming general CAD impossibility or a complete design approval.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:39.549629+00:00",
+  "based_on": {
+    "sha256": "c8b07157f3b40ef8d2dc18ae915d4f7244479ea6219d4fe3e8bb6ef1fedea1bc"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-021/drawing/notes",
+    "D-021/drawing/general/edge_finish",
+    "D-021/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-021",
+      "page": 1,
+      "image": "generated/images/D-021-p1.png",
+      "visual_description": "Page 1 note explicitly says sheet thickness is free, as thin as practical, and all joints should be welded. The orthographic and page 2 exploded views show separate curved and formed sheets plus a G2 nipple. Confirm supported=false, constant_thickness=false and outline_exact=false for the current flat rectangle/circle/ring template, without claiming general CAD impossibility or a complete design approval."
+    },
+    {
+      "drawing": "D-021",
+      "page": 2,
+      "image": "generated/images/D-021-p2.png",
+      "visual_description": "Exploded drawing labels flange for machine wall, top and bottom, curved back, curved inside with hole for nipple, and G2 threaded weld nipple50mm long."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-21-30.json",
+    "sha256": "0837e5ed6eafe2465f7840be73edf1543e5cd9e4087c3aacc5f2e4da2e1f14a2"
+  },
+  "prediction_sha256": "7af04f020cd32e12b5b2e1ff515839d28b880c0c69bae7df1a04c1ce46fd2895"
+}

@@ -1,0 +1,35 @@
+{
+  "decision_id": "HD-426f47423a6445609782c940107eafe5",
+  "applies_to": "D-006/template/thickness",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Original page-1 upper end view dimensions sheet section 3.00, and NOTE says Non-magnetic stainless 3mm (or thicker). Confirm 3 mm as the dimensioned nominal option only, preserving the explicit thicker-stock allowance and unknown alternatives.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:45:25.389688+00:00",
+  "based_on": {
+    "sha256": "b9bd89aa9449889adb5335b1f4f3550be072a37447b1c134fb703435f04fbaad"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-006/drawing/n/3.0@1-2",
+    "D-006/drawing/notes",
+    "D-006/drawing/general/units",
+    "D-006/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-006",
+      "page": 1,
+      "image": "generated/images/D-006-p1.png",
+      "description": "Page 1: upper end section, front profile, flange/tab views, right/left isometrics and NOTE."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-01-10.json",
+    "sha256": "c4436a050c4381b409dc881144e91529c59db4fcc80139a4f53b9b787ca0914b"
+  },
+  "prediction_sha256": "ed6dc46c98492137d547a6207cabca222d2b09043778f672404bb67a6f1a0ac9"
+}

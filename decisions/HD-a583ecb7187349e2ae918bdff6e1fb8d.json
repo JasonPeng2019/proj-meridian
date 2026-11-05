@@ -1,0 +1,32 @@
+{
+  "decision_id": "HD-a583ecb7187349e2ae918bdff6e1fb8d",
+  "applies_to": "D-023/template/features_review",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "The original section A-A shows an axial bore, entrance taper and changing outer diameters along a sleeve. Supplied parsed drawing numbers array is empty. Confirm [] for current flat-template cuts, without claiming the plainly visible bore is absent.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:39.733627+00:00",
+  "based_on": {
+    "sha256": "5d838d31ad5e803b6c421bc6867447f73756d51509259385e07caf81e453c36d"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-023/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-023",
+      "page": 1,
+      "image": "generated/images/D-023-p1.png",
+      "visual_description": "The original section A-A shows an axial bore, entrance taper and changing outer diameters along a sleeve. Supplied parsed drawing numbers array is empty. Confirm [] for current flat-template cuts, without claiming the plainly visible bore is absent."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-21-30.json",
+    "sha256": "0837e5ed6eafe2465f7840be73edf1543e5cd9e4087c3aacc5f2e4da2e1f14a2"
+  },
+  "prediction_sha256": "650432330df14ab4c3637cc15adb17ea367e79e813bb57169373201cd3e9f90e"
+}

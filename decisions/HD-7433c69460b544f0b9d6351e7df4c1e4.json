@@ -1,0 +1,81 @@
+{
+  "decision_id": "HD-7433c69460b544f0b9d6351e7df4c1e4",
+  "applies_to": "names/material/silicon-rubber -> silicone",
+  "type": "name_mapping",
+  "value": "kind_of",
+  "status": "accepted",
+  "note": "Directly inspected D015: material Silicon Rubber, title Silikone Wiper and Danish note silikone plade; the matching BOM blade records Silicone and the supplied filename identifies Silicone. In this specific elastomer-wiper context approve kind_of silicone. This does not equate the element silicon with silicone globally.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:43.201331+00:00",
+  "based_on": {
+    "sha256": "7d870e4c7ef4ab97efd82a9b29a987c482263aef7fd42a4bf7dbda7d9d5b35a6"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-015/drawing/material",
+    "D-015/drawing/title",
+    "D-015/drawing/notes",
+    "BOM:recoater/recoater-blade/material"
+  ],
+  "source_locations": [
+    {
+      "kind": "drawing",
+      "name": "D-015/drawing/material",
+      "part_key": "D-015",
+      "page": 1,
+      "box": [
+        745.28,
+        771.048,
+        135.0,
+        14.0
+      ],
+      "label": "D-015 / material",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-015.pdf",
+      "source_filename": "Silicone270mm_1mm_x2.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-015/drawing/title",
+      "part_key": "D-015",
+      "page": 1,
+      "box": [
+        975.328,
+        710.355,
+        181.0,
+        66.0
+      ],
+      "label": "D-015 / title",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-015.pdf",
+      "source_filename": "Silicone270mm_1mm_x2.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-015/drawing/notes",
+      "part_key": "D-015",
+      "page": 1,
+      "box": [
+        741.526,
+        658.942,
+        231.0,
+        111.0
+      ],
+      "label": "D-015 / notes",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-015.pdf",
+      "source_filename": "Silicone270mm_1mm_x2.pdf"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:recoater/recoater-blade/material",
+      "label": "BOM-026 / Recoater Blade",
+      "part_key": "D-015",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-026"
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-mapping-audit.json",
+    "sha256": "68192ac62e6302349418083eaba9bfbd473a988791c670f9279d8f62dcb0c9f9"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "decision_id": "HD-98bd8453c35e4339869450b9501bc005",
+  "applies_to": "D-030/template/cad_eligibility",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Original main face has essential three-lobed curved outline with no overall X/Y or contour construction dimensions; section A-A shows parallel plate faces and stepped hole. Printed4.00 +/-0.05 section dimension belongs to the recess step, not independently a plate-thickness value. Supplied numbers array is empty despite visible cut callouts. Confirm the current template exclusion and constant-thickness classification without inventing plate thickness or declaring universal CAD impossibility.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:39.978736+00:00",
+  "based_on": {
+    "sha256": "849100de6d2abbbcca5c6e39cd4a1778918b17818cc88c91340612981d9220ee"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-030/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-030",
+      "page": 1,
+      "image": "generated/images/D-030-p1.png",
+      "visual_description": "Original main face has essential three-lobed curved outline with no overall X/Y or contour construction dimensions; section A-A shows parallel plate faces and stepped hole. Printed4.00 +/-0.05 section dimension belongs to the recess step, not independently a plate-thickness value. Supplied numbers array is empty despite visible cut callouts. Confirm the current template exclusion and constant-thickness classification without inventing plate thickness or declaring universal CAD impossibility."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-21-30.json",
+    "sha256": "0837e5ed6eafe2465f7840be73edf1543e5cd9e4087c3aacc5f2e4da2e1f14a2"
+  },
+  "prediction_sha256": "64ecf75db474646a1343bd3dcb3528f327f06cbbfbd3ebe357df957d2c2ee2b5"
+}

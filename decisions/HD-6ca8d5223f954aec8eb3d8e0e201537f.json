@@ -1,0 +1,114 @@
+{
+  "decision_id": "HD-6ca8d5223f954aec8eb3d8e0e201537f",
+  "applies_to": "D-025/template/features_review",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Eight 3.4 mm through holes with 6.9 x 90 degree countersinks on printed R115.5. Cardinal/diagonal drawing registration supports the explicitly labeled equally spaced 45 degree pattern interpretation, starting at +X. Countersinks open on the visible face and have derived 1.75 mm depth, fitting both possible thicknesses.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:42.859238+00:00",
+  "based_on": {
+    "sha256": "9b61f2c688fba1b10f502658505c78c0ff99820d3f281822eacdc7283e9b7e9c"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-025/drawing/source",
+    "D-025/drawing/callout/p1-1",
+    "D-025/drawing/callout/p1-2",
+    "D-025/drawing/callout/p1-3",
+    "D-025/drawing/n/8.0@1-1",
+    "D-025/drawing/n/3.4@1-1",
+    "D-025/drawing/n/6.9@1-1",
+    "D-025/drawing/n/90.0@1-1",
+    "D-025/drawing/n/115.5@1-1"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-025/drawing/callout/p1-1",
+      "page": 1,
+      "box": [
+        519.104,
+        627.625,
+        118.667,
+        18.083
+      ]
+    },
+    {
+      "fact_id": "D-025/drawing/callout/p1-2",
+      "page": 1,
+      "box": [
+        570.638,
+        643.527,
+        57.336,
+        18.083
+      ]
+    },
+    {
+      "fact_id": "D-025/drawing/callout/p1-3",
+      "page": 1,
+      "box": [
+        593.65,
+        423.501,
+        46.848,
+        47.104
+      ]
+    },
+    {
+      "fact_id": "D-025/drawing/n/8.0@1-1",
+      "page": 1,
+      "box": [
+        519.104,
+        627.625,
+        7.331,
+        18.083
+      ]
+    },
+    {
+      "fact_id": "D-025/drawing/n/3.4@1-1",
+      "page": 1,
+      "box": [
+        558.745,
+        627.625,
+        18.321,
+        18.083
+      ]
+    },
+    {
+      "fact_id": "D-025/drawing/n/6.9@1-1",
+      "page": 1,
+      "box": [
+        574.303,
+        643.527,
+        18.327,
+        18.083
+      ]
+    },
+    {
+      "fact_id": "D-025/drawing/n/90.0@1-1",
+      "page": 1,
+      "box": [
+        608.02,
+        643.527,
+        19.955,
+        18.083
+      ]
+    },
+    {
+      "fact_id": "D-025/drawing/n/115.5@1-1",
+      "page": 1,
+      "box": [
+        596.226,
+        426.108,
+        41.696,
+        41.89
+      ]
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  },
+  "prediction_sha256": "2bfe86fbd82c9a39309a4c8d592c0739b9e3e982690dd9c4cc484e679c646a8f"
+}

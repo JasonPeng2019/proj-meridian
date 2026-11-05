@@ -1,0 +1,149 @@
+{
+  "decision_id": "HD-ddec27826c12415ebf2d98ac4ac0183a",
+  "applies_to": "D-029/link",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Confirm no match[] after reading original drawing note Z-axis BottomPlate / Aluminium and original CSV records. Logical CSV row158 is Z axis stepper bracket, SensorGantry,Custom,DTU,blank material/notes/datasheet; row157 is Z axis linear rod with the same family and blank material/notes/datasheet; row155 is X axis bottom bracket,SensorGantry,Custom,DTU,blank material/notes/datasheet. Row49 is Motor plate,Build-plate,Custom,Aluminium,DTU,design intent Motor plate to hold3 non-captive stepper motors,end-stop switches,blank notes/datasheet. None establishes identity with the Z-axis bottom plate. CSV scan of names/notes/intents found no Z-axis BottomPlate identity evidence. These are logical CSV record rows including header, not physical text-line numbers.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:39.908680+00:00",
+  "based_on": {
+    "sha256": "066ed91474bb74b652451a34c6b9f5b719d23dba56043b8ba6aa8f5b7479cf15"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-029/drawing/notes",
+    "BOM:sensorgantry/z-axis-stepper-bracket",
+    "BOM:sensorgantry/z-axis-linear-rod",
+    "BOM:sensorgantry/x-axis-bottom-bracket",
+    "BOM:build-plate/motor-plate",
+    "D-029/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-029",
+      "page": 1,
+      "image": "generated/images/D-029-p1.png",
+      "visual_description": "Confirm no match[] after reading original drawing note Z-axis BottomPlate / Aluminium and original CSV records. Logical CSV row158 is Z axis stepper bracket, SensorGantry,Custom,DTU,blank material/notes/datasheet; row157 is Z axis linear rod with the same family and blank material/notes/datasheet; row155 is X axis bottom bracket,SensorGantry,Custom,DTU,blank material/notes/datasheet. Row49 is Motor plate,Build-plate,Custom,Aluminium,DTU,design intent Motor plate to hold3 non-captive stepper motors,end-stop switches,blank notes/datasheet. None establishes identity with the Z-axis bottom plate. CSV scan of names/notes/intents found no Z-axis BottomPlate identity evidence. These are logical CSV record rows including header, not physical text-line numbers."
+    },
+    {
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": 158,
+      "row_counting": "logical CSV records including header",
+      "record": {
+        "Name": "Z axis stepper bracket",
+        "Part family": "SensorGantry",
+        "Type": "Custom",
+        "Design": "",
+        "Order": "",
+        "V&V": "",
+        "Notes": "",
+        "Design Intend": "",
+        "Image": "",
+        "Material": "",
+        "Product name": "",
+        "Supplier Order": "",
+        "Interface with": "",
+        "Link": "",
+        "Supplier": "DTU",
+        "Datasheet": "",
+        "Amount": "1",
+        "Cost": "",
+        "Total cost": "DKK0.00",
+        "Count (Interface with)": "0"
+      },
+      "visual_description": "Original BOM CSV record, read directly with CSV parsing."
+    },
+    {
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": 157,
+      "row_counting": "logical CSV records including header",
+      "record": {
+        "Name": "Z axis linear rod",
+        "Part family": "SensorGantry",
+        "Type": "Custom",
+        "Design": "",
+        "Order": "",
+        "V&V": "",
+        "Notes": "",
+        "Design Intend": "",
+        "Image": "",
+        "Material": "",
+        "Product name": "",
+        "Supplier Order": "",
+        "Interface with": "",
+        "Link": "",
+        "Supplier": "DTU",
+        "Datasheet": "",
+        "Amount": "1",
+        "Cost": "DKK37.00",
+        "Total cost": "DKK37.00",
+        "Count (Interface with)": "0"
+      },
+      "visual_description": "Original BOM CSV record, read directly with CSV parsing."
+    },
+    {
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": 155,
+      "row_counting": "logical CSV records including header",
+      "record": {
+        "Name": "X axis bottom bracket",
+        "Part family": "SensorGantry",
+        "Type": "Custom",
+        "Design": "",
+        "Order": "",
+        "V&V": "",
+        "Notes": "",
+        "Design Intend": "",
+        "Image": "",
+        "Material": "",
+        "Product name": "",
+        "Supplier Order": "",
+        "Interface with": "",
+        "Link": "",
+        "Supplier": "DTU",
+        "Datasheet": "",
+        "Amount": "1",
+        "Cost": "",
+        "Total cost": "DKK0.00",
+        "Count (Interface with)": "0"
+      },
+      "visual_description": "Original BOM CSV record, read directly with CSV parsing."
+    },
+    {
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": 49,
+      "row_counting": "logical CSV records including header",
+      "record": {
+        "Name": "Motor plate",
+        "Part family": "Build-plate",
+        "Type": "Custom",
+        "Design": "Done",
+        "Order": "Recieved",
+        "V&V": "Good",
+        "Notes": "",
+        "Design Intend": "Motor plate to hold 3 non-captive stepper motors, end-stop switches",
+        "Image": "",
+        "Material": "Aluminium",
+        "Product name": "",
+        "Supplier Order": "",
+        "Interface with": "",
+        "Link": "",
+        "Supplier": "DTU",
+        "Datasheet": "",
+        "Amount": "1",
+        "Cost": "",
+        "Total cost": "DKK0.00",
+        "Count (Interface with)": "0"
+      },
+      "visual_description": "Original BOM CSV record, read directly with CSV parsing."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-21-30.json",
+    "sha256": "0837e5ed6eafe2465f7840be73edf1543e5cd9e4087c3aacc5f2e4da2e1f14a2"
+  },
+  "prediction_sha256": "62581ba6dce2f7a78225b3c5cdb504e0f0cd1a8a06601ea21c9a5e185faeee2a"
+}

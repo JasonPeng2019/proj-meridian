@@ -1,0 +1,50 @@
+{
+  "decision_id": "HD-4d7441bce3ad4cfcacd4f3ec0719435a",
+  "applies_to": "D-020/drawing/weight_g",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Original page1 and existing title-block corner PNG visibly show weight_g = 107.4. Confirm this transcription only; material/weight metadata is not a design or calculated-weight approval.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:39.491065+00:00",
+  "based_on": {
+    "sha256": "06242966c0f3c15c3031982fa56585859ff1d64e52f6215a30fcf0e912225fa6"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-020/drawing/weight_g",
+    "D-020/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-020",
+      "page": 1,
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-020.pdf",
+      "fact_id": "D-020/drawing/weight_g",
+      "box": [
+        874.889,
+        766.467,
+        102.988,
+        24.008
+      ],
+      "image": "generated/images/D-020-p1.png",
+      "visual_description": "Original page1 and existing title-block corner PNG visibly show weight_g = 107.4. Confirm this transcription only; material/weight metadata is not a design or calculated-weight approval."
+    },
+    {
+      "drawing": "D-020",
+      "page": 1,
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-020.pdf",
+      "fact_id": "D-020/drawing/source",
+      "box": null,
+      "image": "generated/images/D-020-p1.png",
+      "visual_description": "Original page1 and existing title-block corner PNG visibly show weight_g = 107.4. Confirm this transcription only; material/weight metadata is not a design or calculated-weight approval."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-11-20.json",
+    "sha256": "332d43089d177738c95270e02b8bf3ec14d366a9fd31daf660b1db7405813578"
+  },
+  "prediction_sha256": "d463802eb9492426a795ea2e4c0168f799ae12684d7fd3abc42a8be8efb12793"
+}

@@ -1,0 +1,39 @@
+{
+  "decision_id": "HD-9d1ba30e73144ac9ae23071c9c89ac33",
+  "applies_to": "D-023/drawing/notes",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Existing original full-page and title-block crop visibly read exactly: Baseret på Ø280mm, t=15mm\nEN AW-6082 T6 rør fra Alumeco.\nIndre flade [B] skal slutte tæt med\nen dynamisk keramisk pakning.\n\n55 mm længere ift. version 1 . Confirm wording; line layout is transcribed as the provided value.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:39.665630+00:00",
+  "based_on": {
+    "sha256": "5d838d31ad5e803b6c421bc6867447f73756d51509259385e07caf81e453c36d"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-023/drawing/notes",
+    "D-023/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-023",
+      "page": 1,
+      "image": "generated/images/D-023-p1.png",
+      "visual_description": "Existing original full-page and title-block crop visibly read exactly: Baseret på Ø280mm, t=15mm\nEN AW-6082 T6 rør fra Alumeco.\nIndre flade [B] skal slutte tæt med\nen dynamisk keramisk pakning.\n\n55 mm længere ift. version 1 . Confirm wording; line layout is transcribed as the provided value."
+    },
+    {
+      "drawing": "D-023",
+      "page": 1,
+      "image": "generated/images/D-023-corner.png",
+      "visual_description": "Existing original title-block crop; Existing original full-page and title-block crop visibly read exactly: Baseret på Ø280mm, t=15mm\nEN AW-6082 T6 rør fra Alumeco.\nIndre flade [B] skal slutte tæt med\nen dynamisk keramisk pakning.\n\n55 mm længere ift. version 1 . Confirm wording; line layout is transcribed as the provided value."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-21-30.json",
+    "sha256": "0837e5ed6eafe2465f7840be73edf1543e5cd9e4087c3aacc5f2e4da2e1f14a2"
+  },
+  "prediction_sha256": "6fce90a6faf6065d10cea269564b998f8f4e876403c8104927392e5d5af6a01c"
+}

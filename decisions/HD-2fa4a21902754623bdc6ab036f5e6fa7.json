@@ -1,0 +1,32 @@
+{
+  "decision_id": "HD-2fa4a21902754623bdc6ab036f5e6fa7",
+  "applies_to": "D-023/template/cad_eligibility",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Section A-A and side view show a revolved sleeve with stepped end bands and a tapered bore entrance. The sheet visibly prints axial 280.0, outer stock diameter 280.0, bore diameter 252.0 and other dimensions, but the supplied parsed numbers array is empty. Stock t=15mm is not a uniform flat extrusion thickness. Confirm supported=false for this current flat-part template and the numeric citation limitation, without approving the full sleeve design.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:39.743636+00:00",
+  "based_on": {
+    "sha256": "5d838d31ad5e803b6c421bc6867447f73756d51509259385e07caf81e453c36d"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-023/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-023",
+      "page": 1,
+      "image": "generated/images/D-023-p1.png",
+      "visual_description": "Section A-A and side view show a revolved sleeve with stepped end bands and a tapered bore entrance. The sheet visibly prints axial 280.0, outer stock diameter 280.0, bore diameter 252.0 and other dimensions, but the supplied parsed numbers array is empty. Stock t=15mm is not a uniform flat extrusion thickness. Confirm supported=false for this current flat-part template and the numeric citation limitation, without approving the full sleeve design."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-21-30.json",
+    "sha256": "0837e5ed6eafe2465f7840be73edf1543e5cd9e4087c3aacc5f2e4da2e1f14a2"
+  },
+  "prediction_sha256": "7d13c0e26c0d2ced2275212abbc0c4649b3e4e89cda0c501aea94a9e1fedbf84"
+}

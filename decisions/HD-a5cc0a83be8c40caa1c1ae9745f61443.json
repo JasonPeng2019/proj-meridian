@@ -1,0 +1,37 @@
+{
+  "decision_id": "HD-a5cc0a83be8c40caa1c1ae9745f61443",
+  "applies_to": "D-004/template/outline/length",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Original upper profile prints775 overall formed X extent; not developed sheet length.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:42.399175+00:00",
+  "based_on": {
+    "sha256": "947fee0986f4799388d5bd41411b2abedcee5d6a644e909238f005fb4802f64b"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-004/drawing/n/775.0@1-1",
+    "D-004/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-004/drawing/n/775.0@1-1",
+      "page": 1,
+      "box": [
+        484.066,
+        173.929,
+        40.319,
+        18.083
+      ]
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  },
+  "prediction_sha256": "1c00d565c8d07a98ff6f2fe4d89e62e43ee7d913c18e29fb036e063e9cb328a8"
+}

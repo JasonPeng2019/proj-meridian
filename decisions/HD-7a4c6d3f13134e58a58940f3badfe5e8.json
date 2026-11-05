@@ -1,0 +1,33 @@
+{
+  "decision_id": "HD-7a4c6d3f13134e58a58940f3badfe5e8",
+  "applies_to": "D-006/template/features_review",
+  "type": "defer_unsupported",
+  "value": null,
+  "status": "accepted",
+  "note": "Original drawing inspected: Formed canister walls have a custom lower contour, bends and weld nuts. The printed 3 mm gauge and thicker-stock allowance do not define an exact flat body. Defer this unresolved template input because the essential main body is outside the current supported geometry. Preserve its unknown value; this disposition does not approve the design, invent missing geometry, or select a numeric interpretation.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:43.101333+00:00",
+  "based_on": {
+    "sha256": "b9bd89aa9449889adb5335b1f4f3550be072a37447b1c134fb703435f04fbaad"
+  },
+  "prediction_sha256": "f8d3ad6be2d0cf831a34d5e8aa084f8b48311b6369e013e43b8d74290a73a970",
+  "template_capability_sha256": "ba8693a0431e89adbf7fe5578937143ef8150cc5e0ebc6c08c375f03f272180b",
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-006/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-006",
+      "image": null,
+      "page": null,
+      "box": null
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "decision_id": "HD-079d6e378bcc4038bf5fdac1bc2191db",
+  "applies_to": "D-022/drawing/visual-n/p1-19a389c4cc9da5f1",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Direct original PNG inspection: numeric token and associated callout/location match. The5 in M5 is a weld-nut nominal designation, never a5mm bore. Free-choice sheet thickness remains unknown.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:41.694322+00:00",
+  "based_on": {
+    "sha256": "7f3f8efc002bc2545386c1a355341ca61ebd984084b21cb07575331c4c1cc9ee"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-022/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-022",
+      "image": "generated/images/D-022-p1.png",
+      "page": 1,
+      "box": [
+        722.7,
+        452.6,
+        13.2,
+        23.2
+      ]
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  },
+  "prediction_sha256": "f6a324dc4bb289e853459e3541fa4e950d4d78cee5085c73c1ec339d0137a093"
+}

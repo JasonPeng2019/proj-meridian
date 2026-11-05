@@ -1,0 +1,168 @@
+{
+  "decision_id": "HD-f574ca7842c648329c9db7459c2ca53f",
+  "applies_to": "D-017/link",
+  "type": "link",
+  "value": [
+    "BOM:optics/sunny-galvo-adapter-plate"
+  ],
+  "status": "accepted",
+  "note": "Direct original PNG inspection reads Galvo Collimator Plade / Alu and title Galvo Montage Plade. Original BOM CSV row 79 names Sunny Galvo Adapter Plate, material Aluminium, and explicitly describes its function as the plate where galvo and collimator mount together. This matches the drawing's joint galvo/collimator plate identity. Row 81 instead describes attachment of that subsystem to the top box plate, a different function, so it is not added. Recommend this single component link; this does not approve geometry, material equivalence mappings or a whole design.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:43.271860+00:00",
+  "based_on": {
+    "sha256": "a460ab37d94f2d8f4c9bac58da15ea9d1e93b4f48ee0825e51adac0ec81f37ae"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-017/drawing/source",
+    "D-017/drawing/notes",
+    "D-017/drawing/title",
+    "BOM:optics/sunny-galvo-adapter-plate/name",
+    "BOM:optics/sunny-galvo-adapter-plate/part_family",
+    "BOM:optics/sunny-galvo-adapter-plate/material",
+    "BOM:optics/sunny-galvo-adapter-plate/design_intent",
+    "BOM:optics/sunny-galvo-adapter-plate/amount",
+    "BOM:optics/galvo-box-bracket/name",
+    "BOM:optics/galvo-box-bracket/part_family",
+    "BOM:optics/galvo-box-bracket/material",
+    "BOM:optics/galvo-box-bracket/design_intent",
+    "BOM:optics/galvo-box-bracket/notes",
+    "BOM:optics/galvo-box-bracket/amount"
+  ],
+  "source_locations": [
+    {
+      "kind": "drawing",
+      "name": "D-017/drawing/source",
+      "part_key": "D-017",
+      "page": 1,
+      "box": null,
+      "label": "D-017 / source",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-017.pdf",
+      "source_filename": "GalvoMountPlate.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-017/drawing/notes",
+      "part_key": "D-017",
+      "page": 1,
+      "box": [
+        741.526,
+        658.942,
+        231.0,
+        111.0
+      ],
+      "label": "D-017 / notes",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-017.pdf",
+      "source_filename": "GalvoMountPlate.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-017/drawing/title",
+      "part_key": "D-017",
+      "page": 1,
+      "box": [
+        975.328,
+        710.355,
+        181.0,
+        66.0
+      ],
+      "label": "D-017 / title",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-017.pdf",
+      "source_filename": "GalvoMountPlate.pdf"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:optics/sunny-galvo-adapter-plate/name",
+      "label": "BOM-078 / Sunny Galvo Adapter Plate",
+      "part_key": "bom/optics/sunny-galvo-adapter-plate",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-078"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:optics/sunny-galvo-adapter-plate/part_family",
+      "label": "BOM-078 / Sunny Galvo Adapter Plate",
+      "part_key": "bom/optics/sunny-galvo-adapter-plate",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-078"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:optics/sunny-galvo-adapter-plate/material",
+      "label": "BOM-078 / Sunny Galvo Adapter Plate",
+      "part_key": "bom/optics/sunny-galvo-adapter-plate",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-078"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:optics/sunny-galvo-adapter-plate/design_intent",
+      "label": "BOM-078 / Sunny Galvo Adapter Plate",
+      "part_key": "bom/optics/sunny-galvo-adapter-plate",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-078"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:optics/sunny-galvo-adapter-plate/amount",
+      "label": "BOM-078 / Sunny Galvo Adapter Plate",
+      "part_key": "bom/optics/sunny-galvo-adapter-plate",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-078"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:optics/galvo-box-bracket/name",
+      "label": "BOM-080 / Galvo box bracket",
+      "part_key": "bom/optics/galvo-box-bracket",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-080"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:optics/galvo-box-bracket/part_family",
+      "label": "BOM-080 / Galvo box bracket",
+      "part_key": "bom/optics/galvo-box-bracket",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-080"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:optics/galvo-box-bracket/material",
+      "label": "BOM-080 / Galvo box bracket",
+      "part_key": "bom/optics/galvo-box-bracket",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-080"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:optics/galvo-box-bracket/design_intent",
+      "label": "BOM-080 / Galvo box bracket",
+      "part_key": "bom/optics/galvo-box-bracket",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-080"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:optics/galvo-box-bracket/notes",
+      "label": "BOM-080 / Galvo box bracket",
+      "part_key": "bom/optics/galvo-box-bracket",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-080"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:optics/galvo-box-bracket/amount",
+      "label": "BOM-080 / Galvo box bracket",
+      "part_key": "bom/optics/galvo-box-bracket",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-080"
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\link-followup-audit.json",
+    "sha256": "68c193ade657e3815a5fa431859cedc84953915546d154c5073bb76a973daa20"
+  }
+}

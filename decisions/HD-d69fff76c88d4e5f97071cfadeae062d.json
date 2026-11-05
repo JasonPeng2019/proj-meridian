@@ -1,0 +1,125 @@
+{
+  "decision_id": "HD-d69fff76c88d4e5f97071cfadeae062d",
+  "applies_to": "D-017/template/cad_eligibility",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "The dimensioned constant-thickness rectangular body, supported corner clips and offset through bore fit the generator. This is a supported partial reconstruction; fourteen smaller holes and undimensioned edge detail remain omitted.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:43.072807+00:00",
+  "based_on": {
+    "sha256": "a460ab37d94f2d8f4c9bac58da15ea9d1e93b4f48ee0825e51adac0ec81f37ae"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-017/drawing/source",
+    "D-017/drawing/n/180.0@1-1",
+    "D-017/drawing/n/110.0@1-1",
+    "D-017/drawing/n/10.0@1-1",
+    "D-017/drawing/visual-n/p1-2328759231c37906",
+    "D-017/drawing/visual-n/p1-d0fe5c50afad87b3",
+    "D-017/drawing/visual-n/p1-ee618980ae103848",
+    "D-017/drawing/visual-n/p1-ecee833e5bb88bde",
+    "D-017/drawing/n/42.0@1-1",
+    "D-017/drawing/general/edge_finish"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-017/drawing/n/180.0@1-1",
+      "page": 1,
+      "box": [
+        457.79,
+        588.248,
+        40.319,
+        18.083
+      ]
+    },
+    {
+      "fact_id": "D-017/drawing/n/110.0@1-1",
+      "page": 1,
+      "box": [
+        672.1,
+        437.344,
+        18.083,
+        32.988
+      ]
+    },
+    {
+      "fact_id": "D-017/drawing/n/10.0@1-1",
+      "page": 1,
+      "box": [
+        309.266,
+        108.718,
+        18.083,
+        25.657
+      ]
+    },
+    {
+      "fact_id": "D-017/drawing/visual-n/p1-2328759231c37906",
+      "page": 1,
+      "box": [
+        312.8,
+        108.5,
+        12.6,
+        25.9
+      ]
+    },
+    {
+      "fact_id": "D-017/drawing/visual-n/p1-d0fe5c50afad87b3",
+      "page": 1,
+      "box": [
+        616.7,
+        324.8,
+        68.1,
+        13.2
+      ]
+    },
+    {
+      "fact_id": "D-017/drawing/visual-n/p1-ee618980ae103848",
+      "page": 1,
+      "box": [
+        616.7,
+        324.8,
+        68.1,
+        13.2
+      ]
+    },
+    {
+      "fact_id": "D-017/drawing/visual-n/p1-ecee833e5bb88bde",
+      "page": 1,
+      "box": [
+        616.7,
+        324.8,
+        68.1,
+        13.2
+      ]
+    },
+    {
+      "fact_id": "D-017/drawing/n/42.0@1-1",
+      "page": 1,
+      "box": [
+        602.198,
+        299.344,
+        32.988,
+        18.083
+      ]
+    },
+    {
+      "fact_id": "D-017/drawing/general/edge_finish",
+      "page": 1,
+      "box": [
+        1078.776,
+        781.582,
+        52.887,
+        14.837
+      ]
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  },
+  "prediction_sha256": "732a27b60a415eaf9d31f837a04d993f8a55ce3d51109fda5efe7b2fbb71b87f"
+}

@@ -1,0 +1,41 @@
+{
+  "decision_id": "HD-e5440503a57346808298502a77ca0447",
+  "applies_to": "D-008/template/cad_eligibility",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Original page-1 views show a profiled bent web with flanges, long opening, and six M5 weld nuts (2x plus 4x); note specifies 2-3mm non-magnetic stainless. Stacked 3.00/2.00 thickness marking supports that gauge range, while assembled formed geometry is not a single planar constant-thickness extrusion. Dimensioned extents include 349.00, 310.00, 134.00, 41.00 and 61.80 +/-0.10, but complete web/bend geometry and developed blank are absent. Callouts 3 x diameter 9.00, 4 x 5.30, 2 x 7.00, 4 x 7.00 and 1 x 10.00 do not provide complete center coordinates; long-opening length/width/position are absent. Proposed supported=false, constant_thickness=false in the stated planar-template sense, outline_exact=false and omissions are supported.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:45:42.287800+00:00",
+  "based_on": {
+    "sha256": "2642be4f1d3471cc440aa7830166adfa298a8e1a31cef90911662bb2b4a26448"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-008/drawing/notes",
+    "D-008/drawing/n/2.0@1-1",
+    "D-008/drawing/n/3.0@1-1",
+    "D-008/drawing/callout/p1-1",
+    "D-008/drawing/callout/p1-2",
+    "D-008/drawing/callout/p1-3",
+    "D-008/drawing/callout/p1-4",
+    "D-008/drawing/callout/p1-5",
+    "D-008/drawing/n/61.8@1-1",
+    "D-008/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-008",
+      "page": 1,
+      "image": "generated/images/D-008-p1.png",
+      "description": "Page 1: profiled web, upper/lower/front/end views, gauge stack, weld-nut/cut callouts and NOTE."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-01-10.json",
+    "sha256": "c4436a050c4381b409dc881144e91529c59db4fcc80139a4f53b9b787ca0914b"
+  },
+  "prediction_sha256": "d5fea71d8fcde4165496203f91757c2a0e5e2c22b2842e455d2a9b3c6b44e937"
+}

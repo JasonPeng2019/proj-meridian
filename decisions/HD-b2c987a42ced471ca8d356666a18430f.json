@@ -1,0 +1,39 @@
+{
+  "decision_id": "HD-b2c987a42ced471ca8d356666a18430f",
+  "applies_to": "D-023/drawing/material",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Existing original full-page and title-block crop visibly print \"EN AW-6082\" in the material field. Confirm that field only.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:39.684630+00:00",
+  "based_on": {
+    "sha256": "5d838d31ad5e803b6c421bc6867447f73756d51509259385e07caf81e453c36d"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-023/drawing/material",
+    "D-023/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-023",
+      "page": 1,
+      "image": "generated/images/D-023-p1.png",
+      "visual_description": "Existing original full-page and title-block crop visibly print \"EN AW-6082\" in the material field. Confirm that field only."
+    },
+    {
+      "drawing": "D-023",
+      "page": 1,
+      "image": "generated/images/D-023-corner.png",
+      "visual_description": "Existing original title-block crop; Existing original full-page and title-block crop visibly print \"EN AW-6082\" in the material field. Confirm that field only."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-21-30.json",
+    "sha256": "0837e5ed6eafe2465f7840be73edf1543e5cd9e4087c3aacc5f2e4da2e1f14a2"
+  },
+  "prediction_sha256": "377f39593460e2ecf28d3130f6f1e97db72e4bc7371a0bb263194597038705b7"
+}

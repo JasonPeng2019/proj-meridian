@@ -1,0 +1,32 @@
+{
+  "decision_id": "HD-70f2313d5e784a9c843d98cc6562ea92",
+  "applies_to": "D-022/template/features_omitted",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Original shows diameter 3.00 perforation arrays without fully dimensioned pitches/offsets; 10 x diameter 7.00 THRU ALL for M5 weld nut on side shown; side-view taper 100 degrees and 62.50 depth; and Four corners to be welded. Main dimensions include 200.00,184.00,120,105 and162.00, but no developed flat blank or numeric thickness. Supplied numbers array is empty. Confirm the listed omissions without inferring sheet threads from separate weld nuts.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:39.647626+00:00",
+  "based_on": {
+    "sha256": "7f3f8efc002bc2545386c1a355341ca61ebd984084b21cb07575331c4c1cc9ee"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-022/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-022",
+      "page": 1,
+      "image": "generated/images/D-022-p1.png",
+      "visual_description": "Original shows diameter 3.00 perforation arrays without fully dimensioned pitches/offsets; 10 x diameter 7.00 THRU ALL for M5 weld nut on side shown; side-view taper 100 degrees and 62.50 depth; and Four corners to be welded. Main dimensions include 200.00,184.00,120,105 and162.00, but no developed flat blank or numeric thickness. Supplied numbers array is empty. Confirm the listed omissions without inferring sheet threads from separate weld nuts."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-21-30.json",
+    "sha256": "0837e5ed6eafe2465f7840be73edf1543e5cd9e4087c3aacc5f2e4da2e1f14a2"
+  },
+  "prediction_sha256": "09abed7b7bd93049c735a9eaebba6f2f84d7829dd9223ca628f9f41b47636280"
+}

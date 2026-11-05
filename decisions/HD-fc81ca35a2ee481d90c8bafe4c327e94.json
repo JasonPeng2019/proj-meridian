@@ -1,0 +1,38 @@
+{
+  "decision_id": "HD-fc81ca35a2ee481d90c8bafe4c327e94",
+  "applies_to": "D-009/drawing/visual-n/p1-d7ca9fa6e5e37d52",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Directly inspected original page:230,270maximum,395,322; stacked5/3 seal detail;8x5.8,4x10.5,M8 weld-nut,14.8/M12,8x7/M5,25 and plus/minus1 note. Thread designation tokens remain nominal designations, not drill diameters. Wall thickness is unspecified, as thin as possible; this is not flat-template eligibility or a construction approval.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:40.963803+00:00",
+  "based_on": {
+    "sha256": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-009/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-009",
+      "page": 1,
+      "image": "generated/images/D-009-p1.png",
+      "box": [
+        189.2,
+        548.3,
+        12.6,
+        27.8
+      ],
+      "source_sha256": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea"
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-literal-audit.json",
+    "sha256": "d3a54c7b1739712f1ac4710fd09ce56d103a32b72b400a824808311f62a8ed94"
+  },
+  "prediction_sha256": "991b4d69a182d7d06c0948ca11a1ac106295576e293950d98ff52c3311494559"
+}

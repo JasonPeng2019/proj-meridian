@@ -1,0 +1,37 @@
+{
+  "decision_id": "HD-5a9e330adef24d5d80d8409b4b212180",
+  "applies_to": "D-020/drawing/visual-n/p1-b4c1b1c89e21ffb3",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Direct visual inspection of original PNG; printed token, context and label location match. Literal evidence only: R65.5 is the hole-circle radius;5.2/3.2 require section datum interpretation; radius up to1mm is a maximum, never exact1mm geometry.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:41.593722+00:00",
+  "based_on": {
+    "sha256": "06242966c0f3c15c3031982fa56585859ff1d64e52f6215a30fcf0e912225fa6"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-020/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-020",
+      "image": "generated/images/D-020-p1.png",
+      "page": 1,
+      "box": [
+        338,
+        508,
+        102,
+        48
+      ]
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  },
+  "prediction_sha256": "3c3130a5abf02162cabecaa4a88d0c88b743fbae747905a0ec0f1fbe02307e55"
+}

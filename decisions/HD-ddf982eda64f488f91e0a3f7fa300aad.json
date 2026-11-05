@@ -1,0 +1,48 @@
+{
+  "decision_id": "HD-ddf982eda64f488f91e0a3f7fa300aad",
+  "applies_to": "D-024/template/features_review",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Main left face dimensions establish x=-70,y=0 for one diameter10 H7 bore, center x=0,y=0 for another, x=80,y=0 for the diameter22 H9 recess, and x=-20,y=-34.6 for the diameter5 H7 blind bore. Printed depths are40.5,15.5 and20.5 respectively. Opposite face dimensions diameter5 depth10 at70 right, mirrored to x=-70 in the fixed main-view frame. Section A-A places the large blind bores on the plain main face and the smaller opposite bore on the stepped face. Confirm the five retained cuts only; the other pattern members and stepped body remain omitted.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:39.788626+00:00",
+  "based_on": {
+    "sha256": "f6da4da2e0c21231939c15f13535cf068d1c1f778774816f3cb65ddf30f96e3d"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-024/drawing/n/70.0@1-2",
+    "D-024/drawing/n/70.0@1-1",
+    "D-024/drawing/n/20.0@1-1",
+    "D-024/drawing/n/34.6@1-1",
+    "D-024/drawing/n/80.0@1-1",
+    "D-024/drawing/n/10.0@1-3",
+    "D-024/drawing/n/40.5@1-1",
+    "D-024/drawing/n/5.0@1-2",
+    "D-024/drawing/n/10.0@1-1",
+    "D-024/drawing/n/5.0@1-3",
+    "D-024/drawing/n/20.5@1-1",
+    "D-024/drawing/n/22.0@1-1",
+    "D-024/drawing/n/15.5@1-1",
+    "D-024/drawing/n/4.0@1-1",
+    "D-024/drawing/n/40.5@1-2",
+    "D-024/drawing/n/3.0@1-2",
+    "D-024/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-024",
+      "page": 1,
+      "image": "generated/images/D-024-p1.png",
+      "visual_description": "Main left face dimensions establish x=-70,y=0 for one diameter10 H7 bore, center x=0,y=0 for another, x=80,y=0 for the diameter22 H9 recess, and x=-20,y=-34.6 for the diameter5 H7 blind bore. Printed depths are40.5,15.5 and20.5 respectively. Opposite face dimensions diameter5 depth10 at70 right, mirrored to x=-70 in the fixed main-view frame. Section A-A places the large blind bores on the plain main face and the smaller opposite bore on the stepped face. Confirm the five retained cuts only; the other pattern members and stepped body remain omitted."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-21-30.json",
+    "sha256": "0837e5ed6eafe2465f7840be73edf1543e5cd9e4087c3aacc5f2e4da2e1f14a2"
+  },
+  "prediction_sha256": "8a859142916adff7b7ff2cf2a10ee378977bff7ece9dfe2d04731b5a45244a82"
+}

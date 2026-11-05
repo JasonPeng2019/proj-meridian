@@ -1,0 +1,125 @@
+{
+  "decision_id": "HD-b0cf01b26a08436c97a1acdfa51e0cbe",
+  "applies_to": "D-026/template/features_review",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Original PNG reinspection establishes three 5.3 mm through holes with 10 mm counterbores 15.4 mm deep at R105. The one -X hole and symmetric upper/lower-right holes support the explicitly labeled 120 degree drawing-pattern interpretation, starting at 180 degrees. Solid concentric face-view rims and edge-view hidden steps support top openings. Preserve the through bores independently; omit the 15.4 mm step only for 15 mm thickness without clamping its depth. The 25 mm example retains it.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:42.992759+00:00",
+  "based_on": {
+    "sha256": "a7ee7f4d75acaf2e8fc67ce14ca223d5cb4a2931063f37f4dfb6fadeeb70256e"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-026/drawing/source",
+    "D-026/drawing/callout/p1-1",
+    "D-026/drawing/callout/p1-2",
+    "D-026/drawing/n/3.0@1-1",
+    "D-026/drawing/n/105.0@1-1",
+    "D-026/drawing/n/5.3@1-1",
+    "D-026/drawing/n/10.0@1-1",
+    "D-026/drawing/n/15.4@1-1",
+    "D-026/drawing/n/15.0@1-1",
+    "D-026/drawing/n/25.0@1-1"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-026/drawing/callout/p1-1",
+      "page": 1,
+      "box": [
+        443.931,
+        270.988,
+        50.916,
+        39.837
+      ]
+    },
+    {
+      "fact_id": "D-026/drawing/callout/p1-2",
+      "page": 1,
+      "box": [
+        472.198,
+        549.465,
+        118.667,
+        18.083
+      ]
+    },
+    {
+      "fact_id": "D-026/drawing/n/3.0@1-1",
+      "page": 1,
+      "box": [
+        472.198,
+        549.465,
+        7.331,
+        18.083
+      ]
+    },
+    {
+      "fact_id": "D-026/drawing/n/105.0@1-1",
+      "page": 1,
+      "box": [
+        447.106,
+        272.821,
+        44.567,
+        36.171
+      ]
+    },
+    {
+      "fact_id": "D-026/drawing/n/5.3@1-1",
+      "page": 1,
+      "box": [
+        511.838,
+        549.465,
+        18.321,
+        18.083
+      ]
+    },
+    {
+      "fact_id": "D-026/drawing/n/10.0@1-1",
+      "page": 1,
+      "box": [
+        517.823,
+        565.367,
+        25.657,
+        18.083
+      ]
+    },
+    {
+      "fact_id": "D-026/drawing/n/15.4@1-1",
+      "page": 1,
+      "box": [
+        564.986,
+        565.367,
+        25.657,
+        18.083
+      ]
+    },
+    {
+      "fact_id": "D-026/drawing/n/15.0@1-1",
+      "page": 1,
+      "box": [
+        224.647,
+        218.825,
+        25.657,
+        18.083
+      ]
+    },
+    {
+      "fact_id": "D-026/drawing/n/25.0@1-1",
+      "page": 1,
+      "box": [
+        224.647,
+        205.994,
+        25.657,
+        18.083
+      ]
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  },
+  "prediction_sha256": "e6077c29718de98b697b2312be547f9d314291f344be305818f3fc09cf891613"
+}

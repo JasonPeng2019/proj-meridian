@@ -1,0 +1,81 @@
+{
+  "decision_id": "HD-9ce7b1766bb444169cf460c2b300d39a",
+  "applies_to": "names/material/6061-alloy -> aluminium",
+  "type": "name_mapping",
+  "value": "kind_of",
+  "status": "accepted",
+  "note": "The original D005 title block reads6061 Alloy and its note explicitly says Aluminium; D020 and the linked BOM also specify aluminium. Approve the specific alloy as kind_of the broader aluminium family; preserve the literal grade.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:43.171504+00:00",
+  "based_on": {
+    "sha256": "5952c87178aaf4fd65515b358fc3415aee4029955af8017b2c3f6db07fdbe072"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-005/drawing/material",
+    "D-005/drawing/notes",
+    "D-020/drawing/material",
+    "BOM:box/window-frame/material"
+  ],
+  "source_locations": [
+    {
+      "kind": "drawing",
+      "name": "D-005/drawing/material",
+      "part_key": "D-005",
+      "page": 1,
+      "box": [
+        745.28,
+        771.048,
+        135.0,
+        14.0
+      ],
+      "label": "D-005 / material",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-005.pdf",
+      "source_filename": "WindowFrame.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-005/drawing/notes",
+      "part_key": "D-005",
+      "page": 1,
+      "box": [
+        741.528,
+        658.943,
+        231.0,
+        111.0
+      ],
+      "label": "D-005 / notes",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-005.pdf",
+      "source_filename": "WindowFrame.pdf"
+    },
+    {
+      "kind": "drawing",
+      "name": "D-020/drawing/material",
+      "part_key": "D-020",
+      "page": 1,
+      "box": [
+        738.906,
+        766.467,
+        145.983,
+        24.008
+      ],
+      "label": "D-020 / material",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-020.pdf",
+      "source_filename": "f-theta-SealRing.PDF"
+    },
+    {
+      "kind": "bom",
+      "name": "BOM:box/window-frame/material",
+      "label": "BOM-015 / Window Frame",
+      "part_key": "D-005",
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": "BOM-015"
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-mapping-audit.json",
+    "sha256": "68192ac62e6302349418083eaba9bfbd473a988791c670f9279d8f62dcb0c9f9"
+  }
+}

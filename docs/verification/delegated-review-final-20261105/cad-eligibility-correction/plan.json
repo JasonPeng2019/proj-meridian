@@ -1,0 +1,86 @@
+{
+  "status": "prepared_not_applied",
+  "revision": "00a690ae91a984bb",
+  "operations": [
+    {
+      "target": "D-010/template/cad_eligibility",
+      "based_on": "700cc64cb7e7c31d1d7a6d6f506bac453cdcb3c7daf76dc2272ffebfe5e2d911",
+      "prediction_sha256": "91f83b14b3d7e140a000267aa31ccdce469b8ab9ef2e87e4bac27b03c32b2866",
+      "source_fact_ids": [
+        "D-010/drawing/notes",
+        "D-010/drawing/n/15.0@1-1",
+        "D-010/drawing/n/30.0@1-1",
+        "D-010/drawing/n/107.0@1-1",
+        "D-010/drawing/n/3.6@1-1",
+        "D-010/drawing/n/22.1@1-1",
+        "D-010/drawing/n/5.8@1-1",
+        "D-010/drawing/callout/p1-1",
+        "D-010/drawing/callout/p1-2",
+        "D-010/drawing/callout/p1-3",
+        "D-010/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-010",
+          "page": 1,
+          "image": "generated/images/D-010-p1.png",
+          "description": "Page 1: main face, lower bent profile, side profile, isometric and NOTE."
+        }
+      ],
+      "audit_receipt": {
+        "path": "docs/verification/delegated-review-final-20261105/cad-eligibility-correction/source-audit.json",
+        "sha256": "dda328a553373a0dfcb684b406b3782e21f6af418b63ea98bd24205085252972"
+      },
+      "action": "reject",
+      "note": "Reject original constant_thickness=false assertion: the explicit 2mm sheet note establishes nominal gauge; lack of a numeric extraction ID is not contrary physical evidence. The body remains unsupported because it is formed."
+    },
+    {
+      "target": "D-010/template/cad_eligibility",
+      "based_on": "700cc64cb7e7c31d1d7a6d6f506bac453cdcb3c7daf76dc2272ffebfe5e2d911",
+      "prediction_sha256": "91f83b14b3d7e140a000267aa31ccdce469b8ab9ef2e87e4bac27b03c32b2866",
+      "source_fact_ids": [
+        "D-010/drawing/notes",
+        "D-010/drawing/n/15.0@1-1",
+        "D-010/drawing/n/30.0@1-1",
+        "D-010/drawing/n/107.0@1-1",
+        "D-010/drawing/n/3.6@1-1",
+        "D-010/drawing/n/22.1@1-1",
+        "D-010/drawing/n/5.8@1-1",
+        "D-010/drawing/callout/p1-1",
+        "D-010/drawing/callout/p1-2",
+        "D-010/drawing/callout/p1-3",
+        "D-010/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-010",
+          "page": 1,
+          "image": "generated/images/D-010-p1.png",
+          "description": "Page 1: main face, lower bent profile, side profile, isometric and NOTE."
+        }
+      ],
+      "audit_receipt": {
+        "path": "docs/verification/delegated-review-final-20261105/cad-eligibility-correction/source-audit.json",
+        "sha256": "dda328a553373a0dfcb684b406b3782e21f6af418b63ea98bd24205085252972"
+      },
+      "action": "set_value",
+      "value": {
+        "supported": false,
+        "constant_thickness": true,
+        "outline_exact": false,
+        "reason": "The main face and lower profile show a formed nonplanar sheet with opposing bends and 15.00/30.00 flange extents. Rounded flange corners and edge relief also exceed the supported exact outlines. The explicit 2mm non-magnetic stainless note establishes nominal constant sheet gauge qualitatively; however no supplied parsed drawing-number ID supplies citation-compliant numeric template thickness. The complete formed part cannot be represented exactly by the current rectangle/circle/ring extrusion and hole/slot cuts.",
+        "essential_uncertainty": [
+          "Developed flat-blank outline and length are not dimensioned.",
+          "Bend radii, rounded outer-corner radii and edge-relief dimensions are not specified.",
+          "Nominal 2mm sheet gauge is stated in the note, but a dimension-linked parsed drawing-number source for numeric template thickness is absent."
+        ],
+        "omitted_minor_features": [
+          "Four Ø3,60 through holes: complete XY locations and pattern spacing are missing.",
+          "One Ø22,10 through hole: complete XY location is missing.",
+          "Two Ø5,80 through holes: complete XY locations are missing."
+        ]
+      },
+      "note": "Source-inspected correction of the qualitative gauge assessment. Keep supported=false and outline_exact=false; do not invent a developed blank, bends, hole positions or a flat reconstruction."
+    }
+  ]
+}

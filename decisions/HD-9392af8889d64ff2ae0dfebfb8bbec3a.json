@@ -1,0 +1,37 @@
+{
+  "decision_id": "HD-9392af8889d64ff2ae0dfebfb8bbec3a",
+  "applies_to": "D-014/template/thickness",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Printed8.0+/-0.2mm is one nominal constant thickness.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:42.661191+00:00",
+  "based_on": {
+    "sha256": "0e6fa42e39eda320d42f45576a0825c5d0c002abd6863188b3c98774d52867f6"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-014/drawing/source",
+    "D-014/drawing/n/8.0@1-3"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-014/drawing/n/8.0@1-3",
+      "page": 1,
+      "box": [
+        508.645,
+        209.943,
+        18.326,
+        18.083
+      ]
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  },
+  "prediction_sha256": "f92a086f226f77abfbe0c473945fb7baadad19dd2dd8f735d48fb664993da7a3"
+}

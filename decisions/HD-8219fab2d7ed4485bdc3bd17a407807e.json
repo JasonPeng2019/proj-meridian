@@ -1,0 +1,95 @@
+{
+  "decision_id": "HD-8219fab2d7ed4485bdc3bd17a407807e",
+  "applies_to": "D-016/template/features_review",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Original main view places Ø145,0 circular aperture on vertical body centerline, so x=0. Overall height is 283,5 and top-to-aperture-center dimension is 188,5: centered y=283,5/2-188,5=-46,75. Isometric clearly shows open through aperture. Confirm diameter145, through=true, plain hole at (0,-46,75), independently of unsupported outer contour.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:46:46.887995+00:00",
+  "based_on": {
+    "sha256": "4f9799f28352975cd39a5c52daf0e1dcb036d379fb58ecf6413f0befc67525f3"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-016/drawing/n/200.0@1-1",
+    "D-016/drawing/n/283.5@1-1",
+    "D-016/drawing/n/188.5@1-1",
+    "D-016/drawing/n/145.0@1-1",
+    "D-016/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-016",
+      "page": 1,
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-016.pdf",
+      "fact_id": "D-016/drawing/n/200.0@1-1",
+      "box": [
+        443.88,
+        149.181,
+        32.988,
+        18.083
+      ],
+      "image": "generated/images/D-016-p1.png",
+      "visual_description": "Original main view places Ø145,0 circular aperture on vertical body centerline, so x=0. Overall height is 283,5 and top-to-aperture-center dimension is 188,5: centered y=283,5/2-188,5=-46,75. Isometric clearly shows open through aperture. Confirm diameter145, through=true, plain hole at (0,-46,75), independently of unsupported outer contour."
+    },
+    {
+      "drawing": "D-016",
+      "page": 1,
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-016.pdf",
+      "fact_id": "D-016/drawing/n/283.5@1-1",
+      "box": [
+        778.757,
+        369.676,
+        18.083,
+        32.988
+      ],
+      "image": "generated/images/D-016-p1.png",
+      "visual_description": "Original main view places Ø145,0 circular aperture on vertical body centerline, so x=0. Overall height is 283,5 and top-to-aperture-center dimension is 188,5: centered y=283,5/2-188,5=-46,75. Isometric clearly shows open through aperture. Confirm diameter145, through=true, plain hole at (0,-46,75), independently of unsupported outer contour."
+    },
+    {
+      "drawing": "D-016",
+      "page": 1,
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-016.pdf",
+      "fact_id": "D-016/drawing/n/188.5@1-1",
+      "box": [
+        749.621,
+        311.51,
+        18.083,
+        32.988
+      ],
+      "image": "generated/images/D-016-p1.png",
+      "visual_description": "Original main view places Ø145,0 circular aperture on vertical body centerline, so x=0. Overall height is 283,5 and top-to-aperture-center dimension is 188,5: centered y=283,5/2-188,5=-46,75. Isometric clearly shows open through aperture. Confirm diameter145, through=true, plain hole at (0,-46,75), independently of unsupported outer contour."
+    },
+    {
+      "drawing": "D-016",
+      "page": 1,
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-016.pdf",
+      "fact_id": "D-016/drawing/n/145.0@1-1",
+      "box": [
+        484.539,
+        409.619,
+        37.574,
+        32.668
+      ],
+      "image": "generated/images/D-016-p1.png",
+      "visual_description": "Original main view places Ø145,0 circular aperture on vertical body centerline, so x=0. Overall height is 283,5 and top-to-aperture-center dimension is 188,5: centered y=283,5/2-188,5=-46,75. Isometric clearly shows open through aperture. Confirm diameter145, through=true, plain hole at (0,-46,75), independently of unsupported outer contour."
+    },
+    {
+      "drawing": "D-016",
+      "page": 1,
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-016.pdf",
+      "fact_id": "D-016/drawing/source",
+      "box": null,
+      "image": "generated/images/D-016-p1.png",
+      "visual_description": "Original main view places Ø145,0 circular aperture on vertical body centerline, so x=0. Overall height is 283,5 and top-to-aperture-center dimension is 188,5: centered y=283,5/2-188,5=-46,75. Isometric clearly shows open through aperture. Confirm diameter145, through=true, plain hole at (0,-46,75), independently of unsupported outer contour."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-11-20.json",
+    "sha256": "332d43089d177738c95270e02b8bf3ec14d366a9fd31daf660b1db7405813578"
+  },
+  "prediction_sha256": "8cf7828622b991df1f2dcfe1e56ca98d802be693ea417dc5e1a5bddb905bfa18"
+}

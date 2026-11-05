@@ -1,0 +1,33 @@
+{
+  "decision_id": "HD-f5dea265ae824591849d0a283362ede1",
+  "applies_to": "D-003/drawing/notes",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Original page-1 NOTE box reads Note: All threaded holes are blind. then 20mm thick aluminium plate., matching the wording and paragraph break.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:44:57.197701+00:00",
+  "based_on": {
+    "sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-003/drawing/notes",
+    "D-003/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-003",
+      "page": 1,
+      "image": "generated/images/D-003-p1.png",
+      "description": "Pages 1-3: page 1 main face/section A-A/detail C/title strip; page 2 bottom-hole schedule and labels; page 3 top-hole schedule and labels."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-01-10.json",
+    "sha256": "c4436a050c4381b409dc881144e91529c59db4fcc80139a4f53b9b787ca0914b"
+  },
+  "prediction_sha256": "54c534bc97855977b2e46f8b78fe5df887aeacb24be42fd9ec9864fa20b1f71c"
+}

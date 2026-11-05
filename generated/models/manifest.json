@@ -26,8 +26,8 @@
           ]
         },
         "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
-        "volume_mm3": 19466.964200563136,
-        "template_sha256": "ca65f2bc56d73409c45963c7e68f0f2a8a25768705ef2694e5fa5a9084c7ac39",
+        "volume_mm3": 19555.321493945325,
+        "template_sha256": "3a31294ccbf43e76433e51b0ec2a5b245e78a2d567415ee605581dbee327ba67",
         "selections": {
           "thickness": 3.0
         },
@@ -35,17 +35,19 @@
           {
             "name": "Feature 1 (hole)",
             "kind": "hole",
-            "count": 1,
+            "count": 2,
             "hole_type": "threaded",
             "requested_hole_type": "threaded",
             "step_omitted": null,
-            "thread": "M3 - 6H",
+            "thread": "M5 - 6H",
             "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
             "fact_ids": [
               "D-013",
-              "D-013/drawing/callout/p1-2",
-              "D-013/drawing/n/17.9@1-1",
-              "D-013/drawing/n/35.7@1-1"
+              "D-013/drawing/callout/p1-1",
+              "D-013/drawing/n/2.0@1-1",
+              "D-013/drawing/n/4.2@1-1",
+              "D-013/drawing/n/82.0@1-1",
+              "D-013/drawing/n/4.5@1-1"
             ],
             "method": "ai_verified_after_retry",
             "feature_index": 0
@@ -62,8 +64,10 @@
             "fact_ids": [
               "D-013",
               "D-013/drawing/callout/p1-2",
+              "D-013/drawing/n/8.0@1-1",
+              "D-013/drawing/n/2.5@1-1",
               "D-013/drawing/n/17.9@1-1",
-              "D-013/drawing/n/35.7@1-1"
+              "D-013/drawing/n/7.5@1-1"
             ],
             "method": "ai_verified_after_retry",
             "feature_index": 1
@@ -75,148 +79,24 @@
             "hole_type": "threaded",
             "requested_hole_type": "threaded",
             "step_omitted": null,
-            "thread": "M5 - 6H",
-            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
-            "fact_ids": [
-              "D-013",
-              "D-013/drawing/callout/p1-1",
-              "D-013/drawing/n/82.0@1-1",
-              "D-013/drawing/n/4.5@1-1"
-            ],
-            "method": "ai_verified_after_retry",
-            "feature_index": 2
-          },
-          {
-            "name": "Feature 4 (hole)",
-            "kind": "hole",
-            "count": 1,
-            "hole_type": "threaded",
-            "requested_hole_type": "threaded",
-            "step_omitted": null,
             "thread": "M3 - 6H",
             "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
             "fact_ids": [
               "D-013",
               "D-013/drawing/callout/p1-2",
-              "D-013/drawing/n/17.9@1-1",
-              "D-013/drawing/n/35.7@1-1"
-            ],
-            "method": "ai_verified_after_retry",
-            "feature_index": 3
-          },
-          {
-            "name": "Feature 5 (hole)",
-            "kind": "hole",
-            "count": 1,
-            "hole_type": "threaded",
-            "requested_hole_type": "threaded",
-            "step_omitted": null,
-            "thread": "M3 - 6H",
-            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
-            "fact_ids": [
-              "D-013",
-              "D-013/drawing/callout/p1-2",
-              "D-013/drawing/n/17.9@1-1",
-              "D-013/drawing/n/35.7@1-1"
-            ],
-            "method": "ai_verified_after_retry",
-            "feature_index": 4
-          },
-          {
-            "name": "Feature 6 (hole)",
-            "kind": "hole",
-            "count": 1,
-            "hole_type": "threaded",
-            "requested_hole_type": "threaded",
-            "step_omitted": null,
-            "thread": "M3 - 6H",
-            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
-            "fact_ids": [
-              "D-013",
-              "D-013/drawing/callout/p1-2",
-              "D-013/drawing/n/17.9@1-1",
-              "D-013/drawing/n/7.5@1-1"
-            ],
-            "method": "ai_verified_after_retry",
-            "feature_index": 5
-          },
-          {
-            "name": "Feature 7 (hole)",
-            "kind": "hole",
-            "count": 1,
-            "hole_type": "threaded",
-            "requested_hole_type": "threaded",
-            "step_omitted": null,
-            "thread": "M3 - 6H",
-            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
-            "fact_ids": [
-              "D-013",
-              "D-013/drawing/callout/p1-2",
+              "D-013/drawing/n/8.0@1-1",
+              "D-013/drawing/n/2.5@1-1",
               "D-013/drawing/n/17.9@1-1",
               "D-013/drawing/n/35.7@1-1",
               "D-013/drawing/n/7.5@1-1"
             ],
             "method": "ai_verified_after_retry",
-            "feature_index": 6
+            "feature_index": 2
           },
           {
-            "name": "Feature 8 (hole)",
-            "kind": "hole",
-            "count": 1,
-            "hole_type": "threaded",
-            "requested_hole_type": "threaded",
-            "step_omitted": null,
-            "thread": "M5 - 6H",
-            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
-            "fact_ids": [
-              "D-013",
-              "D-013/drawing/callout/p1-1",
-              "D-013/drawing/n/82.0@1-1",
-              "D-013/drawing/n/4.5@1-1"
-            ],
-            "method": "ai_verified_after_retry",
-            "feature_index": 7
-          },
-          {
-            "name": "Feature 9 (hole)",
-            "kind": "hole",
-            "count": 1,
-            "hole_type": "threaded",
-            "requested_hole_type": "threaded",
-            "step_omitted": null,
-            "thread": "M3 - 6H",
-            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
-            "fact_ids": [
-              "D-013",
-              "D-013/drawing/callout/p1-2",
-              "D-013/drawing/n/17.9@1-1",
-              "D-013/drawing/n/35.7@1-1"
-            ],
-            "method": "ai_verified_after_retry",
-            "feature_index": 8
-          },
-          {
-            "name": "Feature 10 (hole)",
-            "kind": "hole",
-            "count": 1,
-            "hole_type": "threaded",
-            "requested_hole_type": "threaded",
-            "step_omitted": null,
-            "thread": "M3 - 6H",
-            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
-            "fact_ids": [
-              "D-013",
-              "D-013/drawing/callout/p1-2",
-              "D-013/drawing/n/17.9@1-1",
-              "D-013/drawing/n/35.7@1-1"
-            ],
-            "method": "ai_verified_after_retry",
-            "feature_index": 9
-          },
-          {
-            "name": "Feature 11 (slot)",
+            "name": "Feature 4 (slot)",
             "kind": "slot",
-            "count": 1,
+            "count": 4,
             "hole_type": null,
             "requested_hole_type": "plain",
             "step_omitted": null,
@@ -225,84 +105,31 @@
             "fact_ids": [
               "D-013",
               "D-013/drawing/callout/p1-3",
+              "D-013/drawing/n/4.0@1-1",
+              "D-013/drawing/n/5.5@1-1",
+              "D-013/drawing/n/10.0@1-1",
               "D-013/drawing/n/41.0@1-1",
               "D-013/drawing/n/82.0@1-2",
               "D-013/drawing/n/2.3@1-1"
             ],
             "method": "ai_verified_after_retry",
-            "feature_index": 10
-          },
-          {
-            "name": "Feature 12 (slot)",
-            "kind": "slot",
-            "count": 1,
-            "hole_type": null,
-            "requested_hole_type": "plain",
-            "step_omitted": null,
-            "thread": null,
-            "thread_representation": null,
-            "fact_ids": [
-              "D-013",
-              "D-013/drawing/callout/p1-3",
-              "D-013/drawing/n/41.0@1-1",
-              "D-013/drawing/n/82.0@1-2",
-              "D-013/drawing/n/2.3@1-1"
-            ],
-            "method": "ai_verified_after_retry",
-            "feature_index": 11
-          },
-          {
-            "name": "Feature 13 (slot)",
-            "kind": "slot",
-            "count": 1,
-            "hole_type": null,
-            "requested_hole_type": "plain",
-            "step_omitted": null,
-            "thread": null,
-            "thread_representation": null,
-            "fact_ids": [
-              "D-013",
-              "D-013/drawing/callout/p1-3",
-              "D-013/drawing/n/41.0@1-1",
-              "D-013/drawing/n/82.0@1-2",
-              "D-013/drawing/n/2.3@1-1"
-            ],
-            "method": "ai_verified_after_retry",
-            "feature_index": 12
-          },
-          {
-            "name": "Feature 14 (slot)",
-            "kind": "slot",
-            "count": 1,
-            "hole_type": null,
-            "requested_hole_type": "plain",
-            "step_omitted": null,
-            "thread": null,
-            "thread_representation": null,
-            "fact_ids": [
-              "D-013",
-              "D-013/drawing/callout/p1-3",
-              "D-013/drawing/n/41.0@1-1",
-              "D-013/drawing/n/82.0@1-2",
-              "D-013/drawing/n/2.3@1-1"
-            ],
-            "method": "ai_verified_after_retry",
-            "feature_index": 13
+            "feature_index": 3
           }
         ],
         "waiting": [
           "features_complete"
         ],
         "omitted": [
-          "Four visible outline corner chamfers: The main view shows clipped corners, but no numerical chamfer setbacks or angles establish their geometry. They are outside the supported hole/slot subset; the rectangular outline retains the overall envelope.",
-          "DEBURR AND BREAK SHARP EDGES: The note supplies no numerical edge-break size or profile from which to construct a cut."
+          "Four small straight outer corner clips, one at each corner of the main rectangular outline.: The original views show the clips, but neither X/Y setbacks nor a dimensioned 45-degree chamfer callout is supplied. Their dimensions cannot be inferred from pixels or from the generic edge-finish note.",
+          "DEBURR AND BREAK SHARP EDGES.: The general manufacturing note supplies no edge-break size, angle or radius. It does not determine an additional modeled bevel or rounding.",
+          "Six remaining holes from the 8 x 2,5 THRU ALL M3 - 6H THRU ALL callout: the four holes left of the central vertical axis and the two farther-right holes beyond the directly dimensioned pair.: The printed 17,9 centerline offset and following 35,7 adjacent-hole dimension establish only the first two holes right of center. The other six X positions are not individually dimensioned, and the view does not resolve the conflict between extending a uniform 35,7 pitch across all eight holes and mirroring the visible layout about X=0: twice 17,9 is 35,8, not 35,7. Their drill diameter, thread, through operation and lower-row Y axis are established, but their complete placements are not. No guessed row or mirrored coordinates are emitted."
         ],
         "features_all_determined": false,
         "glb_units": "metres",
         "cad_units": "mm",
         "glb_to_mm": 1000,
-        "glb_sha256": "eda0d853164269b1fc28d6a742edc48155d20f4791bf5f46805e42c87061140a",
-        "step_sha256": "1bbe175d12205f609027344a20daab4a8e2cff5513082093214e7f26f1affe2a"
+        "glb_sha256": "b98a9481e8e258cdd257e1f0182e7b107e1c4c64f349ebc5aafc00672be29a7e",
+        "step_sha256": "d7ff48d086e690f8eb093ab3edda2e96d7c660439133c0d7a0c0ffe12f9080a3"
       },
       "B": {
         "glb": "models/D-013_B.glb",
@@ -325,8 +152,8 @@
           ]
         },
         "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
-        "volume_mm3": 38933.92840112627,
-        "template_sha256": "ca65f2bc56d73409c45963c7e68f0f2a8a25768705ef2694e5fa5a9084c7ac39",
+        "volume_mm3": 39110.64298789065,
+        "template_sha256": "3a31294ccbf43e76433e51b0ec2a5b245e78a2d567415ee605581dbee327ba67",
         "selections": {
           "thickness": 6.0
         },
@@ -334,17 +161,19 @@
           {
             "name": "Feature 1 (hole)",
             "kind": "hole",
-            "count": 1,
+            "count": 2,
             "hole_type": "threaded",
             "requested_hole_type": "threaded",
             "step_omitted": null,
-            "thread": "M3 - 6H",
+            "thread": "M5 - 6H",
             "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
             "fact_ids": [
               "D-013",
-              "D-013/drawing/callout/p1-2",
-              "D-013/drawing/n/17.9@1-1",
-              "D-013/drawing/n/35.7@1-1"
+              "D-013/drawing/callout/p1-1",
+              "D-013/drawing/n/2.0@1-1",
+              "D-013/drawing/n/4.2@1-1",
+              "D-013/drawing/n/82.0@1-1",
+              "D-013/drawing/n/4.5@1-1"
             ],
             "method": "ai_verified_after_retry",
             "feature_index": 0
@@ -361,8 +190,10 @@
             "fact_ids": [
               "D-013",
               "D-013/drawing/callout/p1-2",
+              "D-013/drawing/n/8.0@1-1",
+              "D-013/drawing/n/2.5@1-1",
               "D-013/drawing/n/17.9@1-1",
-              "D-013/drawing/n/35.7@1-1"
+              "D-013/drawing/n/7.5@1-1"
             ],
             "method": "ai_verified_after_retry",
             "feature_index": 1
@@ -374,148 +205,24 @@
             "hole_type": "threaded",
             "requested_hole_type": "threaded",
             "step_omitted": null,
-            "thread": "M5 - 6H",
-            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
-            "fact_ids": [
-              "D-013",
-              "D-013/drawing/callout/p1-1",
-              "D-013/drawing/n/82.0@1-1",
-              "D-013/drawing/n/4.5@1-1"
-            ],
-            "method": "ai_verified_after_retry",
-            "feature_index": 2
-          },
-          {
-            "name": "Feature 4 (hole)",
-            "kind": "hole",
-            "count": 1,
-            "hole_type": "threaded",
-            "requested_hole_type": "threaded",
-            "step_omitted": null,
             "thread": "M3 - 6H",
             "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
             "fact_ids": [
               "D-013",
               "D-013/drawing/callout/p1-2",
-              "D-013/drawing/n/17.9@1-1",
-              "D-013/drawing/n/35.7@1-1"
-            ],
-            "method": "ai_verified_after_retry",
-            "feature_index": 3
-          },
-          {
-            "name": "Feature 5 (hole)",
-            "kind": "hole",
-            "count": 1,
-            "hole_type": "threaded",
-            "requested_hole_type": "threaded",
-            "step_omitted": null,
-            "thread": "M3 - 6H",
-            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
-            "fact_ids": [
-              "D-013",
-              "D-013/drawing/callout/p1-2",
-              "D-013/drawing/n/17.9@1-1",
-              "D-013/drawing/n/35.7@1-1"
-            ],
-            "method": "ai_verified_after_retry",
-            "feature_index": 4
-          },
-          {
-            "name": "Feature 6 (hole)",
-            "kind": "hole",
-            "count": 1,
-            "hole_type": "threaded",
-            "requested_hole_type": "threaded",
-            "step_omitted": null,
-            "thread": "M3 - 6H",
-            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
-            "fact_ids": [
-              "D-013",
-              "D-013/drawing/callout/p1-2",
-              "D-013/drawing/n/17.9@1-1",
-              "D-013/drawing/n/7.5@1-1"
-            ],
-            "method": "ai_verified_after_retry",
-            "feature_index": 5
-          },
-          {
-            "name": "Feature 7 (hole)",
-            "kind": "hole",
-            "count": 1,
-            "hole_type": "threaded",
-            "requested_hole_type": "threaded",
-            "step_omitted": null,
-            "thread": "M3 - 6H",
-            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
-            "fact_ids": [
-              "D-013",
-              "D-013/drawing/callout/p1-2",
+              "D-013/drawing/n/8.0@1-1",
+              "D-013/drawing/n/2.5@1-1",
               "D-013/drawing/n/17.9@1-1",
               "D-013/drawing/n/35.7@1-1",
               "D-013/drawing/n/7.5@1-1"
             ],
             "method": "ai_verified_after_retry",
-            "feature_index": 6
+            "feature_index": 2
           },
           {
-            "name": "Feature 8 (hole)",
-            "kind": "hole",
-            "count": 1,
-            "hole_type": "threaded",
-            "requested_hole_type": "threaded",
-            "step_omitted": null,
-            "thread": "M5 - 6H",
-            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
-            "fact_ids": [
-              "D-013",
-              "D-013/drawing/callout/p1-1",
-              "D-013/drawing/n/82.0@1-1",
-              "D-013/drawing/n/4.5@1-1"
-            ],
-            "method": "ai_verified_after_retry",
-            "feature_index": 7
-          },
-          {
-            "name": "Feature 9 (hole)",
-            "kind": "hole",
-            "count": 1,
-            "hole_type": "threaded",
-            "requested_hole_type": "threaded",
-            "step_omitted": null,
-            "thread": "M3 - 6H",
-            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
-            "fact_ids": [
-              "D-013",
-              "D-013/drawing/callout/p1-2",
-              "D-013/drawing/n/17.9@1-1",
-              "D-013/drawing/n/35.7@1-1"
-            ],
-            "method": "ai_verified_after_retry",
-            "feature_index": 8
-          },
-          {
-            "name": "Feature 10 (hole)",
-            "kind": "hole",
-            "count": 1,
-            "hole_type": "threaded",
-            "requested_hole_type": "threaded",
-            "step_omitted": null,
-            "thread": "M3 - 6H",
-            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
-            "fact_ids": [
-              "D-013",
-              "D-013/drawing/callout/p1-2",
-              "D-013/drawing/n/17.9@1-1",
-              "D-013/drawing/n/35.7@1-1"
-            ],
-            "method": "ai_verified_after_retry",
-            "feature_index": 9
-          },
-          {
-            "name": "Feature 11 (slot)",
+            "name": "Feature 4 (slot)",
             "kind": "slot",
-            "count": 1,
+            "count": 4,
             "hole_type": null,
             "requested_hole_type": "plain",
             "step_omitted": null,
@@ -524,94 +231,42 @@
             "fact_ids": [
               "D-013",
               "D-013/drawing/callout/p1-3",
+              "D-013/drawing/n/4.0@1-1",
+              "D-013/drawing/n/5.5@1-1",
+              "D-013/drawing/n/10.0@1-1",
               "D-013/drawing/n/41.0@1-1",
               "D-013/drawing/n/82.0@1-2",
               "D-013/drawing/n/2.3@1-1"
             ],
             "method": "ai_verified_after_retry",
-            "feature_index": 10
-          },
-          {
-            "name": "Feature 12 (slot)",
-            "kind": "slot",
-            "count": 1,
-            "hole_type": null,
-            "requested_hole_type": "plain",
-            "step_omitted": null,
-            "thread": null,
-            "thread_representation": null,
-            "fact_ids": [
-              "D-013",
-              "D-013/drawing/callout/p1-3",
-              "D-013/drawing/n/41.0@1-1",
-              "D-013/drawing/n/82.0@1-2",
-              "D-013/drawing/n/2.3@1-1"
-            ],
-            "method": "ai_verified_after_retry",
-            "feature_index": 11
-          },
-          {
-            "name": "Feature 13 (slot)",
-            "kind": "slot",
-            "count": 1,
-            "hole_type": null,
-            "requested_hole_type": "plain",
-            "step_omitted": null,
-            "thread": null,
-            "thread_representation": null,
-            "fact_ids": [
-              "D-013",
-              "D-013/drawing/callout/p1-3",
-              "D-013/drawing/n/41.0@1-1",
-              "D-013/drawing/n/82.0@1-2",
-              "D-013/drawing/n/2.3@1-1"
-            ],
-            "method": "ai_verified_after_retry",
-            "feature_index": 12
-          },
-          {
-            "name": "Feature 14 (slot)",
-            "kind": "slot",
-            "count": 1,
-            "hole_type": null,
-            "requested_hole_type": "plain",
-            "step_omitted": null,
-            "thread": null,
-            "thread_representation": null,
-            "fact_ids": [
-              "D-013",
-              "D-013/drawing/callout/p1-3",
-              "D-013/drawing/n/41.0@1-1",
-              "D-013/drawing/n/82.0@1-2",
-              "D-013/drawing/n/2.3@1-1"
-            ],
-            "method": "ai_verified_after_retry",
-            "feature_index": 13
+            "feature_index": 3
           }
         ],
         "waiting": [
           "features_complete"
         ],
         "omitted": [
-          "Four visible outline corner chamfers: The main view shows clipped corners, but no numerical chamfer setbacks or angles establish their geometry. They are outside the supported hole/slot subset; the rectangular outline retains the overall envelope.",
-          "DEBURR AND BREAK SHARP EDGES: The note supplies no numerical edge-break size or profile from which to construct a cut."
+          "Four small straight outer corner clips, one at each corner of the main rectangular outline.: The original views show the clips, but neither X/Y setbacks nor a dimensioned 45-degree chamfer callout is supplied. Their dimensions cannot be inferred from pixels or from the generic edge-finish note.",
+          "DEBURR AND BREAK SHARP EDGES.: The general manufacturing note supplies no edge-break size, angle or radius. It does not determine an additional modeled bevel or rounding.",
+          "Six remaining holes from the 8 x 2,5 THRU ALL M3 - 6H THRU ALL callout: the four holes left of the central vertical axis and the two farther-right holes beyond the directly dimensioned pair.: The printed 17,9 centerline offset and following 35,7 adjacent-hole dimension establish only the first two holes right of center. The other six X positions are not individually dimensioned, and the view does not resolve the conflict between extending a uniform 35,7 pitch across all eight holes and mirroring the visible layout about X=0: twice 17,9 is 35,8, not 35,7. Their drill diameter, thread, through operation and lower-row Y axis are established, but their complete placements are not. No guessed row or mirrored coordinates are emitted."
         ],
         "features_all_determined": false,
         "glb_units": "metres",
         "cad_units": "mm",
         "glb_to_mm": 1000,
-        "glb_sha256": "8bfce74eb3cf247cf9cbc43fc4d4313fc93f0ba7f236bc9b4a9ab397fae18fdd",
-        "step_sha256": "a876bf494a8371f7b547e73968b4800ae0a5f54b47f1a17d9d9b97b49ea46429"
+        "glb_sha256": "45b289a1880e026ad16908dab051e5f4a97f51391e416ac804dfd9674af99240",
+        "step_sha256": "5c112921b02687a2486ded7c4f47fd38d50f28d7200d5d8ecc227c6a34899d1c"
       }
     },
     "waiting": [
       "features_complete"
     ],
     "omitted": [
-      "Four visible outline corner chamfers: The main view shows clipped corners, but no numerical chamfer setbacks or angles establish their geometry. They are outside the supported hole/slot subset; the rectangular outline retains the overall envelope.",
-      "DEBURR AND BREAK SHARP EDGES: The note supplies no numerical edge-break size or profile from which to construct a cut."
+      "Four small straight outer corner clips, one at each corner of the main rectangular outline.: The original views show the clips, but neither X/Y setbacks nor a dimensioned 45-degree chamfer callout is supplied. Their dimensions cannot be inferred from pixels or from the generic edge-finish note.",
+      "DEBURR AND BREAK SHARP EDGES.: The general manufacturing note supplies no edge-break size, angle or radius. It does not determine an additional modeled bevel or rounding.",
+      "Six remaining holes from the 8 x 2,5 THRU ALL M3 - 6H THRU ALL callout: the four holes left of the central vertical axis and the two farther-right holes beyond the directly dimensioned pair.: The printed 17,9 centerline offset and following 35,7 adjacent-hole dimension establish only the first two holes right of center. The other six X positions are not individually dimensioned, and the view does not resolve the conflict between extending a uniform 35,7 pitch across all eight holes and mirroring the visible layout about X=0: twice 17,9 is 35,8, not 35,7. Their drill diameter, thread, through operation and lower-row Y axis are established, but their complete placements are not. No guessed row or mirrored coordinates are emitted."
     ],
-    "template_sha256": "ca65f2bc56d73409c45963c7e68f0f2a8a25768705ef2694e5fa5a9084c7ac39",
+    "template_sha256": "3a31294ccbf43e76433e51b0ec2a5b245e78a2d567415ee605581dbee327ba67",
     "source_sha256": "826076b03bfbaeee961dc3e57cb642c225d41f1ea9a643d0bb1ca7d296280047",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -623,8 +278,9 @@
     "features_status": "partial",
     "features_all_determined": false,
     "omitted_feature_notes": [
-      "Four visible outline corner chamfers: The main view shows clipped corners, but no numerical chamfer setbacks or angles establish their geometry. They are outside the supported hole/slot subset; the rectangular outline retains the overall envelope.",
-      "DEBURR AND BREAK SHARP EDGES: The note supplies no numerical edge-break size or profile from which to construct a cut."
+      "Four small straight outer corner clips, one at each corner of the main rectangular outline.: The original views show the clips, but neither X/Y setbacks nor a dimensioned 45-degree chamfer callout is supplied. Their dimensions cannot be inferred from pixels or from the generic edge-finish note.",
+      "DEBURR AND BREAK SHARP EDGES.: The general manufacturing note supplies no edge-break size, angle or radius. It does not determine an additional modeled bevel or rounding.",
+      "Six remaining holes from the 8 x 2,5 THRU ALL M3 - 6H THRU ALL callout: the four holes left of the central vertical axis and the two farther-right holes beyond the directly dimensioned pair.: The printed 17,9 centerline offset and following 35,7 adjacent-hole dimension establish only the first two holes right of center. The other six X positions are not individually dimensioned, and the view does not resolve the conflict between extending a uniform 35,7 pitch across all eight holes and mirroring the visible layout about X=0: twice 17,9 is 35,8, not 35,7. Their drill diameter, thread, through operation and lower-row Y axis are established, but their complete placements are not. No guessed row or mirrored coordinates are emitted."
     ],
     "weight_check": {
       "state": "FAILED",
@@ -647,9 +303,9 @@
               "source_title": "ASM Aluminum Mill and Engineered Wrought Products, Table 6 (NIST archive)",
               "looked_up": "2026-11-05",
               "note": "5005 alloy density. Outside source, not the dataset.",
-              "calculated_g": 52.5608,
+              "calculated_g": 52.7994,
               "drawing_g": 87.5,
-              "difference_percent": 39.93,
+              "difference_percent": 39.66,
               "matches": false,
               "outside_source": true
             },
@@ -665,9 +321,9 @@
               "source_title": "ASM Aluminum Mill and Engineered Wrought Products (NIST archive)",
               "looked_up": "2026-11-05",
               "note": "Approximate family density; alloy is unspecified. Outside source, not the dataset.",
-              "calculated_g": 52.5608,
+              "calculated_g": 52.7994,
               "drawing_g": 87.5,
-              "difference_percent": 39.93,
+              "difference_percent": 39.66,
               "matches": false,
               "outside_source": true
             }
@@ -692,9 +348,9 @@
               "source_title": "ASM Aluminum Mill and Engineered Wrought Products, Table 6 (NIST archive)",
               "looked_up": "2026-11-05",
               "note": "5005 alloy density. Outside source, not the dataset.",
-              "calculated_g": 105.1216,
+              "calculated_g": 105.5987,
               "drawing_g": 87.5,
-              "difference_percent": 20.14,
+              "difference_percent": 20.68,
               "matches": false,
               "outside_source": true
             },
@@ -710,9 +366,9 @@
               "source_title": "ASM Aluminum Mill and Engineered Wrought Products (NIST archive)",
               "looked_up": "2026-11-05",
               "note": "Approximate family density; alloy is unspecified. Outside source, not the dataset.",
-              "calculated_g": 105.1216,
+              "calculated_g": 105.5987,
               "drawing_g": 87.5,
-              "difference_percent": 20.14,
+              "difference_percent": 20.68,
               "matches": false,
               "outside_source": true
             }
@@ -757,7 +413,7 @@
         },
         "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
         "volume_mm3": 19037.480758088677,
-        "template_sha256": "9d56f1bfa1da7d10f051710c68a757659f23c5337e5de93be0ffaf9504e261d7",
+        "template_sha256": "b1817e365c691a278d39517311c367195a91de87976c4d3e2eb8d5348d6b4637",
         "selections": {
           "thickness": 2.0
         },
@@ -775,7 +431,9 @@
               "D-025",
               "D-025/drawing/callout/p1-1",
               "D-025/drawing/callout/p1-2",
-              "D-025/drawing/callout/p1-3"
+              "D-025/drawing/callout/p1-3",
+              "D-025/drawing/n/8.0@1-1",
+              "D-025/drawing/n/115.5@1-1"
             ],
             "method": "ai_verified",
             "feature_index": 0
@@ -785,14 +443,14 @@
           "features_complete"
         ],
         "omitted": [
-          "DEBURR AND BREAK SHARP EDGES: The general finishing note does not specify an edge-break size or profile, so a corresponding chamfer or rounding cut cannot be determined."
+          "DEBURR AND BREAK SHARP EDGES: The general note specifies edge treatment without a dimensioned size or profile. No arbitrary chamfer or rounding can be modeled from this note."
         ],
         "features_all_determined": false,
         "glb_units": "metres",
         "cad_units": "mm",
         "glb_to_mm": 1000,
         "glb_sha256": "de51670805792c52a2a9402373e18ef54022f591cc6096e96954469fbe209d9d",
-        "step_sha256": "507b60c63526ecbb1fb80b6fcef7391ce8ffcaac32f43dad7aed1852ff88303c"
+        "step_sha256": "9d3b452e392c895962a837006d3f3deca93289f16b93b984f270f31132a9b425"
       },
       "B": {
         "glb": "models/D-025_B.glb",
@@ -816,7 +474,7 @@
         },
         "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
         "volume_mm3": 28644.094101647897,
-        "template_sha256": "9d56f1bfa1da7d10f051710c68a757659f23c5337e5de93be0ffaf9504e261d7",
+        "template_sha256": "b1817e365c691a278d39517311c367195a91de87976c4d3e2eb8d5348d6b4637",
         "selections": {
           "thickness": 3.0
         },
@@ -834,7 +492,9 @@
               "D-025",
               "D-025/drawing/callout/p1-1",
               "D-025/drawing/callout/p1-2",
-              "D-025/drawing/callout/p1-3"
+              "D-025/drawing/callout/p1-3",
+              "D-025/drawing/n/8.0@1-1",
+              "D-025/drawing/n/115.5@1-1"
             ],
             "method": "ai_verified",
             "feature_index": 0
@@ -844,23 +504,23 @@
           "features_complete"
         ],
         "omitted": [
-          "DEBURR AND BREAK SHARP EDGES: The general finishing note does not specify an edge-break size or profile, so a corresponding chamfer or rounding cut cannot be determined."
+          "DEBURR AND BREAK SHARP EDGES: The general note specifies edge treatment without a dimensioned size or profile. No arbitrary chamfer or rounding can be modeled from this note."
         ],
         "features_all_determined": false,
         "glb_units": "metres",
         "cad_units": "mm",
         "glb_to_mm": 1000,
         "glb_sha256": "28185dc6b069e466ec5aafce7c3433603366c238239ca5baeda1cb11399b6649",
-        "step_sha256": "82cb2f192d8e6648d07bffacaf5482c044fe122a9882072dfacfb80188b090c3"
+        "step_sha256": "10c215bc33797f188557c371be1dd217d56f31a535cda691128bceb37a8bd72f"
       }
     },
     "waiting": [
       "features_complete"
     ],
     "omitted": [
-      "DEBURR AND BREAK SHARP EDGES: The general finishing note does not specify an edge-break size or profile, so a corresponding chamfer or rounding cut cannot be determined."
+      "DEBURR AND BREAK SHARP EDGES: The general note specifies edge treatment without a dimensioned size or profile. No arbitrary chamfer or rounding can be modeled from this note."
     ],
-    "template_sha256": "9d56f1bfa1da7d10f051710c68a757659f23c5337e5de93be0ffaf9504e261d7",
+    "template_sha256": "b1817e365c691a278d39517311c367195a91de87976c4d3e2eb8d5348d6b4637",
     "source_sha256": "9b61f2c688fba1b10f502658505c78c0ff99820d3f281822eacdc7283e9b7e9c",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -872,7 +532,7 @@
     "features_status": "partial",
     "features_all_determined": false,
     "omitted_feature_notes": [
-      "DEBURR AND BREAK SHARP EDGES: The general finishing note does not specify an edge-break size or profile, so a corresponding chamfer or rounding cut cannot be determined."
+      "DEBURR AND BREAK SHARP EDGES: The general note specifies edge treatment without a dimensioned size or profile. No arbitrary chamfer or rounding can be modeled from this note."
     ],
     "weight_check": {
       "state": "Passed",
@@ -969,7 +629,7 @@
         },
         "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
         "volume_mm3": 735317.9956366653,
-        "template_sha256": "cabed5b7894ca74eed8251a11071d9c1f54d4d93f1e777524ff057b841b5d905",
+        "template_sha256": "7182d588e6b48a0dd56a6639697461089ddf9ecb449fa59350358faa6f895be6",
         "selections": {
           "thickness": 15
         },
@@ -980,7 +640,7 @@
             "count": 3,
             "hole_type": "plain",
             "requested_hole_type": "counterbored",
-            "step_omitted": "Feature 1 (hole): counterbore step omitted for 15 mm thickness: documented depth 15.4 mm exceeds primary-hole depth 15 mm. Known 5.3 mm primary hole retained; step depth was not clamped. The printed counterbore depth 15,4 exceeds the documented 15,0 thickness alternative. Retain the separately dimensioned Ø5,3 THRU ALL primary holes, skip the counterbore step for the 15,0 variant, and report that omission. The 15,4-deep counterbore fits the 25,0 variant.",
+            "step_omitted": "Feature 1 (hole): counterbore step omitted for 15 mm thickness: documented depth 15.4 mm exceeds primary-hole depth 15 mm. Known 5.3 mm primary hole retained; step depth was not clamped. The printed counterbore depth 15,4 mm exceeds the possible 15,0 mm plate thickness, although it fits the possible 25,0 mm thickness. Preserve all three independently dimensioned Ø5,3 THRU ALL holes; omit the counterbore step for the 15,0 mm reading without clamping its depth.",
             "thread": null,
             "thread_representation": null,
             "fact_ids": [
@@ -988,6 +648,7 @@
               "D-026/drawing/callout/p1-1",
               "D-026/drawing/callout/p1-2",
               "D-026/drawing/n/3.0@1-1",
+              "D-026/drawing/n/105.0@1-1",
               "D-026/drawing/n/5.3@1-1",
               "D-026/drawing/n/10.0@1-1",
               "D-026/drawing/n/15.4@1-1",
@@ -1003,16 +664,16 @@
           "features.0.step"
         ],
         "omitted": [
-          "Ø10,0 counterbore step, depth 15,4, for the 15,0 thickness alternative: The specified depth 15,4 exceeds the 15,0 plate thickness. Skip this step only for that variant and retain the supported Ø5,3 through-hole pattern; do not clamp the depth. The counterbore remains supported for the 25,0 variant.",
-          "DEBURR AND BREAK SHARP EDGES: The general note specifies edge finishing without a numerical size or a defined chamfer or radius profile, so no dimensioned edge-removal geometry can be modeled.",
-          "Feature 1 (hole): counterbore step omitted for 15 mm thickness: documented depth 15.4 mm exceeds primary-hole depth 15 mm. Known 5.3 mm primary hole retained; step depth was not clamped. The printed counterbore depth 15,4 exceeds the documented 15,0 thickness alternative. Retain the separately dimensioned Ø5,3 THRU ALL primary holes, skip the counterbore step for the 15,0 variant, and report that omission. The 15,4-deep counterbore fits the 25,0 variant."
+          "Three Ø10,0 counterbore steps, 15,4 deep, for the 15,0 mm thickness reading only.: The printed step depth exceeds this possible plate thickness. Preserve the Ø5,3 through holes, skip these steps for this reading, and report the conflict. The steps remain supported for the 25,0 mm reading.",
+          "Deburring and sharp-edge breaks.: The note DEBURR AND BREAK SHARP EDGES gives no size or profile. No chamfer or rounding geometry can be assigned from this note.",
+          "Feature 1 (hole): counterbore step omitted for 15 mm thickness: documented depth 15.4 mm exceeds primary-hole depth 15 mm. Known 5.3 mm primary hole retained; step depth was not clamped. The printed counterbore depth 15,4 mm exceeds the possible 15,0 mm plate thickness, although it fits the possible 25,0 mm thickness. Preserve all three independently dimensioned Ø5,3 THRU ALL holes; omit the counterbore step for the 15,0 mm reading without clamping its depth."
         ],
         "features_all_determined": false,
         "glb_units": "metres",
         "cad_units": "mm",
         "glb_to_mm": 1000,
         "glb_sha256": "c271955f857dea82a63d8bc0367df9084ebbbe28fae0bbb888a8a940a5966f19",
-        "step_sha256": "d6c245d168fec818baffb893021a9f61c1d2f8742fa26a6fbd61ade4177ac4d3"
+        "step_sha256": "60c806a3cf83bf802fd1d43641665e442b17229ae24efdd74051e62a58a16d8c"
       },
       "B": {
         "glb": "models/D-026_B.glb",
@@ -1035,8 +696,8 @@
           ]
         },
         "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
-        "volume_mm3": 1222920.709962614,
-        "template_sha256": "cabed5b7894ca74eed8251a11071d9c1f54d4d93f1e777524ff057b841b5d905",
+        "volume_mm3": 1222920.7099626139,
+        "template_sha256": "7182d588e6b48a0dd56a6639697461089ddf9ecb449fa59350358faa6f895be6",
         "selections": {
           "thickness": 25
         },
@@ -1055,6 +716,7 @@
               "D-026/drawing/callout/p1-1",
               "D-026/drawing/callout/p1-2",
               "D-026/drawing/n/3.0@1-1",
+              "D-026/drawing/n/105.0@1-1",
               "D-026/drawing/n/5.3@1-1",
               "D-026/drawing/n/10.0@1-1",
               "D-026/drawing/n/15.4@1-1",
@@ -1069,15 +731,15 @@
           "features_complete"
         ],
         "omitted": [
-          "Ø10,0 counterbore step, depth 15,4, for the 15,0 thickness alternative: The specified depth 15,4 exceeds the 15,0 plate thickness. Skip this step only for that variant and retain the supported Ø5,3 through-hole pattern; do not clamp the depth. The counterbore remains supported for the 25,0 variant.",
-          "DEBURR AND BREAK SHARP EDGES: The general note specifies edge finishing without a numerical size or a defined chamfer or radius profile, so no dimensioned edge-removal geometry can be modeled."
+          "Three Ø10,0 counterbore steps, 15,4 deep, for the 15,0 mm thickness reading only.: The printed step depth exceeds this possible plate thickness. Preserve the Ø5,3 through holes, skip these steps for this reading, and report the conflict. The steps remain supported for the 25,0 mm reading.",
+          "Deburring and sharp-edge breaks.: The note DEBURR AND BREAK SHARP EDGES gives no size or profile. No chamfer or rounding geometry can be assigned from this note."
         ],
         "features_all_determined": false,
         "glb_units": "metres",
         "cad_units": "mm",
         "glb_to_mm": 1000,
-        "glb_sha256": "460e5e86ec7e9273cd23c095222075fd467edd92b5454d8eb977209299544bbe",
-        "step_sha256": "ac502074c0e05b974f9969588080d456a85664d8ca70005cea31d0a5a46d6b97"
+        "glb_sha256": "5c56c9eed4a4dffc2b69c3bbbd55f746373cbca5c6d5757180d306b2979ac68b",
+        "step_sha256": "b6cf2db9225322ffb3bf439edd202aa42e0c92284a045f2998b24618ed65d7a8"
       }
     },
     "waiting": [
@@ -1085,11 +747,11 @@
       "features.0.step"
     ],
     "omitted": [
-      "Ø10,0 counterbore step, depth 15,4, for the 15,0 thickness alternative: The specified depth 15,4 exceeds the 15,0 plate thickness. Skip this step only for that variant and retain the supported Ø5,3 through-hole pattern; do not clamp the depth. The counterbore remains supported for the 25,0 variant.",
-      "DEBURR AND BREAK SHARP EDGES: The general note specifies edge finishing without a numerical size or a defined chamfer or radius profile, so no dimensioned edge-removal geometry can be modeled.",
-      "Feature 1 (hole): counterbore step omitted for 15 mm thickness: documented depth 15.4 mm exceeds primary-hole depth 15 mm. Known 5.3 mm primary hole retained; step depth was not clamped. The printed counterbore depth 15,4 exceeds the documented 15,0 thickness alternative. Retain the separately dimensioned Ø5,3 THRU ALL primary holes, skip the counterbore step for the 15,0 variant, and report that omission. The 15,4-deep counterbore fits the 25,0 variant."
+      "Three Ø10,0 counterbore steps, 15,4 deep, for the 15,0 mm thickness reading only.: The printed step depth exceeds this possible plate thickness. Preserve the Ø5,3 through holes, skip these steps for this reading, and report the conflict. The steps remain supported for the 25,0 mm reading.",
+      "Deburring and sharp-edge breaks.: The note DEBURR AND BREAK SHARP EDGES gives no size or profile. No chamfer or rounding geometry can be assigned from this note.",
+      "Feature 1 (hole): counterbore step omitted for 15 mm thickness: documented depth 15.4 mm exceeds primary-hole depth 15 mm. Known 5.3 mm primary hole retained; step depth was not clamped. The printed counterbore depth 15,4 mm exceeds the possible 15,0 mm plate thickness, although it fits the possible 25,0 mm thickness. Preserve all three independently dimensioned Ø5,3 THRU ALL holes; omit the counterbore step for the 15,0 mm reading without clamping its depth."
     ],
-    "template_sha256": "cabed5b7894ca74eed8251a11071d9c1f54d4d93f1e777524ff057b841b5d905",
+    "template_sha256": "7182d588e6b48a0dd56a6639697461089ddf9ecb449fa59350358faa6f895be6",
     "source_sha256": "a7ee7f4d75acaf2e8fc67ce14ca223d5cb4a2931063f37f4dfb6fadeeb70256e",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -1101,8 +763,8 @@
     "features_status": "partial",
     "features_all_determined": false,
     "omitted_feature_notes": [
-      "Ø10,0 counterbore step, depth 15,4, for the 15,0 thickness alternative: The specified depth 15,4 exceeds the 15,0 plate thickness. Skip this step only for that variant and retain the supported Ø5,3 through-hole pattern; do not clamp the depth. The counterbore remains supported for the 25,0 variant.",
-      "DEBURR AND BREAK SHARP EDGES: The general note specifies edge finishing without a numerical size or a defined chamfer or radius profile, so no dimensioned edge-removal geometry can be modeled."
+      "Three Ø10,0 counterbore steps, 15,4 deep, for the 15,0 mm thickness reading only.: The printed step depth exceeds this possible plate thickness. Preserve the Ø5,3 through holes, skip these steps for this reading, and report the conflict. The steps remain supported for the 25,0 mm reading.",
+      "Deburring and sharp-edge breaks.: The note DEBURR AND BREAK SHARP EDGES gives no size or profile. No chamfer or rounding geometry can be assigned from this note."
     ],
     "weight_check": {
       "state": "FAILED",
@@ -1211,10 +873,10 @@
     "examples": [],
     "models": {},
     "waiting": [
-      "Essential geometry unresolved: outline_type, thickness, cad_eligibility"
+      "Essential geometry unresolved: Main outline or constant thickness is unsupported by the drawing"
     ],
     "omitted": [],
-    "template_sha256": "e7c2f9cdfd98db1f6fc3c6a9e9e25aa392aa74a166b82b6997416af9ec5cc809",
+    "template_sha256": "a7aa6251a5c66d42b5079960c3e82f59921458335f88315ecafaa8a398e7c350",
     "source_sha256": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -1223,9 +885,16 @@
     },
     "label": "Partial AI reconstruction. Not reviewed by a person",
     "units": "mm",
-    "features_status": "unknown",
+    "features_status": "partial",
     "features_all_determined": false,
-    "omitted_feature_notes": [],
+    "omitted_feature_notes": [
+      "Four rounded outer corners: The main outline visibly has rounded corners, whose radii are not dimensioned. Rounded outer contours are unsupported by this template. These are essential outline geometry and cannot be treated as minor edge breaks or replaced with a bounding rectangle.",
+      "Central rounded rectangular opening, 287,00 by 200,00 mm: The printed dimensions establish the opening's horizontal and vertical extents, not its corner radii or its XY location relative to the outer outline. Apparent centering cannot establish coordinates. Its four-corner rounded rectangular contour is also outside the supported hole/slot geometry.",
+      "2 x Ø 4,50 THRU ALL near the upper left: Count, diameter and through operation are established, but no hole-center coordinates, locating offsets or pitch are printed. The holes cannot be positioned from the pictured layout alone.",
+      "3 x Ø 6,60 THRU ALL on the left: Count, diameter and through operation are established, but the triangular layout has no dimensioned center coordinates, offsets or spacing. Its placement cannot be derived from the supplied dimensions.",
+      "6 x Ø 6,60 THRU ALL on the right: Count, diameter and through operation are established, but the two visible groups lack dimensioned XY locations and spacing. No supported row placement can be derived.",
+      "20 x Ø 4,50 THRU ALL surrounding the central opening: Count, diameter and through operation are established, but hole-center offsets and pitches are absent. The 287,00 and 200,00 dimensions terminate on the opening edges, not on the surrounding hole centers, so they cannot establish this hole pattern."
+    ],
     "weight_check": {
       "state": "Skipped",
       "message": "No model built; waiting for human input",
@@ -1236,10 +905,10 @@
     "examples": [],
     "models": {},
     "waiting": [
-      "Essential geometry unresolved: outline_type, thickness, cad_eligibility"
+      "Essential geometry unresolved: Main outline or constant thickness is unsupported by the drawing"
     ],
     "omitted": [],
-    "template_sha256": "0cd9622c419b0058b08b4bb7d95baa000680a489177b1d525932a9a9a22cc5dc",
+    "template_sha256": "316ae89c8a3117e43d2fe840c04716377d82aadaaec5f1e2492386c0ea9d59ac",
     "source_sha256": "6822d609aa047ddbcb9446e1215f697ec12f5764ba9aa5ef3906543b9a1887bc",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -1248,9 +917,19 @@
     },
     "label": "Partial AI reconstruction. Not reviewed by a person",
     "units": "mm",
-    "features_status": "unknown",
+    "features_status": "partial",
     "features_all_determined": false,
-    "omitted_feature_notes": [],
+    "omitted_feature_notes": [
+      "Formed flanges, bends and corner junctions: The side views, horizontal edge view and isometric show flanges projecting out of the main face. The side view prints 23,00 depth. These are essential nonplanar geometry outside the flat-part generator; bend radii and a dimensioned developed outline are not supplied.",
+      "Rectangular opening, 286,00 by 36,00: The printed dimensions establish the opening size and the view establishes its horizontal long axis, but no dimensions locate its center relative to the main outline. Apparent centering cannot establish coordinates.",
+      "Main-face holes: 7 x 5,80 THRU ALL: Count, diameter and through operation are established. The arrangement around the rectangular opening has no printed center offsets or pitches, so individual XY coordinates cannot be established.",
+      "Main-face lower row: 6 x 9,00 THRU ALL: Count, diameter and through operation are established, but row height, endpoint offsets and pitch are not dimensioned. The count and overall panel width do not establish the row coordinates.",
+      "Left side-view flange holes: 7 x 7,00 THRU ALL: Count, diameter and through operation are established. Longitudinal offsets, pitch and entry locations through the flange depth are not dimensioned. The supporting flange is nonplanar geometry outside the template.",
+      "Right side-view flange holes: 7 x 7,00 THRU ALL: Count, diameter and through operation are established, but complete entry coordinates and spacing are not dimensioned. Mirroring the opposite flange would not supply the missing dimensions, and the supporting flange is outside the template.",
+      "Horizontal edge-view flange holes: 9 x 7,00 THRU ALL: Count, diameter and through operation are established. The displayed locations have no printed offsets or pitches, and the through-flange entry coordinates are unresolved. The supporting flange is outside the template.",
+      "M5 weld nuts on inside of flanges: The functional note specifies attached weld nuts. Their complete geometry and attachment locations are not dimensioned, and separate welded hardware cannot be represented by supported plate cuts. M5 does not establish a drill diameter.",
+      "DEBURR AND BREAK SHARP EDGES: The edge-finish instruction supplies no size or profile for an explicit chamfer or other edge-break operation."
+    ],
     "weight_check": {
       "state": "Skipped",
       "message": "No model built; waiting for human input",
@@ -1261,10 +940,10 @@
     "examples": [],
     "models": {},
     "waiting": [
-      "Essential geometry unresolved: outline_type, thickness, cad_eligibility"
+      "Essential geometry unresolved: Main outline or constant thickness is unsupported by the drawing"
     ],
     "omitted": [],
-    "template_sha256": "1ee324abac755cbcffc97798fba8290cc3c1b5423eb346f5f7deb30b8247de32",
+    "template_sha256": "cf395013d541283f17e112e9fe65441e4be4c720c283136832cdf9897d72c414",
     "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -1273,9 +952,21 @@
     },
     "label": "Partial AI reconstruction. Not reviewed by a person",
     "units": "mm",
-    "features_status": "unknown",
+    "features_status": "partial",
     "features_all_determined": false,
-    "omitted_feature_notes": [],
+    "omitted_feature_notes": [
+      "R3,0 external outline rounding at the main-view upper-right corner.: The leader establishes a rounded outside corner, which cannot be represented by the supported outlines or straight corner_chamfer feature. Its applicability to other corners is not explicitly established. This is an outline limitation, not an omitted minor edge break.",
+      "Detail C surface edge bevel, 3,0 X 45°, and general sharp-edge breaking.: Detail C concerns the plate's thickness-edge profile, not a through-thickness XY corner clip. Surface edge bevels are unsupported, and the general deburring instruction supplies no additional numerical geometry.",
+      "Upper horizontal through cutout, 270,0 long by 40,0 wide, with centre offset 255,5 above the central opening.: The views show straight end walls with small rounded corners rather than an established semicircular-ended slot. No corner radius is linked to this cutout; the external R3,0 leader cannot be reassigned to it. The complete cut profile is therefore unresolved despite the supported size, offset and horizontal orientation.",
+      "Lower horizontal through cutout, 270,0 long by 40,0 wide, with centre offset 250,0 below the central opening.: The views show small rounded cutout corners, but no linked corner radius establishes their complete profile. Do not assume either sharp rectangular corners or semicircular slot ends.",
+      "Sheet 2 original bottom-side A holes: quantity 8, Ø6,8 drill depth 15,0, M8 - 6H thread depth 12,0.: The size, depths, count and opening side are supplied, but no associated coordinate dimensions, pitch or pitch-circle diameter establish all XY locations. The visible arrangement alone is insufficient.",
+      "Sheet 2 original bottom-side B holes: quantity 28, Ø5,0 drill depth 15,0, M6 - 6H thread depth 12,0.: No printed row pitches or offsets locate the rectangular perimeter arrangement. Quantity 28 does not determine those coordinates.",
+      "Sheet 2 original bottom-side D holes: quantity 32, Ø4,2 drill depth 12,4, M5 - 6H thread depth 10,0.: The holes surround the two cutouts, but their pitches, end offsets and distances from the cutout edges are not dimensioned. Cutout dimensions cannot substitute for missing hole-location dimensions.",
+      "Sheet 3 original top-side A holes: quantity 8, Ø4,2 drill depth 12,4, M5 - 6H thread depth 10,0.: The corner-associated pairs have no printed edge offsets or spacing dimensions establishing their XY locations.",
+      "Sheet 3 original top-side B holes: quantity 4, Ø10,5 drill depth 19,0, TAP FOR M10x1.5 HELICOIL Insert = 1.0 * Dia.: No coordinate dimensions or row spacing locate the four holes near the lower portion of the plate.",
+      "Sheet 3 original top-side C holes: quantity 3, Ø8,3 drill depth 19,5, TAP FOR M8x1.25 HELICOIL Insert = 1.0 * Dia.: The three holes near the lower cutout lack printed XY coordinates or a dimensioned pattern.",
+      "Sheet 3 original top-side G holes: quantity 5, Ø8,3 drill depth 13,0, TAP FOR M8x1.25 HELICOIL Insert = 1.0 * Dia.: The right-side arrangement has no printed coordinates, pitches or edge offsets. It is not a supported dimensioned row."
+    ],
     "weight_check": {
       "state": "Skipped",
       "message": "No model built; waiting for human input",
@@ -1286,10 +977,10 @@
     "examples": [],
     "models": {},
     "waiting": [
-      "Essential geometry unresolved: outline_type, cad_eligibility"
+      "Essential geometry unresolved: cad_eligibility"
     ],
     "omitted": [],
-    "template_sha256": "7d6dfa6436a65b49a6e758825fb6cc1c9da3a90fc3cd9ce8f0c357e3f6b584b8",
+    "template_sha256": "369d9a802319cff088ba7c6c08ff3989d8ac242226980b6c2c255959e5bfe2c0",
     "source_sha256": "947fee0986f4799388d5bd41411b2abedcee5d6a644e909238f005fb4802f64b",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -1298,9 +989,22 @@
     },
     "label": "Partial AI reconstruction. Not reviewed by a person",
     "units": "mm",
-    "features_status": "unknown",
+    "features_status": "partial",
     "features_all_determined": false,
-    "omitted_feature_notes": [],
+    "omitted_feature_notes": [
+      "Two bent side flanges, 25,00 high, including bend transitions: The upper profile and isometric show a formed sheet rather than a planar plate. Flanges and bends are outside the supported flat-part generator; bend radii and developed dimensions are not supplied. These are essential geometry, not minor edge details.",
+      "18 x 5,80 THRU ALL on the upper and lower edges of the main face: Count, diameter and through operation are printed, but row offsets, pitches and complete center coordinates are absent.",
+      "10 x 5,80 THRU ALL in the main face: Count, diameter and through operation are printed, but the illustrated rows have no dimensioned offsets, spacing or center coordinates.",
+      "6 x 4,50 THRU ALL around the 120,00 hole: Count, diameter and through operation are printed. No pitch-circle diameter or radius, angular registration, or dimensioned pattern-center location establishes the layout.",
+      "4 x 6,60 THRU ALL above the large hole: Count, diameter and through operation are printed, but the illustrated four-hole arrangement has no horizontal or vertical spacing and no dimensioned location.",
+      "8 x 5,80 THRU ALL around the two larger left-hand holes: Count, diameter and through operation are printed, but pattern radii or offsets and parent-hole center locations are absent. The visible arrangement does not establish numeric coordinates.",
+      "24,00 THRU hole targeted by the lower-left leader: Diameter and through operation are established, but neither X nor Y center location is dimensioned.",
+      "Additional larger left-hand hole above the leader-targeted 24,00 THRU hole: The front and isometric views show this opening, but no separate diameter or explicit repeated-size association and no center coordinates are supplied. Its diameter cannot be copied from the lower hole by appearance.",
+      "120,00 THRU main-face hole: Diameter and through operation are established, but its center is not dimensionally tied to the plate boundary. The local hole centerlines do not establish coincidence with the plate center.",
+      "9 x 7,00 THRU ALL in each side flange: Both flange views print count, diameter and through operation. Hole pitches, end offsets and positions across the flange height are absent. The holes enter bent flanges, which cannot be represented as side holes in the single rectangular slab template.",
+      "M5 weld nuts on inside of flanges: The functional note requires welded components, outside the supported single-body cut template. Nut geometry and weld details are not dimensioned; M5 does not establish a drill diameter.",
+      "DEBURR AND BREAK SHARP EDGES: No edge-break size or profile is specified, so no numerical chamfer or rounding can be modeled."
+    ],
     "weight_check": {
       "state": "Skipped",
       "message": "No model built; waiting for human input",
@@ -1314,7 +1018,7 @@
       "Essential geometry unresolved: outline_type, cad_eligibility"
     ],
     "omitted": [],
-    "template_sha256": "a65c752721fceeaef75d15c3ab6428941bef17fb4e700e83c27fa95cd45ca78c",
+    "template_sha256": "516d790990d755bd990f6a85b537f72ed6ef3b0a3a492bc84ff54dc42ac4843d",
     "source_sha256": "6f49feb435d02be842ac6933d726b6785cf9cb7cef70e8193976dc4ab265cf26",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -1323,9 +1027,18 @@
     },
     "label": "Partial AI reconstruction. Not reviewed by a person",
     "units": "mm",
-    "features_status": "unknown",
+    "features_status": "partial",
     "features_all_determined": false,
-    "omitted_feature_notes": [],
+    "omitted_feature_notes": [
+      "Rounded outer corners of the frame: The main and isometric views establish substantial rounded outer corners, but no outer corner radius is supplied. This essential outline contour cannot be replaced by a bounding rectangle or represented as straight corner_chamfer cuts.",
+      "Central through-window opening: The main view gives opening extents 286,7 by 199,7 mm, but its rounded corner radii are not dimensioned. A rounded rectangular opening is not a supported hole or straight slot, and its exact contour cannot be invented.",
+      "Stepped window seat or recess: The drawing dimensions the window-receiving region as 297,2 by 210,2 mm. Section A-A and Detail B show a stepped section, but the complete recess depth and corner geometry are not determined. This functional pocket is also outside the supported hole/slot feature types.",
+      "Two o-ring grooves: The note specifies two grooves, and Detail B supplies local 2,0 and 3,3 dimensions and a maximum groove-bottom internal corner-radius note. The complete groove paths, corner radii and XY placement are not dimensioned. These closed perimeter grooves are outside the supported hole/slot operations.",
+      "20 blind M4 - 6H threaded holes: The callout establishes 20 holes with Ø 3,3 drilling depth 6,0 and M4 - 6H thread depth 4,0. No printed hole pitches, center offsets or dimensioned pattern paths establish their XY centers. Count and visual spacing alone cannot supply coordinates.",
+      "Window-corner machining relief: The leader explicitly calls for machining relief to fit the sharp window corner and says to resize as needed. No relief size or complete dimensioned contour is supplied, so this functional relief cannot be reconstructed.",
+      "3,0 X 45° surface edge bevel: The side-view leader identifies an edge bevel, not a straight through-thickness XY corner clip. Surface bevels are unsupported by the feature protocol, and the callout does not establish corner_chamfer features.",
+      "Deburring and unspecified sharp-edge breaks: The general instruction DEBURR AND BREAK SHARP EDGES supplies no geometric size or precise extent; no arbitrary chamfer is added."
+    ],
     "weight_check": {
       "state": "Skipped",
       "message": "No model built; waiting for human input",
@@ -1386,10 +1099,10 @@
     "examples": [],
     "models": {},
     "waiting": [
-      "Essential geometry unresolved: outline_type, cad_eligibility"
+      "Essential geometry unresolved: Main outline or constant thickness is unsupported by the drawing"
     ],
     "omitted": [],
-    "template_sha256": "613f4721618e62af2bb9af564f56fe78d5affe545776a2276e12ebfce5c58b6c",
+    "template_sha256": "d9615ddce36d30fafb0d58fda6e8992a4344c6c9c2cbe6ea48d06965ee040525",
     "source_sha256": "2642be4f1d3471cc440aa7830166adfa298a8e1a31cef90911662bb2b4a26448",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -1436,10 +1149,10 @@
     "examples": [],
     "models": {},
     "waiting": [
-      "Essential geometry unresolved: outline_type, thickness, cad_eligibility"
+      "Essential geometry unresolved: Main outline or constant thickness is unsupported by the drawing"
     ],
     "omitted": [],
-    "template_sha256": "a98fe5ac56d4057b01266246b5d6830791886cb7ec0862154ba601e9be3ab5d4",
+    "template_sha256": "95e289be58ac7fb8fb1dc45eb5df843e22e59cc2cfea36f176f16323c0c2acd4",
     "source_sha256": "700cc64cb7e7c31d1d7a6d6f506bac453cdcb3c7daf76dc2272ffebfe5e2d911",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -1508,8 +1221,8 @@
           ]
         },
         "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
-        "volume_mm3": 44410.951377451915,
-        "template_sha256": "145ae791079abe6a53320360397f95092b981df4e8483a7132fae5bae6fe4b83",
+        "volume_mm3": 43429.203673205106,
+        "template_sha256": "cbd01268c8d55e2443e4a06e8fb44185433cfb977a231053a3314a798c100502",
         "selections": {},
         "labels": [
           {
@@ -1527,8 +1240,7 @@
               "D-012/drawing/n/2.0@1-1",
               "D-012/drawing/n/12.5@1-1",
               "D-012/drawing/n/25.0@1-1",
-              "D-012/drawing/n/40.0@1-1",
-              "D-012/drawing/n/5.0@1-1"
+              "D-012/drawing/n/40.0@1-1"
             ],
             "method": "ai_verified",
             "feature_index": 0
@@ -1547,36 +1259,73 @@
               "D-012/drawing/callout/p1-1",
               "D-012/drawing/n/12.5@1-1",
               "D-012/drawing/n/25.0@1-1",
-              "D-012/drawing/n/40.0@1-1",
-              "D-012/drawing/n/5.0@1-1"
+              "D-012/drawing/n/40.0@1-1"
             ],
             "method": "ai_verified",
             "feature_index": 1
+          },
+          {
+            "name": "Feature 3 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "requested_hole_type": "threaded",
+            "step_omitted": null,
+            "thread": "M6 - 6H",
+            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+            "fact_ids": [
+              "D-012",
+              "D-012/drawing/callout/p1-2",
+              "D-012/drawing/n/2.0@1-2",
+              "D-012/drawing/n/25.0@1-1",
+              "D-012/drawing/n/15.0@1-1",
+              "D-012/drawing/n/30.0@1-1"
+            ],
+            "method": "ai_verified",
+            "feature_index": 2
+          },
+          {
+            "name": "Feature 4 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "requested_hole_type": "threaded",
+            "step_omitted": null,
+            "thread": "M6 - 6H",
+            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+            "fact_ids": [
+              "D-012",
+              "D-012/drawing/callout/p1-2",
+              "D-012/drawing/n/2.0@1-2",
+              "D-012/drawing/n/25.0@1-1",
+              "D-012/drawing/n/15.0@1-1",
+              "D-012/drawing/n/30.0@1-1"
+            ],
+            "method": "ai_verified",
+            "feature_index": 3
           }
         ],
         "waiting": [
           "features_complete"
         ],
         "omitted": [
-          "Two transverse holes: 2 x 5,0 THRU ALL, M6 - 6H THRU ALL.: The narrow orthographic view and corresponding hidden lines in the main view establish a second hole pair entering a side face, perpendicular to the main-face hole axes. The printed 30,0 offset concerns this pair. Their transverse cutting direction cannot be represented by the template's top/bottom holes; rotating them into Z would change the design.",
-          "DEBURR AND BREAK SHARP EDGES: The note requires edge finishing but supplies no edge-break size or profile, so no numerical finishing cut can be modeled."
+          "DEBURR AND BREAK SHARP EDGES: The general finishing note specifies no setback, angle or radius. Its edge-break geometry cannot be modeled without inventing dimensions."
         ],
         "features_all_determined": false,
         "glb_units": "metres",
         "cad_units": "mm",
         "glb_to_mm": 1000,
-        "glb_sha256": "9f53bc959e8af0c61942d1a1279232e3d93c00a38e3ef53b6193f41d5694b6c1",
-        "step_sha256": "e88e1316d3aa65b2209fa7a8603db18fedac7cbb205cdc7cad818032ddf1cbca"
+        "glb_sha256": "f2b5cfb9da4f619dc7e5275bd810c96e51fe3677c3307c4636e137ad7d6a87b2",
+        "step_sha256": "5e10eca1a520132c85f08a11f42c86290d195969cf7280c9f441851407e70833"
       }
     },
     "waiting": [
       "features_complete"
     ],
     "omitted": [
-      "Two transverse holes: 2 x 5,0 THRU ALL, M6 - 6H THRU ALL.: The narrow orthographic view and corresponding hidden lines in the main view establish a second hole pair entering a side face, perpendicular to the main-face hole axes. The printed 30,0 offset concerns this pair. Their transverse cutting direction cannot be represented by the template's top/bottom holes; rotating them into Z would change the design.",
-      "DEBURR AND BREAK SHARP EDGES: The note requires edge finishing but supplies no edge-break size or profile, so no numerical finishing cut can be modeled."
+      "DEBURR AND BREAK SHARP EDGES: The general finishing note specifies no setback, angle or radius. Its edge-break geometry cannot be modeled without inventing dimensions."
     ],
-    "template_sha256": "145ae791079abe6a53320360397f95092b981df4e8483a7132fae5bae6fe4b83",
+    "template_sha256": "cbd01268c8d55e2443e4a06e8fb44185433cfb977a231053a3314a798c100502",
     "source_sha256": "23ba5d97ee7a744cf12072e1338ab62fa5e49c09c5229af4f20a6ff5a455f64a",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -1588,8 +1337,7 @@
     "features_status": "partial",
     "features_all_determined": false,
     "omitted_feature_notes": [
-      "Two transverse holes: 2 x 5,0 THRU ALL, M6 - 6H THRU ALL.: The narrow orthographic view and corresponding hidden lines in the main view establish a second hole pair entering a side face, perpendicular to the main-face hole axes. The printed 30,0 offset concerns this pair. Their transverse cutting direction cannot be represented by the template's top/bottom holes; rotating them into Z would change the design.",
-      "DEBURR AND BREAK SHARP EDGES: The note requires edge finishing but supplies no edge-break size or profile, so no numerical finishing cut can be modeled."
+      "DEBURR AND BREAK SHARP EDGES: The general finishing note specifies no setback, angle or radius. Its edge-break geometry cannot be modeled without inventing dimensions."
     ],
     "weight_check": {
       "state": "Passed",
@@ -1612,9 +1360,9 @@
               "source_title": "ASM Aluminum Mill and Engineered Wrought Products, Table 6 (NIST archive)",
               "looked_up": "2026-11-05",
               "note": "5005 alloy density. Outside source, not the dataset.",
-              "calculated_g": 119.9096,
+              "calculated_g": 117.2588,
               "drawing_g": 117.3,
-              "difference_percent": 2.22,
+              "difference_percent": 0.04,
               "matches": true,
               "outside_source": true
             },
@@ -1630,9 +1378,9 @@
               "source_title": "ASM Aluminum Mill and Engineered Wrought Products (NIST archive)",
               "looked_up": "2026-11-05",
               "note": "Approximate family density; alloy is unspecified. Outside source, not the dataset.",
-              "calculated_g": 119.9096,
+              "calculated_g": 117.2588,
               "drawing_g": 117.3,
-              "difference_percent": 2.22,
+              "difference_percent": 0.04,
               "matches": true,
               "outside_source": true
             }
@@ -1676,7 +1424,7 @@
         },
         "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
         "volume_mm3": 122904.71579363033,
-        "template_sha256": "5bb98138de769d2feeeb33cb437b8cafa06d1d261cf371e3f5e780be64c2b152",
+        "template_sha256": "abfdff56432c347be0ad8c48195e99ac4c51847c0c995aea91d3e522ac61c75a",
         "selections": {},
         "labels": [
           {
@@ -1856,7 +1604,8 @@
             "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
             "fact_ids": [
               "D-014",
-              "D-014/drawing/callout/p1-1"
+              "D-014/drawing/callout/p1-1",
+              "D-014/drawing/n/25.0@1-1"
             ],
             "method": "ai_verified",
             "feature_index": 10
@@ -1872,7 +1621,8 @@
             "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
             "fact_ids": [
               "D-014",
-              "D-014/drawing/callout/p1-1"
+              "D-014/drawing/callout/p1-1",
+              "D-014/drawing/n/25.0@1-1"
             ],
             "method": "ai_verified",
             "feature_index": 11
@@ -1982,23 +1732,23 @@
           "features_complete"
         ],
         "omitted": [
-          "DEBURR AND BREAK SHARP EDGES: The general note specifies edge finishing without a break size or profile. That unspecified edge-break geometry is omitted from the nominal rectangular body and supported hole cuts."
+          "DEBURR AND BREAK SHARP EDGES: The general finishing note supplies no edge-break size, angle or profile. An arbitrary chamfer or radius cannot be added; this minor finishing detail is omitted."
         ],
         "features_all_determined": false,
         "glb_units": "metres",
         "cad_units": "mm",
         "glb_to_mm": 1000,
         "glb_sha256": "614f28f44d5566303c37cbd28522cc5509e85982f9b52a34289e96e4c26e9e1c",
-        "step_sha256": "942b7036e6cd61a2793b4f4c81076cf2d9db0af132155bcb56ee9fda49356807"
+        "step_sha256": "47f755f0c9b5b5cf295ec3d82fe68377757fb100e0d42038dc62380c403b1b07"
       }
     },
     "waiting": [
       "features_complete"
     ],
     "omitted": [
-      "DEBURR AND BREAK SHARP EDGES: The general note specifies edge finishing without a break size or profile. That unspecified edge-break geometry is omitted from the nominal rectangular body and supported hole cuts."
+      "DEBURR AND BREAK SHARP EDGES: The general finishing note supplies no edge-break size, angle or profile. An arbitrary chamfer or radius cannot be added; this minor finishing detail is omitted."
     ],
-    "template_sha256": "5bb98138de769d2feeeb33cb437b8cafa06d1d261cf371e3f5e780be64c2b152",
+    "template_sha256": "abfdff56432c347be0ad8c48195e99ac4c51847c0c995aea91d3e522ac61c75a",
     "source_sha256": "0e6fa42e39eda320d42f45576a0825c5d0c002abd6863188b3c98774d52867f6",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -2010,7 +1760,7 @@
     "features_status": "partial",
     "features_all_determined": false,
     "omitted_feature_notes": [
-      "DEBURR AND BREAK SHARP EDGES: The general note specifies edge finishing without a break size or profile. That unspecified edge-break geometry is omitted from the nominal rectangular body and supported hole cuts."
+      "DEBURR AND BREAK SHARP EDGES: The general finishing note supplies no edge-break size, angle or profile. An arbitrary chamfer or radius cannot be added; this minor finishing detail is omitted."
     ],
     "weight_check": {
       "state": "Passed",
@@ -2097,32 +1847,32 @@
         },
         "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
         "volume_mm3": 3780.0,
-        "template_sha256": "ea885e419942949161abe7db4ec1f03cc16fb6586deda74009b743fb601db818",
+        "template_sha256": "87d28fa475685100e5adc9de700eb259c2e80604a85f7d839bc99cdc13a03805",
         "selections": {},
         "labels": [],
         "waiting": [
           "features_complete"
         ],
         "omitted": [
-          "8 x 3,4 THRU ALL holes: The count, diameter and through operation are established, but the drawing provides no hole-center coordinates, row pitch, end offsets or transverse offset. The visible row cannot establish numeric positions.",
-          "DEBURR AND BREAK SHARP EDGES: The general edge-finish note supplies no edge-break size or profile, so this detail cannot be modeled."
+          "8 x Ø 3,4 THRU ALL holes: The printed callout establishes eight through-holes of diameter 3,4 mm. Neither hole pitch, end offsets nor transverse center locations are dimensioned. The visible row alone cannot establish numeric placement, equal spacing or centering; no hole coordinates can be emitted.",
+          "DEBURR AND BREAK SHARP EDGES: The general finishing instruction supplies no edge-break size, angle or specific geometry. An arbitrary chamfer cannot be modeled."
         ],
         "features_all_determined": false,
         "glb_units": "metres",
         "cad_units": "mm",
         "glb_to_mm": 1000,
         "glb_sha256": "9e2f0925f5a64c49a915ca7b87fb424f34cd563fe14a4510a8075065fe29c167",
-        "step_sha256": "ad7521dc891d13f911b837402514a81d3b6521a2270fceb18dd60d97c680ef52"
+        "step_sha256": "1d44fcf876781e1d5623472f1a7f4ea06e76fc140af0542b030b556e768f5057"
       }
     },
     "waiting": [
       "features_complete"
     ],
     "omitted": [
-      "8 x 3,4 THRU ALL holes: The count, diameter and through operation are established, but the drawing provides no hole-center coordinates, row pitch, end offsets or transverse offset. The visible row cannot establish numeric positions.",
-      "DEBURR AND BREAK SHARP EDGES: The general edge-finish note supplies no edge-break size or profile, so this detail cannot be modeled."
+      "8 x Ø 3,4 THRU ALL holes: The printed callout establishes eight through-holes of diameter 3,4 mm. Neither hole pitch, end offsets nor transverse center locations are dimensioned. The visible row alone cannot establish numeric placement, equal spacing or centering; no hole coordinates can be emitted.",
+      "DEBURR AND BREAK SHARP EDGES: The general finishing instruction supplies no edge-break size, angle or specific geometry. An arbitrary chamfer cannot be modeled."
     ],
-    "template_sha256": "ea885e419942949161abe7db4ec1f03cc16fb6586deda74009b743fb601db818",
+    "template_sha256": "87d28fa475685100e5adc9de700eb259c2e80604a85f7d839bc99cdc13a03805",
     "source_sha256": "0828f6fee0d3bc087524df08c8b3fbadc5201212e5f86fcfc08b984fe9e32c60",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -2134,8 +1884,8 @@
     "features_status": "partial",
     "features_all_determined": false,
     "omitted_feature_notes": [
-      "8 x 3,4 THRU ALL holes: The count, diameter and through operation are established, but the drawing provides no hole-center coordinates, row pitch, end offsets or transverse offset. The visible row cannot establish numeric positions.",
-      "DEBURR AND BREAK SHARP EDGES: The general edge-finish note supplies no edge-break size or profile, so this detail cannot be modeled."
+      "8 x Ø 3,4 THRU ALL holes: The printed callout establishes eight through-holes of diameter 3,4 mm. Neither hole pitch, end offsets nor transverse center locations are dimensioned. The visible row alone cannot establish numeric placement, equal spacing or centering; no hole coordinates can be emitted.",
+      "DEBURR AND BREAK SHARP EDGES: The general finishing instruction supplies no edge-break size, angle or specific geometry. An arbitrary chamfer cannot be modeled."
     ],
     "weight_check": {
       "state": "FAILED",
@@ -2212,8 +1962,8 @@
           ]
         },
         "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
-        "volume_mm3": 184145.576397669,
-        "template_sha256": "5adb12ddd1a9befdfa5e8ac3e166e57d821439b2726b92117ef1adab372295af",
+        "volume_mm3": 184125.576397669,
+        "template_sha256": "cbd63ce79da69710f6cb1dabae09e7b87c416e9b6975174451c0c956b03f7bb6",
         "selections": {},
         "labels": [
           {
@@ -2229,43 +1979,59 @@
               "D-017",
               "D-017/drawing/n/28.2@1-1",
               "D-017/drawing/n/4.1@1-1",
+              "D-017/drawing/visual-n/p1-246cec9cf78ff967",
               "D-017/drawing/n/50.9@1-1",
+              "D-017/drawing/visual-n/p1-25144134d8176dbc",
               "D-017/drawing/n/110.0@1-1",
-              "D-017/drawing/n/42.0@1-1"
+              "D-017/drawing/n/42.0@1-1",
+              "D-017/drawing/visual-n/p1-e0c6a61ca00ca1ad",
+              "D-017/drawing/visual-n/p1-dd32ce1b8eb10c54"
             ],
             "method": "ai_verified",
             "feature_index": 0
+          },
+          {
+            "name": "Feature 2 (corner_chamfer)",
+            "kind": "corner_chamfer",
+            "count": 4,
+            "fact_ids": [
+              "D-017",
+              "D-017/drawing/visual-n/p1-d0fe5c50afad87b3",
+              "D-017/drawing/visual-n/p1-ee618980ae103848",
+              "D-017/drawing/visual-n/p1-ecee833e5bb88bde",
+              "D-017/drawing/n/45.0@1-1"
+            ],
+            "method": "ai_verified",
+            "feature_index": 1
           }
         ],
         "waiting": [
           "features_complete"
         ],
         "omitted": [
-          "Four countersunk holes: 4x Ø5,5 THRU, Ø10,8 X 90°: The count, primary diameter, through operation and countersink dimensions are printed, but no locating dimensions or dimensioned pattern establish the four centers. Their apparent layout cannot supply missing coordinates.",
-          "Eight M5 threaded holes: The image contains the 8x M5 callout, but the hole centers lack locating dimensions. A separate drill diameter and thread depth or explicit through-thread specification are also absent; none is inferred from M5.",
-          "Two Ø6,0 H7 holes: Both holes are identified as Ø6,0 H7 and lie on the bore-center horizontal line, but their horizontal center coordinates are not dimensioned. No printed pitch or offset establishes their placement.",
-          "Four small outer-corner chamfers, 4x1,0 X 45°: The leader identifies small corner edge breaks. The rectangle/hole/slot template cannot reproduce these chamfers; they are explicitly omitted from the otherwise dimensioned rectangular body.",
-          "Additional bore-edge and general sharp-edge treatment: The close concentric outlines at the Ø42,00 opening and the DEBURR AND BREAK SHARP EDGES note do not independently establish an additional step diameter, depth or angle. Only the supported primary bore is modeled; unspecified edge treatment is omitted."
+          "Four countersunk holes: 4x ⌀5,5 THRU with ⌀10,8 X 90° countersinks.: The primary diameters, through operation, countersink dimensions and four-hole inventory are supplied, but the hole-center X/Y coordinates or dimensioned pitches are absent. The visible rectangular arrangement cannot supply numeric positions, so neither the primary holes nor their countersinks can be emitted.",
+          "Eight M5 threaded holes.: The 8x M5 callout establishes count and nominal thread designation, but complete center coordinates/pitches, an independently specified drill diameter and a definite through operation or blind depth are not supplied. M5 must not be converted into an invented drill diameter.",
+          "Two ⌀6,0 H7 holes on the horizontal line through the large bore.: Both diameters are specified and the common Y level is established, but their X coordinates or horizontal spacing are not dimensioned. Alignment with other undimensioned holes does not establish numeric X positions.",
+          "Concentric edge detail at the ⌀42 opening and unspecified sharp-edge breaks.: The large opening has an additional concentric edge line, but no separate rim/step diameter, depth or bore-edge chamfer dimensions are supplied. DEBURR AND BREAK SHARP EDGES also supplies no numeric edge-break geometry. No additional bevel or stepped cut can be assigned from these indications."
         ],
         "features_all_determined": false,
         "glb_units": "metres",
         "cad_units": "mm",
         "glb_to_mm": 1000,
-        "glb_sha256": "41284247fd2c2ed9ec963af511099614dd2d89279b724ea3581c8c2a5db889c1",
-        "step_sha256": "b6f7b455984a03b21543244cef950c068d70d9af6c3fe8144228048012f6be3e"
+        "glb_sha256": "37741a2984645de03cf98445928e23beded271868c4dcb99158bef57d1a96f61",
+        "step_sha256": "8d45f46775cd86670919cad57d00936010f45c0b36cc4686318426c101748c6b"
       }
     },
     "waiting": [
       "features_complete"
     ],
     "omitted": [
-      "Four countersunk holes: 4x Ø5,5 THRU, Ø10,8 X 90°: The count, primary diameter, through operation and countersink dimensions are printed, but no locating dimensions or dimensioned pattern establish the four centers. Their apparent layout cannot supply missing coordinates.",
-      "Eight M5 threaded holes: The image contains the 8x M5 callout, but the hole centers lack locating dimensions. A separate drill diameter and thread depth or explicit through-thread specification are also absent; none is inferred from M5.",
-      "Two Ø6,0 H7 holes: Both holes are identified as Ø6,0 H7 and lie on the bore-center horizontal line, but their horizontal center coordinates are not dimensioned. No printed pitch or offset establishes their placement.",
-      "Four small outer-corner chamfers, 4x1,0 X 45°: The leader identifies small corner edge breaks. The rectangle/hole/slot template cannot reproduce these chamfers; they are explicitly omitted from the otherwise dimensioned rectangular body.",
-      "Additional bore-edge and general sharp-edge treatment: The close concentric outlines at the Ø42,00 opening and the DEBURR AND BREAK SHARP EDGES note do not independently establish an additional step diameter, depth or angle. Only the supported primary bore is modeled; unspecified edge treatment is omitted."
+      "Four countersunk holes: 4x ⌀5,5 THRU with ⌀10,8 X 90° countersinks.: The primary diameters, through operation, countersink dimensions and four-hole inventory are supplied, but the hole-center X/Y coordinates or dimensioned pitches are absent. The visible rectangular arrangement cannot supply numeric positions, so neither the primary holes nor their countersinks can be emitted.",
+      "Eight M5 threaded holes.: The 8x M5 callout establishes count and nominal thread designation, but complete center coordinates/pitches, an independently specified drill diameter and a definite through operation or blind depth are not supplied. M5 must not be converted into an invented drill diameter.",
+      "Two ⌀6,0 H7 holes on the horizontal line through the large bore.: Both diameters are specified and the common Y level is established, but their X coordinates or horizontal spacing are not dimensioned. Alignment with other undimensioned holes does not establish numeric X positions.",
+      "Concentric edge detail at the ⌀42 opening and unspecified sharp-edge breaks.: The large opening has an additional concentric edge line, but no separate rim/step diameter, depth or bore-edge chamfer dimensions are supplied. DEBURR AND BREAK SHARP EDGES also supplies no numeric edge-break geometry. No additional bevel or stepped cut can be assigned from these indications."
     ],
-    "template_sha256": "5adb12ddd1a9befdfa5e8ac3e166e57d821439b2726b92117ef1adab372295af",
+    "template_sha256": "cbd63ce79da69710f6cb1dabae09e7b87c416e9b6975174451c0c956b03f7bb6",
     "source_sha256": "a460ab37d94f2d8f4c9bac58da15ea9d1e93b4f48ee0825e51adac0ec81f37ae",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -2277,11 +2043,10 @@
     "features_status": "partial",
     "features_all_determined": false,
     "omitted_feature_notes": [
-      "Four countersunk holes: 4x Ø5,5 THRU, Ø10,8 X 90°: The count, primary diameter, through operation and countersink dimensions are printed, but no locating dimensions or dimensioned pattern establish the four centers. Their apparent layout cannot supply missing coordinates.",
-      "Eight M5 threaded holes: The image contains the 8x M5 callout, but the hole centers lack locating dimensions. A separate drill diameter and thread depth or explicit through-thread specification are also absent; none is inferred from M5.",
-      "Two Ø6,0 H7 holes: Both holes are identified as Ø6,0 H7 and lie on the bore-center horizontal line, but their horizontal center coordinates are not dimensioned. No printed pitch or offset establishes their placement.",
-      "Four small outer-corner chamfers, 4x1,0 X 45°: The leader identifies small corner edge breaks. The rectangle/hole/slot template cannot reproduce these chamfers; they are explicitly omitted from the otherwise dimensioned rectangular body.",
-      "Additional bore-edge and general sharp-edge treatment: The close concentric outlines at the Ø42,00 opening and the DEBURR AND BREAK SHARP EDGES note do not independently establish an additional step diameter, depth or angle. Only the supported primary bore is modeled; unspecified edge treatment is omitted."
+      "Four countersunk holes: 4x ⌀5,5 THRU with ⌀10,8 X 90° countersinks.: The primary diameters, through operation, countersink dimensions and four-hole inventory are supplied, but the hole-center X/Y coordinates or dimensioned pitches are absent. The visible rectangular arrangement cannot supply numeric positions, so neither the primary holes nor their countersinks can be emitted.",
+      "Eight M5 threaded holes.: The 8x M5 callout establishes count and nominal thread designation, but complete center coordinates/pitches, an independently specified drill diameter and a definite through operation or blind depth are not supplied. M5 must not be converted into an invented drill diameter.",
+      "Two ⌀6,0 H7 holes on the horizontal line through the large bore.: Both diameters are specified and the common Y level is established, but their X coordinates or horizontal spacing are not dimensioned. Alignment with other undimensioned holes does not establish numeric X positions.",
+      "Concentric edge detail at the ⌀42 opening and unspecified sharp-edge breaks.: The large opening has an additional concentric edge line, but no separate rim/step diameter, depth or bore-edge chamfer dimensions are supplied. DEBURR AND BREAK SHARP EDGES also supplies no numeric edge-break geometry. No additional bevel or stepped cut can be assigned from these indications."
     ],
     "weight_check": {
       "state": "FAILED",
@@ -2356,32 +2121,32 @@
         },
         "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
         "volume_mm3": 4678.6168593586,
-        "template_sha256": "2986a961afc35e5ae425ecbfdd45aece3ac5146f23331ba8ee2ac62667a4e596",
+        "template_sha256": "1d064d1425f6bd9685c1cd72a09d704e607090bdcc9cfd1d5a8789a5e673d2b9",
         "selections": {},
         "labels": [],
         "waiting": [
           "features_complete"
         ],
         "omitted": [
-          "6 x Ø4,5 THRU ALL holes: The printed count, diameter and through operation are established. The circular layout is visible, but no pitch-circle diameter, hole-center radius or equivalent locating dimensions are printed. The outer and inner diameters do not establish the hole-center radius, so these holes cannot be positioned without guessing.",
-          "DEBURR AND BREAK SHARP EDGES: The finishing note specifies no edge-break size or profile, so no explicit chamfer or rounding cut can be modeled."
+          "6 x Ø4,5 THRU ALL holes: The count, diameter and through operation are established. The face-on view shows centers on a circular construction line, but no pitch-circle diameter, radius or complete center coordinates are supplied. Ø118,0 and Ø141,0 dimension the inner and outer body boundaries, not the hole pattern. Hole positions therefore cannot be modeled without guessing.",
+          "DEBURR AND BREAK SHARP EDGES: The general finish note supplies no edge-break size or profile; no specific chamfer or rounding can be modeled."
         ],
         "features_all_determined": false,
         "glb_units": "metres",
         "cad_units": "mm",
         "glb_to_mm": 1000,
         "glb_sha256": "13469b249c567ffd9d74c13ced0eddd4efb4e2c8411a25093cae6944e36acaa8",
-        "step_sha256": "d848e010503db43d98106d18f1298d7c843164eeb91dd469223fbdc5934d543c"
+        "step_sha256": "2ba0f43a0fc905b0607aa769ee72ef01ab648fc1481bbf678e8d1887be8c8721"
       }
     },
     "waiting": [
       "features_complete"
     ],
     "omitted": [
-      "6 x Ø4,5 THRU ALL holes: The printed count, diameter and through operation are established. The circular layout is visible, but no pitch-circle diameter, hole-center radius or equivalent locating dimensions are printed. The outer and inner diameters do not establish the hole-center radius, so these holes cannot be positioned without guessing.",
-      "DEBURR AND BREAK SHARP EDGES: The finishing note specifies no edge-break size or profile, so no explicit chamfer or rounding cut can be modeled."
+      "6 x Ø4,5 THRU ALL holes: The count, diameter and through operation are established. The face-on view shows centers on a circular construction line, but no pitch-circle diameter, radius or complete center coordinates are supplied. Ø118,0 and Ø141,0 dimension the inner and outer body boundaries, not the hole pattern. Hole positions therefore cannot be modeled without guessing.",
+      "DEBURR AND BREAK SHARP EDGES: The general finish note supplies no edge-break size or profile; no specific chamfer or rounding can be modeled."
     ],
-    "template_sha256": "2986a961afc35e5ae425ecbfdd45aece3ac5146f23331ba8ee2ac62667a4e596",
+    "template_sha256": "1d064d1425f6bd9685c1cd72a09d704e607090bdcc9cfd1d5a8789a5e673d2b9",
     "source_sha256": "581fbaf7562ac75008243463af6956d6f88cd6a0a858cf6c22aa62ce39041e11",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -2393,8 +2158,8 @@
     "features_status": "partial",
     "features_all_determined": false,
     "omitted_feature_notes": [
-      "6 x Ø4,5 THRU ALL holes: The printed count, diameter and through operation are established. The circular layout is visible, but no pitch-circle diameter, hole-center radius or equivalent locating dimensions are printed. The outer and inner diameters do not establish the hole-center radius, so these holes cannot be positioned without guessing.",
-      "DEBURR AND BREAK SHARP EDGES: The finishing note specifies no edge-break size or profile, so no explicit chamfer or rounding cut can be modeled."
+      "6 x Ø4,5 THRU ALL holes: The count, diameter and through operation are established. The face-on view shows centers on a circular construction line, but no pitch-circle diameter, radius or complete center coordinates are supplied. Ø118,0 and Ø141,0 dimension the inner and outer body boundaries, not the hole pattern. Hole positions therefore cannot be modeled without guessing.",
+      "DEBURR AND BREAK SHARP EDGES: The general finish note supplies no edge-break size or profile; no specific chamfer or rounding can be modeled."
     ],
     "weight_check": {
       "state": "FAILED",
@@ -2418,10 +2183,10 @@
     "examples": [],
     "models": {},
     "waiting": [
-      "Essential geometry unresolved: outer_diameter, inner_diameter, thickness, cad_eligibility"
+      "Essential geometry unresolved: Main outline or constant thickness is unsupported by the drawing"
     ],
     "omitted": [],
-    "template_sha256": "7df5a08e24bb21af7e3f52c9edb75b9a5b55bdac4476546a01f175082c11aa18",
+    "template_sha256": "ddf836b83377a7b42ea9cefa138f2d73611eb0fe12aebc86001af3b60cecd55f",
     "source_sha256": "06242966c0f3c15c3031982fa56585859ff1d64e52f6215a30fcf0e912225fa6",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -2446,10 +2211,10 @@
     "examples": [],
     "models": {},
     "waiting": [
-      "Essential geometry unresolved: outline_type, thickness, cad_eligibility"
+      "Essential geometry unresolved: Main outline or constant thickness is unsupported by the drawing"
     ],
     "omitted": [],
-    "template_sha256": "b075d2cda78c0e4648ab8b0417aa1a6951aae4eb886d6363ef1469bb500aca7d",
+    "template_sha256": "217edf4e3828b2b0938f9609da30df7e319a607f5856c4a7df93c0f5368d176a",
     "source_sha256": "c8b07157f3b40ef8d2dc18ae915d4f7244479ea6219d4fe3e8bb6ef1fedea1bc",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -2593,7 +2358,7 @@
         },
         "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
         "volume_mm3": 445957.87991968665,
-        "template_sha256": "012bcc0e68338b17a9950004b1716d50347b08b8bddd3deff15864efdf2210db",
+        "template_sha256": "9d0c47ea17b7a2a99614de6a6ae9efe9871f8805fc36344b04cc87acc68bc36c",
         "selections": {},
         "labels": [
           {
@@ -2609,9 +2374,6 @@
               "D-027",
               "D-027/drawing/callout/p1-1",
               "D-027/drawing/callout/p1-2",
-              "D-027/drawing/n/148.5@1-1",
-              "D-027/drawing/n/6.0@1-1",
-              "D-027/drawing/n/9.0@1-1",
               "D-027/drawing/n/60.0@1-1"
             ],
             "method": "ai_verified",
@@ -2631,11 +2393,6 @@
               "D-027/drawing/callout/p1-1",
               "D-027/drawing/callout/p1-3",
               "D-027/drawing/callout/p1-4",
-              "D-027/drawing/n/148.5@1-1",
-              "D-027/drawing/n/3.0@1-2",
-              "D-027/drawing/n/11.0@1-1",
-              "D-027/drawing/n/24.4@1-1",
-              "D-027/drawing/n/90.0@1-1",
               "D-027/drawing/n/120.0@1-1"
             ],
             "method": "ai_verified",
@@ -2652,14 +2409,12 @@
             "thread_representation": null,
             "fact_ids": [
               "D-027",
+              "D-027/drawing/callout/p1-1",
+              "D-027/drawing/callout/p1-3",
               "D-027/drawing/n/3.0@1-1",
               "D-027/drawing/n/20.0@1-1",
               "D-027/drawing/n/4.0@1-1",
               "D-027/drawing/n/0.05@1-1",
-              "D-027/drawing/n/0.021@1-1",
-              "D-027/drawing/n/0.0@1-1",
-              "D-027/drawing/n/11.0@1-1",
-              "D-027/drawing/n/148.5@1-1",
               "D-027/drawing/n/120.0@1-1"
             ],
             "method": "ai_verified",
@@ -2670,23 +2425,23 @@
           "features_complete"
         ],
         "omitted": [
-          "Undimensioned edge breaks specified by DEBURR AND BREAK SHARP EDGES.: The note supplies no edge-break size or profile. Retain the nominal ring and supported holes without inventing chamfer geometry."
+          "Edge breaks required by DEBURR AND BREAK SHARP EDGES.: The drawing supplies no edge-break size, angle or radius. Deburring is a finishing instruction; no arbitrary chamfer or rounding is added."
         ],
         "features_all_determined": false,
         "glb_units": "metres",
         "cad_units": "mm",
         "glb_to_mm": 1000,
         "glb_sha256": "5de02068b766a365e762d28844ffe07d4181597edbfa64b4aedb5fb80a6988e6",
-        "step_sha256": "6f0b46e0eb8dd45290776fd7c96a7a2edb1649c14ddeb759a42f0bce07a250f6"
+        "step_sha256": "fb5b122ab09210472356292b53b7ee56b4ee1c82ec4c2a82dbc2a4a962367bc7"
       }
     },
     "waiting": [
       "features_complete"
     ],
     "omitted": [
-      "Undimensioned edge breaks specified by DEBURR AND BREAK SHARP EDGES.: The note supplies no edge-break size or profile. Retain the nominal ring and supported holes without inventing chamfer geometry."
+      "Edge breaks required by DEBURR AND BREAK SHARP EDGES.: The drawing supplies no edge-break size, angle or radius. Deburring is a finishing instruction; no arbitrary chamfer or rounding is added."
     ],
-    "template_sha256": "012bcc0e68338b17a9950004b1716d50347b08b8bddd3deff15864efdf2210db",
+    "template_sha256": "9d0c47ea17b7a2a99614de6a6ae9efe9871f8805fc36344b04cc87acc68bc36c",
     "source_sha256": "9a270f0ddf24b173b85b6879b4fbd1ba9cf67d71cff7b13f722699699a667bcc",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -2698,7 +2453,7 @@
     "features_status": "partial",
     "features_all_determined": false,
     "omitted_feature_notes": [
-      "Undimensioned edge breaks specified by DEBURR AND BREAK SHARP EDGES.: The note supplies no edge-break size or profile. Retain the nominal ring and supported holes without inventing chamfer geometry."
+      "Edge breaks required by DEBURR AND BREAK SHARP EDGES.: The drawing supplies no edge-break size, angle or radius. Deburring is a finishing instruction; no arbitrary chamfer or rounding is added."
     ],
     "weight_check": {
       "state": "Flagged",
@@ -2801,10 +2556,10 @@
     "examples": [],
     "models": {},
     "waiting": [
-      "Essential geometry unresolved: outline_type, thickness, cad_eligibility"
+      "Essential geometry unresolved: Main outline or constant thickness is unsupported by the drawing"
     ],
     "omitted": [],
-    "template_sha256": "3a6852ede99dcad49faca92cabeb920dda79091908b8b4b8c3d422650f04ebb2",
+    "template_sha256": "524b47d10032a7f0516a2f457a7603dcc4a522cee95d9ab0ee08737eaeb6a428",
     "source_sha256": "849100de6d2abbbcca5c6e39cd4a1778918b17818cc88c91340612981d9220ee",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",

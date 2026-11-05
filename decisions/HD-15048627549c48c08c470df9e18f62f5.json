@@ -1,0 +1,32 @@
+{
+  "decision_id": "HD-15048627549c48c08c470df9e18f62f5",
+  "applies_to": "D-002/template/features_complete",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "False correctly reports omitted opening, holes, bends and weld nuts.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:42.354126+00:00",
+  "based_on": {
+    "sha256": "6822d609aa047ddbcb9446e1215f697ec12f5764ba9aa5ef3906543b9a1887bc"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-002/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-002",
+      "image": null,
+      "page": null,
+      "box": null
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  },
+  "prediction_sha256": "1f636aa64c974f284834632d37a20a2227e124a02cb06240d24d99fadccc0e2e"
+}

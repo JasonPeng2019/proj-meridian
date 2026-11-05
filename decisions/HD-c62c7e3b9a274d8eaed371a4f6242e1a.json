@@ -1,0 +1,37 @@
+{
+  "decision_id": "HD-c62c7e3b9a274d8eaed371a4f6242e1a",
+  "applies_to": "D-005/template/thickness",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Original side-view8.2 is overall face-to-face depth, not uniform local material thickness.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:42.469830+00:00",
+  "based_on": {
+    "sha256": "6f49feb435d02be842ac6933d726b6785cf9cb7cef70e8193976dc4ab265cf26"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-005/drawing/n/8.2@1-1",
+    "D-005/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-005/drawing/n/8.2@1-1",
+      "page": 1,
+      "box": [
+        202.224,
+        261.681,
+        18.327,
+        18.083
+      ]
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  },
+  "prediction_sha256": "3635b428f372d4d97457fddb4fdb50af2f10623b25c0305b20382681a6466186"
+}

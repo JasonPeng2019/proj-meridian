@@ -1,0 +1,268 @@
+{
+  "examples": [
+    "A",
+    "B"
+  ],
+  "models": {
+    "A": {
+      "glb": "models/D-026_A.glb",
+      "step": "models/D-026_A_reconstruction_from_drawing.step",
+      "bounds_mm": {
+        "min": [
+          -125.0,
+          -125.0,
+          0.0
+        ],
+        "max": [
+          125.0,
+          125.0,
+          15.0
+        ],
+        "size": [
+          250.0,
+          250.0,
+          15.0
+        ]
+      },
+      "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
+      "volume_mm3": 735317.9956366653,
+      "template_sha256": "7182d588e6b48a0dd56a6639697461089ddf9ecb449fa59350358faa6f895be6",
+      "selections": {
+        "thickness": 15
+      },
+      "labels": [
+        {
+          "name": "Feature 1 (hole)",
+          "kind": "hole",
+          "count": 3,
+          "hole_type": "plain",
+          "requested_hole_type": "counterbored",
+          "step_omitted": "Feature 1 (hole): counterbore step omitted for 15 mm thickness: documented depth 15.4 mm exceeds primary-hole depth 15 mm. Known 5.3 mm primary hole retained; step depth was not clamped. The printed counterbore depth 15,4 mm exceeds the possible 15,0 mm plate thickness, although it fits the possible 25,0 mm thickness. Preserve all three independently dimensioned Ø5,3 THRU ALL holes; omit the counterbore step for the 15,0 mm reading without clamping its depth.",
+          "thread": null,
+          "thread_representation": null,
+          "fact_ids": [
+            "D-026",
+            "D-026/drawing/callout/p1-1",
+            "D-026/drawing/callout/p1-2",
+            "D-026/drawing/n/3.0@1-1",
+            "D-026/drawing/n/105.0@1-1",
+            "D-026/drawing/n/5.3@1-1",
+            "D-026/drawing/n/10.0@1-1",
+            "D-026/drawing/n/15.4@1-1",
+            "D-026/drawing/n/15.0@1-1",
+            "D-026/drawing/n/25.0@1-1"
+          ],
+          "method": "ai_verified",
+          "feature_index": 0
+        }
+      ],
+      "waiting": [
+        "features_complete",
+        "features.0.step"
+      ],
+      "omitted": [
+        "Three Ø10,0 counterbore steps, 15,4 deep, for the 15,0 mm thickness reading only.: The printed step depth exceeds this possible plate thickness. Preserve the Ø5,3 through holes, skip these steps for this reading, and report the conflict. The steps remain supported for the 25,0 mm reading.",
+        "Deburring and sharp-edge breaks.: The note DEBURR AND BREAK SHARP EDGES gives no size or profile. No chamfer or rounding geometry can be assigned from this note.",
+        "Feature 1 (hole): counterbore step omitted for 15 mm thickness: documented depth 15.4 mm exceeds primary-hole depth 15 mm. Known 5.3 mm primary hole retained; step depth was not clamped. The printed counterbore depth 15,4 mm exceeds the possible 15,0 mm plate thickness, although it fits the possible 25,0 mm thickness. Preserve all three independently dimensioned Ø5,3 THRU ALL holes; omit the counterbore step for the 15,0 mm reading without clamping its depth."
+      ],
+      "features_all_determined": false,
+      "glb_units": "metres",
+      "cad_units": "mm",
+      "glb_to_mm": 1000,
+      "glb_sha256": "c271955f857dea82a63d8bc0367df9084ebbbe28fae0bbb888a8a940a5966f19",
+      "step_sha256": "60c806a3cf83bf802fd1d43641665e442b17229ae24efdd74051e62a58a16d8c"
+    },
+    "B": {
+      "glb": "models/D-026_B.glb",
+      "step": "models/D-026_B_reconstruction_from_drawing.step",
+      "bounds_mm": {
+        "min": [
+          -125.0,
+          -125.0,
+          0.0
+        ],
+        "max": [
+          125.0,
+          125.0,
+          25.0
+        ],
+        "size": [
+          250.0,
+          250.0,
+          25.0
+        ]
+      },
+      "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
+      "volume_mm3": 1222920.7099626139,
+      "template_sha256": "7182d588e6b48a0dd56a6639697461089ddf9ecb449fa59350358faa6f895be6",
+      "selections": {
+        "thickness": 25
+      },
+      "labels": [
+        {
+          "name": "Feature 1 (hole)",
+          "kind": "hole",
+          "count": 3,
+          "hole_type": "counterbored",
+          "requested_hole_type": "counterbored",
+          "step_omitted": null,
+          "thread": null,
+          "thread_representation": null,
+          "fact_ids": [
+            "D-026",
+            "D-026/drawing/callout/p1-1",
+            "D-026/drawing/callout/p1-2",
+            "D-026/drawing/n/3.0@1-1",
+            "D-026/drawing/n/105.0@1-1",
+            "D-026/drawing/n/5.3@1-1",
+            "D-026/drawing/n/10.0@1-1",
+            "D-026/drawing/n/15.4@1-1",
+            "D-026/drawing/n/15.0@1-1",
+            "D-026/drawing/n/25.0@1-1"
+          ],
+          "method": "ai_verified",
+          "feature_index": 0
+        }
+      ],
+      "waiting": [
+        "features_complete"
+      ],
+      "omitted": [
+        "Three Ø10,0 counterbore steps, 15,4 deep, for the 15,0 mm thickness reading only.: The printed step depth exceeds this possible plate thickness. Preserve the Ø5,3 through holes, skip these steps for this reading, and report the conflict. The steps remain supported for the 25,0 mm reading.",
+        "Deburring and sharp-edge breaks.: The note DEBURR AND BREAK SHARP EDGES gives no size or profile. No chamfer or rounding geometry can be assigned from this note."
+      ],
+      "features_all_determined": false,
+      "glb_units": "metres",
+      "cad_units": "mm",
+      "glb_to_mm": 1000,
+      "glb_sha256": "5c56c9eed4a4dffc2b69c3bbbd55f746373cbca5c6d5757180d306b2979ac68b",
+      "step_sha256": "b6cf2db9225322ffb3bf439edd202aa42e0c92284a045f2998b24618ed65d7a8"
+    }
+  },
+  "waiting": [
+    "features_complete",
+    "features.0.step"
+  ],
+  "omitted": [
+    "Three Ø10,0 counterbore steps, 15,4 deep, for the 15,0 mm thickness reading only.: The printed step depth exceeds this possible plate thickness. Preserve the Ø5,3 through holes, skip these steps for this reading, and report the conflict. The steps remain supported for the 25,0 mm reading.",
+    "Deburring and sharp-edge breaks.: The note DEBURR AND BREAK SHARP EDGES gives no size or profile. No chamfer or rounding geometry can be assigned from this note.",
+    "Feature 1 (hole): counterbore step omitted for 15 mm thickness: documented depth 15.4 mm exceeds primary-hole depth 15 mm. Known 5.3 mm primary hole retained; step depth was not clamped. The printed counterbore depth 15,4 mm exceeds the possible 15,0 mm plate thickness, although it fits the possible 25,0 mm thickness. Preserve all three independently dimensioned Ø5,3 THRU ALL holes; omit the counterbore step for the 15,0 mm reading without clamping its depth."
+  ],
+  "template_sha256": "7182d588e6b48a0dd56a6639697461089ddf9ecb449fa59350358faa6f895be6",
+  "source_sha256": "a7ee7f4d75acaf2e8fc67ce14ca223d5cb4a2931063f37f4dfb6fadeeb70256e",
+  "generator_version": "flat-part-14",
+  "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
+  "review": {
+    "status": "not_reviewed"
+  },
+  "label": "Partial AI reconstruction. Not reviewed by a person",
+  "units": "mm",
+  "features_status": "partial",
+  "features_all_determined": false,
+  "omitted_feature_notes": [
+    "Three Ø10,0 counterbore steps, 15,4 deep, for the 15,0 mm thickness reading only.: The printed step depth exceeds this possible plate thickness. Preserve the Ø5,3 through holes, skip these steps for this reading, and report the conflict. The steps remain supported for the 25,0 mm reading.",
+    "Deburring and sharp-edge breaks.: The note DEBURR AND BREAK SHARP EDGES gives no size or profile. No chamfer or rounding geometry can be assigned from this note."
+  ],
+  "weight_check": {
+    "state": "FAILED",
+    "message": "FAILED weight check: needs manual approval",
+    "examples": {
+      "A": {
+        "attempts": [
+          {
+            "material": "Stainless steel",
+            "source": "parts list",
+            "names": [
+              "Stainless steel",
+              "304",
+              "1.4301",
+              "X5CrNi18-10"
+            ],
+            "density_g_cm3": 7.9,
+            "source_url": "https://www.outokumpu.com/en/products/product-ranges/-/media/files/products/core/outokumpu-core-range-datasheet.pdf?modified=20251117111909&revision=025e9931-a1d5-4c8f-8ff5-f881d38916da",
+            "source_title": "Outokumpu Core range datasheet, physical properties, Core 304/4301",
+            "looked_up": "2026-11-05",
+            "note": "304 density used as approximate stainless family density when grade is unspecified. Outside source, not the dataset.",
+            "calculated_g": 5809.0122,
+            "drawing_g": 7822.5,
+            "difference_percent": 25.74,
+            "matches": false,
+            "outside_source": true
+          },
+          {
+            "material": "Steel",
+            "source": "parts list",
+            "names": [
+              "Steel",
+              "Carbon steel",
+              "Structural steel"
+            ],
+            "density_g_cm3": 7.85,
+            "source_url": "https://www.ssab.com/-/media/files/en/support/certificates/885en-epd-hot-rolled-steel-plates.pdf?m=20200406080301",
+            "source_title": "SSAB Environmental Product Declaration, Hot Rolled Steel Plates",
+            "looked_up": "2026-11-05",
+            "note": "Approximate structural steel family density. Outside source, not the dataset.",
+            "calculated_g": 5772.2463,
+            "drawing_g": 7822.5,
+            "difference_percent": 26.21,
+            "matches": false,
+            "outside_source": true
+          }
+        ],
+        "matches": false,
+        "drawing_g": 7822.5
+      },
+      "B": {
+        "attempts": [
+          {
+            "material": "Stainless steel",
+            "source": "parts list",
+            "names": [
+              "Stainless steel",
+              "304",
+              "1.4301",
+              "X5CrNi18-10"
+            ],
+            "density_g_cm3": 7.9,
+            "source_url": "https://www.outokumpu.com/en/products/product-ranges/-/media/files/products/core/outokumpu-core-range-datasheet.pdf?modified=20251117111909&revision=025e9931-a1d5-4c8f-8ff5-f881d38916da",
+            "source_title": "Outokumpu Core range datasheet, physical properties, Core 304/4301",
+            "looked_up": "2026-11-05",
+            "note": "304 density used as approximate stainless family density when grade is unspecified. Outside source, not the dataset.",
+            "calculated_g": 9661.0736,
+            "drawing_g": 7822.5,
+            "difference_percent": 23.5,
+            "matches": false,
+            "outside_source": true
+          },
+          {
+            "material": "Steel",
+            "source": "parts list",
+            "names": [
+              "Steel",
+              "Carbon steel",
+              "Structural steel"
+            ],
+            "density_g_cm3": 7.85,
+            "source_url": "https://www.ssab.com/-/media/files/en/support/certificates/885en-epd-hot-rolled-steel-plates.pdf?m=20200406080301",
+            "source_title": "SSAB Environmental Product Declaration, Hot Rolled Steel Plates",
+            "looked_up": "2026-11-05",
+            "note": "Approximate structural steel family density. Outside source, not the dataset.",
+            "calculated_g": 9599.9276,
+            "drawing_g": 7822.5,
+            "difference_percent": 22.72,
+            "matches": false,
+            "outside_source": true
+          }
+        ],
+        "matches": false,
+        "drawing_g": 7822.5
+      }
+    },
+    "drawing_g": 7822.5,
+    "tolerance_percent": 5,
+    "requires_approval": true,
+    "approval_note_required": true,
+    "limitation": "A matching weight does not verify feature positions. No thickness or material is selected automatically.",
+    "density_label": "Outside source, not the dataset"
+  }
+}

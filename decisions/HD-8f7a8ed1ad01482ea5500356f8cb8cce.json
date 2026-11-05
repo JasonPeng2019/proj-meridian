@@ -1,0 +1,39 @@
+{
+  "decision_id": "HD-8f7a8ed1ad01482ea5500356f8cb8cce",
+  "applies_to": "D-022/drawing/drawn",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Existing original full-page and title-block crop visibly print \"MBOKJ\" in the drawn field. Confirm that field only.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:39.593624+00:00",
+  "based_on": {
+    "sha256": "7f3f8efc002bc2545386c1a355341ca61ebd984084b21cb07575331c4c1cc9ee"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-022/drawing/drawn",
+    "D-022/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-022",
+      "page": 1,
+      "image": "generated/images/D-022-p1.png",
+      "visual_description": "Existing original full-page and title-block crop visibly print \"MBOKJ\" in the drawn field. Confirm that field only."
+    },
+    {
+      "drawing": "D-022",
+      "page": 1,
+      "image": "generated/images/D-022-corner.png",
+      "visual_description": "Existing original title-block crop; Existing original full-page and title-block crop visibly print \"MBOKJ\" in the drawn field. Confirm that field only."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-21-30.json",
+    "sha256": "0837e5ed6eafe2465f7840be73edf1543e5cd9e4087c3aacc5f2e4da2e1f14a2"
+  },
+  "prediction_sha256": "7d885935b09070a02e3b38fe7e67c095cb673c0a66fa65a1594b6a7b728d5474"
+}

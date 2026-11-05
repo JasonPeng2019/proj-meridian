@@ -1,0 +1,47 @@
+{
+  "decision_id": "HD-faa84e3036d64a8bb664c0884f1ed05d",
+  "applies_to": "D-015/template/thickness",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "The side view prints 1 mm and the material note specifies 1 mm silicone sheet.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:42.725193+00:00",
+  "based_on": {
+    "sha256": "0828f6fee0d3bc087524df08c8b3fbadc5201212e5f86fcfc08b984fe9e32c60"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-015/drawing/n/1.0@1-1",
+    "D-015/drawing/notes"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-015/drawing/n/1.0@1-1",
+      "page": 1,
+      "box": [
+        152.595,
+        290.002,
+        18.327,
+        18.083
+      ]
+    },
+    {
+      "fact_id": "D-015/drawing/notes",
+      "page": 1,
+      "box": [
+        741.526,
+        658.942,
+        231.0,
+        111.0
+      ]
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  },
+  "prediction_sha256": "baef11a78a22664929264ce673724f49881b0c0ad8224182f7de9b9fdbd69c59"
+}

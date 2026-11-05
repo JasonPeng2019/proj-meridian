@@ -1,0 +1,33 @@
+{
+  "decision_id": "HD-c0ee80ffd0f24c7b8f0a3ccce61373dc",
+  "applies_to": "D-011/template/thickness",
+  "type": "defer_unsupported",
+  "value": null,
+  "status": "accepted",
+  "note": "Original drawing inspected: Essential rounded L outline with R35/R60 exceeds supported shapes. The stacked 12/15 mm thickness bounds remain unselected; do not claim discrete alternatives solely from the stack. Defer this unresolved template input because the essential main body is outside the current supported geometry. Preserve its unknown value; this disposition does not approve the design, invent missing geometry, or select a numeric interpretation.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:43.150332+00:00",
+  "based_on": {
+    "sha256": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67"
+  },
+  "prediction_sha256": "f8d3ad6be2d0cf831a34d5e8aa084f8b48311b6369e013e43b8d74290a73a970",
+  "template_capability_sha256": "10a433ea2c7c7a6fa5145c565d9acfca53bf1719f68fd9f60883a18f4dc51afd",
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-011/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-011",
+      "image": null,
+      "page": null,
+      "box": null
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  }
+}

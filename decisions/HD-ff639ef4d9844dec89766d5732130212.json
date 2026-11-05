@@ -1,0 +1,32 @@
+{
+  "decision_id": "HD-ff639ef4d9844dec89766d5732130212",
+  "applies_to": "D-030/template/features_omitted",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Original shows central diameter36 H6 THRU; outer-lobe diameter13.50 THRU with diameter20 H6 depth4;4 x diameter5 THRU/M6-6H THRU;4 x diameter4.50 THRU; and below-center diameter10.20 THRU/M12-6H THRU. No locating offsets/pitches/PCDs or complete outer-contour dimensions are printed. Supplied numeric ID array is empty. Confirm listed current omissions; visible callouts are acknowledged, not erased by parser limitations.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:39.999734+00:00",
+  "based_on": {
+    "sha256": "849100de6d2abbbcca5c6e39cd4a1778918b17818cc88c91340612981d9220ee"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-030/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-030",
+      "page": 1,
+      "image": "generated/images/D-030-p1.png",
+      "visual_description": "Original shows central diameter36 H6 THRU; outer-lobe diameter13.50 THRU with diameter20 H6 depth4;4 x diameter5 THRU/M6-6H THRU;4 x diameter4.50 THRU; and below-center diameter10.20 THRU/M12-6H THRU. No locating offsets/pitches/PCDs or complete outer-contour dimensions are printed. Supplied numeric ID array is empty. Confirm listed current omissions; visible callouts are acknowledged, not erased by parser limitations."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-21-30.json",
+    "sha256": "0837e5ed6eafe2465f7840be73edf1543e5cd9e4087c3aacc5f2e4da2e1f14a2"
+  },
+  "prediction_sha256": "90e5b8a83d9b6b5f380afaa58b61bb077c4e12eb85bb361fc65945dd71f859a4"
+}

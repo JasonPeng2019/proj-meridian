@@ -1,0 +1,24 @@
+{
+  "actor": "Meridian delegated reviewer",
+  "delegated_by": "Jason Peng",
+  "source_inspected": "generated/images/D-010-p1.png",
+  "source_sha256": "700cc64cb7e7c31d1d7a6d6f506bac453cdcb3c7daf76dc2272ffebfe5e2d911",
+  "finding": "The original note explicitly states Motor Plate / 2mm non-magnetic stainless. Opposing bends make the body unsupported, but the missing parsed thickness ID does not justify constant_thickness=false. Nominal sheet gauge and flat-template eligibility are distinct.",
+  "prior_source_audit": "docs/verification/source-review-baseline/audit-01-10.json",
+  "corrected_value": {
+    "supported": false,
+    "constant_thickness": true,
+    "outline_exact": false,
+    "reason": "The main face and lower profile show a formed nonplanar sheet with opposing bends and 15.00/30.00 flange extents. Rounded flange corners and edge relief also exceed the supported exact outlines. The explicit 2mm non-magnetic stainless note establishes nominal constant sheet gauge qualitatively; however no supplied parsed drawing-number ID supplies citation-compliant numeric template thickness. The complete formed part cannot be represented exactly by the current rectangle/circle/ring extrusion and hole/slot cuts.",
+    "essential_uncertainty": [
+      "Developed flat-blank outline and length are not dimensioned.",
+      "Bend radii, rounded outer-corner radii and edge-relief dimensions are not specified.",
+      "Nominal 2mm sheet gauge is stated in the note, but a dimension-linked parsed drawing-number source for numeric template thickness is absent."
+    ],
+    "omitted_minor_features": [
+      "Four Ø3,60 through holes: complete XY locations and pattern spacing are missing.",
+      "One Ø22,10 through hole: complete XY location is missing.",
+      "Two Ø5,80 through holes: complete XY locations are missing."
+    ]
+  }
+}

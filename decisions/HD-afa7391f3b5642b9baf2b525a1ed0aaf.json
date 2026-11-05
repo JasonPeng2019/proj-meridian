@@ -1,0 +1,33 @@
+{
+  "decision_id": "HD-afa7391f3b5642b9baf2b525a1ed0aaf",
+  "applies_to": "D-028/template/features_omitted",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Original general instruction DEBURR AND BREAK SHARP EDGES has no numeric edge-break dimensions. Confirm omission of that finishing operation.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:39.850677+00:00",
+  "based_on": {
+    "sha256": "30fb8b6088f535c51107389aa8eb4c7420841cd0f4c6175d3deb90a154e9881f"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-028/drawing/general/edge_finish",
+    "D-028/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-028",
+      "page": 1,
+      "image": "generated/images/D-028-p1.png",
+      "visual_description": "Original general instruction DEBURR AND BREAK SHARP EDGES has no numeric edge-break dimensions. Confirm omission of that finishing operation."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-21-30.json",
+    "sha256": "0837e5ed6eafe2465f7840be73edf1543e5cd9e4087c3aacc5f2e4da2e1f14a2"
+  },
+  "prediction_sha256": "a31862691f1c8fe73fdf074727a6620cb2c0740c1cb0f373ce25d7f85f137d05"
+}

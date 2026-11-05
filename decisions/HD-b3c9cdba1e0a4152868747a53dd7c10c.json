@@ -1,0 +1,92 @@
+{
+  "decision_id": "HD-b3c9cdba1e0a4152868747a53dd7c10c",
+  "applies_to": "D-005/template/cad_eligibility",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "supported=false,constant_thickness=false,outline_exact=false match rounded stepped/grooved functional frame.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:42.487875+00:00",
+  "based_on": {
+    "sha256": "6f49feb435d02be842ac6933d726b6785cf9cb7cef70e8193976dc4ab265cf26"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-005/drawing/source",
+    "D-005/drawing/n/323.0@1-1",
+    "D-005/drawing/n/236.0@1-1",
+    "D-005/drawing/n/8.2@1-1",
+    "D-005/drawing/notes",
+    "D-005/drawing/callout/p1-1",
+    "D-005/drawing/general/edge_finish"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-005/drawing/n/323.0@1-1",
+      "page": 1,
+      "box": [
+        520.163,
+        575.364,
+        32.988,
+        18.083
+      ]
+    },
+    {
+      "fact_id": "D-005/drawing/n/236.0@1-1",
+      "page": 1,
+      "box": [
+        698.386,
+        401.902,
+        18.083,
+        32.988
+      ]
+    },
+    {
+      "fact_id": "D-005/drawing/n/8.2@1-1",
+      "page": 1,
+      "box": [
+        202.224,
+        261.681,
+        18.327,
+        18.083
+      ]
+    },
+    {
+      "fact_id": "D-005/drawing/notes",
+      "page": 1,
+      "box": [
+        741.528,
+        658.943,
+        231.0,
+        111.0
+      ]
+    },
+    {
+      "fact_id": "D-005/drawing/callout/p1-1",
+      "page": 1,
+      "box": [
+        260.252,
+        515.874,
+        56.581,
+        32.265
+      ]
+    },
+    {
+      "fact_id": "D-005/drawing/general/edge_finish",
+      "page": 1,
+      "box": [
+        1078.776,
+        781.582,
+        52.887,
+        14.837
+      ]
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  },
+  "prediction_sha256": "7553e52d22b183f88b23ce71282f546e26aa2b9883ab928ae9c598715a2a37db"
+}

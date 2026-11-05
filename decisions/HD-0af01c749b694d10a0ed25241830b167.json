@@ -1,0 +1,32 @@
+{
+  "decision_id": "HD-0af01c749b694d10a0ed25241830b167",
+  "applies_to": "D-029/template/features_complete",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Confirm false: essential three-lobed outer geometry, bores, recesses and threaded-hole pattern remain outside the empty supported cut subset.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:39.889683+00:00",
+  "based_on": {
+    "sha256": "066ed91474bb74b652451a34c6b9f5b719d23dba56043b8ba6aa8f5b7479cf15"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-029/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-029",
+      "page": 1,
+      "image": "generated/images/D-029-p1.png",
+      "visual_description": "Confirm false: essential three-lobed outer geometry, bores, recesses and threaded-hole pattern remain outside the empty supported cut subset."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-21-30.json",
+    "sha256": "0837e5ed6eafe2465f7840be73edf1543e5cd9e4087c3aacc5f2e4da2e1f14a2"
+  },
+  "prediction_sha256": "1f636aa64c974f284834632d37a20a2227e124a02cb06240d24d99fadccc0e2e"
+}

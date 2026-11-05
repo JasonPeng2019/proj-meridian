@@ -1,0 +1,37 @@
+{
+  "decision_id": "HD-5f8434aed45a41f5acb0bbeb51cf8816",
+  "applies_to": "D-015/template/features_review",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "No located cuts retained. The eight 3.4 mm through-hole callout supplies count and size, but not the pitches, end offset or transverse location; dimensions from D-013 cannot be transferred.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:42.733194+00:00",
+  "based_on": {
+    "sha256": "0828f6fee0d3bc087524df08c8b3fbadc5201212e5f86fcfc08b984fe9e32c60"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-015/drawing/source",
+    "D-015/drawing/callout/p1-1"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-015/drawing/callout/p1-1",
+      "page": 1,
+      "box": [
+        376.143,
+        420.354,
+        118.667,
+        18.083
+      ]
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  },
+  "prediction_sha256": "650432330df14ab4c3637cc15adb17ea367e79e813bb57169373201cd3e9f90e"
+}

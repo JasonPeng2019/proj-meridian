@@ -1,0 +1,38 @@
+{
+  "decision_id": "HD-61ef9dd731ed44bab8438585796fffa5",
+  "applies_to": "D-028/template/cad_eligibility",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Original outer profile has R5.5 semicircular ends,19.0 between end centers and11.0 width; the full envelope is19+2*5.5=30.0 long. Side view gives constant-thickness alternatives2.0/3.0. Confirm constant_thickness=true but supported=false and outline_exact=false under rectangle/circle/ring-only outlines, preserving essential obround geometry.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:39.832677+00:00",
+  "based_on": {
+    "sha256": "30fb8b6088f535c51107389aa8eb4c7420841cd0f4c6175d3deb90a154e9881f"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-028/drawing/n/5.5@1-1",
+    "D-028/drawing/n/19.0@1-1",
+    "D-028/drawing/n/11.0@1-1",
+    "D-028/drawing/n/2.0@1-2",
+    "D-028/drawing/n/3.0@1-1",
+    "D-028/drawing/general/edge_finish",
+    "D-028/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-028",
+      "page": 1,
+      "image": "generated/images/D-028-p1.png",
+      "visual_description": "Original outer profile has R5.5 semicircular ends,19.0 between end centers and11.0 width; the full envelope is19+2*5.5=30.0 long. Side view gives constant-thickness alternatives2.0/3.0. Confirm constant_thickness=true but supported=false and outline_exact=false under rectangle/circle/ring-only outlines, preserving essential obround geometry."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-21-30.json",
+    "sha256": "0837e5ed6eafe2465f7840be73edf1543e5cd9e4087c3aacc5f2e4da2e1f14a2"
+  },
+  "prediction_sha256": "39c4a89f704eb14966c67e04ba7725d4940702959836eee92f2288491cf03656"
+}

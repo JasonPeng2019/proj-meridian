@@ -1,0 +1,92 @@
+{
+  "decision_id": "HD-c4753c06ec4342c3b94737c31ad64711",
+  "applies_to": "D-001/template/cad_eligibility",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Unsupported exact outline and central rounded opening block flat MVP; constant3mm thickness remains independently established.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:42.287604+00:00",
+  "based_on": {
+    "sha256": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-001/drawing/source",
+    "D-001/drawing/visual-n/p1-f696ecbb0352e5b6",
+    "D-001/drawing/visual-n/p1-73aeb8a54aab9f26",
+    "D-001/drawing/visual-n/p1-9e842af67407b1f5",
+    "D-001/drawing/visual-n/p1-5961e5bc85823d07",
+    "D-001/drawing/visual-n/p1-f9d92385e61d8ec5",
+    "D-001/drawing/visual-n/p1-915e1d5c5e688216"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-001/drawing/visual-n/p1-f696ecbb0352e5b6",
+      "page": 1,
+      "box": [
+        632,
+        177.3,
+        44.1,
+        13.2
+      ]
+    },
+    {
+      "fact_id": "D-001/drawing/visual-n/p1-73aeb8a54aab9f26",
+      "page": 1,
+      "box": [
+        815.9,
+        355.9,
+        13.2,
+        24
+      ]
+    },
+    {
+      "fact_id": "D-001/drawing/visual-n/p1-9e842af67407b1f5",
+      "page": 1,
+      "box": [
+        235.8,
+        177.3,
+        29,
+        13.2
+      ]
+    },
+    {
+      "fact_id": "D-001/drawing/visual-n/p1-5961e5bc85823d07",
+      "page": 1,
+      "box": [
+        749.7,
+        678.9,
+        105.3,
+        26.5
+      ]
+    },
+    {
+      "fact_id": "D-001/drawing/visual-n/p1-f9d92385e61d8ec5",
+      "page": 1,
+      "box": [
+        607.8,
+        383,
+        43.5,
+        13.9
+      ]
+    },
+    {
+      "fact_id": "D-001/drawing/visual-n/p1-915e1d5c5e688216",
+      "page": 1,
+      "box": [
+        693.6,
+        331.2,
+        13.9,
+        41.6
+      ]
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  },
+  "prediction_sha256": "814bd42b7d0240570c843c907a08f4cd72d40e66ec010f73415328f256b57153"
+}

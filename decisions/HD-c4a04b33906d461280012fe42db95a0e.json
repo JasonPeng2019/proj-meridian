@@ -1,0 +1,56 @@
+{
+  "decision_id": "HD-c4a04b33906d461280012fe42db95a0e",
+  "applies_to": "D-010/template/cad_eligibility",
+  "type": "set_value",
+  "value": {
+    "supported": false,
+    "constant_thickness": true,
+    "outline_exact": false,
+    "reason": "The main face and lower profile show a formed nonplanar sheet with opposing bends and 15.00/30.00 flange extents. Rounded flange corners and edge relief also exceed the supported exact outlines. The explicit 2mm non-magnetic stainless note establishes nominal constant sheet gauge qualitatively; however no supplied parsed drawing-number ID supplies citation-compliant numeric template thickness. The complete formed part cannot be represented exactly by the current rectangle/circle/ring extrusion and hole/slot cuts.",
+    "essential_uncertainty": [
+      "Developed flat-blank outline and length are not dimensioned.",
+      "Bend radii, rounded outer-corner radii and edge-relief dimensions are not specified.",
+      "Nominal 2mm sheet gauge is stated in the note, but a dimension-linked parsed drawing-number source for numeric template thickness is absent."
+    ],
+    "omitted_minor_features": [
+      "Four Ø3,60 through holes: complete XY locations and pattern spacing are missing.",
+      "One Ø22,10 through hole: complete XY location is missing.",
+      "Two Ø5,80 through holes: complete XY locations are missing."
+    ]
+  },
+  "status": "accepted",
+  "note": "Source-inspected correction of the qualitative gauge assessment. Keep supported=false and outline_exact=false; do not invent a developed blank, bends, hole positions or a flat reconstruction.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:50:41.461437+00:00",
+  "based_on": {
+    "sha256": "700cc64cb7e7c31d1d7a6d6f506bac453cdcb3c7daf76dc2272ffebfe5e2d911"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-010/drawing/notes",
+    "D-010/drawing/n/15.0@1-1",
+    "D-010/drawing/n/30.0@1-1",
+    "D-010/drawing/n/107.0@1-1",
+    "D-010/drawing/n/3.6@1-1",
+    "D-010/drawing/n/22.1@1-1",
+    "D-010/drawing/n/5.8@1-1",
+    "D-010/drawing/callout/p1-1",
+    "D-010/drawing/callout/p1-2",
+    "D-010/drawing/callout/p1-3",
+    "D-010/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-010",
+      "page": 1,
+      "image": "generated/images/D-010-p1.png",
+      "description": "Page 1: main face, lower bent profile, side profile, isometric and NOTE."
+    }
+  ],
+  "review_audit": {
+    "path": "docs/verification/delegated-review-final-20261105/cad-eligibility-correction/source-audit.json",
+    "sha256": "dda328a553373a0dfcb684b406b3782e21f6af418b63ea98bd24205085252972"
+  }
+}

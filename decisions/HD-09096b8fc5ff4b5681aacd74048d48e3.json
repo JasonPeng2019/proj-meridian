@@ -1,0 +1,33 @@
+{
+  "decision_id": "HD-09096b8fc5ff4b5681aacd74048d48e3",
+  "applies_to": "D-008/template/features_review",
+  "type": "defer_unsupported",
+  "value": null,
+  "status": "accepted",
+  "note": "Original drawing inspected: Formed powder bracket with a custom edge, bends and weld nuts. Preserve the actual user decision selecting 2 mm thickness; it does not make the body flat. Defer this unresolved template input because the essential main body is outside the current supported geometry. Preserve its unknown value; this disposition does not approve the design, invent missing geometry, or select a numeric interpretation.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:43.112336+00:00",
+  "based_on": {
+    "sha256": "2642be4f1d3471cc440aa7830166adfa298a8e1a31cef90911662bb2b4a26448"
+  },
+  "prediction_sha256": "f8d3ad6be2d0cf831a34d5e8aa084f8b48311b6369e013e43b8d74290a73a970",
+  "template_capability_sha256": "187284e82b4f84d8419fd2be96cda1ef527d3074fafd704696f533d43f486b57",
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-008/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-008",
+      "image": null,
+      "page": null,
+      "box": null
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  }
+}

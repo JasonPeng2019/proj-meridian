@@ -1,0 +1,36 @@
+{
+  "decision_id": "HD-e120d535ef504d01b7ade826857f2680",
+  "applies_to": "D-014/template/outline/width",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Printed167mm vertical main-face extent.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:42.651193+00:00",
+  "based_on": {
+    "sha256": "0e6fa42e39eda320d42f45576a0825c5d0c002abd6863188b3c98774d52867f6"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-014/drawing/n/167.0@1-1"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-014/drawing/n/167.0@1-1",
+      "page": 1,
+      "box": [
+        899.411,
+        357.036,
+        18.083,
+        32.988
+      ]
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  },
+  "prediction_sha256": "d84af495d383d134dd731730c5de93bf55319230b2ff7d669c66f99212d15b8b"
+}

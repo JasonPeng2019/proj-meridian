@@ -1,0 +1,38 @@
+{
+  "decision_id": "HD-fd690083961f4161a26484af11838938",
+  "applies_to": "D-003/drawing/visual-n/p1-5a0a55bdd9644fe4",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Directly inspected all3 original pages. Page1 dimensions, nominal values and tolerance offsets retained separately. Pages2/3 tag tables preserve diameters, blind drill/thread depths, thread-size and fit-class designation tokens, insert pitch/length factors and quantities. Designation digits, tolerances and origin zeros are not independent geometric dimensions; hole locations and essential outline/slot geometry are not approved by these literal readings.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:40.378592+00:00",
+  "based_on": {
+    "sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-003/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-003",
+      "page": 1,
+      "image": "generated/images/D-003-p1.png",
+      "box": [
+        338.2,
+        590.3,
+        57.6,
+        26.9
+      ],
+      "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-literal-audit.json",
+    "sha256": "d3a54c7b1739712f1ac4710fd09ce56d103a32b72b400a824808311f62a8ed94"
+  },
+  "prediction_sha256": "665d138bf5567504b2b82d7b225a8dc3397a291897785436cf669c45724ec7b4"
+}

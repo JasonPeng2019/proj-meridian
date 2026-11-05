@@ -1,0 +1,48 @@
+{
+  "decision_id": "HD-29d2295821034ef3bc721c3c48aa1045",
+  "applies_to": "D-005/template/features_complete",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "False accurately records omitted essential opening,seat,grooves,rounded contour and holes.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:42.497398+00:00",
+  "based_on": {
+    "sha256": "6f49feb435d02be842ac6933d726b6785cf9cb7cef70e8193976dc4ab265cf26"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-005/drawing/source",
+    "D-005/drawing/notes",
+    "D-005/drawing/callout/p1-1"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-005/drawing/notes",
+      "page": 1,
+      "box": [
+        741.528,
+        658.943,
+        231.0,
+        111.0
+      ]
+    },
+    {
+      "fact_id": "D-005/drawing/callout/p1-1",
+      "page": 1,
+      "box": [
+        260.252,
+        515.874,
+        56.581,
+        32.265
+      ]
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  },
+  "prediction_sha256": "1f636aa64c974f284834632d37a20a2227e124a02cb06240d24d99fadccc0e2e"
+}

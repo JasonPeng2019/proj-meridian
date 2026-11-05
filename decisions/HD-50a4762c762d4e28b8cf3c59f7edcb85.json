@@ -1,0 +1,35 @@
+{
+  "decision_id": "HD-50a4762c762d4e28b8cf3c59f7edcb85",
+  "applies_to": "D-024/template/features_complete",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Confirm false: retained five individually grounded cuts omit essential concentric body steps and numerous undimensioned-position hole members/threaded insert holes.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:39.808152+00:00",
+  "based_on": {
+    "sha256": "f6da4da2e0c21231939c15f13535cf068d1c1f778774816f3cb65ddf30f96e3d"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-024/drawing/n/3.3@1-1",
+    "D-024/drawing/n/5.2@1-1",
+    "D-024/drawing/n/3.2@1-1",
+    "D-024/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-024",
+      "page": 1,
+      "image": "generated/images/D-024-p1.png",
+      "visual_description": "Confirm false: retained five individually grounded cuts omit essential concentric body steps and numerous undimensioned-position hole members/threaded insert holes."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-21-30.json",
+    "sha256": "0837e5ed6eafe2465f7840be73edf1543e5cd9e4087c3aacc5f2e4da2e1f14a2"
+  },
+  "prediction_sha256": "1f636aa64c974f284834632d37a20a2227e124a02cb06240d24d99fadccc0e2e"
+}

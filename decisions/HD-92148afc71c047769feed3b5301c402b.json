@@ -1,0 +1,158 @@
+{
+  "decision_id": "HD-92148afc71c047769feed3b5301c402b",
+  "applies_to": "D-002/template/cad_eligibility",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "supported=false andoutline_exact=false correctly block formed flanges/weld nuts; constant_thickness=true agrees explicit2mm gauge note.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:42.344126+00:00",
+  "based_on": {
+    "sha256": "6822d609aa047ddbcb9446e1215f697ec12f5764ba9aa5ef3906543b9a1887bc"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-002/drawing/source",
+    "D-002/drawing/n/775.0@1-1",
+    "D-002/drawing/n/578.9@1-1",
+    "D-002/drawing/n/23.0@1-1",
+    "D-002/drawing/n/286.0@1-1",
+    "D-002/drawing/n/36.0@1-1",
+    "D-002/drawing/notes",
+    "D-002/drawing/callout/p1-1",
+    "D-002/drawing/callout/p1-2",
+    "D-002/drawing/callout/p1-3",
+    "D-002/drawing/callout/p1-4",
+    "D-002/drawing/callout/p1-5",
+    "D-002/drawing/general/edge_finish"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-002/drawing/n/775.0@1-1",
+      "page": 1,
+      "box": [
+        521.709,
+        130.752,
+        40.319,
+        18.083
+      ]
+    },
+    {
+      "fact_id": "D-002/drawing/n/578.9@1-1",
+      "page": 1,
+      "box": [
+        276.941,
+        319.929,
+        18.083,
+        40.319
+      ]
+    },
+    {
+      "fact_id": "D-002/drawing/n/23.0@1-1",
+      "page": 1,
+      "box": [
+        156.974,
+        515.641,
+        32.988,
+        18.083
+      ]
+    },
+    {
+      "fact_id": "D-002/drawing/n/286.0@1-1",
+      "page": 1,
+      "box": [
+        647.996,
+        465.872,
+        40.319,
+        18.083
+      ]
+    },
+    {
+      "fact_id": "D-002/drawing/n/36.0@1-1",
+      "page": 1,
+      "box": [
+        402.954,
+        442.61,
+        18.083,
+        32.988
+      ]
+    },
+    {
+      "fact_id": "D-002/drawing/notes",
+      "page": 1,
+      "box": [
+        741.528,
+        658.943,
+        231.0,
+        111.0
+      ]
+    },
+    {
+      "fact_id": "D-002/drawing/callout/p1-1",
+      "page": 1,
+      "box": [
+        565.664,
+        394.189,
+        125.998,
+        18.083
+      ]
+    },
+    {
+      "fact_id": "D-002/drawing/callout/p1-2",
+      "page": 1,
+      "box": [
+        547.484,
+        516.313,
+        125.995,
+        18.087
+      ]
+    },
+    {
+      "fact_id": "D-002/drawing/callout/p1-3",
+      "page": 1,
+      "box": [
+        73.636,
+        123.722,
+        125.988,
+        18.088
+      ]
+    },
+    {
+      "fact_id": "D-002/drawing/callout/p1-4",
+      "page": 1,
+      "box": [
+        377.29,
+        633.32,
+        125.999,
+        18.084
+      ]
+    },
+    {
+      "fact_id": "D-002/drawing/callout/p1-5",
+      "page": 1,
+      "box": [
+        686.658,
+        118.64,
+        126.005,
+        18.089
+      ]
+    },
+    {
+      "fact_id": "D-002/drawing/general/edge_finish",
+      "page": 1,
+      "box": [
+        1078.776,
+        781.582,
+        52.887,
+        14.837
+      ]
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  },
+  "prediction_sha256": "7c666c8a3288c62120a1ea50c922b425e5429d26189ba75c3a5d859719477857"
+}

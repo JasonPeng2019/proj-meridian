@@ -1,0 +1,33 @@
+{
+  "decision_id": "HD-b4ac7184d27045ef82dbe3433fa76a9c",
+  "applies_to": "D-029/template/thickness",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Section A-A explicitly dimensions parallel outer faces15.00 apart. Confirm nominal constant plate thickness15.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:39.859677+00:00",
+  "based_on": {
+    "sha256": "066ed91474bb74b652451a34c6b9f5b719d23dba56043b8ba6aa8f5b7479cf15"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-029/drawing/n/15.0@1-1",
+    "D-029/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-029",
+      "page": 1,
+      "image": "generated/images/D-029-p1.png",
+      "visual_description": "Section A-A explicitly dimensions parallel outer faces15.00 apart. Confirm nominal constant plate thickness15."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-21-30.json",
+    "sha256": "0837e5ed6eafe2465f7840be73edf1543e5cd9e4087c3aacc5f2e4da2e1f14a2"
+  },
+  "prediction_sha256": "6eb6de32a08a216577e155ae6864c8c4dd9cbb3926e2585f9d96985574010e10"
+}

@@ -1,0 +1,38 @@
+{
+  "decision_id": "HD-88c4369d9237460ab3d912ff67fefe97",
+  "applies_to": "D-006/template/cad_eligibility",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Page 1 front profile has essential angled/notched contours; upper/end and both isometric views show bent flanges and a formed bottom tab. The section leader gives 3.00 and note allows 3mm (or thicker), supporting nominal constant sheet gauge. Overall 243.50 and 420.00, local 27.00 spacing/357.00 height, and diameter 10.00, 10.50 weld-nut, and 12.00 tab holes do not fully locate all centers or define complete profile/bends/developed blank. Proposed supported=false, constant_thickness=true, outline_exact=false and omissions accurately concern current flat-template capability only.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:45:29.693704+00:00",
+  "based_on": {
+    "sha256": "b9bd89aa9449889adb5335b1f4f3550be072a37447b1c134fb703435f04fbaad"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-006/drawing/n/3.0@1-2",
+    "D-006/drawing/notes",
+    "D-006/drawing/callout/p1-1",
+    "D-006/drawing/callout/p1-2",
+    "D-006/drawing/callout/p1-3",
+    "D-006/drawing/n/50.0@1-1",
+    "D-006/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-006",
+      "page": 1,
+      "image": "generated/images/D-006-p1.png",
+      "description": "Page 1: upper end section, front profile, flange/tab views, right/left isometrics and NOTE."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-01-10.json",
+    "sha256": "c4436a050c4381b409dc881144e91529c59db4fcc80139a4f53b9b787ca0914b"
+  },
+  "prediction_sha256": "58e88ab6ee78df09c3aee561a63687a2c71ba368374eb1c673db89eb23655a26"
+}

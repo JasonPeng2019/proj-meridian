@@ -1,0 +1,33 @@
+{
+  "decision_id": "HD-06ba1e0812344d53a9db526c7d31b7e9",
+  "applies_to": "D-024/template/thickness",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Central edge view prints overall axial 50.0, alongside 3.0,7.0 and29.0 step dimensions. Confirm thickness=50 only as the documented axial envelope, not proof of constant plate thickness.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:39.778628+00:00",
+  "based_on": {
+    "sha256": "f6da4da2e0c21231939c15f13535cf068d1c1f778774816f3cb65ddf30f96e3d"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-024/drawing/n/50.0@1-1",
+    "D-024/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-024",
+      "page": 1,
+      "image": "generated/images/D-024-p1.png",
+      "visual_description": "Central edge view prints overall axial 50.0, alongside 3.0,7.0 and29.0 step dimensions. Confirm thickness=50 only as the documented axial envelope, not proof of constant plate thickness."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-21-30.json",
+    "sha256": "0837e5ed6eafe2465f7840be73edf1543e5cd9e4087c3aacc5f2e4da2e1f14a2"
+  },
+  "prediction_sha256": "834e5757f693330352732c02a5701c7908fe0da57999731fec767e7b2d0e957d"
+}

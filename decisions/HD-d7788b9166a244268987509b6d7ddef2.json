@@ -1,0 +1,42 @@
+{
+  "decision_id": "HD-d7788b9166a244268987509b6d7ddef2",
+  "applies_to": "D-007/template/cad_eligibility",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Original page 1 shows stepped cylindrical shaft, diameter 25.0 body and diameter 8.0 g8 journals; 29.0 + 269.5 + 37.6 = 336.1 agrees with overall length. Body length 269.5 is not plate thickness. Section A-A gives 2.3 and 90 degrees for groove cross section; Danish note specifies three identical constant-triangle grooves along a continuous arc, 120 degrees apart, but longitudinal curve and axial limits lack complete dimensions. Both 1.0 x 45 degree chamfer callouts and general deburr note are visible. Proposed supported=false, constant_thickness=false, outline_exact=false is correct for the current flat extrusion/cut template, retaining unknown groove geometry without general CAD-impossibility or design approval.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:45:34.147568+00:00",
+  "based_on": {
+    "sha256": "e5d57d66cae6ca7bbb2956249e89c11db91d4ea3e258f48658af191e926870c9"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-007/drawing/n/25.0@1-1",
+    "D-007/drawing/n/8.0@1-1",
+    "D-007/drawing/n/8.0@1-2",
+    "D-007/drawing/n/269.5@1-1",
+    "D-007/drawing/notes",
+    "D-007/drawing/n/2.3@1-1",
+    "D-007/drawing/n/90.0@1-1",
+    "D-007/drawing/callout/p1-1",
+    "D-007/drawing/callout/p1-2",
+    "D-007/drawing/general/edge_finish",
+    "D-007/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-007",
+      "page": 1,
+      "image": "generated/images/D-007-p1.png",
+      "description": "Page 1: both shaft views, end view, section A-A and NOTE/title box."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-01-10.json",
+    "sha256": "c4436a050c4381b409dc881144e91529c59db4fcc80139a4f53b9b787ca0914b"
+  },
+  "prediction_sha256": "bf271dfae533477b44b720be3dd996564ad1c7d6439de3cb9f0777a5c94df87e"
+}

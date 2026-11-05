@@ -1,0 +1,103 @@
+{
+  "decision_id": "HD-fe0874dc5dd0498e90a935ba61ad4299",
+  "applies_to": "D-017/template/features_omitted",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "All fourteen omitted holes are accounted for: four 5.5/10.8 x 90 countersunk holes lack centers, eight M5 holes lack positions and independent drill/extent, and two 6 H7 holes lack X coordinates. The concentric bore rim and general edge finishing have no dimensions and remain omitted.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:43.092336+00:00",
+  "based_on": {
+    "sha256": "a460ab37d94f2d8f4c9bac58da15ea9d1e93b4f48ee0825e51adac0ec81f37ae"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-017/drawing/source",
+    "D-017/drawing/callout/p1-1",
+    "D-017/drawing/callout/p1-2",
+    "D-017/drawing/visual-n/p1-63e92235a1b07426",
+    "D-017/drawing/visual-n/p1-5a39f978a15b9116",
+    "D-017/drawing/n/6.0@1-1",
+    "D-017/drawing/n/6.0@1-2",
+    "D-017/drawing/general/edge_finish"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-017/drawing/callout/p1-1",
+      "page": 1,
+      "box": [
+        297.807,
+        291.079,
+        82.017,
+        18.087
+      ]
+    },
+    {
+      "fact_id": "D-017/drawing/callout/p1-2",
+      "page": 1,
+      "box": [
+        329.185,
+        306.984,
+        61.002,
+        18.083
+      ]
+    },
+    {
+      "fact_id": "D-017/drawing/visual-n/p1-63e92235a1b07426",
+      "page": 1,
+      "box": [
+        296.4,
+        339.3,
+        40.4,
+        13.2
+      ]
+    },
+    {
+      "fact_id": "D-017/drawing/visual-n/p1-5a39f978a15b9116",
+      "page": 1,
+      "box": [
+        296.4,
+        339.3,
+        40.4,
+        13.2
+      ]
+    },
+    {
+      "fact_id": "D-017/drawing/n/6.0@1-1",
+      "page": 1,
+      "box": [
+        279.818,
+        463.125,
+        18.327,
+        18.083
+      ]
+    },
+    {
+      "fact_id": "D-017/drawing/n/6.0@1-2",
+      "page": 1,
+      "box": [
+        640.271,
+        399.478,
+        18.328,
+        18.083
+      ]
+    },
+    {
+      "fact_id": "D-017/drawing/general/edge_finish",
+      "page": 1,
+      "box": [
+        1078.776,
+        781.582,
+        52.887,
+        14.837
+      ]
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  },
+  "prediction_sha256": "9c8d30f08b843a1be31b57d7e5d2ad9f39667fb87a559f15a2204a3222bc480c"
+}

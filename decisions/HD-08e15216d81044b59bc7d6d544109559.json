@@ -1,0 +1,32 @@
+{
+  "decision_id": "HD-08e15216d81044b59bc7d6d544109559",
+  "applies_to": "D-004/template/features_review",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "No hole-group center coordinates,pitch orPCD: known empty supported subset is honest.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:42.428699+00:00",
+  "based_on": {
+    "sha256": "947fee0986f4799388d5bd41411b2abedcee5d6a644e909238f005fb4802f64b"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-004/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-004",
+      "image": null,
+      "page": null,
+      "box": null
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  },
+  "prediction_sha256": "650432330df14ab4c3637cc15adb17ea367e79e813bb57169373201cd3e9f90e"
+}

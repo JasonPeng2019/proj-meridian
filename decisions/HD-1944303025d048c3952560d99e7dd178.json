@@ -1,0 +1,32 @@
+{
+  "decision_id": "HD-1944303025d048c3952560d99e7dd178",
+  "applies_to": "D-030/template/features_complete",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Confirm false: the empty supported subset omits central bore, lobe holes/recesses and threaded/plain patterns within an unavailable essential exterior contour.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:39.989736+00:00",
+  "based_on": {
+    "sha256": "849100de6d2abbbcca5c6e39cd4a1778918b17818cc88c91340612981d9220ee"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-030/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-030",
+      "page": 1,
+      "image": "generated/images/D-030-p1.png",
+      "visual_description": "Confirm false: the empty supported subset omits central bore, lobe holes/recesses and threaded/plain patterns within an unavailable essential exterior contour."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-21-30.json",
+    "sha256": "0837e5ed6eafe2465f7840be73edf1543e5cd9e4087c3aacc5f2e4da2e1f14a2"
+  },
+  "prediction_sha256": "1f636aa64c974f284834632d37a20a2227e124a02cb06240d24d99fadccc0e2e"
+}

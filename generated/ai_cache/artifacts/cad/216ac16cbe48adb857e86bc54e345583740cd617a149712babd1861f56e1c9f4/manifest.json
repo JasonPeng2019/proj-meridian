@@ -1,0 +1,85 @@
+{
+  "examples": [
+    "A"
+  ],
+  "models": {
+    "A": {
+      "glb": "models/D-019_A.glb",
+      "step": "models/D-019_A_reconstruction_from_drawing.step",
+      "bounds_mm": {
+        "min": [
+          -70.5,
+          -70.5,
+          0.0
+        ],
+        "max": [
+          70.5,
+          70.5,
+          1.0
+        ],
+        "size": [
+          141.0,
+          141.0,
+          1.0
+        ]
+      },
+      "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
+      "volume_mm3": 4678.6168593586,
+      "template_sha256": "1d064d1425f6bd9685c1cd72a09d704e607090bdcc9cfd1d5a8789a5e673d2b9",
+      "selections": {},
+      "labels": [],
+      "waiting": [
+        "features_complete"
+      ],
+      "omitted": [
+        "6 x Ø4,5 THRU ALL holes: The count, diameter and through operation are established. The face-on view shows centers on a circular construction line, but no pitch-circle diameter, radius or complete center coordinates are supplied. Ø118,0 and Ø141,0 dimension the inner and outer body boundaries, not the hole pattern. Hole positions therefore cannot be modeled without guessing.",
+        "DEBURR AND BREAK SHARP EDGES: The general finish note supplies no edge-break size or profile; no specific chamfer or rounding can be modeled."
+      ],
+      "features_all_determined": false,
+      "glb_units": "metres",
+      "cad_units": "mm",
+      "glb_to_mm": 1000,
+      "glb_sha256": "13469b249c567ffd9d74c13ced0eddd4efb4e2c8411a25093cae6944e36acaa8",
+      "step_sha256": "2ba0f43a0fc905b0607aa769ee72ef01ab648fc1481bbf678e8d1887be8c8721"
+    }
+  },
+  "waiting": [
+    "features_complete"
+  ],
+  "omitted": [
+    "6 x Ø4,5 THRU ALL holes: The count, diameter and through operation are established. The face-on view shows centers on a circular construction line, but no pitch-circle diameter, radius or complete center coordinates are supplied. Ø118,0 and Ø141,0 dimension the inner and outer body boundaries, not the hole pattern. Hole positions therefore cannot be modeled without guessing.",
+    "DEBURR AND BREAK SHARP EDGES: The general finish note supplies no edge-break size or profile; no specific chamfer or rounding can be modeled."
+  ],
+  "template_sha256": "1d064d1425f6bd9685c1cd72a09d704e607090bdcc9cfd1d5a8789a5e673d2b9",
+  "source_sha256": "581fbaf7562ac75008243463af6956d6f88cd6a0a858cf6c22aa62ce39041e11",
+  "generator_version": "flat-part-14",
+  "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
+  "review": {
+    "status": "not_reviewed"
+  },
+  "label": "Partial AI reconstruction. Not reviewed by a person",
+  "units": "mm",
+  "features_status": "partial",
+  "features_all_determined": false,
+  "omitted_feature_notes": [
+    "6 x Ø4,5 THRU ALL holes: The count, diameter and through operation are established. The face-on view shows centers on a circular construction line, but no pitch-circle diameter, radius or complete center coordinates are supplied. Ø118,0 and Ø141,0 dimension the inner and outer body boundaries, not the hole pattern. Hole positions therefore cannot be modeled without guessing.",
+    "DEBURR AND BREAK SHARP EDGES: The general finish note supplies no edge-break size or profile; no specific chamfer or rounding can be modeled."
+  ],
+  "weight_check": {
+    "state": "FAILED",
+    "message": "FAILED weight check: needs manual approval — no trusted material with a sourced density is available",
+    "examples": {
+      "A": {
+        "attempts": [],
+        "matches": false,
+        "drawing_g": 5.7
+      }
+    },
+    "drawing_g": 5.7,
+    "tolerance_percent": 5,
+    "requires_approval": true,
+    "approval_note_required": true,
+    "limitation": "A matching weight does not verify feature positions. No thickness or material is selected automatically.",
+    "density_label": "Outside source, not the dataset"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "decision_id": "HD-e27edefd2517420a9e5c351007928247",
+  "applies_to": "D-005/template/features_review",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "No fully located supported cuts:20blind tapped holes lack centers; windowseat/grooves are unsupported exact profiles.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:42.478824+00:00",
+  "based_on": {
+    "sha256": "6f49feb435d02be842ac6933d726b6785cf9cb7cef70e8193976dc4ab265cf26"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-005/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-005",
+      "image": null,
+      "page": null,
+      "box": null
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  },
+  "prediction_sha256": "650432330df14ab4c3637cc15adb17ea367e79e813bb57169373201cd3e9f90e"
+}

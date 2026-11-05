@@ -1,0 +1,85 @@
+{
+  "examples": [
+    "A"
+  ],
+  "models": {
+    "A": {
+      "glb": "models/D-015_A.glb",
+      "step": "models/D-015_A_reconstruction_from_drawing.step",
+      "bounds_mm": {
+        "min": [
+          -135.0,
+          -7.0,
+          0.0
+        ],
+        "max": [
+          135.0,
+          7.0,
+          1.0
+        ],
+        "size": [
+          270.0,
+          14.0,
+          1.0
+        ]
+      },
+      "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
+      "volume_mm3": 3780.0,
+      "template_sha256": "87d28fa475685100e5adc9de700eb259c2e80604a85f7d839bc99cdc13a03805",
+      "selections": {},
+      "labels": [],
+      "waiting": [
+        "features_complete"
+      ],
+      "omitted": [
+        "8 x Ø 3,4 THRU ALL holes: The printed callout establishes eight through-holes of diameter 3,4 mm. Neither hole pitch, end offsets nor transverse center locations are dimensioned. The visible row alone cannot establish numeric placement, equal spacing or centering; no hole coordinates can be emitted.",
+        "DEBURR AND BREAK SHARP EDGES: The general finishing instruction supplies no edge-break size, angle or specific geometry. An arbitrary chamfer cannot be modeled."
+      ],
+      "features_all_determined": false,
+      "glb_units": "metres",
+      "cad_units": "mm",
+      "glb_to_mm": 1000,
+      "glb_sha256": "9e2f0925f5a64c49a915ca7b87fb424f34cd563fe14a4510a8075065fe29c167",
+      "step_sha256": "1d44fcf876781e1d5623472f1a7f4ea06e76fc140af0542b030b556e768f5057"
+    }
+  },
+  "waiting": [
+    "features_complete"
+  ],
+  "omitted": [
+    "8 x Ø 3,4 THRU ALL holes: The printed callout establishes eight through-holes of diameter 3,4 mm. Neither hole pitch, end offsets nor transverse center locations are dimensioned. The visible row alone cannot establish numeric placement, equal spacing or centering; no hole coordinates can be emitted.",
+    "DEBURR AND BREAK SHARP EDGES: The general finishing instruction supplies no edge-break size, angle or specific geometry. An arbitrary chamfer cannot be modeled."
+  ],
+  "template_sha256": "87d28fa475685100e5adc9de700eb259c2e80604a85f7d839bc99cdc13a03805",
+  "source_sha256": "0828f6fee0d3bc087524df08c8b3fbadc5201212e5f86fcfc08b984fe9e32c60",
+  "generator_version": "flat-part-14",
+  "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
+  "review": {
+    "status": "not_reviewed"
+  },
+  "label": "Partial AI reconstruction. Not reviewed by a person",
+  "units": "mm",
+  "features_status": "partial",
+  "features_all_determined": false,
+  "omitted_feature_notes": [
+    "8 x Ø 3,4 THRU ALL holes: The printed callout establishes eight through-holes of diameter 3,4 mm. Neither hole pitch, end offsets nor transverse center locations are dimensioned. The visible row alone cannot establish numeric placement, equal spacing or centering; no hole coordinates can be emitted.",
+    "DEBURR AND BREAK SHARP EDGES: The general finishing instruction supplies no edge-break size, angle or specific geometry. An arbitrary chamfer cannot be modeled."
+  ],
+  "weight_check": {
+    "state": "FAILED",
+    "message": "FAILED weight check: needs manual approval — no trusted material with a sourced density is available",
+    "examples": {
+      "A": {
+        "attempts": [],
+        "matches": false,
+        "drawing_g": 4.6
+      }
+    },
+    "drawing_g": 4.6,
+    "tolerance_percent": 5,
+    "requires_approval": true,
+    "approval_note_required": true,
+    "limitation": "A matching weight does not verify feature positions. No thickness or material is selected automatically.",
+    "density_label": "Outside source, not the dataset"
+  }
+}

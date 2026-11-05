@@ -1,0 +1,56 @@
+{
+  "decision_id": "HD-19b968d0ddf14632933eeeadaedb943f",
+  "applies_to": "D-007/link",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Original page-1 title Dispenser Shaft v6, Aluminium note and three long powder-metering grooves identify a roller/shaft rather than a housing or fitting. CSV physical row 90 is Powder roller | Powder | Custom | Aluminium | Amount 2; its Notes say Now all slots have same size and rounded by worker; previously slots were too sharp and next version should include fillets or chamfers. This explicit slotted-roller description supports Powder roller link. Rows 92 Powder roller housing and 95 Powder Valve Fitting are distinct components.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:45:38.287384+00:00",
+  "based_on": {
+    "sha256": "e5d57d66cae6ca7bbb2956249e89c11db91d4ea3e258f48658af191e926870c9"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-007/drawing/title",
+    "D-007/drawing/notes",
+    "D-007/drawing/material",
+    "BOM:powder/powder-roller",
+    "BOM:powder/powder-roller-housing",
+    "BOM:powder/powder-valve-fitting",
+    "D-007/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-007",
+      "page": 1,
+      "image": "generated/images/D-007-p1.png",
+      "description": "Page 1: both shaft views, end view, section A-A and NOTE/title box."
+    },
+    {
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": 90,
+      "fact_id": "BOM:powder/powder-roller",
+      "description": "BOM-089 / Powder roller"
+    },
+    {
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": 92,
+      "fact_id": "BOM:powder/powder-roller-housing",
+      "description": "BOM-091 / Powder roller housing"
+    },
+    {
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": 95,
+      "fact_id": "BOM:powder/powder-valve-fitting",
+      "description": "BOM-094 / Powder Valve Fitting"
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-01-10.json",
+    "sha256": "c4436a050c4381b409dc881144e91529c59db4fcc80139a4f53b9b787ca0914b"
+  },
+  "prediction_sha256": "6f99f5305134db0879bc861bb55c720914654b30b571bb4ef58def7f25ab31ff"
+}

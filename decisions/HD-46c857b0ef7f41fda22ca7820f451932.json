@@ -1,0 +1,54 @@
+{
+  "decision_id": "HD-46c857b0ef7f41fda22ca7820f451932",
+  "applies_to": "D-004/link",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Original page-1 note says Top Plate, 3 mm non-magnetic stainless; the view is a full enclosure top panel with bent side flanges, not a small brace. CSV physical row 14 is Top Side | Box | Custom | Stainless steel | Amount 1, interfacing Front Side Box, Back Box, Left Side Box. This supports the Top Side link; rows 19/20 name the distinct Top Side Bracing and Top Side Powder Bracing.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:45:21.216195+00:00",
+  "based_on": {
+    "sha256": "947fee0986f4799388d5bd41411b2abedcee5d6a644e909238f005fb4802f64b"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-004/drawing/notes",
+    "BOM:box/top-side",
+    "BOM:box/top-side-bracing",
+    "BOM:box/top-side-powder-bracing",
+    "D-004/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-004",
+      "page": 1,
+      "image": "generated/images/D-004-p1.png",
+      "description": "Page 1: upper edge section, main face, side flanges, isometric and NOTE."
+    },
+    {
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": 14,
+      "fact_id": "BOM:box/top-side",
+      "description": "BOM-013 / Top Side"
+    },
+    {
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": 19,
+      "fact_id": "BOM:box/top-side-bracing",
+      "description": "BOM-018 / Top Side Bracing"
+    },
+    {
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+      "source_row": 20,
+      "fact_id": "BOM:box/top-side-powder-bracing",
+      "description": "BOM-019 / Top Side Powder Bracing"
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-01-10.json",
+    "sha256": "c4436a050c4381b409dc881144e91529c59db4fcc80139a4f53b9b787ca0914b"
+  },
+  "prediction_sha256": "0ae2e0e10b318bca6e5f11d6ce26ea793b2dd04b1955dfa68ac554054cb5c5fd"
+}

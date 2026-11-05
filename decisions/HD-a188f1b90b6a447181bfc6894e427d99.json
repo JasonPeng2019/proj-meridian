@@ -1,0 +1,32 @@
+{
+  "decision_id": "HD-a188f1b90b6a447181bfc6894e427d99",
+  "applies_to": "D-003/template/features_omitted",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "All11 omissions match original3pages: externalR3, surfaceedge3x45 bevel,2rounded cutouts, bottomA/B/D andtopA/B/C/G groups; supported center bore/counterbore and6C cuts retained separately.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:42.390651+00:00",
+  "based_on": {
+    "sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-003/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-003",
+      "image": null,
+      "page": null,
+      "box": null
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  },
+  "prediction_sha256": "8d98a19664e1fa6c2bbb0431a77c3cd67d10817f118ec878397b8a56792bf6c4"
+}

@@ -1,0 +1,33 @@
+{
+  "decision_id": "HD-f3304f8bab4a4046af13dec6be02c33a",
+  "applies_to": "D-010/template/features_review",
+  "type": "defer_unsupported",
+  "value": null,
+  "status": "accepted",
+  "note": "Original drawing inspected: Bent motor plate with opposing 15/30 mm flanges. The explicit 2 mm sheet note establishes a constant gauge; eligibility remains false. Do not carry the erroneous constant_thickness=false claim. Defer this unresolved template input because the essential main body is outside the current supported geometry. Preserve its unknown value; this disposition does not approve the design, invent missing geometry, or select a numeric interpretation.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:43.140335+00:00",
+  "based_on": {
+    "sha256": "700cc64cb7e7c31d1d7a6d6f506bac453cdcb3c7daf76dc2272ffebfe5e2d911"
+  },
+  "prediction_sha256": "f8d3ad6be2d0cf831a34d5e8aa084f8b48311b6369e013e43b8d74290a73a970",
+  "template_capability_sha256": "9fce113b35614cdd1027e653cf2226287e4618b3f245894170c3c599c2ff7b0a",
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-010/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-010",
+      "image": null,
+      "page": null,
+      "box": null
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  }
+}

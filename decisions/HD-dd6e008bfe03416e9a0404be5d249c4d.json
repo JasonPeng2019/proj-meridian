@@ -1,0 +1,48 @@
+{
+  "decision_id": "HD-dd6e008bfe03416e9a0404be5d249c4d",
+  "applies_to": "D-004/template/thickness",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Original3.00 sheet-wall dimension and3mm note agree;25 is flange height.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:42.416697+00:00",
+  "based_on": {
+    "sha256": "947fee0986f4799388d5bd41411b2abedcee5d6a644e909238f005fb4802f64b"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-004/drawing/n/3.0@1-1",
+    "D-004/drawing/notes",
+    "D-004/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-004/drawing/n/3.0@1-1",
+      "page": 1,
+      "box": [
+        237.222,
+        103.062,
+        25.657,
+        18.083
+      ]
+    },
+    {
+      "fact_id": "D-004/drawing/notes",
+      "page": 1,
+      "box": [
+        741.528,
+        658.943,
+        231.0,
+        111.0
+      ]
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  },
+  "prediction_sha256": "ed6dc46c98492137d547a6207cabca222d2b09043778f672404bb67a6f1a0ac9"
+}

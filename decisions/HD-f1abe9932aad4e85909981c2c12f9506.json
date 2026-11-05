@@ -1,0 +1,36 @@
+{
+  "decision_id": "HD-f1abe9932aad4e85909981c2c12f9506",
+  "applies_to": "D-029/template/features_review",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Original visibly has essential three-lobed curved exterior, diameter32 upper bore,diameter34 central bore, lower-lobe bores and smaller-hole groups, but no overall exterior dimensions or complete hole-center locating dimensions. Confirm [] as supported cuts in the required centered-outline frame; visible cuts are preserved as omissions.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:39.867680+00:00",
+  "based_on": {
+    "sha256": "066ed91474bb74b652451a34c6b9f5b719d23dba56043b8ba6aa8f5b7479cf15"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-029/drawing/callout/p1-1",
+    "D-029/drawing/callout/p1-2",
+    "D-029/drawing/callout/p1-3",
+    "D-029/drawing/callout/p1-4",
+    "D-029/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-029",
+      "page": 1,
+      "image": "generated/images/D-029-p1.png",
+      "visual_description": "Original visibly has essential three-lobed curved exterior, diameter32 upper bore,diameter34 central bore, lower-lobe bores and smaller-hole groups, but no overall exterior dimensions or complete hole-center locating dimensions. Confirm [] as supported cuts in the required centered-outline frame; visible cuts are preserved as omissions."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-21-30.json",
+    "sha256": "0837e5ed6eafe2465f7840be73edf1543e5cd9e4087c3aacc5f2e4da2e1f14a2"
+  },
+  "prediction_sha256": "650432330df14ab4c3637cc15adb17ea367e79e813bb57169373201cd3e9f90e"
+}

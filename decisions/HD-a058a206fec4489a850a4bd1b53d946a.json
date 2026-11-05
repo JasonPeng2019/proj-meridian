@@ -1,0 +1,125 @@
+{
+  "decision_id": "HD-a058a206fec4489a850a4bd1b53d946a",
+  "applies_to": "D-018/template/cad_eligibility",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Original main view gives95,0 x120,0 overall extents and R15,0 transitions on a sloped outer profile; narrow view gives10,0 thickness. That essential sloped/rounded contour is outside current rectangle/circle/ring outline family. Edge-entering6x M4 blind holes also exceed supported top/bottom cuts and lack positions/drill diameter. Confirm current-template unavailability, not general CAD impossibility.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:39.431539+00:00",
+  "based_on": {
+    "sha256": "816b582d82ed383ad0ff5452afde74e98b74981a6e9afb3c8d1ff6dbd6fa50a0"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-018/drawing/n/95.0@1-1",
+    "D-018/drawing/n/120.0@1-1",
+    "D-018/drawing/n/15.0@1-1",
+    "D-018/drawing/n/10.0@1-1",
+    "D-018/drawing/n/10.1@1-1",
+    "D-018/drawing/general/edge_finish",
+    "D-018/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-018",
+      "page": 1,
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-018.pdf",
+      "fact_id": "D-018/drawing/n/95.0@1-1",
+      "box": [
+        470.069,
+        646.985,
+        25.657,
+        18.083
+      ],
+      "image": "generated/images/D-018-p1.png",
+      "visual_description": "Original main view gives95,0 x120,0 overall extents and R15,0 transitions on a sloped outer profile; narrow view gives10,0 thickness. That essential sloped/rounded contour is outside current rectangle/circle/ring outline family. Edge-entering6x M4 blind holes also exceed supported top/bottom cuts and lack positions/drill diameter. Confirm current-template unavailability, not general CAD impossibility."
+    },
+    {
+      "drawing": "D-018",
+      "page": 1,
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-018.pdf",
+      "fact_id": "D-018/drawing/n/120.0@1-1",
+      "box": [
+        628.996,
+        448.96,
+        18.083,
+        32.988
+      ],
+      "image": "generated/images/D-018-p1.png",
+      "visual_description": "Original main view gives95,0 x120,0 overall extents and R15,0 transitions on a sloped outer profile; narrow view gives10,0 thickness. That essential sloped/rounded contour is outside current rectangle/circle/ring outline family. Edge-entering6x M4 blind holes also exceed supported top/bottom cuts and lack positions/drill diameter. Confirm current-template unavailability, not general CAD impossibility."
+    },
+    {
+      "drawing": "D-018",
+      "page": 1,
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-018.pdf",
+      "fact_id": "D-018/drawing/n/15.0@1-1",
+      "box": [
+        512.665,
+        243.406,
+        36.61,
+        36.61
+      ],
+      "image": "generated/images/D-018-p1.png",
+      "visual_description": "Original main view gives95,0 x120,0 overall extents and R15,0 transitions on a sloped outer profile; narrow view gives10,0 thickness. That essential sloped/rounded contour is outside current rectangle/circle/ring outline family. Edge-entering6x M4 blind holes also exceed supported top/bottom cuts and lack positions/drill diameter. Confirm current-template unavailability, not general CAD impossibility."
+    },
+    {
+      "drawing": "D-018",
+      "page": 1,
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-018.pdf",
+      "fact_id": "D-018/drawing/n/10.0@1-1",
+      "box": [
+        131.039,
+        646.988,
+        25.657,
+        18.083
+      ],
+      "image": "generated/images/D-018-p1.png",
+      "visual_description": "Original main view gives95,0 x120,0 overall extents and R15,0 transitions on a sloped outer profile; narrow view gives10,0 thickness. That essential sloped/rounded contour is outside current rectangle/circle/ring outline family. Edge-entering6x M4 blind holes also exceed supported top/bottom cuts and lack positions/drill diameter. Confirm current-template unavailability, not general CAD impossibility."
+    },
+    {
+      "drawing": "D-018",
+      "page": 1,
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-018.pdf",
+      "fact_id": "D-018/drawing/n/10.1@1-1",
+      "box": [
+        295.703,
+        79.679,
+        25.657,
+        18.083
+      ],
+      "image": "generated/images/D-018-p1.png",
+      "visual_description": "Original main view gives95,0 x120,0 overall extents and R15,0 transitions on a sloped outer profile; narrow view gives10,0 thickness. That essential sloped/rounded contour is outside current rectangle/circle/ring outline family. Edge-entering6x M4 blind holes also exceed supported top/bottom cuts and lack positions/drill diameter. Confirm current-template unavailability, not general CAD impossibility."
+    },
+    {
+      "drawing": "D-018",
+      "page": 1,
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-018.pdf",
+      "fact_id": "D-018/drawing/general/edge_finish",
+      "box": [
+        1078.776,
+        781.582,
+        52.887,
+        14.837
+      ],
+      "image": "generated/images/D-018-p1.png",
+      "visual_description": "Original main view gives95,0 x120,0 overall extents and R15,0 transitions on a sloped outer profile; narrow view gives10,0 thickness. That essential sloped/rounded contour is outside current rectangle/circle/ring outline family. Edge-entering6x M4 blind holes also exceed supported top/bottom cuts and lack positions/drill diameter. Confirm current-template unavailability, not general CAD impossibility."
+    },
+    {
+      "drawing": "D-018",
+      "page": 1,
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-018.pdf",
+      "fact_id": "D-018/drawing/source",
+      "box": null,
+      "image": "generated/images/D-018-p1.png",
+      "visual_description": "Original main view gives95,0 x120,0 overall extents and R15,0 transitions on a sloped outer profile; narrow view gives10,0 thickness. That essential sloped/rounded contour is outside current rectangle/circle/ring outline family. Edge-entering6x M4 blind holes also exceed supported top/bottom cuts and lack positions/drill diameter. Confirm current-template unavailability, not general CAD impossibility."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-11-20.json",
+    "sha256": "332d43089d177738c95270e02b8bf3ec14d366a9fd31daf660b1db7405813578"
+  },
+  "prediction_sha256": "dc63efbb5af96778b5b9b8968cfbc5974c342ad6971e53520ea2c0227858288e"
+}

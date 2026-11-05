@@ -1,0 +1,37 @@
+{
+  "decision_id": "HD-d7ae99d3c1ff451d9e2997329b245e4b",
+  "applies_to": "D-030/drawing/visual-n/p1-ee64c40601aff330",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Direct original PNG inspection: literal number/context/location match. The4mm section dimension is a local counterbore depth, not established overall thickness. Thread nominals and fit grades never replace drill sizes.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:42.207082+00:00",
+  "based_on": {
+    "sha256": "849100de6d2abbbcca5c6e39cd4a1778918b17818cc88c91340612981d9220ee"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-030/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-030",
+      "image": "generated/images/D-030-p1.png",
+      "page": 1,
+      "box": [
+        704.9,
+        408.9,
+        182.8,
+        41.6
+      ]
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  },
+  "prediction_sha256": "e13bd7510843f1667b7516f19564e4008fe4579d2782b46ec37099aa8698d629"
+}

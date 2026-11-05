@@ -1,0 +1,38 @@
+{
+  "decision_id": "HD-c6c2f40bffdf436c9d84855cab33e739",
+  "applies_to": "D-001/drawing/visual-n/p1-0e79dbcd0ec180b9",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Directly inspected original page: overall492 x515 and3 thickness,287 x200 window;2x4.5,3x6.6,6x6.6,20x4.5 callouts and note Door x2/3mm aluminium. This confirms the individual printed numeric token only; no missing hole coordinates or corner radii are inferred.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:40.126949+00:00",
+  "based_on": {
+    "sha256": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-001/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-001",
+      "page": 1,
+      "image": "generated/images/D-001-p1.png",
+      "box": [
+        583.9,
+        452.4,
+        135.6,
+        14.5
+      ],
+      "source_sha256": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f"
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-literal-audit.json",
+    "sha256": "d3a54c7b1739712f1ac4710fd09ce56d103a32b72b400a824808311f62a8ed94"
+  },
+  "prediction_sha256": "a370063f9fba7246d1236fc72d4f12d12be842f04fcc6ef1134d95867b533ed8"
+}

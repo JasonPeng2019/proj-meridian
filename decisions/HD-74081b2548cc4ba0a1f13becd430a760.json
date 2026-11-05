@@ -1,0 +1,34 @@
+{
+  "decision_id": "HD-74081b2548cc4ba0a1f13becd430a760",
+  "applies_to": "D-029/template/cad_eligibility",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Section A-A establishes15.00 constant thickness, while main face shows essential three-lobed curved flanks lacking overall dimensions/contour radii. Diameter32 leader targets upper bore and does not independently dimension lower-lobe bores. Confirm supported=false,constant_thickness=true,outline_exact=false for current simple-outline templates, not general CAD impossibility.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:39.879678+00:00",
+  "based_on": {
+    "sha256": "066ed91474bb74b652451a34c6b9f5b719d23dba56043b8ba6aa8f5b7479cf15"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-029/drawing/n/15.0@1-1",
+    "D-029/drawing/general/edge_finish",
+    "D-029/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-029",
+      "page": 1,
+      "image": "generated/images/D-029-p1.png",
+      "visual_description": "Section A-A establishes15.00 constant thickness, while main face shows essential three-lobed curved flanks lacking overall dimensions/contour radii. Diameter32 leader targets upper bore and does not independently dimension lower-lobe bores. Confirm supported=false,constant_thickness=true,outline_exact=false for current simple-outline templates, not general CAD impossibility."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-21-30.json",
+    "sha256": "0837e5ed6eafe2465f7840be73edf1543e5cd9e4087c3aacc5f2e4da2e1f14a2"
+  },
+  "prediction_sha256": "3ed7a7766c7482f26542b3cd20c266dfa1848ed8bd827bc49217a4a02e9da597"
+}

@@ -1,0 +1,32 @@
+{
+  "decision_id": "HD-166067ca1b404b81af16b2c601f1d231",
+  "applies_to": "D-030/template/features_review",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Original shows three-lobed outline, central bore, lobe stepped holes and several central threaded/plain patterns, without dimensioned contour or complete center coordinates. Supplied numbers array is empty. Confirm [] under current centered-outline/numeric-ID encoding, preserving visible geometry as omissions.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:39.967678+00:00",
+  "based_on": {
+    "sha256": "849100de6d2abbbcca5c6e39cd4a1778918b17818cc88c91340612981d9220ee"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-030/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-030",
+      "page": 1,
+      "image": "generated/images/D-030-p1.png",
+      "visual_description": "Original shows three-lobed outline, central bore, lobe stepped holes and several central threaded/plain patterns, without dimensioned contour or complete center coordinates. Supplied numbers array is empty. Confirm [] under current centered-outline/numeric-ID encoding, preserving visible geometry as omissions."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-21-30.json",
+    "sha256": "0837e5ed6eafe2465f7840be73edf1543e5cd9e4087c3aacc5f2e4da2e1f14a2"
+  },
+  "prediction_sha256": "650432330df14ab4c3637cc15adb17ea367e79e813bb57169373201cd3e9f90e"
+}

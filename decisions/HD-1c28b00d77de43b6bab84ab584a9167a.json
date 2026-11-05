@@ -1,0 +1,37 @@
+{
+  "decision_id": "HD-1c28b00d77de43b6bab84ab584a9167a",
+  "applies_to": "D-017/drawing/visual-n/p1-5a39f978a15b9116",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Direct visual inspection of original PNG; printed token, context and location match. Literal number only; no hole placement or whole-design approval.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:41.312568+00:00",
+  "based_on": {
+    "sha256": "a460ab37d94f2d8f4c9bac58da15ea9d1e93b4f48ee0825e51adac0ec81f37ae"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-017/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-017",
+      "image": "generated/images/D-017-p1.png",
+      "page": 1,
+      "box": [
+        296.4,
+        339.3,
+        40.4,
+        13.2
+      ]
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  },
+  "prediction_sha256": "1bc0d737667963c9de936f1a06ebba47f4d517d4e40db30d1fd887dcf7b0fc4b"
+}

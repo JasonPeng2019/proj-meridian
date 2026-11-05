@@ -1,0 +1,47 @@
+{
+  "decision_id": "HD-5df55f6c8f7340ef91a47b9427cba768",
+  "applies_to": "D-013/template/outline/length",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Printed main-view overall length270 mm.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:42.579671+00:00",
+  "based_on": {
+    "sha256": "826076b03bfbaeee961dc3e57cb642c225d41f1ea9a643d0bb1ca7d296280047"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-013/drawing/n/270.0@1-1",
+    "D-013/drawing/general/units"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-013/drawing/n/270.0@1-1",
+      "page": 1,
+      "box": [
+        601.611,
+        308.89,
+        32.988,
+        18.083
+      ]
+    },
+    {
+      "fact_id": "D-013/drawing/general/units",
+      "page": 1,
+      "box": [
+        978.968,
+        784.149,
+        85.555,
+        7.75
+      ]
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  },
+  "prediction_sha256": "c9a4a0c5276f6b847fb8b14d6380c4353f2bf7588d9f3c926365b8efab03a11d"
+}

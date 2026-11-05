@@ -1,0 +1,4622 @@
+{
+  "applied": true,
+  "actor": "Meridian delegated reviewer",
+  "personal_human_approval": false,
+  "operation_count": 401,
+  "actions": {
+    "confirm": 383,
+    "defer_unsupported": 7,
+    "approve_mapping": 9,
+    "accept_link": 2
+  },
+  "new_decisions": [
+    "HD-ccdb8fb2be11432496ed401d2a6da1a4",
+    "HD-fab2a4d969e147c9aa7f43e67e7c9694",
+    "HD-ae19f4e1343e4c709b969b35ae39401b",
+    "HD-e43034fa188f481d9e78f2831dd4257b",
+    "HD-a058a206fec4489a850a4bd1b53d946a",
+    "HD-853a9c96c8d24689bf7ea26610804e82",
+    "HD-c8064762923d46c987a0d56942bc1077",
+    "HD-b05b8d33f10741f7915ba6ca9cd54721",
+    "HD-d0f2e718b2b2471e81acc72092236e3f",
+    "HD-e516dae6a1d54f4eb6a782dbd154b3b8",
+    "HD-9831d9a5d58b45e8b5dc12de0dead785",
+    "HD-4d7441bce3ad4cfcacd4f3ec0719435a",
+    "HD-15c6fecb973e4b598a518cbb041ef96a",
+    "HD-fb8c5947377d467f86e311700342f106",
+    "HD-0fc9f5e173884e458c946f9abf708426",
+    "HD-3a6ca28753c244c08aa819d1ad51f5b4",
+    "HD-f9cbcb24d2fc4ad488a94a07ed9dea30",
+    "HD-a6cdc555a1b8458e902c7e1eacef12a0",
+    "HD-c09ddca6fc054c49a4108fbc8e4c9cff",
+    "HD-250df9c0adfb4d1ca7ad7e25524c7fd4",
+    "HD-4767eee56a6b48c48e938a7faf6a6fba",
+    "HD-4d04269dfd1e418595a973ae0ae99688",
+    "HD-5825565e37a24c59a4d4f3b7ccddc631",
+    "HD-8f7a8ed1ad01482ea5500356f8cb8cce",
+    "HD-c6aa758416eb4432834c969add60ad66",
+    "HD-840b450f260a42c9b77864419ad8d4ea",
+    "HD-3b82c1b06c824a929c21bd30407d8a68",
+    "HD-c7054ae1c4d04fdcb59912f3d30657d9",
+    "HD-acf522726cd843178784f85cd514a6e0",
+    "HD-70f2313d5e784a9c843d98cc6562ea92",
+    "HD-c8290bab3c4f46ecb7da1a21af45c3bd",
+    "HD-9d1ba30e73144ac9ae23071c9c89ac33",
+    "HD-0f20a038de47442fb09b4f7ff728dc23",
+    "HD-b2c987a42ced471ca8d356666a18430f",
+    "HD-bad44557122e4bd89771a29dc40ef4d0",
+    "HD-83d2d72c3d094f3f807dd3003ca61104",
+    "HD-89613e8e306f41dc9ddde10e5e005fc9",
+    "HD-658922e19739446a9485d726bf211c1b",
+    "HD-a583ecb7187349e2ae918bdff6e1fb8d",
+    "HD-2fa4a21902754623bdc6ab036f5e6fa7",
+    "HD-ee5dddeff77e47feb499103b0d90d5d9",
+    "HD-5359867f79294690a3be6a41f9a105f3",
+    "HD-1eeb126913284615aa48fe1a2db4b586",
+    "HD-06ba1e0812344d53a9db526c7d31b7e9",
+    "HD-ddf982eda64f488f91e0a3f7fa300aad",
+    "HD-b5351aad89484622807c545512d9787a",
+    "HD-50a4762c762d4e28b8cf3c59f7edcb85",
+    "HD-364312160fbe4c05954dba805f7cca96",
+    "HD-eb1023c1e48149d293868ecb2f9419de",
+    "HD-61ef9dd731ed44bab8438585796fffa5",
+    "HD-1ceb3502e51b415eb14a6bb5878ec985",
+    "HD-afa7391f3b5642b9baf2b525a1ed0aaf",
+    "HD-b4ac7184d27045ef82dbe3433fa76a9c",
+    "HD-f1abe9932aad4e85909981c2c12f9506",
+    "HD-74081b2548cc4ba0a1f13becd430a760",
+    "HD-0af01c749b694d10a0ed25241830b167",
+    "HD-947a134b6f2843fab9206edc74a6e3ce",
+    "HD-ddec27826c12415ebf2d98ac4ac0183a",
+    "HD-885a95805c994726bcf79ce2566423cb",
+    "HD-f2afb6dcaa4644d3a0d35e1d867768f7",
+    "HD-64274e92a3614526ae934847117fd710",
+    "HD-4483e739a5c045dd96f18d40cade0e9a",
+    "HD-28d92236aae142559f7dd681c589e25a",
+    "HD-166067ca1b404b81af16b2c601f1d231",
+    "HD-98bd8453c35e4339869450b9501bc005",
+    "HD-1944303025d048c3952560d99e7dd178",
+    "HD-ff639ef4d9844dec89766d5732130212",
+    "HD-e6c74e2dedf84eaaaf60cfbbec6ff783",
+    "HD-48df6b8b35b943c980f48f97658b1444",
+    "HD-bc3b8ce31f4840d6b6ca56907ae1c7ec",
+    "HD-6f672f6491a845a68a3ac0cf02c5e1b7",
+    "HD-1e559fe845884664b487599d21f8f49e",
+    "HD-646261bb5d0b454eb95977dc2b7b5950",
+    "HD-55cb5759d14742bf8e240d1a9584f396",
+    "HD-12a47b00ebd24ca7828d1271fc50522d",
+    "HD-bc38740219834d519c0d8df229402845",
+    "HD-e47e0bb7cfce45a89cac1963b67cba3f",
+    "HD-a53ee16a305045c59c7d11116d1575cd",
+    "HD-2730695592d54bf0b023798c828d9ef2",
+    "HD-c6c2f40bffdf436c9d84855cab33e739",
+    "HD-960177b34ba94811bd9ef647ad13e7c6",
+    "HD-17e67328a51d4898b1d1c54e5a3eb6a9",
+    "HD-707518bbf3214bde9656f6ce306b97f0",
+    "HD-de2a34044ec245d8bcf49d44075c2011",
+    "HD-8f01630451154b8d9deba5bff937d191",
+    "HD-ddb32cb06eb3420684fe5e58123b9c61",
+    "HD-d490fa4ad84b4365b5b3c6c5497aa31e",
+    "HD-ecf2ea46abc243c38bcff2d8b555ab8f",
+    "HD-29f588a9f0384c36a024ab36ff76e8ff",
+    "HD-1fb0c4bb6f474f5a985d7ec88272b0e5",
+    "HD-06935a1a524947cd91972f336702f342",
+    "HD-6fb4960ede6e46d5927bc34bb3ff6836",
+    "HD-197024c832d04f0785475fb0a2c4fa5f",
+    "HD-d8891cfddaf64198b6fb826c373f474b",
+    "HD-98083fa3e2ec40da9d5be003286731b3",
+    "HD-a46f3e56e8234a6fbd4c7d943e2ad1d0",
+    "HD-7aad3a30cbc8425d85b6d19b407dafa6",
+    "HD-31c67e97c7e447cba99efa83082999e4",
+    "HD-843f55724d91483a96bbbab16a231752",
+    "HD-0c731d001faa41e39243bb4457bf40f4",
+    "HD-d108db3030304afcae42f3d167dbb018",
+    "HD-382b88eddb4c4f3aa8d0990b3393989f",
+    "HD-9f4735c890e44924b81c7be84c50da6e",
+    "HD-fd690083961f4161a26484af11838938",
+    "HD-079f1d4360334d969ea4b0b8be4ee8b7",
+    "HD-f24cb8b29c9a4d859e2bcf453cd24bce",
+    "HD-46c5a2d225bd40e8a906b813dfd1eed9",
+    "HD-2b8a157714a946cebb80e778b1e97a61",
+    "HD-ba31fa86e33f4b14bb0da23a65d547dc",
+    "HD-028efe0bfd2344539ad550fd4cc9fd56",
+    "HD-e60d56ffb0f2461280a63ecee6954b85",
+    "HD-3840f68d0ae04e89b7b9fd6dbcdb00d8",
+    "HD-4caffef7927e41278a2ea42f01511d50",
+    "HD-d66ec259dfac448795cbe1f3a637a3b5",
+    "HD-d3fcd8f622304dab8fb4aea07aec3151",
+    "HD-a2bb70f7eb9d44479e767d514fef1ae4",
+    "HD-4118fbc99a754f44a784e5bf84daeba4",
+    "HD-fbb224da827a414fb9e44032fff71f1b",
+    "HD-0d3d2daaafc642fabe32e3491798afc5",
+    "HD-c4c33db61594412798b7a8a969d0f4d3",
+    "HD-4d15953fde204fbf8fc2b3f802b9b333",
+    "HD-2b1f707afc36456689223afeeaab8ee1",
+    "HD-6b621d151a70429a9cbf8be84c1ac031",
+    "HD-140037efa67244ec92043bac1218895e",
+    "HD-106492205c8246c181bd104d1abba9df",
+    "HD-739c352f5d81463c85abaca1966ca7bc",
+    "HD-e62ad44d8bf849f393fbd3ae3633650f",
+    "HD-3241d87ed6f9474fa2589692abb44815",
+    "HD-02fee469776d49c5b4778e3efcb31a3b",
+    "HD-f1da39f2c33047d293cdefed3e5cbd59",
+    "HD-410da3e8e6e34396a858bdeb9868d5e8",
+    "HD-e5fadf537c4741e9b76940a5e84cf6be",
+    "HD-7d97b73067b44db7b466b64427cd546e",
+    "HD-c0680772118a4921b16c0a559b1d2130",
+    "HD-568d574c77e140ec93087eb35f891e84",
+    "HD-57f615828a014fe69332f04b0e52bca5",
+    "HD-c2dc708c50cc4b179c8afca3a925746b",
+    "HD-af74b95b538f41ae9f9bcda570deccb6",
+    "HD-1b187576dfb549b38eb4f280c26c4cdd",
+    "HD-cb3242fc7d49435f91722c8b383b0d4f",
+    "HD-77208cfd37bb450fb12a63596dfe471a",
+    "HD-639c748911a94f9c95bbc9f0381637b0",
+    "HD-50eae313000f46009b3654be46c53e48",
+    "HD-fd5b70e275eb43b5a11f4a3cf4ea388e",
+    "HD-d929aa27456f462f978d3b3f0a1606fb",
+    "HD-fc11a615ad5d4cefa378bdb52b9cc859",
+    "HD-963e1f8110dd464991285e63638ceb2d",
+    "HD-2db8a770d38b40288061f76bcd132571",
+    "HD-554a22c07c444e37aad76105316fdbef",
+    "HD-a86e6ee4664c44c38a393decfe2ff1c5",
+    "HD-2ca3dc1ece014fbb9cffbb2f315a4a19",
+    "HD-8480b409f2cf46ba9b517da00cf394d8",
+    "HD-15efbd3663f44d15840caea6290b59e3",
+    "HD-2f5fc98444c84d399d31f97accb2a5c6",
+    "HD-6f8b620eba1844698ca401afc03046ac",
+    "HD-95d83c8b24074ccb8986d8b90b3e4a2e",
+    "HD-109d21183ed7436c8c918b1beecf6f68",
+    "HD-cff6f0478b8d41a0ac203497b5d8ae2e",
+    "HD-d6462085aa4846e0b52fa440536d1fc8",
+    "HD-21b81b3fa1774ff4811afebb9894a0cc",
+    "HD-78e28140c5344107a087f9d772d3459d",
+    "HD-69d1343aee4c4d67ba48c1246f6cb1c7",
+    "HD-cccb9e484841411c94e232164be5a861",
+    "HD-a4a286c5b2514a9398fbece75e06bc4c",
+    "HD-4035eaa292f34a8ca7c881e5e3bc1937",
+    "HD-1d8e32a08b0547a2b9877970a3f629b1",
+    "HD-fc81ca35a2ee481d90c8bafe4c327e94",
+    "HD-b8365478f74a466ea2a63f5e49c79ddc",
+    "HD-34848d79086242b387e7a49e589c1395",
+    "HD-6c854c001d9a47cebf774bfa6566de23",
+    "HD-8c423a5c4c414e33ae95dc1996d69c2d",
+    "HD-db95afd00e99422b86fcac38289f5a02",
+    "HD-99c2f793311b41a4b4bd937cb8c8f31c",
+    "HD-0559f4248591476eb8fa16ef25d00185",
+    "HD-f6ddc3c17077475da9e2539fdff226a9",
+    "HD-55f177943f4f4dafb70f493c36289fc0",
+    "HD-505a1c7c7f5542619a43ce024fba0de4",
+    "HD-f32c1c4f46854876a4fdc3d1549f4380",
+    "HD-c113e47a8f8f4dc2a3530ad7165785d8",
+    "HD-c04e0bebc22b43db9fd8ba76c595be09",
+    "HD-e1e66c6807cc44ce8c150c6fbdce98c5",
+    "HD-6b1d69e6d0d84f119da1a1471cd5abed",
+    "HD-35bebce7134e4438ae7fcbd430d42c77",
+    "HD-1a1e908baa0443a299afa5474bd3475e",
+    "HD-0dc8c554165b46a6a7ffe2470ac09988",
+    "HD-9ef520a758684524b0dd4a91906d5071",
+    "HD-0fc020982cc74d88a94b8c18e03987a6",
+    "HD-4784086758bb412a9941580973c3b780",
+    "HD-1dc0faece4d543a094483f2c2019be22",
+    "HD-3301d088afd049e3b700ca12e2bf0a59",
+    "HD-114d1bff70924a578cfeffe3eabd2893",
+    "HD-dc2fed2a6ce249dcb078ab7260d5fae0",
+    "HD-5754cf125bce4e659447bc7f24fbfcf6",
+    "HD-6f674b4e708f4c49b1d99291fb7f4753",
+    "HD-4a525e449bb945cdacfbc13d982fba13",
+    "HD-ab7d513af13d45e0a612b4f97c96d6b3",
+    "HD-649ee8b669e14ce3885d73994681f89f",
+    "HD-1c28b00d77de43b6bab84ab584a9167a",
+    "HD-683d840869bc4b30b2213b96da0a3196",
+    "HD-adba97109d9441fc85a475efcf3878fe",
+    "HD-948973e10637406fbf976d8f1173b915",
+    "HD-556f94ff49ec4582ae9d117d5adbe8c6",
+    "HD-4004b28e756f44ab9673a5b60849a0d6",
+    "HD-2d9251e80a0a46bd8744ce2415f029ef",
+    "HD-21346daa9eb84898bb6bf93e6713c955",
+    "HD-615825eb2b8f40df978628ce45818033",
+    "HD-79a34dcff6e64b60b3f2598149649075",
+    "HD-b0398e27f035474fac1d001357ecbbdc",
+    "HD-634f7cee85fe4c7a9a1a57c327fd78ac",
+    "HD-6740101fe6364236abb8d4551fcd96e4",
+    "HD-9535db86c6bc4d2e99983112c59ac2e9",
+    "HD-90364b5159114f32b9e6ce602c753eba",
+    "HD-e57349f44e1348b8813651cb01b37b4c",
+    "HD-c2757854ee7f482495533da866ed99a7",
+    "HD-a67bdd9f93ab4fecb11df0b00fa5a2d6",
+    "HD-6c0e828768d0438a9eab92385f964b12",
+    "HD-a9f3ef5ad2ee4b7fb286b474249ae938",
+    "HD-04f690d6e3f143cb9c1a6cefd61bc231",
+    "HD-e81d50c159684f0d9ea22b713b8ade6b",
+    "HD-46066655e8ae45ff8fe8de393ebc9bd9",
+    "HD-b7cfc145bbd04cb29904485eb4b90707",
+    "HD-2a14aac5b222409db111dc07e888731e",
+    "HD-9f3201f1309b48e2b9c3cd2a45c8026b",
+    "HD-e1fa866057d1445d8ba83fc57206ec00",
+    "HD-4c2ef5a7f4a949239d2b1eba4ea47a4a",
+    "HD-2b782bc7fcbb4c0eaa9cd846cc857932",
+    "HD-5a9e330adef24d5d80d8409b4b212180",
+    "HD-8d6b845318a54009a6e492b188663620",
+    "HD-5556146e34a34e519ec7d441e0467739",
+    "HD-9e7cbacb6d424dbea1d075eaca644ba6",
+    "HD-2ce45ebc9bb74cfcb26cb5b6a27e16d0",
+    "HD-9e4c3a69b9ce4d278dde5cc739a3c8be",
+    "HD-947701e82b984176b230398e96bae889",
+    "HD-e099b86180b94805bb52ac370790bd59",
+    "HD-61f315009d5245ed8fd39ce5f1805a33",
+    "HD-bb3e5f35b4874f13b145f5f00f3b0ac9",
+    "HD-f2d2da6026294080a5382fe366cadc6a",
+    "HD-079d6e378bcc4038bf5fdac1bc2191db",
+    "HD-dcdc0ab72ad24f8c9311416a7342a62c",
+    "HD-2461a855f3714092aa3049737a26f9be",
+    "HD-f1c6faba521e4c2dbc998ede4b36fba1",
+    "HD-62723c7324674316a986ab2fb284c643",
+    "HD-dc5285d3b1d947e4b3b98349b0ce17ec",
+    "HD-71964d3ec2f14e638cf6f530963a7e04",
+    "HD-0cbd41f15f5c4e4db1ed5db392fef360",
+    "HD-1148c2a956d3436d8e5567f9628f2ae2",
+    "HD-a07933daba184053aa3e5a6775824462",
+    "HD-0403b2ba6a5447a89cfdf5e264d458e7",
+    "HD-b51c0d5bdc4245da810eca9b7ad7511b",
+    "HD-87b914456e684ef69821dd1cd7cc8776",
+    "HD-838a1ae870304766ae108e5a07249bde",
+    "HD-959110332a454fd9a3cd0b311bfd67cd",
+    "HD-86b0ef6fc9c74668aa1e2d0053aceb26",
+    "HD-119cc391aa674ca2a6e951063b8b0baf",
+    "HD-a6a6f6f665e34f2480f3e22489640a44",
+    "HD-a283933560d5445aa0302cfb1f6313a7",
+    "HD-f7f1ef37931b4f81a4304941fd6fa0b3",
+    "HD-2719077ba9e7418e885262edabe55e1c",
+    "HD-ab17e903fa2e4145832a6facd2b87f07",
+    "HD-1940a03962324bb7999de0360d281f5b",
+    "HD-8756a2c03001428ba057827cadacbce1",
+    "HD-c679251fcede425aab70146653aa594a",
+    "HD-ba9e50339b1948b7af263aa10cd751cf",
+    "HD-69eeb72283d5402f93133d65a8501761",
+    "HD-986bd435c1b24f59b3c773fb10f941ad",
+    "HD-96b0cc7e95cb43e2b367689e0b54d4ec",
+    "HD-fb3127dbb51a4b89a162009f918f7dea",
+    "HD-e7d0f50dd8654f7e9dee1e76be3307d6",
+    "HD-310af6cc18df4d45ad411aee2fc217ce",
+    "HD-957086c2aa2a47c0bb42a38ea99572ca",
+    "HD-9fca636a90b54a35b6a9ad3dd2170004",
+    "HD-8e125d2db72e4d89915cd45c0d07107e",
+    "HD-366026cb162b44208a32a98940b9c1ca",
+    "HD-afff3e637ef6482bb67b8b3d12f720f6",
+    "HD-755e9f45dd724c639c32f0c1eede49fe",
+    "HD-42b442cc0b5246df861ddf50afc26333",
+    "HD-e681812b68bf4cc8accedb728a84950e",
+    "HD-58d561bb32964594acdf8a28796ca926",
+    "HD-87757359230a45a9b0c5f27652139aa1",
+    "HD-fb1941494f5d4dd68840cee880381d23",
+    "HD-28e33ff5ce944b708bfc1157e49926ac",
+    "HD-bb1ecae4b9e54319991fd333d6a7859a",
+    "HD-488fe126eca34ca1823479799e2902f0",
+    "HD-991a30b861ec4843ae19b00851f2869b",
+    "HD-9f4a36999ac74d9e873557aaeaa65294",
+    "HD-da7326284c4a4d929b786db370d39b92",
+    "HD-8eef4540585e432590659845d86fe68b",
+    "HD-c98f32d3a1f34b40bcef9cf92949521d",
+    "HD-3353048e36ed49abbf648d2010504afa",
+    "HD-96b5b6e8d5684b06aefe59264540fea5",
+    "HD-d7ae99d3c1ff451d9e2997329b245e4b",
+    "HD-35d9fde04f3741e983ea4da21ad7e61c",
+    "HD-7a82f5dd54514699ad355099a0432340",
+    "HD-52a7b600d0154d358ca43d741abe6dff",
+    "HD-5dc9f0f5e7144e41aa614b59505ad9fe",
+    "HD-ce0cb32ee6b8469aab74f81d25b35071",
+    "HD-d2365846183d486f9083390037fb5981",
+    "HD-c2291ffe7c6f406998ea9819414fca55",
+    "HD-c4753c06ec4342c3b94737c31ad64711",
+    "HD-7a5c1c11b24044cb8e80c51d47f3f46b",
+    "HD-2f6c8c38c7354ef9ba256ad53947f224",
+    "HD-8b97224bf5ab48e89aebff16de2fc170",
+    "HD-558b72b7cb1940948b181871053e0b80",
+    "HD-84dc97f512bd45c2bbff7048b290e0a4",
+    "HD-92148afc71c047769feed3b5301c402b",
+    "HD-15048627549c48c08c470df9e18f62f5",
+    "HD-d947faeeca214e11a336973c6a30c9e9",
+    "HD-9ce74300309947dbb0d95f9aa8ab929e",
+    "HD-9d44dbe620184e278b9a8415854d0f1d",
+    "HD-a188f1b90b6a447181bfc6894e427d99",
+    "HD-a5cc0a83be8c40caa1c1ae9745f61443",
+    "HD-19b3a20685ca4fe18c59e14eebfeaeff",
+    "HD-dd6e008bfe03416e9a0404be5d249c4d",
+    "HD-08e15216d81044b59bc7d6d544109559",
+    "HD-d77e0b7f8b8341fba69fa4f343365c0f",
+    "HD-86f76d0c13cf40b7939b92cfea9de6b7",
+    "HD-c80f4c8ed86c4b7c9b1d1246b02f5f31",
+    "HD-c62c7e3b9a274d8eaed371a4f6242e1a",
+    "HD-e27edefd2517420a9e5c351007928247",
+    "HD-b3c9cdba1e0a4152868747a53dd7c10c",
+    "HD-29d2295821034ef3bc721c3c48aa1045",
+    "HD-40cc8b56372a464dbb613ec53f1da65d",
+    "HD-4a212328d7084a989c3a5e5e5cc93a2b",
+    "HD-b3a1fb910f3f4122982128d5880ebc09",
+    "HD-b8acd6693c644cf285a7554888581f7e",
+    "HD-3d2406dc84784fe1a7e3004c78e049e7",
+    "HD-9fe293746df04b8fa16d7132170755c0",
+    "HD-c80bc3dd2e7a45878e22ef753c5d59b1",
+    "HD-f95ee5a746b447389bb52911ff5cd5fa",
+    "HD-5df55f6c8f7340ef91a47b9427cba768",
+    "HD-b7d149eb602a44978f0139d336d7e095",
+    "HD-5ad1b0002a5145a6b9d23d4d208cbeaf",
+    "HD-b4b3e456c44249cfa9b7e301780acd36",
+    "HD-02412190f1a648b5adcac7b3f58acf60",
+    "HD-f997dbafbfbd451aaee532ef7db32b68",
+    "HD-3f8c0ebb73e144e2bea651f78b04f466",
+    "HD-e120d535ef504d01b7ade826857f2680",
+    "HD-9392af8889d64ff2ae0dfebfb8bbec3a",
+    "HD-22155f7f2721481b8cc683020afb60b5",
+    "HD-ced24321b6bf4dc6a8aad153fc9cf94f",
+    "HD-e06f2e9b80c9475bab2824f6a6e80eab",
+    "HD-0f01bf5e5af84fcab06d7a2c1ce8ef09",
+    "HD-fe4d2d252c6c4320b0d966e15ff1f984",
+    "HD-0d0b6569b6614a88a20a42d50e375bde",
+    "HD-faa84e3036d64a8bb664c0884f1ed05d",
+    "HD-5f8434aed45a41f5acb0bbeb51cf8816",
+    "HD-7d3205c788ce4b11bee948ab7e952e30",
+    "HD-57e08889f8cd455c92d4c86d1bc3fa36",
+    "HD-550aa2d113e34feca13a330016b19d25",
+    "HD-c365168285f04e77ac29d0ebd081fe3d",
+    "HD-8d57c176f4804760b1fe6c8eb5f6dbd7",
+    "HD-41f028a29eb244389703ade4104401b2",
+    "HD-3bb0ff48eab2423fa2f8361179a5fefe",
+    "HD-38550c900adf41a1ba78c305fa245797",
+    "HD-b0d62f0f1cae413a805890ca0f689cb5",
+    "HD-43cd40ad956446a7bb8c032d213688f7",
+    "HD-171d6861a7a348a19a058c251bc9c98d",
+    "HD-33fbe48f30514b99b7d87cda2fdb7c44",
+    "HD-84ac0b1e268d43b886937af1132b369c",
+    "HD-6ca8d5223f954aec8eb3d8e0e201537f",
+    "HD-a198ed9945f149f58319ac4f417ba23b",
+    "HD-256bd0ee64e643bf84a3dae6256a8ee6",
+    "HD-18e95799abe9420e9409f580b44961b8",
+    "HD-12f2266ab89a4064892b8dab085327c3",
+    "HD-3302019efcca4af396362cedc046bf1c",
+    "HD-54c5306ce580420a92721e2df16bb970",
+    "HD-f805788c30ac44b4b4ba2709600dbb05",
+    "HD-c3b3abd91366439dbb544992286a618b",
+    "HD-3d585b8c481945d69a64a22f1ef87686",
+    "HD-1da03280402d40d8aab42666026f9ee2",
+    "HD-8f9287d42fe64e5c896e00d7d33ec781",
+    "HD-a620bdee816f4dd4a0dea7ba32536de1",
+    "HD-b0cf01b26a08436c97a1acdfa51e0cbe",
+    "HD-0e2b9e4c8c2b4ee69729705013d15779",
+    "HD-5f582ef9e6734debb8b9559907f86590",
+    "HD-197cedff7fea4a5f8aaca2a67a602f90",
+    "HD-38cc4cd1c5424cc798c52386e6842203",
+    "HD-74727543113b4da2b47f28e2fa9664b5",
+    "HD-04a7f518c4d64681bc83a8429f05f013",
+    "HD-df25c11706f547ed94544a33cc8eade0",
+    "HD-d69fff76c88d4e5f97071cfadeae062d",
+    "HD-45e72421287f46f0a8235b88d52f99eb",
+    "HD-fe0874dc5dd0498e90a935ba61ad4299",
+    "HD-7a4c6d3f13134e58a58940f3badfe5e8",
+    "HD-09096b8fc5ff4b5681aacd74048d48e3",
+    "HD-cb3dd9ea67dc4d73b7e88a18139808b2",
+    "HD-1ef95a12735442c1b8077b8d2f26e8ed",
+    "HD-f3304f8bab4a4046af13dec6be02c33a",
+    "HD-c0ee80ffd0f24c7b8f0a3ccce61373dc",
+    "HD-feb18a32f77c45b8adba1b302bd98dc3",
+    "HD-9ce7b1766bb444169cf460c2b300d39a",
+    "HD-98c6d5f689134eccac254eb5ec87cf67",
+    "HD-1c7aef16295647d0909810e3b3e3bffb",
+    "HD-7433c69460b544f0b9d6351e7df4c1e4",
+    "HD-f191adc980d34ecca24fbee750e2aa1f",
+    "HD-62e9dcb5a2d84970998e6881b2043b39",
+    "HD-84403c91b3dd43b48cb98a6ef5e00e26",
+    "HD-e31fc5daf7da494fae867ec9e299528f",
+    "HD-6916f58e6fb2417facdbc02bb75320c8",
+    "HD-f574ca7842c648329c9db7459c2ca53f",
+    "HD-d64f4d7c2bbb4de9aed7ebcb243d7c02"
+  ],
+  "preexisting_decisions_unchanged": true,
+  "baseline_decisions": {
+    "HD-02e82129987e45449011aa1d85f42b0a.json": "72a607c5402bdb4dd62f0f67ca1f63c354c639a7974ce1f7797f24210fe2be80",
+    "HD-156ca4ef74714ddcb83c9ed98165aa6c.json": "77ee059bb85b4939486f58d1b9e9eb319cc9fa3ff714111fce041c7c27f74355",
+    "HD-180568c058434a24bfada85c087128bc.json": "df8353a385fa7048a6e13e1f77c51bdd857a0a274e44c1c0be569dbdfb8dd2c8",
+    "HD-1939feb894da415a934b0a2c9fc06d9c.json": "b61a69ca6cb1ac45d145d2b16c27e192c43b4089c95573ed18e6c0e19f57f0d6",
+    "HD-19b968d0ddf14632933eeeadaedb943f.json": "87bb640207eafa6c69c69f8f453a957bbb29aca2570d5bdbec55c6d261b4d531",
+    "HD-1d3d75fb2d9f47539bfe0f924addb812.json": "cafb17b29c4a7838deb96c47b2b553eb348485088163ba8347d6bf27c17fdf20",
+    "HD-1dff5fec429b48169a33cf95bf8b53f9.json": "18f79c55d5f546828e97af55d96a3b4d60f4428dcaf94153cdb072339a27435c",
+    "HD-231ab5e83cc44ea9866e0f62fed5cbe8.json": "78ea409d8fbb3e9389b0559a73fca7a986ec12ba352dfaa574918eb34bfd5f9f",
+    "HD-2500ef2c801c4f7ca33251ff0ecb65e8.json": "c007453ad424013637478f26e02fac083b9f1c0d3c3a544ebf44ad4c64ae262d",
+    "HD-256c3e97751e47909b16487c1e74c532.json": "9ac0ec34fe17dc26b7daf37206d86fd2af8c0d80dec3de3bc53d54b6a252d50c",
+    "HD-2a4f77e697114f4086c14236a6eebf64.json": "80adfe3926e41d5f1e1e1ecd244b5d29758949e5451e55c4da4717f2c8522afe",
+    "HD-2b4cfb6c8c1f425eaa9b8dd544cdaffd.json": "6a92f35da478207d24d9dc3c3f3d4398d6357d1909a1514070adc0ab2d77e212",
+    "HD-300f3820573c476f95f191f6f0f5b25b.json": "58f3944d92bbb4e6b84a6bc2cf6471fca3ecebdbe0ff12d8c410037afe70ed3c",
+    "HD-307300c958ae4215903647a6eb7548d4.json": "363048a81e3c002b7043f272f6b2090c29b10f07c6ac16e1352a373a3b7c1088",
+    "HD-31f44bff4e36448cae225d7ba8823044.json": "68b2799f7a547b3cdefc48a0e193e1dde4bea361d6966137339bf45816de5216",
+    "HD-32e36ce1f2c146beb4e89e6823fd5188.json": "b00e7ad18305df5f2a23bdefb505256931c2856505d4cb040c8f17cd148e0458",
+    "HD-3646fb6a1c07459a8a064773242340de.json": "a798e15066e087ec5cade95cd6c38f88ad77f6373221f854553efc49db64f6a1",
+    "HD-3c143d97a02e4c55bb8524e05b9bef1b.json": "98002d3a7fb29d19e75de818ddb209fb24a375646708afbfb64bbb96774d536d",
+    "HD-3c14e08cdce24fb288090820a7a2acc6.json": "936e082499fd8b4ed85289764c16f8b0f7a182eb5d94396b0e80cf98b813c76c",
+    "HD-3e35a7e79b6f40f29c6683aae055375b.json": "6f8329b71c6e6e08364453751a533df651f70e9629fdd9aac08ab8e4b2c6ccfa",
+    "HD-3f3e9e0d2a844d87bb7f9235ec501437.json": "5cadf50f17f440773d3b76c150854c12ea8d3047bde488cd541cea7a2c342026",
+    "HD-426f47423a6445609782c940107eafe5.json": "961f7c6e6b29af32fc2de7d04ec1fd640fc28bded03fe6481b7776517a42a38f",
+    "HD-45a2a35429604b09809587edfa490e7a.json": "59bcbd899eeb96aa9ebd57b2a8affa74fb0990c9d3b350ff66f5fdb5b982464d",
+    "HD-46c857b0ef7f41fda22ca7820f451932.json": "35c47762c950ab7cab1b9480e60fb5e031655541028e8482a7d1bc3817d99201",
+    "HD-490ebc06a3294c54a1cbf744cae53cbb.json": "f16a3399d636f7a4a7640d377fba584edf819244180ec899572a19a9756b7e62",
+    "HD-492f2a484717418cacc3311a23530aa5.json": "b84ee92db436cc75acdfba8c4e831e6ffd3130f47aff922c6f9b3368e9bb36d4",
+    "HD-49d84df98e48430f835706723fa1f747.json": "96c6a0d2c87d65f963b47f06904f9bbe477730f8b649dccd3307f7d5a9499f16",
+    "HD-504c7f7aca4c4d7f8e087131699fabe6.json": "8e8c05894e26d87a464cb78223b88de2845e275222f71f04fee1919e63e21d3a",
+    "HD-5189ee752e4d4f3f85770bc2eb3b9542.json": "172618a21175b61187c77cc9b9e062ad729579f03da36389be7978578f55bd11",
+    "HD-52908d254e5548ea99b37f39e1dbef4d.json": "94adbe487aef6158fdf4e26f8ed066fac811f19d5faa05506ce46c87200f9684",
+    "HD-52e4da222a0f4467b945a264201bb2a8.json": "87a8b433a01c8085485cc0492c0dacf13e4baa857279b190e228b64a0aba49df",
+    "HD-5d5d3271c51a45608c2cc847cd21285a.json": "cd2aa8e0f8e864264d09952cf889432a4e017f2fd71d53642970630d9b95ae16",
+    "HD-63f19afa41c545cdb20b21be21c78119.json": "9ae43fcf7f35c9d80d3c2edeffc8d023f3780035728957417181899659f693a2",
+    "HD-6532a09332a04a35b2dcf6593773e0db.json": "ced57eb92c83a3c9b82f9d429bb4ec544b08e01b35d64dd1eb1d359bd5607c64",
+    "HD-67e98dae4173426bbf397c65ebb5917b.json": "e90718916eb719d52dad6cae52c08f580164332de2ed3643e6c13e61055d8883",
+    "HD-684f092df8a240f28155aa865d6c783c.json": "fda2e0d5be4847956ec174da77ed01bb539c18d36b4df7c9d38e6b85c8369f88",
+    "HD-69ba5883badc49eda2601024b234eb05.json": "785a0cfb7db77be15176b891de565948f0af66e959a0dc932d83ebb34d683a97",
+    "HD-75375934b9cf48ce80f72256dbf82463.json": "349d1b35e0057ff7ea014f828c6cbb199f0aae2b7b5ad925b6a413fa41fbab7d",
+    "HD-7a1bc552e2ee4f57bab84399d07fd95e.json": "ad123bae64438e1d93a83c484c63a79b7855b559c814a56991190baebb8f4178",
+    "HD-8219fab2d7ed4485bdc3bd17a407807e.json": "81c43a0e4a40f0b3e1fdf24ba8a24dbe1a6b1d83b8a336eb501e827dcdd3e433",
+    "HD-879363d2b6584dc197048862d5c25089.json": "1171087c8cbc3274496670245e6dc5eae3baf75b601845ff4a7b5e832f37a45e",
+    "HD-88c4369d9237460ab3d912ff67fefe97.json": "b0aa05055e5ff564d36712eaedbd65691ab82d83050c80b236b7bc356d5d8aa9",
+    "HD-8b8d741fd4014418847317e4efe10e37.json": "032fc86ba267ed09262c407a25adfe0da0c0ad4d2d8b332644f1df2a78e07620",
+    "HD-8c8d87af2b4b4216b560d9ac40e272e8.json": "0ab08c351e619e5a0e4196efafedeee60e9ba153c446bd205ed9c01a02e2321d",
+    "HD-8d4855137abd429382be41e12ef67220.json": "baa23b04fbc85cf78352e65bcb9580aac2af3745a071e3e7540e4deb2c00f322",
+    "HD-90f31920767a444eb39d6ef8169dd3fa.json": "28f72447202e1566b523c3d4f3c0c4f60adc8b587cc5b05480ec8717f3c14c28",
+    "HD-98cd855aa83f4e6f9800d6698f30afd5.json": "e92f5a007b66627a9b1b843eed41ce1da75ceebf5efe16ef77ec853fcd1509a5",
+    "HD-98e20c7e70114ebab2a7e3db46355ae8.json": "e025b7445cdaf3b375ae60c823874d6fc795a501385bc7458c355cd95d27476b",
+    "HD-996484f3ea0145439958a8a0f090cfff.json": "07b4aeb9638e754bdc8d7588e10e9e25c3943181f0a4f7877059fe068dc27a2d",
+    "HD-9d52b7dc91b64dceb315f2d378018e54.json": "b7def723e6f3aefb37ccfb72250e82586df765e6bd354bbfc0f8857464fe8e8a",
+    "HD-9fb9ef523a7d49f1b9882302a4db9a71.json": "1c41cbf5181b024be61b0625203fe28f15e791249c6e45a2b04a8d0e630c88d6",
+    "HD-a685a208b0ec4e888f59261b12023a59.json": "e1e39c296773d262029039286583571e88a7b6cc4ee5ce07abbbca8d2da8661c",
+    "HD-a8266420d60b49fa980a2c5d7248e81d.json": "f331cd732f94615868a49674396da7d3a34c3eebc255f5ea96cc8c2c5e5446b9",
+    "HD-a8c3b191263143f5977334418c3072b1.json": "04a98106953a9812afe940afde777276b77aaa7c304fee0269a8d4f8c54e7f26",
+    "HD-b088f6193c774cf891c74bb11c213dc5.json": "eeefa9bee76e347cbc424e4ee8377a2d88579df065c5d0c5e8b38f5daa987686",
+    "HD-b101dbe0166e4c4f855478ab11032ab7.json": "c6037245bd98a352e39ac5a95e5beb0b8d0ae4984a3342222d969f4e71b0aebf",
+    "HD-b21b7569b1294922b9d67cecd149b6e6.json": "f8ef82c2e122428bc31ba23bb69b67ffd0eaf98220b70171395b2f0b94290e22",
+    "HD-b4b9eb57eacb48f0a39780ad83fc77b3.json": "d0b4efbd89cf32a335a9a6e96fda8773c7234ba823a8b3cf6d68ac64e88cb3e3",
+    "HD-b561439d5ce44685b5b20a662000f68a.json": "0ab9a599b6b91c2b432393df18b8a5ac2e38b85eca3e8c95102b7591525783db",
+    "HD-b5d0b25bee2a4066809024014c23a6e5.json": "12b8c14f7b5899623fac128d825a18346d8b81da0808a6f598170e8d52a7e5c6",
+    "HD-b93dca8e407943708734873bc4ccd512.json": "470ad55a8fd87d628b8fdf0159cd9248402f45025466605f8fed7ace0134d14a",
+    "HD-be3ee10c3b8e4b7a8adb67aff6b4895e.json": "2138310264ded4bf30346635513c085cb174f6f1451719f0d5fbaf3f9848c955",
+    "HD-c4a5cb09489f4f25b0312ebaa591a904.json": "764649f84e3b32a26387ac1f2258430c63a1e919e51a66c0d72431507f13280a",
+    "HD-ca92ba38f05643db9b77c195236e73ab.json": "edbfcbf5d57f2d08c1533bab21051dde030038b0f26ab87653314fdd5acd7091",
+    "HD-cda0adda1c794749bb9227bca266cbb8.json": "77b03f90eb8ed668ae28c4b0d91c3bd1cdd926480c8be195bc16d89be1bcb508",
+    "HD-d7788b9166a244268987509b6d7ddef2.json": "42402ef938efd0271e12df5f018aa045449243488d76ee3f8d97af419689d433",
+    "HD-ddb45ca40dd44fe68df590aeaadb2cdf.json": "7fb5b055ec6313d3c7f94560dd4845d66f918a4e941bd5764b936f5f4fc633aa",
+    "HD-de709fdffec3445f9b0fd5412bf55924.json": "4a9e1657160bef8eaf0b3adacc4517850509289b6e31c33cd46c649a7b5a79f6",
+    "HD-e262a7e0b79247aabf9bf35f711fd095.json": "10ea1e905368097e3f8541d09c864e461ac9cd469c70f0166ed065d4ade7206f",
+    "HD-e48b036f0feb4a3ab245f894e873462d.json": "2f19c60e81115f9beb80fea58de33137efa74bc4908e92967b1e8b38866b5b22",
+    "HD-e5440503a57346808298502a77ca0447.json": "df090137905dc91a983e6faa5d0b295f87cd22b1fecdea1a62e05aba5c9bb2f1",
+    "HD-e68743c2f8424bf7a8566b6a44eff601.json": "5598d3d1c65067bcfcf680247761dff7cbc87137da9aac74c835ecc9cffc7268",
+    "HD-edd9c09078d84b6bbfcd10fcf1c69c98.json": "d7496f4a708440c7b84449e5cf6c3b4deb5afd59a612cd5d1d34a6a9d7dd23e1",
+    "HD-f0d1eac0e1194a1f8168c191391d5467.json": "e19041e343dc73ce36f5c436435bcbe8854aa45dd1f205c4452e64aaad0d9556",
+    "HD-f5dea265ae824591849d0a283362ede1.json": "d78aa838e146303b5642460f7b531ebd20cd8153dbc50792987a9d9e87b8d7d9",
+    "HD-f9646b2bf1da447caf260eeee546b1a4.json": "42928c1f36212e752ac992d9b782b3040464c74abb5e7677482288a213f2e112",
+    "HD-fe4ad49e520d4a8591c2247c7d1f8c66.json": "d7424be7d3ab24a9ccd236b42a80a05e0b4ed118ed983bc6932579d6c70c8c7c",
+    "HD-ff7cc4ca93974e2f97c665cc2acab4d9.json": "1424c74a490092ed8d52ef103ca892fdcaddae3877afaaa01a664c865acac6ea",
+    "HD-fffccfd7bc1f428eba1b237692d5e264.json": "448199d06bc3136840083a978844a83eef9c3f8cf4056bf5c962a242b23fd5ef"
+  },
+  "review_queue_counts": {
+    "resolved": 460,
+    "human_review": 3,
+    "human_input": 25
+  },
+  "accuracy": {
+    "jobs": {
+      "scans": {
+        "confirmed": 274,
+        "rejected": 0
+      },
+      "matching": {
+        "confirmed": 5,
+        "rejected": 0
+      },
+      "templates": {
+        "confirmed": 136,
+        "rejected": 0
+      },
+      "mappings": {
+        "confirmed": 9,
+        "rejected": 0
+      }
+    },
+    "reviewed": 424,
+    "accuracy": 1.0,
+    "delegated_reviewed": 424,
+    "legacy_prediction_unbound_reviewed": 0,
+    "excluded_decisions": {
+      "unauthorized": 0,
+      "not_ai": 3,
+      "stale_source": 0,
+      "unbound_source": 0,
+      "stale_prediction": 0,
+      "prior_mapping_proposal": 1,
+      "corrected_replacement": 0,
+      "nonfinal_outcome": 0
+    },
+    "scope": "current_source_reviewed_original_ai_proposals",
+    "note": "Agreement with the latest authorized review of original AI proposals on current source evidence, including authorized delegated reviews. This reviewed sample is not whole-dataset accuracy or design approval. Changed mapping relationships count against the original proposal; corrected replacements and unbound or obsolete source receipts are excluded. Legacy field reviews without a prediction fingerprint are disclosed separately. Exclusion counts refer to decision receipts, not unique proposals.",
+    "prep": {
+      "agreed": 0,
+      "agreed_after_retry": 0,
+      "verified": 74,
+      "verified_after_retry": 5,
+      "sent_to_review": 18,
+      "scan_undetermined": 20,
+      "mapping_approvals_required": 11,
+      "mapping_suggestions_unsure": 1,
+      "status_counts": {
+        "verified": 74,
+        "verified_after_retry": 5,
+        "needs_input": 39
+      },
+      "by_job": {
+        "template": {
+          "verified": 17,
+          "verified_after_retry": 3
+        },
+        "scan": {
+          "needs_input": 20,
+          "verified": 42,
+          "verified_after_retry": 2
+        },
+        "link": {
+          "needs_input": 18,
+          "verified": 5
+        },
+        "mapping": {
+          "verified": 10,
+          "needs_input": 1
+        }
+      },
+      "jobs": 45,
+      "exact_links": 7,
+      "reader_calls": 98,
+      "cache_hits": 1,
+      "provider_calls": 97,
+      "latency_ms_total": 2048588,
+      "proposer_calls": 49,
+      "verifier_calls": 49,
+      "feedback_rounds": 4,
+      "feedback_keys": 6,
+      "protocols": [
+        "proposal-verification-v1"
+      ],
+      "configured_readers": {
+        "claude": {
+          "model": "opus",
+          "fast_mode": false,
+          "mode": "regular",
+          "reader": "claude"
+        },
+        "codex": {
+          "model": "gpt-6.1-sol",
+          "reasoning_effort": "xhigh",
+          "service_tier": "fast",
+          "reader": "codex"
+        }
+      },
+      "roles": {
+        "codex": "proposer",
+        "claude": "verifier"
+      },
+      "wall_time_ms": 2112921,
+      "model_expansions": [
+        {
+          "run": "20261105T104806207369Z",
+          "protocol": "flat-part-expansion-v1",
+          "assessed": 27,
+          "reused_blocked": 11,
+          "ready_for_cad": [
+            "D-012",
+            "D-014",
+            "D-015",
+            "D-017",
+            "D-019",
+            "D-027"
+          ],
+          "blocked": [
+            "D-001",
+            "D-002",
+            "D-003",
+            "D-004",
+            "D-005",
+            "D-006",
+            "D-007",
+            "D-008",
+            "D-009",
+            "D-010",
+            "D-011",
+            "D-016",
+            "D-018",
+            "D-020",
+            "D-021",
+            "D-022",
+            "D-023",
+            "D-024",
+            "D-028",
+            "D-029",
+            "D-030"
+          ],
+          "partial_ready_for_cad": [
+            "D-012",
+            "D-014",
+            "D-015",
+            "D-017",
+            "D-019",
+            "D-027"
+          ],
+          "wall_time_ms": 2748531,
+          "usage": [
+            {
+              "drawing": "D-001",
+              "metrics": {
+                "agreed": 0,
+                "agreed_after_retry": 0,
+                "verified": 1,
+                "verified_after_retry": 0,
+                "sent_to_review": 7,
+                "scan_undetermined": 0,
+                "mapping_approvals_required": 0,
+                "mapping_suggestions_unsure": 0,
+                "status_counts": {
+                  "needs_input": 7,
+                  "verified": 1
+                },
+                "by_job": {
+                  "template": {
+                    "needs_input": 7,
+                    "verified": 1
+                  }
+                },
+                "jobs": 1,
+                "exact_links": 0,
+                "reader_calls": 2,
+                "cache_hits": 0,
+                "provider_calls": 2,
+                "latency_ms_total": 74610,
+                "proposer_calls": 1,
+                "verifier_calls": 1,
+                "feedback_rounds": 0,
+                "feedback_keys": 0,
+                "protocols": [
+                  "proposal-verification-v1"
+                ],
+                "configured_readers": {
+                  "claude": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "codex": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  }
+                },
+                "roles": {
+                  "codex": "proposer",
+                  "claude": "verifier"
+                }
+              },
+              "calls": [
+                {
+                  "reader": "codex",
+                  "role": "proposer",
+                  "cache_key": "25763864a555b95fdcdcc88263acdcbb821cf1b87011234fb39744b790dc05b1",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  },
+                  "metadata": {
+                    "events": [
+                      {
+                        "type": "turn.completed",
+                        "usage": {
+                          "input_tokens": 18068,
+                          "cached_input_tokens": 0,
+                          "cache_write_input_tokens": 0,
+                          "output_tokens": 2325,
+                          "reasoning_output_tokens": 1552
+                        }
+                      }
+                    ]
+                  },
+                  "latency_ms": 56766
+                },
+                {
+                  "reader": "claude",
+                  "role": "verifier",
+                  "cache_key": "7cd6b4ea9e28fc95bfb1cdc9c74fe72e4a411cd0801ae1452f4e2a629d2b93cf",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "metadata": {
+                    "usage": {
+                      "input_tokens": 4,
+                      "cache_creation_input_tokens": 12187,
+                      "cache_read_input_tokens": 8638,
+                      "output_tokens": 1773,
+                      "output_tokens_details": {
+                        "thinking_tokens": 503
+                      },
+                      "server_tool_use": {
+                        "web_search_requests": 0,
+                        "web_fetch_requests": 0
+                      },
+                      "service_tier": "standard",
+                      "cache_creation": {
+                        "ephemeral_1h_input_tokens": 12187,
+                        "ephemeral_5m_input_tokens": 0
+                      },
+                      "inference_geo": "global",
+                      "iterations": [],
+                      "speed": "standard",
+                      "fallback_credit": null
+                    },
+                    "modelUsage": {
+                      "claude-opus-5-5": {
+                        "inputTokens": 4,
+                        "outputTokens": 1773,
+                        "cacheReadInputTokens": 8638,
+                        "cacheCreationInputTokens": 12187,
+                        "webSearchRequests": 0,
+                        "costUSD": 0.13469960000000003,
+                        "contextWindow": 1000000,
+                        "maxOutputTokens": 128000,
+                        "thinkingTokens": 503,
+                        "cacheCreationEphemeral5mInputTokens": 0,
+                        "cacheCreationEphemeral1hInputTokens": 12187,
+                        "canonicalModel": "claude-opus-5-5",
+                        "provider": "firstParty",
+                        "costBasis": "list"
+                      }
+                    },
+                    "total_cost_usd": 0.13469960000000003,
+                    "duration_ms": 16693,
+                    "is_error": false
+                  },
+                  "latency_ms": 17844
+                }
+              ]
+            },
+            {
+              "drawing": "D-002",
+              "metrics": {
+                "agreed": 0,
+                "agreed_after_retry": 0,
+                "verified": 3,
+                "verified_after_retry": 0,
+                "sent_to_review": 5,
+                "scan_undetermined": 0,
+                "mapping_approvals_required": 0,
+                "mapping_suggestions_unsure": 0,
+                "status_counts": {
+                  "needs_input": 5,
+                  "verified": 3
+                },
+                "by_job": {
+                  "template": {
+                    "needs_input": 5,
+                    "verified": 3
+                  }
+                },
+                "jobs": 1,
+                "exact_links": 0,
+                "reader_calls": 2,
+                "cache_hits": 0,
+                "provider_calls": 2,
+                "latency_ms_total": 131828,
+                "proposer_calls": 1,
+                "verifier_calls": 1,
+                "feedback_rounds": 0,
+                "feedback_keys": 0,
+                "protocols": [
+                  "proposal-verification-v1"
+                ],
+                "configured_readers": {
+                  "claude": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "codex": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  }
+                },
+                "roles": {
+                  "codex": "proposer",
+                  "claude": "verifier"
+                }
+              },
+              "calls": [
+                {
+                  "reader": "codex",
+                  "role": "proposer",
+                  "cache_key": "a222d6d3d855c29ddeea648cc9367248f65c0e0f54bcd49fcd8c766f8c9535d2",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  },
+                  "metadata": {
+                    "events": [
+                      {
+                        "type": "turn.completed",
+                        "usage": {
+                          "input_tokens": 19872,
+                          "cached_input_tokens": 0,
+                          "cache_write_input_tokens": 0,
+                          "output_tokens": 4310,
+                          "reasoning_output_tokens": 3078
+                        }
+                      }
+                    ]
+                  },
+                  "latency_ms": 110359
+                },
+                {
+                  "reader": "claude",
+                  "role": "verifier",
+                  "cache_key": "09ad4238698dea46d90de16c892a998f834c40bd19e74913bb4f4021b532a859",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "metadata": {
+                    "usage": {
+                      "input_tokens": 4,
+                      "cache_creation_input_tokens": 12716,
+                      "cache_read_input_tokens": 14311,
+                      "output_tokens": 2259,
+                      "output_tokens_details": {
+                        "thinking_tokens": 385
+                      },
+                      "server_tool_use": {
+                        "web_search_requests": 0,
+                        "web_fetch_requests": 0
+                      },
+                      "service_tier": "standard",
+                      "cache_creation": {
+                        "ephemeral_1h_input_tokens": 12716,
+                        "ephemeral_5m_input_tokens": 0
+                      },
+                      "inference_geo": "global",
+                      "iterations": [],
+                      "speed": "standard",
+                      "fallback_credit": null
+                    },
+                    "modelUsage": {
+                      "claude-opus-5-5": {
+                        "inputTokens": 4,
+                        "outputTokens": 2259,
+                        "cacheReadInputTokens": 14311,
+                        "cacheCreationInputTokens": 12716,
+                        "webSearchRequests": 0,
+                        "costUSD": 0.1497862,
+                        "contextWindow": 1000000,
+                        "maxOutputTokens": 128000,
+                        "thinkingTokens": 385,
+                        "cacheCreationEphemeral5mInputTokens": 0,
+                        "cacheCreationEphemeral1hInputTokens": 12716,
+                        "canonicalModel": "claude-opus-5-5",
+                        "provider": "firstParty",
+                        "costBasis": "list"
+                      }
+                    },
+                    "total_cost_usd": 0.1497862,
+                    "duration_ms": 20320,
+                    "is_error": false
+                  },
+                  "latency_ms": 21469
+                }
+              ]
+            },
+            {
+              "drawing": "D-003",
+              "metrics": {
+                "agreed": 0,
+                "agreed_after_retry": 0,
+                "verified": 1,
+                "verified_after_retry": 0,
+                "sent_to_review": 7,
+                "scan_undetermined": 0,
+                "mapping_approvals_required": 0,
+                "mapping_suggestions_unsure": 0,
+                "status_counts": {
+                  "needs_input": 7,
+                  "verified": 1
+                },
+                "by_job": {
+                  "template": {
+                    "needs_input": 7,
+                    "verified": 1
+                  }
+                },
+                "jobs": 1,
+                "exact_links": 0,
+                "reader_calls": 2,
+                "cache_hits": 0,
+                "provider_calls": 2,
+                "latency_ms_total": 107984,
+                "proposer_calls": 1,
+                "verifier_calls": 1,
+                "feedback_rounds": 0,
+                "feedback_keys": 0,
+                "protocols": [
+                  "proposal-verification-v1"
+                ],
+                "configured_readers": {
+                  "claude": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "codex": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  }
+                },
+                "roles": {
+                  "codex": "proposer",
+                  "claude": "verifier"
+                }
+              },
+              "calls": [
+                {
+                  "reader": "codex",
+                  "role": "proposer",
+                  "cache_key": "cd358725b40770890cda4bf1a4d08275f44a59e51c6841a9ee359ed0a569aa7e",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  },
+                  "metadata": {
+                    "events": [
+                      {
+                        "type": "turn.completed",
+                        "usage": {
+                          "input_tokens": 24222,
+                          "cached_input_tokens": 12928,
+                          "cache_write_input_tokens": 0,
+                          "output_tokens": 2702,
+                          "reasoning_output_tokens": 1987
+                        }
+                      }
+                    ]
+                  },
+                  "latency_ms": 77281
+                },
+                {
+                  "reader": "claude",
+                  "role": "verifier",
+                  "cache_key": "cbfd57c7de0553390d2aead33662084a666d9ba7ddcab5edaf7128f861b531bc",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "metadata": {
+                    "usage": {
+                      "input_tokens": 4,
+                      "cache_creation_input_tokens": 16733,
+                      "cache_read_input_tokens": 11564,
+                      "output_tokens": 2953,
+                      "output_tokens_details": {
+                        "thinking_tokens": 1109
+                      },
+                      "server_tool_use": {
+                        "web_search_requests": 0,
+                        "web_fetch_requests": 0
+                      },
+                      "service_tier": "standard",
+                      "cache_creation": {
+                        "ephemeral_1h_input_tokens": 16733,
+                        "ephemeral_5m_input_tokens": 0
+                      },
+                      "inference_geo": "global",
+                      "iterations": [],
+                      "speed": "standard",
+                      "fallback_credit": null
+                    },
+                    "modelUsage": {
+                      "claude-opus-5-5": {
+                        "inputTokens": 4,
+                        "outputTokens": 2953,
+                        "cacheReadInputTokens": 11564,
+                        "cacheCreationInputTokens": 16733,
+                        "webSearchRequests": 0,
+                        "costUSD": 0.19525279999999998,
+                        "contextWindow": 1000000,
+                        "maxOutputTokens": 128000,
+                        "thinkingTokens": 1109,
+                        "cacheCreationEphemeral5mInputTokens": 0,
+                        "cacheCreationEphemeral1hInputTokens": 16733,
+                        "canonicalModel": "claude-opus-5-5",
+                        "provider": "firstParty",
+                        "costBasis": "list"
+                      }
+                    },
+                    "total_cost_usd": 0.19525279999999998,
+                    "duration_ms": 29560,
+                    "is_error": false
+                  },
+                  "latency_ms": 30703
+                }
+              ]
+            },
+            {
+              "drawing": "D-004",
+              "metrics": {
+                "agreed": 0,
+                "agreed_after_retry": 0,
+                "verified": 4,
+                "verified_after_retry": 0,
+                "sent_to_review": 4,
+                "scan_undetermined": 0,
+                "mapping_approvals_required": 0,
+                "mapping_suggestions_unsure": 0,
+                "status_counts": {
+                  "needs_input": 4,
+                  "verified": 4
+                },
+                "by_job": {
+                  "template": {
+                    "needs_input": 4,
+                    "verified": 4
+                  }
+                },
+                "jobs": 1,
+                "exact_links": 0,
+                "reader_calls": 2,
+                "cache_hits": 0,
+                "provider_calls": 2,
+                "latency_ms_total": 141875,
+                "proposer_calls": 1,
+                "verifier_calls": 1,
+                "feedback_rounds": 0,
+                "feedback_keys": 0,
+                "protocols": [
+                  "proposal-verification-v1"
+                ],
+                "configured_readers": {
+                  "claude": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "codex": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  }
+                },
+                "roles": {
+                  "codex": "proposer",
+                  "claude": "verifier"
+                }
+              },
+              "calls": [
+                {
+                  "reader": "codex",
+                  "role": "proposer",
+                  "cache_key": "a64ebf20852a984c2821679dce0a3840bba3b2b63816a80c38dd17ac862173f0",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  },
+                  "metadata": {
+                    "events": [
+                      {
+                        "type": "turn.completed",
+                        "usage": {
+                          "input_tokens": 20558,
+                          "cached_input_tokens": 0,
+                          "cache_write_input_tokens": 0,
+                          "output_tokens": 4304,
+                          "reasoning_output_tokens": 3106
+                        }
+                      }
+                    ]
+                  },
+                  "latency_ms": 122125
+                },
+                {
+                  "reader": "claude",
+                  "role": "verifier",
+                  "cache_key": "d24c7427d4a9fd797c14e5d4846fce154f9be2810be27e2d3d56871137665eaf",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "metadata": {
+                    "usage": {
+                      "input_tokens": 4,
+                      "cache_creation_input_tokens": 13824,
+                      "cache_read_input_tokens": 15415,
+                      "output_tokens": 1959,
+                      "output_tokens_details": {
+                        "thinking_tokens": 323
+                      },
+                      "server_tool_use": {
+                        "web_search_requests": 0,
+                        "web_fetch_requests": 0
+                      },
+                      "service_tier": "standard",
+                      "cache_creation": {
+                        "ephemeral_1h_input_tokens": 13824,
+                        "ephemeral_5m_input_tokens": 0
+                      },
+                      "inference_geo": "global",
+                      "iterations": [],
+                      "speed": "standard",
+                      "fallback_credit": null
+                    },
+                    "modelUsage": {
+                      "claude-opus-5-5": {
+                        "inputTokens": 4,
+                        "outputTokens": 1959,
+                        "cacheReadInputTokens": 15415,
+                        "cacheCreationInputTokens": 13824,
+                        "webSearchRequests": 0,
+                        "costUSD": 0.152871,
+                        "contextWindow": 1000000,
+                        "maxOutputTokens": 128000,
+                        "thinkingTokens": 323,
+                        "cacheCreationEphemeral5mInputTokens": 0,
+                        "cacheCreationEphemeral1hInputTokens": 13824,
+                        "canonicalModel": "claude-opus-5-5",
+                        "provider": "firstParty",
+                        "costBasis": "list"
+                      }
+                    },
+                    "total_cost_usd": 0.152871,
+                    "duration_ms": 18556,
+                    "is_error": false
+                  },
+                  "latency_ms": 19750
+                }
+              ]
+            },
+            {
+              "drawing": "D-005",
+              "metrics": {
+                "agreed": 0,
+                "agreed_after_retry": 0,
+                "verified": 4,
+                "verified_after_retry": 0,
+                "sent_to_review": 4,
+                "scan_undetermined": 0,
+                "mapping_approvals_required": 0,
+                "mapping_suggestions_unsure": 0,
+                "status_counts": {
+                  "needs_input": 4,
+                  "verified": 4
+                },
+                "by_job": {
+                  "template": {
+                    "needs_input": 4,
+                    "verified": 4
+                  }
+                },
+                "jobs": 1,
+                "exact_links": 0,
+                "reader_calls": 2,
+                "cache_hits": 0,
+                "provider_calls": 2,
+                "latency_ms_total": 94499,
+                "proposer_calls": 1,
+                "verifier_calls": 1,
+                "feedback_rounds": 0,
+                "feedback_keys": 0,
+                "protocols": [
+                  "proposal-verification-v1"
+                ],
+                "configured_readers": {
+                  "claude": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "codex": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  }
+                },
+                "roles": {
+                  "codex": "proposer",
+                  "claude": "verifier"
+                }
+              },
+              "calls": [
+                {
+                  "reader": "codex",
+                  "role": "proposer",
+                  "cache_key": "171ce800e854b9ee6cde20ed022d379d720af68be5a0b8892a201009c58234c3",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  },
+                  "metadata": {
+                    "events": [
+                      {
+                        "type": "turn.completed",
+                        "usage": {
+                          "input_tokens": 19740,
+                          "cached_input_tokens": 0,
+                          "cache_write_input_tokens": 0,
+                          "output_tokens": 2934,
+                          "reasoning_output_tokens": 2070
+                        }
+                      }
+                    ]
+                  },
+                  "latency_ms": 75453
+                },
+                {
+                  "reader": "claude",
+                  "role": "verifier",
+                  "cache_key": "3a055b7fe1c07becb6c70a05007a341114be0fe2a637acf59483422ef4df98db",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "metadata": {
+                    "usage": {
+                      "input_tokens": 4,
+                      "cache_creation_input_tokens": 12302,
+                      "cache_read_input_tokens": 13895,
+                      "output_tokens": 1890,
+                      "output_tokens_details": {
+                        "thinking_tokens": 292
+                      },
+                      "server_tool_use": {
+                        "web_search_requests": 0,
+                        "web_fetch_requests": 0
+                      },
+                      "service_tier": "standard",
+                      "cache_creation": {
+                        "ephemeral_1h_input_tokens": 12302,
+                        "ephemeral_5m_input_tokens": 0
+                      },
+                      "inference_geo": "global",
+                      "iterations": [],
+                      "speed": "standard",
+                      "fallback_credit": null
+                    },
+                    "modelUsage": {
+                      "claude-opus-5-5": {
+                        "inputTokens": 4,
+                        "outputTokens": 1890,
+                        "cacheReadInputTokens": 13895,
+                        "cacheCreationInputTokens": 12302,
+                        "webSearchRequests": 0,
+                        "costUSD": 0.139011,
+                        "contextWindow": 1000000,
+                        "maxOutputTokens": 128000,
+                        "thinkingTokens": 292,
+                        "cacheCreationEphemeral5mInputTokens": 0,
+                        "cacheCreationEphemeral1hInputTokens": 12302,
+                        "canonicalModel": "claude-opus-5-5",
+                        "provider": "firstParty",
+                        "costBasis": "list"
+                      }
+                    },
+                    "total_cost_usd": 0.139011,
+                    "duration_ms": 17930,
+                    "is_error": false
+                  },
+                  "latency_ms": 19046
+                }
+              ]
+            },
+            {
+              "drawing": "D-006",
+              "metrics": {
+                "agreed": 0,
+                "agreed_after_retry": 0,
+                "verified": 4,
+                "verified_after_retry": 0,
+                "sent_to_review": 4,
+                "scan_undetermined": 0,
+                "mapping_approvals_required": 0,
+                "mapping_suggestions_unsure": 0,
+                "status_counts": {
+                  "needs_input": 4,
+                  "verified": 4
+                },
+                "by_job": {
+                  "template": {
+                    "needs_input": 4,
+                    "verified": 4
+                  }
+                },
+                "jobs": 1,
+                "exact_links": 0,
+                "reader_calls": 2,
+                "cache_hits": 0,
+                "provider_calls": 2,
+                "latency_ms_total": 87875,
+                "proposer_calls": 1,
+                "verifier_calls": 1,
+                "feedback_rounds": 0,
+                "feedback_keys": 0,
+                "protocols": [
+                  "proposal-verification-v1"
+                ],
+                "configured_readers": {
+                  "claude": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "codex": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  }
+                },
+                "roles": {
+                  "codex": "proposer",
+                  "claude": "verifier"
+                }
+              },
+              "calls": [
+                {
+                  "reader": "codex",
+                  "role": "proposer",
+                  "cache_key": "d398f5f794a2dd2cd7472521ec7f2144484cff78a369cc3a44ca55867fd2a890",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  },
+                  "metadata": {
+                    "events": [
+                      {
+                        "type": "turn.completed",
+                        "usage": {
+                          "input_tokens": 19701,
+                          "cached_input_tokens": 0,
+                          "cache_write_input_tokens": 0,
+                          "output_tokens": 2776,
+                          "reasoning_output_tokens": 1752
+                        }
+                      }
+                    ]
+                  },
+                  "latency_ms": 65047
+                },
+                {
+                  "reader": "claude",
+                  "role": "verifier",
+                  "cache_key": "0ddca8ad8ff047fa55595a96879fd5042b3d9b45251fa01017802f35e85acfde",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "metadata": {
+                    "usage": {
+                      "input_tokens": 4,
+                      "cache_creation_input_tokens": 12580,
+                      "cache_read_input_tokens": 14171,
+                      "output_tokens": 2250,
+                      "output_tokens_details": {
+                        "thinking_tokens": 651
+                      },
+                      "server_tool_use": {
+                        "web_search_requests": 0,
+                        "web_fetch_requests": 0
+                      },
+                      "service_tier": "standard",
+                      "cache_creation": {
+                        "ephemeral_1h_input_tokens": 12580,
+                        "ephemeral_5m_input_tokens": 0
+                      },
+                      "inference_geo": "global",
+                      "iterations": [],
+                      "speed": "standard",
+                      "fallback_credit": null
+                    },
+                    "modelUsage": {
+                      "claude-opus-5-5": {
+                        "inputTokens": 4,
+                        "outputTokens": 2250,
+                        "cacheReadInputTokens": 14171,
+                        "cacheCreationInputTokens": 12580,
+                        "webSearchRequests": 0,
+                        "costUSD": 0.14849020000000002,
+                        "contextWindow": 1000000,
+                        "maxOutputTokens": 128000,
+                        "thinkingTokens": 651,
+                        "cacheCreationEphemeral5mInputTokens": 0,
+                        "cacheCreationEphemeral1hInputTokens": 12580,
+                        "canonicalModel": "claude-opus-5-5",
+                        "provider": "firstParty",
+                        "costBasis": "list"
+                      }
+                    },
+                    "total_cost_usd": 0.14849020000000002,
+                    "duration_ms": 21651,
+                    "is_error": false
+                  },
+                  "latency_ms": 22828
+                }
+              ]
+            },
+            {
+              "drawing": "D-007",
+              "metrics": {
+                "agreed": 0,
+                "agreed_after_retry": 0,
+                "verified": 3,
+                "verified_after_retry": 0,
+                "sent_to_review": 5,
+                "scan_undetermined": 0,
+                "mapping_approvals_required": 0,
+                "mapping_suggestions_unsure": 0,
+                "status_counts": {
+                  "needs_input": 5,
+                  "verified": 3
+                },
+                "by_job": {
+                  "template": {
+                    "needs_input": 5,
+                    "verified": 3
+                  }
+                },
+                "jobs": 1,
+                "exact_links": 0,
+                "reader_calls": 2,
+                "cache_hits": 0,
+                "provider_calls": 2,
+                "latency_ms_total": 106484,
+                "proposer_calls": 1,
+                "verifier_calls": 1,
+                "feedback_rounds": 0,
+                "feedback_keys": 0,
+                "protocols": [
+                  "proposal-verification-v1"
+                ],
+                "configured_readers": {
+                  "claude": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "codex": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  }
+                },
+                "roles": {
+                  "codex": "proposer",
+                  "claude": "verifier"
+                }
+              },
+              "calls": [
+                {
+                  "reader": "codex",
+                  "role": "proposer",
+                  "cache_key": "257259a8622bb24ac051cd31b2534c750d61ee5562004f760244bda8162cf21c",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  },
+                  "metadata": {
+                    "events": [
+                      {
+                        "type": "turn.completed",
+                        "usage": {
+                          "input_tokens": 19768,
+                          "cached_input_tokens": 12928,
+                          "cache_write_input_tokens": 0,
+                          "output_tokens": 3156,
+                          "reasoning_output_tokens": 2070
+                        }
+                      }
+                    ]
+                  },
+                  "latency_ms": 80766
+                },
+                {
+                  "reader": "claude",
+                  "role": "verifier",
+                  "cache_key": "0c92c81c966b598595971c365f0fa61d89d74cbaca8253e362968d235dfe6d89",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "metadata": {
+                    "usage": {
+                      "input_tokens": 4,
+                      "cache_creation_input_tokens": 13035,
+                      "cache_read_input_tokens": 14628,
+                      "output_tokens": 2890,
+                      "output_tokens_details": {
+                        "thinking_tokens": 599
+                      },
+                      "server_tool_use": {
+                        "web_search_requests": 0,
+                        "web_fetch_requests": 0
+                      },
+                      "service_tier": "standard",
+                      "cache_creation": {
+                        "ephemeral_1h_input_tokens": 13035,
+                        "ephemeral_5m_input_tokens": 0
+                      },
+                      "inference_geo": "global",
+                      "iterations": [],
+                      "speed": "standard",
+                      "fallback_credit": null
+                    },
+                    "modelUsage": {
+                      "claude-opus-5-5": {
+                        "inputTokens": 4,
+                        "outputTokens": 2890,
+                        "cacheReadInputTokens": 14628,
+                        "cacheCreationInputTokens": 13035,
+                        "webSearchRequests": 0,
+                        "costUSD": 0.1650216,
+                        "contextWindow": 1000000,
+                        "maxOutputTokens": 128000,
+                        "thinkingTokens": 599,
+                        "cacheCreationEphemeral5mInputTokens": 0,
+                        "cacheCreationEphemeral1hInputTokens": 13035,
+                        "canonicalModel": "claude-opus-5-5",
+                        "provider": "firstParty",
+                        "costBasis": "list"
+                      }
+                    },
+                    "total_cost_usd": 0.1650216,
+                    "duration_ms": 24499,
+                    "is_error": false
+                  },
+                  "latency_ms": 25718
+                }
+              ]
+            },
+            {
+              "drawing": "D-008",
+              "metrics": {
+                "agreed": 0,
+                "agreed_after_retry": 0,
+                "verified": 4,
+                "verified_after_retry": 0,
+                "sent_to_review": 4,
+                "scan_undetermined": 0,
+                "mapping_approvals_required": 0,
+                "mapping_suggestions_unsure": 0,
+                "status_counts": {
+                  "needs_input": 4,
+                  "verified": 4
+                },
+                "by_job": {
+                  "template": {
+                    "needs_input": 4,
+                    "verified": 4
+                  }
+                },
+                "jobs": 1,
+                "exact_links": 0,
+                "reader_calls": 2,
+                "cache_hits": 0,
+                "provider_calls": 2,
+                "latency_ms_total": 98000,
+                "proposer_calls": 1,
+                "verifier_calls": 1,
+                "feedback_rounds": 0,
+                "feedback_keys": 0,
+                "protocols": [
+                  "proposal-verification-v1"
+                ],
+                "configured_readers": {
+                  "claude": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "codex": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  }
+                },
+                "roles": {
+                  "codex": "proposer",
+                  "claude": "verifier"
+                }
+              },
+              "calls": [
+                {
+                  "reader": "codex",
+                  "role": "proposer",
+                  "cache_key": "422de476c7239cbbfafa231af323838f47285cace8807e9010561d54767c15b3",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  },
+                  "metadata": {
+                    "events": [
+                      {
+                        "type": "turn.completed",
+                        "usage": {
+                          "input_tokens": 19841,
+                          "cached_input_tokens": 0,
+                          "cache_write_input_tokens": 0,
+                          "output_tokens": 2615,
+                          "reasoning_output_tokens": 1552
+                        }
+                      }
+                    ]
+                  },
+                  "latency_ms": 65016
+                },
+                {
+                  "reader": "claude",
+                  "role": "verifier",
+                  "cache_key": "bb065bb0bf7e3f92db390f233d96d85f04eb7c4113ab7c5447ae6cd9f57bf872",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "metadata": {
+                    "usage": {
+                      "input_tokens": 4,
+                      "cache_creation_input_tokens": 13068,
+                      "cache_read_input_tokens": 14654,
+                      "output_tokens": 3281,
+                      "output_tokens_details": {
+                        "thinking_tokens": 1580
+                      },
+                      "server_tool_use": {
+                        "web_search_requests": 0,
+                        "web_fetch_requests": 0
+                      },
+                      "service_tier": "standard",
+                      "cache_creation": {
+                        "ephemeral_1h_input_tokens": 13068,
+                        "ephemeral_5m_input_tokens": 0
+                      },
+                      "inference_geo": "global",
+                      "iterations": [],
+                      "speed": "standard",
+                      "fallback_credit": null
+                    },
+                    "modelUsage": {
+                      "claude-opus-5-5": {
+                        "inputTokens": 4,
+                        "outputTokens": 3281,
+                        "cacheReadInputTokens": 14654,
+                        "cacheCreationInputTokens": 13068,
+                        "webSearchRequests": 0,
+                        "costUSD": 0.1731108,
+                        "contextWindow": 1000000,
+                        "maxOutputTokens": 128000,
+                        "thinkingTokens": 1580,
+                        "cacheCreationEphemeral5mInputTokens": 0,
+                        "cacheCreationEphemeral1hInputTokens": 13068,
+                        "canonicalModel": "claude-opus-5-5",
+                        "provider": "firstParty",
+                        "costBasis": "list"
+                      }
+                    },
+                    "total_cost_usd": 0.1731108,
+                    "duration_ms": 31763,
+                    "is_error": false
+                  },
+                  "latency_ms": 32984
+                }
+              ]
+            },
+            {
+              "drawing": "D-009",
+              "metrics": {
+                "agreed": 0,
+                "agreed_after_retry": 0,
+                "verified": 1,
+                "verified_after_retry": 0,
+                "sent_to_review": 7,
+                "scan_undetermined": 0,
+                "mapping_approvals_required": 0,
+                "mapping_suggestions_unsure": 0,
+                "status_counts": {
+                  "needs_input": 7,
+                  "verified": 1
+                },
+                "by_job": {
+                  "template": {
+                    "needs_input": 7,
+                    "verified": 1
+                  }
+                },
+                "jobs": 1,
+                "exact_links": 0,
+                "reader_calls": 2,
+                "cache_hits": 0,
+                "provider_calls": 2,
+                "latency_ms_total": 71813,
+                "proposer_calls": 1,
+                "verifier_calls": 1,
+                "feedback_rounds": 0,
+                "feedback_keys": 0,
+                "protocols": [
+                  "proposal-verification-v1"
+                ],
+                "configured_readers": {
+                  "claude": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "codex": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  }
+                },
+                "roles": {
+                  "codex": "proposer",
+                  "claude": "verifier"
+                }
+              },
+              "calls": [
+                {
+                  "reader": "codex",
+                  "role": "proposer",
+                  "cache_key": "8669e4a4f57135fd21d1af3c503c4fd346d4230ab60087707c9b11974bd8b55e",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  },
+                  "metadata": {
+                    "events": [
+                      {
+                        "type": "turn.completed",
+                        "usage": {
+                          "input_tokens": 18076,
+                          "cached_input_tokens": 12928,
+                          "cache_write_input_tokens": 0,
+                          "output_tokens": 1806,
+                          "reasoning_output_tokens": 1034
+                        }
+                      }
+                    ]
+                  },
+                  "latency_ms": 49500
+                },
+                {
+                  "reader": "claude",
+                  "role": "verifier",
+                  "cache_key": "5ad1f073c2b567be520d79f810431779476d8d8f405adffabd42b2a179fcd049",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "metadata": {
+                    "usage": {
+                      "input_tokens": 4,
+                      "cache_creation_input_tokens": 10590,
+                      "cache_read_input_tokens": 12184,
+                      "output_tokens": 2173,
+                      "output_tokens_details": {
+                        "thinking_tokens": 741
+                      },
+                      "server_tool_use": {
+                        "web_search_requests": 0,
+                        "web_fetch_requests": 0
+                      },
+                      "service_tier": "standard",
+                      "cache_creation": {
+                        "ephemeral_1h_input_tokens": 10590,
+                        "ephemeral_5m_input_tokens": 0
+                      },
+                      "inference_geo": "global",
+                      "iterations": [],
+                      "speed": "standard",
+                      "fallback_credit": null
+                    },
+                    "modelUsage": {
+                      "claude-opus-5-5": {
+                        "inputTokens": 4,
+                        "outputTokens": 2173,
+                        "cacheReadInputTokens": 12184,
+                        "cacheCreationInputTokens": 10590,
+                        "webSearchRequests": 0,
+                        "costUSD": 0.13063280000000002,
+                        "contextWindow": 1000000,
+                        "maxOutputTokens": 128000,
+                        "thinkingTokens": 741,
+                        "cacheCreationEphemeral5mInputTokens": 0,
+                        "cacheCreationEphemeral1hInputTokens": 10590,
+                        "canonicalModel": "claude-opus-5-5",
+                        "provider": "firstParty",
+                        "costBasis": "list"
+                      }
+                    },
+                    "total_cost_usd": 0.13063280000000002,
+                    "duration_ms": 21106,
+                    "is_error": false
+                  },
+                  "latency_ms": 22313
+                }
+              ]
+            },
+            {
+              "drawing": "D-010",
+              "metrics": {
+                "agreed": 0,
+                "agreed_after_retry": 0,
+                "verified": 3,
+                "verified_after_retry": 0,
+                "sent_to_review": 5,
+                "scan_undetermined": 0,
+                "mapping_approvals_required": 0,
+                "mapping_suggestions_unsure": 0,
+                "status_counts": {
+                  "needs_input": 5,
+                  "verified": 3
+                },
+                "by_job": {
+                  "template": {
+                    "needs_input": 5,
+                    "verified": 3
+                  }
+                },
+                "jobs": 1,
+                "exact_links": 0,
+                "reader_calls": 2,
+                "cache_hits": 0,
+                "provider_calls": 2,
+                "latency_ms_total": 92438,
+                "proposer_calls": 1,
+                "verifier_calls": 1,
+                "feedback_rounds": 0,
+                "feedback_keys": 0,
+                "protocols": [
+                  "proposal-verification-v1"
+                ],
+                "configured_readers": {
+                  "claude": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "codex": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  }
+                },
+                "roles": {
+                  "codex": "proposer",
+                  "claude": "verifier"
+                }
+              },
+              "calls": [
+                {
+                  "reader": "codex",
+                  "role": "proposer",
+                  "cache_key": "2e33a333220a2a2855906e78c714874a772b735d928d56f8b9bfc403de51283c",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  },
+                  "metadata": {
+                    "events": [
+                      {
+                        "type": "turn.completed",
+                        "usage": {
+                          "input_tokens": 19312,
+                          "cached_input_tokens": 0,
+                          "cache_write_input_tokens": 0,
+                          "output_tokens": 2605,
+                          "reasoning_output_tokens": 1552
+                        }
+                      }
+                    ]
+                  },
+                  "latency_ms": 65938
+                },
+                {
+                  "reader": "claude",
+                  "role": "verifier",
+                  "cache_key": "33604293a7bf72f82809c27134d19071a18f933150c5a7e25b0930896421cc7c",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "metadata": {
+                    "usage": {
+                      "input_tokens": 4,
+                      "cache_creation_input_tokens": 12623,
+                      "cache_read_input_tokens": 14218,
+                      "output_tokens": 2649,
+                      "output_tokens_details": {
+                        "thinking_tokens": 746
+                      },
+                      "server_tool_use": {
+                        "web_search_requests": 0,
+                        "web_fetch_requests": 0
+                      },
+                      "service_tier": "standard",
+                      "cache_creation": {
+                        "ephemeral_1h_input_tokens": 12623,
+                        "ephemeral_5m_input_tokens": 0
+                      },
+                      "inference_geo": "global",
+                      "iterations": [],
+                      "speed": "standard",
+                      "fallback_credit": null
+                    },
+                    "modelUsage": {
+                      "claude-opus-5-5": {
+                        "inputTokens": 4,
+                        "outputTokens": 2649,
+                        "cacheReadInputTokens": 14218,
+                        "cacheCreationInputTokens": 12623,
+                        "webSearchRequests": 0,
+                        "costUSD": 0.1568236,
+                        "contextWindow": 1000000,
+                        "maxOutputTokens": 128000,
+                        "thinkingTokens": 746,
+                        "cacheCreationEphemeral5mInputTokens": 0,
+                        "cacheCreationEphemeral1hInputTokens": 12623,
+                        "canonicalModel": "claude-opus-5-5",
+                        "provider": "firstParty",
+                        "costBasis": "list"
+                      }
+                    },
+                    "total_cost_usd": 0.1568236,
+                    "duration_ms": 25297,
+                    "is_error": false
+                  },
+                  "latency_ms": 26500
+                }
+              ]
+            },
+            {
+              "drawing": "D-011",
+              "metrics": {
+                "agreed": 0,
+                "agreed_after_retry": 0,
+                "verified": 1,
+                "verified_after_retry": 0,
+                "sent_to_review": 7,
+                "scan_undetermined": 0,
+                "mapping_approvals_required": 0,
+                "mapping_suggestions_unsure": 0,
+                "status_counts": {
+                  "needs_input": 7,
+                  "verified": 1
+                },
+                "by_job": {
+                  "template": {
+                    "needs_input": 7,
+                    "verified": 1
+                  }
+                },
+                "jobs": 1,
+                "exact_links": 0,
+                "reader_calls": 2,
+                "cache_hits": 0,
+                "provider_calls": 2,
+                "latency_ms_total": 68499,
+                "proposer_calls": 1,
+                "verifier_calls": 1,
+                "feedback_rounds": 0,
+                "feedback_keys": 0,
+                "protocols": [
+                  "proposal-verification-v1"
+                ],
+                "configured_readers": {
+                  "claude": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "codex": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  }
+                },
+                "roles": {
+                  "codex": "proposer",
+                  "claude": "verifier"
+                }
+              },
+              "calls": [
+                {
+                  "reader": "codex",
+                  "role": "proposer",
+                  "cache_key": "c0e7cbbd3fc30c64e73cec629e150e82213c31dbf3d0987d2d1d6c3b2496cd88",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  },
+                  "metadata": {
+                    "events": [
+                      {
+                        "type": "turn.completed",
+                        "usage": {
+                          "input_tokens": 18080,
+                          "cached_input_tokens": 0,
+                          "cache_write_input_tokens": 0,
+                          "output_tokens": 2194,
+                          "reasoning_output_tokens": 1552
+                        }
+                      }
+                    ]
+                  },
+                  "latency_ms": 50718
+                },
+                {
+                  "reader": "claude",
+                  "role": "verifier",
+                  "cache_key": "6458908430e3f550e47623d84af7b7152ee93d71d04d613822e0ebd0c99a94ea",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "metadata": {
+                    "usage": {
+                      "input_tokens": 4,
+                      "cache_creation_input_tokens": 10492,
+                      "cache_read_input_tokens": 12084,
+                      "output_tokens": 1638,
+                      "output_tokens_details": {
+                        "thinking_tokens": 424
+                      },
+                      "server_tool_use": {
+                        "web_search_requests": 0,
+                        "web_fetch_requests": 0
+                      },
+                      "service_tier": "standard",
+                      "cache_creation": {
+                        "ephemeral_1h_input_tokens": 10492,
+                        "ephemeral_5m_input_tokens": 0
+                      },
+                      "inference_geo": "global",
+                      "iterations": [],
+                      "speed": "standard",
+                      "fallback_credit": null
+                    },
+                    "modelUsage": {
+                      "claude-opus-5-5": {
+                        "inputTokens": 4,
+                        "outputTokens": 1638,
+                        "cacheReadInputTokens": 12084,
+                        "cacheCreationInputTokens": 10492,
+                        "webSearchRequests": 0,
+                        "costUSD": 0.1191288,
+                        "contextWindow": 1000000,
+                        "maxOutputTokens": 128000,
+                        "thinkingTokens": 424,
+                        "cacheCreationEphemeral5mInputTokens": 0,
+                        "cacheCreationEphemeral1hInputTokens": 10492,
+                        "canonicalModel": "claude-opus-5-5",
+                        "provider": "firstParty",
+                        "costBasis": "list"
+                      }
+                    },
+                    "total_cost_usd": 0.1191288,
+                    "duration_ms": 16466,
+                    "is_error": false
+                  },
+                  "latency_ms": 17781
+                }
+              ]
+            },
+            {
+              "drawing": "D-012",
+              "metrics": {
+                "agreed": 0,
+                "agreed_after_retry": 0,
+                "verified": 7,
+                "verified_after_retry": 1,
+                "sent_to_review": 0,
+                "scan_undetermined": 0,
+                "mapping_approvals_required": 0,
+                "mapping_suggestions_unsure": 0,
+                "status_counts": {
+                  "verified": 7,
+                  "verified_after_retry": 1
+                },
+                "by_job": {
+                  "template": {
+                    "verified": 7,
+                    "verified_after_retry": 1
+                  }
+                },
+                "jobs": 1,
+                "exact_links": 0,
+                "reader_calls": 4,
+                "cache_hits": 0,
+                "provider_calls": 4,
+                "latency_ms_total": 166016,
+                "proposer_calls": 2,
+                "verifier_calls": 2,
+                "feedback_rounds": 1,
+                "feedback_keys": 1,
+                "protocols": [
+                  "proposal-verification-v1"
+                ],
+                "configured_readers": {
+                  "claude": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "codex": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  }
+                },
+                "roles": {
+                  "codex": "proposer",
+                  "claude": "verifier"
+                }
+              },
+              "calls": [
+                {
+                  "reader": "codex",
+                  "role": "proposer",
+                  "cache_key": "4867bef8d5c491e7fd1be7ee5384ab97e903ef61038876d05b4ea7c621b1fa17",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  },
+                  "metadata": {
+                    "events": [
+                      {
+                        "type": "turn.completed",
+                        "usage": {
+                          "input_tokens": 20631,
+                          "cached_input_tokens": 13056,
+                          "cache_write_input_tokens": 0,
+                          "output_tokens": 3715,
+                          "reasoning_output_tokens": 1739
+                        }
+                      }
+                    ]
+                  },
+                  "latency_ms": 69812
+                },
+                {
+                  "reader": "claude",
+                  "role": "verifier",
+                  "cache_key": "d3b81e8d47f81a7f9cd1c1542a24e6e98bc3926a321a4785cf1c6ab0ae06edd3",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "metadata": {
+                    "usage": {
+                      "input_tokens": 4,
+                      "cache_creation_input_tokens": 16520,
+                      "cache_read_input_tokens": 18129,
+                      "output_tokens": 3500,
+                      "output_tokens_details": {
+                        "thinking_tokens": 1234
+                      },
+                      "server_tool_use": {
+                        "web_search_requests": 0,
+                        "web_fetch_requests": 0
+                      },
+                      "service_tier": "standard",
+                      "cache_creation": {
+                        "ephemeral_1h_input_tokens": 16520,
+                        "ephemeral_5m_input_tokens": 0
+                      },
+                      "inference_geo": "global",
+                      "iterations": [],
+                      "speed": "standard",
+                      "fallback_credit": null
+                    },
+                    "modelUsage": {
+                      "claude-opus-5-5": {
+                        "inputTokens": 4,
+                        "outputTokens": 3500,
+                        "cacheReadInputTokens": 18129,
+                        "cacheCreationInputTokens": 16520,
+                        "webSearchRequests": 0,
+                        "costUSD": 0.20580179999999998,
+                        "contextWindow": 1000000,
+                        "maxOutputTokens": 128000,
+                        "thinkingTokens": 1234,
+                        "cacheCreationEphemeral5mInputTokens": 0,
+                        "cacheCreationEphemeral1hInputTokens": 16520,
+                        "canonicalModel": "claude-opus-5-5",
+                        "provider": "firstParty",
+                        "costBasis": "list"
+                      }
+                    },
+                    "total_cost_usd": 0.20580179999999998,
+                    "duration_ms": 34276,
+                    "is_error": false
+                  },
+                  "latency_ms": 35422
+                },
+                {
+                  "reader": "codex",
+                  "role": "proposer",
+                  "cache_key": "9ade8d09b9fdc402bd56a8a383e88d4e0e10374cd65cc23f7dc8c5f37d92202a",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  },
+                  "metadata": {
+                    "events": [
+                      {
+                        "type": "turn.completed",
+                        "usage": {
+                          "input_tokens": 21326,
+                          "cached_input_tokens": 0,
+                          "cache_write_input_tokens": 0,
+                          "output_tokens": 1683,
+                          "reasoning_output_tokens": 1279
+                        }
+                      }
+                    ]
+                  },
+                  "latency_ms": 39313
+                },
+                {
+                  "reader": "claude",
+                  "role": "verifier",
+                  "cache_key": "bc805665bc2752e9316fd325479b701101a3a479a8c11199c4e49c288e5fd1e3",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "metadata": {
+                    "usage": {
+                      "input_tokens": 4,
+                      "cache_creation_input_tokens": 16389,
+                      "cache_read_input_tokens": 12851,
+                      "output_tokens": 1896,
+                      "output_tokens_details": {
+                        "thinking_tokens": 831
+                      },
+                      "server_tool_use": {
+                        "web_search_requests": 0,
+                        "web_fetch_requests": 0
+                      },
+                      "service_tier": "standard",
+                      "cache_creation": {
+                        "ephemeral_1h_input_tokens": 16389,
+                        "ephemeral_5m_input_tokens": 0
+                      },
+                      "inference_geo": "global",
+                      "iterations": [],
+                      "speed": "standard",
+                      "fallback_credit": null
+                    },
+                    "modelUsage": {
+                      "claude-opus-5-5": {
+                        "inputTokens": 4,
+                        "outputTokens": 1896,
+                        "cacheReadInputTokens": 12851,
+                        "cacheCreationInputTokens": 16389,
+                        "webSearchRequests": 0,
+                        "costUSD": 0.1716182,
+                        "contextWindow": 1000000,
+                        "maxOutputTokens": 128000,
+                        "thinkingTokens": 831,
+                        "cacheCreationEphemeral5mInputTokens": 0,
+                        "cacheCreationEphemeral1hInputTokens": 16389,
+                        "canonicalModel": "claude-opus-5-5",
+                        "provider": "firstParty",
+                        "costBasis": "list"
+                      }
+                    },
+                    "total_cost_usd": 0.1716182,
+                    "duration_ms": 20271,
+                    "is_error": false
+                  },
+                  "latency_ms": 21469
+                }
+              ]
+            },
+            {
+              "drawing": "D-014",
+              "metrics": {
+                "agreed": 0,
+                "agreed_after_retry": 0,
+                "verified": 8,
+                "verified_after_retry": 0,
+                "sent_to_review": 0,
+                "scan_undetermined": 0,
+                "mapping_approvals_required": 0,
+                "mapping_suggestions_unsure": 0,
+                "status_counts": {
+                  "verified": 8
+                },
+                "by_job": {
+                  "template": {
+                    "verified": 8
+                  }
+                },
+                "jobs": 1,
+                "exact_links": 0,
+                "reader_calls": 2,
+                "cache_hits": 0,
+                "provider_calls": 2,
+                "latency_ms_total": 219344,
+                "proposer_calls": 1,
+                "verifier_calls": 1,
+                "feedback_rounds": 0,
+                "feedback_keys": 0,
+                "protocols": [
+                  "proposal-verification-v1"
+                ],
+                "configured_readers": {
+                  "claude": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "codex": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  }
+                },
+                "roles": {
+                  "codex": "proposer",
+                  "claude": "verifier"
+                }
+              },
+              "calls": [
+                {
+                  "reader": "codex",
+                  "role": "proposer",
+                  "cache_key": "766805710cd6a677be160a71652fcd8278198d08bd9079f1dd7db5882db4bb3d",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  },
+                  "metadata": {
+                    "events": [
+                      {
+                        "type": "turn.completed",
+                        "usage": {
+                          "input_tokens": 21734,
+                          "cached_input_tokens": 0,
+                          "cache_write_input_tokens": 0,
+                          "output_tokens": 11073,
+                          "reasoning_output_tokens": 4566
+                        }
+                      }
+                    ]
+                  },
+                  "latency_ms": 171266
+                },
+                {
+                  "reader": "claude",
+                  "role": "verifier",
+                  "cache_key": "81bd5b15c451b2afbb6a9687cd133167edbba96359c17cdd479515fedde0cd8f",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "metadata": {
+                    "usage": {
+                      "input_tokens": 4,
+                      "cache_creation_input_tokens": 25454,
+                      "cache_read_input_tokens": 27071,
+                      "output_tokens": 4908,
+                      "output_tokens_details": {
+                        "thinking_tokens": 2572
+                      },
+                      "server_tool_use": {
+                        "web_search_requests": 0,
+                        "web_fetch_requests": 0
+                      },
+                      "service_tier": "standard",
+                      "cache_creation": {
+                        "ephemeral_1h_input_tokens": 25454,
+                        "ephemeral_5m_input_tokens": 0
+                      },
+                      "inference_geo": "global",
+                      "iterations": [],
+                      "speed": "standard",
+                      "fallback_credit": null
+                    },
+                    "modelUsage": {
+                      "claude-opus-5-5": {
+                        "inputTokens": 4,
+                        "outputTokens": 4908,
+                        "cacheReadInputTokens": 27071,
+                        "cacheCreationInputTokens": 25454,
+                        "webSearchRequests": 0,
+                        "costUSD": 0.3072222,
+                        "contextWindow": 1000000,
+                        "maxOutputTokens": 128000,
+                        "thinkingTokens": 2572,
+                        "cacheCreationEphemeral5mInputTokens": 0,
+                        "cacheCreationEphemeral1hInputTokens": 25454,
+                        "canonicalModel": "claude-opus-5-5",
+                        "provider": "firstParty",
+                        "costBasis": "list"
+                      }
+                    },
+                    "total_cost_usd": 0.3072222,
+                    "duration_ms": 46893,
+                    "is_error": false
+                  },
+                  "latency_ms": 48078
+                }
+              ]
+            },
+            {
+              "drawing": "D-015",
+              "metrics": {
+                "agreed": 0,
+                "agreed_after_retry": 0,
+                "verified": 8,
+                "verified_after_retry": 0,
+                "sent_to_review": 0,
+                "scan_undetermined": 0,
+                "mapping_approvals_required": 0,
+                "mapping_suggestions_unsure": 0,
+                "status_counts": {
+                  "verified": 8
+                },
+                "by_job": {
+                  "template": {
+                    "verified": 8
+                  }
+                },
+                "jobs": 1,
+                "exact_links": 0,
+                "reader_calls": 2,
+                "cache_hits": 0,
+                "provider_calls": 2,
+                "latency_ms_total": 63969,
+                "proposer_calls": 1,
+                "verifier_calls": 1,
+                "feedback_rounds": 0,
+                "feedback_keys": 0,
+                "protocols": [
+                  "proposal-verification-v1"
+                ],
+                "configured_readers": {
+                  "claude": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "codex": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  }
+                },
+                "roles": {
+                  "codex": "proposer",
+                  "claude": "verifier"
+                }
+              },
+              "calls": [
+                {
+                  "reader": "codex",
+                  "role": "proposer",
+                  "cache_key": "7ab35fdc782dc9479a18186ca583fecef5f5bb9bfac1c88c364bc9e05443ec6b",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  },
+                  "metadata": {
+                    "events": [
+                      {
+                        "type": "turn.completed",
+                        "usage": {
+                          "input_tokens": 19980,
+                          "cached_input_tokens": 0,
+                          "cache_write_input_tokens": 0,
+                          "output_tokens": 2009,
+                          "reasoning_output_tokens": 951
+                        }
+                      }
+                    ]
+                  },
+                  "latency_ms": 46813
+                },
+                {
+                  "reader": "claude",
+                  "role": "verifier",
+                  "cache_key": "eee03bce7418d71aa1165ff6dda07f6dec604ead82afc5010ab661c1cc1f74d0",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "metadata": {
+                    "usage": {
+                      "input_tokens": 4,
+                      "cache_creation_input_tokens": 14164,
+                      "cache_read_input_tokens": 15779,
+                      "output_tokens": 1797,
+                      "output_tokens_details": {
+                        "thinking_tokens": 260
+                      },
+                      "server_tool_use": {
+                        "web_search_requests": 0,
+                        "web_fetch_requests": 0
+                      },
+                      "service_tier": "standard",
+                      "cache_creation": {
+                        "ephemeral_1h_input_tokens": 14164,
+                        "ephemeral_5m_input_tokens": 0
+                      },
+                      "inference_geo": "global",
+                      "iterations": [],
+                      "speed": "standard",
+                      "fallback_credit": null
+                    },
+                    "modelUsage": {
+                      "claude-opus-5-5": {
+                        "inputTokens": 4,
+                        "outputTokens": 1797,
+                        "cacheReadInputTokens": 15779,
+                        "cacheCreationInputTokens": 14164,
+                        "webSearchRequests": 0,
+                        "costUSD": 0.1524238,
+                        "contextWindow": 1000000,
+                        "maxOutputTokens": 128000,
+                        "thinkingTokens": 260,
+                        "cacheCreationEphemeral5mInputTokens": 0,
+                        "cacheCreationEphemeral1hInputTokens": 14164,
+                        "canonicalModel": "claude-opus-5-5",
+                        "provider": "firstParty",
+                        "costBasis": "list"
+                      }
+                    },
+                    "total_cost_usd": 0.1524238,
+                    "duration_ms": 15981,
+                    "is_error": false
+                  },
+                  "latency_ms": 17156
+                }
+              ]
+            },
+            {
+              "drawing": "D-016",
+              "metrics": {
+                "agreed": 0,
+                "agreed_after_retry": 0,
+                "verified": 7,
+                "verified_after_retry": 0,
+                "sent_to_review": 3,
+                "scan_undetermined": 0,
+                "mapping_approvals_required": 0,
+                "mapping_suggestions_unsure": 0,
+                "status_counts": {
+                  "needs_input": 3,
+                  "verified": 7
+                },
+                "by_job": {
+                  "template": {
+                    "needs_input": 3,
+                    "verified": 7
+                  }
+                },
+                "jobs": 1,
+                "exact_links": 0,
+                "reader_calls": 2,
+                "cache_hits": 0,
+                "provider_calls": 2,
+                "latency_ms_total": 447860,
+                "proposer_calls": 1,
+                "verifier_calls": 1,
+                "feedback_rounds": 0,
+                "feedback_keys": 0,
+                "protocols": [
+                  "proposal-verification-v1"
+                ],
+                "configured_readers": {
+                  "claude": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "codex": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  }
+                },
+                "roles": {
+                  "codex": "proposer",
+                  "claude": "verifier"
+                }
+              },
+              "calls": [
+                {
+                  "reader": "codex",
+                  "role": "proposer",
+                  "cache_key": "1bd96cff4abc386435e3d688301cd60bcf9434dcb057c62a59434f9735c0274f",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  },
+                  "metadata": {
+                    "events": [
+                      {
+                        "type": "turn.completed",
+                        "usage": {
+                          "input_tokens": 23448,
+                          "cached_input_tokens": 20736,
+                          "cache_write_input_tokens": 0,
+                          "output_tokens": 2033,
+                          "reasoning_output_tokens": 0
+                        }
+                      }
+                    ]
+                  },
+                  "latency_ms": 425313
+                },
+                {
+                  "reader": "claude",
+                  "role": "verifier",
+                  "cache_key": "e4998ea9009673301cb7ab06c30e3352374633f8a8f75cb58cbdf29f08c2d8f4",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "metadata": {
+                    "usage": {
+                      "input_tokens": 4,
+                      "cache_creation_input_tokens": 16781,
+                      "cache_read_input_tokens": 18395,
+                      "output_tokens": 2387,
+                      "output_tokens_details": {
+                        "thinking_tokens": 279
+                      },
+                      "server_tool_use": {
+                        "web_search_requests": 0,
+                        "web_fetch_requests": 0
+                      },
+                      "service_tier": "standard",
+                      "cache_creation": {
+                        "ephemeral_1h_input_tokens": 16781,
+                        "ephemeral_5m_input_tokens": 0
+                      },
+                      "inference_geo": "global",
+                      "iterations": [],
+                      "speed": "standard",
+                      "fallback_credit": null
+                    },
+                    "modelUsage": {
+                      "claude-opus-5-5": {
+                        "inputTokens": 4,
+                        "outputTokens": 2387,
+                        "cacheReadInputTokens": 18395,
+                        "cacheCreationInputTokens": 16781,
+                        "webSearchRequests": 0,
+                        "costUSD": 0.185683,
+                        "contextWindow": 1000000,
+                        "maxOutputTokens": 128000,
+                        "thinkingTokens": 279,
+                        "cacheCreationEphemeral5mInputTokens": 0,
+                        "cacheCreationEphemeral1hInputTokens": 16781,
+                        "canonicalModel": "claude-opus-5-5",
+                        "provider": "firstParty",
+                        "costBasis": "list"
+                      }
+                    },
+                    "total_cost_usd": 0.185683,
+                    "duration_ms": 21382,
+                    "is_error": false
+                  },
+                  "latency_ms": 22547
+                }
+              ]
+            },
+            {
+              "drawing": "D-017",
+              "metrics": {
+                "agreed": 0,
+                "agreed_after_retry": 0,
+                "verified": 8,
+                "verified_after_retry": 0,
+                "sent_to_review": 0,
+                "scan_undetermined": 0,
+                "mapping_approvals_required": 0,
+                "mapping_suggestions_unsure": 0,
+                "status_counts": {
+                  "verified": 8
+                },
+                "by_job": {
+                  "template": {
+                    "verified": 8
+                  }
+                },
+                "jobs": 1,
+                "exact_links": 0,
+                "reader_calls": 2,
+                "cache_hits": 0,
+                "provider_calls": 2,
+                "latency_ms_total": 166531,
+                "proposer_calls": 1,
+                "verifier_calls": 1,
+                "feedback_rounds": 0,
+                "feedback_keys": 0,
+                "protocols": [
+                  "proposal-verification-v1"
+                ],
+                "configured_readers": {
+                  "claude": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "codex": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  }
+                },
+                "roles": {
+                  "codex": "proposer",
+                  "claude": "verifier"
+                }
+              },
+              "calls": [
+                {
+                  "reader": "codex",
+                  "role": "proposer",
+                  "cache_key": "4e2b675e57301d117f73856b5ec07812e115baa9d118251ea87931318f15257c",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  },
+                  "metadata": {
+                    "events": [
+                      {
+                        "type": "turn.completed",
+                        "usage": {
+                          "input_tokens": 20868,
+                          "cached_input_tokens": 13056,
+                          "cache_write_input_tokens": 0,
+                          "output_tokens": 6033,
+                          "reasoning_output_tokens": 3987
+                        }
+                      }
+                    ]
+                  },
+                  "latency_ms": 125688
+                },
+                {
+                  "reader": "claude",
+                  "role": "verifier",
+                  "cache_key": "d94b2097b8e614ecf2eba02f20c961bb1e701ea1c478b81e5e93af65b21a4b4a",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "metadata": {
+                    "usage": {
+                      "input_tokens": 4,
+                      "cache_creation_input_tokens": 16878,
+                      "cache_read_input_tokens": 18491,
+                      "output_tokens": 4311,
+                      "output_tokens_details": {
+                        "thinking_tokens": 1925
+                      },
+                      "server_tool_use": {
+                        "web_search_requests": 0,
+                        "web_fetch_requests": 0
+                      },
+                      "service_tier": "standard",
+                      "cache_creation": {
+                        "ephemeral_1h_input_tokens": 16878,
+                        "ephemeral_5m_input_tokens": 0
+                      },
+                      "inference_geo": "global",
+                      "iterations": [],
+                      "speed": "standard",
+                      "fallback_credit": null
+                    },
+                    "modelUsage": {
+                      "claude-opus-5-5": {
+                        "inputTokens": 4,
+                        "outputTokens": 4311,
+                        "cacheReadInputTokens": 18491,
+                        "cacheCreationInputTokens": 16878,
+                        "webSearchRequests": 0,
+                        "costUSD": 0.2249582,
+                        "contextWindow": 1000000,
+                        "maxOutputTokens": 128000,
+                        "thinkingTokens": 1925,
+                        "cacheCreationEphemeral5mInputTokens": 0,
+                        "cacheCreationEphemeral1hInputTokens": 16878,
+                        "canonicalModel": "claude-opus-5-5",
+                        "provider": "firstParty",
+                        "costBasis": "list"
+                      }
+                    },
+                    "total_cost_usd": 0.2249582,
+                    "duration_ms": 39601,
+                    "is_error": false
+                  },
+                  "latency_ms": 40843
+                }
+              ]
+            },
+            {
+              "drawing": "D-018",
+              "metrics": {
+                "agreed": 0,
+                "agreed_after_retry": 0,
+                "verified": 7,
+                "verified_after_retry": 0,
+                "sent_to_review": 3,
+                "scan_undetermined": 0,
+                "mapping_approvals_required": 0,
+                "mapping_suggestions_unsure": 0,
+                "status_counts": {
+                  "needs_input": 3,
+                  "verified": 7
+                },
+                "by_job": {
+                  "template": {
+                    "needs_input": 3,
+                    "verified": 7
+                  }
+                },
+                "jobs": 1,
+                "exact_links": 0,
+                "reader_calls": 2,
+                "cache_hits": 0,
+                "provider_calls": 2,
+                "latency_ms_total": 129812,
+                "proposer_calls": 1,
+                "verifier_calls": 1,
+                "feedback_rounds": 0,
+                "feedback_keys": 0,
+                "protocols": [
+                  "proposal-verification-v1"
+                ],
+                "configured_readers": {
+                  "claude": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "codex": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  }
+                },
+                "roles": {
+                  "codex": "proposer",
+                  "claude": "verifier"
+                }
+              },
+              "calls": [
+                {
+                  "reader": "codex",
+                  "role": "proposer",
+                  "cache_key": "86e3577be512eab1dff17ccaaa0490a0824caac108a2a66cd16693d9d65d1e5b",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  },
+                  "metadata": {
+                    "events": [
+                      {
+                        "type": "turn.completed",
+                        "usage": {
+                          "input_tokens": 20090,
+                          "cached_input_tokens": 13056,
+                          "cache_write_input_tokens": 0,
+                          "output_tokens": 3178,
+                          "reasoning_output_tokens": 2070
+                        }
+                      }
+                    ]
+                  },
+                  "latency_ms": 74546
+                },
+                {
+                  "reader": "claude",
+                  "role": "verifier",
+                  "cache_key": "727ea4da5807561ea751d29a43f0819eb098e331735ef288d20e5d9450140ade",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "metadata": {
+                    "usage": {
+                      "input_tokens": 4,
+                      "cache_creation_input_tokens": 0,
+                      "cache_read_input_tokens": 30281,
+                      "output_tokens": 1870,
+                      "output_tokens_details": {
+                        "thinking_tokens": 251
+                      },
+                      "server_tool_use": {
+                        "web_search_requests": 0,
+                        "web_fetch_requests": 0
+                      },
+                      "service_tier": "standard",
+                      "cache_creation": {
+                        "ephemeral_1h_input_tokens": 0,
+                        "ephemeral_5m_input_tokens": 0
+                      },
+                      "inference_geo": "global",
+                      "iterations": [],
+                      "speed": "standard",
+                      "fallback_credit": null
+                    },
+                    "modelUsage": {
+                      "claude-opus-5-5": {
+                        "inputTokens": 4,
+                        "outputTokens": 1870,
+                        "cacheReadInputTokens": 30281,
+                        "cacheCreationInputTokens": 0,
+                        "webSearchRequests": 0,
+                        "costUSD": 0.0434722,
+                        "contextWindow": 1000000,
+                        "maxOutputTokens": 128000,
+                        "thinkingTokens": 251,
+                        "cacheCreationEphemeral5mInputTokens": 0,
+                        "cacheCreationEphemeral1hInputTokens": 0,
+                        "canonicalModel": "claude-opus-5-5",
+                        "provider": "firstParty",
+                        "costBasis": "list"
+                      }
+                    },
+                    "total_cost_usd": 0.0434722,
+                    "duration_ms": 17521,
+                    "is_error": false
+                  },
+                  "latency_ms": 55266
+                }
+              ]
+            },
+            {
+              "drawing": "D-019",
+              "metrics": {
+                "agreed": 0,
+                "agreed_after_retry": 0,
+                "verified": 8,
+                "verified_after_retry": 0,
+                "sent_to_review": 0,
+                "scan_undetermined": 0,
+                "mapping_approvals_required": 0,
+                "mapping_suggestions_unsure": 0,
+                "status_counts": {
+                  "verified": 8
+                },
+                "by_job": {
+                  "template": {
+                    "verified": 8
+                  }
+                },
+                "jobs": 1,
+                "exact_links": 0,
+                "reader_calls": 2,
+                "cache_hits": 0,
+                "provider_calls": 2,
+                "latency_ms_total": 103578,
+                "proposer_calls": 1,
+                "verifier_calls": 1,
+                "feedback_rounds": 0,
+                "feedback_keys": 0,
+                "protocols": [
+                  "proposal-verification-v1"
+                ],
+                "configured_readers": {
+                  "claude": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "codex": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  }
+                },
+                "roles": {
+                  "codex": "proposer",
+                  "claude": "verifier"
+                }
+              },
+              "calls": [
+                {
+                  "reader": "codex",
+                  "role": "proposer",
+                  "cache_key": "ebae3e5bb21b21fcc7c94f5899c2054dd6c5c9c2a1fec2c9b3fc4c04b9ee4fe8",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  },
+                  "metadata": {
+                    "events": [
+                      {
+                        "type": "turn.completed",
+                        "usage": {
+                          "input_tokens": 19959,
+                          "cached_input_tokens": 13056,
+                          "cache_write_input_tokens": 0,
+                          "output_tokens": 2575,
+                          "reasoning_output_tokens": 1443
+                        }
+                      }
+                    ]
+                  },
+                  "latency_ms": 51672
+                },
+                {
+                  "reader": "claude",
+                  "role": "verifier",
+                  "cache_key": "9958607b906f835a2bdba60882f52ce9d8745a8f4c1552a0631ac87122448f33",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "metadata": {
+                    "usage": {
+                      "input_tokens": 4,
+                      "cache_creation_input_tokens": 14220,
+                      "cache_read_input_tokens": 15839,
+                      "output_tokens": 2041,
+                      "output_tokens_details": {
+                        "thinking_tokens": 270
+                      },
+                      "server_tool_use": {
+                        "web_search_requests": 0,
+                        "web_fetch_requests": 0
+                      },
+                      "service_tier": "standard",
+                      "cache_creation": {
+                        "ephemeral_1h_input_tokens": 14220,
+                        "ephemeral_5m_input_tokens": 0
+                      },
+                      "inference_geo": "global",
+                      "iterations": [],
+                      "speed": "standard",
+                      "fallback_credit": null
+                    },
+                    "modelUsage": {
+                      "claude-opus-5-5": {
+                        "inputTokens": 4,
+                        "outputTokens": 2041,
+                        "cacheReadInputTokens": 15839,
+                        "cacheCreationInputTokens": 14220,
+                        "webSearchRequests": 0,
+                        "costUSD": 0.1577638,
+                        "contextWindow": 1000000,
+                        "maxOutputTokens": 128000,
+                        "thinkingTokens": 270,
+                        "cacheCreationEphemeral5mInputTokens": 0,
+                        "cacheCreationEphemeral1hInputTokens": 14220,
+                        "canonicalModel": "claude-opus-5-5",
+                        "provider": "firstParty",
+                        "costBasis": "list"
+                      }
+                    },
+                    "total_cost_usd": 0.1577638,
+                    "duration_ms": 17455,
+                    "is_error": false
+                  },
+                  "latency_ms": 51906
+                }
+              ]
+            },
+            {
+              "drawing": "D-020",
+              "metrics": {
+                "agreed": 0,
+                "agreed_after_retry": 0,
+                "verified": 5,
+                "verified_after_retry": 0,
+                "sent_to_review": 3,
+                "scan_undetermined": 0,
+                "mapping_approvals_required": 0,
+                "mapping_suggestions_unsure": 0,
+                "status_counts": {
+                  "verified": 5,
+                  "needs_input": 3
+                },
+                "by_job": {
+                  "template": {
+                    "verified": 5,
+                    "needs_input": 3
+                  }
+                },
+                "jobs": 1,
+                "exact_links": 0,
+                "reader_calls": 2,
+                "cache_hits": 0,
+                "provider_calls": 2,
+                "latency_ms_total": 75203,
+                "proposer_calls": 1,
+                "verifier_calls": 1,
+                "feedback_rounds": 0,
+                "feedback_keys": 0,
+                "protocols": [
+                  "proposal-verification-v1"
+                ],
+                "configured_readers": {
+                  "claude": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "codex": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  }
+                },
+                "roles": {
+                  "codex": "proposer",
+                  "claude": "verifier"
+                }
+              },
+              "calls": [
+                {
+                  "reader": "codex",
+                  "role": "proposer",
+                  "cache_key": "3c90cb9859cad475fd7d12f89f53b61c8cb214aa0187559105500b6ae2a4cda2",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  },
+                  "metadata": {
+                    "events": [
+                      {
+                        "type": "turn.completed",
+                        "usage": {
+                          "input_tokens": 19237,
+                          "cached_input_tokens": 0,
+                          "cache_write_input_tokens": 0,
+                          "output_tokens": 2227,
+                          "reasoning_output_tokens": 1349
+                        }
+                      }
+                    ]
+                  },
+                  "latency_ms": 55453
+                },
+                {
+                  "reader": "claude",
+                  "role": "verifier",
+                  "cache_key": "9e471b041bb1d814ad93e5389d46f9b9140c53705a330382edeb0b393f400c3d",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "metadata": {
+                    "usage": {
+                      "input_tokens": 4,
+                      "cache_creation_input_tokens": 12961,
+                      "cache_read_input_tokens": 14579,
+                      "output_tokens": 2081,
+                      "output_tokens_details": {
+                        "thinking_tokens": 571
+                      },
+                      "server_tool_use": {
+                        "web_search_requests": 0,
+                        "web_fetch_requests": 0
+                      },
+                      "service_tier": "standard",
+                      "cache_creation": {
+                        "ephemeral_1h_input_tokens": 12961,
+                        "ephemeral_5m_input_tokens": 0
+                      },
+                      "inference_geo": "global",
+                      "iterations": [],
+                      "speed": "standard",
+                      "fallback_credit": null
+                    },
+                    "modelUsage": {
+                      "claude-opus-5-5": {
+                        "inputTokens": 4,
+                        "outputTokens": 2081,
+                        "cacheReadInputTokens": 14579,
+                        "cacheCreationInputTokens": 12961,
+                        "webSearchRequests": 0,
+                        "costUSD": 0.1482398,
+                        "contextWindow": 1000000,
+                        "maxOutputTokens": 128000,
+                        "thinkingTokens": 571,
+                        "cacheCreationEphemeral5mInputTokens": 0,
+                        "cacheCreationEphemeral1hInputTokens": 12961,
+                        "canonicalModel": "claude-opus-5-5",
+                        "provider": "firstParty",
+                        "costBasis": "list"
+                      }
+                    },
+                    "total_cost_usd": 0.1482398,
+                    "duration_ms": 18625,
+                    "is_error": false
+                  },
+                  "latency_ms": 19750
+                }
+              ]
+            },
+            {
+              "drawing": "D-021",
+              "metrics": {
+                "agreed": 0,
+                "agreed_after_retry": 0,
+                "verified": 4,
+                "verified_after_retry": 0,
+                "sent_to_review": 6,
+                "scan_undetermined": 0,
+                "mapping_approvals_required": 0,
+                "mapping_suggestions_unsure": 0,
+                "status_counts": {
+                  "needs_input": 6,
+                  "verified": 4
+                },
+                "by_job": {
+                  "template": {
+                    "needs_input": 6,
+                    "verified": 4
+                  }
+                },
+                "jobs": 1,
+                "exact_links": 0,
+                "reader_calls": 2,
+                "cache_hits": 0,
+                "provider_calls": 2,
+                "latency_ms_total": 154610,
+                "proposer_calls": 1,
+                "verifier_calls": 1,
+                "feedback_rounds": 0,
+                "feedback_keys": 0,
+                "protocols": [
+                  "proposal-verification-v1"
+                ],
+                "configured_readers": {
+                  "claude": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "codex": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  }
+                },
+                "roles": {
+                  "codex": "proposer",
+                  "claude": "verifier"
+                }
+              },
+              "calls": [
+                {
+                  "reader": "codex",
+                  "role": "proposer",
+                  "cache_key": "49ac729f10d15d9048839cc3a22fd0cda466dfc0f88d368e7b69086478730e29",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  },
+                  "metadata": {
+                    "events": [
+                      {
+                        "type": "turn.completed",
+                        "usage": {
+                          "input_tokens": 24500,
+                          "cached_input_tokens": 0,
+                          "cache_write_input_tokens": 0,
+                          "output_tokens": 5202,
+                          "reasoning_output_tokens": 3624
+                        }
+                      }
+                    ]
+                  },
+                  "latency_ms": 133297
+                },
+                {
+                  "reader": "claude",
+                  "role": "verifier",
+                  "cache_key": "0b22f18bb789109779daaec6938cad39fd6b422c4310e6e3ba5a5b88adea79bf",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "metadata": {
+                    "usage": {
+                      "input_tokens": 4,
+                      "cache_creation_input_tokens": 20720,
+                      "cache_read_input_tokens": 18771,
+                      "output_tokens": 2176,
+                      "output_tokens_details": {
+                        "thinking_tokens": 205
+                      },
+                      "server_tool_use": {
+                        "web_search_requests": 0,
+                        "web_fetch_requests": 0
+                      },
+                      "service_tier": "standard",
+                      "cache_creation": {
+                        "ephemeral_1h_input_tokens": 20720,
+                        "ephemeral_5m_input_tokens": 0
+                      },
+                      "inference_geo": "global",
+                      "iterations": [],
+                      "speed": "standard",
+                      "fallback_credit": null
+                    },
+                    "modelUsage": {
+                      "claude-opus-5-5": {
+                        "inputTokens": 4,
+                        "outputTokens": 2176,
+                        "cacheReadInputTokens": 18771,
+                        "cacheCreationInputTokens": 20720,
+                        "webSearchRequests": 0,
+                        "costUSD": 0.21305020000000002,
+                        "contextWindow": 1000000,
+                        "maxOutputTokens": 128000,
+                        "thinkingTokens": 205,
+                        "cacheCreationEphemeral5mInputTokens": 0,
+                        "cacheCreationEphemeral1hInputTokens": 20720,
+                        "canonicalModel": "claude-opus-5-5",
+                        "provider": "firstParty",
+                        "costBasis": "list"
+                      }
+                    },
+                    "total_cost_usd": 0.21305020000000002,
+                    "duration_ms": 20156,
+                    "is_error": false
+                  },
+                  "latency_ms": 21313
+                }
+              ]
+            },
+            {
+              "drawing": "D-022",
+              "metrics": {
+                "agreed": 0,
+                "agreed_after_retry": 0,
+                "verified": 4,
+                "verified_after_retry": 0,
+                "sent_to_review": 6,
+                "scan_undetermined": 0,
+                "mapping_approvals_required": 0,
+                "mapping_suggestions_unsure": 0,
+                "status_counts": {
+                  "needs_input": 6,
+                  "verified": 4
+                },
+                "by_job": {
+                  "template": {
+                    "needs_input": 6,
+                    "verified": 4
+                  }
+                },
+                "jobs": 1,
+                "exact_links": 0,
+                "reader_calls": 2,
+                "cache_hits": 0,
+                "provider_calls": 2,
+                "latency_ms_total": 90781,
+                "proposer_calls": 1,
+                "verifier_calls": 1,
+                "feedback_rounds": 0,
+                "feedback_keys": 0,
+                "protocols": [
+                  "proposal-verification-v1"
+                ],
+                "configured_readers": {
+                  "claude": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "codex": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  }
+                },
+                "roles": {
+                  "codex": "proposer",
+                  "claude": "verifier"
+                }
+              },
+              "calls": [
+                {
+                  "reader": "codex",
+                  "role": "proposer",
+                  "cache_key": "82ea18fe2111d644ef9d64fcc64b63070e0ac6621c71542850b0a698320eee13",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  },
+                  "metadata": {
+                    "events": [
+                      {
+                        "type": "turn.completed",
+                        "usage": {
+                          "input_tokens": 19229,
+                          "cached_input_tokens": 0,
+                          "cache_write_input_tokens": 0,
+                          "output_tokens": 2511,
+                          "reasoning_output_tokens": 1552
+                        }
+                      }
+                    ]
+                  },
+                  "latency_ms": 67297
+                },
+                {
+                  "reader": "claude",
+                  "role": "verifier",
+                  "cache_key": "14822d40a34bdf979607d6f63d6ea91897c5aa11dd73a39c7ff60edb94a30e80",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "metadata": {
+                    "usage": {
+                      "input_tokens": 4,
+                      "cache_creation_input_tokens": 12993,
+                      "cache_read_input_tokens": 14725,
+                      "output_tokens": 2225,
+                      "output_tokens_details": {
+                        "thinking_tokens": 553
+                      },
+                      "server_tool_use": {
+                        "web_search_requests": 0,
+                        "web_fetch_requests": 0
+                      },
+                      "service_tier": "standard",
+                      "cache_creation": {
+                        "ephemeral_1h_input_tokens": 12993,
+                        "ephemeral_5m_input_tokens": 0
+                      },
+                      "inference_geo": "global",
+                      "iterations": [],
+                      "speed": "standard",
+                      "fallback_credit": null
+                    },
+                    "modelUsage": {
+                      "claude-opus-5-5": {
+                        "inputTokens": 4,
+                        "outputTokens": 2225,
+                        "cacheReadInputTokens": 14725,
+                        "cacheCreationInputTokens": 12993,
+                        "webSearchRequests": 0,
+                        "costUSD": 0.151405,
+                        "contextWindow": 1000000,
+                        "maxOutputTokens": 128000,
+                        "thinkingTokens": 553,
+                        "cacheCreationEphemeral5mInputTokens": 0,
+                        "cacheCreationEphemeral1hInputTokens": 12993,
+                        "canonicalModel": "claude-opus-5-5",
+                        "provider": "firstParty",
+                        "costBasis": "list"
+                      }
+                    },
+                    "total_cost_usd": 0.151405,
+                    "duration_ms": 22391,
+                    "is_error": false
+                  },
+                  "latency_ms": 23484
+                }
+              ]
+            },
+            {
+              "drawing": "D-023",
+              "metrics": {
+                "agreed": 0,
+                "agreed_after_retry": 0,
+                "verified": 5,
+                "verified_after_retry": 0,
+                "sent_to_review": 3,
+                "scan_undetermined": 0,
+                "mapping_approvals_required": 0,
+                "mapping_suggestions_unsure": 0,
+                "status_counts": {
+                  "verified": 5,
+                  "needs_input": 3
+                },
+                "by_job": {
+                  "template": {
+                    "verified": 5,
+                    "needs_input": 3
+                  }
+                },
+                "jobs": 1,
+                "exact_links": 0,
+                "reader_calls": 2,
+                "cache_hits": 0,
+                "provider_calls": 2,
+                "latency_ms_total": 86609,
+                "proposer_calls": 1,
+                "verifier_calls": 1,
+                "feedback_rounds": 0,
+                "feedback_keys": 0,
+                "protocols": [
+                  "proposal-verification-v1"
+                ],
+                "configured_readers": {
+                  "claude": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "codex": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  }
+                },
+                "roles": {
+                  "codex": "proposer",
+                  "claude": "verifier"
+                }
+              },
+              "calls": [
+                {
+                  "reader": "codex",
+                  "role": "proposer",
+                  "cache_key": "c594eff08db6dcd43132a2401ab4ac7f001fc1ae194320cf39653cfe82cfc284",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  },
+                  "metadata": {
+                    "events": [
+                      {
+                        "type": "turn.completed",
+                        "usage": {
+                          "input_tokens": 19230,
+                          "cached_input_tokens": 13056,
+                          "cache_write_input_tokens": 0,
+                          "output_tokens": 2452,
+                          "reasoning_output_tokens": 1552
+                        }
+                      }
+                    ]
+                  },
+                  "latency_ms": 64578
+                },
+                {
+                  "reader": "claude",
+                  "role": "verifier",
+                  "cache_key": "ae83eb26138c5c214c33440df1233cd91ed7e5f5590be7cc582b93b4e2f4c146",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "metadata": {
+                    "usage": {
+                      "input_tokens": 4,
+                      "cache_creation_input_tokens": 12980,
+                      "cache_read_input_tokens": 14595,
+                      "output_tokens": 2064,
+                      "output_tokens_details": {
+                        "thinking_tokens": 442
+                      },
+                      "server_tool_use": {
+                        "web_search_requests": 0,
+                        "web_fetch_requests": 0
+                      },
+                      "service_tier": "standard",
+                      "cache_creation": {
+                        "ephemeral_1h_input_tokens": 12980,
+                        "ephemeral_5m_input_tokens": 0
+                      },
+                      "inference_geo": "global",
+                      "iterations": [],
+                      "speed": "standard",
+                      "fallback_credit": null
+                    },
+                    "modelUsage": {
+                      "claude-opus-5-5": {
+                        "inputTokens": 4,
+                        "outputTokens": 2064,
+                        "cacheReadInputTokens": 14595,
+                        "cacheCreationInputTokens": 12980,
+                        "webSearchRequests": 0,
+                        "costUSD": 0.148055,
+                        "contextWindow": 1000000,
+                        "maxOutputTokens": 128000,
+                        "thinkingTokens": 442,
+                        "cacheCreationEphemeral5mInputTokens": 0,
+                        "cacheCreationEphemeral1hInputTokens": 12980,
+                        "canonicalModel": "claude-opus-5-5",
+                        "provider": "firstParty",
+                        "costBasis": "list"
+                      }
+                    },
+                    "total_cost_usd": 0.148055,
+                    "duration_ms": 20877,
+                    "is_error": false
+                  },
+                  "latency_ms": 22031
+                }
+              ]
+            },
+            {
+              "drawing": "D-024",
+              "metrics": {
+                "agreed": 0,
+                "agreed_after_retry": 0,
+                "verified": 7,
+                "verified_after_retry": 0,
+                "sent_to_review": 0,
+                "scan_undetermined": 0,
+                "mapping_approvals_required": 0,
+                "mapping_suggestions_unsure": 0,
+                "status_counts": {
+                  "verified": 7
+                },
+                "by_job": {
+                  "template": {
+                    "verified": 7
+                  }
+                },
+                "jobs": 1,
+                "exact_links": 0,
+                "reader_calls": 2,
+                "cache_hits": 0,
+                "provider_calls": 2,
+                "latency_ms_total": 414641,
+                "proposer_calls": 1,
+                "verifier_calls": 1,
+                "feedback_rounds": 0,
+                "feedback_keys": 0,
+                "protocols": [
+                  "proposal-verification-v1"
+                ],
+                "configured_readers": {
+                  "claude": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "codex": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  }
+                },
+                "roles": {
+                  "codex": "proposer",
+                  "claude": "verifier"
+                }
+              },
+              "calls": [
+                {
+                  "reader": "codex",
+                  "role": "proposer",
+                  "cache_key": "a2553cc327228c8a3f2f30e7f165646c5687328349cec51d529b69c9c4ad7bb5",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  },
+                  "metadata": {
+                    "events": [
+                      {
+                        "type": "turn.completed",
+                        "usage": {
+                          "input_tokens": 22907,
+                          "cached_input_tokens": 13056,
+                          "cache_write_input_tokens": 0,
+                          "output_tokens": 13653,
+                          "reasoning_output_tokens": 9810
+                        }
+                      }
+                    ]
+                  },
+                  "latency_ms": 337547
+                },
+                {
+                  "reader": "claude",
+                  "role": "verifier",
+                  "cache_key": "d90c3584e5e9e1a983f89b0a7be48f371062bcbe0d31e2396ca0b1bb4fae56b2",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "metadata": {
+                    "usage": {
+                      "input_tokens": 4,
+                      "cache_creation_input_tokens": 22395,
+                      "cache_read_input_tokens": 24006,
+                      "output_tokens": 7793,
+                      "output_tokens_details": {
+                        "thinking_tokens": 4776
+                      },
+                      "server_tool_use": {
+                        "web_search_requests": 0,
+                        "web_fetch_requests": 0
+                      },
+                      "service_tier": "standard",
+                      "cache_creation": {
+                        "ephemeral_1h_input_tokens": 22395,
+                        "ephemeral_5m_input_tokens": 0
+                      },
+                      "inference_geo": "global",
+                      "iterations": [],
+                      "speed": "standard",
+                      "fallback_credit": null
+                    },
+                    "modelUsage": {
+                      "claude-opus-5-5": {
+                        "inputTokens": 4,
+                        "outputTokens": 7793,
+                        "cacheReadInputTokens": 24006,
+                        "cacheCreationInputTokens": 22395,
+                        "webSearchRequests": 0,
+                        "costUSD": 0.3398372,
+                        "contextWindow": 1000000,
+                        "maxOutputTokens": 128000,
+                        "thinkingTokens": 4776,
+                        "cacheCreationEphemeral5mInputTokens": 0,
+                        "cacheCreationEphemeral1hInputTokens": 22395,
+                        "canonicalModel": "claude-opus-5-5",
+                        "provider": "firstParty",
+                        "costBasis": "list"
+                      }
+                    },
+                    "total_cost_usd": 0.3398372,
+                    "duration_ms": 75935,
+                    "is_error": false
+                  },
+                  "latency_ms": 77094
+                }
+              ]
+            },
+            {
+              "drawing": "D-027",
+              "metrics": {
+                "agreed": 0,
+                "agreed_after_retry": 0,
+                "verified": 8,
+                "verified_after_retry": 0,
+                "sent_to_review": 0,
+                "scan_undetermined": 0,
+                "mapping_approvals_required": 0,
+                "mapping_suggestions_unsure": 0,
+                "status_counts": {
+                  "verified": 8
+                },
+                "by_job": {
+                  "template": {
+                    "verified": 8
+                  }
+                },
+                "jobs": 1,
+                "exact_links": 0,
+                "reader_calls": 2,
+                "cache_hits": 0,
+                "provider_calls": 2,
+                "latency_ms_total": 199125,
+                "proposer_calls": 1,
+                "verifier_calls": 1,
+                "feedback_rounds": 0,
+                "feedback_keys": 0,
+                "protocols": [
+                  "proposal-verification-v1"
+                ],
+                "configured_readers": {
+                  "claude": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "codex": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  }
+                },
+                "roles": {
+                  "codex": "proposer",
+                  "claude": "verifier"
+                }
+              },
+              "calls": [
+                {
+                  "reader": "codex",
+                  "role": "proposer",
+                  "cache_key": "37c155d42fd193e0a664e9ea94c7900e9b8f61430f357b6d2f82b238c099b1b7",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  },
+                  "metadata": {
+                    "events": [
+                      {
+                        "type": "turn.completed",
+                        "usage": {
+                          "input_tokens": 22186,
+                          "cached_input_tokens": 0,
+                          "cache_write_input_tokens": 0,
+                          "output_tokens": 7047,
+                          "reasoning_output_tokens": 3979
+                        }
+                      }
+                    ]
+                  },
+                  "latency_ms": 166672
+                },
+                {
+                  "reader": "claude",
+                  "role": "verifier",
+                  "cache_key": "205542df7310808f5432433c6e62d19d3348faa5ea7c1e42662ca555d41aec6b",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "metadata": {
+                    "usage": {
+                      "input_tokens": 4,
+                      "cache_creation_input_tokens": 18702,
+                      "cache_read_input_tokens": 20321,
+                      "output_tokens": 3374,
+                      "output_tokens_details": {
+                        "thinking_tokens": 1207
+                      },
+                      "server_tool_use": {
+                        "web_search_requests": 0,
+                        "web_fetch_requests": 0
+                      },
+                      "service_tier": "standard",
+                      "cache_creation": {
+                        "ephemeral_1h_input_tokens": 18702,
+                        "ephemeral_5m_input_tokens": 0
+                      },
+                      "inference_geo": "global",
+                      "iterations": [],
+                      "speed": "standard",
+                      "fallback_credit": null
+                    },
+                    "modelUsage": {
+                      "claude-opus-5-5": {
+                        "inputTokens": 4,
+                        "outputTokens": 3374,
+                        "cacheReadInputTokens": 20321,
+                        "cacheCreationInputTokens": 18702,
+                        "webSearchRequests": 0,
+                        "costUSD": 0.2211762,
+                        "contextWindow": 1000000,
+                        "maxOutputTokens": 128000,
+                        "thinkingTokens": 1207,
+                        "cacheCreationEphemeral5mInputTokens": 0,
+                        "cacheCreationEphemeral1hInputTokens": 18702,
+                        "canonicalModel": "claude-opus-5-5",
+                        "provider": "firstParty",
+                        "costBasis": "list"
+                      }
+                    },
+                    "total_cost_usd": 0.2211762,
+                    "duration_ms": 31304,
+                    "is_error": false
+                  },
+                  "latency_ms": 32453
+                }
+              ]
+            },
+            {
+              "drawing": "D-028",
+              "metrics": {
+                "agreed": 0,
+                "agreed_after_retry": 0,
+                "verified": 6,
+                "verified_after_retry": 0,
+                "sent_to_review": 4,
+                "scan_undetermined": 0,
+                "mapping_approvals_required": 0,
+                "mapping_suggestions_unsure": 0,
+                "status_counts": {
+                  "needs_input": 3,
+                  "invalid": 1,
+                  "verified": 6
+                },
+                "by_job": {
+                  "template": {
+                    "needs_input": 3,
+                    "invalid": 1,
+                    "verified": 6
+                  }
+                },
+                "jobs": 1,
+                "exact_links": 0,
+                "reader_calls": 4,
+                "cache_hits": 0,
+                "provider_calls": 4,
+                "latency_ms_total": 153343,
+                "proposer_calls": 2,
+                "verifier_calls": 2,
+                "feedback_rounds": 1,
+                "feedback_keys": 1,
+                "protocols": [
+                  "proposal-verification-v1"
+                ],
+                "configured_readers": {
+                  "claude": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "codex": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  }
+                },
+                "roles": {
+                  "codex": "proposer",
+                  "claude": "verifier"
+                }
+              },
+              "calls": [
+                {
+                  "reader": "codex",
+                  "role": "proposer",
+                  "cache_key": "4032bb01887cca8694974a58c9fa297d4e065cc0936dd5690814ade7a61b24e8",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  },
+                  "metadata": {
+                    "events": [
+                      {
+                        "type": "turn.completed",
+                        "usage": {
+                          "input_tokens": 20356,
+                          "cached_input_tokens": 13056,
+                          "cache_write_input_tokens": 0,
+                          "output_tokens": 4894,
+                          "reasoning_output_tokens": 2875
+                        }
+                      }
+                    ]
+                  },
+                  "latency_ms": 101031
+                },
+                {
+                  "reader": "claude",
+                  "role": "verifier",
+                  "cache_key": "7871ec19a844879bd3c698d65bc5527157fd45f7cc61ef2f4adc1f010604634c",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "metadata": {
+                    "usage": {
+                      "input_tokens": 4,
+                      "cache_creation_input_tokens": 16178,
+                      "cache_read_input_tokens": 17795,
+                      "output_tokens": 2580,
+                      "output_tokens_details": {
+                        "thinking_tokens": 559
+                      },
+                      "server_tool_use": {
+                        "web_search_requests": 0,
+                        "web_fetch_requests": 0
+                      },
+                      "service_tier": "standard",
+                      "cache_creation": {
+                        "ephemeral_1h_input_tokens": 16178,
+                        "ephemeral_5m_input_tokens": 0
+                      },
+                      "inference_geo": "global",
+                      "iterations": [],
+                      "speed": "standard",
+                      "fallback_credit": null
+                    },
+                    "modelUsage": {
+                      "claude-opus-5-5": {
+                        "inputTokens": 4,
+                        "outputTokens": 2580,
+                        "cacheReadInputTokens": 17795,
+                        "cacheCreationInputTokens": 16178,
+                        "webSearchRequests": 0,
+                        "costUSD": 0.184599,
+                        "contextWindow": 1000000,
+                        "maxOutputTokens": 128000,
+                        "thinkingTokens": 559,
+                        "cacheCreationEphemeral5mInputTokens": 0,
+                        "cacheCreationEphemeral1hInputTokens": 16178,
+                        "canonicalModel": "claude-opus-5-5",
+                        "provider": "firstParty",
+                        "costBasis": "list"
+                      }
+                    },
+                    "total_cost_usd": 0.184599,
+                    "duration_ms": 23848,
+                    "is_error": false
+                  },
+                  "latency_ms": 25047
+                },
+                {
+                  "reader": "codex",
+                  "role": "proposer",
+                  "cache_key": "0b363c19b6485c8bcf6bae14abfa60bd463cdbdd00ac14b4c334e6278ba08494",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  },
+                  "metadata": {
+                    "events": [
+                      {
+                        "type": "turn.completed",
+                        "usage": {
+                          "input_tokens": 20697,
+                          "cached_input_tokens": 0,
+                          "cache_write_input_tokens": 0,
+                          "output_tokens": 557,
+                          "reasoning_output_tokens": 353
+                        }
+                      }
+                    ]
+                  },
+                  "latency_ms": 14750
+                },
+                {
+                  "reader": "claude",
+                  "role": "verifier",
+                  "cache_key": "ecfecfd6110db6e5ceb36980d5d398ace96781f2cb84f0e1778e695485cbbbd4",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "metadata": {
+                    "usage": {
+                      "input_tokens": 4,
+                      "cache_creation_input_tokens": 15647,
+                      "cache_read_input_tokens": 12105,
+                      "output_tokens": 979,
+                      "output_tokens_details": {
+                        "thinking_tokens": 296
+                      },
+                      "server_tool_use": {
+                        "web_search_requests": 0,
+                        "web_fetch_requests": 0
+                      },
+                      "service_tier": "standard",
+                      "cache_creation": {
+                        "ephemeral_1h_input_tokens": 15647,
+                        "ephemeral_5m_input_tokens": 0
+                      },
+                      "inference_geo": "global",
+                      "iterations": [],
+                      "speed": "standard",
+                      "fallback_credit": null
+                    },
+                    "modelUsage": {
+                      "claude-opus-5-5": {
+                        "inputTokens": 4,
+                        "outputTokens": 979,
+                        "cacheReadInputTokens": 12105,
+                        "cacheCreationInputTokens": 15647,
+                        "webSearchRequests": 0,
+                        "costUSD": 0.147193,
+                        "contextWindow": 1000000,
+                        "maxOutputTokens": 128000,
+                        "thinkingTokens": 296,
+                        "cacheCreationEphemeral5mInputTokens": 0,
+                        "cacheCreationEphemeral1hInputTokens": 15647,
+                        "canonicalModel": "claude-opus-5-5",
+                        "provider": "firstParty",
+                        "costBasis": "list"
+                      }
+                    },
+                    "total_cost_usd": 0.147193,
+                    "duration_ms": 11355,
+                    "is_error": false
+                  },
+                  "latency_ms": 12515
+                }
+              ]
+            },
+            {
+              "drawing": "D-029",
+              "metrics": {
+                "agreed": 0,
+                "agreed_after_retry": 0,
+                "verified": 5,
+                "verified_after_retry": 0,
+                "sent_to_review": 5,
+                "scan_undetermined": 0,
+                "mapping_approvals_required": 0,
+                "mapping_suggestions_unsure": 0,
+                "status_counts": {
+                  "needs_input": 5,
+                  "verified": 5
+                },
+                "by_job": {
+                  "template": {
+                    "needs_input": 5,
+                    "verified": 5
+                  }
+                },
+                "jobs": 1,
+                "exact_links": 0,
+                "reader_calls": 2,
+                "cache_hits": 0,
+                "provider_calls": 2,
+                "latency_ms_total": 133656,
+                "proposer_calls": 1,
+                "verifier_calls": 1,
+                "feedback_rounds": 0,
+                "feedback_keys": 0,
+                "protocols": [
+                  "proposal-verification-v1"
+                ],
+                "configured_readers": {
+                  "claude": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "codex": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  }
+                },
+                "roles": {
+                  "codex": "proposer",
+                  "claude": "verifier"
+                }
+              },
+              "calls": [
+                {
+                  "reader": "codex",
+                  "role": "proposer",
+                  "cache_key": "48aca9a41309be6d61b4ccf703fdf8e1c9d32714422a4b6200f31c2fe2fee13c",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  },
+                  "metadata": {
+                    "events": [
+                      {
+                        "type": "turn.completed",
+                        "usage": {
+                          "input_tokens": 21003,
+                          "cached_input_tokens": 13056,
+                          "cache_write_input_tokens": 0,
+                          "output_tokens": 4383,
+                          "reasoning_output_tokens": 2864
+                        }
+                      }
+                    ]
+                  },
+                  "latency_ms": 106719
+                },
+                {
+                  "reader": "claude",
+                  "role": "verifier",
+                  "cache_key": "1a8485d62d28c4a9d79d9507cd896c9e3cff431fd388786d87e2d4f80f80bea8",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "metadata": {
+                    "usage": {
+                      "input_tokens": 4,
+                      "cache_creation_input_tokens": 16339,
+                      "cache_read_input_tokens": 17953,
+                      "output_tokens": 2669,
+                      "output_tokens_details": {
+                        "thinking_tokens": 776
+                      },
+                      "server_tool_use": {
+                        "web_search_requests": 0,
+                        "web_fetch_requests": 0
+                      },
+                      "service_tier": "standard",
+                      "cache_creation": {
+                        "ephemeral_1h_input_tokens": 16339,
+                        "ephemeral_5m_input_tokens": 0
+                      },
+                      "inference_geo": "global",
+                      "iterations": [],
+                      "speed": "standard",
+                      "fallback_credit": null
+                    },
+                    "modelUsage": {
+                      "claude-opus-5-5": {
+                        "inputTokens": 4,
+                        "outputTokens": 2669,
+                        "cacheReadInputTokens": 17953,
+                        "cacheCreationInputTokens": 16339,
+                        "webSearchRequests": 0,
+                        "costUSD": 0.1876986,
+                        "contextWindow": 1000000,
+                        "maxOutputTokens": 128000,
+                        "thinkingTokens": 776,
+                        "cacheCreationEphemeral5mInputTokens": 0,
+                        "cacheCreationEphemeral1hInputTokens": 16339,
+                        "canonicalModel": "claude-opus-5-5",
+                        "provider": "firstParty",
+                        "costBasis": "list"
+                      }
+                    },
+                    "total_cost_usd": 0.1876986,
+                    "duration_ms": 25742,
+                    "is_error": false
+                  },
+                  "latency_ms": 26937
+                }
+              ]
+            },
+            {
+              "drawing": "D-030",
+              "metrics": {
+                "agreed": 0,
+                "agreed_after_retry": 0,
+                "verified": 4,
+                "verified_after_retry": 0,
+                "sent_to_review": 6,
+                "scan_undetermined": 0,
+                "mapping_approvals_required": 0,
+                "mapping_suggestions_unsure": 0,
+                "status_counts": {
+                  "needs_input": 6,
+                  "verified": 4
+                },
+                "by_job": {
+                  "template": {
+                    "needs_input": 6,
+                    "verified": 4
+                  }
+                },
+                "jobs": 1,
+                "exact_links": 0,
+                "reader_calls": 2,
+                "cache_hits": 0,
+                "provider_calls": 2,
+                "latency_ms_total": 105000,
+                "proposer_calls": 1,
+                "verifier_calls": 1,
+                "feedback_rounds": 0,
+                "feedback_keys": 0,
+                "protocols": [
+                  "proposal-verification-v1"
+                ],
+                "configured_readers": {
+                  "claude": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "codex": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  }
+                },
+                "roles": {
+                  "codex": "proposer",
+                  "claude": "verifier"
+                }
+              },
+              "calls": [
+                {
+                  "reader": "codex",
+                  "role": "proposer",
+                  "cache_key": "6823747f2e8db4bcf2e26aadb31c09a6bea0af586db2e309130742ad15d5e097",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  },
+                  "metadata": {
+                    "events": [
+                      {
+                        "type": "turn.completed",
+                        "usage": {
+                          "input_tokens": 19235,
+                          "cached_input_tokens": 13056,
+                          "cache_write_input_tokens": 0,
+                          "output_tokens": 3527,
+                          "reasoning_output_tokens": 2211
+                        }
+                      }
+                    ]
+                  },
+                  "latency_ms": 73922
+                },
+                {
+                  "reader": "claude",
+                  "role": "verifier",
+                  "cache_key": "dea39bea5739bf3bdb079291fb17257761a7ee2d1b4a12d9d4e455d928d27d8e",
+                  "cache_hit": false,
+                  "settings": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "metadata": {
+                    "usage": {
+                      "input_tokens": 4,
+                      "cache_creation_input_tokens": 13415,
+                      "cache_read_input_tokens": 15029,
+                      "output_tokens": 3067,
+                      "output_tokens_details": {
+                        "thinking_tokens": 1461
+                      },
+                      "server_tool_use": {
+                        "web_search_requests": 0,
+                        "web_fetch_requests": 0
+                      },
+                      "service_tier": "standard",
+                      "cache_creation": {
+                        "ephemeral_1h_input_tokens": 13415,
+                        "ephemeral_5m_input_tokens": 0
+                      },
+                      "inference_geo": "global",
+                      "iterations": [],
+                      "speed": "standard",
+                      "fallback_credit": null
+                    },
+                    "modelUsage": {
+                      "claude-opus-5-5": {
+                        "inputTokens": 4,
+                        "outputTokens": 3067,
+                        "cacheReadInputTokens": 15029,
+                        "cacheCreationInputTokens": 13415,
+                        "webSearchRequests": 0,
+                        "costUSD": 0.1716818,
+                        "contextWindow": 1000000,
+                        "maxOutputTokens": 128000,
+                        "thinkingTokens": 1461,
+                        "cacheCreationEphemeral5mInputTokens": 0,
+                        "cacheCreationEphemeral1hInputTokens": 13415,
+                        "canonicalModel": "claude-opus-5-5",
+                        "provider": "firstParty",
+                        "costBasis": "list"
+                      }
+                    },
+                    "total_cost_usd": 0.1716818,
+                    "duration_ms": 29943,
+                    "is_error": false
+                  },
+                  "latency_ms": 31078
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "cad_regeneration": "queued remotely; no local geometry generation"
+}

@@ -1,0 +1,37 @@
+{
+  "decision_id": "HD-1da03280402d40d8aab42666026f9ee2",
+  "applies_to": "D-027/template/features_omitted",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "The sole omission is the unspecified sharp-edge finishing instruction; the nine physical openings and both ends of the three stepped holes are retained.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:42.962242+00:00",
+  "based_on": {
+    "sha256": "9a270f0ddf24b173b85b6879b4fbd1ba9cf67d71cff7b13f722699699a667bcc"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-027/drawing/general/edge_finish",
+    "D-027/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "fact_id": "D-027/drawing/general/edge_finish",
+      "page": 1,
+      "box": [
+        1078.776,
+        781.582,
+        52.887,
+        14.837
+      ]
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\detail-followup-audit.json",
+    "sha256": "a713e8fd0470e9cdf28c5c53e7757d8ab9cb60004fd918b8b2c8e0af482c571a"
+  },
+  "prediction_sha256": "e81ae476931c12fed7f6a6b526f28cb5f96914f4989b25bb7dd289308c47119c"
+}

@@ -1,0 +1,155 @@
+{
+  "decision_id": "HD-fab2a4d969e147c9aa7f43e67e7c9694",
+  "applies_to": "D-016/template/features_omitted",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Original callouts read 6x Ø4,5 THRU with Ø9,0 X90°, 3x Ø5,5 THRU with Ø11,2 X90°, and 4x M6 THRU. No center-location dimensions are given for these small holes; M6 provides no explicit drill diameter. Lower corners visibly round with printed R15,0, beyond current supported outline family. General edge finish has no size. Confirm all listed omissions while retaining known dimensions and not inventing coordinates.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:39.400556+00:00",
+  "based_on": {
+    "sha256": "4f9799f28352975cd39a5c52daf0e1dcb036d379fb58ecf6413f0befc67525f3"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-016/drawing/callout/p1-1",
+    "D-016/drawing/n/15.0@1-1",
+    "D-016/drawing/callout/p1-2",
+    "D-016/drawing/callout/p1-3",
+    "D-016/drawing/callout/p1-4",
+    "D-016/drawing/callout/p1-5",
+    "D-016/drawing/callout/p1-6",
+    "D-016/drawing/general/edge_finish",
+    "D-016/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-016",
+      "page": 1,
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-016.pdf",
+      "fact_id": "D-016/drawing/callout/p1-1",
+      "box": [
+        614.764,
+        597.854,
+        41.794,
+        41.794
+      ],
+      "image": "generated/images/D-016-p1.png",
+      "visual_description": "Original callouts read 6x Ø4,5 THRU with Ø9,0 X90°, 3x Ø5,5 THRU with Ø11,2 X90°, and 4x M6 THRU. No center-location dimensions are given for these small holes; M6 provides no explicit drill diameter. Lower corners visibly round with printed R15,0, beyond current supported outline family. General edge finish has no size. Confirm all listed omissions while retaining known dimensions and not inventing coordinates."
+    },
+    {
+      "drawing": "D-016",
+      "page": 1,
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-016.pdf",
+      "fact_id": "D-016/drawing/n/15.0@1-1",
+      "box": [
+        617.356,
+        600.446,
+        36.61,
+        36.61
+      ],
+      "image": "generated/images/D-016-p1.png",
+      "visual_description": "Original callouts read 6x Ø4,5 THRU with Ø9,0 X90°, 3x Ø5,5 THRU with Ø11,2 X90°, and 4x M6 THRU. No center-location dimensions are given for these small holes; M6 provides no explicit drill diameter. Lower corners visibly round with printed R15,0, beyond current supported outline family. General edge finish has no size. Confirm all listed omissions while retaining known dimensions and not inventing coordinates."
+    },
+    {
+      "drawing": "D-016",
+      "page": 1,
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-016.pdf",
+      "fact_id": "D-016/drawing/callout/p1-2",
+      "box": [
+        665.339,
+        116.525,
+        82.013,
+        18.083
+      ],
+      "image": "generated/images/D-016-p1.png",
+      "visual_description": "Original callouts read 6x Ø4,5 THRU with Ø9,0 X90°, 3x Ø5,5 THRU with Ø11,2 X90°, and 4x M6 THRU. No center-location dimensions are given for these small holes; M6 provides no explicit drill diameter. Lower corners visibly round with printed R15,0, beyond current supported outline family. General edge finish has no size. Confirm all listed omissions while retaining known dimensions and not inventing coordinates."
+    },
+    {
+      "drawing": "D-016",
+      "page": 1,
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-016.pdf",
+      "fact_id": "D-016/drawing/callout/p1-3",
+      "box": [
+        700.379,
+        132.427,
+        53.671,
+        18.083
+      ],
+      "image": "generated/images/D-016-p1.png",
+      "visual_description": "Original callouts read 6x Ø4,5 THRU with Ø9,0 X90°, 3x Ø5,5 THRU with Ø11,2 X90°, and 4x M6 THRU. No center-location dimensions are given for these small holes; M6 provides no explicit drill diameter. Lower corners visibly round with printed R15,0, beyond current supported outline family. General edge finish has no size. Confirm all listed omissions while retaining known dimensions and not inventing coordinates."
+    },
+    {
+      "drawing": "D-016",
+      "page": 1,
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-016.pdf",
+      "fact_id": "D-016/drawing/callout/p1-4",
+      "box": [
+        647.532,
+        341.312,
+        82.018,
+        18.087
+      ],
+      "image": "generated/images/D-016-p1.png",
+      "visual_description": "Original callouts read 6x Ø4,5 THRU with Ø9,0 X90°, 3x Ø5,5 THRU with Ø11,2 X90°, and 4x M6 THRU. No center-location dimensions are given for these small holes; M6 provides no explicit drill diameter. Lower corners visibly round with printed R15,0, beyond current supported outline family. General edge finish has no size. Confirm all listed omissions while retaining known dimensions and not inventing coordinates."
+    },
+    {
+      "drawing": "D-016",
+      "page": 1,
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-016.pdf",
+      "fact_id": "D-016/drawing/callout/p1-5",
+      "box": [
+        678.911,
+        357.213,
+        61.002,
+        18.083
+      ],
+      "image": "generated/images/D-016-p1.png",
+      "visual_description": "Original callouts read 6x Ø4,5 THRU with Ø9,0 X90°, 3x Ø5,5 THRU with Ø11,2 X90°, and 4x M6 THRU. No center-location dimensions are given for these small holes; M6 provides no explicit drill diameter. Lower corners visibly round with printed R15,0, beyond current supported outline family. General edge finish has no size. Confirm all listed omissions while retaining known dimensions and not inventing coordinates."
+    },
+    {
+      "drawing": "D-016",
+      "page": 1,
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-016.pdf",
+      "fact_id": "D-016/drawing/callout/p1-6",
+      "box": [
+        685.155,
+        85.306,
+        71.874,
+        18.083
+      ],
+      "image": "generated/images/D-016-p1.png",
+      "visual_description": "Original callouts read 6x Ø4,5 THRU with Ø9,0 X90°, 3x Ø5,5 THRU with Ø11,2 X90°, and 4x M6 THRU. No center-location dimensions are given for these small holes; M6 provides no explicit drill diameter. Lower corners visibly round with printed R15,0, beyond current supported outline family. General edge finish has no size. Confirm all listed omissions while retaining known dimensions and not inventing coordinates."
+    },
+    {
+      "drawing": "D-016",
+      "page": 1,
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-016.pdf",
+      "fact_id": "D-016/drawing/general/edge_finish",
+      "box": [
+        1078.776,
+        781.582,
+        52.887,
+        14.837
+      ],
+      "image": "generated/images/D-016-p1.png",
+      "visual_description": "Original callouts read 6x Ø4,5 THRU with Ø9,0 X90°, 3x Ø5,5 THRU with Ø11,2 X90°, and 4x M6 THRU. No center-location dimensions are given for these small holes; M6 provides no explicit drill diameter. Lower corners visibly round with printed R15,0, beyond current supported outline family. General edge finish has no size. Confirm all listed omissions while retaining known dimensions and not inventing coordinates."
+    },
+    {
+      "drawing": "D-016",
+      "page": 1,
+      "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-016.pdf",
+      "fact_id": "D-016/drawing/source",
+      "box": null,
+      "image": "generated/images/D-016-p1.png",
+      "visual_description": "Original callouts read 6x Ø4,5 THRU with Ø9,0 X90°, 3x Ø5,5 THRU with Ø11,2 X90°, and 4x M6 THRU. No center-location dimensions are given for these small holes; M6 provides no explicit drill diameter. Lower corners visibly round with printed R15,0, beyond current supported outline family. General edge finish has no size. Confirm all listed omissions while retaining known dimensions and not inventing coordinates."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-11-20.json",
+    "sha256": "332d43089d177738c95270e02b8bf3ec14d366a9fd31daf660b1db7405813578"
+  },
+  "prediction_sha256": "3eb64b3171d9b30e66194bea901be7f57effb0a4a7879b9037510234c71da294"
+}

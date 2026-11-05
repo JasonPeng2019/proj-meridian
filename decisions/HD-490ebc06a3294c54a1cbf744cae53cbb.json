@@ -1,0 +1,33 @@
+{
+  "decision_id": "HD-490ebc06a3294c54a1cbf744cae53cbb",
+  "applies_to": "D-001/drawing/notes",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "The original page-1 NOTE box reads Door - x2 and 3mm aluminium, matching the proposed two-line transcription.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:44:45.078350+00:00",
+  "based_on": {
+    "sha256": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-001/drawing/notes",
+    "D-001/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-001",
+      "page": 1,
+      "image": "generated/images/D-001-p1.png",
+      "description": "Page 1: main front plate, left edge thickness view, lower-right NOTE/company boxes."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-01-10.json",
+    "sha256": "c4436a050c4381b409dc881144e91529c59db4fcc80139a4f53b9b787ca0914b"
+  },
+  "prediction_sha256": "90f045bdfcb6207d7e04dcdeec1f36e50c2931725c1fb8475791ab67d96959d9"
+}

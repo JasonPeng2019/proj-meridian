@@ -1,0 +1,32 @@
+{
+  "decision_id": "HD-5359867f79294690a3be6a41f9a105f3",
+  "applies_to": "D-023/template/features_omitted",
+  "type": "confirm",
+  "value": null,
+  "status": "accepted",
+  "note": "Section A-A visibly contains the central bore, an entrance taper marked 10 degrees with 20.0 axial extent, and circumferential stepped end features. Side view has several axial/diameter dimensions. Supplied numbers array is empty, so confirm these current encoding omissions; this does not say original dimensions are wholly absent.",
+  "by": "Meridian delegated reviewer",
+  "at": "2026-11-05T17:48:39.760627+00:00",
+  "based_on": {
+    "sha256": "5d838d31ad5e803b6c421bc6867447f73756d51509259385e07caf81e453c36d"
+  },
+  "review_kind": "delegated",
+  "delegated_by": "Jason Peng",
+  "authorization": "User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
+  "source_evidence": [
+    "D-023/drawing/source"
+  ],
+  "source_locations": [
+    {
+      "drawing": "D-023",
+      "page": 1,
+      "image": "generated/images/D-023-p1.png",
+      "visual_description": "Section A-A visibly contains the central bore, an entrance taper marked 10 degrees with 20.0 axial extent, and circumferential stepped end features. Side view has several axial/diameter dimensions. Supplied numbers array is empty, so confirm these current encoding omissions; this does not say original dimensions are wholly absent."
+    }
+  ],
+  "review_audit": {
+    "path": "docs\\verification\\source-review-baseline\\audit-21-30.json",
+    "sha256": "0837e5ed6eafe2465f7840be73edf1543e5cd9e4087c3aacc5f2e4da2e1f14a2"
+  },
+  "prediction_sha256": "0d6299db0ca4287c46cae4e12b365c517039a577a12d5a25630425febd73b10c"
+}

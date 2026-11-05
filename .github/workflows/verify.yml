@@ -69,7 +69,10 @@ jobs:
           npm --prefix ../development/frontend run typecheck
           npm --prefix ../development/frontend run build -- --outDir ../../testing/tmp/A18-history-ui/frontend-dist
       - name: Exercise actual Chat component with deterministic API boundary
-        run: NODE_PATH="$PWD/../development/.runtime/ci-browser/node_modules" timeout 240s node tests/chat_history_ui.cjs 2>&1 | tee reports/ci/history-ui.txt
+        run: |
+          set -o pipefail
+          NODE_PATH="$PWD/../development/.runtime/ci-browser/node_modules" timeout 240s node tests/chat_history_ui.cjs 2>&1 | tee reports/ci/history-ui.txt
+          test -f tmp/A18-history-ui/result.json
       - name: Save history UI evidence
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9

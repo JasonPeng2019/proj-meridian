@@ -109,8 +109,9 @@ async function run() {
     await page.getByRole("button", { name: /Sources ·/ }).first().click();
     await page.locator(".me-source-popup .me-source-row button").first().click();
     assert.equal(await page.evaluate(() => window.callbacks.find(x => x[0] === "source")[2]), "a");
+    await page.getByRole("button", { name: "Close sources", exact: true }).click();
     await page.evaluate(() => window.enableDebug(true));
-    await page.locator(".me-debug > summary").first().click();
+    await page.locator(".mc-assistant > .meridian-evidence > .me-debug > summary").click();
     await waitText("ENGINEERING_WARNING");
     await page.evaluate(() => window.enableDebug(false));
     await absent("ENGINEERING_WARNING");

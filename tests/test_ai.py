@@ -177,7 +177,7 @@ def test_mapping_can_be_verified_with_context_but_still_requires_human_approval(
 
 @pytest.mark.parametrize("missing_main_dimension", [True, False])
 def test_unknown_main_geometry_blocks_cad_while_minor_features_remain_partial(monkeypatch, missing_main_dimension):
-    current = {**job(), "id": "template:D-001", "kind": "template", "keys": list(pipeline.TEMPLATE_KEYS),
+    current = {**job(), "id": "template:D-001", "kind": "template", "keys": [k for k in pipeline.TEMPLATE_KEYS if k not in ("features_complete", "features_omitted")],
                "numbers": {"BOM:a/b": 10, "BOM:a/c": 5}}
     values = {"outline_type": "rectangle", "length": 10, "width": 10, "thickness": 5}
     if missing_main_dimension:
@@ -203,6 +203,67 @@ def test_ungrounded_geometry_is_invalid_even_when_verifier_accepts(monkeypatch):
     result = pipeline.execute(current)
     assert result["states"] == {"length": "invalid"}
     assert pipeline.resolved(result, "length")["value"] is None
+
+
+def partial_feature_job(complete=False, omissions=None):
+    current = {**job(), "id": "template:D-001", "kind": "template", "keys": list(pipeline.TEMPLATE_KEYS),
+               "numbers": {"BOM:a/b": 10, "BOM:a/c": 5}, "feature_protocol": pipeline.FEATURE_PROTOCOL}
+    scalar = lambda value, ref: {"state": "known", "value": value, "fact_ids": [ref]}
+    hole = {"kind": "hole", "face": "top", "x": scalar(0, "BOM:a/b"), "y": scalar(0, "BOM:a/b"),
+            "diameter": scalar(5, "BOM:a/c"), "through": True, "hole_type": "plain"}
+    missing = [{"description": "Threaded hole", "reason": "Thread callout does not establish drill diameter",
+                "fact_ids": ["BOM:a/b"]}] if omissions is None else omissions
+    values = {"outline_type": "rectangle", "length": 10, "width": 10, "thickness": 10,
+              "features": [hole], "features_complete": complete, "features_omitted": missing}
+    proposals = [item(key, value) for key, value in values.items()]
+    proposals += [{**item(key), "state": "unknown", "value_json": "null", "confidence": "unsure"}
+                  for key in current["keys"] if key not in values]
+    verifications = [verdict(key, decision="accept" if key in values else "needs_input") for key in current["keys"]]
+    return current, output(*proposals), output(*verifications), hole
+
+
+@pytest.mark.parametrize("complete", [False, True])
+def test_supported_cuts_survive_independent_omissions_and_preserve_completeness(monkeypatch, complete):
+    current, proposals, verifications, hole = partial_feature_job(complete=complete, omissions=[] if complete else None)
+    calls = mock_readers(monkeypatch, [proposals], [verifications])
+    result = pipeline.run_retry(pipeline.execute(current))
+    template = pipeline.assemble([result], {"D-001": {"fields": {}}}, {})["templates"]["D-001"]
+    assert len(calls) == 2 and result["states"]["features"] == "verified"
+    assert template["features"][0]["diameter"] == hole["diameter"]
+    assert template["features_review"]["state"] == "known" and template["cad_ready"] is True
+    assert template["features_complete"]["value"] is complete
+    assert template["features_all_determined"] is complete
+    assert template["features_status"] == ("complete" if complete else "partial")
+    assert bool(template["omitted_feature_notes"]) is (not complete)
+    if not complete:
+        assert template["features_omitted"]["value"][0]["fact_ids"] == ["BOM:a/b"]
+        assert "does not establish drill diameter" in template["omitted_feature_notes"][0]
+
+
+def test_completeness_conflict_repairs_only_flag_without_losing_supported_cuts(monkeypatch):
+    current, proposals, verifications, _ = partial_feature_job(complete=True)
+    repair = output({**item("features_complete", False), "changed_because": "The cited threaded hole remains omitted; the inventory is incomplete."})
+    calls = mock_readers(monkeypatch, [proposals, repair], [verifications, output(verdict("features_complete"))])
+    result = pipeline.execute(current)
+    assert result["states"]["features"] == "verified" and result["states"]["features_complete"] == "invalid"
+    pipeline.run_retry(result)
+    assert result["feedback_rounds"][0]["keys"] == ["features_complete"]
+    assert result["states"]["features_complete"] == "verified_after_retry" and len(calls) == 4
+    template = pipeline.assemble([result], {"D-001": {"fields": {}}}, {})["templates"]["D-001"]
+    assert len(template["features"]) == 1 and template["features_status"] == "partial"
+    assert template["features_all_determined"] is False
+
+
+def test_omission_metadata_rejects_invented_sources_and_legacy_unknown_stays_unknown():
+    current, _, _, hole = partial_feature_job()
+    bad = [{"description": "Unresolved hole", "reason": "Missing diameter", "fact_ids": ["invented"]}]
+    assert pipeline.decode_answer(output(item("features_omitted", bad)), current) == {}
+    assert pipeline.decode_answer(output(item("features_complete", "false")), current) == {}
+    unknown = {**item("features", [hole]), "state": "unknown", "confidence": "unsure"}
+    decoded = pipeline.decode_answer(output(unknown), current)
+    legacy = {"job": current, "answers": {"claude": decoded, "codex": decoded},
+              "states": {"features": "unsure"}, "rounds": [{"claude": output(unknown), "codex": output(unknown)}]}
+    assert pipeline.resolved(legacy, "features")["value"] is None
 
 
 @pytest.mark.parametrize("supported", [True, False])

@@ -377,6 +377,13 @@ class Store:
 
     def validate_design(self, part: dict, note: str) -> None:
         waiting = [n for n, f in self.fields.items() if self.owners.get(n) is part and "/template/" in n and f.get("state") == "unknown" and (f.get("method") != "human_decision" or n.endswith(("/thickness", "/outline")))]
+        template = self.templates.get((part.get("drawing") or {}).get("id"), {})
+        if template.get("feature_protocol") == "supported-feature-subset-v1" and not (
+                template.get("features_complete", {}).get("state") == "known" and
+                template.get("features_complete", {}).get("value") is True and
+                template.get("features_omitted", {}).get("state") == "known" and
+                template.get("features_omitted", {}).get("value") == []):
+            waiting.append("incomplete hole/slot inventory")
         if (part.get("link") or {}).get("method") == "unresolved":
             waiting.append("drawing-to-BOM link")
         if waiting:

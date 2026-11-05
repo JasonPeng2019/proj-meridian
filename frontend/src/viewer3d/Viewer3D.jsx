@@ -80,9 +80,7 @@ export default function Viewer3D({ part, example, onExampleChange }) {
         <button type="button" onClick={() => { if (document.fullscreenElement) document.exitFullscreen?.(); else host.current?.requestFullscreen?.(); }}>Full screen</button>
       </div>}
     </div>
-    {examples.length > 1 && <div className="cad-options">Possible readings · neither is selected as correct</div>}
-    {manifest.weight_check&&<div className={`cad-check-summary ${manifest.weight_check.state==='FAILED'?'failed':''}`}><strong>{manifest.weight_check.state} weight check</strong><span>{manifest.weight_check.state==='FAILED'?'Needs manual review':'See Debug for calculations'}</span></div>}
-    {manifest.stale && <p className="cad-warning" role="alert">{manifest.stale_message}</p>}
+    {examples.length > 1 && <div className="cad-options">Possible readings</div>}
     {model ? <>
       <div className="cad-canvas">
         <ModelError key={model.glb}><Canvas camera={{ position: [350, -450, 300], near: 0.01, far: 100000, fov: 35, up: [0, 0, 1] }} gl={{ antialias: true, localClippingEnabled: true }}>
@@ -93,12 +91,10 @@ export default function Viewer3D({ part, example, onExampleChange }) {
           <gridHelper args={[Math.max(size?.[0] || 250, size?.[1] || 250) * 1.4, 20, '#c4cfdc', '#dae2eb']} rotation={[Math.PI / 2, 0, 0]} position={[0, 0, -(size?.[2] || 0) / 2 - 1]} />
           <Suspense fallback={null}><Model model={model} section={section} cut={cut} fit={fit} /></Suspense>
         </Canvas></ModelError>
-        <div className="cad-size" title="Overall dimensions measured from the CAD solid, excluding mesh approximation padding">{size?.map(number).join(' × ')} mm <small>CAD size</small></div>
         <div className="cad-help">Drag to orbit · scroll to zoom · right-drag to pan</div>
       </div>
-      {section && <label className="cad-section">Section position <input aria-label="Section position" type="range" min="0" max="100" value={cutPercent} onChange={event => setCutPercent(Number(event.target.value))} /><span>Hollow cut; no solid cap</span></label>}
-    </> : <div className="cad-empty">{manifest.waiting?.length ? `3D waiting for human input on: ${manifest.waiting.join(', ')}` : part?.drawing?.degraded ? 'No 3D model: this drawing is a degraded scan.' : 'No 3D reconstruction is available for this part.'}</div>}
-    <div className="cad-disclosure"><span>{reviewed?reviewLabel:'AI reconstruction · not reviewed'}</span><p>{NOTICE}</p></div>
-    {manifest.omitted?.length > 0 && <details className="cad-warning"><summary>Partial reconstruction · some details omitted</summary><ul>{manifest.omitted.map((item, index) => <li key={index}>{typeof item === 'string' ? item : item.reason || item.name}</li>)}</ul></details>}
+      {section && <label className="cad-section">Section position <input aria-label="Section position" type="range" min="0" max="100" value={cutPercent} onChange={event => setCutPercent(Number(event.target.value))} /></label>}
+    </> : <div className="cad-empty">{'3D unavailable'}</div>}
+    <div className="cad-disclosure"><p>{NOTICE}</p></div>
   </section>;
 }

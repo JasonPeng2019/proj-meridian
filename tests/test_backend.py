@@ -156,3 +156,15 @@ def test_debug_ui_launch_visibility(evidence, monkeypatch, setting, expected):
     if setting is not None:
         monkeypatch.setenv("MERIDIAN_DEBUG_UI", setting)
     assert main.status()["debug_ui"] is expected
+
+
+def test_partial_supported_features_block_whole_design_until_inventory_resolved(evidence):
+    template=evidence.templates['D-019']
+    template.update(feature_protocol='supported-feature-subset-v1', features_all_determined=False,
+                    features_complete={'state':'known','value':False},
+                    features_omitted={'state':'known','value':[{'description':'Unplaced holes'}]})
+    with pytest.raises(ValueError,match='incomplete hole/slot inventory'):
+        evidence.validate_design(evidence.part('D-019'),'Inspected')
+    template['features_complete']={'state':'known','value':True,'method':'human_decision'}
+    template['features_omitted']={'state':'known','value':[],'method':'human_decision'}
+    evidence.validate_design(evidence.part('D-019'),'Inspected')

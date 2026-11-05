@@ -19,7 +19,9 @@ from backend.paths import GENERATED, ROOT, inside
 from . import runner
 
 SCAN_KEYS = ("title", "material", "weight_g", "notes", "date", "company", "scale", "drawn")
-TEMPLATE_KEYS = ("outline_type", "length", "width", "outer_diameter", "inner_diameter", "thickness", "features")
+TEMPLATE_KEYS = ("outline_type", "length", "width", "outer_diameter", "inner_diameter", "thickness", "features",
+                 "features_complete", "features_omitted")
+FEATURE_PROTOCOL = "supported-feature-subset-v1"
 PRIMARY_TEMPLATES = ("D-013", "D-025", "D-026")
 REVIEW = {"status": "not_reviewed"}
 PROTOCOL = "proposal-verification-v1"
@@ -85,12 +87,14 @@ def template_job(drawing: dict) -> dict:
     did = drawing["id"]
     image = drawing.get("images") or [drawing["image"]]
     return {"id": f"template:{did}", "kind": "template", "drawing": did,
+            "feature_protocol": FEATURE_PROTOCOL,
             "keys": list(TEMPLATE_KEYS), "images": [str(inside(GENERATED / p)) for p in image], "sources": sorted(source_ids(drawing)),
             "numbers": {n["name"]: n["value"] for n in drawing.get("numbers", [])},
             "prompt": BASE_PROMPT + """\nFill a flat-part template from this drawing, in millimetres.
 Read the attached full drawing. The main material field and weight are supplied separately.
 Requested keys: outline_type (rectangle/circle/ring), length (X), width (Y), outer_diameter,
-inner_diameter, thickness, features. Only relevant dimensions are known; irrelevant ones are unknown.
+inner_diameter, thickness, features, features_complete, features_omitted.
+Feature protocol: supported-feature-subset-v1. Only relevant dimensions are known; irrelevant ones are unknown.
 Stacked thickness values which are alternatives MUST be state options with a JSON array, sorted ascending.
 Do not select one thickness or invent which example is primary. The outline is centered on X=0,Y=0;
 extrusion Z=0..thickness. Ignore dimension text placement when interpreting actual geometry.
@@ -100,9 +104,19 @@ hole_type plain/threaded/countersunk/counterbored, optional thread string and re
 countersink_diameter/angle or counterbore_diameter/depth. Never infer a drill diameter from a thread.
 Use explicit pattern only if certain: {type:row,count,spacing,direction} (angle degrees, anchor first
 position) or {type:circle,count,radius,start_angle} (degrees, center x,y). Hole positions are center
-coordinates in the same XY frame. A feature with missing dimensions or positions is unknown and
-must be omitted, with reason describing the omission. The features state is unknown if you cannot
-determine all features; return only the certain features in its array and explain missing information.
+coordinates in the same XY frame. features is the independently supported SUBSET of cuts, not a
+claim that every drawing feature is determined. Return features state known with all and ONLY cuts
+whose geometry, position, and operation are fully supported, even when other features are unresolved.
+Use known [] when no cuts can be supported; do not erase supported cuts because another is uncertain.
+Never fabricate a drill diameter, depth, position, or count to complete a cut. A feature missing any
+required geometry must be excluded from features and described separately in features_omitted.
+features_omitted is a known JSON array of {description:string,reason:string,fact_ids:[IDs]}.
+Each omission must cite exact supplied evidence IDs (the drawing/source ID may ground an image-only
+feature) and explain precisely what is missing or why it cannot be modeled. Use [] only if nothing
+is omitted. features_complete is a known JSON boolean: true ONLY when the entire visible feature
+inventory is supported and features_omitted is []; false when any feature/detail is omitted. If the
+inventory cannot be established, set features_complete unknown/null and explain the uncertainty in
+features_omitted. Missing features never justify guessing or claiming the full design is verified.
 All numeric scalar fields within a feature must be {state:known,value:number,fact_ids:[IDs]}.
 A feature may carry parent fact_ids. Every numeric value must match its cited drawing number.
 For an arithmetically derived coordinate/radius use {state:known,value:number,fact_ids:[IDs],
@@ -355,7 +369,17 @@ def decode_answer(raw: dict, job: dict, retry: bool = False, previous: dict | No
                 elif not isinstance(value, str):
                     continue
             elif job["kind"] == "template":
-                if key == "cad_eligibility":
+                if key == "features_complete":
+                    if item["state"] != "known" or type(value) is not bool: continue
+                elif key == "features_omitted":
+                    if item["state"] != "known" or not isinstance(value, list): continue
+                    for omission in value:
+                        if (not isinstance(omission, dict) or set(omission) != {"description", "reason", "fact_ids"} or
+                                any(not isinstance(omission[k], str) or not omission[k].strip() for k in ("description", "reason")) or
+                                not isinstance(omission["fact_ids"], list) or not omission["fact_ids"] or
+                                any(ref not in job["sources"] for ref in omission["fact_ids"])):
+                            raise ValueError("Unsupported feature omission or invented evidence ID")
+                elif key == "cad_eligibility":
                     required = {"supported", "constant_thickness", "outline_exact", "reason", "essential_uncertainty", "omitted_minor_features"}
                     if item["state"] != "known" or not isinstance(value, dict) or set(value) != required:
                         continue
@@ -444,6 +468,31 @@ def verification_state(proposal: dict | None, verdict: dict | None, retried: boo
     return "verified_after_retry" if retried else "verified"
 
 
+def _check_feature_contract(result: dict) -> dict:
+    """A verified subset never implies a verified complete feature inventory."""
+    if (result.get("protocol") != PROTOCOL or
+            not {"features", "features_complete", "features_omitted"}.issubset(result["job"]["keys"]) or
+            not agreed(result, "features_complete")):
+        return result
+    complete = proposal_for(result, "features_complete")["value"]
+    omissions = proposal_for(result, "features_omitted").get("value")
+    coherent = agreed(result, "features_omitted") and isinstance(omissions, list)
+    coherent = coherent and ((complete is True and not omissions and agreed(result, "features")) or
+                             (complete is False and bool(omissions)))
+    if coherent:
+        result.get("contract_errors", {}).pop("features_complete", None)
+    else:
+        result["states"]["features_complete"] = "invalid"
+        message = "Completeness must agree with the verified supported subset and evidence-backed omissions; true requires no omissions, false requires described omissions."
+        result.setdefault("contract_errors", {})["features_complete"] = message
+        for raw in reversed(result["rounds"]):
+            if "features_complete" in raw["codex"].get("validation", {}):
+                raw["codex"]["validation"]["features_complete"] = False
+                raw["codex"].setdefault("contract_errors", {})["features_complete"] = message
+                break
+    return result
+
+
 def _proposal_round(job: dict, force: bool, round_number: int = 0,
                     previous: dict | None = None, feedback: list[dict] | None = None) -> tuple[dict, dict, dict]:
     prompt = f"PREP PROTOCOL: {PROTOCOL}; role: proposer; round: {round_number}.\n" + job["prompt"]
@@ -475,6 +524,9 @@ def _proposal_round(job: dict, force: bool, round_number: int = 0,
                      "evidence cannot determine the answer. Unknown/null or incomplete essential geometry "
                      "must be needs_input. Set repairable true only if a further proposal can be corrected "
                      "from the EXISTING evidence; false if new evidence or a human decision is needed. "
+                     "For supported-feature-subset-v1, verify features as the independently grounded subset; "
+                     "another omitted feature does not invalidate a supported cut. Verify features_complete "
+                     "and features_omitted separately; accepting a subset never approves the full design. "
                      "Cite exact original source IDs, never proposal or feedback as evidence. No guessed "
                      "values, pixel measurements, assumed standard dimensions, or benchmark answers. "
                      "Do not modify files or run commands. Copy this proposal_fingerprint exactly: " + fingerprint +
@@ -496,9 +548,9 @@ def _proposal_round(job: dict, force: bool, round_number: int = 0,
 
 def execute(job: dict, force: bool = False) -> dict:
     raw, proposals, verdicts = _proposal_round(job, force)
-    return {"protocol": PROTOCOL, "job": job, "rounds": [raw], "feedback_rounds": [],
+    return _check_feature_contract({"protocol": PROTOCOL, "job": job, "rounds": [raw], "feedback_rounds": [],
             "answers": {"codex": proposals, "claude": verdicts},
-            "states": {key: verification_state(proposals.get(key), verdicts.get(key)) for key in job["keys"]}}
+            "states": {key: verification_state(proposals.get(key), verdicts.get(key)) for key in job["keys"]}})
 
 
 def run_retry(result: dict, force: bool = False) -> dict:
@@ -513,8 +565,8 @@ def run_retry(result: dict, force: bool = False) -> dict:
     feedback = [{"key": key, "state": result["states"][key],
                  "previous_proposal": next((item for item in (result["rounds"][0]["codex"].get("answer") or {}).get("items", [])
                                             if isinstance(item, dict) and item.get("key") == key), None),
-                 "local_validation": "valid" if result["answers"]["codex"].get(key) else
-                     "invalid: missing, duplicate, malformed, ungrounded, or unsupported proposal; obey original schema and source/numeric/geometry constraints",
+                 "local_validation": result.get("contract_errors", {}).get(key) or ("valid" if result["answers"]["codex"].get(key) else
+                     "invalid: missing, duplicate, malformed, ungrounded, or unsupported proposal; obey original schema and source/numeric/geometry constraints"),
                  "verification": result["answers"]["claude"].get(key) or
                      {"decision": "invalid", "reason": "No valid exact-proposal verification received"}}
                 for key in keys]
@@ -526,7 +578,7 @@ def run_retry(result: dict, force: bool = False) -> dict:
         result["answers"]["codex"][key] = proposals.get(key)
         result["answers"]["claude"][key] = verdicts.get(key)
         result["states"][key] = verification_state(proposals.get(key), verdicts.get(key), retried=True)
-    return result
+    return _check_feature_contract(result)
 
 
 def agreed(result: dict, key: str) -> bool:
@@ -540,6 +592,7 @@ def readers_for(result: dict, key: str) -> dict:
                      "rounds": [{"answer": next((v for v in (raw.get(reader, {}).get("answer") or {}).get("items", []) if isinstance(v, dict) and v.get("key") == key), None),
                                 "valid": raw.get(reader, {}).get("valid", False),
                                 "validation_passed": raw.get(reader, {}).get("validation", {}).get(key),
+                                "contract_error": raw.get(reader, {}).get("contract_errors", {}).get(key),
                                 "requested": key in raw.get(reader, {}).get("validation", {}) if result.get("protocol") == PROTOCOL else True,
                                 "proposal_fingerprint": raw.get(reader, {}).get("proposal_fingerprint"),
                                 "response_proposal_fingerprint": (raw.get(reader, {}).get("answer") or {}).get("proposal_fingerprint"),
@@ -581,7 +634,7 @@ def assemble(results: list[dict], drawings: dict, exact: dict) -> dict:
             shape = proposal_for(result, "outline_type").get("value")
             dimensions = {"rectangle": ("length", "width"), "circle": ("outer_diameter",),
                           "ring": ("outer_diameter", "inner_diameter")}.get(shape, TEMPLATE_KEYS)
-            relevant_keys = [k for k in relevant_keys if k in ("outline_type", "thickness", "features", "cad_eligibility") or k in dimensions]
+            relevant_keys = [k for k in relevant_keys if k in ("outline_type", "thickness", "features", "features_complete", "features_omitted", "cad_eligibility") or k in dimensions]
         for key in relevant_keys:
             status = result["states"][key]
             counts[status] += 1
@@ -641,12 +694,27 @@ def assemble(results: list[dict], drawings: dict, exact: dict) -> dict:
             # Retain field-level provenance on every feature scalar without altering the geometry.
             for feature in features:
                 feature.setdefault("fact_ids", values["features"]["fact_ids"])
+            feature_metadata = {}
+            if "features_complete" in values or "features_omitted" in values:
+                omissions = values.get("features_omitted", {})
+                omitted_items = omissions.get("value") if omissions.get("state") == "known" else None
+                complete = values.get("features_complete", {})
+                all_determined = (agreed(result, "features") and agreed(result, "features_complete") and
+                                  complete.get("value") is True and agreed(result, "features_omitted") and omitted_items == [])
+                partial = (agreed(result, "features") and agreed(result, "features_complete") and
+                           complete.get("value") is False and agreed(result, "features_omitted") and bool(omitted_items))
+                feature_metadata = {"feature_protocol": FEATURE_PROTOCOL,
+                    "features_complete": complete, "features_omitted": omissions,
+                    "features_all_determined": all_determined,
+                    "features_status": "complete" if all_determined else "partial" if partial else "unknown",
+                    "omitted_feature_notes": [f"{item['description']}: {item['reason']}" for item in (omitted_items or [])]}
             output["templates"][did] = {"part": did, "template": "flat_part", "outline": outline,
                 "thickness": values["thickness"], "features": features,
                 "features_review": values["features"], "material": drawings[did].get("fields", {}).get("material"),
                 "weight_on_drawing": drawings[did].get("fields", {}).get("weight_g"),
                 "cad_ready": not blocking, "blocking_fields": blocking,
                 **({"cad_eligibility": eligibility} if eligibility is not None else {}),
+                **feature_metadata,
                 "review": copy.deepcopy(REVIEW), "source_sha256": drawings[did].get("sha256")}
     metrics = {"agreed": counts["agreed"], "agreed_after_retry": counts["agreed_after_retry"],
                "verified": counts["verified"], "verified_after_retry": counts["verified_after_retry"],

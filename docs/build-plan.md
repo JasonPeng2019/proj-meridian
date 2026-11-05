@@ -37,3 +37,5 @@ Keep Detail to Overview, Dimensions, one Notes section, and Supply & cost when a
 ### Prep workflow revision
 
 Dataset preparation now runs Sol as proposer and Opus as verifier of the exact proposal, source IDs and fingerprint. Repairable feedback receives one bounded retry; invalid or unsupported essential geometry remains blocked. Existing independent-reader receipts are retained as legacy evidence. A targeted material-mapping rerun and an assessment of every additional drawing use the revised protocol. Model expansion preserves original evidence and decisions; Actions generates and roundtrip-checks each eligible model sequentially.
+
+Latest UI steering moves all detailed verification, FAILED weight checks, review requirements and omissions into Debug. Customer part views use one simple Human reviewed / AI reviewed / Unavailable status, without repeated warning banners or per-row review labels. The Debug launch also exposes the engineering review workspace.

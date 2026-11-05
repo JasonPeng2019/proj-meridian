@@ -30,7 +30,7 @@ Launch coding subagents as `gpt-6.1-sol`, high reasoning, on priority/Fast mode.
 
 ## Resource limits
 
-Default UI screens must stay focused and concise. Show the task, core values and essential uncertainty/check state; put full source text, raw records, fingerprints, reasoning, extra filters and calculations behind tabs or explicit disclosure. Avoid duplicate navigation and repeated warning panels. Keep evidence and review controls accessible when opened.
+Default UI screens must stay focused and concise. Show the task, core values and essential uncertainty/check state; put full source text, raw records, fingerprints, reasoning, extra filters and calculations behind tabs or explicit disclosure. Avoid duplicate navigation and repeated warning panels. Keep evidence and review controls accessible in Debug.
 
 Keep routine local work lightweight: edits, source inspection, static validation and Git operations. Build the frontend remotely and download its verified static bundle for local use; Node is unnecessary for serving it. Run full verification, PDF/CAD regeneration and browser checks on GitHub-hosted Actions runners. Use `scripts/local_build.ps1` only when a local fallback build is necessary. CLI coding/prep agents remain outside Actions.
 
@@ -40,4 +40,4 @@ Run heavy stages in succession, never simultaneously. Queue Actions runs in the 
 
 “Manual” workflow runs mean the coordinator dispatches and monitors them autonomously, not that Jason must click, confirm or run them. Lightweight push checks cancel superseded runs. The coordinator triggers heavy checks at integration checkpoints and paid API checks when needed. Use GitHub Actions secrets; if secrets cannot be used there, run the necessary API checks locally in sequence with resource headroom. Human review of engineering evidence still means actual human review; workflow dispatch authorization must never be misrepresented as a design approval.
 
-Customer launches hide the engineering Debug tab by default. Use `meridian --debug-ui` (or `MERIDIAN_DEBUG_UI=1`) to show it; `--hide-debug` overrides that environment setting. Keep raw records, model calculations, fingerprints, AI reader receipts and history in Debug. Essential uncertainty and failed-check status remain visible in customer views.
+Customer launches hide the engineering Debug tab by default. Use `meridian --debug-ui` (or `MERIDIAN_DEBUG_UI=1`) to show it; `--hide-debug` overrides that environment setting. Keep raw records, model calculations, fingerprints, AI reader receipts and history in Debug. Latest customer UI requirement: weight failures, manual-review requirements, detailed verification and omissions live in Debug only. Regular part views show only the simple review/availability status (Human reviewed, AI reviewed, or Unavailable), core values and source access. Do not repeat engineering warnings or per-field review labels in customer screens.

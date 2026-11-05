@@ -85,7 +85,10 @@ def main():
                 assert page.locator('.sheet-rail').count() == 0
                 assert page.locator('.cad-provenance').count() == 0
                 assert page.locator('.cad-weight').count() == 0
-                assert page.locator('.cad-check-summary').is_visible()
+                assert page.locator('.cad-check-summary').count() == 0
+                assert 'FAILED' not in page.locator('.part-page').inner_text()
+                assert 'Needs manual review' not in page.locator('.part-page').inner_text()
+                assert page.locator('.part-title').get_by_text('AI reviewed',exact=True).is_visible()
                 assert page.locator('.part-tabs').get_by_role('button', name='Debug', exact=True).count() == 0
                 viewer = page.locator('.primary-view').bounding_box()
                 body = page.locator('.part-body').bounding_box()

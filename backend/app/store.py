@@ -132,6 +132,13 @@ class Store:
         neither generates geometry nor changes original extraction/reader receipts.
         Already-ready and untouched templates retain their exact metadata.
         """
+        def has_bounds(value):
+            if isinstance(value, dict):
+                return value.get("state") == "bounds" or any(
+                    has_bounds(child) for key, child in value.items()
+                    if key not in {"readers", "review", "correction", "original", "note", "evidence"})
+            return isinstance(value, list) and any(has_bounds(child) for child in value)
+
         for template in self.templates.values():
             if template.get("cad_ready") is not False and not template.get("blocking_fields"):
                 continue
@@ -149,9 +156,10 @@ class Store:
             candidate.pop("cad_ready", None)
             candidate.pop("blocking_fields", None)
             try:
-                if "cad_eligibility" in (template.get("blocking_fields") or []) and not candidate.get("cad_eligibility"):
+                if (any("cad_eligibility" in str(reason) for reason in template.get("blocking_fields") or [])
+                        and not candidate.get("cad_eligibility")):
                     raise Unknown("cad_eligibility is unresolved")
-                if any(isinstance(field, dict) and field.get("state") == "bounds" for field in geometry):
+                if any(has_bounds(field) for field in geometry):
                     raise Unknown("Essential geometry has unresolved bounds, not a determined value or discrete alternatives")
                 variants = list(_options(candidate))
                 if not variants:

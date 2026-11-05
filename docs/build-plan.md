@@ -62,6 +62,8 @@ The working and GitHub default branch is `v1`, tracking `origin/v1`. The coordin
 
 The initial hosted Linux dependency, CAD and headless-rendering checks have already passed. Repeat them when integration changes justify it, not for every documentation edit. Artifacts provide GLB/STEP exports, built frontend, structured data, screenshots and reports for local inspection.
 
+Candidate prep uses two integration checkpoints. Dispatch with `prep_batch` to verify the staged data, real CAD and both browser modes without replacing the working app. Promote only the matching verified artifact, commit its data/model recovery cache, then dispatch without `prep_batch` to verify the actual shipped fresh clone and offline recovery. Candidate checks explicitly leave release verification pending until that second run; they do not compare new candidate meshes against an older committed release.
+
 ## Paid evaluation
 
 The coordinator dispatches paid checks when needed, with the repository's existing `OPENAI_API_KEY` Actions secret. `benchmark=true` runs the canonical questions twice sequentially; `live_api=true` separately checks the isolated correction UI. Use [Question-benchmark/PLAN.md](Question-benchmark/PLAN.md) for the exact question, scoring and review-state requirements. Expected answers never enter chat or prep prompts. If GitHub secrets cannot be used, execute necessary API checks locally in sequence after checking resource headroom; this is a fallback the coordinator handles.

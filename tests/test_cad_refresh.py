@@ -220,6 +220,35 @@ def test_readiness_never_treats_reviewed_bounds_as_a_single_dimension(two_parts)
     assert "value" not in effective["thickness"]
 
 
+def test_readiness_rejects_bounds_hidden_inside_legacy_alternative_wrappers(two_parts):
+    store = blocked_geometry_store(two_parts)
+    store.append("D-001/template/thickness", "set_value", {
+        "state": "options", "options": [{"state": "bounds", "value": 3, "lower": 2, "upper": 4}, 6]})
+    effective = store.templates["D-001"]
+    assert effective["cad_ready"] is False and "bounds" in effective["blocking_fields"][0]
+
+
+def test_missing_required_body_assessment_stays_blocked_on_repeated_readiness_checks(two_parts):
+    store = blocked_geometry_store(two_parts)
+    store.templates["D-001"].pop("cad_eligibility")
+    store.templates["D-001"]["thickness"].update(
+        state="known", value=3, method="human_decision", correction={"original": None, "corrected": 3})
+    store._refresh_reviewed_readiness()
+    first = copy.deepcopy(store.templates["D-001"])
+    store._refresh_reviewed_readiness()
+    assert store.templates["D-001"] == first
+    assert first["cad_ready"] is False and first["blocking_fields"] == ["cad_eligibility is unresolved"]
+
+
+def test_past_bounds_in_correction_history_do_not_invalidate_a_current_known_dimension(two_parts):
+    store = blocked_geometry_store(two_parts)
+    store.templates["D-001"]["thickness"].update(
+        state="known", value=3, method="human_decision",
+        correction={"original": {"state": "bounds", "lower": 2, "upper": 4}, "corrected": 3})
+    store._refresh_reviewed_readiness()
+    assert store.templates["D-001"]["cad_ready"] is True
+
+
 def test_missing_outline_blocks_even_when_human_thickness_is_supplied(two_parts):
     store = blocked_geometry_store(two_parts)
     _, generated, _, _ = two_parts

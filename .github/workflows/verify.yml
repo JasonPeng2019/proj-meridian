@@ -103,8 +103,16 @@ jobs:
       - name: Verify browser pages and screenshots without a key
         run: uv run --locked python scripts/ci_verify.py browser
       - name: Verify fresh runtime and cache regeneration without a key
-        if: inputs.regenerate
+        if: inputs.regenerate && inputs.prep_batch == ''
         run: uv run --locked python scripts/verify_release.py --skip-live
+      - name: Record staged candidate verification boundary
+        if: inputs.prep_batch != ''
+        run: >-
+          uv run --locked python -c "import json,pathlib;
+          pathlib.Path('docs/ci/candidate-verification.json').write_text(json.dumps({
+          'cad_and_browser_verified':True,'published':False,
+          'fresh_clone_release_verification':'Required after matching artifact promotion and commit'
+          },indent=2)+'\n',encoding='utf-8')"
       - name: Optional canonical benchmark (two sequential passes)
         if: github.event_name == 'workflow_dispatch' && inputs.regenerate && inputs.benchmark
         env:

@@ -256,7 +256,7 @@ def verify_redesign(context, errors):
     def reply(route):
         sent.append(route.request.post_data_json)
         route.fulfill(json={'session_id': 'ui-redesign-fixture', 'text': answer,
-                            'facts': {fact['fact']: fact}, 'parts_to_show': [record], 'warnings': []})
+                            'facts': {fact['fact']: fact}, 'parts_to_show': [record], 'warnings': ['Legacy output-validator warning; must not hide the answer.']})
     page.route('**/api/chat', reply)
     page.goto(BASE+'/chat')
     composer = page.get_by_role('textbox', name='Message Meridian')
@@ -336,7 +336,7 @@ def verify_redesign(context, errors):
                 expect(page.get_by_role('textbox',name='Message Meridian')).to_be_in_viewport()
             if name == 'parts':
                 expect(page.get_by_placeholder('Search part or material\u2026')).to_be_in_viewport()
-                # A horizontally scrollable table is contained in its own region.
+                # The original card catalog stays inside the page at each viewport.
                 assert page.locator('.part-result').count() == len(get('/api/parts'))
             if name == 'drawing':
                 expect(page.get_by_title('Zoom in', exact=True)).to_be_in_viewport()
@@ -363,6 +363,7 @@ def verify_redesign(context, errors):
         'chat_reply': 'mocked transport; no paid API or answer-quality claim',
         'send_enter_clear': True, 'citations_and_attached_parts': True,
         'back_preserves_conversation': True, 'copy_answer': True,
+        'legacy_warnings_do_not_hide_or_replace_answer': True,
         'history_focus_trap_escape_restore': True, 'part_keyboard_tabs': True,
         'drawing_zoom_fit': True, 'asset_filter_reset': True,
         'responsive': responsive}, indent=2), encoding='utf-8')

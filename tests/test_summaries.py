@@ -3,7 +3,7 @@ import json
 
 import pytest
 
-from backend.app.chat import collect_evidence, validate_markers
+from backend.app.chat import collect_evidence, resolve_answer_evidence
 from backend.app.store import Store
 from backend.app.tools import KnowledgeTools
 
@@ -97,8 +97,9 @@ def test_aggregate_provenance_is_registered_and_citable(summary_store):
     assert "BOM:optics/a/name" in ledger
     assert "D-001/source-inventory" in ledger
     assert ledger["D-001/source-inventory"]["badge"] == "From source inventory"
-    assert not validate_markers("[cite: machine/summary/inventory, BOM/summary/recorded-cost]", ledger, summary_store)["warnings"]
-    assert validate_markers("[cite: machine/summary/inventory]", {}, summary_store)["warnings"]
+    assert not resolve_answer_evidence("[cite: machine/summary/inventory, BOM/summary/recorded-cost]", ledger, summary_store)["warnings"]
+    unreturned = resolve_answer_evidence("[cite: machine/summary/inventory]", {}, summary_store)
+    assert unreturned["text"] == "[cite: machine/summary/inventory]" and not unreturned["parts_to_show"]
     assert tools.get_overview()["cost_summary"]["rows_included"] == 3
 
 
@@ -110,7 +111,7 @@ def test_pending_mapping_is_citable_status_without_approved_relationship(summary
     assert fact["review_item"] == "names/section/optical-optics"
     assert len(tools.parts_in_section("Optical")["parts"]) == 1
     collect_evidence(result, ledger, tools)
-    assert not validate_markers("[cite: names/section/optical-optics]", ledger, summary_store)["warnings"]
+    assert not resolve_answer_evidence("[cite: names/section/optical-optics]", ledger, summary_store)["warnings"]
     mapping = summary_store.mappings[0]
     mapping["review"] = {"status": "human_confirmed", "by": "Fixture reviewer", "at": "2020-01-01"}
     approved = tools.mapping_status("Optics", "section")["facts"][0]
@@ -150,7 +151,7 @@ def test_requested_width_stays_undetermined_without_labeled_evidence(summary_sto
         fact = result["facts"][0]
         assert fact["display"]["state"] == "undetermined"
         assert fact["fact"] in summary_store.fields
-        answer = validate_markers("[undetermined: " + fact["fact"] + "]", ledger, summary_store)
+        answer = resolve_answer_evidence("[undetermined: " + fact["fact"] + "]", ledger, summary_store)
         assert not answer["warnings"]
         assert answer["parts_to_show"][0]["key"] == part
     assert "42" not in str(result["facts"][0]["display"])
@@ -170,7 +171,7 @@ def test_shared_bom_citation_attaches_every_proven_link_only(summary_store):
     tools, ledger = KnowledgeTools(summary_store), {}
     result = tools.get_bom_row("BOM:optics/a")
     collect_evidence(result, ledger, tools)
-    answer = validate_markers("[cite: BOM:optics/a/name]", ledger, summary_store)
+    answer = resolve_answer_evidence("[cite: BOM:optics/a/name]", ledger, summary_store)
     assert [p["key"] for p in answer["parts_to_show"]] == ["D-001", "D-002"]
     summary_store.part("D-002")["link"]["method"] = "unresolved"
     assert [p["key"] for p in tools.get_bom_row("BOM:optics/a")["linked_parts"]] == ["D-001"]
@@ -186,7 +187,7 @@ def test_source_row_names_survive_linked_drawing_name_and_section(summary_store)
     ledger = {}
     summary = tools.machine_summary()
     collect_evidence(summary, ledger, tools)
-    answer = validate_markers("[cite: machine/summary/bom-family/0]", ledger, summary_store)
+    answer = resolve_answer_evidence("[cite: machine/summary/bom-family/0]", ledger, summary_store)
     assert len(answer["parts_to_show"]) == 7
 
 
@@ -222,7 +223,7 @@ def test_mapping_uncertainty_does_not_replace_printed_grade_fact(summary_store):
     assert ledger["D-001/resolved/material"]["display"]["state"] == "undetermined"
 
 
-def test_model_verification_is_citable_and_correction_attribution_required(summary_store):
+def test_model_verification_and_correction_metadata_remain_accessible_without_output_grading(summary_store):
     part = summary_store.part("D-001")
     part["model"] = {"weight_check": {"state":"FAILED"}, "models":{"A":{"selections":{"thickness":4},"volume_mm3":20}}, "omitted":["Unknown holes"]}
     tools, ledger = KnowledgeTools(summary_store), {}
@@ -230,5 +231,9 @@ def test_model_verification_is_citable_and_correction_attribution_required(summa
     assert ledger["D-001/model/verification"]["display"]["value"]["weight_check"]["state"] == "FAILED"
     fact = ledger["D-001/drawing/material"]
     fact["correction"] = {"original":"Old", "corrected":"New", "by":"Fixture reviewer", "at":"2020-01-01T00:00:00Z"}
-    assert validate_markers("New [cite: D-001/drawing/material]", ledger, summary_store)["warnings"]
-    assert not validate_markers("New (originally Old; Fixture reviewer, 2020-01-01) [cite: D-001/drawing/material]", ledger, summary_store)["warnings"]
+    fact["correction"]["corrected"] = {"state":"options", "options":[3.0,6.0], "fact_ids":["source/3","source/6"]}
+    text = "The possible thicknesses are 3 mm and 6 mm. [cite: D-001/drawing/material]"
+    result = resolve_answer_evidence(text, ledger, summary_store)
+    assert result["text"] == text and not result["warnings"]
+    assert result["facts"][fact["fact"]]["correction"] == fact["correction"]
+    assert result["parts_to_show"][0]["key"] == "D-001"

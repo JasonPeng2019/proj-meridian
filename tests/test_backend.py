@@ -5,7 +5,7 @@ import json
 import pytest
 from fastapi.testclient import TestClient
 
-from backend.app.chat import collect_evidence, validate_markers
+from backend.app.chat import collect_evidence, resolve_answer_evidence
 from backend.app.store import Store
 from backend.app.tools import KnowledgeTools
 
@@ -137,26 +137,29 @@ def test_options_are_not_unknown_and_selection_is_durable(evidence):
     assert KnowledgeTools(evidence).display(target)["display"]["value"] == 2.0
     assert evidence.fields[target]["options"] == [1.0,2.0]
 
-def test_citations_need_real_returned_facts_and_attach_correct_part(evidence):
+def test_known_citations_attach_parts_without_changing_the_answer(evidence):
     tools = KnowledgeTools(evidence)
     ledger = {}
     collect_evidence(tools.get_facts("D-019"), ledger, tools)
-    result = validate_markers("Unknown title [undetermined: D-019/drawing/title] [cite: D-019/part]", ledger, evidence)
+    result = resolve_answer_evidence("Unknown title [undetermined: D-019/drawing/title] [cite: D-019/part]", ledger, evidence)
     assert not result["warnings"]
     assert [p["key"] for p in result["parts_to_show"]] == ["D-019"]
-    invalid = validate_markers("Wrong [cite: D-999/drawing/title]", ledger, evidence)
-    assert invalid["warnings"] and not invalid["parts_to_show"]
-    unreturned = validate_markers("Title [cite: D-019/drawing/title]", {}, evidence)
-    assert any("not returned" in warning for warning in unreturned["warnings"])
+    invalid = resolve_answer_evidence("Wrong [cite: D-999/drawing/title]", ledger, evidence)
+    assert invalid["text"] == "Wrong [cite: D-999/drawing/title]"
+    assert not invalid["warnings"] and not invalid["parts_to_show"]
+    unreturned = resolve_answer_evidence("Title [cite: D-019/drawing/title]", {}, evidence)
+    assert unreturned["text"] == "Title [cite: D-019/drawing/title]"
+    assert not unreturned["parts_to_show"]
 
-def test_undetermined_consistency_and_single_match_backup(evidence):
+def test_source_linking_does_not_grade_marker_kind_and_retains_single_match_backup(evidence):
     tools = KnowledgeTools(evidence)
     ledger = {"D-019/part": tools.display("D-019/part")}
-    invalid = validate_markers("[undetermined: D-019/part]", ledger, evidence)
-    assert any("has a value" in warning for warning in invalid["warnings"])
-    fallback = validate_markers("No evidence was recorded for that question.", {}, evidence, ["D-019"])
+    invalid = resolve_answer_evidence("[undetermined: D-019/part]", ledger, evidence)
+    assert invalid["text"] == "[undetermined: D-019/part]"
+    assert [p["key"] for p in invalid["parts_to_show"]] == ["D-019"]
+    fallback = resolve_answer_evidence("No evidence was recorded for that question.", {}, evidence, ["D-019"])
     assert fallback["parts_to_show"][0]["shown_reason"]
-    ambiguous = validate_markers("Which part?", {}, evidence, ["D-019", "D-013"])
+    ambiguous = resolve_answer_evidence("Which part?", {}, evidence, ["D-019", "D-013"])
     assert not ambiguous["parts_to_show"]
 
 def test_source_ledger_keeps_each_sources_own_value(evidence):

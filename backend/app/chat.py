@@ -1,4 +1,4 @@
-"""Single-provider tool loop and server-validated evidence markers."""
+"""Luna tool loop with source links and the model answer returned unchanged."""
 from __future__ import annotations
 
 import json
@@ -82,38 +82,21 @@ def collect_evidence(result: Any, ledger: dict, tools: KnowledgeTools) -> None:
         for value in result:
             collect_evidence(value, ledger, tools)
 
-def validate_markers(text: str, ledger: dict, store: Store, single_matches: list[str] | None = None) -> dict:
-    warnings, parts, cited, unknown_markers = [], [], [], set()
-    for kind, raw in re.findall(r"\[(cite|undetermined):\s*([^\]]+)\]", text):
-        names = [v.strip() for v in raw.split(",") if v.strip()]
-        for name in names:
-            if name not in ledger or name not in store.fields:
-                warnings.append(f"Invalid citation: {name} was not returned by a tool this turn.")
+def resolve_answer_evidence(text: str, ledger: dict, store: Store, single_matches: list[str] | None = None) -> dict:
+    """Attach known source references without grading or rewriting Luna's answer."""
+    parts = []
+    for raw in re.findall(r"\[(?:cite|undetermined):\s*([^\]]+)\]", text):
+        for name in (value.strip() for value in raw.split(",")):
+            fact = ledger.get(name)
+            if not fact or name not in store.fields:
                 continue
-            fact = ledger[name]
-            if kind == "undetermined":
-                if fact.get("display", {}).get("state") != "undetermined":
-                    warnings.append(f"Invalid Undetermined marker: {name} has a value.")
-                    continue
-                unknown_markers.add(name)
-            cited.append(name)
             for key in [fact.get("part_key"), *fact.get("part_keys", [])]:
                 if key and key not in parts:
                     parts.append(key)
-    for name in cited:
-        if ledger[name].get("display", {}).get("state") == "undetermined" and name not in unknown_markers:
-            warnings.append("This answer cites something the sources could not determine without its Undetermined marker: " + name)
-        correction = ledger[name].get("correction")
-        if correction:
-            values = [correction.get("original"), correction.get("corrected"), correction.get("by"), str(correction.get("at", ""))[:10]]
-            if any(str(v).casefold() not in text.casefold() for v in values if v):
-                warnings.append("A corrected fact must disclose its original, corrected value, actual reviewer and date: " + name)
     backup = False
     if not parts and single_matches and len(set(single_matches)) == 1:
         parts.append(single_matches[0])
         backup = True
-    if not cited and len(text.split()) > 8 and not text.rstrip().endswith("?"):
-        warnings.append("This answer has no cited sources.")
     summaries = []
     for key in parts:
         part = store.part(key)
@@ -122,7 +105,7 @@ def validate_markers(text: str, ledger: dict, store: Store, single_matches: list
                           "drawing_url": f"/part/{safe}/2d" if part.get("has_drawing") else None,
                           "model_url": f"/part/{safe}/3d" if part.get("has_3d") else None,
                           "shown_reason": "Shown because your question named this part." if backup else None})
-    return {"text": text, "facts": ledger, "parts_to_show": summaries, "warnings": list(dict.fromkeys(warnings))}
+    return {"text": text, "facts": ledger, "parts_to_show": summaries, "warnings": []}
 
 class Chat:
     def __init__(self, conversations: Conversations | None = None):
@@ -145,7 +128,6 @@ class Chat:
         tools = KnowledgeTools(store)
         token_totals = {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}
         started = time.perf_counter()
-        repairs = 0
         async with AsyncOpenAI(api_key=key, max_retries=0, timeout=90) as client:
             for _ in range(10):
                 response = await client.responses.create(model=MODEL, reasoning={"effort": "low"}, service_tier="default", store=False,
@@ -160,11 +142,7 @@ class Chat:
                     text = response.output_text
                     if not text:
                         raise ValueError("The model returned no final answer.")
-                    result = validate_markers(text, ledger, store, single_matches)
-                    if result["warnings"] and repairs < 2:
-                        repairs += 1
-                        current.append({"role": "user", "content": "Before sending, correct the evidence formatting/provenance problems in your draft using only the tool evidence already returned. Preserve uncertainty and actual reviewer attribution. Problems: " + json.dumps(result["warnings"])})
-                        continue
+                    result = resolve_answer_evidence(text, ledger, store, single_matches)
                     result.update(session_id=sid, model=MODEL, usage=token_totals, latency_ms=round((time.perf_counter() - started) * 1000), tool_trace=tool_trace, revision=store.revision)
                     self.conversations.append_turn(sid, message, result, create=session_id is None)
                     return result

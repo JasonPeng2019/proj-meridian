@@ -180,3 +180,31 @@ def test_history_routes_do_not_require_provider_or_evidence(chats, monkeypatch):
     assert client.get(f"/api/chats/{SID}").status_code == 404
     assert client.get("/api/chats/invalid").status_code == 400
     assert client.get("/api/chats").json() == []
+
+
+@pytest.mark.parametrize("provider_text", [
+    "Here is Luna's complete answer with more than eight words and no citations.",
+    "The thickness has two possible readings, 3 mm and 6 mm. [cite: unavailable/source]",
+])
+def test_luna_answer_is_returned_unchanged_without_output_validation_or_retries(chats, monkeypatch, provider_text):
+    import backend.app.chat as chat_module
+    requests = []
+    class FakeClient:
+        def __init__(self, **kwargs):
+            self.responses = self
+        async def __aenter__(self):
+            return self
+        async def __aexit__(self, *args):
+            pass
+        async def create(self, **kwargs):
+            requests.append(copy.deepcopy(kwargs))
+            return SimpleNamespace(usage=None, output=[], output_text=provider_text)
+    monkeypatch.setattr(chat_module, "api_key", lambda: "offline-test-key")
+    monkeypatch.setattr(chat_module, "AsyncOpenAI", FakeClient)
+    store = SimpleNamespace(fields={}, revision="fixture-revision")
+    result = asyncio.run(chat_module.Chat(chats).answer(store, "What does the source say?"))
+    assert len(requests) == 1
+    assert requests[0]["model"] == "gpt-6-luna"
+    assert result["text"] == provider_text and not result["warnings"]
+    saved = chats.get(result["session_id"])["messages"][-1]
+    assert saved["content"] == provider_text

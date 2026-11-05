@@ -1,0 +1,22 @@
+# Keep local harness infrastructure out of this repository as well.
+harness-to-use/
+frozen-harness/
+.harness-runtime/
+.agent-workspace/
+worktrees/
+**/.runtime/
+local-config/
+.codex/
+.claude/
+.qwen/
+.secrets/
+product/testing/harness/
+product/testing/reports/harness/
+product/testing/tmp/
+product/testing/cache/
+product/testing/runs/
+
+# Source archive metadata and downloaded/generated frontend assets.
+**/__MACOSX/
+**/.DS_Store
+product/development/frontend/dist/

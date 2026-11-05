@@ -1,0 +1,512 @@
+{
+  "fixture": true,
+  "synthetic": true,
+  "fixture_note": "Invented contract fixture only; not dataset evidence, an executed AI run, or a human decision.",
+  "item": {
+    "fixture": true,
+    "synthetic": true,
+    "fixture_note": "Invented contract fixture only; not dataset evidence, an executed AI run, or a human decision.",
+    "id": "review/D-013/drawing/title",
+    "kind": "correction",
+    "applies_to": "D-013/drawing/title",
+    "part_id": "D-013/part",
+    "status": "rejected",
+    "title": "Synthetic pending title correction",
+    "message": "Synthetic proposal rejected; effective title remains unchanged.",
+    "current_value": "Synthetic training bar",
+    "proposed_value": "Synthetic revised title",
+    "options": [],
+    "sources": [
+      {
+        "name": "D-013/drawing/title",
+        "says": "Synthetic training bar",
+        "method": "parsed",
+        "target": {
+          "kind": "drawing",
+          "name": "D-013/drawing/title",
+          "part_id": "D-013/part",
+          "drawing_id": "D-013",
+          "row_name": null,
+          "page": 1,
+          "box": [
+            12.0,
+            70.0,
+            70.0,
+            6.0
+          ]
+        },
+        "source_sha256": "8d016551a76941cf73cdca0ef95167d9aeb75bb74fb16912a2f6a514bb824a43",
+        "confidence": "sure",
+        "source_quality": null,
+        "note": null,
+        "review": null,
+        "provenance": null,
+        "crop": null
+      }
+    ],
+    "source_hashes": {
+      "D-013": "8d016551a76941cf73cdca0ef95167d9aeb75bb74fb16912a2f6a514bb824a43",
+      "BOM:mock-section/synthetic-training-bar": "ef5ddc6b4d7e28998d1d2e97be2836168f73b1f4a12ae421b8c4070dc184f0fd"
+    },
+    "ai_answers": {
+      "job": "scan_fixture",
+      "job_id": "synthetic-single",
+      "mode": "single_model",
+      "outcome": "single_model_fallback",
+      "rounds": [
+        {
+          "round": 1,
+          "sol": {
+            "requested": {
+              "provider": "codex_cli",
+              "model": "gpt-6.1-sol",
+              "reasoning": "max",
+              "service_tier": "fast",
+              "read_only": true,
+              "settings": {
+                "image_input": true
+              }
+            },
+            "effective": {
+              "provider": "codex_cli",
+              "model": "gpt-6.1-sol",
+              "reasoning": "max",
+              "service_tier": "fast",
+              "read_only": true,
+              "settings": {
+                "image_input": true
+              }
+            },
+            "status": "success",
+            "output": {
+              "answers": {
+                "title": {
+                  "state": "known",
+                  "value": "Synthetic revised title",
+                  "options": [],
+                  "confidence": "sure",
+                  "source_ids": [
+                    "D-013/drawing/title"
+                  ],
+                  "reason": "Invented reader output for a declared fixture; no reader was executed.",
+                  "schema_valid": true,
+                  "evidence_valid": true
+                }
+              },
+              "output_sha256": "66ab9cd226cc65fc9754aceeadd88470761234c0d0106fc12bf2e20408fc9bf3"
+            },
+            "failure": null,
+            "prior_failures": [],
+            "started_at": "2000-01-01T00:00:00Z",
+            "finished_at": "2000-01-01T00:00:00Z"
+          },
+          "opus": {
+            "requested": {
+              "provider": "claude_code",
+              "model": "claude-opus-5-5",
+              "reasoning": "xhigh",
+              "service_tier": "regular",
+              "read_only": true,
+              "settings": {
+                "fastMode": false,
+                "fallbackModel": [],
+                "image_input": true
+              }
+            },
+            "effective": null,
+            "status": "execution_failed",
+            "output": null,
+            "failure": {
+              "classification": "invocation",
+              "execution_failure": true,
+              "message": "Simulated Opus execution failure, not a real CLI observation.",
+              "exit_code": 99,
+              "retryable": false,
+              "troubleshooting": [
+                "Synthetic failure example only; no invocation performed."
+              ],
+              "diagnostic_sha256": null
+            },
+            "prior_failures": [],
+            "started_at": "2000-01-01T00:00:00Z",
+            "finished_at": "2000-01-01T00:00:00Z"
+          }
+        }
+      ],
+      "inputs": {
+        "synthetic-drawing": "8d016551a76941cf73cdca0ef95167d9aeb75bb74fb16912a2f6a514bb824a43"
+      },
+      "prompt_sha256": "9c8d13c0a7ad169775c31f939cb07a4cf6ee29c4c6604253e5029033ff33c22b",
+      "output_contract_sha256": "5b72432404eeb3e66aa58cfbd8c0216730f21c483f52d30d27fe4e4f8a63a629",
+      "cache_key": "7377bb5b0958c6c08542866eb984e2be41ace1ba81185c4f8336fd203600f107",
+      "next_launch_attempt_opus": true
+    },
+    "mapping": null,
+    "check_result": {
+      "method": "string_match",
+      "drawing": [
+        {
+          "source_name": "D-013/drawing/title",
+          "matched": false,
+          "text": "Synthetic training bar"
+        }
+      ],
+      "bom": [
+        {
+          "source_name": "BOM:mock-section/synthetic-training-bar",
+          "matched": false,
+          "text": "Synthetic training bar"
+        }
+      ],
+      "message": "Invented replacement text not matched. A string check is not proof or approval.",
+      "proves_correct": false
+    },
+    "review": null,
+    "allowed_actions": [],
+    "proposal_id": "SYN-P-001",
+    "created_at": "2000-01-01T00:00:00Z",
+    "updated_at": "2000-01-01T00:00:00Z",
+    "blocking_fields": null,
+    "approval_note_required": null,
+    "weight_check": null
+  },
+  "decisions": [
+    {
+      "fixture": true,
+      "synthetic": true,
+      "fixture_note": "Invented contract fixture only; not dataset evidence, an executed AI run, or a human decision.",
+      "decision_id": "SYN-D-002",
+      "applies_to": "D-013/drawing/title",
+      "type": "correction",
+      "value": "Synthetic revised title",
+      "old_value": "Synthetic training bar",
+      "status": "rejected",
+      "by": "Synthetic reviewer (fixture only)",
+      "at": "2000-01-01T00:00:00Z",
+      "based_on": {
+        "D-013": "8d016551a76941cf73cdca0ef95167d9aeb75bb74fb16912a2f6a514bb824a43",
+        "BOM:mock-section/synthetic-training-bar": "ef5ddc6b4d7e28998d1d2e97be2836168f73b1f4a12ae421b8c4070dc184f0fd"
+      },
+      "ai_answers": null,
+      "check_result": {
+        "method": "string_match",
+        "drawing": [
+          {
+            "source_name": "D-013/drawing/title",
+            "matched": false,
+            "text": "Synthetic training bar"
+          }
+        ],
+        "bom": [
+          {
+            "source_name": "BOM:mock-section/synthetic-training-bar",
+            "matched": false,
+            "text": "Synthetic training bar"
+          }
+        ],
+        "message": "Invented replacement text not matched. A string check is not proof or approval.",
+        "proves_correct": false
+      },
+      "reason": "Invented proposal for smoke checks.",
+      "note": null,
+      "proposal_id": "SYN-P-001",
+      "supersedes": "SYN-D-001"
+    }
+  ],
+  "refresh": {
+    "part_ids": [
+      "D-013/part"
+    ],
+    "facts": {
+      "D-013/drawing/material": {
+        "fixture": false,
+        "synthetic": false,
+        "fixture_note": null,
+        "fact": "D-013/drawing/material",
+        "part_id": "D-013/part",
+        "display": {
+          "state": "undetermined",
+          "reason": "source_conflict",
+          "message": "Synthetic drawing: Training polymer P9. Synthetic BOM: Training alloy Q7. Invented conflict, no source claim."
+        },
+        "rule": "B3 rule 4: conflicting trusted sources",
+        "badge": "From PDF and parts list",
+        "provenance_badge": null,
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/material",
+            "says": "Training polymer P9",
+            "method": "parsed",
+            "target": {
+              "kind": "drawing",
+              "name": "D-013/drawing/material",
+              "part_id": "D-013/part",
+              "drawing_id": "D-013",
+              "row_name": null,
+              "page": 1,
+              "box": [
+                12.0,
+                80.0,
+                70.0,
+                6.0
+              ]
+            },
+            "source_sha256": "8d016551a76941cf73cdca0ef95167d9aeb75bb74fb16912a2f6a514bb824a43",
+            "confidence": "sure",
+            "source_quality": null,
+            "note": null,
+            "review": null,
+            "provenance": null,
+            "crop": null
+          },
+          {
+            "name": "BOM:mock-section/synthetic-training-bar/material",
+            "says": "Training alloy Q7",
+            "method": "parsed",
+            "target": {
+              "kind": "bom",
+              "name": "BOM:mock-section/synthetic-training-bar/material",
+              "part_id": "D-013/part",
+              "drawing_id": null,
+              "row_name": "BOM:mock-section/synthetic-training-bar",
+              "page": null,
+              "box": null
+            },
+            "source_sha256": "ef5ddc6b4d7e28998d1d2e97be2836168f73b1f4a12ae421b8c4070dc184f0fd",
+            "confidence": "sure",
+            "source_quality": null,
+            "note": null,
+            "review": null,
+            "provenance": null,
+            "crop": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null
+      },
+      "D-013/part": {
+        "fixture": false,
+        "synthetic": false,
+        "fixture_note": null,
+        "fact": "D-013/part",
+        "part_id": "D-013/part",
+        "display": {
+          "state": "value",
+          "value": "Synthetic training bar",
+          "label": null,
+          "unit": null
+        },
+        "rule": "Whole-part citation",
+        "badge": "Synthetic fixture",
+        "provenance_badge": null,
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/part",
+            "says": "Synthetic training bar",
+            "method": "parsed",
+            "target": {
+              "kind": "part",
+              "name": "D-013/part",
+              "part_id": "D-013/part",
+              "drawing_id": null,
+              "row_name": null,
+              "page": null,
+              "box": null
+            },
+            "source_sha256": null,
+            "confidence": "sure",
+            "source_quality": null,
+            "note": null,
+            "review": null,
+            "provenance": null,
+            "crop": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null
+      }
+    },
+    "models": {
+      "D-013/part": {
+        "state": "available",
+        "examples": [
+          {
+            "id": "A",
+            "glb": "/api/models/D-013_A.glb",
+            "choices": {
+              "D-013/template/thickness": 4.25
+            },
+            "possible_reading": true,
+            "source_ids": [
+              "D-013/drawing/n/4-25@1"
+            ],
+            "step": null,
+            "volume_mm3": null
+          },
+          {
+            "id": "B",
+            "glb": "/api/models/D-013_B.glb",
+            "choices": {
+              "D-013/template/thickness": 1.75
+            },
+            "possible_reading": true,
+            "source_ids": [
+              "D-013/drawing/n/1-75@1"
+            ],
+            "step": null,
+            "volume_mm3": null
+          }
+        ],
+        "selected_example": null,
+        "reconstruction_label": "Reconstruction from 2D drawing. Not the original CAD model.",
+        "review": {
+          "status": "not_reviewed",
+          "by": null,
+          "at": null,
+          "based_on": {},
+          "decision_id": null
+        },
+        "provenance": {
+          "job": "template_fixture",
+          "job_id": "synthetic-dual",
+          "mode": "dual_reader",
+          "outcome": "agreed",
+          "rounds": [
+            {
+              "round": 1,
+              "sol": {
+                "requested": {
+                  "provider": "codex_cli",
+                  "model": "gpt-6.1-sol",
+                  "reasoning": "max",
+                  "service_tier": "fast",
+                  "read_only": true,
+                  "settings": {
+                    "image_input": true
+                  }
+                },
+                "effective": {
+                  "provider": "codex_cli",
+                  "model": "gpt-6.1-sol",
+                  "reasoning": "max",
+                  "service_tier": "fast",
+                  "read_only": true,
+                  "settings": {
+                    "image_input": true
+                  }
+                },
+                "status": "success",
+                "output": {
+                  "answers": {
+                    "thickness": {
+                      "state": "options",
+                      "value": null,
+                      "options": [
+                        4.25,
+                        1.75
+                      ],
+                      "confidence": "sure",
+                      "source_ids": [
+                        "D-013/drawing/n/4-25@1",
+                        "D-013/drawing/n/1-75@1"
+                      ],
+                      "reason": "Invented reader output for a declared fixture; no reader was executed.",
+                      "schema_valid": true,
+                      "evidence_valid": true
+                    }
+                  },
+                  "output_sha256": "16fd3c2c879459ba1b6fb9706964aee14a501c9c311454e6799021d9e4d2e655"
+                },
+                "failure": null,
+                "prior_failures": [],
+                "started_at": "2000-01-01T00:00:00Z",
+                "finished_at": "2000-01-01T00:00:00Z"
+              },
+              "opus": {
+                "requested": {
+                  "provider": "claude_code",
+                  "model": "claude-opus-5-5",
+                  "reasoning": "xhigh",
+                  "service_tier": "regular",
+                  "read_only": true,
+                  "settings": {
+                    "fastMode": false,
+                    "fallbackModel": [],
+                    "image_input": true
+                  }
+                },
+                "effective": {
+                  "provider": "claude_code",
+                  "model": "claude-opus-5-5",
+                  "reasoning": "xhigh",
+                  "service_tier": "regular",
+                  "read_only": true,
+                  "settings": {
+                    "fastMode": false,
+                    "fallbackModel": [],
+                    "image_input": true
+                  }
+                },
+                "status": "success",
+                "output": {
+                  "answers": {
+                    "thickness": {
+                      "state": "options",
+                      "value": null,
+                      "options": [
+                        4.25,
+                        1.75
+                      ],
+                      "confidence": "sure",
+                      "source_ids": [
+                        "D-013/drawing/n/4-25@1",
+                        "D-013/drawing/n/1-75@1"
+                      ],
+                      "reason": "Invented reader output for a declared fixture; no reader was executed.",
+                      "schema_valid": true,
+                      "evidence_valid": true
+                    }
+                  },
+                  "output_sha256": "03ffcc773cf273a2b078b2d26ae1a62afdaed936c4f29ebabb1c874627d2ed7e"
+                },
+                "failure": null,
+                "prior_failures": [],
+                "started_at": "2000-01-01T00:00:00Z",
+                "finished_at": "2000-01-01T00:00:00Z"
+              }
+            }
+          ],
+          "inputs": {
+            "synthetic-drawing": "8d016551a76941cf73cdca0ef95167d9aeb75bb74fb16912a2f6a514bb824a43"
+          },
+          "prompt_sha256": "9c8d13c0a7ad169775c31f939cb07a4cf6ee29c4c6604253e5029033ff33c22b",
+          "output_contract_sha256": "5b72432404eeb3e66aa58cfbd8c0216730f21c483f52d30d27fe4e4f8a63a629",
+          "cache_key": "ad28b7b47e34a97a623f4bd2871efe3f771f950677ca40a1b68a60822204c273",
+          "next_launch_attempt_opus": true
+        },
+        "human_input_fields": [],
+        "unresolved_fields": [],
+        "omitted_details": [
+          {
+            "name": "D-013/template/unreadable-detail",
+            "reason": "Synthetic minor feature intentionally unknown and omitted.",
+            "source_ids": [],
+            "review_item": null
+          }
+        ],
+        "message": null,
+        "stale_reason": null,
+        "built_at": "2000-01-01T00:00:00Z",
+        "built_template_sha256": "02d0e57156c16c3e9abf0498d2931e1cfc30fdf2683c606c235a66c03ab32f2c",
+        "current_template_sha256": "02d0e57156c16c3e9abf0498d2931e1cfc30fdf2683c606c235a66c03ab32f2c",
+        "overall_size_mm": null,
+        "section_view_available": null
+      }
+    },
+    "warnings": []
+  }
+}

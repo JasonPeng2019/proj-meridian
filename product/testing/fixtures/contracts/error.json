@@ -1,0 +1,11 @@
+{
+  "fixture": true,
+  "synthetic": true,
+  "fixture_note": "Invented contract fixture only; not dataset evidence, an executed AI run, or a human decision.",
+  "error": {
+    "code": "missing_key",
+    "message": "Synthetic example: chat key is not configured.",
+    "retryable": false,
+    "details": {}
+  }
+}

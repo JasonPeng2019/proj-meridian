@@ -1,0 +1,122 @@
+{
+  "fixture": true,
+  "synthetic": true,
+  "fixture_note": "Invented contract fixture only; not dataset evidence, an executed AI run, or a human decision.",
+  "id": "BOM:mock-section/synthetic-training-bar/part",
+  "display_name": "Synthetic BOM-only bar",
+  "section": "Mock Section",
+  "has_drawing": false,
+  "has_3d": false,
+  "examples": [],
+  "drawing": null,
+  "bom": [
+    {
+      "name": "BOM:mock-section/synthetic-training-bar",
+      "display_id": "BOM-SYN-001",
+      "display_name": "Synthetic training bar",
+      "section": "Mock Section",
+      "source_sha256": "ef5ddc6b4d7e28998d1d2e97be2836168f73b1f4a12ae421b8c4070dc184f0fd",
+      "fields": {
+        "material": {
+          "name": "BOM:mock-section/synthetic-training-bar/material",
+          "original": "Training alloy Q7",
+          "value": "Training alloy Q7",
+          "confidence": "sure",
+          "method": "parsed",
+          "note": null,
+          "review": null,
+          "provenance": null,
+          "correction": null,
+          "cleanup": [],
+          "snapshot_note": false,
+          "currency": null,
+          "unit": null
+        },
+        "cost": {
+          "name": "BOM:mock-section/synthetic-training-bar/cost",
+          "original": " ",
+          "value": null,
+          "confidence": "sure",
+          "method": "cleanup_rule",
+          "note": null,
+          "review": null,
+          "provenance": null,
+          "correction": null,
+          "cleanup": [
+            "trim_blank_to_null"
+          ],
+          "snapshot_note": true,
+          "currency": "DKK",
+          "unit": null
+        },
+        "amount": {
+          "name": "BOM:mock-section/synthetic-training-bar/amount",
+          "original": "2",
+          "value": 2,
+          "confidence": "sure",
+          "method": "parsed",
+          "note": null,
+          "review": null,
+          "provenance": null,
+          "correction": null,
+          "cleanup": [],
+          "snapshot_note": false,
+          "currency": null,
+          "unit": null
+        },
+        "total_cost": {
+          "name": "BOM:mock-section/synthetic-training-bar/total_cost",
+          "original": "DKK0.00",
+          "value": null,
+          "confidence": "sure",
+          "method": "cleanup_rule",
+          "note": null,
+          "review": null,
+          "provenance": null,
+          "correction": null,
+          "cleanup": [
+            "zero_total_with_blank_cost -> not recorded"
+          ],
+          "snapshot_note": true,
+          "currency": "DKK",
+          "unit": null
+        }
+      },
+      "connections": [],
+      "identity_conflict": false,
+      "snapshot_note": true
+    }
+  ],
+  "link": null,
+  "template": null,
+  "model": {
+    "state": "missing",
+    "examples": [],
+    "selected_example": null,
+    "reconstruction_label": "Reconstruction from 2D drawing. Not the original CAD model.",
+    "review": {
+      "status": "not_reviewed",
+      "by": null,
+      "at": null,
+      "based_on": {},
+      "decision_id": null
+    },
+    "provenance": null,
+    "human_input_fields": [],
+    "unresolved_fields": [],
+    "omitted_details": [],
+    "message": "Synthetic BOM-only record: no drawing or model recorded.",
+    "stale_reason": null,
+    "built_at": null,
+    "built_template_sha256": null,
+    "current_template_sha256": null,
+    "overall_size_mm": null,
+    "section_view_available": null
+  },
+  "review_items": [],
+  "weight_check": null,
+  "callouts": null,
+  "crops": null,
+  "readme_passages": null,
+  "installed_in": null
+}

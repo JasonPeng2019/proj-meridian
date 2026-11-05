@@ -1,0 +1,582 @@
+{
+  "schema": "a13-cad-b00-report/v1",
+  "outcome": "PASS",
+  "completed_at": "2026-11-05T08:02:27.236813+00:00",
+  "lane_id": "A13-cad",
+  "module": "M13",
+  "batch": "B00 qualification only",
+  "branch": "lane/9835572aa8594664acdb2346c2fcc64e/A13-cad/work",
+  "base_commit": "a279e45b98554f7c39d0d8cf47667bae860a5180",
+  "synthetic_geometry_notice": "All geometry and dimensions are invented test values, not taken from any drawing. No source drawings were read.",
+  "launcher_binding": {
+    "id": "codex",
+    "launch_config": {
+      "permission_mode": "yolo",
+      "reasoning_effort": "max",
+      "service_tier": "fast"
+    },
+    "model": "gpt-6.1-sol"
+  },
+  "launcher_binding_evidence": ".agent-workspace/invocation.json provider fields only; configured gpt-6.1-sol / max / fast; no fallback",
+  "versions": {
+    "python": "3.12.10",
+    "python_executable": "C:\\Users\\Jason\\DOCUME~1\\Jason\\TAKE-H~2\\active\\Avathon\\product\\HARNES~1\\WORKTR~1\\983557~1\\A13-cad\\DEVELO~1\\RUNTIM~1\\c\\Scripts\\python.exe",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "cadquery": "2.8.0",
+    "cadquery_ocp": "7.9.3.1.1",
+    "ocp_module": "7.9.3.1",
+    "numpy": "2.5.4",
+    "windows_path_strategy": "Existing NTFS 8.3 interpreter alias when available; no files relocated",
+    "uv": "0.11.19 (7b2cff1c3 2026-06-03 x86_64-pc-windows-msvc)",
+    "node": "v24.19.0",
+    "npm": "11.17.0",
+    "three": "0.187.0",
+    "gltf_validator": "2.0.0-dev.3.10",
+    "cadquery_ocp_proxy": "7.9.3.1.1",
+    "vtk": "9.6.2"
+  },
+  "python_package_freeze": [
+    "aiohappyeyeballs==2.7.1",
+    "aiohttp==3.14.5",
+    "aiosignal==1.4.0",
+    "attrs==26.1.0",
+    "cadquery==2.8.0",
+    "cadquery-ocp==7.9.3.1.1",
+    "cadquery-ocp-proxy==7.9.3.1.1",
+    "casadi==3.8.2",
+    "contourpy==1.4.0",
+    "cycler==0.12.1",
+    "ezdxf==1.4.5",
+    "fonttools==4.68.0",
+    "frozenlist==1.8.0",
+    "idna==3.20",
+    "kiwisolver==1.5.1",
+    "llvmlite==0.50.0",
+    "matplotlib==3.11.2",
+    "more-itertools==11.2.1",
+    "msgpack==1.2.4",
+    "multidict==7.2.1",
+    "multimethod==1.12",
+    "nlopt==2.11.0",
+    "numba==0.68.1",
+    "numpy==2.5.4",
+    "packaging==26.3",
+    "pillow==13.0.0",
+    "propcache==0.5.4",
+    "pyparsing==3.3.3",
+    "python-dateutil==4.0.0",
+    "pyyaml==6.0.3",
+    "runtype==0.5.3",
+    "scipy==1.18.1",
+    "trame==4.0.0",
+    "trame-client==4.1.4",
+    "trame-common==1.2.9",
+    "trame-components==2.5.0",
+    "trame-server==4.1.0",
+    "trame-vtk==2.11.17",
+    "trame-vuetify==3.3.0",
+    "typing-extensions==4.16.0",
+    "tzdata==2026.6",
+    "vtk==9.6.2",
+    "wslink==2.6.0",
+    "yarl==1.25.1"
+  ],
+  "environment": {
+    "virtual_environment": "development/.runtime/c",
+    "node_dependencies": "development/.runtime/a13-gltf",
+    "base_python_read_only": "C:\\Users\\Jason\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "UV_CACHE_DIR": "testing/cache/uv",
+    "UV_PYTHON_INSTALL_DIR": "development/.runtime/python",
+    "UV_CONCURRENT_DOWNLOADS": "1",
+    "UV_CONCURRENT_INSTALLS": "1",
+    "TEMP": "testing/tmp/A13-cad",
+    "TMP": "testing/tmp/A13-cad",
+    "MPLCONFIGDIR": "testing/cache/matplotlib",
+    "NUMBA_CACHE_DIR": "testing/cache/numba",
+    "XDG_CACHE_HOME": "testing/cache",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONIOENCODING": "utf-8",
+    "npm_cache": "testing/cache/npm",
+    "path_note": "All output/dependency/cache paths are worktree-local. Inherited UV/cache/TEMP paths pointed at the main checkout and were replaced process-locally. The base Python interpreter was only read. Existing NTFS short paths alias the same worktree files."
+  },
+  "commands": [
+    {
+      "name": "create_isolated_environment",
+      "argv": [
+        "uv",
+        "--no-config",
+        "venv",
+        "--no-project",
+        "--python",
+        "C:\\Users\\Jason\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "development/.runtime/c"
+      ],
+      "exit_code": 0,
+      "log": "testing/runs/A13-cad/venv-short.log",
+      "outcome": "PASS"
+    },
+    {
+      "name": "install_pinned_cadquery_ocp",
+      "argv": [
+        "uv",
+        "--no-config",
+        "pip",
+        "install",
+        "--link-mode",
+        "copy",
+        "--python",
+        "development/.runtime/c/Scripts/python.exe",
+        "cadquery==2.8.0",
+        "cadquery-ocp==7.9.3.1.1"
+      ],
+      "exit_code": 0,
+      "log": "testing/runs/A13-cad/install-short.log",
+      "outcome": "PASS"
+    },
+    {
+      "name": "install_independent_gltf_tools",
+      "argv": [
+        "npm.cmd",
+        "install",
+        "--prefix",
+        "development/.runtime/a13-gltf",
+        "--no-audit",
+        "--no-fund",
+        "--ignore-scripts",
+        "--cache",
+        "testing/cache/npm",
+        "--userconfig",
+        "testing/tmp/A13-cad/npm-user.config",
+        "--globalconfig",
+        "testing/tmp/A13-cad/npm-global.config",
+        "--registry",
+        "https://registry.npmjs.org",
+        "three",
+        "gltf-validator"
+      ],
+      "exit_code": 0,
+      "outcome": "PASS"
+    },
+    {
+      "name": "freeze_python_packages",
+      "argv": [
+        "uv",
+        "--no-config",
+        "pip",
+        "freeze",
+        "--python",
+        "development/.runtime/c/Scripts/python.exe"
+      ],
+      "exit_code": 0,
+      "stderr": "Using Python 3.12.10 environment at: development\\.runtime\\c\n",
+      "outcome": "PASS"
+    },
+    {
+      "name": "qualify_solid_glb_step",
+      "argv": [
+        "C:\\Users\\Jason\\Documents\\Jason\\Take-Home-Assignments\\active\\Avathon\\product\\.harness-runtime\\worktrees\\9835572aa8594664acdb2346c2fcc64e\\A13-cad\\development\\.runtime\\c\\Scripts\\python.exe",
+        "testing/qualification/A13-cad/qualify.py"
+      ],
+      "exit_code": 0,
+      "outcome": "PASS"
+    },
+    {
+      "name": "khronos_and_three_loader",
+      "argv": [
+        "node",
+        "testing/qualification/A13-cad/validate-glb.mjs"
+      ],
+      "exit_code": 0,
+      "outcome": "PASS"
+    }
+  ],
+  "measurements": {
+    "schema": "a13-cad-qualification/v1",
+    "outcome": "PASS",
+    "completed_at": "2026-11-05T08:01:06.519819+00:00",
+    "synthetic": true,
+    "source": "All dimensions are invented test values, not taken from any drawing. No source drawings read.",
+    "geometry_mm": {
+      "plate": [
+        100.0,
+        60.0,
+        5.0
+      ],
+      "main_hole_diameter": 10.0,
+      "main_hole_centre": [
+        0,
+        0
+      ],
+      "pattern_hole_diameter": 6.0,
+      "pattern_hole_centres": [
+        [
+          -25.0,
+          15.0
+        ],
+        [
+          25.0,
+          15.0
+        ]
+      ]
+    },
+    "analytic_volume_mm3": 29324.557579478194,
+    "analytic_volume_formula": "100*60*5 - pi*5*(5**2 + 2*3**2)",
+    "checks": [
+      {
+        "name": "cad_solid",
+        "outcome": "PASS"
+      },
+      {
+        "name": "glb",
+        "outcome": "PASS"
+      },
+      {
+        "name": "step",
+        "outcome": "PASS"
+      }
+    ],
+    "environment": {
+      "python": "3.12.10",
+      "python_executable": "C:\\Users\\Jason\\DOCUME~1\\Jason\\TAKE-H~2\\active\\Avathon\\product\\HARNES~1\\WORKTR~1\\983557~1\\A13-cad\\DEVELO~1\\RUNTIM~1\\c\\Scripts\\python.exe",
+      "platform": "Windows-10-10.0.19045-SP0",
+      "cadquery": "2.8.0",
+      "cadquery_ocp": "7.9.3.1.1",
+      "ocp_module": "7.9.3.1",
+      "numpy": "2.5.4",
+      "windows_path_strategy": "Existing NTFS 8.3 interpreter alias when available; no files relocated"
+    },
+    "cad_solid": {
+      "valid": true,
+      "solid_count": 1,
+      "bounds_mm": [
+        [
+          -50.0,
+          -30.0,
+          0.0
+        ],
+        [
+          50.0,
+          30.0,
+          5.0
+        ]
+      ],
+      "expected_bounds_mm": [
+        [
+          -50.0,
+          -30.0,
+          0.0
+        ],
+        [
+          50.0,
+          30.0,
+          5.0
+        ]
+      ],
+      "bounds_tolerance_mm": 1e-06,
+      "volume_mm3": 29324.557579478194,
+      "volume_error_mm3": 0.0,
+      "volume_tolerance_mm3": 1e-06
+    },
+    "glb": {
+      "export_api": "Assembly.add(shape.scale(0.001), color=cq.Color(0.6,0.6,0.6,1)); Assembly.export(path.glb, exportType='GLTF', tolerance=0.00005, angularTolerance=0.1)",
+      "export_shape_scale": 0.001,
+      "tessellation_linear_tolerance_m": 5e-05,
+      "tessellation_angular_tolerance_rad": 0.1,
+      "requested_cq_color": [
+        0.6,
+        0.6,
+        0.6,
+        1.0
+      ],
+      "path": "testing/runs/A13-cad/synthetic-plate.glb",
+      "bytes": 85432,
+      "sha256": "67afd54c6834d07842c75b1ccd6e9c3bc8377e868eb7e83d1925b59bf89b63ac",
+      "header": {
+        "magic": "glTF",
+        "version": 2,
+        "length": 85432
+      },
+      "asset": {
+        "generator": "Open CASCADE Technology 7.9 [dev.opencascade.org]",
+        "version": "2.0"
+      },
+      "chunks": [
+        {
+          "type": 1313821514,
+          "bytes": 4256
+        },
+        {
+          "type": 5130562,
+          "bytes": 81148
+        }
+      ],
+      "meshes": 1,
+      "accessors": 27,
+      "triangles": 2700,
+      "external_resources": false,
+      "base_color_factors": [
+        [
+          0.31854677200317383,
+          0.31854677200317383,
+          0.31854677200317383,
+          1.0
+        ]
+      ],
+      "world_bounds_m": [
+        [
+          -0.05000000074505806,
+          -6.661337998858429e-18,
+          -0.02999999932944774
+        ],
+        [
+          0.05000000074505806,
+          0.004999999888241296,
+          0.02999999932944774
+        ]
+      ],
+      "expected_world_bounds_m": [
+        [
+          -0.05,
+          0.0,
+          -0.03
+        ],
+        [
+          0.05,
+          0.005,
+          0.03
+        ]
+      ],
+      "max_bounds_error_m": 7.450580569168253e-10,
+      "bounds_tolerance_m": 1e-07,
+      "mesh_volume_mm3": 29324.646065383084,
+      "mesh_volume_relative_error": 3.017467685553877e-06,
+      "mesh_volume_relative_tolerance": 0.001,
+      "units": "CadQuery mm -> glTF m (0.001); Z-up -> Y-up: (x,y,z) -> (x,z,-y)"
+    },
+    "step": {
+      "path": "testing/runs/A13-cad/synthetic-plate.step",
+      "bytes": 26309,
+      "sha256": "e11eecd1c8cbf3ba4f9792ae2b5d1dd67cbca80ebc155e78bf705b2c05d5464f",
+      "export_api": "cq.exporters.export(plate, path.step, exportType='STEP')",
+      "import_api": "cq.importers.importStep(path.step)",
+      "units": "mm",
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 29324.557579478176,
+      "analytic_error_mm3": 1.8189894035458565e-11,
+      "round_trip_error_mm3": 1.8189894035458565e-11,
+      "volume_tolerance_mm3": 1e-05,
+      "bounds_mm": [
+        [
+          -50.0,
+          -30.0,
+          0.0
+        ],
+        [
+          50.0,
+          30.0,
+          5.0
+        ]
+      ],
+      "bounds_tolerance_mm": 1e-06
+    }
+  },
+  "independent_validation": {
+    "outcome": "PASS",
+    "node": "v24.19.0",
+    "three": "0.187.0",
+    "gltf_validator": "2.0.0-dev.3.10",
+    "cadquery_imported": false,
+    "scope": "Real GLTFLoader.parse in Node, no browser/WebGL/app integration claim",
+    "khronos": {
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "numHints": 0,
+      "messages": [],
+      "truncated": false
+    },
+    "loader": "three/examples/jsm/loaders/GLTFLoader.js: GLTFLoader.parse(ArrayBuffer)",
+    "world_bounds_m": [
+      [
+        -0.05000000074505806,
+        -6.661337998858429e-18,
+        -0.02999999932944774
+      ],
+      [
+        0.05000000074505806,
+        0.004999999888241297,
+        0.02999999932944774
+      ]
+    ],
+    "expected_world_bounds_m": [
+      [
+        -0.05,
+        0,
+        -0.03
+      ],
+      [
+        0.05,
+        0.005,
+        0.03
+      ]
+    ],
+    "max_bounds_error_m": 7.450580569168253e-10,
+    "bounds_tolerance_m": 1e-07,
+    "loaded_meshes": 9,
+    "loaded_triangles": 2700,
+    "loaded_linear_colours": [
+      [
+        0.31854677200317383,
+        0.31854677200317383,
+        0.31854677200317383
+      ],
+      [
+        0.31854677200317383,
+        0.31854677200317383,
+        0.31854677200317383
+      ],
+      [
+        0.31854677200317383,
+        0.31854677200317383,
+        0.31854677200317383
+      ],
+      [
+        0.31854677200317383,
+        0.31854677200317383,
+        0.31854677200317383
+      ],
+      [
+        0.31854677200317383,
+        0.31854677200317383,
+        0.31854677200317383
+      ],
+      [
+        0.31854677200317383,
+        0.31854677200317383,
+        0.31854677200317383
+      ],
+      [
+        0.31854677200317383,
+        0.31854677200317383,
+        0.31854677200317383
+      ],
+      [
+        0.31854677200317383,
+        0.31854677200317383,
+        0.31854677200317383
+      ],
+      [
+        0.31854677200317383,
+        0.31854677200317383,
+        0.31854677200317383
+      ]
+    ],
+    "completed_at": "2026-11-05T08:01:07.453Z"
+  },
+  "scope_validation": {
+    "base_commit": "a279e45b98554f7c39d0d8cf47667bae860a5180",
+    "development_git_diff": "",
+    "development_git_status": "",
+    "protected_paths": {
+      "development/pyproject.toml": {
+        "existed_before": false,
+        "exists_after": false
+      },
+      "development/uv.lock": {
+        "existed_before": false,
+        "exists_after": false
+      },
+      "development/backend/cad/build.py": {
+        "existed_before": false,
+        "exists_after": false
+      }
+    },
+    "drawings_read": false,
+    "source_dimensions_used": false,
+    "product_source_created": false,
+    "packaging_files_modified": false,
+    "b05_started": false,
+    "scope_evidence_command": "git status --porcelain --untracked-files=all -- development; git diff --name-only a279e45b98554f7c39d0d8cf47667bae860a5180 -- development"
+  },
+  "scripts": {
+    "testing/qualification/A13-cad/qualify.py": {
+      "bytes": 16022,
+      "sha256": "e47232ae0cd0f36be6cf69d2a55a3d058b6aadfd17a80018249b5ad162e67641"
+    },
+    "testing/qualification/A13-cad/validate-glb.mjs": {
+      "bytes": 4027,
+      "sha256": "82153cbb8667da71017caa919019785dd789092cdf1058ccb7c1a47062b3bbb6"
+    }
+  },
+  "resolved_diagnostics": [
+    {
+      "issue": "Initial uv download cache rename was denied on Windows (os error 5).",
+      "resolution": "Retry completed with copy mode and UV_CONCURRENT_DOWNLOADS=1 / UV_CONCURRENT_INSTALLS=1.",
+      "evidence": [
+        "testing/runs/A13-cad/install-cadquery-attempt-1.log",
+        "testing/runs/A13-cad/setup-cad-retry.json"
+      ]
+    },
+    {
+      "issue": "OCP import failed: The filename or extension is too long, in both the long environment name and the shorter c environment.",
+      "resolution": "qualify.py invokes the existing NTFS 8.3 alias of the same environment interpreter. No registry/configuration changes or external directories.",
+      "evidence": [
+        "testing/runs/A13-cad/qualification-long-path-failure.log",
+        "testing/runs/A13-cad/qualification-short-name-failure.log",
+        "testing/runs/A13-cad/windows-path-diagnostics.json",
+        "testing/runs/A13-cad/short-path-import.log"
+      ]
+    },
+    {
+      "issue": "Direct unscaled GLB retained millimetre coordinate numbers; validator accepted its structure, but the loader size check failed by 49.95 m.",
+      "resolution": "Explicitly scale a copy of the CAD shape by 0.001 before assembly GLB export; STEP uses the original mm solid. No GLB binary/JSON patching.",
+      "evidence": [
+        "testing/runs/A13-cad/synthetic-plate-unscaled-failure.glb",
+        "testing/runs/A13-cad/measurements-unscaled-failure.json",
+        "testing/runs/A13-cad/loader-validation-unscaled-failure.json",
+        "testing/runs/A13-cad/accessor-diagnostics.json"
+      ]
+    },
+    {
+      "issue": "Initial PowerShell native-stderr handling and cp1252 console encoding interrupted command wrappers; a relative executable path also failed Windows process creation.",
+      "resolution": "Capture native output via Python subprocess with UTF-8 and an absolute executable path; final command records include actual exit codes."
+    }
+  ],
+  "ordinary_runtime_observation": {
+    "cadquery_needed_for_model_generation_and_rebuild": true,
+    "cadquery_needed_by_saved_glb_loader": false,
+    "evidence": "Separate Node process loaded the saved self-contained GLB without importing Python/CadQuery.",
+    "packaging_owner": "A01; no packaging files changed. This does not claim a complete app launch without CadQuery."
+  },
+  "unavailable_capabilities": [
+    {
+      "name": "Integrated app/browser/WebGL rendering check",
+      "outcome": "UNAVAILABLE",
+      "reason": "No frontend viewer/server implementation exists in this B00 lane snapshot. Actual Three.js GLTFLoader.parse was exercised in Node; UI integration remains later work."
+    },
+    {
+      "name": "Other operating systems",
+      "outcome": "UNAVAILABLE",
+      "reason": "Executed only on Windows 10 x64."
+    }
+  ],
+  "proposed_user_todo": [],
+  "evidence": [
+    "testing/runs/A13-cad/qualification.log",
+    "testing/runs/A13-cad/measurements.json",
+    "testing/runs/A13-cad/synthetic-plate.glb",
+    "testing/runs/A13-cad/synthetic-plate.step",
+    "testing/runs/A13-cad/khronos-validator.json",
+    "testing/runs/A13-cad/loader-validation.json",
+    "testing/runs/A13-cad/python-freeze.txt",
+    "testing/runs/A13-cad/scope-validation.json"
+  ],
+  "references": [
+    "https://cadquery.readthedocs.io/en/latest/importexport.html#exporting-assemblies-to-gltf",
+    "https://cadquery.readthedocs.io/en/latest/importexport.html#importing-step",
+    "https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html",
+    "https://github.com/KhronosGroup/glTF-Validator",
+    "https://threejs.org/docs/pages/GLTFLoader.html"
+  ]
+}

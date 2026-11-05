@@ -1,0 +1,34 @@
+# Native harness and provider state; product source lives in development/.
+/.harness-runtime/
+/.agent-workspace/
+/.codex/
+/.claude/
+/.qwen/
+/RESULT.json
+**/.env
+**/.env.local
+**/.secrets/
+**/.venv/
+**/.runtime/
+**/__pycache__/
+**/*.py[cod]
+**/node_modules/
+
+# Test execution outputs stay in testing/ and are not product source.
+/testing/tmp/
+/testing/cache/
+/testing/runs/
+/testing/reports/harness/
+
+# Exclude harness copies, worktrees, configuration, and harness-only validation.
+harness-to-use/
+frozen-harness/
+worktrees/
+local-config/
+**/.harness-runtime/
+**/.agent-workspace/
+/testing/harness/
+/development/docs/HARNESS_SETUP.md
+
+# Frontend bundles are downloaded from revision-checked Actions artifacts.
+/development/frontend/dist/

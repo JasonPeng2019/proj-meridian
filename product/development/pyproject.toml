@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "project-meridian"
+version = "0.1.0"
+description = "Local, source-grounded engineering drawing assistant"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "uvicorn>=0.34,<1",
+  "pydantic>=2.10,<3",
+  "openai>=2,<3",
+  "PyYAML>=6.0.2,<7",
+]
+
+[project.optional-dependencies]
+cad = ["cadquery>=2.6,<3"]
+prep = ["PyMuPDF>=1.25,<2", "Pillow>=11,<13"]
+test = ["pytest>=8,<10", "httpx>=0.28,<1"]
+
+[project.scripts]
+meridian = "backend.launcher:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["backend"]
+
+# Preserve the supplied evidence and notices at their existing paths.
+[tool.hatch.build.targets.wheel.force-include]
+"ai_settings.yaml" = "ai_settings.yaml"
+"inputs/project-meridian" = "inputs/project-meridian"
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/backend", "/ai_settings.yaml", "/.env.example", "/start.sh", "/start.bat",
+  "/pyproject.toml", "/uv.lock", "/inputs/project-meridian", "/frontend",
+  "/generated", "/decisions",
+]
+exclude = ["/frontend/node_modules"]

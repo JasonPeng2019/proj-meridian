@@ -1,0 +1,78 @@
+name: Harness v2 checks
+
+on:
+  push:
+    branches: [harness-v2]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: harness-v2-light-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: product/testing
+
+env:
+  UV_PROJECT_ENVIRONMENT: ${{ github.workspace }}/product/development/.venv
+  UV_CACHE_DIR: ${{ github.workspace }}/product/testing/cache/uv
+  UV_PYTHON_INSTALL_DIR: ${{ github.workspace }}/product/development/.runtime/python
+  UV_CONCURRENT_DOWNLOADS: '1'
+  UV_CONCURRENT_INSTALLS: '1'
+  UV_CONCURRENT_BUILDS: '1'
+  PYTHONDONTWRITEBYTECODE: '1'
+  TMPDIR: ${{ github.workspace }}/product/testing/tmp
+  npm_config_cache: ${{ github.workspace }}/product/testing/cache/npm
+  npm_config_maxsockets: '2'
+  OMP_NUM_THREADS: '1'
+  OPENBLAS_NUM_THREADS: '1'
+  MKL_NUM_THREADS: '1'
+  RAYON_NUM_THREADS: '1'
+  GOMAXPROCS: '1'
+  NODE_OPTIONS: --max-old-space-size=1536
+
+jobs:
+  checks:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - run: mkdir -p tmp cache/uv cache/npm reports/ci
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+      - name: Install locked Python test dependencies without CAD
+        run: |
+          python -m pip install uv==0.11.19 --cache-dir cache/pip
+          uv sync --project ../development --locked --extra test
+      - name: Foundation checks and available product tests
+        run: uv run --project ../development --locked --extra test python ci/checks.py foundation
+      - name: Build frontend remotely
+        run: |
+          npm --prefix ../development/frontend ci --ignore-scripts --no-audit --no-fund
+          npm --prefix ../development/frontend run build
+          python ci/checks.py manifest
+      - name: Save frontend and its provenance
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: harness-v2-frontend-${{ github.sha }}
+          retention-days: 7
+          if-no-files-found: error
+          path: |
+            product/development/frontend/dist/
+            product/testing/reports/ci/frontend-build.json
+      - name: Save check reports
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: harness-v2-checks-${{ github.run_id }}
+          retention-days: 7
+          path: product/testing/reports/ci/

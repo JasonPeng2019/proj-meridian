@@ -1,0 +1,114 @@
+{
+  "fixture": true,
+  "synthetic": true,
+  "fixture_note": "Invented contract fixture only; not dataset evidence, an executed AI run, or a human decision.",
+  "id": "D-025/part",
+  "display_name": "Synthetic training disc",
+  "section": null,
+  "has_drawing": true,
+  "has_3d": false,
+  "examples": [],
+  "drawing": {
+    "id": "D-025",
+    "pages": 1,
+    "image": "images/synthetic-D-025-p1.png",
+    "page_geometry": [
+      {
+        "page": 1,
+        "source_width": 160.0,
+        "source_height": 90.0,
+        "image_width": 640,
+        "image_height": 360
+      }
+    ],
+    "degraded": false,
+    "source_quality": "clean",
+    "source_path": "SYNTHETIC-D-025.txt",
+    "source_sha256": "49487665d9ca5523d7eade72bf2faf2dd073d1dbb012d2d25cba5115b4d220e3",
+    "fields": {
+      "title": {
+        "name": "D-025/drawing/title",
+        "original": "Synthetic training disc",
+        "value": "Synthetic training disc",
+        "confidence": "sure",
+        "method": "parsed",
+        "note": null,
+        "review": null,
+        "provenance": null,
+        "correction": null,
+        "page": 1,
+        "box": [
+          12.0,
+          70.0,
+          70.0,
+          6.0
+        ],
+        "source_quality": "clean"
+      },
+      "material": {
+        "name": "D-025/drawing/material",
+        "original": null,
+        "value": null,
+        "confidence": "unsure",
+        "method": "parsed",
+        "note": "Intentionally absent in this synthetic example.",
+        "review": null,
+        "provenance": null,
+        "correction": null,
+        "page": 1,
+        "box": [
+          12.0,
+          80.0,
+          70.0,
+          6.0
+        ],
+        "source_quality": "clean"
+      }
+    },
+    "numbers": [],
+    "words": []
+  },
+  "bom": [],
+  "link": {
+    "method": "unresolved",
+    "drawing_id": "D-025",
+    "bom_rows": [],
+    "basis": "Synthetic unlinked example.",
+    "review": null,
+    "review_item": null,
+    "provenance": null
+  },
+  "template": null,
+  "model": {
+    "state": "blocked",
+    "examples": [],
+    "selected_example": null,
+    "reconstruction_label": "Reconstruction from 2D drawing. Not the original CAD model.",
+    "review": {
+      "status": "not_reviewed",
+      "by": null,
+      "at": null,
+      "based_on": {},
+      "decision_id": null
+    },
+    "provenance": null,
+    "human_input_fields": [],
+    "unresolved_fields": [
+      "D-025/template/thickness"
+    ],
+    "omitted_details": [],
+    "message": "Cannot build this synthetic example: thickness intentionally unknown.",
+    "stale_reason": null,
+    "built_at": null,
+    "built_template_sha256": null,
+    "current_template_sha256": null,
+    "overall_size_mm": null,
+    "section_view_available": null
+  },
+  "review_items": [],
+  "weight_check": null,
+  "callouts": null,
+  "crops": null,
+  "readme_passages": null,
+  "installed_in": null
+}

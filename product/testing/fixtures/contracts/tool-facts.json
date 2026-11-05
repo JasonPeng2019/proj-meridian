@@ -1,0 +1,119 @@
+{
+  "fixture": true,
+  "synthetic": true,
+  "fixture_note": "Invented contract fixture only; not dataset evidence, an executed AI run, or a human decision.",
+  "part_id": "D-013/part",
+  "facts": {
+    "D-013/drawing/material": {
+      "fixture": false,
+      "synthetic": false,
+      "fixture_note": null,
+      "fact": "D-013/drawing/material",
+      "part_id": "D-013/part",
+      "display": {
+        "state": "undetermined",
+        "reason": "source_conflict",
+        "message": "Synthetic drawing: Training polymer P9. Synthetic BOM: Training alloy Q7. Invented conflict, no source claim."
+      },
+      "rule": "B3 rule 4: conflicting trusted sources",
+      "badge": "From PDF and parts list",
+      "provenance_badge": null,
+      "review": null,
+      "sources": [
+        {
+          "name": "D-013/drawing/material",
+          "says": "Training polymer P9",
+          "method": "parsed",
+          "target": {
+            "kind": "drawing",
+            "name": "D-013/drawing/material",
+            "part_id": "D-013/part",
+            "drawing_id": "D-013",
+            "row_name": null,
+            "page": 1,
+            "box": [
+              12.0,
+              80.0,
+              70.0,
+              6.0
+            ]
+          },
+          "source_sha256": "8d016551a76941cf73cdca0ef95167d9aeb75bb74fb16912a2f6a514bb824a43",
+          "confidence": "sure",
+          "source_quality": null,
+          "note": null,
+          "review": null,
+          "provenance": null,
+          "crop": null
+        },
+        {
+          "name": "BOM:mock-section/synthetic-training-bar/material",
+          "says": "Training alloy Q7",
+          "method": "parsed",
+          "target": {
+            "kind": "bom",
+            "name": "BOM:mock-section/synthetic-training-bar/material",
+            "part_id": "D-013/part",
+            "drawing_id": null,
+            "row_name": "BOM:mock-section/synthetic-training-bar",
+            "page": null,
+            "box": null
+          },
+          "source_sha256": "ef5ddc6b4d7e28998d1d2e97be2836168f73b1f4a12ae421b8c4070dc184f0fd",
+          "confidence": "sure",
+          "source_quality": null,
+          "note": null,
+          "review": null,
+          "provenance": null,
+          "crop": null
+        }
+      ],
+      "snapshot_note": false,
+      "review_item": null,
+      "correction": null
+    },
+    "D-013/part": {
+      "fixture": false,
+      "synthetic": false,
+      "fixture_note": null,
+      "fact": "D-013/part",
+      "part_id": "D-013/part",
+      "display": {
+        "state": "value",
+        "value": "Synthetic training bar",
+        "label": null,
+        "unit": null
+      },
+      "rule": "Whole-part citation",
+      "badge": "Synthetic fixture",
+      "provenance_badge": null,
+      "review": null,
+      "sources": [
+        {
+          "name": "D-013/part",
+          "says": "Synthetic training bar",
+          "method": "parsed",
+          "target": {
+            "kind": "part",
+            "name": "D-013/part",
+            "part_id": "D-013/part",
+            "drawing_id": null,
+            "row_name": null,
+            "page": null,
+            "box": null
+          },
+          "source_sha256": null,
+          "confidence": "sure",
+          "source_quality": null,
+          "note": null,
+          "review": null,
+          "provenance": null,
+          "crop": null
+        }
+      ],
+      "snapshot_note": false,
+      "review_item": null,
+      "correction": null
+    }
+  }
+}

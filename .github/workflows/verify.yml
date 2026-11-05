@@ -1,0 +1,145 @@
+name: Harness v2 verification
+
+on:
+  workflow_dispatch:
+    inputs:
+      task:
+        description: Agent-triggered verification stage
+        type: choice
+        options: [capability, pdf, gate, live]
+        default: capability
+      gate:
+        description: Product checkpoint (requires its implemented suite)
+        type: choice
+        options: [V1, V2, V3, V4, V5]
+        default: V1
+
+permissions:
+  contents: read
+
+concurrency:
+  group: harness-v2-heavy
+  cancel-in-progress: false
+  queue: max
+
+defaults:
+  run:
+    working-directory: product/testing
+
+env:
+  UV_PROJECT_ENVIRONMENT: ${{ github.workspace }}/product/development/.venv
+  UV_CACHE_DIR: ${{ github.workspace }}/product/testing/cache/uv
+  UV_PYTHON_INSTALL_DIR: ${{ github.workspace }}/product/development/.runtime/python
+  UV_CONCURRENT_DOWNLOADS: '1'
+  UV_CONCURRENT_INSTALLS: '1'
+  UV_CONCURRENT_BUILDS: '1'
+  PYTHONDONTWRITEBYTECODE: '1'
+  TMPDIR: ${{ github.workspace }}/product/testing/tmp
+  npm_config_cache: ${{ github.workspace }}/product/testing/cache/npm
+  npm_config_maxsockets: '2'
+  PLAYWRIGHT_BROWSERS_PATH: ${{ github.workspace }}/product/testing/cache/playwright
+  OMP_NUM_THREADS: '1'
+  OPENBLAS_NUM_THREADS: '1'
+  MKL_NUM_THREADS: '1'
+  NUMEXPR_NUM_THREADS: '1'
+  VTK_SMP_MAX_THREADS: '1'
+  RAYON_NUM_THREADS: '1'
+  GOMAXPROCS: '1'
+  NODE_OPTIONS: --max-old-space-size=1536
+
+jobs:
+  cad:
+    if: inputs.task == 'capability'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with: {persist-credentials: false}
+      - run: mkdir -p tmp cache/uv cache/pip runs/capability/cad
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with: {python-version: '3.12'}
+      - name: Install locked Linux CAD dependencies
+        run: |
+          python -m pip install uv==0.11.19 --cache-dir cache/pip
+          uv sync --project ../development --locked --extra cad
+      - name: Generate and independently measure synthetic GLB and STEP
+        run: uv run --project ../development --locked --extra cad python qualification/A13-cad/qualify.py --output-dir runs/capability/cad
+      - name: Save geometry and Linux dependency evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: harness-v2-cad-${{ github.run_id }}
+          retention-days: 7
+          if-no-files-found: error
+          path: product/testing/runs/capability/cad/
+
+  browser:
+    needs: cad
+    if: inputs.task == 'capability'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with: {persist-credentials: false}
+      - run: mkdir -p tmp cache/npm cache/playwright runs/capability/cad runs/capability/browser ../development/.runtime/ci-browser
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with: {node-version: '24'}
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          name: harness-v2-cad-${{ github.run_id }}
+          path: product/testing/runs/capability/cad
+      - name: Install locked browser-only dependencies
+        run: |
+          cp ci/package*.json ../development/.runtime/ci-browser/
+          npm --prefix ../development/.runtime/ci-browser ci --ignore-scripts --no-audit --no-fund
+          ../development/.runtime/ci-browser/node_modules/.bin/playwright install --with-deps chromium
+      - name: Validate GLB independently and render through actual headless WebGL
+        run: |
+          node qualification/A13-cad/validate-glb.mjs testing/runs/capability/cad development/.runtime/ci-browser/node_modules
+          node ci/headless_3d.mjs
+      - name: Save screenshot, browser errors and render report
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: harness-v2-browser-${{ github.run_id }}
+          retention-days: 7
+          path: product/testing/runs/capability/
+
+  requested:
+    if: inputs.task != 'capability'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with: {persist-credentials: false}
+      - run: mkdir -p tmp cache/uv cache/pip reports/ci
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with: {python-version: '3.12'}
+      - name: Install locked verification dependencies
+        run: |
+          python -m pip install uv==0.11.19 --cache-dir cache/pip
+          uv sync --project ../development --locked --extra test --extra prep
+      - name: Raw positioned-PDF extraction and images (capability, no AI)
+        if: inputs.task == 'pdf'
+        run: uv run --project ../development --locked --extra prep python ci/checks.py pdf
+      - name: Run the requested implemented product checkpoint
+        if: inputs.task == 'gate'
+        env:
+          REQUESTED_GATE: ${{ inputs.gate }}
+        run: |
+          test -f ../development/scripts/check_milestone.py || { echo 'Product gate runner is not implemented yet'; exit 1; }
+          uv run --project ../development --locked --extra test python ../development/scripts/check_milestone.py "$REQUESTED_GATE"
+      - name: Optional paid Luna capability probe
+        if: inputs.task == 'live'
+        env:
+          OPENAI_API_KEY: ${{ secrets.HARNESS_V2_OPENAI_API_KEY }}
+        run: uv run --project ../development --locked python ci/checks.py live
+      - name: Save requested-stage artifacts
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: harness-v2-${{ inputs.task }}-${{ github.run_id }}
+          retention-days: 7
+          path: |
+            product/testing/reports/ci/
+            product/testing/runs/pdf-regeneration/

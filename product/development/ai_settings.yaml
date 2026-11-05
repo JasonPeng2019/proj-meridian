@@ -1,0 +1,103 @@
+# All product AI identities, credential locations and drawing layout live here.
+reviewer_name: Jason Peng
+
+chat:
+  provider: openai
+  api: responses
+  model: gpt-6-luna
+  fallback_models: []
+  history_turns: 10
+  credentials:
+    server_only: true
+    secrets_dir: ../../../.secrets
+    secrets_dir_env: MERIDIAN_SECRETS_DIR
+    key_file: OpenAI_API_Keys.txt
+
+prep:
+  max_concurrent_jobs: 1 # Reserve two reader slots inside the shared four-CLI ceiling.
+  authentication: cli_accounts_only
+  pass_app_key_to_cli: false
+  readers:
+    sol:
+      cli: codex
+      model: gpt-6.1-sol
+      reasoning_effort: max
+      service_tier: fast # Codex spelling for priority processing.
+      read_only: true
+      command:
+        qualification: pending_A08
+        # An argv template, never a shell string. Image/JSON flags await A08.
+        argv_template:
+          - codex
+          - exec
+          - --model
+          - "{model}"
+          - --sandbox
+          - read-only
+          - -c
+          - 'model_reasoning_effort="{reasoning_effort}"'
+          - -c
+          - 'service_tier="{service_tier}"'
+          - "{qualified_image_and_json_arguments}"
+          - "{prompt}"
+    opus:
+      cli: claude
+      model: claude-opus-5-5
+      effort: xhigh
+      fastMode: false
+      fallbackModel: []
+      read_only: true
+      command:
+        qualification: pending_A08
+        # Read-only tool restrictions and image/JSON input await qualification.
+        argv_template:
+          - claude
+          - -p
+          - --model
+          - "{model}"
+          - --effort
+          - "{effort}"
+          - --settings
+          - "{qualified_settings_file}"
+          - "{qualified_read_only_image_and_json_arguments}"
+          - "{prompt}"
+  opus_execution_failure:
+    action: continue_sol_only
+    provenance: single_model_fallback
+    retain_failed_attempt: true
+    count_as_dual_reader_agreement: false
+    retry_opus_on_each_launch: true
+    # A disagreement/unsure/invalid field is not an execution failure.
+    eligible_only_after_invocation_troubleshooting: true
+
+paths:
+  # All relative paths are relative to development/, independent of shell CWD.
+  evidence_root: inputs/project-meridian
+  dataset: inputs/project-meridian/dataset
+  attribution: inputs/project-meridian/ATTRIBUTION.md
+  license: inputs/project-meridian/dataset/context/OpenLPBF-LICENSE.md
+  frontend_dist: frontend/dist
+  generated: generated
+  decisions: decisions
+
+drawing_layout:
+  coordinate_system: pdf_points_top_left
+  fields:
+    title: {label: "TITLE/DESCRIPTION:", value_location: below, multiline: false}
+    notes: {label: "NOTE:", value_location: below, multiline: true}
+    company: {label: "COMPANY:", value_location: below, multiline: false}
+    material: {label: "MATERIAL:", value_location: right, stop_at_label: WEIGHT}
+    weight: {label: "WEIGHT [g]:", value_location: right}
+    drawn_by: {label: DRAWN, value_location: right}
+    date: {label: DATE, value_location: right}
+    scale: {label: "SCALE:", value_location: same_word}
+  deduplicate_coincident_words: true
+  stop_at_adjacent_labels: true
+  unsure_if: [missing, placeholder, overlapping]
+  placeholder_values: [Description]
+  preserve_notes_verbatim: true
+  scan:
+    # Proposal A2 requires measurement from clean drawings; no invented boxes.
+    measurement_status: pending_A05_clean_drawing_measurement
+    corner_box: null
+    field_boxes: null

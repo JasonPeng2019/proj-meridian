@@ -1,0 +1,79 @@
+{
+  "fixture": true,
+  "synthetic": true,
+  "fixture_note": "Invented contract fixture only; not dataset evidence, an executed AI run, or a human decision.",
+  "entries": [
+    {
+      "file": "flat-template.json",
+      "model": "FlatTemplate"
+    },
+    {
+      "file": "sample-glb.json",
+      "model": "SyntheticAsset"
+    },
+    {
+      "file": "sample-B-glb.json",
+      "model": "SyntheticAsset"
+    },
+    {
+      "file": "D-013.json",
+      "model": "PartRecord"
+    },
+    {
+      "file": "D-025.json",
+      "model": "PartRecord"
+    },
+    {
+      "file": "D-013-stale.json",
+      "model": "PartRecord"
+    },
+    {
+      "file": "bom-only.json",
+      "model": "PartRecord"
+    },
+    {
+      "file": "chat-response.json",
+      "model": "ChatResponse"
+    },
+    {
+      "file": "tool-facts.json",
+      "model": "GetFactsResult"
+    },
+    {
+      "file": "review-item.json",
+      "model": "ReviewItem"
+    },
+    {
+      "file": "decision-pending.json",
+      "model": "Decision"
+    },
+    {
+      "file": "proposal-result.json",
+      "model": "ProposeCorrectionResult"
+    },
+    {
+      "file": "review-action.json",
+      "model": "ReviewActionRequest"
+    },
+    {
+      "file": "review-action-response.json",
+      "model": "ReviewActionResponse"
+    },
+    {
+      "file": "status-configured.json",
+      "model": "StatusResponse"
+    },
+    {
+      "file": "status-missing-key.json",
+      "model": "StatusResponse"
+    },
+    {
+      "file": "error.json",
+      "model": "ErrorResponse"
+    }
+  ],
+  "binary_assets": [
+    "sample.glb",
+    "sample-B.glb"
+  ]
+}

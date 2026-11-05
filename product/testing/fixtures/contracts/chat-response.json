@@ -1,0 +1,184 @@
+{
+  "fixture": true,
+  "synthetic": true,
+  "fixture_note": "Invented contract fixture only; not dataset evidence, an executed AI run, or a human decision.",
+  "text": "🧪 Synthetic example. Material is [undetermined: D-013/drawing/material]. View the fixture [cite: D-013/part].",
+  "facts": {
+    "D-013/drawing/material": {
+      "fixture": false,
+      "synthetic": false,
+      "fixture_note": null,
+      "fact": "D-013/drawing/material",
+      "part_id": "D-013/part",
+      "display": {
+        "state": "undetermined",
+        "reason": "source_conflict",
+        "message": "Synthetic drawing: Training polymer P9. Synthetic BOM: Training alloy Q7. Invented conflict, no source claim."
+      },
+      "rule": "B3 rule 4: conflicting trusted sources",
+      "badge": "From PDF and parts list",
+      "provenance_badge": null,
+      "review": null,
+      "sources": [
+        {
+          "name": "D-013/drawing/material",
+          "says": "Training polymer P9",
+          "method": "parsed",
+          "target": {
+            "kind": "drawing",
+            "name": "D-013/drawing/material",
+            "part_id": "D-013/part",
+            "drawing_id": "D-013",
+            "row_name": null,
+            "page": 1,
+            "box": [
+              12.0,
+              80.0,
+              70.0,
+              6.0
+            ]
+          },
+          "source_sha256": "8d016551a76941cf73cdca0ef95167d9aeb75bb74fb16912a2f6a514bb824a43",
+          "confidence": "sure",
+          "source_quality": null,
+          "note": null,
+          "review": null,
+          "provenance": null,
+          "crop": null
+        },
+        {
+          "name": "BOM:mock-section/synthetic-training-bar/material",
+          "says": "Training alloy Q7",
+          "method": "parsed",
+          "target": {
+            "kind": "bom",
+            "name": "BOM:mock-section/synthetic-training-bar/material",
+            "part_id": "D-013/part",
+            "drawing_id": null,
+            "row_name": "BOM:mock-section/synthetic-training-bar",
+            "page": null,
+            "box": null
+          },
+          "source_sha256": "ef5ddc6b4d7e28998d1d2e97be2836168f73b1f4a12ae421b8c4070dc184f0fd",
+          "confidence": "sure",
+          "source_quality": null,
+          "note": null,
+          "review": null,
+          "provenance": null,
+          "crop": null
+        }
+      ],
+      "snapshot_note": false,
+      "review_item": null,
+      "correction": null
+    },
+    "D-013/part": {
+      "fixture": false,
+      "synthetic": false,
+      "fixture_note": null,
+      "fact": "D-013/part",
+      "part_id": "D-013/part",
+      "display": {
+        "state": "value",
+        "value": "Synthetic training bar",
+        "label": null,
+        "unit": null
+      },
+      "rule": "Whole-part citation",
+      "badge": "Synthetic fixture",
+      "provenance_badge": null,
+      "review": null,
+      "sources": [
+        {
+          "name": "D-013/part",
+          "says": "Synthetic training bar",
+          "method": "parsed",
+          "target": {
+            "kind": "part",
+            "name": "D-013/part",
+            "part_id": "D-013/part",
+            "drawing_id": null,
+            "row_name": null,
+            "page": null,
+            "box": null
+          },
+          "source_sha256": null,
+          "confidence": "sure",
+          "source_quality": null,
+          "note": null,
+          "review": null,
+          "provenance": null,
+          "crop": null
+        }
+      ],
+      "snapshot_note": false,
+      "review_item": null,
+      "correction": null
+    }
+  },
+  "parts_to_show": [
+    {
+      "id": "D-013/part",
+      "display_name": "Synthetic training bar",
+      "thumbnail": "/api/parts/D-013%2Fpart/image?page=1&thumb=1",
+      "has_drawing": true,
+      "has_3d": true,
+      "examples": [
+        "A",
+        "B"
+      ],
+      "model_state": "available",
+      "reason": "citation",
+      "explanation": null,
+      "highlights": [
+        {
+          "kind": "drawing",
+          "name": "D-013/drawing/material",
+          "part_id": "D-013/part",
+          "drawing_id": "D-013",
+          "row_name": null,
+          "page": 1,
+          "box": [
+            12.0,
+            80.0,
+            70.0,
+            6.0
+          ]
+        }
+      ],
+      "drawing_url": "/api/parts/D-013%2Fpart/image?page=1&thumb=0",
+      "model_urls": {
+        "A": "/api/models/D-013_A.glb",
+        "B": "/api/models/D-013_B.glb"
+      }
+    }
+  ],
+  "warnings": [],
+  "markers": [
+    {
+      "kind": "undetermined",
+      "names": [
+        "D-013/drawing/material"
+      ],
+      "raw": "[undetermined: D-013/drawing/material]",
+      "start": 33,
+      "end": 71,
+      "valid": true,
+      "error": null
+    },
+    {
+      "kind": "cite",
+      "names": [
+        "D-013/part"
+      ],
+      "raw": "[cite: D-013/part]",
+      "start": 90,
+      "end": 108,
+      "valid": true,
+      "error": null
+    }
+  ],
+  "attachment_layout": "cards",
+  "conversation_id": null,
+  "observation": null
+}

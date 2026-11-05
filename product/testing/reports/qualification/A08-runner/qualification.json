@@ -1,0 +1,734 @@
+{
+  "schema": "a08-b00-qualification/v1",
+  "batch": "B00",
+  "lane": "A08-runner",
+  "module": "M08",
+  "scope": "Qualification only. Synthetic fixture, no product source, no B01 implementation.",
+  "outcome": "PASS",
+  "qualification_mode": "dual-reader",
+  "generated_at": "2026-11-05T07:58:45.887061+00:00",
+  "readers": [
+    {
+      "reader": "Sol",
+      "outcome": "QUALIFIED",
+      "attempts": [
+        "sol-1",
+        "sol-2"
+      ],
+      "qualified_attempt": "sol-2",
+      "cli_invocations": 2,
+      "inference_sessions_completed": 1
+    },
+    {
+      "reader": "Opus",
+      "outcome": "QUALIFIED",
+      "attempts": [
+        "opus-1"
+      ],
+      "qualified_attempt": "opus-1",
+      "cli_invocations": 1,
+      "inference_sessions_completed": 1
+    }
+  ],
+  "provenance": {
+    "mode": "dual-reader",
+    "reader_outputs": {
+      "sol": {
+        "printed_text": "MERIDIAN B00",
+        "printed_number": 4827,
+        "certainty": "sure"
+      },
+      "opus": {
+        "printed_text": "MERIDIAN B00",
+        "printed_number": 4827,
+        "certainty": "sure"
+      }
+    },
+    "single_model_fallback": false,
+    "missing_opus_output": false,
+    "independent_successful_readers": 2,
+    "second_sol_consensus_reader": false,
+    "qualification_only": true,
+    "product_evidence": false,
+    "engineering_answer": false
+  },
+  "fixture": {
+    "artifact": {
+      "path": "testing/tmp/A08-runner/fixture.png",
+      "sha256": "4dd9e6582e30ce932b76eba0eeba8b0e84482793bfd031bd5ab433a3ccb012ec"
+    },
+    "dimensions": [
+      1200,
+      600
+    ],
+    "format": "PNG",
+    "synthetic": true,
+    "printed_lines": [
+      "MERIDIAN B00",
+      "VALUE 4827"
+    ],
+    "expected_output": {
+      "printed_text": "MERIDIAN B00",
+      "printed_number": 4827,
+      "certainty": "sure"
+    },
+    "generator": {
+      "path": "testing/tmp/A08-runner/generate-fixture.ps1",
+      "sha256": "fbc02c7e1826599881bf40a514ea8e176b34a195ab837af173d92478d2ad5b34"
+    },
+    "generator_command_powershell": "& './generate-fixture.ps1'",
+    "generation": "System.Drawing.Bitmap(1200,600); white background; Arial bold 60 pixels; heading at (100,145); number line at (100,290); black rectangular border (25,25,1150,550). No textual PNG metadata.",
+    "supplied_drawing_used": false,
+    "expected_answer_in_prompts_or_schema": false
+  },
+  "output_contract": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "printed_text": {
+          "type": "string"
+        },
+        "printed_number": {
+          "type": "integer"
+        },
+        "certainty": {
+          "type": "string",
+          "enum": [
+            "sure",
+            "unsure"
+          ]
+        }
+      },
+      "required": [
+        "printed_text",
+        "printed_number",
+        "certainty"
+      ],
+      "additionalProperties": false
+    },
+    "artifact": {
+      "path": "testing/tmp/A08-runner/schema.json",
+      "sha256": "709db531b22e802663cef2e6ed7771c34b4c79e1ad95db516300a28d4d1962da"
+    },
+    "validator": "jsonschema 4.26.0; Draft202012Validator"
+  },
+  "prompts": {
+    "sol": {
+      "path": "testing/tmp/A08-runner/sol.prompt.txt",
+      "sha256": "e1362d8dddec7bb4956d81c5679f0138b938f4d1c390f525baf007542a6b5926",
+      "text": "This is a read-only synthetic-image qualification, not product evidence or an engineering question. Inspect only the attached PNG. Return the exact large heading as printed_text, the integer printed after VALUE as printed_number, and certainty as sure only if both are clearly legible; otherwise use unsure. Return only the JSON object required by the supplied schema. Do not inspect files, call tools, execute commands, create files, or infer an answer from the filename. The expected answer is deliberately absent from this prompt.\n"
+    },
+    "opus": {
+      "path": "testing/tmp/A08-runner/opus.prompt.txt",
+      "sha256": "f12b0a1ad09a4cdce734246808767da4ea695d9a32f0a905b9aed37aa184b3f6",
+      "text": "This is a read-only synthetic-image qualification, not product evidence or an engineering question. Use Read once on the local PNG at fixture.png in the current working directory. Inspect the image pixels. Return the exact large heading as printed_text, the integer printed after VALUE as printed_number, and certainty as sure only if both are clearly legible; otherwise use unsure. Return the JSON object required by the supplied schema. Read no other files and do not create files or execute commands. The expected answer is deliberately absent from this prompt.\n"
+    }
+  },
+  "claude_process_settings": {
+    "value": {
+      "model": "claude-opus-5-5",
+      "effortLevel": "xhigh",
+      "fastMode": false,
+      "fallbackModel": [],
+      "disableAllHooks": true,
+      "autoMemoryEnabled": false
+    },
+    "artifact": {
+      "path": "testing/tmp/A08-runner/claude-settings.json",
+      "sha256": "6e15cd3a4aa08080771dbd333b7659ad23322400a80e2e8a4dc4fe9184397db2"
+    }
+  },
+  "execution_environment": {
+    "removed_names": [
+      "OPENAI_API_KEY",
+      "ANTHROPIC_API_KEY",
+      "ANTHROPIC_AUTH_TOKEN",
+      "CLAUDE_CODE_OAUTH_TOKEN",
+      "CLAUDECODE",
+      "CODEX_THREAD_ID",
+      "CLAUDE_CODE_ENTRYPOINT",
+      "CLAUDE_CODE_RETRY_WATCHDOG",
+      "DEBUG"
+    ],
+    "overrides": {
+      "TEMP": "C:\\Users\\Jason\\Documents\\Jason\\Take-Home-Assignments\\active\\Avathon\\product\\.harness-runtime\\worktrees\\9835572aa8594664acdb2346c2fcc64e\\A08-runner\\testing\\tmp\\A08-runner\\os-temp",
+      "TMP": "C:\\Users\\Jason\\Documents\\Jason\\Take-Home-Assignments\\active\\Avathon\\product\\.harness-runtime\\worktrees\\9835572aa8594664acdb2346c2fcc64e\\A08-runner\\testing\\tmp\\A08-runner\\os-temp",
+      "TMPDIR": "C:\\Users\\Jason\\Documents\\Jason\\Take-Home-Assignments\\active\\Avathon\\product\\.harness-runtime\\worktrees\\9835572aa8594664acdb2346c2fcc64e\\A08-runner\\testing\\tmp\\A08-runner\\os-temp",
+      "PYTHONPYCACHEPREFIX": "C:\\Users\\Jason\\Documents\\Jason\\Take-Home-Assignments\\active\\Avathon\\product\\.harness-runtime\\worktrees\\9835572aa8594664acdb2346c2fcc64e\\A08-runner\\testing\\tmp\\A08-runner\\python-cache",
+      "CLAUDE_CODE_TMPDIR": "C:\\Users\\Jason\\Documents\\Jason\\Take-Home-Assignments\\active\\Avathon\\product\\.harness-runtime\\worktrees\\9835572aa8594664acdb2346c2fcc64e\\A08-runner\\testing\\tmp\\A08-runner\\claude-temp",
+      "CLAUDE_CODE_DEBUG_LOGS_DIR": "C:\\Users\\Jason\\Documents\\Jason\\Take-Home-Assignments\\active\\Avathon\\product\\.harness-runtime\\worktrees\\9835572aa8594664acdb2346c2fcc64e\\A08-runner\\testing\\tmp\\A08-runner\\claude-debug.log",
+      "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
+      "CLAUDE_CODE_DISABLE_FAST_MODE": "1",
+      "CLAUDE_CODE_MAX_RETRIES": "0",
+      "DISABLE_AUTOUPDATER": "1",
+      "DISABLE_TELEMETRY": "1",
+      "DISABLE_ERROR_REPORTING": "1",
+      "NO_COLOR": "1"
+    },
+    "authentication": "Existing CLI accounts; inherited CODEX_HOME and CLAUDE_CONFIG_DIR unchanged. No credential files read by this script."
+  },
+  "isolation": {
+    "cwd": "C:\\Users\\Jason\\Documents\\Jason\\Take-Home-Assignments\\active\\Avathon\\product\\.harness-runtime\\worktrees\\9835572aa8594664acdb2346c2fcc64e\\A08-runner\\testing\\tmp\\A08-runner",
+    "controlled_writes": "All experiment inputs, subprocess captures, temp roots, redirected Codex SQLite/log paths, and reports are under the assigned worktree. Existing CLI auth homes are inherited unchanged, with ephemeral/no-session-persistence requested.",
+    "codex": "--no-daemon, --ignore-user-config, --ignore-rules, --ephemeral, --sandbox read-only; hooks/shell_tool/multi_agent/shell_snapshot disabled; project_doc_max_bytes=0; no observed model tool calls.",
+    "claude": "--safe-mode, --restricted, --setting-sources empty, explicit disableAllHooks=true; strict MCP config; Read only plus CLI StructuredOutput; plan permissions; no persistence; no hooks observed.",
+    "credential_handling": "No credential or auth file contents inspected, copied, or printed by experiment scripts. CLI accounts only. Product API-key variables removed from child environments; no .secrets access.",
+    "filesystem_audit_limit": "No operating-system-wide write tracing was performed; no claim that every internal CLI-account maintenance write was observed."
+  },
+  "cli_inspection": [
+    {
+      "argv": [
+        "C:\\Users\\Jason\\AppData\\Roaming\\npm\\node_modules\\@openai\\codex\\node_modules\\@openai\\codex-win32-x64\\vendor\\x86_64-pc-windows-msvc\\bin\\codex.exe",
+        "--version"
+      ],
+      "command_powershell": "& 'C:\\Users\\Jason\\AppData\\Roaming\\npm\\node_modules\\@openai\\codex\\node_modules\\@openai\\codex-win32-x64\\vendor\\x86_64-pc-windows-msvc\\bin\\codex.exe' '--version'",
+      "cwd": "C:\\Users\\Jason\\Documents\\Jason\\Take-Home-Assignments\\active\\Avathon\\product\\.harness-runtime\\worktrees\\9835572aa8594664acdb2346c2fcc64e\\A08-runner\\testing\\tmp\\A08-runner",
+      "exit_code": 0,
+      "elapsed_seconds": 3.694,
+      "artifacts": [
+        {
+          "path": "testing/tmp/A08-runner/codex-version.stdout.txt",
+          "sha256": "687d9512debceff5cf46059e4d6b7b641111de20f8b911fe446b3537a7dcce54"
+        },
+        {
+          "path": "testing/tmp/A08-runner/codex-version.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "argv": [
+        "C:\\Users\\Jason\\AppData\\Roaming\\npm\\node_modules\\@openai\\codex\\node_modules\\@openai\\codex-win32-x64\\vendor\\x86_64-pc-windows-msvc\\bin\\codex.exe",
+        "exec",
+        "--help"
+      ],
+      "command_powershell": "& 'C:\\Users\\Jason\\AppData\\Roaming\\npm\\node_modules\\@openai\\codex\\node_modules\\@openai\\codex-win32-x64\\vendor\\x86_64-pc-windows-msvc\\bin\\codex.exe' 'exec' '--help'",
+      "cwd": "C:\\Users\\Jason\\Documents\\Jason\\Take-Home-Assignments\\active\\Avathon\\product\\.harness-runtime\\worktrees\\9835572aa8594664acdb2346c2fcc64e\\A08-runner\\testing\\tmp\\A08-runner",
+      "exit_code": 0,
+      "elapsed_seconds": 2.128,
+      "artifacts": [
+        {
+          "path": "testing/tmp/A08-runner/codex-exec-help.stdout.txt",
+          "sha256": "ff5a00d7f3926a45d9b58ec703a45d6972b1664c0fa465156c48577bb4ceeaf4"
+        },
+        {
+          "path": "testing/tmp/A08-runner/codex-exec-help.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "argv": [
+        "C:\\Users\\Jason\\AppData\\Roaming\\npm\\node_modules\\@openai\\codex\\node_modules\\@openai\\codex-win32-x64\\vendor\\x86_64-pc-windows-msvc\\bin\\codex.exe",
+        "--help"
+      ],
+      "command_powershell": "& 'C:\\Users\\Jason\\AppData\\Roaming\\npm\\node_modules\\@openai\\codex\\node_modules\\@openai\\codex-win32-x64\\vendor\\x86_64-pc-windows-msvc\\bin\\codex.exe' '--help'",
+      "cwd": "C:\\Users\\Jason\\Documents\\Jason\\Take-Home-Assignments\\active\\Avathon\\product\\.harness-runtime\\worktrees\\9835572aa8594664acdb2346c2fcc64e\\A08-runner\\testing\\tmp\\A08-runner",
+      "exit_code": 0,
+      "elapsed_seconds": 1.415,
+      "artifacts": [
+        {
+          "path": "testing/tmp/A08-runner/codex-help.stdout.txt",
+          "sha256": "41e46257e01bf8741d1c91e3a8fc5bcaeee9fcbc8177202f74f83d6b27be3086"
+        },
+        {
+          "path": "testing/tmp/A08-runner/codex-help.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "argv": [
+        "C:\\Users\\Jason\\.local\\bin\\claude.exe",
+        "--version"
+      ],
+      "command_powershell": "& 'C:\\Users\\Jason\\.local\\bin\\claude.exe' '--version'",
+      "cwd": "C:\\Users\\Jason\\Documents\\Jason\\Take-Home-Assignments\\active\\Avathon\\product\\.harness-runtime\\worktrees\\9835572aa8594664acdb2346c2fcc64e\\A08-runner\\testing\\tmp\\A08-runner",
+      "exit_code": 0,
+      "elapsed_seconds": 0.174,
+      "artifacts": [
+        {
+          "path": "testing/tmp/A08-runner/claude-version.stdout.txt",
+          "sha256": "819bff77f6bf35827200523b7e238a16f33ff6fbad383a2be4b0913495af43b6"
+        },
+        {
+          "path": "testing/tmp/A08-runner/claude-version.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "argv": [
+        "C:\\Users\\Jason\\.local\\bin\\claude.exe",
+        "--help"
+      ],
+      "command_powershell": "& 'C:\\Users\\Jason\\.local\\bin\\claude.exe' '--help'",
+      "cwd": "C:\\Users\\Jason\\Documents\\Jason\\Take-Home-Assignments\\active\\Avathon\\product\\.harness-runtime\\worktrees\\9835572aa8594664acdb2346c2fcc64e\\A08-runner\\testing\\tmp\\A08-runner",
+      "exit_code": 0,
+      "elapsed_seconds": 0.512,
+      "artifacts": [
+        {
+          "path": "testing/tmp/A08-runner/claude-help-captured.stdout.txt",
+          "sha256": "c32fb74292c66107a6908bd126750c26525159797df0202762ac2f3ad89cfabf"
+        },
+        {
+          "path": "testing/tmp/A08-runner/claude-help-captured.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "id": "sol-1",
+      "cli_version": "codex-cli 0.162.0",
+      "argv": [
+        "C:\\Users\\Jason\\AppData\\Roaming\\npm\\node_modules\\@openai\\codex\\node_modules\\@openai\\codex-win32-x64\\vendor\\x86_64-pc-windows-msvc\\bin\\codex.exe",
+        "--no-daemon",
+        "exec",
+        "--model",
+        "gpt-6.1-sol",
+        "--ignore-user-config",
+        "--ignore-rules",
+        "--ephemeral",
+        "--skip-git-repo-check",
+        "--sandbox",
+        "read-only",
+        "--disable",
+        "hooks",
+        "--disable",
+        "shell_tool",
+        "--disable",
+        "multi_agent",
+        "--disable",
+        "shell_snapshot",
+        "-c",
+        "model_reasoning_effort=max",
+        "-c",
+        "service_tier=fast",
+        "-c",
+        "approval_policy=never",
+        "-c",
+        "project_doc_max_bytes=0",
+        "-c",
+        "skills.bundled.enabled=false",
+        "-c",
+        "skills.include_instructions=false",
+        "-c",
+        "history.persistence=none",
+        "-c",
+        "web_search=disabled",
+        "-c",
+        "analytics.enabled=false",
+        "-c",
+        "feedback.enabled=false",
+        "-c",
+        "model_providers.openai.name=OpenAI",
+        "-c",
+        "model_providers.openai.wire_api=responses",
+        "-c",
+        "model_providers.openai.requires_openai_auth=true",
+        "-c",
+        "model_providers.openai.request_max_retries=0",
+        "-c",
+        "model_providers.openai.stream_max_retries=0",
+        "-c",
+        "sqlite_home=\"C:/Users/Jason/Documents/Jason/Take-Home-Assignments/active/Avathon/product/.harness-runtime/worktrees/9835572aa8594664acdb2346c2fcc64e/A08-runner/testing/tmp/A08-runner/codex-state\"",
+        "-c",
+        "log_dir=\"C:/Users/Jason/Documents/Jason/Take-Home-Assignments/active/Avathon/product/.harness-runtime/worktrees/9835572aa8594664acdb2346c2fcc64e/A08-runner/testing/tmp/A08-runner/codex-log\"",
+        "--color",
+        "never",
+        "--json",
+        "--image",
+        "fixture.png",
+        "--output-schema",
+        "schema.json",
+        "--output-last-message",
+        "sol-1.last-message.json",
+        "-"
+      ],
+      "shell": false,
+      "command_powershell": "Get-Content -LiteralPath 'sol.prompt.txt' -Raw | & 'C:\\Users\\Jason\\AppData\\Roaming\\npm\\node_modules\\@openai\\codex\\node_modules\\@openai\\codex-win32-x64\\vendor\\x86_64-pc-windows-msvc\\bin\\codex.exe' '--no-daemon' 'exec' '--model' 'gpt-6.1-sol' '--ignore-user-config' '--ignore-rules' '--ephemeral' '--skip-git-repo-check' '--sandbox' 'read-only' '--disable' 'hooks' '--disable' 'shell_tool' '--disable' 'multi_agent' '--disable' 'shell_snapshot' '-c' 'model_reasoning_effort=max' '-c' 'service_tier=fast' '-c' 'approval_policy=never' '-c' 'project_doc_max_bytes=0' '-c' 'skills.bundled.enabled=false' '-c' 'skills.include_instructions=false' '-c' 'history.persistence=none' '-c' 'web_search=disabled' '-c' 'analytics.enabled=false' '-c' 'feedback.enabled=false' '-c' 'model_providers.openai.name=OpenAI' '-c' 'model_providers.openai.wire_api=responses' '-c' 'model_providers.openai.requires_openai_auth=true' '-c' 'model_providers.openai.request_max_retries=0' '-c' 'model_providers.openai.stream_max_retries=0' '-c' 'sqlite_home=\"C:/Users/Jason/Documents/Jason/Take-Home-Assignments/active/Avathon/product/.harness-runtime/worktrees/9835572aa8594664acdb2346c2fcc64e/A08-runner/testing/tmp/A08-runner/codex-state\"' '-c' 'log_dir=\"C:/Users/Jason/Documents/Jason/Take-Home-Assignments/active/Avathon/product/.harness-runtime/worktrees/9835572aa8594664acdb2346c2fcc64e/A08-runner/testing/tmp/A08-runner/codex-log\"' '--color' 'never' '--json' '--image' 'fixture.png' '--output-schema' 'schema.json' '--output-last-message' 'sol-1.last-message.json' '-'",
+      "stdin_file": "sol.prompt.txt",
+      "cwd": "C:\\Users\\Jason\\Documents\\Jason\\Take-Home-Assignments\\active\\Avathon\\product\\.harness-runtime\\worktrees\\9835572aa8594664acdb2346c2fcc64e\\A08-runner\\testing\\tmp\\A08-runner",
+      "started_at": "2026-11-05T07:54:26.626044+00:00",
+      "ended_at": "2026-11-05T07:54:26.726608+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 0.09,
+      "timeout_seconds": 180,
+      "timed_out": false,
+      "requested": {
+        "model": "gpt-6.1-sol",
+        "model_reasoning_effort": "max",
+        "service_tier": "fast",
+        "service_tier_api_mapping": "priority",
+        "sandbox": "read-only",
+        "hooks": false,
+        "shell_tool": false
+      },
+      "effective": {
+        "model": "not exposed",
+        "model_reasoning_effort": "not exposed",
+        "service_tier": "not exposed",
+        "sandbox": "not exposed",
+        "note": "Codex JSONL did not echo these settings; explicit argv is the request, not proof of server-effective settings."
+      },
+      "usage": "not exposed",
+      "cost_usd": "not exposed",
+      "output": null,
+      "image_read_correct": null,
+      "schema_valid": false,
+      "schema_validation": "not run: no output",
+      "classification": "invocation/argument",
+      "diagnostics": [
+        {
+          "classification": "invocation/argument",
+          "message": "Error loading config.toml: model_providers contains reserved built-in provider IDs: `openai`. Built-in providers cannot be overridden. Rename your custom provider (for example, `openai-custom`).\nin `model_providers`",
+          "phase": "configuration loading, before inference"
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "testing/tmp/A08-runner/sol-1.attempt.json",
+          "sha256": "48b68b7769671c27cb9550d51ab5e33e8b88f7501ba43faea16a1f3e0f1b11c1"
+        },
+        {
+          "path": "testing/tmp/A08-runner/sol-1.stdout.jsonl",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "testing/tmp/A08-runner/sol-1.stderr.txt",
+          "sha256": "c36e5c0999a4125f49a069d4a209808c1e9eb6cb12ac30ab5a5fa289072ce99c"
+        }
+      ],
+      "outcome": "FAILED",
+      "correction": "sol-2 removes all reserved built-in model_providers.openai overrides; same requested model/effort/tier/image/schema. No provider or model substitution.",
+      "internal_request_retries": "not reached"
+    },
+    {
+      "id": "sol-2",
+      "cli_version": "codex-cli 0.162.0",
+      "argv": [
+        "C:\\Users\\Jason\\AppData\\Roaming\\npm\\node_modules\\@openai\\codex\\node_modules\\@openai\\codex-win32-x64\\vendor\\x86_64-pc-windows-msvc\\bin\\codex.exe",
+        "--no-daemon",
+        "exec",
+        "--model",
+        "gpt-6.1-sol",
+        "--ignore-user-config",
+        "--ignore-rules",
+        "--ephemeral",
+        "--skip-git-repo-check",
+        "--sandbox",
+        "read-only",
+        "--disable",
+        "hooks",
+        "--disable",
+        "shell_tool",
+        "--disable",
+        "multi_agent",
+        "--disable",
+        "shell_snapshot",
+        "-c",
+        "model_reasoning_effort=max",
+        "-c",
+        "service_tier=fast",
+        "-c",
+        "approval_policy=never",
+        "-c",
+        "project_doc_max_bytes=0",
+        "-c",
+        "skills.bundled.enabled=false",
+        "-c",
+        "skills.include_instructions=false",
+        "-c",
+        "history.persistence=none",
+        "-c",
+        "web_search=disabled",
+        "-c",
+        "analytics.enabled=false",
+        "-c",
+        "feedback.enabled=false",
+        "-c",
+        "sqlite_home=\"C:/Users/Jason/Documents/Jason/Take-Home-Assignments/active/Avathon/product/.harness-runtime/worktrees/9835572aa8594664acdb2346c2fcc64e/A08-runner/testing/tmp/A08-runner/codex-state\"",
+        "-c",
+        "log_dir=\"C:/Users/Jason/Documents/Jason/Take-Home-Assignments/active/Avathon/product/.harness-runtime/worktrees/9835572aa8594664acdb2346c2fcc64e/A08-runner/testing/tmp/A08-runner/codex-log\"",
+        "--color",
+        "never",
+        "--json",
+        "--image",
+        "fixture.png",
+        "--output-schema",
+        "schema.json",
+        "--output-last-message",
+        "sol-2.last-message.json",
+        "-"
+      ],
+      "shell": false,
+      "command_powershell": "Get-Content -LiteralPath 'sol.prompt.txt' -Raw | & 'C:\\Users\\Jason\\AppData\\Roaming\\npm\\node_modules\\@openai\\codex\\node_modules\\@openai\\codex-win32-x64\\vendor\\x86_64-pc-windows-msvc\\bin\\codex.exe' '--no-daemon' 'exec' '--model' 'gpt-6.1-sol' '--ignore-user-config' '--ignore-rules' '--ephemeral' '--skip-git-repo-check' '--sandbox' 'read-only' '--disable' 'hooks' '--disable' 'shell_tool' '--disable' 'multi_agent' '--disable' 'shell_snapshot' '-c' 'model_reasoning_effort=max' '-c' 'service_tier=fast' '-c' 'approval_policy=never' '-c' 'project_doc_max_bytes=0' '-c' 'skills.bundled.enabled=false' '-c' 'skills.include_instructions=false' '-c' 'history.persistence=none' '-c' 'web_search=disabled' '-c' 'analytics.enabled=false' '-c' 'feedback.enabled=false' '-c' 'sqlite_home=\"C:/Users/Jason/Documents/Jason/Take-Home-Assignments/active/Avathon/product/.harness-runtime/worktrees/9835572aa8594664acdb2346c2fcc64e/A08-runner/testing/tmp/A08-runner/codex-state\"' '-c' 'log_dir=\"C:/Users/Jason/Documents/Jason/Take-Home-Assignments/active/Avathon/product/.harness-runtime/worktrees/9835572aa8594664acdb2346c2fcc64e/A08-runner/testing/tmp/A08-runner/codex-log\"' '--color' 'never' '--json' '--image' 'fixture.png' '--output-schema' 'schema.json' '--output-last-message' 'sol-2.last-message.json' '-'",
+      "stdin_file": "sol.prompt.txt",
+      "cwd": "C:\\Users\\Jason\\Documents\\Jason\\Take-Home-Assignments\\active\\Avathon\\product\\.harness-runtime\\worktrees\\9835572aa8594664acdb2346c2fcc64e\\A08-runner\\testing\\tmp\\A08-runner",
+      "started_at": "2026-11-05T07:54:59.262109+00:00",
+      "ended_at": "2026-11-05T07:55:07.560634+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 8.297,
+      "timeout_seconds": 180,
+      "timed_out": false,
+      "requested": {
+        "model": "gpt-6.1-sol",
+        "model_reasoning_effort": "max",
+        "service_tier": "fast",
+        "service_tier_api_mapping": "priority",
+        "sandbox": "read-only",
+        "hooks": false,
+        "shell_tool": false
+      },
+      "effective": {
+        "model": "not exposed",
+        "model_reasoning_effort": "not exposed",
+        "service_tier": "not exposed",
+        "sandbox": "not exposed",
+        "note": "Codex JSONL did not echo these settings; explicit argv is the request, not proof of server-effective settings."
+      },
+      "usage": {
+        "input_tokens": 11712,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 170,
+        "reasoning_output_tokens": 138
+      },
+      "cost_usd": "not exposed",
+      "output": {
+        "printed_text": "MERIDIAN B00",
+        "printed_number": 4827,
+        "certainty": "sure"
+      },
+      "image_read_correct": true,
+      "schema_valid": true,
+      "schema_validation": "PASS: jsonschema.Draft202012Validator; no repair",
+      "classification": null,
+      "diagnostics": [
+        {
+          "classification": "timeout",
+          "severity": "nonfatal warning",
+          "phase": "model catalog refresh",
+          "message": "2026-11-05T07:55:05.625568Z ERROR codex_models_manager::manager: failed to refresh available models: request timed out",
+          "effect": "CLI continued and completed inference with exit 0; final image answer validated."
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "testing/tmp/A08-runner/sol-2.attempt.json",
+          "sha256": "d76de4965d4458e83414ab24a44a73ac637c048ed29f1ffcdae6e9d4fd1253b2"
+        },
+        {
+          "path": "testing/tmp/A08-runner/sol-2.stdout.jsonl",
+          "sha256": "17f72be8b05221907d5404e42ee519d72990e72617c2a0d27d21501c56f9c633"
+        },
+        {
+          "path": "testing/tmp/A08-runner/sol-2.stderr.txt",
+          "sha256": "422fd67856dc38ce1141b952875247fb91b93664e852df926d6b67c0bdcf1f62"
+        },
+        {
+          "path": "testing/tmp/A08-runner/sol-2.last-message.json",
+          "sha256": "087403dd4762a2fe29583a47ae10a019772a66a36151c2fe2c839adac6f5704d"
+        }
+      ],
+      "last_message_captured": true,
+      "outcome": "QUALIFIED",
+      "image_route": "--image fixture.png (initial prompt attachment)",
+      "observed_model_tool_calls": [],
+      "internal_request_retries": "Built-in provider defaults; reserved provider overrides were removed after sol-1 rejection. No retry/reconnect event appeared in this successful CLI output. No external retry loop."
+    },
+    {
+      "id": "opus-1",
+      "cli_version": "2.1.317 (Claude Code)",
+      "argv": [
+        "C:\\Users\\Jason\\.local\\bin\\claude.exe",
+        "-p",
+        "--model",
+        "claude-opus-5-5",
+        "--effort",
+        "xhigh",
+        "--safe-mode",
+        "--restricted",
+        "--setting-sources",
+        "",
+        "--settings",
+        "claude-settings.json",
+        "--strict-mcp-config",
+        "--tools",
+        "Read",
+        "--allowedTools",
+        "Read",
+        "--permission-mode",
+        "plan",
+        "--permission-prompts",
+        "none",
+        "--no-session-persistence",
+        "--disable-slash-commands",
+        "--no-chrome",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--json-schema",
+        "{\"type\":\"object\",\"properties\":{\"printed_text\":{\"type\":\"string\"},\"printed_number\":{\"type\":\"integer\"},\"certainty\":{\"type\":\"string\",\"enum\":[\"sure\",\"unsure\"]}},\"required\":[\"printed_text\",\"printed_number\",\"certainty\"],\"additionalProperties\":false}"
+      ],
+      "shell": false,
+      "command_powershell": "Get-Content -LiteralPath 'opus.prompt.txt' -Raw | & 'C:\\Users\\Jason\\.local\\bin\\claude.exe' '-p' '--model' 'claude-opus-5-5' '--effort' 'xhigh' '--safe-mode' '--restricted' '--setting-sources' '' '--settings' 'claude-settings.json' '--strict-mcp-config' '--tools' 'Read' '--allowedTools' 'Read' '--permission-mode' 'plan' '--permission-prompts' 'none' '--no-session-persistence' '--disable-slash-commands' '--no-chrome' '--output-format' 'stream-json' '--verbose' '--json-schema' '{\"type\":\"object\",\"properties\":{\"printed_text\":{\"type\":\"string\"},\"printed_number\":{\"type\":\"integer\"},\"certainty\":{\"type\":\"string\",\"enum\":[\"sure\",\"unsure\"]}},\"required\":[\"printed_text\",\"printed_number\",\"certainty\"],\"additionalProperties\":false}'",
+      "stdin_file": "opus.prompt.txt",
+      "cwd": "C:\\Users\\Jason\\Documents\\Jason\\Take-Home-Assignments\\active\\Avathon\\product\\.harness-runtime\\worktrees\\9835572aa8594664acdb2346c2fcc64e\\A08-runner\\testing\\tmp\\A08-runner",
+      "started_at": "2026-11-05T07:54:26.673147+00:00",
+      "ended_at": "2026-11-05T07:54:34.558375+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 7.882,
+      "timeout_seconds": 180,
+      "timed_out": false,
+      "requested": {
+        "model": "claude-opus-5-5",
+        "effort": "xhigh",
+        "fastMode": false,
+        "fallbackModel": [],
+        "tools": [
+          "Read"
+        ],
+        "permission_mode": "plan",
+        "setting_sources": [],
+        "disableAllHooks": true
+      },
+      "effective": {
+        "model": "claude-opus-5-5",
+        "assistant_message_models": [
+          "claude-opus-5-5"
+        ],
+        "effort": "not exposed",
+        "per_turn_effort_active": true,
+        "fast_mode_state": "off",
+        "fast_mode_disabled_reason": "disabled_by_env",
+        "service_tier": "standard",
+        "speed": "standard",
+        "fallbackModel": "not exposed",
+        "permission_mode": "plan",
+        "tools": [
+          "Read",
+          "StructuredOutput"
+        ],
+        "mcp_servers": [],
+        "skills": [],
+        "slash_commands": [],
+        "apiKeySource": "none",
+        "models_used": [
+          "claude-opus-5-5"
+        ]
+      },
+      "usage": {
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 6524,
+        "cache_read_input_tokens": 5344,
+        "output_tokens": 597,
+        "output_tokens_details": {
+          "thinking_tokens": 341
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 6524,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "cost_usd": 0.06521679999999999,
+      "output": {
+        "printed_text": "MERIDIAN B00",
+        "printed_number": 4827,
+        "certainty": "sure"
+      },
+      "image_read_correct": true,
+      "schema_valid": true,
+      "schema_validation": "PASS: jsonschema.Draft202012Validator; no repair",
+      "classification": null,
+      "diagnostics": [],
+      "artifacts": [
+        {
+          "path": "testing/tmp/A08-runner/opus-1.attempt.json",
+          "sha256": "d59aa7059b6c63b5f5e887c5ddd626ebc30dcad1a0e05a1bf939ec356efd2147"
+        },
+        {
+          "path": "testing/tmp/A08-runner/opus-1.stdout.jsonl",
+          "sha256": "370a2222b03265c5e7fbbfcebea8ba1812a7f7fb84e9a04d9409c7164cb1c401"
+        },
+        {
+          "path": "testing/tmp/A08-runner/opus-1.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "outcome": "QUALIFIED",
+      "model_usage": {
+        "claude-opus-5-5": {
+          "inputTokens": 4,
+          "outputTokens": 597,
+          "cacheReadInputTokens": 5344,
+          "cacheCreationInputTokens": 6524,
+          "webSearchRequests": 0,
+          "costUSD": 0.06521679999999999,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 341,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 6524,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      },
+      "cli_duration_ms": 6640,
+      "cli_duration_api_ms": 6056,
+      "image_route": "Read tool on fixture.png; returned image bytes SHA-256 matches fixture",
+      "observed_model_tool_calls": [
+        {
+          "name": "Read",
+          "input": {
+            "file_path": "C:\\Users\\Jason\\Documents\\Jason\\Take-Home-Assignments\\active\\Avathon\\product\\.harness-runtime\\worktrees\\9835572aa8594664acdb2346c2fcc64e\\A08-runner\\testing\\tmp\\A08-runner\\fixture.png"
+          }
+        },
+        {
+          "name": "StructuredOutput",
+          "input": {
+            "printed_text": "MERIDIAN B00",
+            "printed_number": 4827,
+            "certainty": "sure"
+          }
+        }
+      ],
+      "internal_request_retries": "CLAUDE_CODE_MAX_RETRIES=0; watchdog removed; no retry events",
+      "permission_denials": [],
+      "subagents_spawned": 0
+    }
+  ],
+  "checks": [
+    {
+      "name": "schema-and-pixel-results",
+      "command": "python testing/tmp/A08-runner/validate_report.py",
+      "outcome": "PASS",
+      "evidence": "Both successful outputs validate without repair and exactly match the known synthetic image; original Sol startup failure remains FAILED."
+    },
+    {
+      "name": "same-schema-independent-reads",
+      "command": "python testing/tmp/A08-runner/build_report.py",
+      "outcome": "PASS",
+      "evidence": "Claude schema argument equals schema.json; Read image payload hash equals fixture; Codex last message equals JSONL final message. One completed inference session per model."
+    }
+  ],
+  "limitations": [
+    "B01 runner, cache/agreement/feedback/rate-limit behavior, full-corpus E2, real drawing interpretation, and engineering source validation were not run or qualified.",
+    "Codex JSONL did not expose effective model, reasoning effort, or service tier. Claude exposed model and standard speed, but not the numeric/named effective effort or fallback configuration.",
+    "The corrected Codex call emitted a nonfatal model-catalog refresh timeout; capture retained. Built-in OpenAI retry settings cannot be overridden in this installed CLI; no inference retry observed."
+  ],
+  "proposed_user_todo": [],
+  "reproduction": "From cwd, retain the inherited CLI account homes, apply execution_environment overrides/removals without inspecting credentials, recreate the temporary assets, then use each attempt's argv with stdin_file (shell=false). command_powershell is the equivalent human-readable invocation. Help/version commands are recorded separately. No live calls are made by the report validators."
+}

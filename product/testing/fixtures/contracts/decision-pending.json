@@ -1,0 +1,41 @@
+{
+  "fixture": true,
+  "synthetic": true,
+  "fixture_note": "Invented contract fixture only; not dataset evidence, an executed AI run, or a human decision.",
+  "decision_id": "SYN-D-001",
+  "applies_to": "D-013/drawing/title",
+  "type": "correction",
+  "value": "Synthetic revised title",
+  "old_value": "Synthetic training bar",
+  "status": "pending",
+  "by": "Synthetic proposer (fixture only)",
+  "at": "2000-01-01T00:00:00Z",
+  "based_on": {
+    "D-013": "8d016551a76941cf73cdca0ef95167d9aeb75bb74fb16912a2f6a514bb824a43",
+    "BOM:mock-section/synthetic-training-bar": "ef5ddc6b4d7e28998d1d2e97be2836168f73b1f4a12ae421b8c4070dc184f0fd"
+  },
+  "ai_answers": null,
+  "check_result": {
+    "method": "string_match",
+    "drawing": [
+      {
+        "source_name": "D-013/drawing/title",
+        "matched": false,
+        "text": "Synthetic training bar"
+      }
+    ],
+    "bom": [
+      {
+        "source_name": "BOM:mock-section/synthetic-training-bar",
+        "matched": false,
+        "text": "Synthetic training bar"
+      }
+    ],
+    "message": "Invented replacement text not matched. A string check is not proof or approval.",
+    "proves_correct": false
+  },
+  "reason": "Invented proposal for smoke checks.",
+  "note": null,
+  "proposal_id": "SYN-P-001",
+  "supersedes": null
+}

@@ -1,0 +1,406 @@
+{
+  "fixture": true,
+  "synthetic": true,
+  "fixture_note": "Invented contract fixture only; not dataset evidence, an executed AI run, or a human decision.",
+  "id": "D-013/part",
+  "display_name": "Synthetic training bar",
+  "section": "Mock Section",
+  "has_drawing": true,
+  "has_3d": true,
+  "examples": [
+    "A",
+    "B"
+  ],
+  "drawing": {
+    "id": "D-013",
+    "pages": 1,
+    "image": "images/synthetic-D-013-p1.png",
+    "page_geometry": [
+      {
+        "page": 1,
+        "source_width": 200.0,
+        "source_height": 100.0,
+        "image_width": 800,
+        "image_height": 400
+      }
+    ],
+    "degraded": false,
+    "source_quality": "clean",
+    "source_path": "SYNTHETIC-D-013.txt",
+    "source_sha256": "8d016551a76941cf73cdca0ef95167d9aeb75bb74fb16912a2f6a514bb824a43",
+    "fields": {
+      "title": {
+        "name": "D-013/drawing/title",
+        "original": "Synthetic training bar",
+        "value": "Synthetic training bar",
+        "confidence": "sure",
+        "method": "parsed",
+        "note": null,
+        "review": null,
+        "provenance": null,
+        "correction": null,
+        "page": 1,
+        "box": [
+          12.0,
+          70.0,
+          70.0,
+          6.0
+        ],
+        "source_quality": "clean"
+      },
+      "material": {
+        "name": "D-013/drawing/material",
+        "original": "Training polymer P9",
+        "value": "Training polymer P9",
+        "confidence": "sure",
+        "method": "parsed",
+        "note": null,
+        "review": null,
+        "provenance": null,
+        "correction": null,
+        "page": 1,
+        "box": [
+          12.0,
+          80.0,
+          70.0,
+          6.0
+        ],
+        "source_quality": "clean"
+      }
+    },
+    "numbers": [
+      {
+        "name": "D-013/drawing/n/37-0@1",
+        "text": "37.0",
+        "value": 37.0,
+        "page": 1,
+        "box": [
+          15.0,
+          20.0,
+          10.0,
+          5.0
+        ],
+        "unit": "mm",
+        "confidence": "sure",
+        "method": "parsed"
+      },
+      {
+        "name": "D-013/drawing/n/22-0@1",
+        "text": "22.0",
+        "value": 22.0,
+        "page": 1,
+        "box": [
+          27.0,
+          20.0,
+          10.0,
+          5.0
+        ],
+        "unit": "mm",
+        "confidence": "sure",
+        "method": "parsed"
+      },
+      {
+        "name": "D-013/drawing/n/4-25@1",
+        "text": "4.25",
+        "value": 4.25,
+        "page": 1,
+        "box": [
+          39.0,
+          20.0,
+          10.0,
+          5.0
+        ],
+        "unit": "mm",
+        "confidence": "sure",
+        "method": "parsed"
+      },
+      {
+        "name": "D-013/drawing/n/1-75@1",
+        "text": "1.75",
+        "value": 1.75,
+        "page": 1,
+        "box": [
+          51.0,
+          20.0,
+          10.0,
+          5.0
+        ],
+        "unit": "mm",
+        "confidence": "sure",
+        "method": "parsed"
+      }
+    ],
+    "words": []
+  },
+  "bom": [
+    {
+      "name": "BOM:mock-section/synthetic-training-bar",
+      "display_id": "BOM-SYN-001",
+      "display_name": "Synthetic training bar",
+      "section": "Mock Section",
+      "source_sha256": "ef5ddc6b4d7e28998d1d2e97be2836168f73b1f4a12ae421b8c4070dc184f0fd",
+      "fields": {
+        "material": {
+          "name": "BOM:mock-section/synthetic-training-bar/material",
+          "original": "Training alloy Q7",
+          "value": "Training alloy Q7",
+          "confidence": "sure",
+          "method": "parsed",
+          "note": null,
+          "review": null,
+          "provenance": null,
+          "correction": null,
+          "cleanup": [],
+          "snapshot_note": false,
+          "currency": null,
+          "unit": null
+        },
+        "cost": {
+          "name": "BOM:mock-section/synthetic-training-bar/cost",
+          "original": " ",
+          "value": null,
+          "confidence": "sure",
+          "method": "cleanup_rule",
+          "note": null,
+          "review": null,
+          "provenance": null,
+          "correction": null,
+          "cleanup": [
+            "trim_blank_to_null"
+          ],
+          "snapshot_note": true,
+          "currency": "DKK",
+          "unit": null
+        },
+        "amount": {
+          "name": "BOM:mock-section/synthetic-training-bar/amount",
+          "original": "2",
+          "value": 2,
+          "confidence": "sure",
+          "method": "parsed",
+          "note": null,
+          "review": null,
+          "provenance": null,
+          "correction": null,
+          "cleanup": [],
+          "snapshot_note": false,
+          "currency": null,
+          "unit": null
+        },
+        "total_cost": {
+          "name": "BOM:mock-section/synthetic-training-bar/total_cost",
+          "original": "DKK0.00",
+          "value": null,
+          "confidence": "sure",
+          "method": "cleanup_rule",
+          "note": null,
+          "review": null,
+          "provenance": null,
+          "correction": null,
+          "cleanup": [
+            "zero_total_with_blank_cost -> not recorded"
+          ],
+          "snapshot_note": true,
+          "currency": "DKK",
+          "unit": null
+        }
+      },
+      "connections": [],
+      "identity_conflict": false,
+      "snapshot_note": true
+    }
+  ],
+  "link": {
+    "method": "exact_match",
+    "drawing_id": "D-013",
+    "bom_rows": [
+      "BOM:mock-section/synthetic-training-bar"
+    ],
+    "basis": "Invented unique-name link, not a verified dataset connection.",
+    "review": null,
+    "review_item": null,
+    "provenance": null
+  },
+  "template": "testing/fixtures/contracts/flat-template.json",
+  "model": {
+    "state": "available",
+    "examples": [
+      {
+        "id": "A",
+        "glb": "/api/models/D-013_A.glb",
+        "choices": {
+          "D-013/template/thickness": 4.25
+        },
+        "possible_reading": true,
+        "source_ids": [
+          "D-013/drawing/n/4-25@1"
+        ],
+        "step": null,
+        "volume_mm3": null
+      },
+      {
+        "id": "B",
+        "glb": "/api/models/D-013_B.glb",
+        "choices": {
+          "D-013/template/thickness": 1.75
+        },
+        "possible_reading": true,
+        "source_ids": [
+          "D-013/drawing/n/1-75@1"
+        ],
+        "step": null,
+        "volume_mm3": null
+      }
+    ],
+    "selected_example": null,
+    "reconstruction_label": "Reconstruction from 2D drawing. Not the original CAD model.",
+    "review": {
+      "status": "not_reviewed",
+      "by": null,
+      "at": null,
+      "based_on": {},
+      "decision_id": null
+    },
+    "provenance": {
+      "job": "template_fixture",
+      "job_id": "synthetic-dual",
+      "mode": "dual_reader",
+      "outcome": "agreed",
+      "rounds": [
+        {
+          "round": 1,
+          "sol": {
+            "requested": {
+              "provider": "codex_cli",
+              "model": "gpt-6.1-sol",
+              "reasoning": "max",
+              "service_tier": "fast",
+              "read_only": true,
+              "settings": {
+                "image_input": true
+              }
+            },
+            "effective": {
+              "provider": "codex_cli",
+              "model": "gpt-6.1-sol",
+              "reasoning": "max",
+              "service_tier": "fast",
+              "read_only": true,
+              "settings": {
+                "image_input": true
+              }
+            },
+            "status": "success",
+            "output": {
+              "answers": {
+                "thickness": {
+                  "state": "options",
+                  "value": null,
+                  "options": [
+                    4.25,
+                    1.75
+                  ],
+                  "confidence": "sure",
+                  "source_ids": [
+                    "D-013/drawing/n/4-25@1",
+                    "D-013/drawing/n/1-75@1"
+                  ],
+                  "reason": "Invented reader output for a declared fixture; no reader was executed.",
+                  "schema_valid": true,
+                  "evidence_valid": true
+                }
+              },
+              "output_sha256": "16fd3c2c879459ba1b6fb9706964aee14a501c9c311454e6799021d9e4d2e655"
+            },
+            "failure": null,
+            "prior_failures": [],
+            "started_at": "2000-01-01T00:00:00Z",
+            "finished_at": "2000-01-01T00:00:00Z"
+          },
+          "opus": {
+            "requested": {
+              "provider": "claude_code",
+              "model": "claude-opus-5-5",
+              "reasoning": "xhigh",
+              "service_tier": "regular",
+              "read_only": true,
+              "settings": {
+                "fastMode": false,
+                "fallbackModel": [],
+                "image_input": true
+              }
+            },
+            "effective": {
+              "provider": "claude_code",
+              "model": "claude-opus-5-5",
+              "reasoning": "xhigh",
+              "service_tier": "regular",
+              "read_only": true,
+              "settings": {
+                "fastMode": false,
+                "fallbackModel": [],
+                "image_input": true
+              }
+            },
+            "status": "success",
+            "output": {
+              "answers": {
+                "thickness": {
+                  "state": "options",
+                  "value": null,
+                  "options": [
+                    4.25,
+                    1.75
+                  ],
+                  "confidence": "sure",
+                  "source_ids": [
+                    "D-013/drawing/n/4-25@1",
+                    "D-013/drawing/n/1-75@1"
+                  ],
+                  "reason": "Invented reader output for a declared fixture; no reader was executed.",
+                  "schema_valid": true,
+                  "evidence_valid": true
+                }
+              },
+              "output_sha256": "03ffcc773cf273a2b078b2d26ae1a62afdaed936c4f29ebabb1c874627d2ed7e"
+            },
+            "failure": null,
+            "prior_failures": [],
+            "started_at": "2000-01-01T00:00:00Z",
+            "finished_at": "2000-01-01T00:00:00Z"
+          }
+        }
+      ],
+      "inputs": {
+        "synthetic-drawing": "8d016551a76941cf73cdca0ef95167d9aeb75bb74fb16912a2f6a514bb824a43"
+      },
+      "prompt_sha256": "9c8d13c0a7ad169775c31f939cb07a4cf6ee29c4c6604253e5029033ff33c22b",
+      "output_contract_sha256": "5b72432404eeb3e66aa58cfbd8c0216730f21c483f52d30d27fe4e4f8a63a629",
+      "cache_key": "ad28b7b47e34a97a623f4bd2871efe3f771f950677ca40a1b68a60822204c273",
+      "next_launch_attempt_opus": true
+    },
+    "human_input_fields": [],
+    "unresolved_fields": [],
+    "omitted_details": [
+      {
+        "name": "D-013/template/unreadable-detail",
+        "reason": "Synthetic minor feature intentionally unknown and omitted.",
+        "source_ids": [],
+        "review_item": null
+      }
+    ],
+    "message": null,
+    "stale_reason": null,
+    "built_at": "2000-01-01T00:00:00Z",
+    "built_template_sha256": "02d0e57156c16c3e9abf0498d2931e1cfc30fdf2683c606c235a66c03ab32f2c",
+    "current_template_sha256": "02d0e57156c16c3e9abf0498d2931e1cfc30fdf2683c606c235a66c03ab32f2c",
+    "overall_size_mm": null,
+    "section_view_available": null
+  },
+  "review_items": [],
+  "weight_check": null,
+  "callouts": null,
+  "crops": null,
+  "readme_passages": null,
+  "installed_in": null
+}

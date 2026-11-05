@@ -122,7 +122,7 @@ export default function PartPage({partKey: key, initialTab, factId, example:init
   useEffect(()=>{setTab(initialTab);if(initialExample)setExample(initialExample)},[key,initialTab,initialExample,factId]);
   if(error) return <ErrorMessage>{error}</ErrorMessage>; if(!part)return <Loading label="Opening part evidence…"/>;
   const facts=Array.isArray(part.facts)?part.facts:Object.values(part.facts||{}), fact=facts.find(f=>f.fact===factId)||evidenceFact(part,factId||'');
-  const hasBuilt=Boolean(part.has_3d||Object.keys(part.model?.models||{}).length);
+  const hasBuilt=Boolean((part.has_3d||Object.keys(part.model?.models||{}).length)&&!part.model?.stale);
   const has3d=hasBuilt;
   const humanInput=facts.some(f=>f.fact?.includes('/template/')&&f.sources?.some(s=>s.method==='human_decision'));
   const reconstructionLabel=part.review_status==='source_changed'?'Unavailable':part.design_review?'Human reviewed':hasBuilt?'AI reviewed':'3D unavailable';

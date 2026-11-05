@@ -1,5 +1,7 @@
 """Geometry/unit/cache smoke checks. All outputs stay in pytest's repo-local temp root."""
 import copy
+import builtins
+import json
 import math
 
 import pytest
@@ -49,6 +51,46 @@ def test_inventory_uses_live_review_wrappers_instead_of_stale_flags():
     template.update(features_status="partial", features_all_determined=False, omitted_feature_notes=["stale"],
                     features_complete=known(True), features_omitted=known([]))
     assert builder.feature_inventory(template) == {"status": "complete", "all_determined": True, "notes": []}
+
+
+@pytest.mark.parametrize("old", [None, {"models": {"A": {"glb": "models/old.glb"}}, "examples": ["A"], "template_sha256": "old", "generator_version": "old"}])
+def test_cache_only_never_imports_cad_even_when_installed(tmp_path, monkeypatch, old):
+    original_import = builtins.__import__
+    def guarded_import(name, *args, **kwargs):
+        if name == "cadquery" or name.startswith("cadquery."):
+            pytest.fail("cache-only mode must not import CAD")
+        return original_import(name, *args, **kwargs)
+    monkeypatch.setattr(builtins, "__import__", guarded_import)
+    monkeypatch.setattr(builder, "GENERATED", tmp_path)
+    if old:
+        (tmp_path / "models").mkdir()
+        (tmp_path / "models/manifest.json").write_text(json.dumps({"D-999": old}), encoding="utf-8")
+    result = builder.build_all({"D-999": cube()}, allow_generation=False)["D-999"]
+    assert result["cache_only"]
+    if old:
+        assert result["stale"] and result["models"] == old["models"]
+    else:
+        assert not result["models"] and "GitHub Actions" in result["waiting"][0]
+
+
+def test_cache_only_copies_verified_cache_hit_before_cad_gate(tmp_path, monkeypatch):
+    original_import = builtins.__import__
+    def guarded_import(name, *args, **kwargs):
+        if name == "cadquery" or name.startswith("cadquery."):
+            pytest.fail("cache hit must not import CAD")
+        return original_import(name, *args, **kwargs)
+    monkeypatch.setattr(builtins, "__import__", guarded_import)
+    monkeypatch.setattr(builder, "GENERATED", tmp_path)
+    template = cube()
+    densities = builder._read(builder.Path(builder.__file__).with_name("densities.json"), [])
+    cache = tmp_path / "ai_cache/artifacts/cad" / builder._hash({"version": builder.VERSION, "template": template, "densities": densities})
+    cache.mkdir(parents=True)
+    model = {"glb": "models/D-999_A.glb", "step": "models/D-999_A.step"}
+    for filename in ("D-999_A.glb", "D-999_A.step"):
+        (cache / filename).write_bytes(b"cached artifact fixture")
+    (cache / "manifest.json").write_text(json.dumps({"models": {"A": model}, "examples": ["A"]}), encoding="utf-8")
+    result = builder.build_all({"D-999": template}, allow_generation=False)["D-999"]
+    assert result["cache_hit"] and (tmp_path / model["glb"]).read_bytes() == b"cached artifact fixture"
 
 
 def test_partial_inventory_retains_supported_cut_geometry():

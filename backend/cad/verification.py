@@ -77,6 +77,10 @@ def expanded_cuts(template, thickness):
         if kind not in ("hole", "slot") or face not in ("top", "bottom") or type(through) is not bool:
             raise ValueError("Unsupported verification cut")
         depth = thickness if through else number(feature["depth"])
+        allow_primary = feature.get("allow_primary_hole_without_unresolved_step", False)
+        if type(allow_primary) is not bool or (allow_primary and (kind != "hole" or through is not True or
+                not feature.get("fact_ids") or not isinstance(feature.get("step_conflict_reason"), str) or not feature["step_conflict_reason"].strip())):
+            raise ValueError("Invalid primary-hole fallback authorization")
         shared = {"index": index, "kind": kind, "face": face, "through": through, "depth": depth,
                   "fact_ids": feature.get("fact_ids", []), "name": feature.get("name", f"Feature {index + 1}"),
                   "coordinate_evidence": {key: copy.deepcopy(feature[key]) for key in ("x", "y", "pattern") if key in feature}}
@@ -93,8 +97,25 @@ def expanded_cuts(template, thickness):
             elif shared["hole_type"] == "countersunk":
                 shared["outer"] = number(feature["countersink_diameter"]) / 2
                 shared["sink_angle"] = number(feature["countersink_angle"])
+                if not 0 < shared["sink_angle"] < 180:
+                    raise ValueError("Invalid countersink angle")
                 shared["step_depth"] = (shared["outer"] - shared["radius"]) / math.tan(math.radians(shared["sink_angle"] / 2))
             shared["radius"] = max(shared["radius"], shared.get("outer", 0))
+            if allow_primary and shared["hole_type"] not in ("counterbored", "countersunk"):
+                raise ValueError("Primary-hole fallback requires a stepped hole")
+            if "step_depth" in shared:
+                if shared["outer"] <= shared["diameter"] / 2 or shared["step_depth"] <= 0:
+                    raise ValueError("Invalid step radius/depth")
+                if shared["step_depth"] > depth:
+                    if not allow_primary:
+                        raise ValueError("Unresolved step exceeds primary-hole depth without fallback authorization")
+                    shared["requested_step"] = {key: shared[key] for key in ("hole_type", "outer", "step_depth", "sink_angle") if key in shared}
+                    shared["step_omitted"] = (f"{shared['hole_type']} step depth {shared['step_depth']:g} mm exceeds "
+                        f"the {depth:g} mm primary-hole depth for thickness {thickness:g} mm; only the known "
+                        f"{shared['diameter']:g} mm through bore is expected. {feature['step_conflict_reason']}")
+                    shared["hole_type"], shared["radius"] = "plain", shared["diameter"] / 2
+                    for key in ("outer", "step_depth", "sink_angle"):
+                        shared.pop(key, None)
         for x, y in positions(feature):
             cuts.append({**shared, "x": x, "y": y})
     return cuts
@@ -240,11 +261,13 @@ def callout_coverage(drawing, template, cuts):
             outer, sink_angle = (float(part.replace(",", ".")) for part in sink.groups())
             matching = [cut for cut in cuts if cut.get("hole_type") == "countersunk" and
                         abs(cut["outer"] * 2 - outer) < 1e-6 and abs(cut["sink_angle"] - sink_angle) < 1e-6]
+            variant_omissions = [cut["step_omitted"] for cut in cuts if (cut.get("requested_step") or {}).get("hole_type") == "countersunk" and
+                                abs(cut["requested_step"]["outer"] * 2 - outer) < 1e-6 and abs(cut["requested_step"]["sink_angle"] - sink_angle) < 1e-6]
             omitted = [item for item in omissions if callout["name"] in item.get("fact_ids", []) or
                        drawing["id"] + "/drawing/source" in item.get("fact_ids", []) or drawing["id"] in item.get("fact_ids", [])]
-            status = "covered" if matching else "documented_omission" if omitted and not complete else "unexplained_gap"
+            status = "covered" if matching else "documented_variant_omission" if variant_omissions else "documented_omission" if omitted and not complete else "unexplained_gap"
             rows.append({"source": callout["name"], "text": callout.get("text"), "kind": "countersink",
-                         "built_count": len(matching), "status": status, "omissions": omitted})
+                         "built_count": len(matching), "status": status, "omissions": omitted, "variant_step_omissions": variant_omissions})
             assert status != "unexplained_gap", f"{drawing['id']}: countersink callout omitted without explanation: {rows[-1]}"
             continue
         if type(count) is not int or callout.get("feature") == "general_note":
@@ -285,6 +308,10 @@ def verify_features(template, model, step_shape, mesh, drawing):
     selected = selected_template(template, model.get("selections", {}))
     thickness = number(selected["thickness"])
     cuts = expanded_cuts(selected, thickness)
+    variant_omissions = [{"feature_index": cut["index"], "center_mm": [cut["x"], cut["y"]],
+                          "reason": cut["step_omitted"], "requested_step": cut["requested_step"]} for cut in cuts if cut.get("step_omitted")]
+    if variant_omissions:
+        assert model.get("omitted") and model.get("features_all_determined") is not True, "Variant step omission must remain explicit in the shipped model metadata"
     mesh_probe = TriangleProbe(mesh)
     report = []
     for cut in cuts:
@@ -306,6 +333,7 @@ def verify_features(template, model, step_shape, mesh, drawing):
     if expected_volume is not None:
         assert abs(step_shape.Volume() - expected_volume) < max(.01, expected_volume * 1e-7), "Exported STEP volume disagrees with independent base-minus-cuts calculation"
     return {"cut_instances_checked": len(cuts), "probe_count": sum(item["probe_count"] for item in report),
+            "variant_step_omissions": variant_omissions,
             "independent_volume_mm3": expected_volume,
             "volume_scope": "disjoint fully contained analytic cuts" if expected_volume is not None else "clipped/overlapping cuts: point probes and export-volume roundtrip",
             "cuts": report, "drawing_callout_coverage": callout_coverage(drawing, selected, cuts),

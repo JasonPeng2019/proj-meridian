@@ -4,6 +4,7 @@ from __future__ import annotations
 import copy
 import hashlib
 import json
+import os
 import re
 import uuid
 from datetime import datetime, timezone
@@ -85,7 +86,7 @@ class Store:
                 part["template"] = self.templates.get(did)
                 part["model"] = self.models.get(did)
                 model = part.get("model") or {}
-                part["has_3d"] = bool(model.get("examples"))
+                part["has_3d"] = bool(model.get("examples")) and not model.get("stale")
                 part["examples"] = model.get("examples", [])
                 part["weight_check"] = model.get("weight_check")
                 tpl = self.templates.get(did, {})
@@ -399,6 +400,11 @@ class Store:
             waiting.append("incomplete hole/slot inventory")
         if (part.get("link") or {}).get("method") == "unresolved":
             waiting.append("drawing-to-BOM link")
+        model=part.get("model") or {}
+        if model.get("stale"):
+            waiting.append("model requires remote regeneration")
+        if model.get("waiting") or any(variant.get("omitted") for variant in model.get("models", {}).values()):
+            waiting.append("geometry operations are omitted or unresolved")
         if waiting:
             raise ValueError("Fields still need input: " + ", ".join(waiting))
         weight = part.get("weight_check") or {}
@@ -413,7 +419,7 @@ class Store:
                 template = self.templates.get(drawing.get("id"))
                 if template is not None:
                     template["bom_materials"] = [row["fields"]["material"] for row in part.get("bom", []) if row.get("fields", {}).get("material")]
-            build_all(self.templates)
+            build_all(self.templates, allow_generation=os.environ.get("GITHUB_ACTIONS") == "true")
             self.reload()
         except ImportError:
             for part in self.records:

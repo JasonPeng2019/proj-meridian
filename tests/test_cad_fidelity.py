@@ -55,10 +55,10 @@ def test_independent_export_probes_and_volume(profile, tmp_path):
     assert report["independent_volume_mm3"] == pytest.approx(step.Volume(), abs=.001)
 
 
-@pytest.mark.parametrize("defect", ["missing", "misplaced", "blind", "missing_counterbore", "wrong_counterbore_face"])
+@pytest.mark.parametrize("defect", ["missing", "misplaced", "blind", "missing_counterbore", "wrong_counterbore_face", "missing_countersink", "wrong_countersink_angle"])
 def test_export_probes_catch_real_geometry_defects(defect, tmp_path):
     cq = pytest.importorskip("cadquery")
-    plate, template = plate_and_template("counterbored" if "counterbore" in defect else "plain")
+    plate, template = plate_and_template("counterbored" if "counterbore" in defect else "countersunk" if "countersink" in defect else "plain")
     if defect == "missing":
         wrong = plate
     elif defect == "misplaced":
@@ -69,6 +69,9 @@ def test_export_probes_catch_real_geometry_defects(defect, tmp_path):
         wrong = plate.cut(cq.Workplane("XY", origin=(0, 0, -.01)).circle(2).extrude(8.02))
         if defect == "wrong_counterbore_face":
             wrong = wrong.cut(cq.Workplane("XY", origin=(0, 0, -.01)).circle(4).extrude(2.01))
+        if defect == "wrong_countersink_angle":
+            height = 2 / math.tan(math.radians(60 / 2))
+            wrong = wrong.cut(cq.Workplane(obj=cq.Solid.makeCone(2, 4, height, cq.Vector(0, 0, 8 - height))))
     step, mesh = exported(wrong, tmp_path)
     with pytest.raises(AssertionError, match="STEP feature"):
         verification.verify_features(template, {}, step, mesh, {"id": "D-999", "callouts": []})
@@ -87,3 +90,54 @@ def test_feature_option_selection_is_not_overwritten_by_review_array():
     feature = {"diameter": {"state": "options", "options": [4, 5]}}
     template = {"features": [], "features_review": {"state": "known", "value": [feature]}}
     assert verification.selected_template(template, {"features.0.diameter": 5})["features"][0]["diameter"]["value"] == 5
+
+
+def conflicting_counterbore():
+    return {"kind": "hole", "face": "top", "x": known(0), "y": known(0), "through": True,
+            "diameter": known(5.3), "hole_type": "counterbored", "counterbore_diameter": known(8),
+            "counterbore_depth": known(15.4), "fact_ids": ["D-999/drawing/source"],
+            "pattern": {"type": "circle", "count": known(3), "radius": known(15), "start_angle": known(0)}}
+
+
+def test_step_fallback_requires_explicit_flag_and_sourced_reason():
+    feature = conflicting_counterbore()
+    with pytest.raises(ValueError, match="without fallback authorization"):
+        verification.expanded_cuts({"features": [feature]}, 15)
+    feature["allow_primary_hole_without_unresolved_step"] = True
+    with pytest.raises(ValueError, match="authorization"):
+        verification.expanded_cuts({"features": [feature]}, 15)
+    feature["step_conflict_reason"] = "Printed depth 15.4 exceeds the printed 15 mm alternative"
+    cuts = verification.expanded_cuts({"features": [feature]}, 15)
+    assert len(cuts) == 3 and all(cut["hole_type"] == "plain" and cut["step_omitted"] for cut in cuts)
+    assert all(cut["requested_step"]["step_depth"] == 15.4 for cut in cuts)
+    assert all(cut["hole_type"] == "counterbored" and "step_omitted" not in cut
+               for cut in verification.expanded_cuts({"features": [feature]}, 25))
+
+
+def test_two_thickness_variants_retain_bores_and_only_omit_conflicting_step(tmp_path, monkeypatch):
+    cq = pytest.importorskip("cadquery")
+    trimesh = pytest.importorskip("trimesh")
+    feature = {**conflicting_counterbore(), "allow_primary_hole_without_unresolved_step": True,
+               "step_conflict_reason": "The drawing explicitly prints 15.4 depth and alternative plate thicknesses 15/25"}
+    template = {"part": "D-999", "outline": {"type": "circle", "outer_diameter": known(50)},
+                "thickness": {"state": "options", "options": [known(15), known(25)]},
+                "features": [feature], "features_complete": known(False),
+                "features_omitted": known([{"description": "Counterbore for 15 mm example", "reason": "Depth 15.4 exceeds thickness", "fact_ids": ["D-999/drawing/source"]}])}
+    monkeypatch.setattr(builder, "GENERATED", tmp_path)
+    part = builder.build_all({"D-999": template})["D-999"]
+    assert part["examples"] == ["A", "B"]
+    drawing = {"id": "D-999", "callouts": [{"name": "D-999/drawing/callout/1", "text": "3 x 5,3 THRU ALL", "count": 3, "through": True}]}
+    for example, thickness in (("A", 15), ("B", 25)):
+        model = part["models"][example]
+        mesh = trimesh.load(tmp_path / model["glb"], force="mesh", process=True)
+        mesh.merge_vertices(merge_tex=True, merge_norm=True)
+        step = cq.importers.importStep(str(tmp_path / model["step"])).val()
+        report = verification.verify_features(template, model, step, mesh, drawing)
+        expected = math.pi * 25 ** 2 * thickness - 3 * math.pi * (5.3 / 2) ** 2 * thickness
+        if example == "B":
+            expected -= 3 * math.pi * (4 ** 2 - (5.3 / 2) ** 2) * 15.4
+        assert model["volume_mm3"] == pytest.approx(expected, abs=.01)
+        assert report["cut_instances_checked"] == 3
+        assert bool(report["variant_step_omissions"]) is (example == "A")
+        assert model["labels"][0]["hole_type"] == ("plain" if example == "A" else "counterbored")
+        assert bool(model["labels"][0]["step_omitted"]) is (example == "A")

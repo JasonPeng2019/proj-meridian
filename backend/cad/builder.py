@@ -13,7 +13,7 @@ from pathlib import Path
 
 from backend.paths import GENERATED, ROOT, inside
 
-VERSION = "flat-part-12"
+VERSION = "flat-part-13"
 NOTICE = "Reconstruction from 2D drawing. Not the original CAD model."
 
 
@@ -233,6 +233,12 @@ def build_shape(template):
             through = _value(feature.get("through"), "through", evidence)
             if not isinstance(through, bool):
                 raise Unknown("through is not boolean")
+            allow_primary = feature.get("allow_primary_hole_without_unresolved_step") is True
+            if "allow_primary_hole_without_unresolved_step" in feature and type(feature["allow_primary_hole_without_unresolved_step"]) is not bool:
+                raise Unknown("primary-hole fallback flag is not boolean")
+            if allow_primary and (feature.get("kind") != "hole" or through is not True or
+                    not feature.get("fact_ids") or not isinstance(feature.get("step_conflict_reason"), str) or not feature["step_conflict_reason"].strip()):
+                raise Unknown("primary-hole fallback requires a sourced step-conflict reason and a known through hole")
             depth = t if through else _num(feature.get("depth"), "depth", evidence, True)
             if depth > t + 1e-6:
                 raise Unknown("depth exceeds plate thickness")
@@ -240,6 +246,8 @@ def build_shape(template):
             # Slight overrun only on through cuts prevents coincident-face artifacts.
             cut_z, cut_depth = (-0.001, t+0.002) if through else (z, depth)
             cutters = []
+            step_omission = None
+            modeled_hole_type = None
             for x, y in positions:
                 plane = cq.Workplane("XY", origin=(x, y, cut_z))
                 if feature.get("kind") == "slot":
@@ -254,13 +262,22 @@ def build_shape(template):
                     diameter = _num(feature.get("diameter"), "diameter", evidence, True)
                     cutter = plane.circle(diameter/2).extrude(cut_depth)
                     hole_type = _value(feature.get("hole_type"), "hole_type", evidence)
+                    if allow_primary and hole_type not in ("counterbored", "countersunk"):
+                        raise Unknown("primary-hole fallback is only supported for a stepped hole")
+                    modeled_hole_type = hole_type
                     if hole_type == "counterbored":
                         outer = _num(feature.get("counterbore_diameter"), "counterbore_diameter", evidence, True)
                         bore_depth = _num(feature.get("counterbore_depth"), "counterbore_depth", evidence, True)
-                        if outer <= diameter or bore_depth > t or bore_depth > depth:
+                        if outer <= diameter:
                             raise Unknown("invalid counterbore dimensions")
-                        bore_z = 0 if face == "bottom" else t-bore_depth
-                        cutter = cutter.union(cq.Workplane("XY", origin=(x,y,bore_z)).circle(outer/2).extrude(bore_depth))
+                        if bore_depth > t or bore_depth > depth:
+                            if not allow_primary:
+                                raise Unknown("invalid counterbore dimensions")
+                            step_omission = f"{name}: counterbore step omitted for {t:g} mm thickness: documented depth {bore_depth:g} mm exceeds primary-hole depth {depth:g} mm. Known {diameter:g} mm primary hole retained; step depth was not clamped. {feature['step_conflict_reason']}"
+                            modeled_hole_type = "plain"
+                        else:
+                            bore_z = 0 if face == "bottom" else t-bore_depth
+                            cutter = cutter.union(cq.Workplane("XY", origin=(x,y,bore_z)).circle(outer/2).extrude(bore_depth))
                     elif hole_type == "countersunk":
                         outer = _num(feature.get("countersink_diameter"), "countersink_diameter", evidence, True)
                         angle = _num(feature.get("countersink_angle"), "countersink_angle", evidence, True)
@@ -268,11 +285,15 @@ def build_shape(template):
                             raise Unknown("invalid countersink dimensions")
                         sink_depth = (outer-diameter)/2 / math.tan(math.radians(angle/2))
                         if sink_depth > depth:
-                            raise Unknown("countersink exceeds hole depth")
-                        origin = (x,y,0) if face == "bottom" else (x,y,t-sink_depth)
-                        r1, r2 = (outer/2, diameter/2) if face == "bottom" else (diameter/2, outer/2)
-                        cone = cq.Solid.makeCone(r1, r2, sink_depth, cq.Vector(*origin))
-                        cutter = cutter.union(cq.Workplane(obj=cone))
+                            if not allow_primary:
+                                raise Unknown("countersink exceeds hole depth")
+                            step_omission = f"{name}: countersink step omitted for {t:g} mm thickness: derived depth {sink_depth:g} mm exceeds primary-hole depth {depth:g} mm. Known {diameter:g} mm primary hole retained; step depth was not clamped. {feature['step_conflict_reason']}"
+                            modeled_hole_type = "plain"
+                        else:
+                            origin = (x,y,0) if face == "bottom" else (x,y,t-sink_depth)
+                            r1, r2 = (outer/2, diameter/2) if face == "bottom" else (diameter/2, outer/2)
+                            cone = cq.Solid.makeCone(r1, r2, sink_depth, cq.Vector(*origin))
+                            cutter = cutter.union(cq.Workplane(obj=cone))
                     elif hole_type not in ("plain", "threaded"):
                         raise Unknown("unsupported hole type " + str(hole_type))
                 else:
@@ -286,6 +307,9 @@ def build_shape(template):
             if abs(candidate.val().Volume()-shape.val().Volume()) < 1e-7:
                 raise Unknown("feature does not intersect the plate")
             shape = candidate
+            if step_omission:
+                waiting.append(f"features.{index}.step")
+                omitted.append(step_omission)
             methods = [value.get("method") for value in feature.values() if isinstance(value, dict) and value.get("method")]
             if not methods:
                 provenance = [template.get("features_review"), template.get("thickness"), *outline.values()]
@@ -293,7 +317,7 @@ def build_shape(template):
             method = feature.get("method") or next((candidate for candidate in
                 ("human_decision", "ai_verified_after_retry", "ai_verified", "ai_agreed_after_retry", "ai_agreed", "ai_unsure")
                 if candidate in methods), "derived")
-            labels.append({"name": name, "kind": feature.get("kind"), "count": len(positions), "hole_type": feature.get("hole_type"), "thread": feature.get("thread"), "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry" if feature.get("hole_type") == "threaded" else None, "fact_ids": evidence or [], "method": method, "feature_index": index})
+            labels.append({"name": name, "kind": feature.get("kind"), "count": len(positions), "hole_type": modeled_hole_type, "requested_hole_type": feature.get("hole_type"), "step_omitted": step_omission, "thread": feature.get("thread"), "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry" if feature.get("hole_type") == "threaded" else None, "fact_ids": evidence or [], "method": method, "feature_index": index})
         except (Unknown, ValueError) as exc:
             reason = f"{name}: {exc}"
             waiting.append(f"features.{index}")
@@ -390,7 +414,7 @@ def weight_check(template, models):
     return {"state":state,"message":message,"examples":results,"drawing_g":printed,"tolerance_percent":5,"requires_approval":state in ("Flagged","FAILED"),"approval_note_required":state == "FAILED", "limitation":"A matching weight does not verify feature positions. No thickness or material is selected automatically.","density_label":"Outside source, not the dataset"}
 
 
-def _build_part(part_id, template, old):
+def _build_part(part_id, template, old, allow_generation=True):
     template_hash = _hash(template)
     inventory = feature_inventory(template)
     entry = {"examples":[],"models":{},"waiting":[],"omitted":[],"template_sha256":template_hash,"source_sha256":template.get("source_sha256"),"generator_version":VERSION,"notice":NOTICE,"review":template.get("review", {"status":"not_reviewed"}),"label":"Partial AI reconstruction. Not reviewed by a person" if inventory["status"] in ("partial", "unknown") else "AI reconstruction. Not reviewed by a person", "units":"mm", "features_status":inventory["status"], "features_all_determined":inventory["all_determined"], "omitted_feature_notes":inventory["notes"]}
@@ -418,6 +442,18 @@ def _build_part(part_id, template, old):
                 shutil.copyfile(inside(cache / Path(model[key]).name), inside(GENERATED / model[key]))
         cached["cache_hit"] = True
         return cached
+    if not allow_generation:
+        if old and old.get("models"):
+            entry = copy.deepcopy(old)
+            entry["stale"] = old.get("template_sha256") != template_hash or old.get("generator_version") != VERSION
+            entry["stale_message"] = ("Model out of date: remote reconstruction rebuild needed. Showing the previous version."
+                                      if entry["stale"] else "Using shipped reconstruction; local CAD generation is disabled.")
+            entry["cache_only"] = True
+            return entry
+        entry["cache_only"] = True
+        entry["waiting"] = ["No cached reconstruction for this template; rebuild on GitHub Actions"]
+        entry["weight_check"] = {"state": "Skipped", "message": "Waiting for remote reconstruction", "examples": {}}
+        return entry
     try:
         import cadquery as cq
     except ImportError:
@@ -443,7 +479,7 @@ def _build_part(part_id, template, old):
             content = re.sub(r"FILE_DESCRIPTION\(\(.*?\)\s*,\s*'[^']*'\s*\)\s*;", "FILE_DESCRIPTION(('" + NOTICE + "'),'2;1');", content, count=1, flags=re.S)
             step_path.write_text(content, encoding="utf-8")
             bounds = shape_bounds_mm(shape)
-            model = {"glb":glb,"step":step,"bounds_mm":bounds,"bounds_method":"B-rep optimal bounds; excludes triangulation deflection padding","volume_mm3":shape.val().Volume(),"template_sha256":template_hash,"selections":selections,"labels":labels,"glb_units":"metres","cad_units":"mm","glb_to_mm":1000,"glb_sha256":hashlib.sha256(inside(GENERATED/glb).read_bytes()).hexdigest(),"step_sha256":hashlib.sha256(step_path.read_bytes()).hexdigest()}
+            model = {"glb":glb,"step":step,"bounds_mm":bounds,"bounds_method":"B-rep optimal bounds; excludes triangulation deflection padding","volume_mm3":shape.val().Volume(),"template_sha256":template_hash,"selections":selections,"labels":labels,"waiting":waiting,"omitted":omitted,"features_all_determined":inventory["all_determined"] and not waiting and not omitted,"glb_units":"metres","cad_units":"mm","glb_to_mm":1000,"glb_sha256":hashlib.sha256(inside(GENERATED/glb).read_bytes()).hexdigest(),"step_sha256":hashlib.sha256(step_path.read_bytes()).hexdigest()}
             entry["models"][example] = model
             entry["examples"].append(example)
             entry["waiting"] = list(dict.fromkeys(entry["waiting"]+waiting))
@@ -453,11 +489,15 @@ def _build_part(part_id, template, old):
         except (Unknown, ValueError, RuntimeError) as exc:
             entry["waiting"].append(f"Example {example}: {exc}")
     entry["weight_check"] = weight_check(template, entry["models"])
+    if entry["omitted"]:
+        entry["features_all_determined"] = False
+        if entry["models"]:
+            entry["features_status"] = "partial"
     _write(cache / "manifest.json", entry)
     return entry
 
 
-def build_all(templates: dict | None = None) -> dict:
+def build_all(templates: dict | None = None, *, allow_generation: bool = True) -> dict:
     """Build provided templates, or use AI prep output; no paid calls are made."""
     models_dir = inside(GENERATED / "models")
     models_dir.mkdir(parents=True, exist_ok=True)
@@ -473,7 +513,7 @@ def build_all(templates: dict | None = None) -> dict:
             raise ValueError("Unsafe drawing ID in CAD template")
         if not isinstance(template, dict):
             raise ValueError("Template must be an object: " + part_id)
-        manifest[part_id] = _build_part(part_id, template, old.get(part_id))
+        manifest[part_id] = _build_part(part_id, template, old.get(part_id), allow_generation=allow_generation)
     _write(manifest_path, manifest)
     return manifest
 

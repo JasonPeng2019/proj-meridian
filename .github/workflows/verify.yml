@@ -3,6 +3,10 @@ name: Meridian integration
 on:
   workflow_dispatch:
     inputs:
+      regenerate:
+        description: Regenerate pinned data/CAD and verify fresh-clone recovery (false checks cached runtime/UI and unit fixtures)
+        type: boolean
+        default: true
       live_api:
         description: Run paid isolated correction UI check
         type: boolean
@@ -77,23 +81,28 @@ jobs:
         run: npm --prefix frontend run build
       - name: Record frontend artifact provenance
         run: uv run --locked python -m scripts.frontend_artifact manifest
+      - name: Regenerate structured records from pinned evidence
+        if: inputs.regenerate
+        run: uv run --locked python -c "from backend.loader import build_records; build_records()"
       - name: Run tests in one process
         run: uv run --locked pytest --junitxml=docs/ci/pytest.xml
       - name: Generate and roundtrip every eligible CAD variant
+        if: inputs.regenerate
         run: uv run --locked python scripts/ci_verify.py cad
       - name: Install headless browser and Linux dependencies
         run: uv run --locked playwright install --with-deps chromium
       - name: Verify fresh runtime and cache regeneration without a key
+        if: inputs.regenerate
         run: uv run --locked python scripts/verify_release.py --skip-live
       - name: Verify browser pages and screenshots without a key
         run: uv run --locked python scripts/ci_verify.py browser
       - name: Optional canonical benchmark (two sequential passes)
-        if: github.event_name == 'workflow_dispatch' && inputs.benchmark
+        if: github.event_name == 'workflow_dispatch' && inputs.regenerate && inputs.benchmark
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: uv run --locked python -m scripts.run_benchmark run --output docs/benchmark/run-${{ github.run_id }} --passes 2
       - name: Optional live correction in isolated clone
-        if: github.event_name == 'workflow_dispatch' && inputs.live_api
+        if: github.event_name == 'workflow_dispatch' && inputs.regenerate && inputs.live_api
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: uv run --locked python scripts/verify_release.py

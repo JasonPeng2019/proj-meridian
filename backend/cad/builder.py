@@ -13,7 +13,7 @@ from pathlib import Path
 
 from backend.paths import GENERATED, ROOT, inside
 
-VERSION = "flat-part-10"
+VERSION = "flat-part-11"
 NOTICE = "Reconstruction from 2D drawing. Not the original CAD model."
 
 
@@ -132,8 +132,37 @@ def _positions(feature):
     raise Unknown("unsupported pattern " + str(pattern.get("type")))
 
 
+def _validate_essential(template):
+    """Reject missing main geometry before a cache hit or optional CAD import."""
+    if template.get("cad_ready") is False:
+        fields = template.get("blocking_fields") or ["cad_ready"]
+        raise Unknown("Essential geometry unresolved: " + ", ".join(map(str, fields)))
+    if template.get("blocking_fields"):
+        raise Unknown("Essential geometry unresolved: " + ", ".join(map(str, template["blocking_fields"])))
+    eligibility = template.get("cad_eligibility")
+    if eligibility is not None:
+        value = _value(eligibility, "cad_eligibility")
+        if (not isinstance(value, dict) or any(value.get(key) is not True for key in
+                ("supported", "constant_thickness", "outline_exact")) or value.get("essential_uncertainty")):
+            raise Unknown("Main outline or constant thickness is unsupported by the drawing")
+    outline = template.get("outline", {})
+    if outline.get("state") == "unknown" or outline.get("confidence") == "unsure":
+        raise Unknown("outline")
+    evidence = outline.get("fact_ids") or outline.get("fact_id")
+    kind = _value(outline.get("type"), "outline.type", evidence)
+    if kind not in ("rectangle", "circle", "ring"):
+        raise Unknown("unsupported outline " + str(kind))
+    keys = ["length", "width"] if kind == "rectangle" else ["outer_diameter"] + (["inner_diameter"] if kind == "ring" else [])
+    dimensions = {key: _num(outline.get(key, outline.get("diameter") if key == "outer_diameter" else None),
+                             "outline." + key, evidence, True) for key in keys}
+    if kind == "ring" and dimensions["inner_diameter"] >= dimensions["outer_diameter"]:
+        raise Unknown("inner diameter must be smaller than outer diameter")
+    _num(template.get("thickness"), "thickness", template.get("fact_ids"), True)
+
+
 def build_shape(template):
     """Return (CadQuery solid, waiting names, omitted details, feature labels)."""
+    _validate_essential(template)
     import cadquery as cq
     outline = template.get("outline", {})
     if outline.get("state") == "unknown":
@@ -340,14 +369,7 @@ def _build_part(part_id, template, old):
         variants = list(_options(effective))
         # Validate essential fields before considering cache or optional CAD imports.
         for variant, _ in variants:
-            outline = variant.get("outline", {})
-            if outline.get("state") == "unknown":
-                raise Unknown("outline")
-            kind = _value(outline.get("type"), "outline.type", outline.get("fact_ids"))
-            keys = ["length","width"] if kind == "rectangle" else ["outer_diameter"] + (["inner_diameter"] if kind == "ring" else [])
-            for key in keys:
-                _num(outline.get(key, outline.get("diameter") if key == "outer_diameter" else None), "outline."+key, outline.get("fact_ids"), True)
-            _num(variant.get("thickness"), "thickness", positive=True)
+            _validate_essential(variant)
     except Unknown as exc:
         entry["waiting"] = [str(exc)]
         entry["weight_check"] = {"state":"Skipped","message":"No model built; waiting for human input", "examples":{}}

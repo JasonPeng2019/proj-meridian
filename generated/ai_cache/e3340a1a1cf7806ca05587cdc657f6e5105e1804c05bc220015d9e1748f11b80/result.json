@@ -1,0 +1,49 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "relationship",
+        "state": "known",
+        "value_json": "\"kind_of\"",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-015/drawing/material",
+          "D-015/drawing/title",
+          "D-015/drawing/notes",
+          "D-015/drawing/source",
+          "BOM:recoater/recoater-blade"
+        ],
+        "reason": "The linked drawing says 'Silicon Rubber', but its title 'Silikone Wiper' and notes 'Silikone Wiper af 1mm' and 'silikone plade' support a contextual interpretation as silicone rubber. The linked BOM lists 'Silicone'. Silicone rubber is more specific than Silicone, based on general engineering knowledge, not the dataset. The spelling interpretation and formulation remain unconfirmed; this does not equate elemental silicon with silicone. Actual human approval is required before use.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 14331,
+          "cached_input_tokens": 10112,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1526,
+          "reasoning_output_tokens": 1334
+        }
+      }
+    ]
+  },
+  "latency_ms": 38938,
+  "cache_key": "e3340a1a1cf7806ca05587cdc657f6e5105e1804c05bc220015d9e1748f11b80",
+  "cache_hit": false,
+  "job": "mapping:names/material/silicon-rubber -> silicone:proposal-verification-v1:proposal:0",
+  "error": null
+}

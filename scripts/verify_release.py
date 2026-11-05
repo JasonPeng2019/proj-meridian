@@ -90,7 +90,10 @@ def stop(proc, log):
 
 def inspect(client):
     status = client.get("/api/status").json()
-    assert status["drawings"] == 30 and status["models"] == 3 and status["parts"] == 215
+    manifest = json.loads((CLONE / "generated/models/manifest.json").read_text(encoding="utf-8"))
+    model_ids = sorted(did for did, part in manifest.items() if part.get("models"))
+    assert {"D-013", "D-025", "D-026"}.issubset(model_ids)
+    assert status["drawings"] == 30 and status["models"] == len(model_ids) and status["parts"] == 215
     assert not status["chat_available"]
     assert client.post("/api/chat", json={"message": "Hello"}).status_code == 400
     assert client.get("/api/review").status_code == 200
@@ -99,9 +102,12 @@ def inspect(client):
     assert thickness["display"] == {"state": "options", "values": [3.0, 6.0]}
     assert thickness["correction"]["by"] == "Jason Peng"
     assets = []
-    for did in ("D-013", "D-025", "D-026"):
+    for did in model_ids:
         record = client.get("/api/parts/" + did).json()
-        assert record["has_3d"] and len(record["model"]["examples"]) == 2
+        assert record["has_3d"] and record["model"]["examples"]
+        assert record["model"]["models"] == manifest[did]["models"]
+        if did in ("D-013", "D-025", "D-026"):
+            assert record["model"]["examples"] == ["A", "B"]
         for variant, model in record["model"]["models"].items():
             for kind in ("glb", "step"):
                 response = client.get("/generated/" + model[kind])
@@ -113,7 +119,7 @@ def inspect(client):
     assert client.get("/api/parts/D-003/image?page=3").headers["content-type"] == "image/png"
     assert client.get("/api/parts/D-013/image?thumb=1").headers["content-type"] == "image/png"
     assert client.get("/api/parts/D-013/crop", params={"fact": "D-013/drawing/material"}).headers["content-type"] == "image/png"
-    return {"status": status, "asset_hashes_checked": len(assets), "d013_decision_replayed": True}
+    return {"status": status, "model_ids_checked": model_ids, "asset_hashes_checked": len(assets), "d013_decision_replayed": True}
 
 
 def correction_demo(env, report):

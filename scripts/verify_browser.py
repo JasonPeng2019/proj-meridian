@@ -1,4 +1,4 @@
-"""Read-only browser smoke checks. Never submits a human review action."""
+﻿"""Read-only browser smoke checks. Never submits a human review action."""
 from pathlib import Path
 import json
 import urllib.request
@@ -110,7 +110,7 @@ def main():
         assert 'Silicone Wiper' in page.locator('.part-title h2').inner_text()
         page.goto(BASE+'/part/D-023/detail')
         assert 'Build Cylinder' in page.locator('.part-title h2').inner_text()
-        assert 'EN AW6082 T6' in page.locator('.notes-box').inner_text()
+        assert 'EN AW-6082 T6' in page.locator('.notes-box').inner_text()
         assert 'længere' not in page.locator('.notes-box').inner_text()
         page.screenshot(path=str(OUT/'english-notes.png'))
         page.goto(BASE+'/review/part/D-013')
@@ -151,3 +151,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+

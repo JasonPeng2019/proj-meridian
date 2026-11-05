@@ -33,3 +33,7 @@ Keep the default screens focused: one part viewer, one tab bar, concise core fac
 ### Customer UI and engineering Debug
 
 Keep Detail to Overview, Dimensions, one Notes section, and Supply & cost when applicable. Translate display labels and readable notes into English while retaining original evidence. Customer launches hide Debug by default. Engineers launch with `uv run meridian --debug-ui`; `--hide-debug` explicitly hides it. Debug collects raw records, calculations, hashes, provider receipts and history. Verify customer and engineering launches sequentially in Actions, download the verified frontend bundle, and serve it locally without Node.
+
+### Prep workflow revision
+
+Dataset preparation now runs Sol as proposer and Opus as verifier of the exact proposal, source IDs and fingerprint. Repairable feedback receives one bounded retry; invalid or unsupported essential geometry remains blocked. Existing independent-reader receipts are retained as legacy evidence. A targeted material-mapping rerun and an assessment of every additional drawing use the revised protocol. Model expansion preserves original evidence and decisions; Actions generates and roundtrip-checks each eligible model sequentially.

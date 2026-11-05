@@ -7811,10 +7811,46 @@
       "kind": "material",
       "left": "Silicon Rubber",
       "right": "Silicone",
-      "relationship": null,
-      "method": "ai_unsure",
+      "relationship": "kind_of",
+      "method": "ai_verified",
       "readers": {
         "claude": {
+          "role": "verifier",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "relationship",
+                "decision": "accept",
+                "reason": "D-015/drawing/material literally reads 'Silicon Rubber'. The same drawing gives the context for reading it as silicone rubber: D-015/drawing/title is 'Silikone Wiper' and D-015/drawing/notes reads 'Silikone Wiper af 1mm' and 'silikone plade'. D-015 is linked to BOM:recoater/recoater-blade through the established link D-015/drawing/source, and that BOM entry lists material 'Silicone' with datasheet Silicone270mm_1mm_x2.pdf. The proposal explains this context, keeps the spelling interpretation marked as unconfirmed, and does not equate elemental silicon with silicone. Its claim that silicone rubber is more specific than silicone (kind_of) is based on general engineering knowledge, not the dataset, and it says so explicitly. It also notes that a human must approve the mapping. All cited fact IDs were supplied.",
+                "fact_ids": [
+                  "D-015/drawing/material",
+                  "D-015/drawing/title",
+                  "D-015/drawing/notes",
+                  "D-015/drawing/source",
+                  "BOM:recoater/recoater-blade"
+                ],
+                "repairable": false
+              },
+              "valid": true,
+              "validation_passed": true,
+              "requested": true,
+              "proposal_fingerprint": "d00f0f2b56192d1c08839ac5dd6beb1e486078ecdc795c8adc2a083c112f2e61",
+              "response_proposal_fingerprint": "d00f0f2b56192d1c08839ac5dd6beb1e486078ecdc795c8adc2a083c112f2e61",
+              "feedback": [],
+              "settings": {
+                "model": "opus",
+                "fast_mode": false,
+                "mode": "regular",
+                "reader": "claude"
+              },
+              "cache_key": "2cb0f41eeac2bea00ac7bbfa47ed7fc632bb53f45d5ac05185699ba305d099da"
+            }
+          ]
+        },
+        "codex": {
+          "role": "proposer",
+          "protocol": "proposal-verification-v1",
           "rounds": [
             {
               "answer": {
@@ -7823,43 +7859,28 @@
                 "value_json": "\"kind_of\"",
                 "confidence": "unsure",
                 "fact_ids": [
+                  "D-015/drawing/material",
+                  "D-015/drawing/title",
+                  "D-015/drawing/notes",
                   "D-015/drawing/source",
                   "BOM:recoater/recoater-blade"
                 ],
-                "reason": "The supplied links connect the drawing source D-015 with the BOM recoater blade item, but they do not state how the materials relate. Based on general engineering knowledge, not the dataset: 'Silicon Rubber' looks like a common misspelling of 'silicone rubber'. Silicone rubber is an elastomer within the broader silicone family, which also includes silicone oils, resins and gels. That makes LEFT more specific than RIGHT (kind_of). This is unsure because the spelling 'Silicon' is not confirmed in the evidence, and the BOM may simply mean the same blade material. Human approval is required.",
+                "reason": "The linked drawing says 'Silicon Rubber', but its title 'Silikone Wiper' and notes 'Silikone Wiper af 1mm' and 'silikone plade' support a contextual interpretation as silicone rubber. The linked BOM lists 'Silicone'. Silicone rubber is more specific than Silicone, based on general engineering knowledge, not the dataset. The spelling interpretation and formulation remain unconfirmed; this does not equate elemental silicon with silicone. Actual human approval is required before use.",
                 "changed_because": ""
               },
               "valid": true,
-              "settings": {
-                "model": "opus",
-                "fast_mode": false,
-                "mode": "regular",
-                "reader": "claude"
-              },
-              "cache_key": "a093060e6af154840b92c66c235a108a4558d718e83b78cfe8b1988351953763"
-            }
-          ]
-        },
-        "codex": {
-          "rounds": [
-            {
-              "answer": {
-                "key": "relationship",
-                "state": "known",
-                "value_json": "\"kind_of\"",
-                "confidence": "unsure",
-                "fact_ids": [],
-                "reason": "Interpreting 'Silicon Rubber' as silicone rubber, LEFT is a specific form of 'Silicone', based on general engineering knowledge, not the dataset. The spelling makes this uncertain. Actual human approval is required before use.",
-                "changed_because": ""
-              },
-              "valid": true,
+              "validation_passed": true,
+              "requested": true,
+              "proposal_fingerprint": "d00f0f2b56192d1c08839ac5dd6beb1e486078ecdc795c8adc2a083c112f2e61",
+              "response_proposal_fingerprint": null,
+              "feedback": [],
               "settings": {
                 "model": "gpt-6.1-sol",
                 "reasoning_effort": "xhigh",
                 "service_tier": "fast",
                 "reader": "codex"
               },
-              "cache_key": "62555e36694c73bdb8ac672114918b627dce17639b12958788611a0b4455ccf2"
+              "cache_key": "e3340a1a1cf7806ca05587cdc657f6e5105e1804c05bc220015d9e1748f11b80"
             }
           ]
         }
@@ -7868,7 +7889,7 @@
       "review": {
         "status": "pending_approval"
       },
-      "reason": "Waiting for review: unsure"
+      "reason": "The linked drawing says 'Silicon Rubber', but its title 'Silikone Wiper' and notes 'Silikone Wiper af 1mm' and 'silikone plade' support a contextual interpretation as silicone rubber. The linked BOM lists 'Silicone'. Silicone rubber is more specific than Silicone, based on general engineering knowledge, not the dataset. The spelling interpretation and formulation remain unconfirmed; this does not equate elemental silicon with silicone. Actual human approval is required before use. Verification: D-015/drawing/material literally reads 'Silicon Rubber'. The same drawing gives the context for reading it as silicone rubber: D-015/drawing/title is 'Silikone Wiper' and D-015/drawing/notes reads 'Silikone Wiper af 1mm' and 'silikone plade'. D-015 is linked to BOM:recoater/recoater-blade through the established link D-015/drawing/source, and that BOM entry lists material 'Silicone' with datasheet Silicone270mm_1mm_x2.pdf. The proposal explains this context, keeps the spelling interpretation marked as unconfirmed, and does not equate elemental silicon with silicone. Its claim that silicone rubber is more specific than silicone (kind_of) is based on general engineering knowledge, not the dataset, and it says so explicitly. It also notes that a human must approve the mapping. All cited fact IDs were supplied."
     },
     {
       "name": "names/section/ -> electric",
@@ -9278,5 +9299,61 @@
       }
     },
     "wall_time_ms": 2735
-  }
+  },
+  "prep_runs": [
+    {
+      "kind": "targeted_material_mapping",
+      "protocol": "proposal-verification-v1",
+      "receipt": "ai_cache/artifacts/silicone-proposal-verification.json",
+      "metrics": {
+        "agreed": 0,
+        "agreed_after_retry": 0,
+        "verified": 1,
+        "verified_after_retry": 0,
+        "sent_to_review": 0,
+        "scan_undetermined": 0,
+        "mapping_approvals_required": 1,
+        "mapping_suggestions_unsure": 0,
+        "status_counts": {
+          "verified": 1
+        },
+        "by_job": {
+          "mapping": {
+            "verified": 1
+          }
+        },
+        "jobs": 1,
+        "exact_links": 0,
+        "reader_calls": 2,
+        "cache_hits": 0,
+        "provider_calls": 2,
+        "latency_ms_total": 47094,
+        "proposer_calls": 1,
+        "verifier_calls": 1,
+        "feedback_rounds": 0,
+        "feedback_keys": 0,
+        "protocols": [
+          "proposal-verification-v1"
+        ],
+        "configured_readers": {
+          "claude": {
+            "model": "opus",
+            "fast_mode": false,
+            "mode": "regular",
+            "reader": "claude"
+          },
+          "codex": {
+            "model": "gpt-6.1-sol",
+            "reasoning_effort": "xhigh",
+            "service_tier": "fast",
+            "reader": "codex"
+          }
+        },
+        "roles": {
+          "codex": "proposer",
+          "claude": "verifier"
+        }
+      }
+    }
+  ]
 }

@@ -52,28 +52,39 @@ def cad():
     store.rebuild_models()
     results = []
     for did in ("D-013", "D-025", "D-026"):
-        part = store.models[did]
-        assert part["examples"] == ["A", "B"], part
+        assert store.models[did]["examples"] == ["A", "B"], store.models[did]
+    for did, part in sorted(store.models.items()):
+        assert part["examples"] == list(part["models"]), part
+        if not part["models"]:
+            assert part["waiting"], part
         for variant, model in part["models"].items():
-            mesh = trimesh.load(inside(ROOT / "generated" / model["glb"]))
+            mesh = trimesh.load(inside(ROOT / "generated" / model["glb"]), force="mesh", process=True)
+            mesh.merge_vertices()
             step = inside(ROOT / "generated" / model["step"])
             shape = cq.importers.importStep(str(step)).val()
             bounds_error = max(abs(float(a) * 1000 - b) for a, b in zip(mesh.extents, model["bounds_mm"]["size"]))
+            mesh_bounds_error = max(abs(float(a) * 1000 - b) for side, key in zip(mesh.bounds, ("min", "max")) for a, b in zip(side, model["bounds_mm"][key]))
+            from backend.cad.builder import shape_bounds_mm
+            step_bounds = shape_bounds_mm(cq.Workplane(obj=shape))
+            step_bounds_error = max(abs(a - b) for key in ("min", "max", "size") for a, b in zip(step_bounds[key], model["bounds_mm"][key]))
             volume_error = abs(shape.Volume() - model["volume_mm3"])
-            assert shape.isValid() and bounds_error < .1 and volume_error < .01
+            mesh_volume_error = abs(abs(float(mesh.volume)) * 1e9 - model["volume_mm3"])
+            assert shape.isValid() and model["volume_mm3"] > 0 and bounds_error < .1 and mesh_bounds_error < .1 and step_bounds_error < .001 and volume_error < .01
+            assert mesh.is_watertight and mesh_volume_error <= max(.1, model["volume_mm3"] * .01)
             assert "Reconstruction from 2D drawing. Not the original CAD model." in step.read_text(encoding="utf-8")
             for kind in ("glb", "step"):
                 assert digest(inside(ROOT / "generated" / model[kind])) == model[kind + "_sha256"]
-            results.append({"part": did, "variant": variant, "bounds_mm": model["bounds_mm"]["size"], "bounds_error_mm": bounds_error, "volume_error_mm3": volume_error})
-    assert len(results) == 6
+            results.append({"part": did, "variant": variant, "bounds_mm": model["bounds_mm"]["size"], "bounds_error_mm": bounds_error, "mesh_bounds_error_mm": mesh_bounds_error, "step_bounds_error_mm": step_bounds_error, "volume_error_mm3": volume_error, "mesh_volume_error_mm3": mesh_volume_error})
+    assert len(results) >= 6
     assert before == {p.name: digest(p) for p in (ROOT / "decisions").glob("*.json")}
-    write("cad.json", {"passed": True, "variants": results, "decisions_unchanged": True})
+    write("cad.json", {"passed": True, "built_parts": sum(bool(part["models"]) for part in store.models.values()), "variant_count": len(results), "variants": results, "decisions_unchanged": True})
 
 
-def server_check(live=False):
+def server_check(live=False, debug=False):
     import httpx
     OUT.mkdir(parents=True, exist_ok=True)
     env = os.environ.copy()
+    env["MERIDIAN_DEBUG_UI"] = "1" if debug else "0"
     if live:
         if not env.get("OPENAI_API_KEY"):
             raise RuntimeError("Set the repository OPENAI_API_KEY Actions secret before selecting live API checks")
@@ -81,7 +92,7 @@ def server_check(live=False):
     else:
         env["MERIDIAN_NO_KEY"] = "1"
         env.pop("OPENAI_API_KEY", None)
-    with (OUT / ("live-server.log" if live else "browser-server.log")).open("w", encoding="utf-8") as log:
+    with (OUT / ("live-server.log" if live else "debug-server.log" if debug else "browser-server.log")).open("w", encoding="utf-8") as log:
         proc = subprocess.Popen([sys.executable, "-m", "backend.app.main"], cwd=ROOT, env=env, stdout=log, stderr=log,
                                 start_new_session=os.name != "nt", creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
         try:
@@ -120,7 +131,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("stage", choices=["audit", "cad", "browser", "live"])
     stage = parser.parse_args().stage
-    {"audit": audit, "cad": cad, "browser": server_check, "live": lambda: server_check(True)}[stage]()
+    {"audit": audit, "cad": cad, "browser": lambda: (server_check(), server_check(debug=True)),  "live": lambda: server_check(True)}[stage]()
 
 
 if __name__ == "__main__":

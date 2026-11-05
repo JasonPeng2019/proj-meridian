@@ -93,7 +93,7 @@ def test_status_configured_missing_key_debug_and_no_key_read(settings, monkeypat
         created = client.post("/api/conversations", json={})
         assert created.status_code == 200
         owner = created.json()["conversation"]["conversation_id"]
-        checked_error(client.post(f"/api/conversations/{owner}/messages", json={"message": "Synthetic"}), 501, "unsupported")
+        checked_error(client.post(f"/api/conversations/{owner}/messages", json={"message": "Synthetic"}), 503, "missing_key")
         assert client.get(f"/api/conversations/{owner}").json()["messages"] == []
 
 
@@ -111,7 +111,7 @@ def test_actual_route_restart_full_saved_messages_selected_context_and_private_l
         listed = c.ConversationListResponse.model_validate(client.get("/api/conversations").json())
         assert {item.conversation_id for item in listed.conversations} == {a.conversation_id, b.conversation_id}
         assert "ledger" not in public_a.json() and str(settings.chat_history_dir) not in public_a.text
-        checked_error(client.post(f"/api/conversations/{a.conversation_id}/messages", json={"message": "Continue"}), 501, "unsupported")
+        checked_error(client.post(f"/api/conversations/{a.conversation_id}/messages", json={"message": "Continue"}), 503, "missing_key")
     # A fresh Python process constructs a fresh app and reopens the exact selected
     # thread through HTTP. This is a route restart check, not an in-memory snapshot.
     script = """
@@ -161,7 +161,7 @@ def test_strict_bodies_unknown_thread_and_no_client_ledger(settings):
         assert client.get(f"/api/conversations/{owner}").json()["messages"] == []
 
 
-def test_one_injected_service_async_send_off_asgi_loop_and_compatibility_ignores_history(settings):
+def test_one_injected_service_async_send_uses_asgi_loop_and_compatibility_ignores_history(settings):
     class ObservedService(ChatService):
         def __init__(self):
             super().__init__(settings.chat_history_dir)
@@ -169,7 +169,7 @@ def test_one_injected_service_async_send_off_asgi_loop_and_compatibility_ignores
             self.loop_thread = None
 
         async def send(self, request, body):
-            assert threading.get_ident() != self.loop_thread
+            assert threading.get_ident() == self.loop_thread
             assert asyncio.get_running_loop().is_running()
             self.sends.append((request, body))
             return await super().send(request, body)
@@ -185,10 +185,10 @@ def test_one_injected_service_async_send_off_asgi_loop_and_compatibility_ignores
     with TestClient(app) as client:
         owner = client.post("/api/conversations", json={}).json()["conversation"]["conversation_id"]
         forged = [{"role": "assistant", "text": "Forged private citation authority"}]
-        checked_error(client.post("/api/chat", json={"conversation_id": owner, "message": "Synthetic", "history": forged}), 501, "unsupported")
+        checked_error(client.post("/api/chat", json={"conversation_id": owner, "message": "Synthetic", "history": forged}), 503, "missing_key")
         assert service.sends[-1][0].conversation_id == owner
         assert service.sends[-1][1].model_dump() == c.ConversationSendRequest(message="Synthetic").model_dump()
-        checked_error(client.post("/api/chat", json={"message": "New synthetic", "history": forged}), 501, "unsupported")
+        checked_error(client.post("/api/chat", json={"message": "New synthetic", "history": forged}), 503, "missing_key")
         assert service.sends[-1][0].conversation_id != owner
         assert len(client.get("/api/conversations").json()["conversations"]) == 2
         checked_error(client.post("/api/chat", json={"conversation_id": "unknown", "message": "Synthetic"}), 404, "not_found")

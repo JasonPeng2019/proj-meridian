@@ -1,0 +1,55 @@
+--- a/.github/workflows/verify.yml
++++ b/.github/workflows/verify.yml
+@@ -8,3 +8,3 @@
+         type: choice
+-        options: [capability, pdf, extract, modules, history-windows, history-ui, gate, live]
++        options: [capability, pdf, extract, modules, history-windows, history-ui, core, gate, live]
+         default: capability
+@@ -50,2 +50,42 @@
+ jobs:
++  core:
++    if: inputs.task == 'core' && github.ref == 'refs/heads/harness-v2'
++    runs-on: ubuntu-24.04
++    timeout-minutes: 30
++    env:
++      UV_THREADPOOL_SIZE: '1'
++      npm_config_maxsockets: '1'
++      MAKEFLAGS: -j1
++    steps:
++      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
++        with: {persist-credentials: false}
++      - run: mkdir -p tmp/core-flow cache/uv cache/pip cache/npm cache/playwright reports/core-flow ../development/.runtime/ci-browser
++      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
++        with: {python-version: '3.12'}
++      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
++        with: {node-version: '24'}
++      - name: Install locked core and browser dependencies in the serial remote slot
++        run: |
++          python -m pip install uv==0.11.19 --cache-dir cache/pip
++          uv sync --project ../development --locked --extra test --extra prep
++          npm --prefix ../development/frontend ci --ignore-scripts --no-audit --no-fund
++          cp ci/package*.json ../development/.runtime/ci-browser/
++          npm --prefix ../development/.runtime/ci-browser ci --ignore-scripts --no-audit --no-fund
++          ../development/.runtime/ci-browser/node_modules/.bin/playwright install --with-deps chromium
++      - name: Extract real corpus, run mandatory core suites, build and exercise real UI and API
++        run: uv run --project ../development --locked --extra test --extra prep python -B ci/core_flow.py
++      - name: Save exact revision core evidence and actual built/source assets
++        if: always()
++        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
++        with:
++          name: harness-v2-core-${{ github.sha }}-${{ github.run_id }}
++          retention-days: 7
++          if-no-files-found: error
++          path: |
++            product/testing/reports/core-flow/
++            product/testing/reports/ci/deterministic-inputs.json
++            product/testing/reports/ci/frontend-build.json
++            product/testing/runs/deterministic-inputs/
++            product/development/frontend/dist/
++
+   history-ui:
+@@ -179,3 +219,3 @@
+   requested:
+-    if: inputs.task != 'capability' && inputs.task != 'history-windows' && inputs.task != 'history-ui'
++    if: inputs.task != 'capability' && inputs.task != 'history-windows' && inputs.task != 'history-ui' && inputs.task != 'core'
+     runs-on: ubuntu-24.04

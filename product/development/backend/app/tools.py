@@ -452,7 +452,8 @@ class FactTools:
                                      ("summary/machine/records", len(records), drawing_sources + bom_sources)):
             if sources:
                 facts[name] = self._aggregate(name, value, sources, markers=markers)
-        return c.MachineSummaryResult(**markers, records_sha256=c.contract_digest(records), source_hashes=hashes,
+        return c.MachineSummaryResult(**markers,
+            records_sha256=c.contract_digest([record.model_dump(mode="json") for record in records]), source_hashes=hashes,
             record_count=len(records), drawing_count=len(drawings), bom_row_count=len(rows),
             drawing_sections=drawing_sections, bom_sections=bom_sections, facts=facts)
 
@@ -494,7 +495,8 @@ class FactTools:
             "recorded_total_count": len(recorded), "missing_total_count": sum(map(len, missing.values())),
             "caveat": _COST_CAVEAT}, sources, markers=markers, snapshot=True)
         order = ("missing_unit_cost", "missing_amount", "missing_total", "invalid_total", "unresolved")
-        return c.CostSummaryResult(**markers, records_sha256=c.contract_digest(records), source_hashes=hashes,
+        return c.CostSummaryResult(**markers,
+            records_sha256=c.contract_digest([record.model_dump(mode="json") for record in records]), source_hashes=hashes,
             recorded_total=format(total, ".2f"), recorded_row_names=recorded, recorded_total_count=len(recorded),
             missing_total_count=sum(map(len, missing.values())), row_count=len(rows),
             missing_reasons=[c.MissingCostGroup(reason=reason, row_names=missing[reason], count=len(missing[reason]))

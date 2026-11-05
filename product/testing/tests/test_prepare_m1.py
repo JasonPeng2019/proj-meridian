@@ -236,7 +236,7 @@ def test_exact_boundary_atomic_save_and_cli_free_reload(work, monkeypatch):
     paths = inputs(work)
     scripted = Scripted(work, monkeypatch)
     saved = execute(work, scripted, paths)
-    assert set(saved.model_dump()) == {"pipeline_version", "input_sha256", "drawings", "bom_rows", "links",
+    assert set(saved.model_dump()) == {"pipeline_version", "source_only", "input_sha256", "drawings", "bom_rows", "links",
         "mappings", "templates", "review_items", "batch"}
     assert saved.input_sha256 == hashlib.sha256(paths[0].read_bytes()).hexdigest()
     assert saved.links[0].link.method == "exact_match"

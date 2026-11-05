@@ -13,7 +13,7 @@ These user-requested updates supersede the historical timing/testing rules below
 - Follow [the updated benchmark run plan](docs/Question-benchmark/PLAN.md): use these exact question texts, add the missing aggregate tools, evaluate twice, and report rule checks, independent judge scores, combined results, timing, tokens and repeatability separately. Benchmarks must not feed expected answers into chat, extraction or dataset prep.
 - The existing five-question observations are historical smoke checks, not results for the new benchmark. Do not label them as the new benchmark's score.
 
-**Time budget:** 12–14 hours. **Approach:** build in **stacked milestones**. Each milestone is a complete, working, **submittable** version, tagged in git as `stable-m1`, `stable-m2`, and so on. If time runs out at any point, check out the latest tag and submit it.
+**Time budget:** nine hours. **Approach:** build in **stacked milestones**. Each milestone is a complete, working, **submittable** version, tagged in git as `stable-m1`, `stable-m2`, and so on. Preserve these historical tags and verify the final integrated `v1` state before submission.
 
 **This file is the border.** Build only what's in the milestones below. When this file and `proposal.md` disagree, **this file wins** for the build. `proposal.md` is the reference for how anything included here should behave.
 
@@ -47,11 +47,11 @@ This is the boundary for coding practices and edge cases. Agents should **not** 
 
 **Coding practices skipped:**
 
-- **No test suites** (unit, integration, or end-to-end), no CI, no linting, formatting, or type-checking setup. Each milestone has one manual or scripted checklist instead.
+- **Focused verification:** use unit checks for evidence, decisions and geometry contracts; queued remote integration, CAD and browser checks cover release behavior. Do not add a broad linting/formatting framework or duplicate checks without a concrete risk.
 - **No abstractions for the future:** no plugin systems, interfaces, or "in case we need it" layers. Duplicated code is fine.
 - **No refactoring** of working code. If it works, leave it.
 - **No logging framework.** `print` is fine.
-- **No docs** beyond the README write-up and short code comments where something is non-obvious.
+- **Concise documentation:** README, current build/benchmark plans and saved verification receipts; avoid unrelated documentation.
 - **No data migrations or versioned formats.** If a format changes, regenerate.
 - **No performance work.** Load everything into memory.
 - **No database.** Part records are one `generated/records.json` file loaded into memory, instead of the SQLite database in `proposal.md`.
@@ -59,16 +59,16 @@ This is the boundary for coding practices and edge cases. Agents should **not** 
 **Product concerns skipped (single local user):**
 
 - **No login, accounts, permissions, or multiple users.** The reviewer is always Jason Peng, from the settings file.
-- **No answer key.** Nothing is hand-filled. Jason checks AI output on the review page, and those checks are the accuracy measure.
+- **No hand-filled production answers.** The supplied benchmark draft is isolated from chat/prep. Report automated benchmark results and actual human reviews separately.
 - **No security hardening.** It runs locally.
-- **Desktop browser only.** No mobile layout, no touch support, no accessibility work, no translations.
-- **One chat provider**, whichever one Jason has a key for.
+- **Desktop browser only.** English display translations retain immutable original wording; broader localization and mobile work are outside scope.
+- **One chat model: `gpt-6-luna` only.**
 
 **Edge cases ignored:**
 
 - **Data outside this dataset:** other drawing layouts, other spreadsheets, other units. Hardcoding for these 30 drawings and this one spreadsheet is fine.
 - **Malformed input** beyond what the demo uses. If a source file is odd, the loader can fail loudly.
-- **Malformed AI output:** anything that doesn't parse counts as "not agreed." No repair attempts.
+- **Malformed AI output:** never treat an invalid response as verified. Permit only the protocol's one bounded feedback retry; unresolved results remain undetermined.
 - **Network and API failures:** show a plain error message. The only automatic retry is the runner waiting out rate limits.
 - **Long chats:** only the last 10 turns are sent to the model.
 - **Simultaneous edits:** there's only one user.
@@ -97,19 +97,19 @@ This is the boundary for coding practices and edge cases. Agents should **not** 
 
 ### M1: Minimum submittable version (target: tagged by about hour 6)
 
-**Goal:** meets every assignment requirement, and **everything is filled by the two-model AI pipeline**. Jason only checks what the AI couldn't agree on. This is the floor you can always submit.
+**Goal:** meets every assignment requirement using source extraction and the proposer–verifier pipeline. Human approvals remain separate, explicit review actions. This is the floor you can always submit.
 
 **The runner (W2), built first:**
-- runs both CLIs from `ai_settings.yaml`, validates any IDs they use, checks agreement (both `sure`, same answer), and caches results by a hash of the inputs;
-- runs jobs **in parallel** with a cap (16) and waits out rate limits;
-- runs in **stages**: (1) scans and templates, (2) matching (which uses the scan titles), (3) name mappings (which use the links), then (4) **the retry round** for sure-vs-sure disagreements;
-- anything that doesn't parse counts as "not agreed."
+- runs Sol xhigh priority/Fast from `ai_settings.yaml` to propose, then Opus regular verifies that exact proposal and fingerprint against original evidence; validates source IDs and caches receipts by input/settings hash;
+- runs prep **serially**, behind the RAM/CPU resource gate; four readers is a hard ceiling, not a target, and the conservative overall CLI-worker budget also applies;
+- runs in **stages**: (1) scans and templates, (2) matching using scan titles, (3) name mappings using links; each job permits one bounded feedback retry before unresolved fields go to review;
+- invalid or unsupported responses never become verified values; retain earlier independent-reader receipts with their original protocol labels.
 
 **AI prep jobs (W2), all through the runner:**
-- **Scans (A2):** corner boxes. Agreed fields are `ai_read`. The rest are Undetermined ("Too blurry to read on the scan"). Citations highlight the whole field box.
-- **Matching (A4):** exact matching first (datasheet filename, then normalized names, exactly one match), then the runner. Agreed links are `ai_agreed` or `ai_agreed_after_retry`. Anything else becomes a review item.
+- **Scans (A2):** corner boxes. Verified fields use `ai_verified` or `ai_verified_after_retry`; the rest are Undetermined. Citations highlight the whole field box. Legacy `ai_read` receipts remain labelled as legacy.
+- **Matching (A4):** exact matching first (datasheet filename, then normalized names, exactly one match), then the runner. Verified links use `ai_verified` or `ai_verified_after_retry`; legacy `ai_agreed` receipts retain their original labels. Anything unresolved becomes a review item.
 - **Name mappings (A10):** the runner suggests a relationship (`same`, `kind_of`, `different`, `no_equivalent`) for each of the roughly 15 section and material pairs. **Every mapping needs Jason's approval** before it's used. Until then, differing names show as Undetermined ("These names haven't been mapped yet").
-- **Templates for D-013, D-025, and D-026 (B5):** the flat template subset: outline (rectangle, circle, ring), thickness (with `options`), holes (plain, threaded, countersunk, counterbored; through or a depth), slots, and patterns (row, circle). Agreed fields are AI values. The rest become review items.
+- **Templates (B5):** retain D-013, D-025 and D-026 and assess every remaining drawing within the flat subset: rectangle/circle/ring outlines, thickness options, plain/threaded/countersunk/counterbored holes, slots and row/circle patterns. Keep supported cuts, distinguish dimensioned from interpreted pattern placement, and record omissions separately. Unknown essential geometry blocks generation; do not substitute bounding boxes for unsupported outlines.
 
 **Setup loader (W1):**
 - **Clean drawings (A1):** text with positions, PNG per page, corner box read by finding labels.
@@ -120,16 +120,16 @@ This is the boundary for coding practices and edge cases. Agents should **not** 
 
 **3D (W3):**
 - CadQuery builds **one GLB per example** (A and B) from each filled-in template, in neutral grey. Built files are committed.
-- If a template field the shape depends on is still waiting for review, that part shows "3D waiting for human input on: [field]" until Jason answers it.
-- After Jason answers a field, that part's model is rebuilt.
+- Unknown essential geometry makes 3D unavailable; the detailed missing fields appear in Debug. Verified partial geometry may be built with explicit omission receipts.
+- Actions generates and probes STEP/GLB assets sequentially. Local review actions restore matching caches or mark models stale/unavailable; they never launch CadQuery locally.
 
 **Backend (W4):**
 - `tools.py` with `find_part`, `get_facts` (display values resolved in code using B3 rules 0–5), `get_connections`, `parts_in_section`, `parts_with_material`, and `propose_correction`.
 - The chat loop (one provider, tool calling, marker rules in the system prompt).
 - The marker parser (`[cite:]` and `[undetermined:]`, with the existence and "returned this conversation" checks), cards for 1–3 parts, a list for 4 or more, the single-match backup rule, and the uncited warning.
-- Chat wording: "AI-sourced only, not yet reviewed; may contain errors" for AI items, and "Waiting for review," with a link, where a review item exists.
+- Ordinary chat stays concise. Customer status uses Human reviewed / AI reviewed / Unavailable; review requirements and engineering diagnostics live in Debug. Explicit questions about checks receive the requested evidence and limitations.
 - **The review API:**
-  - **items:** corrections, unresolved links, template fields that weren't agreed, and name mappings waiting for approval;
+  - **items:** corrections, unresolved links/template fields, and name mappings waiting for actual approval;
   - **actions:** accept, reject, set a value, choose an option, and approve a mapping;
   - each action writes a decision and re-applies decisions;
   - the correction check is a simple string match against the drawing text and the linked row.
@@ -137,14 +137,14 @@ This is the boundary for coding practices and edge cases. Agents should **not** 
 
 **Frontend (W5, W6, plus W3 for the 3D tab and W4 for the review page):**
 - **Chat:** messages, citation tags with a hover card (source, what it says, badge), the Undetermined tag with its message, part cards with a thumbnail, and the side panel.
-- **Part page** (also used in the side panel): 2D tab (PNG, highlight box, zoom); 3D tab for the 3 parts (spin, zoom, Fit, A/B switch, the reconstruction label); Detail tab (facts with badges or Undetermined; corrected values show "originally X, corrected to Y by Jason Peng on [date]"; a list of this part's decisions).
+- **Part page** (also used in the side panel): 2D drawing/highlights, available 3D reconstructions with Fit/section/A–B controls, and concise Detail sections (Overview, Dimensions, one Notes section, Supply & cost). Optional Debug holds full evidence, corrections, decisions, provider receipts and calculations.
 - **Parts list:** every part, with search.
-- **Review page:** one list of everything waiting, each item with its evidence (the drawing with a highlight, or the row's values), both AI answers, and its actions.
+- **Review page:** engineering workspace exposed with Debug; each item has source evidence, the exact proposal/verifier response and its actions.
 - With no key, the chat says "Add an API key to use the chat."
 
-**Write-up (any agent, plus Jason):** the README with every section the assignment asks for, a "What's in this version" section, saved transcripts and screenshots in `docs/stable-m1/`, and observations: time and token use for about 5 questions run twice, plus the AI prep's agreement counts (how many items were agreed, agreed after retry, or sent to review).
+**Write-up:** README with the delivered scope, saved transcripts/screenshots, prep verification/retry/unresolved counts, and the canonical two-pass benchmark's rules, independent judgments, tokens, timing and stability. Keep historical five-question observations labelled as smoke checks. Report actual human reviews separately.
 
-**Jason, around hour 5:** check the review page: approve the name mappings, and answer any links or template fields the AI couldn't agree on (roughly 20–40 minutes).
+**Human review, when available:** Jason can approve mappings and resolve template/link fields in Debug. The coordinator never authors these approvals or treats workflow dispatch as human review.
 
 **M1 is stable when:**
 1. `uv run meridian` starts on a fresh clone.
@@ -164,12 +164,12 @@ This is the boundary for coding practices and edge cases. Agents should **not** 
 
 **Goal:** Jason's hand checks become part of the product, and the accuracy number comes from them.
 
-- **Confirm and Reject for every AI item** (A8, B6): links, template fields, scan readings, and whole parts. Reviewed items show "reviewed by Jason Peng on [date]" everywhere.
-- **The accuracy number:** of the AI items Jason checked, how many he confirmed and how many he rejected, broken down by job (scans, matching, templates). This replaces the answer key and goes in the README.
+- **Confirm and Reject for every AI item** (A8, B6): links, template fields, scan readings, and whole parts. Customer status stays compact; Debug preserves the actual reviewer's name, date and action.
+- **Human review accuracy:** confirmed/rejected counts only for the AI items Jason actually checked, broken down by job. Report the separate automated benchmark without treating it as human review.
 - **Approve whole design** (B6): a part review page that reuses the part page's views, one part at a time, disabled while any field waits for a value.
-- **Weight check** (B5): Passed, Flagged, **FAILED (big red, "needs manual approval")**, or Skipped, using a small density table with sources. It never hides the model. Approving a FAILED part requires a note.
+- **Weight check** (B5): Passed, Flagged, FAILED or Skipped, using a sourced density table. Detailed results and approval requirements live in Debug and never hide the supported model. Approving a FAILED part requires an actual reviewer note.
 - **Review tabs and filters** (B6): Corrections, Needs human input, AI interpretations, and Possible readings.
-- **Full History tab** (B5), and a single fact's history when clicking its badge.
+- **History in Debug** (B5), including a single fact's history; customer source access stays concise.
 - **Fingerprints and changed evidence** (A9 rule 4), and a **rebuild test** script.
 
 **Jason:** confirm or reject every AI item on the 3 parts, plus the links and scan readings (all of them if time allows, otherwise a sample, and the README says which), and use Approve whole design on the 3 parts.
@@ -178,11 +178,11 @@ This is the boundary for coding practices and edge cases. Agents should **not** 
 
 ---
 
-### M3: Product polish (target: tagged by about hour 9.5)
+### M3: Product polish (within the nine-hour budget)
 
 **Goal:** the rest of the design that makes it feel like a product.
 
-- **3D:** the side panels (Model provenance, Bill of materials, Specs and materials, Installed in), the size readout, page thumbnails, the basic section view, and the STEP download.
+- **3D:** focused orbit/Fit/section/A–B controls and STEP export. Put model provenance, calculations and extra engineering records in Debug; retain core part details in the standard Detail sections.
 - **Chat:** the hover card crop of the cited spot.
 - **Data:** hole callouts (A7 level 1), the rest of the cleanup rules plus `cleanup_report.json` (A3), and the README as a citable source with its own page (A11).
 - **UI:** parts list filters and the full link scheme (B8).
@@ -191,16 +191,16 @@ This is the boundary for coding practices and edge cases. Agents should **not** 
 
 ---
 
-### Later (only if there's time after M3)
+### Finish the current run and optional extras
 
-In this order:
+Items 1–2 are required for the current run. Remaining extras are optional only after final verification and within the nine-hour limit:
 
-1. More parts in 3D (the other 7 flat parts).
-2. The benchmark and its scoring script, using Jason's supplied `docs/Question-benchmark/benchmark_draft.md` and the run plan in that folder. Do not generate a substitute question set.
+1. Complete assessment of every additional drawing and generate every eligible flat-part model; this is now required for the current run.
+2. Complete the benchmark and scoring using Jason's supplied `docs/Question-benchmark/benchmark_draft.md` and its run plan; this is now required. Do not generate a substitute question set.
 3. The diagrams (A12).
 4. AI labels for all drawings (A7 level 3).
 5. Feature colors and measurement labels drawn on the 3D model.
-6. A second chat provider.
+6. Broader chat-provider support remains excluded; the app uses `gpt-6-luna` only.
 7. The files page (B7).
 
 **Not in this build:** the round part template, custom outlines, a solid cut face for the section view, and the MCP server.
@@ -224,17 +224,11 @@ In this order:
 | Hours | What |
 |---|---|
 | 0–1 | **M0.** W2 starts the runner immediately. Jason logs into the CLIs and adds the chat key. |
-| 1–4.5 | **M1 build**, all six workstreams in parallel. |
-| 4.5–5 | **Run the full AI prep** on the real data (a few minutes), then integrate. |
-| 5–5.5 | **Jason checks the review page:** approves the name mappings and answers what the AI couldn't agree on. |
-| 5.5–6 | **Stabilize and tag `stable-m1`.** |
-| 6–7.5 | **M2 build** (much of it from work-ahead branches). Jason confirms or rejects the AI items on the 3 parts. |
-| 7.5–8 | **Stabilize and tag `stable-m2`.** |
-| 8–9 | **M3 build.** |
-| 9–9.5 | **Stabilize and tag `stable-m3`.** |
-| 9.5–12.5 | **Jason tests it.** Fixes get re-tagged. "Later" items only if everything is solid. |
-| 12.5–13.5 | Final write-up, screenshots, transcripts, and a final fresh-clone run of the latest tag. |
-| 13.5–14 | Buffer. |
+| 1–3 | Loaders, bounded prep runner, basic app and the first three CAD templates; coding work respects the shared resource budget. |
+| 3–5 | Integrate review workflow, clean customer/Debug views, saved chats and source-grounded prep; preserve historical milestone tags. |
+| 5–7 | Finish proposer–verifier prep and all remaining drawing assessments; generate eligible CAD remotely and ship verified caches. |
+| 7–8 | Full remote tests, independent STEP/GLB probes, fresh-clone recovery and customer/Debug browser checks; repair concrete failures. |
+| 8–9 | Two-pass canonical benchmark, sequential independent judging, final reports/package and buffer. Actual human reviews remain pending until performed. |
 
 ## Workstreams
 

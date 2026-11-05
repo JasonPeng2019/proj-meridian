@@ -1,0 +1,72 @@
+{
+  "passed": true,
+  "actions_run": "42080816045",
+  "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42080816045",
+  "verified_commit": "856f551b10a8c5ad8c43ee5c9c078549e678d0d0",
+  "tests_passed": 586,
+  "customer_and_debug_browser_checks_passed": true,
+  "accuracy_button_mouse_keyboard_layout_passed": true,
+  "source_assets_verified": 40,
+  "modeled_parts": 9,
+  "model_variants": 12,
+  "all_12_local_glb_urls_respond_with_gltf": true,
+  "primary_url": "http://127.0.0.1:8001",
+  "port_8000_closed": true,
+  "review_queue": {
+    "resolved": 461,
+    "human_review": 2,
+    "human_input": 25
+  },
+  "reviewed_sample": {
+    "reviewed": 425,
+    "accuracy": 0.9976470588235294,
+    "jobs": {
+      "scans": {
+        "confirmed": 274,
+        "rejected": 0
+      },
+      "matching": {
+        "confirmed": 5,
+        "rejected": 0
+      },
+      "templates": {
+        "confirmed": 136,
+        "rejected": 1
+      },
+      "mappings": {
+        "confirmed": 9,
+        "rejected": 0
+      }
+    },
+    "delegated_reviewed": 425,
+    "scope": "current_source_reviewed_original_ai_proposals",
+    "note": "Agreement with the latest authorized review of original AI proposals on current source evidence, including authorized delegated reviews. This reviewed sample is not whole-dataset accuracy or design approval. Changed mapping relationships count against the original proposal; corrected replacements and unbound or obsolete source receipts are excluded. Legacy field reviews without a prediction fingerprint are disclosed separately. Exclusion counts refer to decision receipts, not unique proposals."
+  },
+  "current_benchmark": {
+    "capture": "42078885361",
+    "combined_pass": 34,
+    "executions": 42,
+    "semantic_full_credit": 40,
+    "human_judge_spot_checks": 0
+  },
+  "prior_corrected_benchmark": {
+    "capture": "42020759881",
+    "combined_pass": 40,
+    "executions": 42,
+    "evaluation": "rescore-42020759881-v2"
+  },
+  "limitations": [
+    "21 drawing bodies remain outside the exact MVP base templates.",
+    "Supported models retain explicit omitted features and engineering completeness warnings.",
+    "25 genuine input/design/weight items and 2 uncertain AI proposals remain unresolved.",
+    "Eight current benchmark executions fail; see the saved failure analysis.",
+    "Reviewed-proposal agreement is not whole-dataset accuracy or whole-design approval."
+  ],
+  "evidence_files": {
+    "release-check.json": "022c154fd230e897876e836bfe3b5f23d37a76408d932089141e94dc1e8e9bf7",
+    "debug-api-performance.json": "ff9f07ccbd73a191a076ceaf53cf20e35b8b5025bd600c1b1d548c25934e53a8",
+    "human-review-accuracy.png": "0386339d9157daf0f2cfe7ebcfa690777794670194f771f0634b0135765ddb30",
+    "browser-stages.json": "54aefb415735cc18e665de7dbb1e7fceea164be6aad99b74a2b6fa74a579555e",
+    "cad.json": "4f621b0b47a066fef4968f67b9bf79aaf2b1313b80059072c333e0bc252d04f7"
+  }
+}

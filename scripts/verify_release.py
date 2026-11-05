@@ -88,12 +88,56 @@ def stop(proc, log):
     log.close()
 
 
+def record_inventory(records, drawings, bom):
+    """Validate the current projection independently of its changing link count."""
+    keys = [part["key"] for part in records]
+    ids = [part["id"] for part in records]
+    assert len(keys) == len(set(keys)) and len(ids) == len(set(ids)), "Duplicate part key or ID"
+    bom_ids = {row["name"] for row in bom}
+    assert len(bom_ids) == len(bom), "Duplicate canonical BOM row"
+    drawing_parts = [part for part in records if part.get("drawing")]
+    drawing_ids = [part["drawing"]["id"] for part in drawing_parts]
+    assert len(drawing_ids) == len(set(drawing_ids)) and set(drawing_ids) == set(drawings), "Drawing coverage changed"
+    linked = {row["name"] for part in drawing_parts for row in part.get("bom", [])}
+    standalone = [part for part in records if not part.get("drawing")]
+    assert all(len(part.get("bom", [])) == 1 for part in standalone), "A standalone part must represent one BOM row"
+    standalone_ids = [part["bom"][0]["name"] for part in standalone]
+    assert len(standalone_ids) == len(set(standalone_ids)), "Duplicate standalone BOM part"
+    assert not linked.intersection(standalone_ids), "Linked BOM row was also emitted as a standalone part"
+    assert linked | set(standalone_ids) == bom_ids, "BOM coverage changed"
+    expected_parts = len(drawings) + len(bom_ids - linked)
+    assert len(records) == expected_parts, "Fused part count disagrees with current drawing/BOM links"
+    return {"parts": expected_parts, "drawings": len(drawings), "bom_rows": len(bom_ids),
+            "part_identities": sorted([part["key"], part["id"], (part.get("drawing") or {}).get("id")] for part in records),
+            "drawing_bom_links": {part["drawing"]["id"]: sorted(row["name"] for row in part.get("bom", [])) for part in drawing_parts},
+            "standalone_bom_rows": sorted(standalone_ids),
+            "page_images": sorted(image for drawing in drawings.values() for image in drawing.get("images", []))}
+
+
+def current_inventory():
+    # Store only reads existing structured records and replays the append-only
+    # decisions here. The server has already prepared them; no extraction/CAD.
+    from backend.app.store import Store
+    assert (CLONE / "generated/records.json").is_file()
+    drawings = json.loads((CLONE / "generated/drawings.json").read_text(encoding="utf-8"))
+    bom = json.loads((CLONE / "generated/bom.json").read_text(encoding="utf-8"))
+    assert len(drawings) == 30, "The pinned corpus must retain all 30 drawings"
+    assert all(len(drawing.get("images", [])) == drawing["pages"] for drawing in drawings.values()), "Drawing page inventory is incomplete"
+    return record_inventory(Store(CLONE).records, drawings, bom)
+
+
 def inspect(client):
     status = client.get("/api/status").json()
+    inventory = current_inventory()
     manifest = json.loads((CLONE / "generated/models/manifest.json").read_text(encoding="utf-8"))
-    model_ids = sorted(did for did, part in manifest.items() if part.get("models"))
+    model_ids = sorted(did for did, part in manifest.items() if part.get("models") and not part.get("stale"))
     assert {"D-013", "D-025", "D-026"}.issubset(model_ids)
-    assert status["drawings"] == 30 and status["models"] == len(model_ids) and status["parts"] == 215
+    assert status["drawings"] == inventory["drawings"] and status["models"] == len(model_ids) and status["parts"] == inventory["parts"]
+    catalog = client.get("/api/parts").json()
+    actual_identities = [[part["key"], part["id"], (part.get("drawing") or {}).get("id")] for part in catalog]
+    assert len(actual_identities) == len({part[0] for part in actual_identities})
+    assert sorted(actual_identities) == inventory["part_identities"], "API catalog dropped, duplicated or changed a projected part"
+    assert sorted(part["key"] for part in catalog if part.get("has_3d")) == model_ids
     assert not status["chat_available"]
     assert client.post("/api/chat", json={"message": "Hello"}).status_code == 400
     assert client.get("/api/review").status_code == 200
@@ -101,7 +145,7 @@ def inspect(client):
     thickness = next(f for f in part["facts"] if f["fact"] == "D-013/template/thickness")
     assert thickness["display"] == {"state": "options", "values": [3.0, 6.0]}
     assert thickness["correction"]["by"] == "Jason Peng"
-    assets = []
+    assets = {}
     for did in model_ids:
         record = client.get("/api/parts/" + did).json()
         assert record["has_3d"] and record["model"]["examples"]
@@ -113,13 +157,15 @@ def inspect(client):
                 response = client.get("/generated/" + model[kind])
                 response.raise_for_status()
                 assert hashlib.sha256(response.content).hexdigest() == model[kind + "_sha256"]
-                assets.append(model[kind])
+                assert model[kind] not in assets, "Two model exports share the same artifact path"
+                assets[model[kind]] = model[kind + "_sha256"]
     for path in ("/part/D-013/3d?example=B", "/part/bom/box/m5-nut-for-2020-not-5mm/detail", "/review/needs-input", "/readme"):
         assert client.get(path).status_code == 200
     assert client.get("/api/parts/D-003/image?page=3").headers["content-type"] == "image/png"
     assert client.get("/api/parts/D-013/image?thumb=1").headers["content-type"] == "image/png"
     assert client.get("/api/parts/D-013/crop", params={"fact": "D-013/drawing/material"}).headers["content-type"] == "image/png"
-    return {"status": status, "model_ids_checked": model_ids, "asset_hashes_checked": len(assets), "d013_decision_replayed": True}
+    return {"status": status, "record_inventory": inventory, "model_ids_checked": model_ids,
+            "asset_hashes_checked": len(assets), "model_assets_sha256": assets, "d013_decision_replayed": True}
 
 
 def correction_demo(env, report):
@@ -254,8 +300,11 @@ def main():
     try:
         with httpx.Client(base_url=BASE, timeout=60) as client:
             report["regenerated_runtime"] = inspect(client)
+        assert report["fresh_runtime"]["record_inventory"] == report["regenerated_runtime"]["record_inventory"], "Offline recovery changed the shipped part identities, drawing/BOM links or source pages"
+        assert report["fresh_runtime"]["model_assets_sha256"] == report["regenerated_runtime"]["model_assets_sha256"], "Offline recovery changed or lost a shipped model export"
         report["regeneration_seconds"] = round(time.monotonic() - before, 3)
-        assert len(list((generated / "images").glob("*-p*.png"))) == 33
+        actual_images = sorted(path.relative_to(generated).as_posix() for path in (generated / "images").glob("*-p*.png"))
+        assert actual_images == report["regenerated_runtime"]["record_inventory"]["page_images"], "Offline recovery lost or duplicated a drawing page image"
     finally:
         stop(proc, log)
     if args.skip_live:

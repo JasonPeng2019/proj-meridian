@@ -38,10 +38,13 @@ def audit():
 
 
 def cad():
+    if os.environ.get("GITHUB_ACTIONS") != "true":
+        raise RuntimeError("CAD verification must run on a GitHub-hosted Actions runner")
     import cadquery as cq
     import trimesh
     from backend.app.store import Store
-    from backend.cad.verification import verify_features
+    from backend.cad.verification import selected_template, verify_features
+    from backend.cad.builder import Unknown, _options, _validate_essential, shape_bounds_mm
     # Force real generation on this disposable checkout instead of accepting a
     # cache hit as proof that the Linux CAD dependencies work.
     cache = inside(ROOT / "generated/ai_cache/artifacts/cad")
@@ -52,11 +55,24 @@ def cad():
     before = {p.name: digest(p) for p in (ROOT / "decisions").glob("*.json")}
     store.rebuild_models()
     drawings = json.loads((ROOT / "generated/drawings.json").read_text(encoding="utf-8"))
+    assert set(store.models) == set(store.templates), "A prepared template was lost from the CAD manifest"
     results = []
+    expected_variants = {}
     for did in ("D-013", "D-025", "D-026"):
         assert store.models[did]["examples"] == ["A", "B"], store.models[did]
     for did, part in sorted(store.models.items()):
+        try:
+            variants = list(_options(selected_template(store.templates[did], {})))
+            for template, _ in variants:
+                _validate_essential(template)
+        except Unknown:
+            expected_variants[did] = 0
+        else:
+            expected_variants[did] = len(variants)
+        assert len(part["models"]) == expected_variants[did], f"{did}: eligible variants were not all generated: {part.get('waiting')}"
+        assert not part.get("stale"), f"{did}: real remote generation returned a stale reconstruction"
         assert part["examples"] == list(part["models"]), part
+        assert part["examples"] == [chr(65 + index) for index in range(expected_variants[did])], part
         if not part["models"]:
             assert part["waiting"], part
         for variant, model in part["models"].items():
@@ -68,7 +84,6 @@ def cad():
             shape = cq.importers.importStep(str(step)).val()
             bounds_error = max(abs(float(a) * 1000 - b) for a, b in zip(mesh.extents, model["bounds_mm"]["size"]))
             mesh_bounds_error = max(abs(float(a) * 1000 - b) for side, key in zip(mesh.bounds, ("min", "max")) for a, b in zip(side, model["bounds_mm"][key]))
-            from backend.cad.builder import shape_bounds_mm
             step_bounds = shape_bounds_mm(cq.Workplane(obj=shape))
             step_bounds_error = max(abs(a - b) for key in ("min", "max", "size") for a, b in zip(step_bounds[key], model["bounds_mm"][key]))
             volume_error = abs(shape.Volume() - model["volume_mm3"])
@@ -80,9 +95,9 @@ def cad():
                 assert digest(inside(ROOT / "generated" / model[kind])) == model[kind + "_sha256"]
             fidelity = verify_features(store.templates[did], model, shape, mesh, drawings[did])
             results.append({"part": did, "variant": variant, "bounds_mm": model["bounds_mm"]["size"], "bounds_error_mm": bounds_error, "mesh_bounds_error_mm": mesh_bounds_error, "step_bounds_error_mm": step_bounds_error, "volume_error_mm3": volume_error, "mesh_volume_error_mm3": mesh_volume_error, "feature_fidelity": fidelity})
-    assert len(results) >= 6
+    assert len(results) == sum(expected_variants.values()) and len(results) >= 6
     assert before == {p.name: digest(p) for p in (ROOT / "decisions").glob("*.json")}
-    write("cad.json", {"passed": True, "built_parts": sum(bool(part["models"]) for part in store.models.values()), "variant_count": len(results), "variants": results, "decisions_unchanged": True})
+    write("cad.json", {"passed": True, "built_parts": sum(bool(part["models"]) for part in store.models.values()), "variant_count": len(results), "expected_variants": expected_variants, "variants": results, "decisions_unchanged": True})
 
 
 def server_check(live=False, debug=False):

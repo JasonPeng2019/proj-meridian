@@ -3,10 +3,9 @@ import {englishName,englishText} from '../language';
 import {useDebug, sourceBadge} from '../debug';
 import React, {useEffect, useLayoutEffect, useRef, useState} from 'react';
 import {createPortal} from 'react-dom';
-import {ArrowUp, ArrowUpRight, Box, FileText, Plus, AlertTriangle, Check, Copy, Layers, History, LoaderCircle} from 'lucide-react';
-import {Button} from '../components/ui/button';
+import {ArrowUp, ArrowUpRight, Box, FileText, Sparkles, Plus, ChevronRight, AlertTriangle, Check, Copy, Layers, Search, ExternalLink, Clock3, History} from 'lucide-react';
 import {api, pathKey, partKey, partURL, imageURL, reviewURL, textValue} from '../api';
-import {ErrorMessage, JsonDetails} from '../components';
+import {ErrorMessage, StatusBadge, Value, JsonDetails} from '../components';
 
 function factKey(name,fact) { return fact?.part_key || fact?.sources?.find(s=>s.part_key)?.part_key || (name.startsWith('BOM:')?partKey({id:name.replace(/\/[^/]+$/,'/part')}):name.split('/')[0]); }
 function sourceName(name) { return name?.startsWith('BOM:')?'Parts list':name?.startsWith('README/')?'README':name?.split('/')[0]||'Source'; }
@@ -57,67 +56,20 @@ function PartCards({parts,navigate}) {
 function Message({message,navigate}) {
   const [copied,setCopied]=useState(false),[debugOpen,setDebugOpen]=useState(false);
   const debug=useDebug();
-  if(message.role==='user') return <div className="user-message"><div>{message.text}</div><span className="user-avatar" aria-label="You">JP</span></div>;
-  return <article className="assistant-message">
-    <div className="assistant-avatar" aria-hidden="true"><Layers size={17}/></div>
-    <div className="assistant-body">
-      <div className="assistant-label">Meridian</div>
-      {message.warnings?.length?<div className="answer-text muted">Unavailable</div>:<AnswerText text={message.text} facts={message.facts||{}} navigate={navigate}/>}
-      <PartCards parts={message.parts_to_show} navigate={navigate}/>
-      {debug&&<details className="answer-debug" open={debugOpen} onToggle={e=>setDebugOpen(e.currentTarget.open)}><summary>Debug</summary>{debugOpen&&<JsonDetails value={{answer:message.text,warnings:message.warnings,usage:message.usage,latency_ms:message.latency_ms,tools:message.tool_trace,facts:message.facts}}/>}</details>}
-      <div className="answer-tools"><Button variant="ghost" size="sm" title="Copy answer" aria-label={copied?'Answer copied':'Copy answer'} onClick={async()=>{try{await navigator.clipboard.writeText(message.warnings?.length?'Unavailable':message.text);setCopied(true);setTimeout(()=>setCopied(false),1500)}catch{setCopied(false)}}}>{copied?<Check size={14}/>:<Copy size={14}/>}<span>{copied?'Copied':'Copy'}</span></Button></div>
-    </div>
-  </article>;
+  if(message.role==='user') return <div className="user-message"><div>{message.text}</div><span className="user-avatar">JP</span></div>;
+  return <article className="assistant-message"><div className="assistant-avatar"><span className="meridian-mark small">m<span>·</span></span></div><div className="assistant-body"><div className="assistant-label">Meridian </div>{message.warnings?.length?<div className="answer-text muted">Unavailable</div>:<AnswerText text={message.text} facts={message.facts||{}} navigate={navigate}/>}<PartCards parts={message.parts_to_show} navigate={navigate}/>{debug&&<details className="answer-debug" open={debugOpen} onToggle={e=>setDebugOpen(e.currentTarget.open)}><summary>Debug</summary>{debugOpen&&<JsonDetails value={{answer:message.text,warnings:message.warnings,usage:message.usage,latency_ms:message.latency_ms,tools:message.tool_trace,facts:message.facts}}/>}</details>}<div className="answer-tools"><button title="Copy answer" aria-label="Copy answer" onClick={()=>{navigator.clipboard.writeText(message.warnings?.length?'Unavailable':message.text);setCopied(true);setTimeout(()=>setCopied(false),1500)}}>{copied?<Check size={14}/>:<Copy size={14}/>}</button></div></div></article>;
 }
 
-const prompts=[{title:'Explore a part',question:'What is the recoater plate made of?'},{title:'Check the evidence',question:'What do the sources say about the build plate material?'},{title:'Review a drawing',question:'What is D-019? Show the original title and note.'}];
+const prompts=[{icon:Box,title:'Explore a part',question:'What is the recoater plate made of?'},{icon:Search,title:'Check the evidence',question:'What do the sources say about the build plate material?'},{icon:FileText,title:'Review a drawing',question:'What is D-019? Show the original title and note.'}];
 export default function Chat({status,parts,navigate,messages,setMessages,session,setSession,resetChat,compact,openChat,loading}) {
   const [input,setInput]=useState(''),[busy,setBusy]=useState(false),[error,setError]=useState(''),[historyOpen,setHistoryOpen]=useState(false);
   const live=useRef(true);
   useEffect(()=>{live.current=true;return()=>{live.current=false}},[]);
   useEffect(()=>{setInput('');setError('')},[session]);
-  const bottom=useRef(null),textarea=useRef(null),historyTrigger=useRef(null);
-  const closeHistory=()=>{setHistoryOpen(false);requestAnimationFrame(()=>historyTrigger.current?.focus())};
+  const bottom=useRef(null),textarea=useRef(null);
   useEffect(()=>{bottom.current?.scrollIntoView({behavior:'smooth'})},[messages,busy]);
   const send=async text=>{const question=(text||input).trim();if(!question||busy||loading)return;setInput('');setError('');setMessages(m=>[...m,{role:'user',text:question}]);setBusy(true);try{const result=await api('/api/chat',{message:question,...(session?{session_id:session}:{})});if(!live.current)return;setSession(result.session_id);setMessages(m=>[...m,{role:'assistant',...result}]);}catch(e){if(live.current){setError(e.message);setInput(question)}}finally{if(live.current){setBusy(false);textarea.current?.focus()}}};
   const noKey=status?.chat_available===false;
-  return <div className={`chat-page workspace-chat ${messages.length===0&&!loading?'chat-empty':''} ${compact?'chat-split':''}`}>
-    <header className="workspace-header">
-      <div><h1>Engineering chat</h1><p className="chat-project-name">OpenLPBF v2</p></div>
-      <div className="chat-header-actions">
-        <Button ref={historyTrigger} variant="ghost" size="sm" disabled={busy||loading} onClick={()=>setHistoryOpen(true)}><History size={15}/>Past chats</Button>
-        <Button variant="outline" size="sm" disabled={busy||loading} className="new-chat" aria-label="New chat" onClick={()=>{resetChat();setError('');setInput('')}}><Plus size={15}/><span>New chat</span></Button>
-      </div>
-    </header>
-    {historyOpen&&<ChatHistory current={session} onOpen={openChat} onClose={closeHistory} onDeleted={id=>{if(id===session)resetChat()}}/>}
-    <div className="chat-scroll" aria-busy={busy||loading}>
-      {loading?<div className="empty-state" role="status"><LoaderCircle className="chat-spinner" size={20}/>Opening conversation…</div>:messages.length===0?<div className="chat-welcome">
-        <div className="welcome-copy">
-          <div className="welcome-context"><span className="welcome-index">01 /</span>OPENLPBF V2 · ENGINEERING LIBRARY</div>
-          <h2>Meet Meridian, your<br/><span>engineering workspace.</span></h2>
-          <p>Explore the parts, read the drawings, and find answers grounded in the original evidence.</p>
-          <div className="starter-prompts">{prompts.map(({title,question},index)=><Button variant="ghost" disabled={noKey||busy} key={title} onClick={()=>send(question)}><span className="prompt-index">0{index+1}</span><span className="prompt-copy"><strong>{title}</strong><span>{question}</span></span><ArrowUpRight size={15}/></Button>)}</div>
-        </div>
-        <button className="welcome-drawing" onClick={()=>navigate(partURL('D-014','2d'),{panel:true})} aria-label="View original drawing D-014">
-          <span className="welcome-drawing-image"><img src={imageURL('D-014',1)} alt="" aria-hidden="true"/></span>
-          <span className="welcome-drawing-caption"><span>D-014 / ORIGINAL DRAWING</span><ArrowUpRight size={14}/></span>
-        </button>
-      </div>:<div className="message-column">
-        {messages.map((m,i)=><Message key={i} message={m} navigate={navigate}/>)}
-        {busy&&<div className="assistant-message" role="status"><div className="assistant-avatar" aria-hidden="true"><Layers size={17}/></div><div className="thinking"><LoaderCircle className="chat-spinner" size={15}/>Checking source evidence…</div></div>}
-        <div ref={bottom}/>
-      </div>}
-    </div>
-    <div className="composer-area">
-      {error&&<ErrorMessage>{error}</ErrorMessage>}
-      {noKey&&<div className="notice info"><InfoIcon/>Add an API key to use the chat. Parts, drawings, 3D models and review remain available.</div>}
-      <form className={`composer ${busy?'busy':''}`} onSubmit={e=>{e.preventDefault();send()}}>
-        <label className="chat-sr-only" htmlFor="engineering-chat-question">Message Meridian</label>
-        <textarea id="engineering-chat-question" ref={textarea} value={input} disabled={noKey||loading} rows={2} placeholder={noKey?'Add an API key to use the chat.':'Ask about a part, material, drawing, or connection…'} onChange={e=>setInput(e.target.value)} onKeyDown={e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send()}}}/>
-        <div className="composer-bottom"><span className="context-chip"><Layers size={13}/>OpenLPBF v2</span><Button className="send-button" size="icon" type="submit" disabled={!input.trim()||busy||noKey||loading} title="Send message" aria-label="Send message"><ArrowUp size={18}/></Button></div>
-      </form>
-      <div className="composer-footer"><span>{noKey?'Chat unavailable':'Answers linked to source evidence'}</span><span>Enter to send · Shift + Enter for a new line</span></div>
-    </div>
-  </div>;
+  return <div className={`chat-page workspace-chat ${compact?'chat-split':''}`}><header className="workspace-header"><div><span className="workspace-label">WORKSPACE</span><h1>Engineering chat <span className="slash">/</span> <span className="header-project">OpenLPBF v2</span></h1></div><div className="chat-header-actions"><button className="button secondary" disabled={busy||loading} onClick={()=>setHistoryOpen(true)}><History size={15}/>Past chats</button><button disabled={busy||loading} className="button secondary new-chat" onClick={()=>{resetChat();setError('');setInput('')}}><Plus size={15}/> New chat</button></div></header>{historyOpen&&<ChatHistory current={session} onOpen={openChat} onClose={()=>setHistoryOpen(false)} onDeleted={id=>{if(id===session)resetChat()}}/>}<div className="chat-scroll">{loading?<div className="empty-state">Opening conversation…</div>:messages.length===0?<div className="chat-welcome"><div className="welcome-symbol"><span className="meridian-mark">m<span>·</span></span><span className="symbol-orbit"/></div><h2>Explore the machine.</h2><p>Ask a question or open a part to get started.</p><div className="welcome-context">OpenLPBF v2 · Drawings & parts list</div><div className="starter-prompts">{prompts.map(({icon:Icon,title,question})=><button disabled={noKey||busy} key={title} onClick={()=>send(question)}><Icon size={19}/><strong>{title}</strong><span>{question}</span><ArrowUpRight size={15}/></button>)}</div></div>:<div className="message-column">{messages.map((m,i)=><Message key={i} message={m} navigate={navigate}/>)}{busy&&<div className="assistant-message"><div className="assistant-avatar"><span className="meridian-mark small">m<span>·</span></span></div><div className="thinking"><span/><span/><span/>Checking the source evidence…</div></div>}<div ref={bottom}/></div>}</div><div className="composer-area">{error&&<ErrorMessage>{error}</ErrorMessage>}{noKey&&<div className="notice info"><InfoIcon/>Add an API key to use the chat. Parts, drawings, 3D models and review remain available.</div>}<form className={`composer ${busy?'busy':''}`} onSubmit={e=>{e.preventDefault();send()}}><textarea aria-label="Message Meridian" ref={textarea} value={input} disabled={noKey||loading} rows={1} placeholder={noKey?'Add an API key to use the chat.':'Ask about a part, material, drawing, or connection…'} onChange={e=>setInput(e.target.value)} onKeyDown={e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send()}}}/><div className="composer-bottom"><span className="context-chip"><Layers size={13}/> OpenLPBF v2 <span className="chip-dot"/></span><button className="send-button" type="submit" disabled={!input.trim()||busy||noKey} title="Send message" aria-label="Send message"><ArrowUp size={18}/></button></div></form><div className="composer-footer"><span><span className="live-dot"/>{noKey?'Chat unavailable':'Evidence before inference'}</span></div></div></div>;
 }
 function InfoIcon(){return <AlertTriangle size={16}/>}

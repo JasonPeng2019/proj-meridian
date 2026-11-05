@@ -1,15 +1,12 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {Box, FileText, List, History, ZoomIn, ZoomOut, Scan, ChevronLeft, ChevronRight, X, Maximize2, ArrowUpRight, Link2, Fingerprint} from 'lucide-react';
+import {Box, FileText, List, History, ZoomIn, ZoomOut, Scan, ChevronLeft, ChevronRight, X, Maximize2, ArrowUpRight, Link2, Layers, Fingerprint, Info, Download} from 'lucide-react';
 import ReaderAnswers from '../ReaderAnswers';
-import {Button} from '../components/ui/button';
-import {Badge} from '../components/ui/badge';
-import {Tabs, TabsList, TabsTrigger, TabsContent} from '../components/ui/tabs';
-import {Dialog, DialogContent, DialogTitle, DialogDescription} from '../components/ui/dialog';
+import * as Dialog from '@radix-ui/react-dialog';
 import {useDebug, sourceBadge} from '../debug';
 import Viewer3D, {Weight} from '../viewer3d/Viewer3D.jsx';
 import {api, imageURL, partKey, pathKey, textValue, titleCase, partURL, reviewURL} from '../api';
 import {englishText, englishName, translated} from '../language';
-import {Loading, ErrorMessage, Value, JsonDetails, SafeLink} from '../components';
+import {Loading, ErrorMessage, StatusBadge, WeightBadge, Value, JsonDetails, SafeLink} from '../components';
 
 export function FactBadge({fact, onClick}) { const debug=useDebug();return <button className={`fact-badge ${fact?.review?.status === 'human_confirmed' ? 'confirmed' : fact?.badge?.toLowerCase().includes('ai') ? 'ai' : ''}`} onClick={onClick} title={debug?"View this fact's full history":"View source"}>{sourceBadge(fact?.badge,debug)}{debug&&fact?.review?.status==='human_confirmed' && ' · reviewed'}</button>; }
 
@@ -65,7 +62,7 @@ export function DrawingViewer({part, fact, page:controlledPage, onPageChange, fo
   const highlight=box&&factPage===page;
   const focusCitation=()=>{if(!focusSource||!highlight||!viewport.current||!image.current)return;const view=viewport.current,paper=image.current.getBoundingClientRect(),frame=view.getBoundingClientRect();view.scrollLeft+=paper.left-frame.left+(box[0]+box[2]/2)/size[0]*paper.width-view.clientWidth/2;view.scrollTop+=paper.top-frame.top+(box[1]+box[3]/2)/size[1]*paper.height-view.clientHeight/2;};
   useEffect(()=>{if(focusSource&&image.current?.complete){const id=requestAnimationFrame(focusCitation);return()=>cancelAnimationFrame(id)}},[focusSource,fact?.fact,page,zoom]);
-  return <div className="drawing-viewer"><div className="viewer-toolbar"><div className="row"><Button variant="ghost" size="icon" title="Zoom out" aria-label="Zoom out" onClick={()=>setZoom(z=>Math.max(.3,z-.2))}><ZoomOut size={16}/></Button><span className="zoom-readout">{Math.round(zoom*100)}%</span><Button variant="ghost" size="icon" title="Zoom in" aria-label="Zoom in" onClick={()=>setZoom(z=>Math.min(4,z+.2))}><ZoomIn size={16}/></Button><Button variant="ghost" size="sm" onClick={()=>setZoom(1)}><Scan size={15}/> Fit</Button></div><div className="row"><Button variant="ghost" size="icon" aria-label="Previous sheet" disabled={page<=1} onClick={()=>setPage(page-1)}><ChevronLeft size={15}/></Button><span className="muted">Sheet {page} / {pages}</span><Button variant="ghost" size="icon" aria-label="Next sheet" disabled={page>=pages} onClick={()=>setPage(page+1)}><ChevronRight size={15}/></Button></div></div>{fact&&<div className="evidence-strip"><span className="blue-dot"/><strong>{titleCase(fact.field || fact.fact?.split('/').at(-1))}</strong><span><Value fact={fact}/></span><span className="muted">Source highlighted {highlight?'below':'where available'}</span></div>}<div className="drawing-scroll" ref={viewport} onPointerDown={e=>{if(e.button!==0)return;drag.current={x:e.clientX,y:e.clientY,left:e.currentTarget.scrollLeft,top:e.currentTarget.scrollTop};e.currentTarget.setPointerCapture(e.pointerId)}} onPointerMove={e=>{if(drag.current){e.currentTarget.scrollLeft=drag.current.left-(e.clientX-drag.current.x);e.currentTarget.scrollTop=drag.current.top-(e.clientY-drag.current.y)}}} onPointerUp={()=>{drag.current=null}} onPointerCancel={()=>{drag.current=null}}>{failed?<ErrorMessage>The drawing image could not be loaded.</ErrorMessage>:<div className="drawing-paper" style={{width:`${zoom*90}%`}}><img ref={image} draggable="false" onLoad={focusCitation} src={imageURL(key,page)} alt={`${part.display_name}, drawing sheet ${page}`} onError={()=>setFailed(true)}/>{highlight&&<div className="drawing-highlight" title={fact.fact} style={{left:`${box[0]/size[0]*100}%`,top:`${box[1]/size[1]*100}%`,width:`${Math.max(box[2]/size[0]*100,1)}%`,height:`${Math.max(box[3]/size[1]*100,.7)}%`}}/>}</div>}</div><div className="viewer-footnote">Drag to pan · use the toolbar to zoom · original drawing preserved{part.drawing?.degraded?' · degraded scan':''}</div></div>;
+  return <div className="drawing-viewer"><div className="viewer-toolbar"><div className="row"><button title="Zoom out" onClick={()=>setZoom(z=>Math.max(.3,z-.2))}><ZoomOut size={16}/></button><span className="zoom-readout">{Math.round(zoom*100)}%</span><button title="Zoom in" onClick={()=>setZoom(z=>Math.min(4,z+.2))}><ZoomIn size={16}/></button><button onClick={()=>setZoom(1)}><Scan size={15}/> Fit</button></div><div className="row"><button disabled={page<=1} onClick={()=>setPage(page-1)}><ChevronLeft size={15}/></button><span className="muted">Sheet {page} / {pages}</span><button disabled={page>=pages} onClick={()=>setPage(page+1)}><ChevronRight size={15}/></button></div></div>{fact&&<div className="evidence-strip"><span className="blue-dot"/><strong>{titleCase(fact.field || fact.fact?.split('/').at(-1))}</strong><span><Value fact={fact}/></span><span className="muted">Source highlighted {highlight?'below':'where available'}</span></div>}<div className="drawing-scroll" ref={viewport} onPointerDown={e=>{if(e.button!==0)return;drag.current={x:e.clientX,y:e.clientY,left:e.currentTarget.scrollLeft,top:e.currentTarget.scrollTop};e.currentTarget.setPointerCapture(e.pointerId)}} onPointerMove={e=>{if(drag.current){e.currentTarget.scrollLeft=drag.current.left-(e.clientX-drag.current.x);e.currentTarget.scrollTop=drag.current.top-(e.clientY-drag.current.y)}}} onPointerUp={()=>{drag.current=null}} onPointerCancel={()=>{drag.current=null}}>{failed?<ErrorMessage>The drawing image could not be loaded.</ErrorMessage>:<div className="drawing-paper" style={{width:`${zoom*90}%`}}><img ref={image} draggable="false" onLoad={focusCitation} src={imageURL(key,page)} alt={`${part.display_name}, drawing sheet ${page}`} onError={()=>setFailed(true)}/>{highlight&&<div className="drawing-highlight" title={fact.fact} style={{left:`${box[0]/size[0]*100}%`,top:`${box[1]/size[1]*100}%`,width:`${Math.max(box[2]/size[0]*100,1)}%`,height:`${Math.max(box[3]/size[1]*100,.7)}%`}}/>}</div>}</div><div className="viewer-footnote">Drag to pan · use the toolbar to zoom · original drawing preserved{part.drawing?.degraded?' · degraded scan':''}</div></div>;
 }
 
 function BOMRows({part, navigate}) {
@@ -136,47 +133,22 @@ export default function PartPage({partKey: key, initialTab, factId, example:init
   const facts=Array.isArray(part.facts)?part.facts:Object.values(part.facts||{}), fact=facts.find(f=>f.fact===factId)||evidenceFact(part,factId||'');
   const hasBuilt=Boolean((part.has_3d||Object.keys(part.model?.models||{}).length)&&!part.model?.stale);
   const has3d=hasBuilt;
+  const humanInput=facts.some(f=>f.fact?.includes('/template/')&&f.sources?.some(s=>s.method==='human_decision'));
   const reconstructionLabel=part.review_status==='source_changed'?'Unavailable':part.design_review?'Human reviewed':hasBuilt?'AI reviewed':'Unavailable';
   const requested=(tab==='3d'&&!hasBuilt?null:tab) || (has3d?'3d':part.has_drawing?'2d':'detail');
   const current=['debug','evidence','history'].includes(requested)?(debug?'debug':'detail'):requested;
   const tabs=[...(has3d?[['3d','3D model',Box]]:[]),...(part.has_drawing?[['2d','2D drawing',FileText]]:[]),['detail','Detail',List],...(debug?[['debug','Debug',Fingerprint]]:[])];
   const changeTab=t=>{setTab(t);navigate(partURL(key,t,{...(factId?{fact:factId}:{}),...(t==='3d'?{example}:{})}),{replace:true,keepPanel:compact})};
   const openFact=(f,mode)=>{if(mode==='source'){const source=f.sources?.[0];const target=source?.part_key||f.part_key||key;navigate(partURL(target,source?.name?.startsWith('BOM:')?'detail':'2d',{fact:f.fact}),{panel:compact,replace:true})}else {sourceTrigger.current=document.activeElement;setHistoryFact(f)}};
-  return <Tabs value={current} onValueChange={changeTab} className={`part-page ${compact?'compact':''}`}>
-    <header className="part-header">
-      <div className="part-title">
-        <div className="eyebrow"><span className="part-identifier">{part.drawing?.id || key}</span><span className="part-title-divider">/</span><span>{englishText(part.section || 'Parts list')}</span></div>
-        <div className="part-title-line"><h2>{englishName(part.display_name)}</h2><Badge variant="outline" className={`part-review-badge ${part.design_review?'human':''}`}>{reconstructionLabel}</Badge></div>
-      </div>
-      <div className="row">
-        {compact&&<Button variant="ghost" size="icon" className="icon-button" title="Open full page" aria-label="Open full page" onClick={()=>navigate(partURL(key,current,{...(factId?{fact:factId}:{})}))}><Maximize2 size={17}/></Button>}
-        {onClose&&<Button variant="ghost" size="icon" className="icon-button" title="Close part" aria-label="Close part" onClick={onClose}><X size={19}/></Button>}
-      </div>
-    </header>
-    <TabsList className="part-tabs" aria-label="Part views">
-      {tabs.map(([id,label,Icon])=><TabsTrigger className={current===id?'active':''} key={id} value={id}><Icon size={15}/>{label}</TabsTrigger>)}
-      {debug&&(part.review_items?.length>0||has3d)&&<Button variant="ghost" className="review-link" onClick={()=>navigate(`/review/part/${pathKey(key)}`)}>Review this part <ArrowUpRight size={12}/></Button>}
-    </TabsList>
-    {/* Keep the original conditional viewer lifecycle; navigation retains its selected example and sheet. */}
-    <TabsContent value={current} className="part-body">
-      {current==='3d'||current==='2d'?<>
-        {current==='2d'&&Number(part.drawing?.pages)>1&&<aside className="sheet-rail"><div className="eyebrow">SHEETS</div>{Array.from({length:Number(part.drawing?.pages)||0},(_,i)=><button className={`sheet-thumb ${page===i+1?'active':''}`} key={i} onClick={()=>setPage(i+1)}><img src={imageURL(key,i+1,true)} alt={`Sheet ${i+1}`}/><span>Sheet {i+1}</span></button>)}</aside>}
-        <div className="primary-view">
-          {current==='3d'?<Viewer3D part={part} example={example} onExampleChange={e=>{setExample(e);navigate(partURL(key,'3d',{example:e}),{replace:true,keepPanel:compact})}}/>:<>
-            <DrawingViewer part={part} fact={fact} page={page} onPageChange={setPage}/>
-            {(fact||part.drawing?.degraded)&&<details className="drawing-source-details disclosure"><summary>Source details</summary><DrawingSources part={{...part,facts}} fact={fact} navigate={navigate} openFact={openFact} compact={compact}/></details>}
-          </>}
-        </div>
-      </>:current==='debug'?<DebugView part={{...part,facts}} openFact={openFact} navigate={navigate} initialSection={requested==='history'?'history':'records'}/>:<FactDetails part={{...part,facts}} openFact={openFact} navigate={navigate}/>}
-    </TabsContent>
-    {historyFact&&<Dialog open onOpenChange={open=>{if(!open)setHistoryFact(null)}}>
-      <DialogContent className="history-modal source-history-dialog" overlayClassName="modal-scrim" showCloseButton={false} onCloseAutoFocus={event=>{event.preventDefault();sourceTrigger.current?.focus()}}>
-        <DialogTitle className="sr-only">{debug?'Fact history':'Source evidence'}</DialogTitle>
-        <DialogDescription className="sr-only">Original source evidence and the recorded value for this field.</DialogDescription>
-        <Button variant="ghost" size="icon" className="modal-close icon-button" aria-label="Close source evidence" onClick={()=>setHistoryFact(null)}><X size={19}/></Button>
+  return <div className={`part-page ${compact?'compact':''}`}><header className="part-header"><div className="part-symbol"><Box size={23}/></div><div className="part-title"><div className="eyebrow">{part.drawing?.id || 'PARTS LIST'} <span> / </span> {part.section}</div><h2>{englishName(part.display_name)}</h2><div className="row wrap"><StatusBadge tone={part.design_review?'green':''}>{reconstructionLabel}</StatusBadge></div></div><div className="row">{compact&&<button className="icon-button" title="Open full page" onClick={()=>navigate(partURL(key,current,{...(factId?{fact:factId}:{})}))}><Maximize2 size={17}/></button>}{onClose&&<button className="icon-button" title="Close part" onClick={onClose}><X size={19}/></button>}</div></header><nav className="part-tabs">{tabs.map(([id,label,Icon])=><button className={current===id?'active':''} key={id} onClick={()=>changeTab(id)}><Icon size={15}/>{label}</button>)}{debug&&(part.review_items?.length>0||has3d)&&<button className="review-link" onClick={()=>navigate(`/review/part/${pathKey(key)}`)}>Review this part <ArrowUpRight size={12}/></button>}</nav><div className="part-body">{current==='3d'||current==='2d'?<>{current==='2d'&&Number(part.drawing?.pages)>1&&<aside className="sheet-rail"><div className="eyebrow">SHEETS</div>{Array.from({length:Number(part.drawing?.pages)||0},(_,i)=><button className={`sheet-thumb ${page===i+1?'active':''}`} key={i} onClick={()=>setPage(i+1)}><img src={imageURL(key,i+1,true)} alt={`Sheet ${i+1}`}/><span>Sheet {i+1}</span></button>)}</aside>}<div className="primary-view">{current==='3d'?<Viewer3D part={part} example={example} onExampleChange={e=>{setExample(e);navigate(partURL(key,'3d',{example:e}),{replace:true,keepPanel:compact})}}/>:<><DrawingViewer part={part} fact={fact} page={page} onPageChange={setPage}/>{(fact||part.drawing?.degraded)&&<details className="drawing-source-details disclosure"><summary>Source details</summary><DrawingSources part={{...part,facts}} fact={fact} navigate={navigate} openFact={openFact} compact={compact}/></details>}</>}</div></>:current==='debug'?<DebugView part={{...part,facts}} openFact={openFact} navigate={navigate} initialSection={requested==='history'?'history':'records'}/>:<FactDetails part={{...part,facts}} openFact={openFact} navigate={navigate}/>}</div>{historyFact&&<Dialog.Root open onOpenChange={open=>{if(!open)setHistoryFact(null)}}>
+    <Dialog.Portal>
+      <Dialog.Overlay className="modal-scrim source-history-overlay"/>
+      <Dialog.Content className="history-modal source-history-dialog" onCloseAutoFocus={event=>{event.preventDefault();sourceTrigger.current?.focus()}}>
+        <Dialog.Title className="source-dialog-label">{debug?'Fact history':'Source evidence'}</Dialog.Title>
+        <Dialog.Description className="source-dialog-label">Original source evidence and the recorded value for this field.</Dialog.Description>
+        <button className="modal-close icon-button" aria-label="Close source evidence" onClick={()=>setHistoryFact(null)}><X size={19}/></button>
         {debug?<HistoryView part={part} fact={historyFact} onSource={id=>{setHistoryFact(null);navigate(partURL(key,'2d',{fact:id}),{keepPanel:compact})}}/>:<SourceView fact={historyFact} onSource={()=>{setHistoryFact(null);openFact(historyFact,'source')}}/>}
-      </DialogContent>
-    </Dialog>}
-
-  </Tabs>;
+      </Dialog.Content>
+    </Dialog.Portal>
+  </Dialog.Root>}</div>;
 }

@@ -20,7 +20,7 @@ def verify_debug():
         page.on('pageerror',lambda e:errors.append(str(e)))
         page.goto(BASE+'/part/D-013/debug')
         page.locator('.debug-view').wait_for()
-        assert page.locator('.part-tabs').get_by_role('tab',name='Debug',exact=True).is_visible()
+        assert page.locator('.part-tabs').get_by_role('button',name='Debug',exact=True).is_visible()
         page.locator('.debug-tabs').get_by_role('button',name='Model & checks',exact=True).click()
         page.locator('.cad-weight > summary').click()
         assert page.locator('.cad-weight-detail').is_visible()
@@ -300,11 +300,10 @@ def verify_redesign(context, errors):
     page.keyboard.press('Escape')
     expect(source_dialog).to_have_count(0)
     expect(source).to_be_focused()
-    page.get_by_role('tab', name='2D drawing', exact=True).focus()
-    page.keyboard.press('ArrowLeft')
+    page.locator('.part-tabs').get_by_role('button', name='3D model', exact=True).focus()
     page.keyboard.press('Enter')
-    expect(page.get_by_role('tab', name='3D model', exact=True)).to_have_attribute('data-state','active')
-    page.get_by_role('tab', name='2D drawing', exact=True).click()
+    expect(page.locator('.cad-viewer')).to_be_visible()
+    page.locator('.part-tabs').get_by_role('button', name='2D drawing', exact=True).click()
     zoom = page.locator('.zoom-readout')
     before = zoom.inner_text()
     page.get_by_title('Zoom in', exact=True).click()
@@ -326,7 +325,7 @@ def verify_redesign(context, errors):
             page.goto(BASE+path)
             page.locator(ready).first.wait_for()
             page.evaluate('document.fonts.ready')
-            expect(page.locator('.app-topbar')).to_be_visible()
+            expect(page.locator('.app-sidebar')).to_be_visible()
             assert page.evaluate('getComputedStyle(document.body).backgroundColor') == 'rgb(21, 21, 29)'
             if page.evaluate('document.documentElement.scrollWidth > innerWidth'):
                 page.screenshot(path=str(OUT/f'redesign-overflow-{label}-{name}.png'))
@@ -336,7 +335,7 @@ def verify_redesign(context, errors):
             if name == 'chat':
                 expect(page.get_by_role('textbox',name='Message Meridian')).to_be_in_viewport()
             if name == 'parts':
-                expect(page.get_by_role('textbox', name='Search parts')).to_be_in_viewport()
+                expect(page.get_by_placeholder('Search part or material\u2026')).to_be_in_viewport()
                 # A horizontally scrollable table is contained in its own region.
                 assert page.locator('.part-result').count() == len(get('/api/parts'))
             if name == 'drawing':
@@ -415,7 +414,7 @@ def main():
                 model_record = get('/api/parts/'+model)
                 expected_review = 'Human reviewed' if model_record.get('design_review') else 'AI reviewed'
                 assert page.locator('.part-title').get_by_text(expected_review,exact=True).is_visible()
-                assert page.locator('.part-tabs').get_by_role('tab', name='Debug', exact=True).count() == 0
+                assert page.locator('.part-tabs').get_by_role('button', name='Debug', exact=True).count() == 0
                 viewer = page.locator('.primary-view').bounding_box()
                 body = page.locator('.part-body').bounding_box()
                 assert viewer['width'] >= body['width'] * .9
@@ -446,7 +445,7 @@ def main():
                     render_page.locator('.cad-canvas canvas').wait_for()
                     render_page.wait_for_timeout(1600)
                     assert render_page.locator('.cad-empty').count() == 0, item['key']
-                    assert render_page.locator('.part-tabs').get_by_role('tab',name='Debug',exact=True).count() == 0
+                    assert render_page.locator('.part-tabs').get_by_role('button',name='Debug',exact=True).count() == 0
                     assert 'FAILED' not in render_page.locator('.part-page').inner_text()
                     render_page.screenshot(path=str(OUT/f"render-{item['key']}-{variant}.png"))
                     rendered_models.append({'drawing':item['key'],'variant':variant,'glb_sha256':exported['glb_sha256']})
@@ -491,7 +490,7 @@ def main():
         assert 'længere' not in page.locator('.notes-box').inner_text()
         page.screenshot(path=str(OUT/'english-notes.png'))
         page.goto(BASE+'/review/part/D-013')
-        page.locator('.part-tabs').get_by_role('tab',name='2D drawing',exact=True).click()
+        page.locator('.part-tabs').get_by_role('button',name='2D drawing',exact=True).click()
         print('review_controls_retained',page.locator('.part-review-controls').is_visible(),'approval_disabled',page.get_by_role('button',name='Approve whole design',exact=True).is_disabled(),flush=True)
         page.screenshot(path=str(OUT/'review-d013-drawing.png'))
         page.goto(BASE+'/review/possible-readings/options:D-025/template/thickness')

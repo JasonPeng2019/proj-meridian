@@ -9,16 +9,20 @@ the implementation. Embedder branding, marketing text, photographs and proprieta
 fonts are not shipped. The striped hero uses Meridian's original D-014 drawing;
 clicking it opens that evidence. Geist is self-hosted with its open font license.
 
-React/Vite and adapted shadcn/Radix controls preserve the existing application.
+The pre-package UI from commit `9d066dc` is the layout baseline, as Jason
+requested. The original sidebar, Meridian mark, chat, card catalog and native
+part/viewer controls are retained. The shadcn component layer and its direct
+dependencies have been removed. Radix Dialog provides source-overlay focus and
+Escape behavior only; it supplies no visual layout.
 The theme is obsidian `#15151d`, warm linen `#ede5d3`, pale mint `#a6c9c0` and
-ivory `#fffdf7`. A horizontal navigation bar replaces the sidebar. Parts use a
-compact table on desktop and readable metadata rows on phones; additional filters
-stay collapsed. Detail uses understated standard sections. Engineering evidence,
+ivory `#fffdf7`. The original navigation rail remains. Parts keep their original card catalog,
+with responsive columns and collapsed additional filters. Detail keeps its
+standard sections, with restrained borders and no new component-kit panels. Engineering evidence,
 review controls, receipts, checks and history stay in Debug.
 
 The existing customer/Debug browser suite is retained. Additional checks cover
 message submission, source/attachment navigation, Back retaining the conversation,
-copying, dialog keyboard behavior, keyboard part tabs, drawing zoom/fit, asset
+copying, dialog keyboard behavior, keyboard part-view buttons, drawing zoom/fit, asset
 filtering/reset and screenshots at desktop, laptop and mobile sizes. The new chat
 interaction check mocks its HTTP transport; it makes no paid API or answer-quality
 claim. Existing history checks still exercise persistence, reload and deletion

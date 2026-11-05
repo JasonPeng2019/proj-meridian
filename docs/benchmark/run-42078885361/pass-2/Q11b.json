@@ -1,0 +1,2400 @@
+{
+  "pass": 2,
+  "case_id": "Q11b",
+  "question": "What is the title of drawing D-019?",
+  "server_start_status": {
+    "chat_available": true,
+    "chat_model": "gpt-6-luna",
+    "chat_provider": "openai",
+    "debug_ui": false,
+    "revision": "213ed124ee9045ac",
+    "parts": 202,
+    "drawings": 30,
+    "models": 9,
+    "reviewer_name": "Automated verification"
+  },
+  "evaluation_reference": {},
+  "workflow_setup": {
+    "usage": {
+      "input_tokens": 34115,
+      "output_tokens": 161,
+      "total_tokens": 34276
+    },
+    "latency_ms": 6608
+  },
+  "preconditions": [
+    {
+      "name": "isolated_automated_correction_accepted",
+      "status": "met",
+      "fact": {
+        "fact": "D-019/drawing/title",
+        "field": "title",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Silicone gasket for f-theta lens"
+        },
+        "badge": "Human reviewed by Automated verification on 2026-11-05",
+        "review": {
+          "status": "human_confirmed",
+          "by": "Automated verification",
+          "at": "2026-11-05T17:59:37.519583+00:00"
+        },
+        "sources": [
+          {
+            "name": "D-019/drawing/title",
+            "says": "Description",
+            "method": "human_decision",
+            "page": 1,
+            "box": [
+              975.328,
+              710.355,
+              181.0,
+              66.0
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": "Printed placeholder; not a reliable part title.",
+            "badge": "Human reviewed by Automated verification on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": {
+          "original": "Description",
+          "corrected": "Silicone gasket for f-theta lens",
+          "by": "Automated verification",
+          "at": "2026-11-05T17:59:37.519583+00:00"
+        },
+        "callout": null
+      }
+    }
+  ],
+  "workflow": {
+    "reviewer": "Automated verification",
+    "purpose": "isolated automated workflow verification; not a human approval",
+    "accepted": true
+  },
+  "response": {
+    "text": "The drawing title is **“Silicone gasket for f-theta lens.”** [cite: D-019/drawing/title] The drawing and 3D model are attached below. [cite: D-019/part]",
+    "facts": {
+      "D-019/part": {
+        "fact": "D-019/part",
+        "field": "part",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Silicone gasket for f-theta lens"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/part",
+            "says": "Silicone gasket for f-theta lens",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/material": {
+        "fact": "D-019/drawing/material",
+        "field": "material",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Silicon Rubber"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/material",
+            "says": "Silicon Rubber",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              745.28,
+              771.048,
+              135.0,
+              14.0
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "BOM:optics/silicone-gasket-f-theta-ring/material",
+            "says": "Silicone",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/silicone-gasket-f-theta-ring/material": {
+        "fact": "BOM:optics/silicone-gasket-f-theta-ring/material",
+        "field": "material",
+        "part_key": "D-019",
+        "part_keys": [
+          "D-019"
+        ],
+        "display": {
+          "state": "value",
+          "value": [
+            "Silicone"
+          ]
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/silicone-gasket-f-theta-ring/material",
+            "says": "Silicone",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/title": {
+        "fact": "D-019/drawing/title",
+        "field": "title",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Silicone gasket for f-theta lens"
+        },
+        "badge": "Human reviewed by Automated verification on 2026-11-05",
+        "review": {
+          "status": "human_confirmed",
+          "by": "Automated verification",
+          "at": "2026-11-05T17:59:37.519583+00:00"
+        },
+        "sources": [
+          {
+            "name": "D-019/drawing/title",
+            "says": "Description",
+            "method": "human_decision",
+            "page": 1,
+            "box": [
+              975.328,
+              710.355,
+              181.0,
+              66.0
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": "Printed placeholder; not a reliable part title.",
+            "badge": "Human reviewed by Automated verification on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": {
+          "original": "Description",
+          "corrected": "Silicone gasket for f-theta lens",
+          "by": "Automated verification",
+          "at": "2026-11-05T17:59:37.519583+00:00"
+        },
+        "callout": null
+      },
+      "D-019/drawing/notes": {
+        "fact": "D-019/drawing/notes",
+        "field": "notes",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "1mm silicone pakning"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/notes",
+            "says": "1mm silicone pakning",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              741.526,
+              658.942,
+              231.0,
+              111.0
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/company": {
+        "fact": "D-019/drawing/company",
+        "field": "company",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "DTU MPP"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/company",
+            "says": "DTU MPP",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              975.328,
+              658.942,
+              91.0,
+              48.0
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/weight_g": {
+        "fact": "D-019/drawing/weight_g",
+        "field": "weight_g",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 5.7
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/weight_g",
+            "says": "5.7",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              880.717,
+              771.048,
+              93.0,
+              14.0
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/drawn": {
+        "fact": "D-019/drawing/drawn",
+        "field": "drawn",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "MBOKJ"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/drawn",
+            "says": "MBOKJ",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              893.294,
+              790.235,
+              78.0,
+              11.0
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/date": {
+        "fact": "D-019/drawing/date",
+        "field": "date",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "06/01/2022"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/date",
+            "says": "06/01/2022",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              897.013,
+              802.562,
+              76.0,
+              11.0
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/scale": {
+        "fact": "D-019/drawing/scale",
+        "field": "scale",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "1:2"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/scale",
+            "says": "1:2",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1082.688,
+              803.564,
+              25.837,
+              7.75
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/callout/p1-1": {
+        "fact": "D-019/drawing/callout/p1-1",
+        "field": "p1-1",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "6 x 4,5 THRU ALL"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/callout/p1-1",
+            "says": "6 x 4,5 THRU ALL",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              449.788,
+              231.957,
+              118.667,
+              18.083
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": {
+          "feature": "unclassified_callout",
+          "count": 6,
+          "through": true
+        }
+      },
+      "D-019/drawing/general/units": {
+        "fact": "D-019/drawing/general/units",
+        "field": "units",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "DIMENSIONS ARE IN MILLIMETERS"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/general/units",
+            "says": "DIMENSIONS ARE IN MILLIMETERS",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              978.968,
+              784.149,
+              85.555,
+              7.75
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": {
+          "feature": "general_note"
+        }
+      },
+      "D-019/drawing/general/general_tolerance": {
+        "fact": "D-019/drawing/general/general_tolerance",
+        "field": "general_tolerance",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "DIN ISO 2768-1 m"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/general/general_tolerance",
+            "says": "DIN ISO 2768-1 m",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1016.541,
+              790.957,
+              47.749,
+              8.202
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": {
+          "feature": "general_note"
+        }
+      },
+      "D-019/drawing/general/edge_finish": {
+        "fact": "D-019/drawing/general/edge_finish",
+        "field": "edge_finish",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "DEBURR AND BREAK SHARP EDGES"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/general/edge_finish",
+            "says": "DEBURR AND BREAK SHARP EDGES",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1078.776,
+              781.582,
+              52.887,
+              14.837
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": {
+          "feature": "general_note"
+        }
+      },
+      "BOM:optics/silicone-gasket-f-theta-ring/name": {
+        "fact": "BOM:optics/silicone-gasket-f-theta-ring/name",
+        "field": "name",
+        "part_key": "D-019",
+        "part_keys": [
+          "D-019"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Silicone gasket f-theta ring"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/silicone-gasket-f-theta-ring/name",
+            "says": "Silicone gasket f-theta ring",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/silicone-gasket-f-theta-ring/part_family": {
+        "fact": "BOM:optics/silicone-gasket-f-theta-ring/part_family",
+        "field": "part_family",
+        "part_key": "D-019",
+        "part_keys": [
+          "D-019"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Optics"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/silicone-gasket-f-theta-ring/part_family",
+            "says": "Optics",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/silicone-gasket-f-theta-ring/type": {
+        "fact": "BOM:optics/silicone-gasket-f-theta-ring/type",
+        "field": "type",
+        "part_key": "D-019",
+        "part_keys": [
+          "D-019"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Custom"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/silicone-gasket-f-theta-ring/type",
+            "says": "Custom",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/silicone-gasket-f-theta-ring/design": {
+        "fact": "BOM:optics/silicone-gasket-f-theta-ring/design",
+        "field": "design",
+        "part_key": "D-019",
+        "part_keys": [
+          "D-019"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Done"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/silicone-gasket-f-theta-ring/design",
+            "says": "Done",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/silicone-gasket-f-theta-ring/order": {
+        "fact": "BOM:optics/silicone-gasket-f-theta-ring/order",
+        "field": "order",
+        "part_key": "D-019",
+        "part_keys": [
+          "D-019"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Received"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/silicone-gasket-f-theta-ring/order",
+            "says": "Recieved",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [
+              "status_spelling_Recieved_to_Received"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/silicone-gasket-f-theta-ring/validation": {
+        "fact": "BOM:optics/silicone-gasket-f-theta-ring/validation",
+        "field": "validation",
+        "part_key": "D-019",
+        "part_keys": [
+          "D-019"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Good"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/silicone-gasket-f-theta-ring/validation",
+            "says": "Good",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/silicone-gasket-f-theta-ring/notes": {
+        "fact": "BOM:optics/silicone-gasket-f-theta-ring/notes",
+        "field": "notes",
+        "part_key": "D-019",
+        "part_keys": [
+          "D-019"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. "
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/silicone-gasket-f-theta-ring/notes",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/silicone-gasket-f-theta-ring/design_intent": {
+        "fact": "BOM:optics/silicone-gasket-f-theta-ring/design_intent",
+        "field": "design_intent",
+        "part_key": "D-019",
+        "part_keys": [
+          "D-019"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. "
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/silicone-gasket-f-theta-ring/design_intent",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/silicone-gasket-f-theta-ring/image": {
+        "fact": "BOM:optics/silicone-gasket-f-theta-ring/image",
+        "field": "image",
+        "part_key": "D-019",
+        "part_keys": [
+          "D-019"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/silicone-gasket-f-theta-ring/image",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/silicone-gasket-f-theta-ring/product_name": {
+        "fact": "BOM:optics/silicone-gasket-f-theta-ring/product_name",
+        "field": "product_name",
+        "part_key": "D-019",
+        "part_keys": [
+          "D-019"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/silicone-gasket-f-theta-ring/product_name",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/silicone-gasket-f-theta-ring/supplier_order": {
+        "fact": "BOM:optics/silicone-gasket-f-theta-ring/supplier_order",
+        "field": "supplier_order",
+        "part_key": "D-019",
+        "part_keys": [
+          "D-019"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/silicone-gasket-f-theta-ring/supplier_order",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/silicone-gasket-f-theta-ring/interface_with": {
+        "fact": "BOM:optics/silicone-gasket-f-theta-ring/interface_with",
+        "field": "interface_with",
+        "part_key": "D-019",
+        "part_keys": [
+          "D-019"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. "
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/silicone-gasket-f-theta-ring/interface_with",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/silicone-gasket-f-theta-ring/link": {
+        "fact": "BOM:optics/silicone-gasket-f-theta-ring/link",
+        "field": "link",
+        "part_key": "D-019",
+        "part_keys": [
+          "D-019"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/silicone-gasket-f-theta-ring/link",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/silicone-gasket-f-theta-ring/supplier": {
+        "fact": "BOM:optics/silicone-gasket-f-theta-ring/supplier",
+        "field": "supplier",
+        "part_key": "D-019",
+        "part_keys": [
+          "D-019"
+        ],
+        "display": {
+          "state": "value",
+          "value": "DTU"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/silicone-gasket-f-theta-ring/supplier",
+            "says": "DTU",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/silicone-gasket-f-theta-ring/datasheet": {
+        "fact": "BOM:optics/silicone-gasket-f-theta-ring/datasheet",
+        "field": "datasheet",
+        "part_key": "D-019",
+        "part_keys": [
+          "D-019"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/silicone-gasket-f-theta-ring/datasheet",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/silicone-gasket-f-theta-ring/amount": {
+        "fact": "BOM:optics/silicone-gasket-f-theta-ring/amount",
+        "field": "amount",
+        "part_key": "D-019",
+        "part_keys": [
+          "D-019"
+        ],
+        "display": {
+          "state": "value",
+          "value": 1
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/silicone-gasket-f-theta-ring/amount",
+            "says": "1",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [
+              "parse_number"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/silicone-gasket-f-theta-ring/cost": {
+        "fact": "BOM:optics/silicone-gasket-f-theta-ring/cost",
+        "field": "cost",
+        "part_key": "D-019",
+        "part_keys": [
+          "D-019"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/silicone-gasket-f-theta-ring/cost",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/silicone-gasket-f-theta-ring/total_cost": {
+        "fact": "BOM:optics/silicone-gasket-f-theta-ring/total_cost",
+        "field": "total_cost",
+        "part_key": "D-019",
+        "part_keys": [
+          "D-019"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: 'DKK0.00'. Cleanup: parse_dkk_price, zero_total_with_blank_cost_or_amount_to_not_recorded. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/silicone-gasket-f-theta-ring/total_cost",
+            "says": "DKK0.00",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [
+              "parse_dkk_price",
+              "zero_total_with_blank_cost_or_amount_to_not_recorded"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/silicone-gasket-f-theta-ring/interface_count": {
+        "fact": "BOM:optics/silicone-gasket-f-theta-ring/interface_count",
+        "field": "interface_count",
+        "part_key": "D-019",
+        "part_keys": [
+          "D-019"
+        ],
+        "display": {
+          "state": "value",
+          "value": 0
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/silicone-gasket-f-theta-ring/interface_count",
+            "says": "0",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [
+              "parse_number"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/template/outline": {
+        "fact": "D-019/template/outline",
+        "field": "outline",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "ring"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/template/outline",
+            "says": null,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/template/outline/outer_diameter": {
+        "fact": "D-019/template/outline/outer_diameter",
+        "field": "outer_diameter",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 141
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05",
+        "review": {
+          "status": "human_confirmed",
+          "by": "Jason Peng",
+          "at": "2026-11-05T17:48:42.769193+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-019/template/outline/outer_diameter",
+            "says": 141,
+            "method": "ai_verified",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": "The Ø141,0 diameter dimension terminates on the outer circular boundary. Dimensions are in millimeters. Verification: The parsed text '141,0' (box at 728,230) is the Ø141,0 callout. Its leader runs through the centre and has an arrow on the outermost solid circle of the face-on view. The units note says millimetres, so the value is 141.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/n/141.0@1-1",
+            "says": "141,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              728.205,
+              230.219,
+              36.113,
+              36.113
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/general/units",
+            "says": "DIMENSIONS ARE IN MILLIMETERS",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              978.968,
+              784.149,
+              85.555,
+              7.75
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/n/141.0@1-1": {
+        "fact": "D-019/drawing/n/141.0@1-1",
+        "field": "141.0@1-1",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 141.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/n/141.0@1-1",
+            "says": "141,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              728.205,
+              230.219,
+              36.113,
+              36.113
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/template/outline/inner_diameter": {
+        "fact": "D-019/template/outline/inner_diameter",
+        "field": "inner_diameter",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 118
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05",
+        "review": {
+          "status": "human_confirmed",
+          "by": "Jason Peng",
+          "at": "2026-11-05T17:48:42.778717+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-019/template/outline/inner_diameter",
+            "says": 118,
+            "method": "ai_verified",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": "The Ø118,0 diameter dimension terminates on the inner circular boundary. Dimensions are in millimeters. Verification: The parsed text '118,0' (box at 673,230) is the Ø118,0 callout. Its leader is a diameter line through the centre that refers to the solid inner boundary. The dashed construction circle through the holes has no printed size, and Ø118,0 is the only other diameter callout, so it dimensions the inner bore. The units note says millimetres, so the value is 118.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/n/118.0@1-1",
+            "says": "118,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              673.172,
+              230.001,
+              32.155,
+              37.61
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/general/units",
+            "says": "DIMENSIONS ARE IN MILLIMETERS",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              978.968,
+              784.149,
+              85.555,
+              7.75
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/n/118.0@1-1": {
+        "fact": "D-019/drawing/n/118.0@1-1",
+        "field": "118.0@1-1",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 118.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/n/118.0@1-1",
+            "says": "118,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              673.172,
+              230.001,
+              32.155,
+              37.61
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/template/thickness": {
+        "fact": "D-019/template/thickness",
+        "field": "thickness",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 1
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05",
+        "review": {
+          "status": "human_confirmed",
+          "by": "Jason Peng",
+          "at": "2026-11-05T17:48:42.786715+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-019/template/thickness",
+            "says": 1,
+            "method": "ai_verified",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": "The side view directly dimensions the sheet thickness as 1,0 mm, corroborated by the note '1mm silicone pakning'. Verification: In the side view (the left edge-on line), a 1,0 dimension with extension lines and arrows spans the edge-on sheet thickness. The note '1mm silicone pakning' agrees with it. Only one thickness is printed, so the value is a constant 1.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/n/1.0@1-1",
+            "says": "1,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              323.877,
+              242.209,
+              18.327,
+              18.083
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/notes",
+            "says": "1mm silicone pakning",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              741.526,
+              658.942,
+              231.0,
+              111.0
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/general/units",
+            "says": "DIMENSIONS ARE IN MILLIMETERS",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              978.968,
+              784.149,
+              85.555,
+              7.75
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/n/1.0@1-1": {
+        "fact": "D-019/drawing/n/1.0@1-1",
+        "field": "1.0@1-1",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 1.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/n/1.0@1-1",
+            "says": "1,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              323.877,
+              242.209,
+              18.327,
+              18.083
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/template/features_review": {
+        "fact": "D-019/template/features_review",
+        "field": "features_review",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": []
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05",
+        "review": {
+          "status": "human_confirmed",
+          "by": "Jason Peng",
+          "at": "2026-11-05T17:48:42.797239+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-019/template/features_review",
+            "says": [],
+            "method": "ai_verified",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": "Six Ø4,5 through-holes are visible and called out, but their pitch-circle diameter or complete center coordinates are not dimensioned. No additional cut has fully supported geometry and placement. Verification: The callout '6 x 4,5 THRU ALL' gives the count, diameter and through operation. The six holes sit on a dashed construction circle between the inner and outer boundaries. No pitch-circle diameter, radius or hole coordinates are printed: Ø118,0 and Ø141,0 dimension the body boundaries, not the construction circle. A circle-pattern placement would need an unprinted radius, so no hole can be fully placed. No other cuts are visible. Known [] is the correct supported subset.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/callout/p1-1",
+            "says": "6 x 4,5 THRU ALL",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              449.788,
+              231.957,
+              118.667,
+              18.083
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/template/cad_eligibility": {
+        "fact": "D-019/template/cad_eligibility",
+        "field": "cad_eligibility",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "supported": true,
+            "constant_thickness": true,
+            "outline_exact": true,
+            "reason": "The main face-on view establishes an exact concentric ring with outer diameter 141,0 mm and inner diameter 118,0 mm. The side-view thickness dimension establishes a constant 1,0 mm thickness, corroborated by '1mm silicone pakning'. The isometric view is consistent with this flat ring. The main body is supported, but reconstruction remains partial because the six through-holes lack dimensioned placement and the general edge breaks lack defined geometry.",
+            "essential_uncertainty": [],
+            "omitted_minor_features": [
+              "Six Ø4,5 through-holes: pitch-circle diameter or complete center coordinates are missing.",
+              "Unspecified edge breaks: size and profile are missing."
+            ]
+          }
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05",
+        "review": {
+          "status": "human_confirmed",
+          "by": "Jason Peng",
+          "at": "2026-11-05T17:48:42.805239+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-019/template/cad_eligibility",
+            "says": {
+              "supported": true,
+              "constant_thickness": true,
+              "outline_exact": true,
+              "reason": "The main face-on view establishes an exact concentric ring with outer diameter 141,0 mm and inner diameter 118,0 mm. The side-view thickness dimension establishes a constant 1,0 mm thickness, corroborated by '1mm silicone pakning'. The isometric view is consistent with this flat ring. The main body is supported, but reconstruction remains partial because the six through-holes lack dimensioned placement and the general edge breaks lack defined geometry.",
+              "essential_uncertainty": [],
+              "omitted_minor_features": [
+                "Six Ø4,5 through-holes: pitch-circle diameter or complete center coordinates are missing.",
+                "Unspecified edge breaks: size and profile are missing."
+              ]
+            },
+            "method": "ai_verified",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": "The dimensioned constant-thickness ring fits the supported main-body template. Missing placement of the smaller holes permits a partial body model, without establishing a complete functional reconstruction. Verification: The main body is an exact flat ring (outer Ø141,0, inner Ø118,0) with a constant 1,0 thickness dimensioned in the side view. The isometric view confirms a planar annulus with no steps, contours or notches. The unplaced holes are minor cuts and are listed as omissions, so an honest partial model is allowed. supported, constant_thickness and outline_exact = true, essential_uncertainty = [] and the omitted-features list are all consistent with the evidence.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/n/141.0@1-1",
+            "says": "141,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              728.205,
+              230.219,
+              36.113,
+              36.113
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/n/118.0@1-1",
+            "says": "118,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              673.172,
+              230.001,
+              32.155,
+              37.61
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/n/1.0@1-1",
+            "says": "1,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              323.877,
+              242.209,
+              18.327,
+              18.083
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/notes",
+            "says": "1mm silicone pakning",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              741.526,
+              658.942,
+              231.0,
+              111.0
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/callout/p1-1",
+            "says": "6 x 4,5 THRU ALL",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              449.788,
+              231.957,
+              118.667,
+              18.083
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/general/edge_finish",
+            "says": "DEBURR AND BREAK SHARP EDGES",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1078.776,
+              781.582,
+              52.887,
+              14.837
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/template/features_complete": {
+        "fact": "D-019/template/features_complete",
+        "field": "features_complete",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": false
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05",
+        "review": {
+          "status": "human_confirmed",
+          "by": "Jason Peng",
+          "at": "2026-11-05T17:48:42.815241+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-019/template/features_complete",
+            "says": false,
+            "method": "ai_verified",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": "The six through-holes cannot be located from supplied dimensions, and the specified edge breaks have no dimensional definition. Verification: The six Ø4,5 through-holes have to be omitted because their pitch-circle diameter is not printed, so the inventory is incomplete. False is correct.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/callout/p1-1",
+            "says": "6 x 4,5 THRU ALL",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              449.788,
+              231.957,
+              118.667,
+              18.083
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/general/edge_finish",
+            "says": "DEBURR AND BREAK SHARP EDGES",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1078.776,
+              781.582,
+              52.887,
+              14.837
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/template/features_omitted": {
+        "fact": "D-019/template/features_omitted",
+        "field": "features_omitted",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": [
+            {
+              "description": "6 x Ø4,5 THRU ALL holes",
+              "reason": "The count, diameter and through operation are established. The face-on view shows centers on a circular construction line, but no pitch-circle diameter, radius or complete center coordinates are supplied. Ø118,0 and Ø141,0 dimension the inner and outer body boundaries, not the hole pattern. Hole positions therefore cannot be modeled without guessing.",
+              "fact_ids": [
+                "D-019",
+                "D-019/drawing/callout/p1-1",
+                "D-019/drawing/n/6.0@1-1",
+                "D-019/drawing/n/4.5@1-1"
+              ]
+            },
+            {
+              "description": "DEBURR AND BREAK SHARP EDGES",
+              "reason": "The general finish note supplies no edge-break size or profile; no specific chamfer or rounding can be modeled.",
+              "fact_ids": [
+                "D-019/drawing/general/edge_finish"
+              ]
+            }
+          ]
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05",
+        "review": {
+          "status": "human_confirmed",
+          "by": "Jason Peng",
+          "at": "2026-11-05T17:48:42.823238+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-019/template/features_omitted",
+            "says": [
+              {
+                "description": "6 x Ø4,5 THRU ALL holes",
+                "reason": "The count, diameter and through operation are established. The face-on view shows centers on a circular construction line, but no pitch-circle diameter, radius or complete center coordinates are supplied. Ø118,0 and Ø141,0 dimension the inner and outer body boundaries, not the hole pattern. Hole positions therefore cannot be modeled without guessing.",
+                "fact_ids": [
+                  "D-019",
+                  "D-019/drawing/callout/p1-1",
+                  "D-019/drawing/n/6.0@1-1",
+                  "D-019/drawing/n/4.5@1-1"
+                ]
+              },
+              {
+                "description": "DEBURR AND BREAK SHARP EDGES",
+                "reason": "The general finish note supplies no edge-break size or profile; no specific chamfer or rounding can be modeled.",
+                "fact_ids": [
+                  "D-019/drawing/general/edge_finish"
+                ]
+              }
+            ],
+            "method": "ai_verified",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": "These omissions distinguish missing hole-location dimensions and unspecified finishing geometry from supported ring-body dimensions. Verification: The first omission correctly describes the 6 × Ø4,5 THRU ALL holes on an undimensioned construction circle and cites the callout and its parsed numbers. The second correctly records the general note 'DEBURR AND BREAK SHARP EDGES', which gives no size. Both reasons match the drawing, and no other visible feature is missing from the list.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/callout/p1-1",
+            "says": "6 x 4,5 THRU ALL",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              449.788,
+              231.957,
+              118.667,
+              18.083
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/n/6.0@1-1",
+            "says": "6",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              449.788,
+              231.957,
+              7.331,
+              18.083
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/n/4.5@1-1",
+            "says": "4,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              489.428,
+              231.957,
+              18.321,
+              18.083
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/general/edge_finish",
+            "says": "DEBURR AND BREAK SHARP EDGES",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1078.776,
+              781.582,
+              52.887,
+              14.837
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/n/6.0@1-1": {
+        "fact": "D-019/drawing/n/6.0@1-1",
+        "field": "6.0@1-1",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 6.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/n/6.0@1-1",
+            "says": "6",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              449.788,
+              231.957,
+              7.331,
+              18.083
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/n/4.5@1-1": {
+        "fact": "D-019/drawing/n/4.5@1-1",
+        "field": "4.5@1-1",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 4.5
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/n/4.5@1-1",
+            "says": "4,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              489.428,
+              231.957,
+              18.321,
+              18.083
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/link": {
+        "fact": "D-019/link",
+        "field": "link",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": [
+            "BOM:optics/silicone-gasket-f-theta-ring"
+          ]
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05",
+        "review": {
+          "status": "human_confirmed",
+          "by": "Jason Peng",
+          "at": "2026-11-05T14:14:02.537605+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-019/link",
+            "says": [
+              "BOM:optics/silicone-gasket-f-theta-ring"
+            ],
+            "method": "human_decision",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": {
+          "original": [],
+          "corrected": [
+            "BOM:optics/silicone-gasket-f-theta-ring"
+          ],
+          "by": "Jason Peng",
+          "at": "2026-11-05T14:14:02.537605+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "callout": null
+      },
+      "D-019/model/verification": {
+        "fact": "D-019/model/verification",
+        "field": "verification",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "weight_check": {
+              "state": "FAILED",
+              "message": "FAILED weight check: needs manual approval — no trusted material with a sourced density is available",
+              "examples": {
+                "A": {
+                  "attempts": [],
+                  "matches": false,
+                  "drawing_g": 5.7
+                }
+              },
+              "drawing_g": 5.7,
+              "tolerance_percent": 5,
+              "requires_approval": true,
+              "approval_note_required": true,
+              "limitation": "A matching weight does not verify feature positions. No thickness or material is selected automatically.",
+              "density_label": "Outside source, not the dataset"
+            },
+            "omitted": [
+              "6 x Ø4,5 THRU ALL holes: The count, diameter and through operation are established. The face-on view shows centers on a circular construction line, but no pitch-circle diameter, radius or complete center coordinates are supplied. Ø118,0 and Ø141,0 dimension the inner and outer body boundaries, not the hole pattern. Hole positions therefore cannot be modeled without guessing.",
+              "DEBURR AND BREAK SHARP EDGES: The general finish note supplies no edge-break size or profile; no specific chamfer or rounding can be modeled."
+            ],
+            "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
+            "review": {
+              "status": "not_reviewed"
+            },
+            "examples": {
+              "A": {
+                "selections": {},
+                "volume_mm3": 4678.6168593586
+              }
+            }
+          }
+        },
+        "badge": "Computed from recorded source facts",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/model/verification",
+            "says": "Computed model verification, not a design approval. Density references are outside sources, not the dataset. Failed checks need manual review; possible readings are never selected by weight.",
+            "method": "computed_summary",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": "Computed model verification, not a design approval. Density references are outside sources, not the dataset. Failed checks need manual review; possible readings are never selected by weight.",
+            "badge": "Computed from recorded source facts",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/weight_g",
+            "says": "5.7",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              880.717,
+              771.048,
+              93.0,
+              14.0
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/template/thickness",
+            "says": 1,
+            "method": "ai_verified",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": "The side view directly dimensions the sheet thickness as 1,0 mm, corroborated by the note '1mm silicone pakning'. Verification: In the side view (the left edge-on line), a 1,0 dimension with extension lines and arrows spans the edge-on sheet thickness. The note '1mm silicone pakning' agrees with it. Only one thickness is printed, so the value is a constant 1.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      }
+    },
+    "parts_to_show": [
+      {
+        "id": "D-019/part",
+        "key": "D-019",
+        "display_name": "Silicone gasket for f-theta lens",
+        "section": "Optical",
+        "has_drawing": true,
+        "has_3d": true,
+        "examples": [
+          "A"
+        ],
+        "review_status": "not_reviewed",
+        "thumbnail": "/api/parts/D-019/image?page=1&thumb=1",
+        "drawing_url": "/part/D-019/2d",
+        "model_url": "/part/D-019/3d",
+        "shown_reason": null
+      }
+    ],
+    "warnings": [],
+    "session_id": "88a1603379864bcdb0afdc5be370fc98",
+    "model": "gpt-6-luna",
+    "usage": {
+      "input_tokens": 18069,
+      "output_tokens": 94,
+      "total_tokens": 18163
+    },
+    "latency_ms": 3029,
+    "tool_trace": [
+      {
+        "tool": "find_part",
+        "arguments": {
+          "text": "D-019"
+        },
+        "facts_returned": [
+          "D-019/part"
+        ]
+      },
+      {
+        "tool": "get_facts",
+        "arguments": {
+          "part_id": "D-019/part"
+        },
+        "facts_returned": [
+          "D-019/part",
+          "D-019/drawing/material",
+          "BOM:optics/silicone-gasket-f-theta-ring/material",
+          "D-019/drawing/title",
+          "D-019/drawing/notes",
+          "D-019/drawing/company",
+          "D-019/drawing/weight_g",
+          "D-019/drawing/drawn",
+          "D-019/drawing/date",
+          "D-019/drawing/scale",
+          "D-019/drawing/callout/p1-1",
+          "D-019/drawing/general/units",
+          "D-019/drawing/general/general_tolerance",
+          "D-019/drawing/general/edge_finish",
+          "BOM:optics/silicone-gasket-f-theta-ring/name",
+          "BOM:optics/silicone-gasket-f-theta-ring/part_family",
+          "BOM:optics/silicone-gasket-f-theta-ring/type",
+          "BOM:optics/silicone-gasket-f-theta-ring/design",
+          "BOM:optics/silicone-gasket-f-theta-ring/order",
+          "BOM:optics/silicone-gasket-f-theta-ring/validation",
+          "BOM:optics/silicone-gasket-f-theta-ring/notes",
+          "BOM:optics/silicone-gasket-f-theta-ring/design_intent",
+          "BOM:optics/silicone-gasket-f-theta-ring/image",
+          "BOM:optics/silicone-gasket-f-theta-ring/product_name",
+          "BOM:optics/silicone-gasket-f-theta-ring/supplier_order",
+          "BOM:optics/silicone-gasket-f-theta-ring/interface_with",
+          "BOM:optics/silicone-gasket-f-theta-ring/link",
+          "BOM:optics/silicone-gasket-f-theta-ring/supplier",
+          "BOM:optics/silicone-gasket-f-theta-ring/datasheet",
+          "BOM:optics/silicone-gasket-f-theta-ring/amount",
+          "BOM:optics/silicone-gasket-f-theta-ring/cost",
+          "BOM:optics/silicone-gasket-f-theta-ring/total_cost",
+          "BOM:optics/silicone-gasket-f-theta-ring/interface_count",
+          "D-019/template/outline",
+          "D-019/template/outline/outer_diameter",
+          "D-019/drawing/n/141.0@1-1",
+          "D-019/template/outline/inner_diameter",
+          "D-019/drawing/n/118.0@1-1",
+          "D-019/template/thickness",
+          "D-019/drawing/n/1.0@1-1",
+          "D-019/template/features_review",
+          "D-019/template/cad_eligibility",
+          "D-019/template/features_complete",
+          "D-019/template/features_omitted",
+          "D-019/drawing/n/6.0@1-1",
+          "D-019/drawing/n/4.5@1-1",
+          "D-019/link",
+          "D-019/model/verification"
+        ]
+      }
+    ],
+    "revision": "5e2ca0ecde343557"
+  },
+  "wall_latency_ms": 16052
+}

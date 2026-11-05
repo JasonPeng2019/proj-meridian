@@ -1,0 +1,258 @@
+{
+  "pass": 2,
+  "case_id": "Q13",
+  "question": "How wide is the Galvo Montage Plade",
+  "server_start_status": {
+    "chat_available": true,
+    "chat_model": "gpt-6-luna",
+    "chat_provider": "openai",
+    "debug_ui": false,
+    "revision": "213ed124ee9045ac",
+    "parts": 202,
+    "drawings": 30,
+    "models": 9,
+    "reviewer_name": "Automated verification"
+  },
+  "evaluation_reference": {},
+  "preconditions": [],
+  "response": {
+    "text": "The Galvo Montage Plade is 110 mm wide. Its drawing and 3D model are attached below. [cite: D-017/template/outline/width, D-017/part]",
+    "facts": {
+      "D-017/part": {
+        "fact": "D-017/part",
+        "field": "part",
+        "part_key": "D-017",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Galvo Montage Plade"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-017/part",
+            "says": "Galvo Montage Plade",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-017/template/outline/width": {
+        "fact": "D-017/template/outline/width",
+        "field": "width",
+        "part_key": "D-017",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 110
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05",
+        "review": {
+          "status": "human_confirmed",
+          "by": "Jason Peng",
+          "at": "2026-11-05T17:48:43.043809+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-017/template/outline/width",
+            "says": 110,
+            "method": "ai_verified",
+            "page": 1,
+            "box": null,
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": "The main view's vertical overall dimension is 110,0 mm. Verification: On the right side of the main view, a vertical overall dimension of 110,0 runs from the plate's bottom edge to its top edge. That gives a Y width of 110 mm.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-017/drawing/n/110.0@1-1",
+            "says": "110,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              672.1,
+              437.344,
+              18.083,
+              32.988
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-017/drawing/visual-n/p1-073bb58a2c574eb9",
+            "says": "110,0",
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              675.4,
+              436.4,
+              13.2,
+              35.3
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": "The thickness, overall dimensions and deviations, offsets, countersink callout, M5 thread callout, central diameter and deviations, chamfer callout, and both ⌀6,0 H7 labels are legible. The 7 in H7 is a unitless fit-grade identifier. No visibly unreadable engineering numeric callout was identified. Title-block metadata is excluded; boxes locate printed labels only. Verification: I checked every entry against the original page image of D-017/drawing/source. I converted locations with a factor of about 0.62 points per image pixel (1190.55 pt / ~1920 px wide), only to check where the printed text sits. All printed tokens are copied correctly: 10,0 (side-view thickness); '4x ⌀5,5 THRU / ⌵ ⌀10,8 X 90°' (count 4, 5,5 mm, 10,8 mm, 90 deg); '8x M5' (count 8, thread nominal 5, kept as M5 text and not turned into a bore); '⌀42,00 +0,10 +0,05' (nominal plus two separate deviation tokens, so tolerances are not treated as nominal dimensions); '4x1,0 X 45°' (count 4, 1,0 mm, 45 deg); both '⌀6,0 H7' labels (6,0 mm, with the 7 of the H7 fit grade marked unitless); 110,0; 4,1; 50,9; 28,2; and '180,00 -0,01 -0,06'. The units are classified correctly. Each box tightly surrounds its own printed label, and the converted locations match within a few points: 10,0 at about x310-322, y107-131; the countersink callout at about x286-388, y291-321; 8x M5 at about x295-332, y337-349; ⌀42 at about x585-670, y287-313; the chamfer at about x613-680, y321-335; the right ⌀6,0 H7 at about x623-674, y399-413; the left ⌀6,0 H7 at about x265-316, y461-476; 110,0 at about x670-683, y433-466; 4,1 at about x620-632, y473-491; 50,9 at about x649-663, y469-496; 28,2 at about x491-517, y543-557; 180,00 at about x454-528, y573-600. No legible engineering callout on the page is missing. Title-block values (weight 508.9, date, scale 1:2, phone number, sheet number) are correctly left out. No value is inferred or measured from pixels.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-017/drawing/n/110.0@1-1": {
+        "fact": "D-017/drawing/n/110.0@1-1",
+        "field": "110.0@1-1",
+        "part_key": "D-017",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 110.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-017/drawing/n/110.0@1-1",
+            "says": "110,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              672.1,
+              437.344,
+              18.083,
+              32.988
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-017/drawing/visual-n/p1-073bb58a2c574eb9": {
+        "fact": "D-017/drawing/visual-n/p1-073bb58a2c574eb9",
+        "field": "p1-073bb58a2c574eb9",
+        "part_key": "D-017",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 110.0
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05",
+        "review": {
+          "status": "human_confirmed",
+          "by": "Jason Peng",
+          "at": "2026-11-05T17:48:41.428720+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-017/drawing/visual-n/p1-073bb58a2c574eb9",
+            "says": "110,0",
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              675.4,
+              436.4,
+              13.2,
+              35.3
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": "The thickness, overall dimensions and deviations, offsets, countersink callout, M5 thread callout, central diameter and deviations, chamfer callout, and both ⌀6,0 H7 labels are legible. The 7 in H7 is a unitless fit-grade identifier. No visibly unreadable engineering numeric callout was identified. Title-block metadata is excluded; boxes locate printed labels only. Verification: I checked every entry against the original page image of D-017/drawing/source. I converted locations with a factor of about 0.62 points per image pixel (1190.55 pt / ~1920 px wide), only to check where the printed text sits. All printed tokens are copied correctly: 10,0 (side-view thickness); '4x ⌀5,5 THRU / ⌵ ⌀10,8 X 90°' (count 4, 5,5 mm, 10,8 mm, 90 deg); '8x M5' (count 8, thread nominal 5, kept as M5 text and not turned into a bore); '⌀42,00 +0,10 +0,05' (nominal plus two separate deviation tokens, so tolerances are not treated as nominal dimensions); '4x1,0 X 45°' (count 4, 1,0 mm, 45 deg); both '⌀6,0 H7' labels (6,0 mm, with the 7 of the H7 fit grade marked unitless); 110,0; 4,1; 50,9; 28,2; and '180,00 -0,01 -0,06'. The units are classified correctly. Each box tightly surrounds its own printed label, and the converted locations match within a few points: 10,0 at about x310-322, y107-131; the countersink callout at about x286-388, y291-321; 8x M5 at about x295-332, y337-349; ⌀42 at about x585-670, y287-313; the chamfer at about x613-680, y321-335; the right ⌀6,0 H7 at about x623-674, y399-413; the left ⌀6,0 H7 at about x265-316, y461-476; 110,0 at about x670-683, y433-466; 4,1 at about x620-632, y473-491; 50,9 at about x649-663, y469-496; 28,2 at about x491-517, y543-557; 180,00 at about x454-528, y573-600. No legible engineering callout on the page is missing. Title-block values (weight 508.9, date, scale 1:2, phone number, sheet number) are correctly left out. No value is inferred or measured from pixels.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      }
+    },
+    "parts_to_show": [
+      {
+        "id": "D-017/part",
+        "key": "D-017",
+        "display_name": "Galvo Montage Plade",
+        "section": "Optical",
+        "has_drawing": true,
+        "has_3d": true,
+        "examples": [
+          "A"
+        ],
+        "review_status": "not_reviewed",
+        "thumbnail": "/api/parts/D-017/image?page=1&thumb=1",
+        "drawing_url": "/part/D-017/2d",
+        "model_url": "/part/D-017/3d",
+        "shown_reason": null
+      }
+    ],
+    "warnings": [],
+    "session_id": "6ae66caaabcc4923b5fc4b32d68aae7b",
+    "model": "gpt-6-luna",
+    "usage": {
+      "input_tokens": 5905,
+      "output_tokens": 94,
+      "total_tokens": 5999
+    },
+    "latency_ms": 3323,
+    "tool_trace": [
+      {
+        "tool": "find_part",
+        "arguments": {
+          "text": "Galvo Montage Plade"
+        },
+        "facts_returned": [
+          "D-017/part"
+        ]
+      },
+      {
+        "tool": "get_field",
+        "arguments": {
+          "part_id": "D-017/part",
+          "field": "width"
+        },
+        "facts_returned": [
+          "D-017/part",
+          "D-017/template/outline/width",
+          "D-017/drawing/n/110.0@1-1",
+          "D-017/drawing/visual-n/p1-073bb58a2c574eb9"
+        ]
+      }
+    ],
+    "revision": "5e2ca0ecde343557"
+  },
+  "wall_latency_ms": 3337
+}

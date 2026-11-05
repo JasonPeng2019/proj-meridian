@@ -1,0 +1,965 @@
+{
+  "pass": 2,
+  "case_id": "Q20",
+  "question": "Who supplies the laser source today, and is it in stock?",
+  "server_start_status": {
+    "chat_available": true,
+    "chat_model": "gpt-6-luna",
+    "chat_provider": "openai",
+    "debug_ui": false,
+    "revision": "213ed124ee9045ac",
+    "parts": 202,
+    "drawings": 30,
+    "models": 9,
+    "reviewer_name": "Automated verification"
+  },
+  "evaluation_reference": {},
+  "preconditions": [],
+  "response": {
+    "text": "The laser source supplier is recorded as Max Photonics, and its order status is “Received” in the snapshot. Supplier and status records may be out of date, so I can’t confirm current stock. [cite: BOM:optics/laser-source/supplier, BOM:optics/laser-source/order] [cite: BOM:optics/laser-source/part]",
+    "facts": {
+      "README/openam-laser-powder-bed-fusion-system/p3": {
+        "fact": "README/openam-laser-powder-bed-fusion-system/p3",
+        "field": "p3",
+        "part_key": null,
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "For an in-depth description of the approach to designing the system, please see the publication based on version 1: [Applying systems engineering principles to develop an open source laser based metal powder bed fusion system](https://www.emerald.com/insight/content/doi/10.1108/RPJ-12-2023-0422/full/html).\nThe full PhD-thesis describing the work can be found here under the title [Systems Engineering in the Pursuit of Open Architecture Additive Manufacturing a study](https://orbit.dtu.dk/en/publications/systems-engineering-in-the-pursuit-of-open-architecture-additive-)."
+        },
+        "badge": "From README",
+        "review": null,
+        "sources": [
+          {
+            "name": "README/openam-laser-powder-bed-fusion-system/p3",
+            "says": "For an in-depth description of the approach to designing the system, please see the publication based on version 1: [Applying systems engineering principles to develop an open source laser based metal powder bed fusion system](https://www.emerald.com/insight/content/doi/10.1108/RPJ-12-2023-0422/full/html).\nThe full PhD-thesis describing the work can be found here under the title [Systems Engineering in the Pursuit of Open Architecture Additive Manufacturing a study](https://orbit.dtu.dk/en/publications/systems-engineering-in-the-pursuit-of-open-architecture-additive-).",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": null,
+            "cleanup": [],
+            "note": "Describes the upstream project as recorded in this snapshot.",
+            "badge": "From README",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null,
+        "mentions_unavailable_files": false,
+        "heading": "OpenAM Laser powder bed fusion system"
+      },
+      "README/project-impetus/p1": {
+        "fact": "README/project-impetus/p1",
+        "field": "p1",
+        "part_key": null,
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "The world of Laser Powder-bed Fusion (L-PBF) has been tightly held within the clutches of proprietary practices, limiting innovation and knowledge sharing. This project was born out of a desire to challenge this exclusivity by creating an open-source infrastructure for L-PBF. The aim was to democratize access to this advanced manufacturing process, stimulate innovation, and foster cross-disciplinary collaboration. Despite the complex and professional nature of L-PBF, which involves dealing with high-power lasers, explosive metal powders, and specialized equipment, the project's commitment to open-source principles remained unwavering."
+        },
+        "badge": "From README",
+        "review": null,
+        "sources": [
+          {
+            "name": "README/project-impetus/p1",
+            "says": "The world of Laser Powder-bed Fusion (L-PBF) has been tightly held within the clutches of proprietary practices, limiting innovation and knowledge sharing. This project was born out of a desire to challenge this exclusivity by creating an open-source infrastructure for L-PBF. The aim was to democratize access to this advanced manufacturing process, stimulate innovation, and foster cross-disciplinary collaboration. Despite the complex and professional nature of L-PBF, which involves dealing with high-power lasers, explosive metal powders, and specialized equipment, the project's commitment to open-source principles remained unwavering.",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": null,
+            "cleanup": [],
+            "note": "Describes the upstream project as recorded in this snapshot.",
+            "badge": "From README",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null,
+        "mentions_unavailable_files": false,
+        "heading": "Project Impetus"
+      },
+      "README/safety/p8": {
+        "fact": "README/safety/p8",
+        "field": "p8",
+        "part_key": null,
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "The open-source Laser Powder Bed Fusion system incorporates a comprehensive safety subsystem, including emergency stops, interlock switches, and a safety PLC to ensure safe operation. Compliance with relevant EU directives and OSHA regulations is crucial for the lawful and safe operation of such advanced manufacturing systems​​. Recreation of the system should be done by carefully considering local rules and regulations while employing common sense. Please seek professional guidance when in doubt regarding safety systems and their design. Consider contacting services or safety providers such as (but not limited to) Pilz, ABB, Pheonix Contacts, Jokab Safety, etc."
+        },
+        "badge": "From README",
+        "review": null,
+        "sources": [
+          {
+            "name": "README/safety/p8",
+            "says": "The open-source Laser Powder Bed Fusion system incorporates a comprehensive safety subsystem, including emergency stops, interlock switches, and a safety PLC to ensure safe operation. Compliance with relevant EU directives and OSHA regulations is crucial for the lawful and safe operation of such advanced manufacturing systems​​. Recreation of the system should be done by carefully considering local rules and regulations while employing common sense. Please seek professional guidance when in doubt regarding safety systems and their design. Consider contacting services or safety providers such as (but not limited to) Pilz, ABB, Pheonix Contacts, Jokab Safety, etc.",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": null,
+            "cleanup": [],
+            "note": "Describes the upstream project as recorded in this snapshot.",
+            "badge": "From README",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null,
+        "mentions_unavailable_files": false,
+        "heading": "Safety"
+      },
+      "README/the-project-and-git-structure/p1": {
+        "fact": "README/the-project-and-git-structure/p1",
+        "field": "p1",
+        "part_key": null,
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "The open-source Laser Powder Bed Fusion (L-PBF) project embodies core Systems Engineering principles to enhance its design and functionality, significantly benefiting the research and manufacturing communities. By employing a structured approach, the project manages complexities and fosters adaptability, which is crucial for evolving user requirements and technology."
+        },
+        "badge": "From README",
+        "review": null,
+        "sources": [
+          {
+            "name": "README/the-project-and-git-structure/p1",
+            "says": "The open-source Laser Powder Bed Fusion (L-PBF) project embodies core Systems Engineering principles to enhance its design and functionality, significantly benefiting the research and manufacturing communities. By employing a structured approach, the project manages complexities and fosters adaptability, which is crucial for evolving user requirements and technology.",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": null,
+            "cleanup": [],
+            "note": "Describes the upstream project as recorded in this snapshot.",
+            "badge": "From README",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null,
+        "mentions_unavailable_files": false,
+        "heading": "The Project and Git Structure"
+      },
+      "README/introduction/p1": {
+        "fact": "README/introduction/p1",
+        "field": "p1",
+        "part_key": null,
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "[Image not included in this dataset: linked upstream image]\nThe DTU Open Additive Initiative, Laser-Based Powder Bed Fusion Repo"
+        },
+        "badge": "From README",
+        "review": null,
+        "sources": [
+          {
+            "name": "README/introduction/p1",
+            "says": "<p align=\"center\"><img src=\"misc/git/OpenAMini.png\" height=\"150\" alt=\"Open Additive Initiative logo\" /></p>\n<h1 align=\"center\">The DTU Open Additive Initiative, Laser-Based Powder Bed Fusion Repo</h1>",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": null,
+            "cleanup": [],
+            "note": "Describes the upstream project as recorded in this snapshot.",
+            "badge": "From README",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null,
+        "mentions_unavailable_files": false,
+        "heading": "Introduction"
+      },
+      "BOM:optics/laser-source/part": {
+        "fact": "BOM:optics/laser-source/part",
+        "field": "part",
+        "part_key": "bom/optics/laser-source",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Laser source"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/laser-source/part",
+            "says": "Laser source",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/laser-source",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/laser-source/material": {
+        "fact": "BOM:optics/laser-source/material",
+        "field": "material",
+        "part_key": "bom/optics/laser-source",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. "
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/laser-source/material",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/laser-source",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/laser-source/name": {
+        "fact": "BOM:optics/laser-source/name",
+        "field": "name",
+        "part_key": "bom/optics/laser-source",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Laser source"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/laser-source/name",
+            "says": "Laser source",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/laser-source",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/laser-source/part_family": {
+        "fact": "BOM:optics/laser-source/part_family",
+        "field": "part_family",
+        "part_key": "bom/optics/laser-source",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Optics"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/laser-source/part_family",
+            "says": "Optics",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/laser-source",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/laser-source/type": {
+        "fact": "BOM:optics/laser-source/type",
+        "field": "type",
+        "part_key": "bom/optics/laser-source",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Standard"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/laser-source/type",
+            "says": "Standard",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/laser-source",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/laser-source/design": {
+        "fact": "BOM:optics/laser-source/design",
+        "field": "design",
+        "part_key": "bom/optics/laser-source",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Done"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/laser-source/design",
+            "says": "Done",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/laser-source",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/laser-source/order": {
+        "fact": "BOM:optics/laser-source/order",
+        "field": "order",
+        "part_key": "bom/optics/laser-source",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Received"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/laser-source/order",
+            "says": "Recieved",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/laser-source",
+            "cleanup": [
+              "status_spelling_Recieved_to_Received"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/laser-source/validation": {
+        "fact": "BOM:optics/laser-source/validation",
+        "field": "validation",
+        "part_key": "bom/optics/laser-source",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Good"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/laser-source/validation",
+            "says": "Good",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/laser-source",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/laser-source/notes": {
+        "fact": "BOM:optics/laser-source/notes",
+        "field": "notes",
+        "part_key": "bom/optics/laser-source",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Works great as intended"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/laser-source/notes",
+            "says": "Works great as intended",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/laser-source",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/laser-source/design_intent": {
+        "fact": "BOM:optics/laser-source/design_intent",
+        "field": "design_intent",
+        "part_key": "bom/optics/laser-source",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. "
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/laser-source/design_intent",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/laser-source",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/laser-source/image": {
+        "fact": "BOM:optics/laser-source/image",
+        "field": "image",
+        "part_key": "bom/optics/laser-source",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "filename": "Max300W.PNG",
+            "url": "https://v5.airtableusercontent.com/v3/u/33/33/1728496800000/3r-zYwCsDle-9VKFk4LJJg/BWnG7o1B2Hj0JNYSpA8K4bMqJdLxq4pGAreia6e-HQek7ygH8WF2Gmd4vyLCqiFvdnK7woi44Bu8KwqakKCwSJVjgl54H4zFsVBHSIssy482NWOwLTrZSYkXXZYUhcv8OJ7gGJcMvekF-XejR8sLrQ/nTE-LJyeXi_DuHZdAIZKziUL46gt5Xc0LbvC89-EOMk"
+          }
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/laser-source/image",
+            "says": "Max300W.PNG (https://v5.airtableusercontent.com/v3/u/33/33/1728496800000/3r-zYwCsDle-9VKFk4LJJg/BWnG7o1B2Hj0JNYSpA8K4bMqJdLxq4pGAreia6e-HQek7ygH8WF2Gmd4vyLCqiFvdnK7woi44Bu8KwqakKCwSJVjgl54H4zFsVBHSIssy482NWOwLTrZSYkXXZYUhcv8OJ7gGJcMvekF-XejR8sLrQ/nTE-LJyeXi_DuHZdAIZKziUL46gt5Xc0LbvC89-EOMk)",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/laser-source",
+            "cleanup": [
+              "split_filename_link"
+            ],
+            "note": "Recorded in the snapshot, may be out of date. Temporary link from the original export, likely expired.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/laser-source/product_name": {
+        "fact": "BOM:optics/laser-source/product_name",
+        "field": "product_name",
+        "part_key": "bom/optics/laser-source",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "MFSC-300W"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/laser-source/product_name",
+            "says": "MFSC-300W",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/laser-source",
+            "cleanup": [],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/laser-source/supplier_order": {
+        "fact": "BOM:optics/laser-source/supplier_order",
+        "field": "supplier_order",
+        "part_key": "bom/optics/laser-source",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/laser-source/supplier_order",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/laser-source",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/laser-source/interface_with": {
+        "fact": "BOM:optics/laser-source/interface_with",
+        "field": "interface_with",
+        "part_key": "bom/optics/laser-source",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": [
+            "GLAMS"
+          ]
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/laser-source/interface_with",
+            "says": "GLAMS",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/laser-source",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/laser-source/link": {
+        "fact": "BOM:optics/laser-source/link",
+        "field": "link",
+        "part_key": "bom/optics/laser-source",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "http://en.maxphotonics.com/product/18.html"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/laser-source/link",
+            "says": "http://en.maxphotonics.com/product/18.html",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/laser-source",
+            "cleanup": [],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/laser-source/supplier": {
+        "fact": "BOM:optics/laser-source/supplier",
+        "field": "supplier",
+        "part_key": "bom/optics/laser-source",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Max Photonics"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/laser-source/supplier",
+            "says": "Max Photonics",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/laser-source",
+            "cleanup": [],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/laser-source/datasheet": {
+        "fact": "BOM:optics/laser-source/datasheet",
+        "field": "datasheet",
+        "part_key": "bom/optics/laser-source",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "filename": "300W SINGLE MODULE CW FIBER LASER(3D PRINTING)-Leaflet.pdf",
+            "url": "https://v5.airtableusercontent.com/v3/u/33/33/1728496800000/VEkdp7N0TPxOi0Im6t1YNA/DknHIJZ7gkzBiJRep30maguvYaPicZRF0UxShjxAQIj2gjdFYlRWNPnrY9W8eZjrjXJ1G3-CWU-OjSY2chv3Ew9OiSy2NGBIIeG_Hfxf-rD2ssWR0h1tpaHWPEuw_ub3BmrfpDN9l45Tf6C_s5bf-IPRb3W2KUmSNbrNMChLbeREaSWl7hmcW_BeAkJ5wkXT/REx0m-Ztoe1GyTeROCQM5eSwSyw-jQ6_UJW54v1ggU4"
+          }
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/laser-source/datasheet",
+            "says": "300W SINGLE MODULE CW FIBER LASER(3D PRINTING)-Leaflet.pdf (https://v5.airtableusercontent.com/v3/u/33/33/1728496800000/VEkdp7N0TPxOi0Im6t1YNA/DknHIJZ7gkzBiJRep30maguvYaPicZRF0UxShjxAQIj2gjdFYlRWNPnrY9W8eZjrjXJ1G3-CWU-OjSY2chv3Ew9OiSy2NGBIIeG_Hfxf-rD2ssWR0h1tpaHWPEuw_ub3BmrfpDN9l45Tf6C_s5bf-IPRb3W2KUmSNbrNMChLbeREaSWl7hmcW_BeAkJ5wkXT/REx0m-Ztoe1GyTeROCQM5eSwSyw-jQ6_UJW54v1ggU4)",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/laser-source",
+            "cleanup": [
+              "split_filename_link"
+            ],
+            "note": "Recorded in the snapshot, may be out of date. Temporary link from the original export, likely expired.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/laser-source/amount": {
+        "fact": "BOM:optics/laser-source/amount",
+        "field": "amount",
+        "part_key": "bom/optics/laser-source",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 1
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/laser-source/amount",
+            "says": "1",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/laser-source",
+            "cleanup": [
+              "parse_number"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/laser-source/cost": {
+        "fact": "BOM:optics/laser-source/cost",
+        "field": "cost",
+        "part_key": "bom/optics/laser-source",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "amount": 45000.0,
+            "currency": "DKK"
+          }
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/laser-source/cost",
+            "says": "DKK45000.00",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/laser-source",
+            "cleanup": [
+              "parse_dkk_price"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/laser-source/total_cost": {
+        "fact": "BOM:optics/laser-source/total_cost",
+        "field": "total_cost",
+        "part_key": "bom/optics/laser-source",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "amount": 45000.0,
+            "currency": "DKK"
+          }
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/laser-source/total_cost",
+            "says": "DKK45000.00",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/laser-source",
+            "cleanup": [
+              "parse_dkk_price"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/laser-source/interface_count": {
+        "fact": "BOM:optics/laser-source/interface_count",
+        "field": "interface_count",
+        "part_key": "bom/optics/laser-source",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 1
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/laser-source/interface_count",
+            "says": "1",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/laser-source",
+            "cleanup": [
+              "parse_number"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      }
+    },
+    "parts_to_show": [
+      {
+        "id": "BOM:optics/laser-source/part",
+        "key": "bom/optics/laser-source",
+        "display_name": "Laser source",
+        "section": "Optics",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      }
+    ],
+    "warnings": [],
+    "session_id": "69e2f1709a3949d7a9916f2c19637c41",
+    "model": "gpt-6-luna",
+    "usage": {
+      "input_tokens": 16796,
+      "output_tokens": 157,
+      "total_tokens": 16953
+    },
+    "latency_ms": 5786,
+    "tool_trace": [
+      {
+        "tool": "search_readme",
+        "arguments": {
+          "text": "laser source supplier stock availability procurement current snapshot laser"
+        },
+        "facts_returned": [
+          "README/openam-laser-powder-bed-fusion-system/p3",
+          "README/project-impetus/p1",
+          "README/safety/p8",
+          "README/the-project-and-git-structure/p1",
+          "README/introduction/p1"
+        ]
+      },
+      {
+        "tool": "find_part",
+        "arguments": {
+          "text": "laser source laser supplier"
+        },
+        "facts_returned": [
+          "README/openam-laser-powder-bed-fusion-system/p3",
+          "README/project-impetus/p1",
+          "README/safety/p8",
+          "README/the-project-and-git-structure/p1",
+          "README/introduction/p1",
+          "BOM:optics/laser-source/part"
+        ]
+      },
+      {
+        "tool": "get_facts",
+        "arguments": {
+          "part_id": "BOM:optics/laser-source/part"
+        },
+        "facts_returned": [
+          "README/openam-laser-powder-bed-fusion-system/p3",
+          "README/project-impetus/p1",
+          "README/safety/p8",
+          "README/the-project-and-git-structure/p1",
+          "README/introduction/p1",
+          "BOM:optics/laser-source/part",
+          "BOM:optics/laser-source/material",
+          "BOM:optics/laser-source/name",
+          "BOM:optics/laser-source/part_family",
+          "BOM:optics/laser-source/type",
+          "BOM:optics/laser-source/design",
+          "BOM:optics/laser-source/order",
+          "BOM:optics/laser-source/validation",
+          "BOM:optics/laser-source/notes",
+          "BOM:optics/laser-source/design_intent",
+          "BOM:optics/laser-source/image",
+          "BOM:optics/laser-source/product_name",
+          "BOM:optics/laser-source/supplier_order",
+          "BOM:optics/laser-source/interface_with",
+          "BOM:optics/laser-source/link",
+          "BOM:optics/laser-source/supplier",
+          "BOM:optics/laser-source/datasheet",
+          "BOM:optics/laser-source/amount",
+          "BOM:optics/laser-source/cost",
+          "BOM:optics/laser-source/total_cost",
+          "BOM:optics/laser-source/interface_count"
+        ]
+      }
+    ],
+    "revision": "5e2ca0ecde343557"
+  },
+  "wall_latency_ms": 5804
+}

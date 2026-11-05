@@ -1,0 +1,5901 @@
+{
+  "pass": 1,
+  "case_id": "Q04",
+  "question": "What is the recoater plate made of?",
+  "server_start_status": {
+    "chat_available": true,
+    "chat_model": "gpt-6-luna",
+    "chat_provider": "openai",
+    "debug_ui": false,
+    "revision": "213ed124ee9045ac",
+    "parts": 202,
+    "drawings": 30,
+    "models": 9,
+    "reviewer_name": "Automated verification"
+  },
+  "evaluation_reference": {},
+  "preconditions": [],
+  "response": {
+    "text": "The recoater plate is specified as **3.3315 (EN-AW 5005)** on its drawing; the parts list records the broader material description “Aluminium.” [cite: D-013/part] [cite: D-013/drawing/material] [cite: BOM:recoater/recoater-head/material]\n\nThe drawing and 3D model are attached below.",
+    "facts": {
+      "D-013/part": {
+        "fact": "D-013/part",
+        "field": "part",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Recoater Plate"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/part",
+            "says": "Recoater Plate",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/material": {
+        "fact": "D-013/drawing/material",
+        "field": "material",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "3.3315 (EN-AW 5005)"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/material",
+            "says": "3.3315 (EN-AW 5005)",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              745.28,
+              771.048,
+              135.0,
+              14.0
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "BOM:recoater/recoater-head/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-head/material": {
+        "fact": "BOM:recoater/recoater-head/material",
+        "field": "material",
+        "part_key": "D-013",
+        "part_keys": [
+          "D-013"
+        ],
+        "display": {
+          "state": "value",
+          "value": [
+            "Aluminium"
+          ]
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-head/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/title": {
+        "fact": "D-013/drawing/title",
+        "field": "title",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Recoater Plate"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/title",
+            "says": "Recoater Plate",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              975.328,
+              710.355,
+              181.0,
+              66.0
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/notes": {
+        "fact": "D-013/drawing/notes",
+        "field": "notes",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Alu.\nJusteringsplade til recoater."
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/notes",
+            "says": "Alu.\nJusteringsplade til recoater.",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              741.526,
+              658.942,
+              231.0,
+              111.0
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/company": {
+        "fact": "D-013/drawing/company",
+        "field": "company",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "DTU MPP"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/company",
+            "says": "DTU MPP",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              975.328,
+              658.942,
+              91.0,
+              48.0
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/weight_g": {
+        "fact": "D-013/drawing/weight_g",
+        "field": "weight_g",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 87.5
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/weight_g",
+            "says": "87.5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              880.717,
+              771.048,
+              93.0,
+              14.0
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/drawn": {
+        "fact": "D-013/drawing/drawn",
+        "field": "drawn",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "MBOKJ"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/drawn",
+            "says": "MBOKJ",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              893.294,
+              790.235,
+              78.0,
+              11.0
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/date": {
+        "fact": "D-013/drawing/date",
+        "field": "date",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "24/11/2021"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/date",
+            "says": "24/11/2021",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              897.013,
+              802.562,
+              76.0,
+              11.0
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/scale": {
+        "fact": "D-013/drawing/scale",
+        "field": "scale",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "1:1"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/scale",
+            "says": "1:1",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1082.688,
+              803.564,
+              25.623,
+              7.75
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/callout/p1-1": {
+        "fact": "D-013/drawing/callout/p1-1",
+        "field": "p1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "2 x 4,2 THRU ALL M5 - 6H THRU ALL"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/callout/p1-1",
+            "says": "2 x 4,2 THRU ALL M5 - 6H THRU ALL",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              428.392,
+              520.694,
+              118.667,
+              33.984
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": {
+          "feature": "threaded_hole",
+          "count": 2,
+          "thread": "M5",
+          "thread_class": "6H",
+          "through": true
+        }
+      },
+      "D-013/drawing/callout/p1-2": {
+        "fact": "D-013/drawing/callout/p1-2",
+        "field": "p1-2",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "8 x 2,5 THRU ALL M3 - 6H THRU ALL"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/callout/p1-2",
+            "says": "8 x 2,5 THRU ALL M3 - 6H THRU ALL",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              309.068,
+              564.281,
+              118.668,
+              33.991
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": {
+          "feature": "threaded_hole",
+          "count": 8,
+          "thread": "M3",
+          "thread_class": "6H",
+          "through": true
+        }
+      },
+      "D-013/drawing/callout/p1-3": {
+        "fact": "D-013/drawing/callout/p1-3",
+        "field": "p1-3",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "4 x 5,5 X 10,0 THRU ALL"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/callout/p1-3",
+            "says": "4 x 5,5 X 10,0 THRU ALL",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              760.055,
+              350.781,
+              141.088,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": {
+          "feature": "slot",
+          "count": 4,
+          "through": true,
+          "width_mm": 5.5,
+          "length_mm": 10.0
+        }
+      },
+      "D-013/drawing/general/units": {
+        "fact": "D-013/drawing/general/units",
+        "field": "units",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "DIMENSIONS ARE IN MILLIMETERS"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/general/units",
+            "says": "DIMENSIONS ARE IN MILLIMETERS",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              978.968,
+              784.149,
+              85.555,
+              7.75
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": {
+          "feature": "general_note"
+        }
+      },
+      "D-013/drawing/general/general_tolerance": {
+        "fact": "D-013/drawing/general/general_tolerance",
+        "field": "general_tolerance",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "DIN ISO 2768-1 m"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/general/general_tolerance",
+            "says": "DIN ISO 2768-1 m",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1016.541,
+              790.957,
+              47.749,
+              8.202
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": {
+          "feature": "general_note"
+        }
+      },
+      "D-013/drawing/general/edge_finish": {
+        "fact": "D-013/drawing/general/edge_finish",
+        "field": "edge_finish",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "DEBURR AND BREAK SHARP EDGES"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/general/edge_finish",
+            "says": "DEBURR AND BREAK SHARP EDGES",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1078.776,
+              781.582,
+              52.887,
+              14.837
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": {
+          "feature": "general_note"
+        }
+      },
+      "BOM:recoater/recoater-head/name": {
+        "fact": "BOM:recoater/recoater-head/name",
+        "field": "name",
+        "part_key": "D-013",
+        "part_keys": [
+          "D-013"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Recoater head"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-head/name",
+            "says": "Recoater head",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-head/part_family": {
+        "fact": "BOM:recoater/recoater-head/part_family",
+        "field": "part_family",
+        "part_key": "D-013",
+        "part_keys": [
+          "D-013"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Recoater"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-head/part_family",
+            "says": "Recoater",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-head/type": {
+        "fact": "BOM:recoater/recoater-head/type",
+        "field": "type",
+        "part_key": "D-013",
+        "part_keys": [
+          "D-013"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Custom"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-head/type",
+            "says": "Custom",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-head/design": {
+        "fact": "BOM:recoater/recoater-head/design",
+        "field": "design",
+        "part_key": "D-013",
+        "part_keys": [
+          "D-013"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Done"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-head/design",
+            "says": "Done",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-head/order": {
+        "fact": "BOM:recoater/recoater-head/order",
+        "field": "order",
+        "part_key": "D-013",
+        "part_keys": [
+          "D-013"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Received"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-head/order",
+            "says": "Recieved",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [
+              "status_spelling_Recieved_to_Received"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-head/validation": {
+        "fact": "BOM:recoater/recoater-head/validation",
+        "field": "validation",
+        "part_key": "D-013",
+        "part_keys": [
+          "D-013"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Good"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-head/validation",
+            "says": "Good",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-head/notes": {
+        "fact": "BOM:recoater/recoater-head/notes",
+        "field": "notes",
+        "part_key": "D-013",
+        "part_keys": [
+          "D-013"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. "
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-head/notes",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-head/design_intent": {
+        "fact": "BOM:recoater/recoater-head/design_intent",
+        "field": "design_intent",
+        "part_key": "D-013",
+        "part_keys": [
+          "D-013"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Adjustable recoater head that mounts to recoater arm"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-head/design_intent",
+            "says": "Adjustable recoater head that mounts to recoater arm",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-head/image": {
+        "fact": "BOM:recoater/recoater-head/image",
+        "field": "image",
+        "part_key": "D-013",
+        "part_keys": [
+          "D-013"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-head/image",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-head/product_name": {
+        "fact": "BOM:recoater/recoater-head/product_name",
+        "field": "product_name",
+        "part_key": "D-013",
+        "part_keys": [
+          "D-013"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-head/product_name",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-head/supplier_order": {
+        "fact": "BOM:recoater/recoater-head/supplier_order",
+        "field": "supplier_order",
+        "part_key": "D-013",
+        "part_keys": [
+          "D-013"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-head/supplier_order",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-head/interface_with": {
+        "fact": "BOM:recoater/recoater-head/interface_with",
+        "field": "interface_with",
+        "part_key": "D-013",
+        "part_keys": [
+          "D-013"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. "
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-head/interface_with",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-head/link": {
+        "fact": "BOM:recoater/recoater-head/link",
+        "field": "link",
+        "part_key": "D-013",
+        "part_keys": [
+          "D-013"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-head/link",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-head/supplier": {
+        "fact": "BOM:recoater/recoater-head/supplier",
+        "field": "supplier",
+        "part_key": "D-013",
+        "part_keys": [
+          "D-013"
+        ],
+        "display": {
+          "state": "value",
+          "value": "DTU"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-head/supplier",
+            "says": "DTU",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-head/datasheet": {
+        "fact": "BOM:recoater/recoater-head/datasheet",
+        "field": "datasheet",
+        "part_key": "D-013",
+        "part_keys": [
+          "D-013"
+        ],
+        "display": {
+          "state": "value",
+          "value": {
+            "filename": "RecoaterPlate.pdf",
+            "url": "https://v5.airtableusercontent.com/v3/u/33/33/1728496800000/ATcCKE4x9I5XkFrNrK9E-Q/lRMbwuKnugmuS_4yhBOMClg07KL3-T1kHcJebM1Ei_dh1pAbOd90crSN672UtgaJCkqjtYSOaLzcb-jZdlSQ-Z8sllQeTDa7AmrSQ9Z5jPiKVh4z9C5al2uVbkr_Rt0zuqAWTw3Ky6lJa4YlAnjQNw/GVuJTJxD_r5T41JSNweqqjdjZASEXchTQWDWNOfULcE"
+          }
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-head/datasheet",
+            "says": "RecoaterPlate.pdf (https://v5.airtableusercontent.com/v3/u/33/33/1728496800000/ATcCKE4x9I5XkFrNrK9E-Q/lRMbwuKnugmuS_4yhBOMClg07KL3-T1kHcJebM1Ei_dh1pAbOd90crSN672UtgaJCkqjtYSOaLzcb-jZdlSQ-Z8sllQeTDa7AmrSQ9Z5jPiKVh4z9C5al2uVbkr_Rt0zuqAWTw3Ky6lJa4YlAnjQNw/GVuJTJxD_r5T41JSNweqqjdjZASEXchTQWDWNOfULcE)",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [
+              "split_filename_link"
+            ],
+            "note": "Recorded in the snapshot, may be out of date. Temporary link from the original export, likely expired.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-head/amount": {
+        "fact": "BOM:recoater/recoater-head/amount",
+        "field": "amount",
+        "part_key": "D-013",
+        "part_keys": [
+          "D-013"
+        ],
+        "display": {
+          "state": "value",
+          "value": 1
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-head/amount",
+            "says": "1",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [
+              "parse_number"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-head/cost": {
+        "fact": "BOM:recoater/recoater-head/cost",
+        "field": "cost",
+        "part_key": "D-013",
+        "part_keys": [
+          "D-013"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-head/cost",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-head/total_cost": {
+        "fact": "BOM:recoater/recoater-head/total_cost",
+        "field": "total_cost",
+        "part_key": "D-013",
+        "part_keys": [
+          "D-013"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: 'DKK0.00'. Cleanup: parse_dkk_price, zero_total_with_blank_cost_or_amount_to_not_recorded. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-head/total_cost",
+            "says": "DKK0.00",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [
+              "parse_dkk_price",
+              "zero_total_with_blank_cost_or_amount_to_not_recorded"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-head/interface_count": {
+        "fact": "BOM:recoater/recoater-head/interface_count",
+        "field": "interface_count",
+        "part_key": "D-013",
+        "part_keys": [
+          "D-013"
+        ],
+        "display": {
+          "state": "value",
+          "value": 0
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-head/interface_count",
+            "says": "0",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [
+              "parse_number"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/outline": {
+        "fact": "D-013/template/outline",
+        "field": "outline",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "rectangle"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/outline",
+            "says": null,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/outline/length": {
+        "fact": "D-013/template/outline/length",
+        "field": "length",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 270
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05",
+        "review": {
+          "status": "human_confirmed",
+          "by": "Jason Peng",
+          "at": "2026-11-05T17:48:42.579671+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-013/template/outline/length",
+            "says": 270,
+            "method": "ai_verified",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": "The overall horizontal dimension is 270,0 millimeters. Verification: The overall horizontal dimension 270,0 runs across the full outline in the main view. DIMENSIONS ARE IN MILLIMETERS.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/270.0@1-1",
+            "says": "270,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              601.611,
+              308.89,
+              32.988,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/general/units",
+            "says": "DIMENSIONS ARE IN MILLIMETERS",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              978.968,
+              784.149,
+              85.555,
+              7.75
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/270.0@1-1": {
+        "fact": "D-013/drawing/n/270.0@1-1",
+        "field": "270.0@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 270.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/270.0@1-1",
+            "says": "270,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              601.611,
+              308.89,
+              32.988,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/outline/width": {
+        "fact": "D-013/template/outline/width",
+        "field": "width",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 25
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05",
+        "review": {
+          "status": "human_confirmed",
+          "by": "Jason Peng",
+          "at": "2026-11-05T17:48:42.590193+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-013/template/outline/width",
+            "says": 25,
+            "method": "ai_verified",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": "The overall vertical dimension is 25,0 millimeters. Verification: The vertical dimension 25,0 on the right side of the main view runs across the full outline height. Units are millimetres.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/25.0@1-1",
+            "says": "25,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1080.266,
+              408.25,
+              18.083,
+              25.657
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/general/units",
+            "says": "DIMENSIONS ARE IN MILLIMETERS",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              978.968,
+              784.149,
+              85.555,
+              7.75
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/25.0@1-1": {
+        "fact": "D-013/drawing/n/25.0@1-1",
+        "field": "25.0@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 25.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/25.0@1-1",
+            "says": "25,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1080.266,
+              408.25,
+              18.083,
+              25.657
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/thickness": {
+        "fact": "D-013/template/thickness",
+        "field": "thickness",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "options",
+          "values": [
+            3.0,
+            6.0
+          ]
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05",
+        "review": {
+          "status": "human_confirmed",
+          "by": "Jason Peng",
+          "at": "2026-11-05T14:14:53.105414+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-013/template/thickness",
+            "says": null,
+            "method": "human_decision",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": "Waiting for review: needs_input. The end view's single thickness dimension carries 6,0 stacked over 3,0. That is the same format as a limit dimension (upper over lower). No note, table or label says these are two alternative thicknesses. The evidence therefore cannot decide between a limit range and two documented variants, and it gives no single exact value. Leaving thickness unknown is the honest reading, but an essential dimension is unresolved, and the protocol makes unknown essential geometry needs_input. A human must decide how to read the 6,0/3,0 stack (limits or alternatives). The existing evidence cannot settle it.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/3.0@1-1",
+            "says": "3,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              151.657,
+              342.913,
+              18.327,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/6.0@1-1",
+            "says": "6,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              151.657,
+              330.081,
+              18.327,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": {
+          "original": null,
+          "corrected": {
+            "state": "options",
+            "value": null,
+            "options": [
+              3.0,
+              6.0
+            ],
+            "fact_ids": [
+              "D-013/drawing/n/3.0@1-1",
+              "D-013/drawing/n/6.0@1-1"
+            ]
+          },
+          "by": "Jason Peng",
+          "at": "2026-11-05T07:23:35.117084+00:00"
+        },
+        "callout": null
+      },
+      "D-013/drawing/n/3.0@1-1": {
+        "fact": "D-013/drawing/n/3.0@1-1",
+        "field": "3.0@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 3.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/3.0@1-1",
+            "says": "3,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              151.657,
+              342.913,
+              18.327,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/6.0@1-1": {
+        "fact": "D-013/drawing/n/6.0@1-1",
+        "field": "6.0@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 6.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/6.0@1-1",
+            "says": "6,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              151.657,
+              330.081,
+              18.327,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features/0/x": {
+        "fact": "D-013/template/features/0/x",
+        "field": "x",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": -82
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features/0/x",
+            "says": -82,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/82.0@1-1",
+            "says": "82,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              489.056,
+              342.906,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/82.0@1-1": {
+        "fact": "D-013/drawing/n/82.0@1-1",
+        "field": "82.0@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 82.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/82.0@1-1",
+            "says": "82,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              489.056,
+              342.906,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features/0/y": {
+        "fact": "D-013/template/features/0/y",
+        "field": "y",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 4.5
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features/0/y",
+            "says": 4.5,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/4.5@1-1",
+            "says": "4,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              190.187,
+              370.831,
+              18.083,
+              18.327
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/4.5@1-1": {
+        "fact": "D-013/drawing/n/4.5@1-1",
+        "field": "4.5@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 4.5
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/4.5@1-1",
+            "says": "4,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              190.187,
+              370.831,
+              18.083,
+              18.327
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features/0/diameter": {
+        "fact": "D-013/template/features/0/diameter",
+        "field": "diameter",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 4.2
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features/0/diameter",
+            "says": 4.2,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/4.2@1-1",
+            "says": "4,2",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              468.032,
+              520.694,
+              18.321,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/4.2@1-1": {
+        "fact": "D-013/drawing/n/4.2@1-1",
+        "field": "4.2@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 4.2
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/4.2@1-1",
+            "says": "4,2",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              468.032,
+              520.694,
+              18.321,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features/0/pattern/count": {
+        "fact": "D-013/template/features/0/pattern/count",
+        "field": "count",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 2
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features/0/pattern/count",
+            "says": 2,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/2.0@1-1",
+            "says": "2",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              428.392,
+              520.694,
+              7.331,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/2.0@1-1": {
+        "fact": "D-013/drawing/n/2.0@1-1",
+        "field": "2.0@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 2.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/2.0@1-1",
+            "says": "2",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              428.392,
+              520.694,
+              7.331,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features/0/pattern/spacing": {
+        "fact": "D-013/template/features/0/pattern/spacing",
+        "field": "spacing",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 164
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features/0/pattern/spacing",
+            "says": 164,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/82.0@1-1",
+            "says": "82,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              489.056,
+              342.906,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features/0/pattern/direction": {
+        "fact": "D-013/template/features/0/pattern/direction",
+        "field": "direction",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features/0/pattern/direction",
+            "says": 0,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features/1/x": {
+        "fact": "D-013/template/features/1/x",
+        "field": "x",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 17.9
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features/1/x",
+            "says": 17.9,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/17.9@1-1",
+            "says": "17,9",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              630.579,
+              487.472,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/17.9@1-1": {
+        "fact": "D-013/drawing/n/17.9@1-1",
+        "field": "17.9@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 17.9
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/17.9@1-1",
+            "says": "17,9",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              630.579,
+              487.472,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features/1/y": {
+        "fact": "D-013/template/features/1/y",
+        "field": "y",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": -7.5
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features/1/y",
+            "says": -7.5,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/7.5@1-1",
+            "says": "7,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1046.25,
+              394.664,
+              18.083,
+              18.327
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/7.5@1-1": {
+        "fact": "D-013/drawing/n/7.5@1-1",
+        "field": "7.5@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 7.5
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/7.5@1-1",
+            "says": "7,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1046.25,
+              394.664,
+              18.083,
+              18.327
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features/1/diameter": {
+        "fact": "D-013/template/features/1/diameter",
+        "field": "diameter",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 2.5
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features/1/diameter",
+            "says": 2.5,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/2.5@1-1",
+            "says": "2,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              348.709,
+              564.288,
+              18.321,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/2.5@1-1": {
+        "fact": "D-013/drawing/n/2.5@1-1",
+        "field": "2.5@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 2.5
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/2.5@1-1",
+            "says": "2,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              348.709,
+              564.288,
+              18.321,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features/2/x": {
+        "fact": "D-013/template/features/2/x",
+        "field": "x",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 53.6
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features/2/x",
+            "says": 53.6,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/17.9@1-1",
+            "says": "17,9",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              630.579,
+              487.472,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/35.7@1-1",
+            "says": "35,7",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              715.676,
+              504.483,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/35.7@1-1": {
+        "fact": "D-013/drawing/n/35.7@1-1",
+        "field": "35.7@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 35.7
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/35.7@1-1",
+            "says": "35,7",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              715.676,
+              504.483,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features/2/y": {
+        "fact": "D-013/template/features/2/y",
+        "field": "y",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": -7.5
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features/2/y",
+            "says": -7.5,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/7.5@1-1",
+            "says": "7,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1046.25,
+              394.664,
+              18.083,
+              18.327
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features/2/diameter": {
+        "fact": "D-013/template/features/2/diameter",
+        "field": "diameter",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 2.5
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features/2/diameter",
+            "says": 2.5,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/2.5@1-1",
+            "says": "2,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              348.709,
+              564.288,
+              18.321,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features/3/x": {
+        "fact": "D-013/template/features/3/x",
+        "field": "x",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": -123
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features/3/x",
+            "says": -123,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/41.0@1-1",
+            "says": "41,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              663.384,
+              342.91,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/82.0@1-2",
+            "says": "82,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              837.72,
+              325.898,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/41.0@1-1": {
+        "fact": "D-013/drawing/n/41.0@1-1",
+        "field": "41.0@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 41.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/41.0@1-1",
+            "says": "41,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              663.384,
+              342.91,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/82.0@1-2": {
+        "fact": "D-013/drawing/n/82.0@1-2",
+        "field": "82.0@1-2",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 82.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/82.0@1-2",
+            "says": "82,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              837.72,
+              325.898,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features/3/y": {
+        "fact": "D-013/template/features/3/y",
+        "field": "y",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 4.55
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features/3/y",
+            "says": 4.55,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/2.3@1-1",
+            "says": "2,3",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1012.235,
+              394.664,
+              18.083,
+              18.327
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/10.0@1-1",
+            "says": "10,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              814.776,
+              350.781,
+              25.654,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/5.5@1-1",
+            "says": "5,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              781.065,
+              350.781,
+              18.324,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/2.3@1-1": {
+        "fact": "D-013/drawing/n/2.3@1-1",
+        "field": "2.3@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 2.3
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/2.3@1-1",
+            "says": "2,3",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1012.235,
+              394.664,
+              18.083,
+              18.327
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/10.0@1-1": {
+        "fact": "D-013/drawing/n/10.0@1-1",
+        "field": "10.0@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 10.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/10.0@1-1",
+            "says": "10,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              814.776,
+              350.781,
+              25.654,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/5.5@1-1": {
+        "fact": "D-013/drawing/n/5.5@1-1",
+        "field": "5.5@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 5.5
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/5.5@1-1",
+            "says": "5,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              781.065,
+              350.781,
+              18.324,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features/3/width": {
+        "fact": "D-013/template/features/3/width",
+        "field": "width",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 5.5
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features/3/width",
+            "says": 5.5,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/5.5@1-1",
+            "says": "5,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              781.065,
+              350.781,
+              18.324,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features/3/length": {
+        "fact": "D-013/template/features/3/length",
+        "field": "length",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 10
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features/3/length",
+            "says": 10,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/10.0@1-1",
+            "says": "10,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              814.776,
+              350.781,
+              25.654,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features/3/pattern/count": {
+        "fact": "D-013/template/features/3/pattern/count",
+        "field": "count",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 4
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features/3/pattern/count",
+            "says": 4,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/4.0@1-1",
+            "says": "4",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              760.055,
+              350.781,
+              7.33,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/4.0@1-1": {
+        "fact": "D-013/drawing/n/4.0@1-1",
+        "field": "4.0@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 4.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/4.0@1-1",
+            "says": "4",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              760.055,
+              350.781,
+              7.33,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features/3/pattern/spacing": {
+        "fact": "D-013/template/features/3/pattern/spacing",
+        "field": "spacing",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 82
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features/3/pattern/spacing",
+            "says": 82,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/82.0@1-2",
+            "says": "82,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              837.72,
+              325.898,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features/3/pattern/direction": {
+        "fact": "D-013/template/features/3/pattern/direction",
+        "field": "direction",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features/3/pattern/direction",
+            "says": 0,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features_review": {
+        "fact": "D-013/template/features_review",
+        "field": "features_review",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": [
+            {
+              "kind": "hole",
+              "face": "top",
+              "x": {
+                "state": "known",
+                "value": -82,
+                "fact_ids": [
+                  "D-013/drawing/n/82.0@1-1"
+                ],
+                "expression": "0-n0",
+                "name": "D-013/template/features_review/value/0/x"
+              },
+              "y": {
+                "state": "known",
+                "value": 4.5,
+                "fact_ids": [
+                  "D-013/drawing/n/4.5@1-1"
+                ],
+                "name": "D-013/template/features_review/value/0/y"
+              },
+              "diameter": {
+                "state": "known",
+                "value": 4.2,
+                "fact_ids": [
+                  "D-013/drawing/n/4.2@1-1"
+                ],
+                "name": "D-013/template/features_review/value/0/diameter"
+              },
+              "through": true,
+              "hole_type": "threaded",
+              "thread": "M5 - 6H",
+              "pattern": {
+                "type": "row",
+                "count": {
+                  "state": "known",
+                  "value": 2,
+                  "fact_ids": [
+                    "D-013/drawing/n/2.0@1-1"
+                  ],
+                  "name": "D-013/template/features_review/value/0/pattern/count"
+                },
+                "spacing": {
+                  "state": "known",
+                  "value": 164,
+                  "fact_ids": [
+                    "D-013/drawing/n/82.0@1-1"
+                  ],
+                  "expression": "n0*2",
+                  "name": "D-013/template/features_review/value/0/pattern/spacing"
+                },
+                "direction": {
+                  "state": "known",
+                  "value": 0,
+                  "fact_ids": [
+                    "D-013"
+                  ],
+                  "name": "D-013/template/features_review/value/0/pattern/direction"
+                }
+              },
+              "placement_basis": "drawing_pattern_interpretation",
+              "placement_reason": "The 2 x callout identifies the two M5 holes. The printed 82,0 dimension locates the left hole from the central vertical axis; the opposed two-hole layout establishes its mirrored partner at X=+82. Both lie on the horizontal hole axis dimensioned 4,5 above Y=0.",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/callout/p1-1",
+                "D-013/drawing/n/2.0@1-1",
+                "D-013/drawing/n/4.2@1-1",
+                "D-013/drawing/n/82.0@1-1",
+                "D-013/drawing/n/4.5@1-1"
+              ]
+            },
+            {
+              "kind": "hole",
+              "face": "top",
+              "x": {
+                "state": "known",
+                "value": 17.9,
+                "fact_ids": [
+                  "D-013/drawing/n/17.9@1-1"
+                ],
+                "name": "D-013/template/features_review/value/1/x"
+              },
+              "y": {
+                "state": "known",
+                "value": -7.5,
+                "fact_ids": [
+                  "D-013/drawing/n/7.5@1-1"
+                ],
+                "expression": "0-n0",
+                "name": "D-013/template/features_review/value/1/y"
+              },
+              "diameter": {
+                "state": "known",
+                "value": 2.5,
+                "fact_ids": [
+                  "D-013/drawing/n/2.5@1-1"
+                ],
+                "name": "D-013/template/features_review/value/1/diameter"
+              },
+              "through": true,
+              "hole_type": "threaded",
+              "thread": "M3 - 6H",
+              "placement_basis": "dimensioned",
+              "placement_reason": "The 17,9 dimension directly locates the first lower-row hole right of the central vertical axis. The 7,5 dimension locates the lower hole axis below Y=0. The 8 x M3 callout establishes this hole's printed drill diameter, thread and through operation without requiring the other six unresolved placements.",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/callout/p1-2",
+                "D-013/drawing/n/8.0@1-1",
+                "D-013/drawing/n/2.5@1-1",
+                "D-013/drawing/n/17.9@1-1",
+                "D-013/drawing/n/7.5@1-1"
+              ]
+            },
+            {
+              "kind": "hole",
+              "face": "top",
+              "x": {
+                "state": "known",
+                "value": 53.6,
+                "fact_ids": [
+                  "D-013/drawing/n/17.9@1-1",
+                  "D-013/drawing/n/35.7@1-1"
+                ],
+                "expression": "n0+n1",
+                "name": "D-013/template/features_review/value/2/x"
+              },
+              "y": {
+                "state": "known",
+                "value": -7.5,
+                "fact_ids": [
+                  "D-013/drawing/n/7.5@1-1"
+                ],
+                "expression": "0-n0",
+                "name": "D-013/template/features_review/value/2/y"
+              },
+              "diameter": {
+                "state": "known",
+                "value": 2.5,
+                "fact_ids": [
+                  "D-013/drawing/n/2.5@1-1"
+                ],
+                "name": "D-013/template/features_review/value/2/diameter"
+              },
+              "through": true,
+              "hole_type": "threaded",
+              "thread": "M3 - 6H",
+              "placement_basis": "dimensioned",
+              "placement_reason": "The printed 35,7 dimension connects the first lower-row hole right of center, located by 17,9, to the next hole to its right. Thus this hole is at X=17.9+35.7=53.6 on the axis dimensioned 7,5 below Y=0. This uses only the displayed dimension chain, without extending that spacing to undimensioned holes.",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/callout/p1-2",
+                "D-013/drawing/n/8.0@1-1",
+                "D-013/drawing/n/2.5@1-1",
+                "D-013/drawing/n/17.9@1-1",
+                "D-013/drawing/n/35.7@1-1",
+                "D-013/drawing/n/7.5@1-1"
+              ]
+            },
+            {
+              "kind": "slot",
+              "face": "top",
+              "x": {
+                "state": "known",
+                "value": -123,
+                "fact_ids": [
+                  "D-013/drawing/n/41.0@1-1",
+                  "D-013/drawing/n/82.0@1-2"
+                ],
+                "expression": "0-n0-n1",
+                "name": "D-013/template/features_review/value/3/x"
+              },
+              "y": {
+                "state": "known",
+                "value": 4.55,
+                "fact_ids": [
+                  "D-013/drawing/n/2.3@1-1",
+                  "D-013/drawing/n/10.0@1-1",
+                  "D-013/drawing/n/5.5@1-1"
+                ],
+                "expression": "n0+(n1-n2)/2",
+                "name": "D-013/template/features_review/value/3/y"
+              },
+              "width": {
+                "state": "known",
+                "value": 5.5,
+                "fact_ids": [
+                  "D-013/drawing/n/5.5@1-1"
+                ],
+                "name": "D-013/template/features_review/value/3/width"
+              },
+              "length": {
+                "state": "known",
+                "value": 10,
+                "fact_ids": [
+                  "D-013/drawing/n/10.0@1-1"
+                ],
+                "name": "D-013/template/features_review/value/3/length"
+              },
+              "direction": "vertical",
+              "through": true,
+              "hole_type": "plain",
+              "pattern": {
+                "type": "row",
+                "count": {
+                  "state": "known",
+                  "value": 4,
+                  "fact_ids": [
+                    "D-013/drawing/n/4.0@1-1"
+                  ],
+                  "name": "D-013/template/features_review/value/3/pattern/count"
+                },
+                "spacing": {
+                  "state": "known",
+                  "value": 82,
+                  "fact_ids": [
+                    "D-013/drawing/n/82.0@1-2"
+                  ],
+                  "name": "D-013/template/features_review/value/3/pattern/spacing"
+                },
+                "direction": {
+                  "state": "known",
+                  "value": 0,
+                  "fact_ids": [
+                    "D-013"
+                  ],
+                  "name": "D-013/template/features_review/value/3/pattern/direction"
+                }
+              },
+              "placement_basis": "drawing_pattern_interpretation",
+              "placement_reason": "The 4 x slot callout, horizontal layout, printed 82,0 adjacent-slot spacing and 41,0 centerline-to-inner-right-slot offset establish slot centers at X=-123,-41,41,123. Their long axes follow the drawing's vertical axis. The 2,3 vertical dimension locates the lower semicircle center above Y=0, so each overall slot center is at Y=2.3+(10.0-5.5)/2=4.55; the separate 4,5 M5-hole dimension is not substituted for this slot location.",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/callout/p1-3",
+                "D-013/drawing/n/4.0@1-1",
+                "D-013/drawing/n/5.5@1-1",
+                "D-013/drawing/n/10.0@1-1",
+                "D-013/drawing/n/41.0@1-1",
+                "D-013/drawing/n/82.0@1-2",
+                "D-013/drawing/n/2.3@1-1"
+              ]
+            }
+          ]
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05",
+        "review": {
+          "status": "human_confirmed",
+          "by": "Jason Peng",
+          "at": "2026-11-05T17:48:42.602198+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-013/template/features_review",
+            "says": [
+              {
+                "kind": "hole",
+                "face": "top",
+                "x": {
+                  "state": "known",
+                  "value": -82,
+                  "fact_ids": [
+                    "D-013/drawing/n/82.0@1-1"
+                  ],
+                  "expression": "0-n0",
+                  "name": "D-013/template/features_review/value/0/x"
+                },
+                "y": {
+                  "state": "known",
+                  "value": 4.5,
+                  "fact_ids": [
+                    "D-013/drawing/n/4.5@1-1"
+                  ],
+                  "name": "D-013/template/features_review/value/0/y"
+                },
+                "diameter": {
+                  "state": "known",
+                  "value": 4.2,
+                  "fact_ids": [
+                    "D-013/drawing/n/4.2@1-1"
+                  ],
+                  "name": "D-013/template/features_review/value/0/diameter"
+                },
+                "through": true,
+                "hole_type": "threaded",
+                "thread": "M5 - 6H",
+                "pattern": {
+                  "type": "row",
+                  "count": {
+                    "state": "known",
+                    "value": 2,
+                    "fact_ids": [
+                      "D-013/drawing/n/2.0@1-1"
+                    ],
+                    "name": "D-013/template/features_review/value/0/pattern/count"
+                  },
+                  "spacing": {
+                    "state": "known",
+                    "value": 164,
+                    "fact_ids": [
+                      "D-013/drawing/n/82.0@1-1"
+                    ],
+                    "expression": "n0*2",
+                    "name": "D-013/template/features_review/value/0/pattern/spacing"
+                  },
+                  "direction": {
+                    "state": "known",
+                    "value": 0,
+                    "fact_ids": [
+                      "D-013"
+                    ],
+                    "name": "D-013/template/features_review/value/0/pattern/direction"
+                  }
+                },
+                "placement_basis": "drawing_pattern_interpretation",
+                "placement_reason": "The 2 x callout identifies the two M5 holes. The printed 82,0 dimension locates the left hole from the central vertical axis; the opposed two-hole layout establishes its mirrored partner at X=+82. Both lie on the horizontal hole axis dimensioned 4,5 above Y=0.",
+                "fact_ids": [
+                  "D-013",
+                  "D-013/drawing/callout/p1-1",
+                  "D-013/drawing/n/2.0@1-1",
+                  "D-013/drawing/n/4.2@1-1",
+                  "D-013/drawing/n/82.0@1-1",
+                  "D-013/drawing/n/4.5@1-1"
+                ]
+              },
+              {
+                "kind": "hole",
+                "face": "top",
+                "x": {
+                  "state": "known",
+                  "value": 17.9,
+                  "fact_ids": [
+                    "D-013/drawing/n/17.9@1-1"
+                  ],
+                  "name": "D-013/template/features_review/value/1/x"
+                },
+                "y": {
+                  "state": "known",
+                  "value": -7.5,
+                  "fact_ids": [
+                    "D-013/drawing/n/7.5@1-1"
+                  ],
+                  "expression": "0-n0",
+                  "name": "D-013/template/features_review/value/1/y"
+                },
+                "diameter": {
+                  "state": "known",
+                  "value": 2.5,
+                  "fact_ids": [
+                    "D-013/drawing/n/2.5@1-1"
+                  ],
+                  "name": "D-013/template/features_review/value/1/diameter"
+                },
+                "through": true,
+                "hole_type": "threaded",
+                "thread": "M3 - 6H",
+                "placement_basis": "dimensioned",
+                "placement_reason": "The 17,9 dimension directly locates the first lower-row hole right of the central vertical axis. The 7,5 dimension locates the lower hole axis below Y=0. The 8 x M3 callout establishes this hole's printed drill diameter, thread and through operation without requiring the other six unresolved placements.",
+                "fact_ids": [
+                  "D-013",
+                  "D-013/drawing/callout/p1-2",
+                  "D-013/drawing/n/8.0@1-1",
+                  "D-013/drawing/n/2.5@1-1",
+                  "D-013/drawing/n/17.9@1-1",
+                  "D-013/drawing/n/7.5@1-1"
+                ]
+              },
+              {
+                "kind": "hole",
+                "face": "top",
+                "x": {
+                  "state": "known",
+                  "value": 53.6,
+                  "fact_ids": [
+                    "D-013/drawing/n/17.9@1-1",
+                    "D-013/drawing/n/35.7@1-1"
+                  ],
+                  "expression": "n0+n1",
+                  "name": "D-013/template/features_review/value/2/x"
+                },
+                "y": {
+                  "state": "known",
+                  "value": -7.5,
+                  "fact_ids": [
+                    "D-013/drawing/n/7.5@1-1"
+                  ],
+                  "expression": "0-n0",
+                  "name": "D-013/template/features_review/value/2/y"
+                },
+                "diameter": {
+                  "state": "known",
+                  "value": 2.5,
+                  "fact_ids": [
+                    "D-013/drawing/n/2.5@1-1"
+                  ],
+                  "name": "D-013/template/features_review/value/2/diameter"
+                },
+                "through": true,
+                "hole_type": "threaded",
+                "thread": "M3 - 6H",
+                "placement_basis": "dimensioned",
+                "placement_reason": "The printed 35,7 dimension connects the first lower-row hole right of center, located by 17,9, to the next hole to its right. Thus this hole is at X=17.9+35.7=53.6 on the axis dimensioned 7,5 below Y=0. This uses only the displayed dimension chain, without extending that spacing to undimensioned holes.",
+                "fact_ids": [
+                  "D-013",
+                  "D-013/drawing/callout/p1-2",
+                  "D-013/drawing/n/8.0@1-1",
+                  "D-013/drawing/n/2.5@1-1",
+                  "D-013/drawing/n/17.9@1-1",
+                  "D-013/drawing/n/35.7@1-1",
+                  "D-013/drawing/n/7.5@1-1"
+                ]
+              },
+              {
+                "kind": "slot",
+                "face": "top",
+                "x": {
+                  "state": "known",
+                  "value": -123,
+                  "fact_ids": [
+                    "D-013/drawing/n/41.0@1-1",
+                    "D-013/drawing/n/82.0@1-2"
+                  ],
+                  "expression": "0-n0-n1",
+                  "name": "D-013/template/features_review/value/3/x"
+                },
+                "y": {
+                  "state": "known",
+                  "value": 4.55,
+                  "fact_ids": [
+                    "D-013/drawing/n/2.3@1-1",
+                    "D-013/drawing/n/10.0@1-1",
+                    "D-013/drawing/n/5.5@1-1"
+                  ],
+                  "expression": "n0+(n1-n2)/2",
+                  "name": "D-013/template/features_review/value/3/y"
+                },
+                "width": {
+                  "state": "known",
+                  "value": 5.5,
+                  "fact_ids": [
+                    "D-013/drawing/n/5.5@1-1"
+                  ],
+                  "name": "D-013/template/features_review/value/3/width"
+                },
+                "length": {
+                  "state": "known",
+                  "value": 10,
+                  "fact_ids": [
+                    "D-013/drawing/n/10.0@1-1"
+                  ],
+                  "name": "D-013/template/features_review/value/3/length"
+                },
+                "direction": "vertical",
+                "through": true,
+                "hole_type": "plain",
+                "pattern": {
+                  "type": "row",
+                  "count": {
+                    "state": "known",
+                    "value": 4,
+                    "fact_ids": [
+                      "D-013/drawing/n/4.0@1-1"
+                    ],
+                    "name": "D-013/template/features_review/value/3/pattern/count"
+                  },
+                  "spacing": {
+                    "state": "known",
+                    "value": 82,
+                    "fact_ids": [
+                      "D-013/drawing/n/82.0@1-2"
+                    ],
+                    "name": "D-013/template/features_review/value/3/pattern/spacing"
+                  },
+                  "direction": {
+                    "state": "known",
+                    "value": 0,
+                    "fact_ids": [
+                      "D-013"
+                    ],
+                    "name": "D-013/template/features_review/value/3/pattern/direction"
+                  }
+                },
+                "placement_basis": "drawing_pattern_interpretation",
+                "placement_reason": "The 4 x slot callout, horizontal layout, printed 82,0 adjacent-slot spacing and 41,0 centerline-to-inner-right-slot offset establish slot centers at X=-123,-41,41,123. Their long axes follow the drawing's vertical axis. The 2,3 vertical dimension locates the lower semicircle center above Y=0, so each overall slot center is at Y=2.3+(10.0-5.5)/2=4.55; the separate 4,5 M5-hole dimension is not substituted for this slot location.",
+                "fact_ids": [
+                  "D-013",
+                  "D-013/drawing/callout/p1-3",
+                  "D-013/drawing/n/4.0@1-1",
+                  "D-013/drawing/n/5.5@1-1",
+                  "D-013/drawing/n/10.0@1-1",
+                  "D-013/drawing/n/41.0@1-1",
+                  "D-013/drawing/n/82.0@1-2",
+                  "D-013/drawing/n/2.3@1-1"
+                ]
+              }
+            ],
+            "method": "ai_verified_after_retry",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": "The original main view supports the two M5 - 6H through holes, four vertical 5,5 X 10,0 through slots, and two individually located M3 - 6H through holes at X=17.9 and X=17.9+35.7. The remaining six M3 horizontal positions are unresolved. Printed drill diameters and through-thread callouts establish the retained holes independently of the omitted placements. Verification: In D-013's main view, the vertical centreline is X=0 and the horizontal centreline is Y=0 (it splits the 25,0 height). M5 pair: callout p1-1 gives 2 x Ø4,2 THRU ALL M5 - 6H. The left 82,0 (n/82.0@1-1, box ~x489pt) runs from the left M5 hole to the centreline, and the right M5 hole sits in the opposed mirrored position. 4,5 (n/4.5@1-1) locates both on the axis above Y=0. So x=0-n0=-82 and a 2-count row with spacing n0*2=164 along 0° is correct. M3 holes: n/17.9@1-1 runs from the centreline extension to the first hole right of centre. n/35.7@1-1 runs from that hole to the next one, so x=17.9 and x=n0+n1=53.6 are directly dimensioned. 7,5 (n/7.5@1-1) runs from Y=0 to the lower hole axis, so y=-7.5. The Ø2,5 THRU ALL M3 - 6H values come from p1-2. Slots: callout p1-3 gives 4 x 5,5 X 10,0 THRU ALL. 41,0 (n/41.0@1-1) runs from the centreline to the inner right slot, and the right 82,0 (n/82.0@1-2) runs from there to the outer right slot. The left slots mirror these, so a uniform 82 pitch from -123 gives -123,-41,41,123; this matches 41+41=82 across the centre. The slot long axes are drawn vertical. 2,3 (n/2.3@1-1) runs from Y=0 to the lower arc centre of the right slot, which is marked with crosshairs. That gives a slot centre of n0+(n1-n2)/2=4.55, and the slot bottom at -0.45 sits just below the centreline, matching the view. Numeric values, cited IDs, expressions and ordering (holes by x ascending, then slots) are all consistent.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/callout/p1-1",
+            "says": "2 x 4,2 THRU ALL M5 - 6H THRU ALL",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              428.392,
+              520.694,
+              118.667,
+              33.984
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/callout/p1-2",
+            "says": "8 x 2,5 THRU ALL M3 - 6H THRU ALL",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              309.068,
+              564.281,
+              118.668,
+              33.991
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/callout/p1-3",
+            "says": "4 x 5,5 X 10,0 THRU ALL",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              760.055,
+              350.781,
+              141.088,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/2.0@1-1",
+            "says": "2",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              428.392,
+              520.694,
+              7.331,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/4.2@1-1",
+            "says": "4,2",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              468.032,
+              520.694,
+              18.321,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/8.0@1-1",
+            "says": "8",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              309.068,
+              564.281,
+              7.331,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/2.5@1-1",
+            "says": "2,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              348.709,
+              564.288,
+              18.321,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/35.7@1-1",
+            "says": "35,7",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              715.676,
+              504.483,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/17.9@1-1",
+            "says": "17,9",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              630.579,
+              487.472,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/7.5@1-1",
+            "says": "7,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1046.25,
+              394.664,
+              18.083,
+              18.327
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/82.0@1-1",
+            "says": "82,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              489.056,
+              342.906,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/4.5@1-1",
+            "says": "4,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              190.187,
+              370.831,
+              18.083,
+              18.327
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/4.0@1-1",
+            "says": "4",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              760.055,
+              350.781,
+              7.33,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/5.5@1-1",
+            "says": "5,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              781.065,
+              350.781,
+              18.324,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/10.0@1-1",
+            "says": "10,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              814.776,
+              350.781,
+              25.654,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/41.0@1-1",
+            "says": "41,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              663.384,
+              342.91,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/82.0@1-2",
+            "says": "82,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              837.72,
+              325.898,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/2.3@1-1",
+            "says": "2,3",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1012.235,
+              394.664,
+              18.083,
+              18.327
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/n/8.0@1-1": {
+        "fact": "D-013/drawing/n/8.0@1-1",
+        "field": "8.0@1-1",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 8.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/n/8.0@1-1",
+            "says": "8",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              309.068,
+              564.281,
+              7.331,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features_review/value/0/x": {
+        "fact": "D-013/template/features_review/value/0/x",
+        "field": "x",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": -82
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features_review/value/0/x",
+            "says": -82,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/82.0@1-1",
+            "says": "82,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              489.056,
+              342.906,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features_review/value/0/y": {
+        "fact": "D-013/template/features_review/value/0/y",
+        "field": "y",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 4.5
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features_review/value/0/y",
+            "says": 4.5,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/4.5@1-1",
+            "says": "4,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              190.187,
+              370.831,
+              18.083,
+              18.327
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features_review/value/0/diameter": {
+        "fact": "D-013/template/features_review/value/0/diameter",
+        "field": "diameter",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 4.2
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features_review/value/0/diameter",
+            "says": 4.2,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/4.2@1-1",
+            "says": "4,2",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              468.032,
+              520.694,
+              18.321,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features_review/value/0/pattern/count": {
+        "fact": "D-013/template/features_review/value/0/pattern/count",
+        "field": "count",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 2
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features_review/value/0/pattern/count",
+            "says": 2,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/2.0@1-1",
+            "says": "2",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              428.392,
+              520.694,
+              7.331,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features_review/value/0/pattern/spacing": {
+        "fact": "D-013/template/features_review/value/0/pattern/spacing",
+        "field": "spacing",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 164
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features_review/value/0/pattern/spacing",
+            "says": 164,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/82.0@1-1",
+            "says": "82,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              489.056,
+              342.906,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features_review/value/0/pattern/direction": {
+        "fact": "D-013/template/features_review/value/0/pattern/direction",
+        "field": "direction",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features_review/value/0/pattern/direction",
+            "says": 0,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features_review/value/1/x": {
+        "fact": "D-013/template/features_review/value/1/x",
+        "field": "x",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 17.9
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features_review/value/1/x",
+            "says": 17.9,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/17.9@1-1",
+            "says": "17,9",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              630.579,
+              487.472,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features_review/value/1/y": {
+        "fact": "D-013/template/features_review/value/1/y",
+        "field": "y",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": -7.5
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features_review/value/1/y",
+            "says": -7.5,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/7.5@1-1",
+            "says": "7,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1046.25,
+              394.664,
+              18.083,
+              18.327
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features_review/value/1/diameter": {
+        "fact": "D-013/template/features_review/value/1/diameter",
+        "field": "diameter",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 2.5
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features_review/value/1/diameter",
+            "says": 2.5,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/2.5@1-1",
+            "says": "2,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              348.709,
+              564.288,
+              18.321,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features_review/value/2/x": {
+        "fact": "D-013/template/features_review/value/2/x",
+        "field": "x",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 53.6
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features_review/value/2/x",
+            "says": 53.6,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/17.9@1-1",
+            "says": "17,9",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              630.579,
+              487.472,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/35.7@1-1",
+            "says": "35,7",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              715.676,
+              504.483,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features_review/value/2/y": {
+        "fact": "D-013/template/features_review/value/2/y",
+        "field": "y",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": -7.5
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features_review/value/2/y",
+            "says": -7.5,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/7.5@1-1",
+            "says": "7,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1046.25,
+              394.664,
+              18.083,
+              18.327
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features_review/value/2/diameter": {
+        "fact": "D-013/template/features_review/value/2/diameter",
+        "field": "diameter",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 2.5
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features_review/value/2/diameter",
+            "says": 2.5,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/2.5@1-1",
+            "says": "2,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              348.709,
+              564.288,
+              18.321,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features_review/value/3/x": {
+        "fact": "D-013/template/features_review/value/3/x",
+        "field": "x",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": -123
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features_review/value/3/x",
+            "says": -123,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/41.0@1-1",
+            "says": "41,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              663.384,
+              342.91,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/82.0@1-2",
+            "says": "82,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              837.72,
+              325.898,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features_review/value/3/y": {
+        "fact": "D-013/template/features_review/value/3/y",
+        "field": "y",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 4.55
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features_review/value/3/y",
+            "says": 4.55,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/2.3@1-1",
+            "says": "2,3",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1012.235,
+              394.664,
+              18.083,
+              18.327
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/10.0@1-1",
+            "says": "10,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              814.776,
+              350.781,
+              25.654,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/5.5@1-1",
+            "says": "5,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              781.065,
+              350.781,
+              18.324,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features_review/value/3/width": {
+        "fact": "D-013/template/features_review/value/3/width",
+        "field": "width",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 5.5
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features_review/value/3/width",
+            "says": 5.5,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/5.5@1-1",
+            "says": "5,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              781.065,
+              350.781,
+              18.324,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features_review/value/3/length": {
+        "fact": "D-013/template/features_review/value/3/length",
+        "field": "length",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 10
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features_review/value/3/length",
+            "says": 10,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/10.0@1-1",
+            "says": "10,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              814.776,
+              350.781,
+              25.654,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features_review/value/3/pattern/count": {
+        "fact": "D-013/template/features_review/value/3/pattern/count",
+        "field": "count",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 4
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features_review/value/3/pattern/count",
+            "says": 4,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/4.0@1-1",
+            "says": "4",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              760.055,
+              350.781,
+              7.33,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features_review/value/3/pattern/spacing": {
+        "fact": "D-013/template/features_review/value/3/pattern/spacing",
+        "field": "spacing",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 82
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features_review/value/3/pattern/spacing",
+            "says": 82,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/82.0@1-2",
+            "says": "82,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              837.72,
+              325.898,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features_review/value/3/pattern/direction": {
+        "fact": "D-013/template/features_review/value/3/pattern/direction",
+        "field": "direction",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/template/features_review/value/3/pattern/direction",
+            "says": 0,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/cad_eligibility": {
+        "fact": "D-013/template/cad_eligibility",
+        "field": "cad_eligibility",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "supported": true,
+            "constant_thickness": true,
+            "outline_exact": true,
+            "reason": "The front, edge and isometric views establish a single flat rectangular plate with uniform thickness. Small straight corner clips fit the contract's minor-detail allowance. No bends, steps or essential custom outer contours are shown.",
+            "essential_uncertainty": [],
+            "omitted_minor_features": [
+              "Small undimensioned straight corner clips.",
+              "Deburring and sharp-edge breaks."
+            ]
+          }
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05",
+        "review": {
+          "status": "human_confirmed",
+          "by": "Jason Peng",
+          "at": "2026-11-05T17:48:42.615193+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-013/template/cad_eligibility",
+            "says": {
+              "supported": true,
+              "constant_thickness": true,
+              "outline_exact": true,
+              "reason": "The front, edge and isometric views establish a single flat rectangular plate with uniform thickness. Small straight corner clips fit the contract's minor-detail allowance. No bends, steps or essential custom outer contours are shown.",
+              "essential_uncertainty": [],
+              "omitted_minor_features": [
+                "Small undimensioned straight corner clips.",
+                "Deburring and sharp-edge breaks."
+              ]
+            },
+            "method": "ai_verified",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": "The original drawing supports the rectangular constant-thickness base-body contract with the permitted minor omissions stated explicitly. Verification: Drawing D-013 shows the part from the front, from the side and in isometric. All three show one flat plate. Its outer outline is rectangular, and it has no bends, steps, revolved shape or grooves. The side view is a single rectangle of uniform width. The isometric view also shows uniform thickness along the full length. The stacked '6,0 / 3,0' thickness label sits on one dimension line. That is a printed choice between thickness values, which the contract allows. It is not a step in the body, so the exact value can be settled in the detailed fields. The front view has small straight corner clips at all four corners. They have no dimensions, and the side view shows matching lines near its ends. These fit the allowance for small undimensioned corner clips on an established rectangle. They are not a custom rounded or angled outer contour. The title-block note 'DEBURR AND BREAK SHARP EDGES' (D-013/drawing/general/edge_finish) supports omitting edge breaks. The slots and holes are internal through-cuts and do not change the base-body contract. supported=true, constant_thickness=true, outline_exact=true and an empty essential_uncertainty are all consistent with this evidence.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/general/edge_finish",
+            "says": "DEBURR AND BREAK SHARP EDGES",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1078.776,
+              781.582,
+              52.887,
+              14.837
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features_complete": {
+        "fact": "D-013/template/features_complete",
+        "field": "features_complete",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": false
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05",
+        "review": {
+          "status": "human_confirmed",
+          "by": "Jason Peng",
+          "at": "2026-11-05T17:48:42.625194+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-013/template/features_complete",
+            "says": false,
+            "method": "ai_verified_after_retry",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": "Six M3-hole placements remain unresolved. The four visible corner clips also lack setback dimensions, and the general edge-break instruction supplies no geometric dimensions. The supported subset therefore does not reproduce the complete feature inventory. Verification: The design is not complete. Six of the eight M3 holes from callout p1-2 are left out of features. The four outer corner clips in D-013's main view have no setback dimensions. The edge-break note (general/edge_finish) gives no geometry. So false is correct.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/callout/p1-2",
+            "says": "8 x 2,5 THRU ALL M3 - 6H THRU ALL",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              309.068,
+              564.281,
+              118.668,
+              33.991
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/8.0@1-1",
+            "says": "8",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              309.068,
+              564.281,
+              7.331,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/17.9@1-1",
+            "says": "17,9",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              630.579,
+              487.472,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/35.7@1-1",
+            "says": "35,7",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              715.676,
+              504.483,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/general/edge_finish",
+            "says": "DEBURR AND BREAK SHARP EDGES",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1078.776,
+              781.582,
+              52.887,
+              14.837
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/features_omitted": {
+        "fact": "D-013/template/features_omitted",
+        "field": "features_omitted",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": [
+            {
+              "description": "Four small straight outer corner clips, one at each corner of the main rectangular outline.",
+              "reason": "The original views show the clips, but neither X/Y setbacks nor a dimensioned 45-degree chamfer callout is supplied. Their dimensions cannot be inferred from pixels or from the generic edge-finish note.",
+              "fact_ids": [
+                "D-013"
+              ]
+            },
+            {
+              "description": "DEBURR AND BREAK SHARP EDGES.",
+              "reason": "The general manufacturing note supplies no edge-break size, angle or radius. It does not determine an additional modeled bevel or rounding.",
+              "fact_ids": [
+                "D-013/drawing/general/edge_finish"
+              ]
+            },
+            {
+              "description": "Six remaining holes from the 8 x 2,5 THRU ALL M3 - 6H THRU ALL callout: the four holes left of the central vertical axis and the two farther-right holes beyond the directly dimensioned pair.",
+              "reason": "The printed 17,9 centerline offset and following 35,7 adjacent-hole dimension establish only the first two holes right of center. The other six X positions are not individually dimensioned, and the view does not resolve the conflict between extending a uniform 35,7 pitch across all eight holes and mirroring the visible layout about X=0: twice 17,9 is 35,8, not 35,7. Their drill diameter, thread, through operation and lower-row Y axis are established, but their complete placements are not. No guessed row or mirrored coordinates are emitted.",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/callout/p1-2",
+                "D-013/drawing/n/8.0@1-1",
+                "D-013/drawing/n/2.5@1-1",
+                "D-013/drawing/n/17.9@1-1",
+                "D-013/drawing/n/35.7@1-1",
+                "D-013/drawing/n/7.5@1-1"
+              ]
+            }
+          ]
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05",
+        "review": {
+          "status": "human_confirmed",
+          "by": "Jason Peng",
+          "at": "2026-11-05T17:48:42.633194+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-013/template/features_omitted",
+            "says": [
+              {
+                "description": "Four small straight outer corner clips, one at each corner of the main rectangular outline.",
+                "reason": "The original views show the clips, but neither X/Y setbacks nor a dimensioned 45-degree chamfer callout is supplied. Their dimensions cannot be inferred from pixels or from the generic edge-finish note.",
+                "fact_ids": [
+                  "D-013"
+                ]
+              },
+              {
+                "description": "DEBURR AND BREAK SHARP EDGES.",
+                "reason": "The general manufacturing note supplies no edge-break size, angle or radius. It does not determine an additional modeled bevel or rounding.",
+                "fact_ids": [
+                  "D-013/drawing/general/edge_finish"
+                ]
+              },
+              {
+                "description": "Six remaining holes from the 8 x 2,5 THRU ALL M3 - 6H THRU ALL callout: the four holes left of the central vertical axis and the two farther-right holes beyond the directly dimensioned pair.",
+                "reason": "The printed 17,9 centerline offset and following 35,7 adjacent-hole dimension establish only the first two holes right of center. The other six X positions are not individually dimensioned, and the view does not resolve the conflict between extending a uniform 35,7 pitch across all eight holes and mirroring the visible layout about X=0: twice 17,9 is 35,8, not 35,7. Their drill diameter, thread, through operation and lower-row Y axis are established, but their complete placements are not. No guessed row or mirrored coordinates are emitted.",
+                "fact_ids": [
+                  "D-013",
+                  "D-013/drawing/callout/p1-2",
+                  "D-013/drawing/n/8.0@1-1",
+                  "D-013/drawing/n/2.5@1-1",
+                  "D-013/drawing/n/17.9@1-1",
+                  "D-013/drawing/n/35.7@1-1",
+                  "D-013/drawing/n/7.5@1-1"
+                ]
+              }
+            ],
+            "method": "ai_verified_after_retry",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": "The main, end and isometric views establish the visible hole/slot inventory and small corner clips. Six M3 holes lack unambiguous complete placements; corner-clip setbacks and edge-break geometry are absent. No additional blind holes, side-drilled holes, recesses, countersinks or counterbores are established by these views. Verification: The main view of D-013 shows straight clips at all four outer corners, with no setback or 45° chamfer callout. The DEBURR AND BREAK SHARP EDGES note gives no size. Only the two holes right of centre are dimensioned (17,9 and the following 35,7). The other six hole positions in the 8 x M3 callout are not printed one by one. 2×17,9=35,8 does not equal 35,7, so it is right not to extend a uniform pitch or mirror the holes into guessed coordinates. The main, end and isometric views show no other blind holes, side holes, counterbores, countersinks or recesses. Each omission cites the correct source IDs.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/general/edge_finish",
+            "says": "DEBURR AND BREAK SHARP EDGES",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1078.776,
+              781.582,
+              52.887,
+              14.837
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/callout/p1-2",
+            "says": "8 x 2,5 THRU ALL M3 - 6H THRU ALL",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              309.068,
+              564.281,
+              118.668,
+              33.991
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/8.0@1-1",
+            "says": "8",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              309.068,
+              564.281,
+              7.331,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/2.5@1-1",
+            "says": "2,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              348.709,
+              564.288,
+              18.321,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/17.9@1-1",
+            "says": "17,9",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              630.579,
+              487.472,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/35.7@1-1",
+            "says": "35,7",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              715.676,
+              504.483,
+              25.657,
+              18.083
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/n/7.5@1-1",
+            "says": "7,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1046.25,
+              394.664,
+              18.083,
+              18.327
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/template/detail_eligibility_assessment": {
+        "fact": "D-013/template/detail_eligibility_assessment",
+        "field": "detail_eligibility_assessment",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Waiting for review: needs_input. The main view does establish the 270,0 × 25,0 rectangular body. The end and isometric views show a flat plate, and treating the corner clips and edge breaks as minor omissions is correct. Whether the part can be supported depends entirely on how the stacked 6,0/3,0 end-view thickness is read. As a limit pair it gives no exact thickness, which would block reconstruction. If a human confirms they are documented alternatives, the protocol would require options [3,6] and the part would be supported. The evidence alone cannot decide, so supported=false cannot be verified as final."
+        },
+        "badge": "AI interpretation, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-013/template/detail_eligibility_assessment",
+            "says": null,
+            "method": "ai_unsure",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": "Waiting for review: needs_input. The main view does establish the 270,0 × 25,0 rectangular body. The end and isometric views show a flat plate, and treating the corner clips and edge breaks as minor omissions is correct. Whether the part can be supported depends entirely on how the stacked 6,0/3,0 end-view thickness is read. As a limit pair it gives no exact thickness, which would block reconstruction. If a human confirms they are documented alternatives, the protocol would require options [3,6] and the part would be supported. The evidence alone cannot decide, so supported=false cannot be verified as final.",
+            "badge": "AI interpretation, not reviewed",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": "D-013/template/detail_eligibility_assessment",
+        "correction": null,
+        "callout": null
+      },
+      "D-013/link": {
+        "fact": "D-013/link",
+        "field": "link",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": [
+            "BOM:recoater/recoater-head"
+          ]
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05",
+        "review": {
+          "status": "human_confirmed",
+          "by": "Jason Peng",
+          "at": "2026-11-05T14:14:01.214176+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-013/link",
+            "says": [
+              "BOM:recoater/recoater-head"
+            ],
+            "method": "human_decision",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": {
+          "original": [],
+          "corrected": [
+            "BOM:recoater/recoater-head"
+          ],
+          "by": "Jason Peng",
+          "at": "2026-11-05T14:14:01.214176+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "callout": null
+      },
+      "D-013/source-inventory": {
+        "fact": "D-013/source-inventory",
+        "field": "source-inventory",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "id": "D-013/part",
+            "key": "D-013",
+            "name": "Recoater Plate",
+            "source_filename": "RecoaterPlate.pdf",
+            "section": "Recoater"
+          }
+        },
+        "badge": "From source inventory",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/source-inventory",
+            "says": "Drawing membership in the supplied source inventory; names may be filenames when a printed title is unreadable.",
+            "method": "source_inventory",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": "Drawing membership in the supplied source inventory; names may be filenames when a printed title is unreadable.",
+            "badge": "From source inventory",
+            "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-013.pdf",
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/model/verification": {
+        "fact": "D-013/model/verification",
+        "field": "verification",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "weight_check": {
+              "state": "FAILED",
+              "message": "FAILED weight check: needs manual approval",
+              "examples": {
+                "A": {
+                  "attempts": [
+                    {
+                      "material": "3.3315 (EN-AW 5005)",
+                      "source": "drawing",
+                      "names": [
+                        "3.3315 (EN-AW 5005)",
+                        "EN-AW 5005",
+                        "EN AW-5005",
+                        "5005",
+                        "3.3315"
+                      ],
+                      "density_g_cm3": 2.7,
+                      "source_url": "https://materialsdata.nist.gov/bitstream/handle/11115/168/Properties%20of%20Aluminum%20Mill%20Products.pdf?isAllowed=y&sequence=3",
+                      "source_title": "ASM Aluminum Mill and Engineered Wrought Products, Table 6 (NIST archive)",
+                      "looked_up": "2026-11-05",
+                      "note": "5005 alloy density. Outside source, not the dataset.",
+                      "calculated_g": 52.7994,
+                      "drawing_g": 87.5,
+                      "difference_percent": 39.66,
+                      "matches": false,
+                      "outside_source": true
+                    },
+                    {
+                      "material": "Aluminium",
+                      "source": "parts list",
+                      "names": [
+                        "Aluminium",
+                        "Aluminum"
+                      ],
+                      "density_g_cm3": 2.7,
+                      "source_url": "https://materialsdata.nist.gov/bitstream/handle/11115/168/Properties%20of%20Aluminum%20Mill%20Products.pdf?isAllowed=y&sequence=3",
+                      "source_title": "ASM Aluminum Mill and Engineered Wrought Products (NIST archive)",
+                      "looked_up": "2026-11-05",
+                      "note": "Approximate family density; alloy is unspecified. Outside source, not the dataset.",
+                      "calculated_g": 52.7994,
+                      "drawing_g": 87.5,
+                      "difference_percent": 39.66,
+                      "matches": false,
+                      "outside_source": true
+                    }
+                  ],
+                  "matches": false,
+                  "drawing_g": 87.5
+                },
+                "B": {
+                  "attempts": [
+                    {
+                      "material": "3.3315 (EN-AW 5005)",
+                      "source": "drawing",
+                      "names": [
+                        "3.3315 (EN-AW 5005)",
+                        "EN-AW 5005",
+                        "EN AW-5005",
+                        "5005",
+                        "3.3315"
+                      ],
+                      "density_g_cm3": 2.7,
+                      "source_url": "https://materialsdata.nist.gov/bitstream/handle/11115/168/Properties%20of%20Aluminum%20Mill%20Products.pdf?isAllowed=y&sequence=3",
+                      "source_title": "ASM Aluminum Mill and Engineered Wrought Products, Table 6 (NIST archive)",
+                      "looked_up": "2026-11-05",
+                      "note": "5005 alloy density. Outside source, not the dataset.",
+                      "calculated_g": 105.5987,
+                      "drawing_g": 87.5,
+                      "difference_percent": 20.68,
+                      "matches": false,
+                      "outside_source": true
+                    },
+                    {
+                      "material": "Aluminium",
+                      "source": "parts list",
+                      "names": [
+                        "Aluminium",
+                        "Aluminum"
+                      ],
+                      "density_g_cm3": 2.7,
+                      "source_url": "https://materialsdata.nist.gov/bitstream/handle/11115/168/Properties%20of%20Aluminum%20Mill%20Products.pdf?isAllowed=y&sequence=3",
+                      "source_title": "ASM Aluminum Mill and Engineered Wrought Products (NIST archive)",
+                      "looked_up": "2026-11-05",
+                      "note": "Approximate family density; alloy is unspecified. Outside source, not the dataset.",
+                      "calculated_g": 105.5987,
+                      "drawing_g": 87.5,
+                      "difference_percent": 20.68,
+                      "matches": false,
+                      "outside_source": true
+                    }
+                  ],
+                  "matches": false,
+                  "drawing_g": 87.5
+                }
+              },
+              "drawing_g": 87.5,
+              "tolerance_percent": 5,
+              "requires_approval": true,
+              "approval_note_required": true,
+              "limitation": "A matching weight does not verify feature positions. No thickness or material is selected automatically.",
+              "density_label": "Outside source, not the dataset"
+            },
+            "omitted": [
+              "Four small straight outer corner clips, one at each corner of the main rectangular outline.: The original views show the clips, but neither X/Y setbacks nor a dimensioned 45-degree chamfer callout is supplied. Their dimensions cannot be inferred from pixels or from the generic edge-finish note.",
+              "DEBURR AND BREAK SHARP EDGES.: The general manufacturing note supplies no edge-break size, angle or radius. It does not determine an additional modeled bevel or rounding.",
+              "Six remaining holes from the 8 x 2,5 THRU ALL M3 - 6H THRU ALL callout: the four holes left of the central vertical axis and the two farther-right holes beyond the directly dimensioned pair.: The printed 17,9 centerline offset and following 35,7 adjacent-hole dimension establish only the first two holes right of center. The other six X positions are not individually dimensioned, and the view does not resolve the conflict between extending a uniform 35,7 pitch across all eight holes and mirroring the visible layout about X=0: twice 17,9 is 35,8, not 35,7. Their drill diameter, thread, through operation and lower-row Y axis are established, but their complete placements are not. No guessed row or mirrored coordinates are emitted."
+            ],
+            "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
+            "review": {
+              "status": "not_reviewed"
+            },
+            "examples": {
+              "A": {
+                "selections": {
+                  "thickness": 3.0
+                },
+                "volume_mm3": 19555.321493945325
+              },
+              "B": {
+                "selections": {
+                  "thickness": 6.0
+                },
+                "volume_mm3": 39110.64298789065
+              }
+            }
+          }
+        },
+        "badge": "Computed from recorded source facts",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/model/verification",
+            "says": "Computed model verification, not a design approval. Density references are outside sources, not the dataset. Failed checks need manual review; possible readings are never selected by weight.",
+            "method": "computed_summary",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": "Computed model verification, not a design approval. Density references are outside sources, not the dataset. Failed checks need manual review; possible readings are never selected by weight.",
+            "badge": "Computed from recorded source facts",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/weight_g",
+            "says": "87.5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              880.717,
+              771.048,
+              93.0,
+              14.0
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/template/thickness",
+            "says": null,
+            "method": "human_decision",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": "Waiting for review: needs_input. The end view's single thickness dimension carries 6,0 stacked over 3,0. That is the same format as a limit dimension (upper over lower). No note, table or label says these are two alternative thicknesses. The evidence therefore cannot decide between a limit range and two documented variants, and it gives no single exact value. Leaving thickness unknown is the honest reading, but an essential dimension is unresolved, and the protocol makes unknown essential geometry needs_input. A human must decide how to read the 6,0/3,0 stack (limits or alternatives). The existing evidence cannot settle it.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      }
+    },
+    "parts_to_show": [
+      {
+        "id": "D-013/part",
+        "key": "D-013",
+        "display_name": "Recoater Plate",
+        "section": "Recoater",
+        "has_drawing": true,
+        "has_3d": true,
+        "examples": [
+          "A",
+          "B"
+        ],
+        "review_status": "not_reviewed",
+        "thumbnail": "/api/parts/D-013/image?page=1&thumb=1",
+        "drawing_url": "/part/D-013/2d",
+        "model_url": "/part/D-013/3d",
+        "shown_reason": null
+      }
+    ],
+    "warnings": [],
+    "session_id": "25a5fb17c8da4aca9fe1bd4aabd68303",
+    "model": "gpt-6-luna",
+    "usage": {
+      "input_tokens": 38729,
+      "output_tokens": 129,
+      "total_tokens": 38858
+    },
+    "latency_ms": 6046,
+    "tool_trace": [
+      {
+        "tool": "find_part",
+        "arguments": {
+          "text": "recoater plate"
+        },
+        "facts_returned": [
+          "D-013/part"
+        ]
+      },
+      {
+        "tool": "get_facts",
+        "arguments": {
+          "part_id": "D-013/part"
+        },
+        "facts_returned": [
+          "D-013/part",
+          "D-013/drawing/material",
+          "BOM:recoater/recoater-head/material",
+          "D-013/drawing/title",
+          "D-013/drawing/notes",
+          "D-013/drawing/company",
+          "D-013/drawing/weight_g",
+          "D-013/drawing/drawn",
+          "D-013/drawing/date",
+          "D-013/drawing/scale",
+          "D-013/drawing/callout/p1-1",
+          "D-013/drawing/callout/p1-2",
+          "D-013/drawing/callout/p1-3",
+          "D-013/drawing/general/units",
+          "D-013/drawing/general/general_tolerance",
+          "D-013/drawing/general/edge_finish",
+          "BOM:recoater/recoater-head/name",
+          "BOM:recoater/recoater-head/part_family",
+          "BOM:recoater/recoater-head/type",
+          "BOM:recoater/recoater-head/design",
+          "BOM:recoater/recoater-head/order",
+          "BOM:recoater/recoater-head/validation",
+          "BOM:recoater/recoater-head/notes",
+          "BOM:recoater/recoater-head/design_intent",
+          "BOM:recoater/recoater-head/image",
+          "BOM:recoater/recoater-head/product_name",
+          "BOM:recoater/recoater-head/supplier_order",
+          "BOM:recoater/recoater-head/interface_with",
+          "BOM:recoater/recoater-head/link",
+          "BOM:recoater/recoater-head/supplier",
+          "BOM:recoater/recoater-head/datasheet",
+          "BOM:recoater/recoater-head/amount",
+          "BOM:recoater/recoater-head/cost",
+          "BOM:recoater/recoater-head/total_cost",
+          "BOM:recoater/recoater-head/interface_count",
+          "D-013/template/outline",
+          "D-013/template/outline/length",
+          "D-013/drawing/n/270.0@1-1",
+          "D-013/template/outline/width",
+          "D-013/drawing/n/25.0@1-1",
+          "D-013/template/thickness",
+          "D-013/drawing/n/3.0@1-1",
+          "D-013/drawing/n/6.0@1-1",
+          "D-013/template/features/0/x",
+          "D-013/drawing/n/82.0@1-1",
+          "D-013/template/features/0/y",
+          "D-013/drawing/n/4.5@1-1",
+          "D-013/template/features/0/diameter",
+          "D-013/drawing/n/4.2@1-1",
+          "D-013/template/features/0/pattern/count",
+          "D-013/drawing/n/2.0@1-1",
+          "D-013/template/features/0/pattern/spacing",
+          "D-013/template/features/0/pattern/direction",
+          "D-013/template/features/1/x",
+          "D-013/drawing/n/17.9@1-1",
+          "D-013/template/features/1/y",
+          "D-013/drawing/n/7.5@1-1",
+          "D-013/template/features/1/diameter",
+          "D-013/drawing/n/2.5@1-1",
+          "D-013/template/features/2/x",
+          "D-013/drawing/n/35.7@1-1",
+          "D-013/template/features/2/y",
+          "D-013/template/features/2/diameter",
+          "D-013/template/features/3/x",
+          "D-013/drawing/n/41.0@1-1",
+          "D-013/drawing/n/82.0@1-2",
+          "D-013/template/features/3/y",
+          "D-013/drawing/n/2.3@1-1",
+          "D-013/drawing/n/10.0@1-1",
+          "D-013/drawing/n/5.5@1-1",
+          "D-013/template/features/3/width",
+          "D-013/template/features/3/length",
+          "D-013/template/features/3/pattern/count",
+          "D-013/drawing/n/4.0@1-1",
+          "D-013/template/features/3/pattern/spacing",
+          "D-013/template/features/3/pattern/direction",
+          "D-013/template/features_review",
+          "D-013/drawing/n/8.0@1-1",
+          "D-013/template/features_review/value/0/x",
+          "D-013/template/features_review/value/0/y",
+          "D-013/template/features_review/value/0/diameter",
+          "D-013/template/features_review/value/0/pattern/count",
+          "D-013/template/features_review/value/0/pattern/spacing",
+          "D-013/template/features_review/value/0/pattern/direction",
+          "D-013/template/features_review/value/1/x",
+          "D-013/template/features_review/value/1/y",
+          "D-013/template/features_review/value/1/diameter",
+          "D-013/template/features_review/value/2/x",
+          "D-013/template/features_review/value/2/y",
+          "D-013/template/features_review/value/2/diameter",
+          "D-013/template/features_review/value/3/x",
+          "D-013/template/features_review/value/3/y",
+          "D-013/template/features_review/value/3/width",
+          "D-013/template/features_review/value/3/length",
+          "D-013/template/features_review/value/3/pattern/count",
+          "D-013/template/features_review/value/3/pattern/spacing",
+          "D-013/template/features_review/value/3/pattern/direction",
+          "D-013/template/cad_eligibility",
+          "D-013/template/features_complete",
+          "D-013/template/features_omitted",
+          "D-013/template/detail_eligibility_assessment",
+          "D-013/link",
+          "D-013/source-inventory",
+          "D-013/model/verification"
+        ]
+      }
+    ],
+    "revision": "213ed124ee9045ac"
+  },
+  "wall_latency_ms": 6206
+}

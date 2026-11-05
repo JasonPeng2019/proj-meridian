@@ -1,0 +1,1857 @@
+{
+  "pass": 2,
+  "case_id": "Q12",
+  "question": "What does drawing D-023 weigh?",
+  "server_start_status": {
+    "chat_available": true,
+    "chat_model": "gpt-6-luna",
+    "chat_provider": "openai",
+    "debug_ui": false,
+    "revision": "213ed124ee9045ac",
+    "parts": 202,
+    "drawings": 30,
+    "models": 9,
+    "reviewer_name": "Automated verification"
+  },
+  "evaluation_reference": {},
+  "preconditions": [],
+  "response": {
+    "text": "Drawing D-023 lists a weight of **3,195.5 g** (about **3.20 kg**). [cite: D-023/drawing/weight_g, D-023/part] The drawing is attached below.",
+    "facts": {
+      "D-023/part": {
+        "fact": "D-023/part",
+        "field": "part",
+        "part_key": "D-023",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "ByggeCylinder"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-023/part",
+            "says": "ByggeCylinder",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-023/resolved/material": {
+        "fact": "D-023/resolved/material",
+        "field": "material",
+        "part_key": "D-023",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Drawing: EN AW-6082. Parts list: Aluminium. These names haven't been mapped yet."
+        },
+        "badge": "Unresolved evidence",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-023/resolved/material",
+            "says": "Drawing: EN AW-6082. Parts list: Aluminium. These names haven't been mapped yet.",
+            "method": "unresolved",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "Drawing: EN AW-6082. Parts list: Aluminium. These names haven't been mapped yet.",
+            "badge": "Unresolved evidence",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-023/drawing/material",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              738.906,
+              766.467,
+              145.983,
+              24.008
+            ],
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "The MATERIAL field reads “EN AW-6082”. Verification: The MATERIAL field reads \"EN AW-6082\", which matches the proposal exactly.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "BOM:build-plate/build-cylinder/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null,
+        "derivation": {
+          "operation": "unresolved",
+          "source_fact_ids": [
+            "D-023/drawing/material",
+            "BOM:build-plate/build-cylinder/material"
+          ]
+        }
+      },
+      "D-023/drawing/material": {
+        "fact": "D-023/drawing/material",
+        "field": "material",
+        "part_key": "D-023",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "EN AW-6082"
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05",
+        "review": {
+          "status": "human_confirmed",
+          "by": "Jason Peng",
+          "at": "2026-11-05T17:48:39.684630+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-023/drawing/material",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              738.906,
+              766.467,
+              145.983,
+              24.008
+            ],
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "The MATERIAL field reads “EN AW-6082”. Verification: The MATERIAL field reads \"EN AW-6082\", which matches the proposal exactly.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-023/drawing/material",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              738.906,
+              766.467,
+              145.983,
+              24.008
+            ],
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "The MATERIAL field reads “EN AW-6082”. Verification: The MATERIAL field reads \"EN AW-6082\", which matches the proposal exactly.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-cylinder/material": {
+        "fact": "BOM:build-plate/build-cylinder/material",
+        "field": "material",
+        "part_key": "D-023",
+        "part_keys": [
+          "D-023"
+        ],
+        "display": {
+          "state": "value",
+          "value": [
+            "Aluminium"
+          ]
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-cylinder/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-023/drawing/title": {
+        "fact": "D-023/drawing/title",
+        "field": "title",
+        "part_key": "D-023",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "ByggeCylinder"
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05",
+        "review": {
+          "status": "human_confirmed",
+          "by": "Jason Peng",
+          "at": "2026-11-05T17:48:39.657631+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-023/drawing/title",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              968.877,
+              705.43,
+              193.977,
+              69.036
+            ],
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "The TITLE/DESCRIPTION field reads “ByggeCylinder”. Verification: The TITLE/DESCRIPTION field in the supplied title-block image reads \"ByggeCylinder\", which matches the proposal exactly.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-023/drawing/title",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              968.877,
+              705.43,
+              193.977,
+              69.036
+            ],
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "The TITLE/DESCRIPTION field reads “ByggeCylinder”. Verification: The TITLE/DESCRIPTION field in the supplied title-block image reads \"ByggeCylinder\", which matches the proposal exactly.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-023/drawing/notes": {
+        "fact": "D-023/drawing/notes",
+        "field": "notes",
+        "part_key": "D-023",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Baseret på Ø280mm, t=15mm\nEN AW-6082 T6 rør fra Alumeco.\nIndre flade [B] skal slutte tæt med\nen dynamisk keramisk pakning.\n\n55 mm længere ift. version 1"
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05",
+        "review": {
+          "status": "human_confirmed",
+          "by": "Jason Peng",
+          "at": "2026-11-05T17:48:39.665630+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-023/drawing/notes",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              734.907,
+              653.399,
+              242.971,
+              121.067
+            ],
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "The NOTE field contains the transcribed text. Verification: The NOTE field reads, line by line: \"Baseret på Ø280mm, t=15mm\" / \"EN AW-6082 T6 rør fra Alumeco.\" / \"Indre flade [B] skal slutte tæt med\" / \"en dynamisk keramisk pakning.\" / a blank line / \"55 mm længere ift. version 1\". The proposed string matches this character for character.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-023/drawing/notes",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              734.907,
+              653.399,
+              242.971,
+              121.067
+            ],
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "The NOTE field contains the transcribed text. Verification: The NOTE field reads, line by line: \"Baseret på Ø280mm, t=15mm\" / \"EN AW-6082 T6 rør fra Alumeco.\" / \"Indre flade [B] skal slutte tæt med\" / \"en dynamisk keramisk pakning.\" / a blank line / \"55 mm længere ift. version 1\". The proposed string matches this character for character.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-023/drawing/company": {
+        "fact": "D-023/drawing/company",
+        "field": "company",
+        "part_key": "D-023",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "DTU MPP"
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05",
+        "review": {
+          "status": "human_confirmed",
+          "by": "Jason Peng",
+          "at": "2026-11-05T17:48:39.675629+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-023/drawing/company",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              968.877,
+              653.399,
+              102.988,
+              59.03
+            ],
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "The COMPANY field reads “DTU MPP”. Verification: The COMPANY field reads \"DTU MPP\", which matches the proposal exactly.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-023/drawing/company",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              968.877,
+              653.399,
+              102.988,
+              59.03
+            ],
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "The COMPANY field reads “DTU MPP”. Verification: The COMPANY field reads \"DTU MPP\", which matches the proposal exactly.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-023/drawing/weight_g": {
+        "fact": "D-023/drawing/weight_g",
+        "field": "weight_g",
+        "part_key": "D-023",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 3195.5
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05",
+        "review": {
+          "status": "human_confirmed",
+          "by": "Jason Peng",
+          "at": "2026-11-05T17:48:39.694627+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-023/drawing/weight_g",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              874.889,
+              766.467,
+              102.988,
+              24.008
+            ],
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "The WEIGHT [g] field prints 3195.5. Verification: The field labelled WEIGHT [g] prints 3195.5. The unit is given explicitly in grams, so the numeric value 3195.5 is supported.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-023/drawing/weight_g",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              874.889,
+              766.467,
+              102.988,
+              24.008
+            ],
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "The WEIGHT [g] field prints 3195.5. Verification: The field labelled WEIGHT [g] prints 3195.5. The unit is given explicitly in grams, so the numeric value 3195.5 is supported.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-023/drawing/drawn": {
+        "fact": "D-023/drawing/drawn",
+        "field": "drawn",
+        "part_key": "D-023",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "MBOKJ"
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05",
+        "review": {
+          "status": "human_confirmed",
+          "by": "Jason Peng",
+          "at": "2026-11-05T17:48:39.703626+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-023/drawing/drawn",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              884.888,
+              785.479,
+              91.99,
+              21.007
+            ],
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "The DRAWN field reads “MBOKJ”. Verification: The DRAWN field reads \"MBOKJ\", which matches the proposal exactly. The proposal does not substitute the person's name from the adjacent contact block.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-023/drawing/drawn",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              884.888,
+              785.479,
+              91.99,
+              21.007
+            ],
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "The DRAWN field reads “MBOKJ”. Verification: The DRAWN field reads \"MBOKJ\", which matches the proposal exactly. The proposal does not substitute the person's name from the adjacent contact block.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-023/drawing/date": {
+        "fact": "D-023/drawing/date",
+        "field": "date",
+        "part_key": "D-023",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "13-09-2023"
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05",
+        "review": {
+          "status": "human_confirmed",
+          "by": "Jason Peng",
+          "at": "2026-11-05T17:48:39.712628+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-023/drawing/date",
+            "says": null,
+            "method": "ai_verified_after_retry",
+            "page": 1,
+            "box": [
+              889.887,
+              797.486,
+              86.99,
+              21.007
+            ],
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "The DATE field reads “13-09-2023”. Verification: In the supplied title block crop, the DATE cell sits below DRAWN (MBOKJ), to the left of 'DO NOT SCALE DRAWING', and reads '13-09-2023': day 13, month 09, year 2023, with hyphens between them. The text is small but readable, and every character matches the proposed value '13-09-2023'. The parsed field D-023/drawing/date had no value and was marked degraded, but the image itself supports this reading.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-023/drawing/date",
+            "says": null,
+            "method": "ai_verified_after_retry",
+            "page": 1,
+            "box": [
+              889.887,
+              797.486,
+              86.99,
+              21.007
+            ],
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "The DATE field reads “13-09-2023”. Verification: In the supplied title block crop, the DATE cell sits below DRAWN (MBOKJ), to the left of 'DO NOT SCALE DRAWING', and reads '13-09-2023': day 13, month 09, year 2023, with hyphens between them. The text is small but readable, and every character matches the proposed value '13-09-2023'. The parsed field D-023/drawing/date had no value and was marked degraded, but the image itself supports this reading.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-023/drawing/scale": {
+        "fact": "D-023/drawing/scale",
+        "field": "scale",
+        "part_key": "D-023",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "1:5"
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05",
+        "review": {
+          "status": "human_confirmed",
+          "by": "Jason Peng",
+          "at": "2026-11-05T17:48:39.723631+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-023/drawing/scale",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              1066.865,
+              797.486,
+              59.994,
+              22.007
+            ],
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "The SCALE field reads “1:5”. Verification: The scale cell is printed as \"SCALE:1:5\", so the field value is \"1:5\". This matches the proposal.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-023/drawing/scale",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              1066.865,
+              797.486,
+              59.994,
+              22.007
+            ],
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "The SCALE field reads “1:5”. Verification: The scale cell is printed as \"SCALE:1:5\", so the field value is \"1:5\". This matches the proposal.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-cylinder/name": {
+        "fact": "BOM:build-plate/build-cylinder/name",
+        "field": "name",
+        "part_key": "D-023",
+        "part_keys": [
+          "D-023"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Build cylinder"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-cylinder/name",
+            "says": "Build cylinder",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-cylinder/part_family": {
+        "fact": "BOM:build-plate/build-cylinder/part_family",
+        "field": "part_family",
+        "part_key": "D-023",
+        "part_keys": [
+          "D-023"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Build-plate"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-cylinder/part_family",
+            "says": "Build-plate",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-cylinder/type": {
+        "fact": "BOM:build-plate/build-cylinder/type",
+        "field": "type",
+        "part_key": "D-023",
+        "part_keys": [
+          "D-023"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Custom"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-cylinder/type",
+            "says": "Custom",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-cylinder/design": {
+        "fact": "BOM:build-plate/build-cylinder/design",
+        "field": "design",
+        "part_key": "D-023",
+        "part_keys": [
+          "D-023"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Done"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-cylinder/design",
+            "says": "Done",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-cylinder/order": {
+        "fact": "BOM:build-plate/build-cylinder/order",
+        "field": "order",
+        "part_key": "D-023",
+        "part_keys": [
+          "D-023"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Received"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-cylinder/order",
+            "says": "Recieved",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [
+              "status_spelling_Recieved_to_Received"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-cylinder/validation": {
+        "fact": "BOM:build-plate/build-cylinder/validation",
+        "field": "validation",
+        "part_key": "D-023",
+        "part_keys": [
+          "D-023"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Good"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-cylinder/validation",
+            "says": "Good",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-cylinder/notes": {
+        "fact": "BOM:build-plate/build-cylinder/notes",
+        "field": "notes",
+        "part_key": "D-023",
+        "part_keys": [
+          "D-023"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. "
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-cylinder/notes",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-cylinder/design_intent": {
+        "fact": "BOM:build-plate/build-cylinder/design_intent",
+        "field": "design_intent",
+        "part_key": "D-023",
+        "part_keys": [
+          "D-023"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Must be round and very smooth. Careful turning is sufficient in aluminium. OD280, ID252. Ø280, t=15 is enough"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-cylinder/design_intent",
+            "says": "Must be round and very smooth. Careful turning is sufficient in aluminium. OD280, ID252. Ø280, t=15 is enough",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-cylinder/image": {
+        "fact": "BOM:build-plate/build-cylinder/image",
+        "field": "image",
+        "part_key": "D-023",
+        "part_keys": [
+          "D-023"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-cylinder/image",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-cylinder/product_name": {
+        "fact": "BOM:build-plate/build-cylinder/product_name",
+        "field": "product_name",
+        "part_key": "D-023",
+        "part_keys": [
+          "D-023"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-cylinder/product_name",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-cylinder/supplier_order": {
+        "fact": "BOM:build-plate/build-cylinder/supplier_order",
+        "field": "supplier_order",
+        "part_key": "D-023",
+        "part_keys": [
+          "D-023"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-cylinder/supplier_order",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-cylinder/interface_with": {
+        "fact": "BOM:build-plate/build-cylinder/interface_with",
+        "field": "interface_with",
+        "part_key": "D-023",
+        "part_keys": [
+          "D-023"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. "
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-cylinder/interface_with",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-cylinder/link": {
+        "fact": "BOM:build-plate/build-cylinder/link",
+        "field": "link",
+        "part_key": "D-023",
+        "part_keys": [
+          "D-023"
+        ],
+        "display": {
+          "state": "value",
+          "value": "https://www.alumeco.dk/aluminium/profiler/runde-ror/en-aw-6082/280-x-15-mm/p/571/15986"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-cylinder/link",
+            "says": "https://www.alumeco.dk/aluminium/profiler/runde-ror/en-aw-6082/280-x-15-mm/p/571/15986",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-cylinder/supplier": {
+        "fact": "BOM:build-plate/build-cylinder/supplier",
+        "field": "supplier",
+        "part_key": "D-023",
+        "part_keys": [
+          "D-023"
+        ],
+        "display": {
+          "state": "value",
+          "value": "DTU"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-cylinder/supplier",
+            "says": "DTU",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-cylinder/datasheet": {
+        "fact": "BOM:build-plate/build-cylinder/datasheet",
+        "field": "datasheet",
+        "part_key": "D-023",
+        "part_keys": [
+          "D-023"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-cylinder/datasheet",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-cylinder/amount": {
+        "fact": "BOM:build-plate/build-cylinder/amount",
+        "field": "amount",
+        "part_key": "D-023",
+        "part_keys": [
+          "D-023"
+        ],
+        "display": {
+          "state": "value",
+          "value": 1
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-cylinder/amount",
+            "says": "1",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [
+              "parse_number"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-cylinder/cost": {
+        "fact": "BOM:build-plate/build-cylinder/cost",
+        "field": "cost",
+        "part_key": "D-023",
+        "part_keys": [
+          "D-023"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-cylinder/cost",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-cylinder/total_cost": {
+        "fact": "BOM:build-plate/build-cylinder/total_cost",
+        "field": "total_cost",
+        "part_key": "D-023",
+        "part_keys": [
+          "D-023"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: 'DKK0.00'. Cleanup: parse_dkk_price, zero_total_with_blank_cost_or_amount_to_not_recorded. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-cylinder/total_cost",
+            "says": "DKK0.00",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [
+              "parse_dkk_price",
+              "zero_total_with_blank_cost_or_amount_to_not_recorded"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:build-plate/build-cylinder/interface_count": {
+        "fact": "BOM:build-plate/build-cylinder/interface_count",
+        "field": "interface_count",
+        "part_key": "D-023",
+        "part_keys": [
+          "D-023"
+        ],
+        "display": {
+          "state": "value",
+          "value": 0
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:build-plate/build-cylinder/interface_count",
+            "says": "0",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [
+              "parse_number"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-023/template/outline": {
+        "fact": "D-023/template/outline",
+        "field": "outline",
+        "part_key": "D-023",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "ring"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-023/template/outline",
+            "says": null,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-023/template/outline/outer_diameter": {
+        "fact": "D-023/template/outline/outer_diameter",
+        "field": "outer_diameter",
+        "part_key": "D-023",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Waiting for review: needs_input. The D-023 image shows several outer diameters printed along the axis (Ø280,0, Ø262,0 j7, Ø264,0 j7, Ø262,0), so there is no single ring OD. The supplied numbers array is also empty, so no parsed drawing-number ID can support a value. Leaving it unknown is correct, but the evidence can't settle it."
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05; reconstruction unavailable",
+        "review": {
+          "status": "deferred",
+          "by": "Jason Peng",
+          "at": "2026-11-05T14:14:31.681391+00:00",
+          "reason": "The build cylinder is a long stepped hollow cylinder with grooves and a taper. It is not a flat ring. Do not insert a single diameter or axial length into a flat-part approximation.",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-023/template/outline/outer_diameter",
+            "says": null,
+            "method": "ai_unsure",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "Waiting for review: needs_input. The D-023 image shows several outer diameters printed along the axis (Ø280,0, Ø262,0 j7, Ø264,0 j7, Ø262,0), so there is no single ring OD. The supplied numbers array is also empty, so no parsed drawing-number ID can support a value. Leaving it unknown is correct, but the evidence can't settle it.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05; reconstruction unavailable",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": "D-023/template/outline/outer_diameter",
+        "correction": null,
+        "callout": null
+      },
+      "D-023/template/outline/inner_diameter": {
+        "fact": "D-023/template/outline/inner_diameter",
+        "field": "inner_diameter",
+        "part_key": "D-023",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Waiting for review: needs_input. SECTION A-A in D-023 shows a printed Ø252,0 bore, plus a 10° entrance taper. However, the numbers array is empty, so there is no parsed-number ID to cite. Unknown is the honest state, and new parsed evidence would be needed to fill it."
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05; reconstruction unavailable",
+        "review": {
+          "status": "deferred",
+          "by": "Jason Peng",
+          "at": "2026-11-05T14:14:34.236552+00:00",
+          "reason": "The build cylinder is a long stepped hollow cylinder with grooves and a taper. It is not a flat ring. Do not insert a single diameter or axial length into a flat-part approximation.",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-023/template/outline/inner_diameter",
+            "says": null,
+            "method": "ai_unsure",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "Waiting for review: needs_input. SECTION A-A in D-023 shows a printed Ø252,0 bore, plus a 10° entrance taper. However, the numbers array is empty, so there is no parsed-number ID to cite. Unknown is the honest state, and new parsed evidence would be needed to fill it.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05; reconstruction unavailable",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": "D-023/template/outline/inner_diameter",
+        "correction": null,
+        "callout": null
+      },
+      "D-023/template/thickness": {
+        "fact": "D-023/template/thickness",
+        "field": "thickness",
+        "part_key": "D-023",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Waiting for review: needs_input. The body is an axial sleeve. The side view in D-023 shows an overall length of 280,0 and steps of 36,0, 21,0 and 12,0, and the section shows a taper over 20,0±1,0. None of these is a constant flat-part extrusion thickness. The 't=15mm' in the note describes the stock tube wall, not the extrusion thickness, and there are no parsed number IDs. Unknown is correct."
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05; reconstruction unavailable",
+        "review": {
+          "status": "deferred",
+          "by": "Jason Peng",
+          "at": "2026-11-05T14:14:36.856957+00:00",
+          "reason": "The build cylinder is a long stepped hollow cylinder with grooves and a taper. It is not a flat ring. Do not insert a single diameter or axial length into a flat-part approximation.",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-023/template/thickness",
+            "says": null,
+            "method": "ai_unsure",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "Waiting for review: needs_input. The body is an axial sleeve. The side view in D-023 shows an overall length of 280,0 and steps of 36,0, 21,0 and 12,0, and the section shows a taper over 20,0±1,0. None of these is a constant flat-part extrusion thickness. The 't=15mm' in the note describes the stock tube wall, not the extrusion thickness, and there are no parsed number IDs. Unknown is correct.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05; reconstruction unavailable",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": "D-023/template/thickness",
+        "correction": null,
+        "callout": null
+      },
+      "D-023/template/features_review": {
+        "fact": "D-023/template/features_review",
+        "field": "features_review",
+        "part_key": "D-023",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": []
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05",
+        "review": {
+          "status": "human_confirmed",
+          "by": "Jason Peng",
+          "at": "2026-11-05T17:48:39.733627+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-023/template/features_review",
+            "says": [],
+            "method": "ai_verified",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "No hole or slot has fully supported numeric geometry under the required parsed-number citation rule. Essential revolved details also exceed the supported cut types. Verification: D-023 shows no separate holes or slots. The only internal geometry is the axial bore, the outer steps/grooves and the entrance taper, and none of these is a supported hole or slot cut. The empty subset [] is correct.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-023/template/cad_eligibility": {
+        "fact": "D-023/template/cad_eligibility",
+        "field": "cad_eligibility",
+        "part_key": "D-023",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "supported": false,
+            "constant_thickness": false,
+            "outline_exact": false,
+            "reason": "The main face-on view is annular, but the side view and section A-A establish a stepped, revolved sleeve with circumferential end features and an internal entrance taper. No single constant-thickness ring extrusion reproduces the essential body. No valid flat-part thickness source is established; the stock note is insufficient, and the supplied numbers array contains no parsed dimension IDs.",
+            "essential_uncertainty": [
+              "Numeric outer diameters, bore diameter, overall axial length, and step/taper dimensions cannot be grounded in exact supplied parsed drawing-number IDs."
+            ],
+            "omitted_minor_features": []
+          }
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05",
+        "review": {
+          "status": "human_confirmed",
+          "by": "Jason Peng",
+          "at": "2026-11-05T17:48:39.743636+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-023/template/cad_eligibility",
+            "says": {
+              "supported": false,
+              "constant_thickness": false,
+              "outline_exact": false,
+              "reason": "The main face-on view is annular, but the side view and section A-A establish a stepped, revolved sleeve with circumferential end features and an internal entrance taper. No single constant-thickness ring extrusion reproduces the essential body. No valid flat-part thickness source is established; the stock note is insufficient, and the supplied numbers array contains no parsed dimension IDs.",
+              "essential_uncertainty": [
+                "Numeric outer diameters, bore diameter, overall axial length, and step/taper dimensions cannot be grounded in exact supplied parsed drawing-number IDs."
+              ],
+              "omitted_minor_features": []
+            },
+            "method": "ai_verified",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "The essential stepped and tapered axial profile independently blocks MVP reconstruction, regardless of dimension readability. Verification: D-023 shows a revolved sleeve. The outer diameter steps along a 280,0 axial length, there are end bands, and the bore has a 10° entrance taper. A single constant-thickness ring extrusion can't represent this body, and the stock note t=15mm isn't a valid extrusion thickness. The proposed values supported=false, constant_thickness=false and outline_exact=false are therefore correct, and the reasons given are accurate.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-023/template/features_complete": {
+        "fact": "D-023/template/features_complete",
+        "field": "features_complete",
+        "part_key": "D-023",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": false
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05",
+        "review": {
+          "status": "human_confirmed",
+          "by": "Jason Peng",
+          "at": "2026-11-05T17:48:39.750626+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-023/template/features_complete",
+            "says": false,
+            "method": "ai_verified",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "The bore, circumferential steps and tapered entrance cannot be included as fully supported template geometry. Verification: The bore, the stepped outer profile and the 10° entrance taper visible in D-023 can't be included, so false is correct.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-023/template/features_omitted": {
+        "fact": "D-023/template/features_omitted",
+        "field": "features_omitted",
+        "part_key": "D-023",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": [
+            {
+              "description": "Central axial through bore",
+              "reason": "Section A-A establishes the bore, but the supplied evidence contains no parsed drawing-number ID for its diameter. A numeric bore or ring inner diameter cannot be specified.",
+              "fact_ids": [
+                "D-023"
+              ]
+            },
+            {
+              "description": "Stepped outer end profile and circumferential flange/bands",
+              "reason": "The side, section and isometric views show essential changes in outer diameter along the cylinder axis. A single ring extrusion with supported hole/slot cuts cannot reproduce this revolved profile; its dimensions also lack parsed drawing-number IDs.",
+              "fact_ids": [
+                "D-023"
+              ]
+            },
+            {
+              "description": "Tapered bore entrance",
+              "reason": "Section A-A shows an internal entrance taper. Its angle and axial extent lack supplied parsed drawing-number IDs, and this essential tapered contour exceeds the flat-part template.",
+              "fact_ids": [
+                "D-023"
+              ]
+            }
+          ]
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05",
+        "review": {
+          "status": "human_confirmed",
+          "by": "Jason Peng",
+          "at": "2026-11-05T17:48:39.760627+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-023/template/features_omitted",
+            "says": [
+              {
+                "description": "Central axial through bore",
+                "reason": "Section A-A establishes the bore, but the supplied evidence contains no parsed drawing-number ID for its diameter. A numeric bore or ring inner diameter cannot be specified.",
+                "fact_ids": [
+                  "D-023"
+                ]
+              },
+              {
+                "description": "Stepped outer end profile and circumferential flange/bands",
+                "reason": "The side, section and isometric views show essential changes in outer diameter along the cylinder axis. A single ring extrusion with supported hole/slot cuts cannot reproduce this revolved profile; its dimensions also lack parsed drawing-number IDs.",
+                "fact_ids": [
+                  "D-023"
+                ]
+              },
+              {
+                "description": "Tapered bore entrance",
+                "reason": "Section A-A shows an internal entrance taper. Its angle and axial extent lack supplied parsed drawing-number IDs, and this essential tapered contour exceeds the flat-part template.",
+                "fact_ids": [
+                  "D-023"
+                ]
+              }
+            ],
+            "method": "ai_verified",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "These visible details are excluded explicitly; essential contours are not treated as minor omissions. Verification: The three omissions match D-023. (1) The axial bore is shown in SECTION A-A. (2) The stepped outer end profile and bands appear as the 36,0/21,0/12,0 steps with Ø264/Ø262 in the side view, the 14,0 detail in the section, and the rings visible in the isometric view. (3) The entrance taper is marked 10°±2,0° over 20,0±1,0 in the section. Each one cites D-023 and gives an accurate reason.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-023/link": {
+        "fact": "D-023/link",
+        "field": "link",
+        "part_key": "D-023",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": [
+            "BOM:build-plate/build-cylinder"
+          ]
+        },
+        "badge": "Human reviewed by Jason Peng on 2026-11-05",
+        "review": {
+          "status": "human_confirmed",
+          "by": "Jason Peng",
+          "at": "2026-11-05T14:14:04.081100+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "sources": [
+          {
+            "name": "D-023/link",
+            "says": [
+              "BOM:build-plate/build-cylinder"
+            ],
+            "method": "human_decision",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": null,
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": {
+          "original": [],
+          "corrected": [
+            "BOM:build-plate/build-cylinder"
+          ],
+          "by": "Jason Peng",
+          "at": "2026-11-05T14:14:04.081100+00:00",
+          "review_kind": "delegated",
+          "display_by": "Jason Peng"
+        },
+        "callout": null
+      },
+      "D-023/model/verification": {
+        "fact": "D-023/model/verification",
+        "field": "verification",
+        "part_key": "D-023",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "weight_check": {
+              "state": "Skipped",
+              "message": "No model built; waiting for human input",
+              "examples": {}
+            },
+            "omitted": [],
+            "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
+            "review": {
+              "status": "not_reviewed"
+            },
+            "examples": {}
+          }
+        },
+        "badge": "Computed from recorded source facts",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-023/model/verification",
+            "says": "Computed model verification, not a design approval. Density references are outside sources, not the dataset. Failed checks need manual review; possible readings are never selected by weight.",
+            "method": "computed_summary",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "Computed model verification, not a design approval. Density references are outside sources, not the dataset. Failed checks need manual review; possible readings are never selected by weight.",
+            "badge": "Computed from recorded source facts",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-023/drawing/weight_g",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              874.889,
+              766.467,
+              102.988,
+              24.008
+            ],
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "The WEIGHT [g] field prints 3195.5. Verification: The field labelled WEIGHT [g] prints 3195.5. The unit is given explicitly in grams, so the numeric value 3195.5 is supported.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-023/template/thickness",
+            "says": null,
+            "method": "ai_unsure",
+            "page": 1,
+            "box": null,
+            "part_key": "D-023",
+            "cleanup": [],
+            "note": "Waiting for review: needs_input. The body is an axial sleeve. The side view in D-023 shows an overall length of 280,0 and steps of 36,0, 21,0 and 12,0, and the section shows a taper over 20,0±1,0. None of these is a constant flat-part extrusion thickness. The 't=15mm' in the note describes the stock tube wall, not the extrusion thickness, and there are no parsed number IDs. Unknown is correct.",
+            "badge": "Human reviewed by Jason Peng on 2026-11-05; reconstruction unavailable",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      }
+    },
+    "parts_to_show": [
+      {
+        "id": "D-023/part",
+        "key": "D-023",
+        "display_name": "ByggeCylinder",
+        "section": "Z-axis",
+        "has_drawing": true,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "not_reviewed",
+        "thumbnail": "/api/parts/D-023/image?page=1&thumb=1",
+        "drawing_url": "/part/D-023/2d",
+        "model_url": null,
+        "shown_reason": null
+      }
+    ],
+    "warnings": [],
+    "session_id": "1e9cf8bd1b7643b3aed6115e971d1b0c",
+    "model": "gpt-6-luna",
+    "usage": {
+      "input_tokens": 18696,
+      "output_tokens": 97,
+      "total_tokens": 18793
+    },
+    "latency_ms": 3428,
+    "tool_trace": [
+      {
+        "tool": "find_part",
+        "arguments": {
+          "text": "D-023"
+        },
+        "facts_returned": [
+          "D-023/part"
+        ]
+      },
+      {
+        "tool": "get_facts",
+        "arguments": {
+          "part_id": "D-023/part"
+        },
+        "facts_returned": [
+          "D-023/part",
+          "D-023/resolved/material",
+          "D-023/drawing/material",
+          "BOM:build-plate/build-cylinder/material",
+          "D-023/drawing/title",
+          "D-023/drawing/notes",
+          "D-023/drawing/company",
+          "D-023/drawing/weight_g",
+          "D-023/drawing/drawn",
+          "D-023/drawing/date",
+          "D-023/drawing/scale",
+          "BOM:build-plate/build-cylinder/name",
+          "BOM:build-plate/build-cylinder/part_family",
+          "BOM:build-plate/build-cylinder/type",
+          "BOM:build-plate/build-cylinder/design",
+          "BOM:build-plate/build-cylinder/order",
+          "BOM:build-plate/build-cylinder/validation",
+          "BOM:build-plate/build-cylinder/notes",
+          "BOM:build-plate/build-cylinder/design_intent",
+          "BOM:build-plate/build-cylinder/image",
+          "BOM:build-plate/build-cylinder/product_name",
+          "BOM:build-plate/build-cylinder/supplier_order",
+          "BOM:build-plate/build-cylinder/interface_with",
+          "BOM:build-plate/build-cylinder/link",
+          "BOM:build-plate/build-cylinder/supplier",
+          "BOM:build-plate/build-cylinder/datasheet",
+          "BOM:build-plate/build-cylinder/amount",
+          "BOM:build-plate/build-cylinder/cost",
+          "BOM:build-plate/build-cylinder/total_cost",
+          "BOM:build-plate/build-cylinder/interface_count",
+          "D-023/template/outline",
+          "D-023/template/outline/outer_diameter",
+          "D-023/template/outline/inner_diameter",
+          "D-023/template/thickness",
+          "D-023/template/features_review",
+          "D-023/template/cad_eligibility",
+          "D-023/template/features_complete",
+          "D-023/template/features_omitted",
+          "D-023/link",
+          "D-023/model/verification"
+        ]
+      }
+    ],
+    "revision": "5e2ca0ecde343557"
+  },
+  "wall_latency_ms": 3449
+}

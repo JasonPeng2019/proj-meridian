@@ -1,0 +1,28 @@
+{
+  "protocol": 2,
+  "reader": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "prompt": "Translate this Danish drawing note to concise English for display. Some letters may have damaged PDF encoding. Preserve all numbers and technical designations. Do not alter any engineering value or infer missing facts. Return the complete translated note. Original source note: \"Alu.\\nArm til linær føring\"",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "english": {
+        "type": "string"
+      },
+      "reason": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "english",
+      "reason"
+    ],
+    "additionalProperties": false
+  },
+  "images": [],
+  "job": "ui-note-extension:proposal"
+}

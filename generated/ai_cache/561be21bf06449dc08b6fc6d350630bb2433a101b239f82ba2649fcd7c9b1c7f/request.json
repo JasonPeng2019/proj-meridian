@@ -1,0 +1,28 @@
+{
+  "protocol": 2,
+  "reader": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "prompt": "Verify the exact proposed English translation against the supplied original Danish note. This is display translation only, not an engineering correction or human approval. Accept only if the meaning, all numbers and technical designations are preserved. Original: \"Alu.\\nArm til linær føring\"\nExact proposed translation: \"Alu.\\nArm for linear guide\"",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "accepted": {
+        "type": "boolean"
+      },
+      "reason": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "accepted",
+      "reason"
+    ],
+    "additionalProperties": false
+  },
+  "images": [],
+  "job": "ui-note-extension:verification"
+}

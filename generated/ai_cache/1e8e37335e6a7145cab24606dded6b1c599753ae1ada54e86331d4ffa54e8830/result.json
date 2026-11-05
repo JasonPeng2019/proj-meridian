@@ -1,0 +1,161 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "e3262a22c866b23bcfea0785cd1e388fe40567dc28f95e39f0514674225576bd",
+    "items": [
+      {
+        "key": "outline_type",
+        "decision": "accept",
+        "reason": "The main face-on view in D-025 shows a concentric outer Ø250,0 circle and inner Ø224,0 circle, which is a ring outline.",
+        "fact_ids": [
+          "D-025",
+          "D-025/drawing/n/250.0@1-1",
+          "D-025/drawing/n/224.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "length",
+        "decision": "accept",
+        "reason": "The outline is a ring defined by diameters. The rectangle length (X) does not apply, so unknown/null is correct.",
+        "fact_ids": [
+          "D-025"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "width",
+        "decision": "accept",
+        "reason": "The outline is a ring defined by diameters. The rectangle width (Y) does not apply, so unknown/null is correct.",
+        "fact_ids": [
+          "D-025"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "outer_diameter",
+        "decision": "accept",
+        "reason": "The outer circle is printed as Ø250,0 ±0,2. The nominal value is 250.0 mm.",
+        "fact_ids": [
+          "D-025/drawing/n/250.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "inner_diameter",
+        "decision": "accept",
+        "reason": "The inner circle is printed as Ø224,0 with a +0,3/0,0 tolerance. The nominal value is 224.0 mm.",
+        "fact_ids": [
+          "D-025/drawing/n/224.0@1-1",
+          "D-025/drawing/n/0.3@1-1",
+          "D-025/drawing/n/0.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "thickness",
+        "decision": "accept",
+        "reason": "The side-view thickness dimension carries stacked values 3,0 and 2,0, which are documented alternatives. The proposal keeps both as options, sorted ascending as [2.0,3.0].",
+        "fact_ids": [
+          "D-025/drawing/n/3.0@1-1",
+          "D-025/drawing/n/2.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features",
+        "decision": "accept",
+        "reason": "The callout '8 x Ø3,4 THRU ALL' with the countersink symbol 'Ø6,9 X 90°' and the R115,5 leader to a hole center support 8 countersunk through-holes on a 115.5 radius. The main view shows holes at the +X, +Y, -X and -Y positions on the centerlines and four more on the diagonals. With the center at the concentric origin, this matches a circle pattern with start_angle 0 and 360/8 = 45° spacing. In the face-on view each hole shows a visible solid outer countersink rim, so the countersink opens toward the +Z viewer, which is the top face. The countersink depth is (6.9-3.4)/2 = 1.75 at 90°, so it fits both the 2,0 and 3,0 thickness options. All numbers cite matching printed values.",
+        "fact_ids": [
+          "D-025",
+          "D-025/drawing/callout/p1-1",
+          "D-025/drawing/callout/p1-2",
+          "D-025/drawing/callout/p1-3",
+          "D-025/drawing/n/8.0@1-1",
+          "D-025/drawing/n/3.4@1-1",
+          "D-025/drawing/n/6.9@1-1",
+          "D-025/drawing/n/90.0@1-1",
+          "D-025/drawing/n/115.5@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_complete",
+        "decision": "accept",
+        "reason": "The note 'DEBURR AND BREAK SHARP EDGES' requires an edge treatment but gives no size, so not every feature can be modeled. false is correct.",
+        "fact_ids": [
+          "D-025/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_omitted",
+        "decision": "accept",
+        "reason": "The single omission correctly records the general deburr/edge-break note, which gives no edge-break size or profile. No other undimensioned cut appears in the drawing.",
+        "fact_ids": [
+          "D-025/drawing/general/edge_finish",
+          "D-025"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 13924,
+      "cache_read_input_tokens": 15523,
+      "output_tokens": 1924,
+      "output_tokens_details": {
+        "thinking_tokens": 356
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 13924,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 1924,
+        "cacheReadInputTokens": 15523,
+        "cacheCreationInputTokens": 13924,
+        "webSearchRequests": 0,
+        "costUSD": 0.15299259999999998,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 356,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 13924,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.15299259999999998,
+    "duration_ms": 17914,
+    "is_error": false
+  },
+  "latency_ms": 19031,
+  "cache_key": "1e8e37335e6a7145cab24606dded6b1c599753ae1ada54e86331d4ffa54e8830",
+  "cache_hit": false,
+  "job": "template:D-025:proposal-verification-v1:verification:0",
+  "error": null
+}

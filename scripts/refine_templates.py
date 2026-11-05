@@ -51,6 +51,14 @@ def main():
                for name, sha in decisions.items()), "Existing human decisions changed"
     output = copy.deepcopy(original)
     output.setdefault("templates", {}).update(assembled["templates"])
+    output.pop("effective_metrics", None)
+    full_runs = [item for item in original.get("prep_runs", []) if item.get("kind") == "full_reprepare"]
+    if full_runs:
+        previous = json.loads(inside(GENERATED / full_runs[-1]["receipt"].replace("\\", "/")).read_text(encoding="utf-8"))
+        latest = {result["job"]["id"]: result for result in results}
+        active = [latest.get(result["job"]["id"], result) for result in previous["results"]]
+        output["effective_metrics"] = pipeline.assemble(active, drawings, previous["exact"])["metrics"]
+        output["effective_metrics"]["scope"] = "Current original-template, scan, link and mapping fields; execution receipts remain separate in prep_runs"
     receipt = str((folder / "checkpoint.json").relative_to(GENERATED))
     output.setdefault("prep_runs", []).append({"kind": "primary_template_refinement",
         "protocol": pipeline.PROTOCOL, "receipt": receipt, "metrics": metrics})

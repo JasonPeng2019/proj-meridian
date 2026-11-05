@@ -40,6 +40,13 @@
     "SiliconePakningfTheta.pdf": "SiliconeGasketfTheta.pdf",
     "Silikone Wiper": "Silicone Wiper",
     "Termoelement type K": "Type K thermocouple",
-    "Varmeelement Plade": "Heating Element Plate"
-  }
+    "Varmeelement Plade": "Heating Element Plate",
+    "Alu.\nArm til linær føring": "Alu.\nArm for linear guide"
+  },
+  "extensions": [
+    {
+      "source_fact": "D-011/drawing/notes",
+      "receipt": "docs/verification/ui-note-extension.json"
+    }
+  ]
 }

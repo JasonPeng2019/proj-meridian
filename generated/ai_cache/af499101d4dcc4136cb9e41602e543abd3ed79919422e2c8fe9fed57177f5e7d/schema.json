@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "english": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "english",
+    "reason"
+  ],
+  "additionalProperties": false
+}

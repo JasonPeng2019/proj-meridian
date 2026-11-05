@@ -1,0 +1,167 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "c6fabe6778616a1355c32432518786438a3f020b2a2a3b6d644757dc335d531d",
+    "items": [
+      {
+        "key": "outline_type",
+        "decision": "accept",
+        "reason": "The main view in D-013 shows a rectangular plate bounded by the overall 270,0 (D-013/drawing/n/270.0@1-1) and 25,0 (D-013/drawing/n/25.0@1-1) dimensions. The corner chamfers have no dimensions, and features_omitted records them correctly.",
+        "fact_ids": [
+          "D-013",
+          "D-013/drawing/n/270.0@1-1",
+          "D-013/drawing/n/25.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "length",
+        "decision": "accept",
+        "reason": "The overall horizontal dimension 270,0 spans the full outline in the main view.",
+        "fact_ids": [
+          "D-013/drawing/n/270.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "width",
+        "decision": "accept",
+        "reason": "The overall vertical dimension 25,0 spans the full outline height in the main view.",
+        "fact_ids": [
+          "D-013/drawing/n/25.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "outer_diameter",
+        "decision": "accept",
+        "reason": "The outline is rectangular (D-013). An outer diameter does not apply, so unknown/null is the correct state and no essential geometry is missing.",
+        "fact_ids": [
+          "D-013"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "inner_diameter",
+        "decision": "accept",
+        "reason": "This is not a ring outline (D-013). An inner diameter does not apply, so unknown/null is correct.",
+        "fact_ids": [
+          "D-013"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "thickness",
+        "decision": "accept",
+        "reason": "The side view prints 6,0 and 3,0 stacked on the same thickness dimension line, which indicates documented alternatives. Options [3.0,6.0] are sorted ascending and neither one is chosen as primary.",
+        "fact_ids": [
+          "D-013/drawing/n/3.0@1-1",
+          "D-013/drawing/n/6.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features",
+        "decision": "accept",
+        "reason": "M3 holes: callout p1-2 prints 8 x Ø2,5 THRU ALL M3-6H. The main view shows one row of 8 holes on the 7,5 line below the horizontal centerline (n/7.5). The 17,9 offset from the vertical centerline and the 35,7 pitch are dimensioned on the right half, and the left half clearly mirrors them with 4 holes per side. The cited arithmetic is correct: ±17.9, ±(17.9+35.7)=±53.6, ±(17.9+2*35.7)=±89.3 and ±(17.9+3*35.7)=±125.0. M5 holes: callout p1-1 prints 2 x Ø4,2 THRU ALL M5-6H. The left hole is dimensioned 82,0 from the centerline (n/82.0@1-1) and 4,5 above it (n/4.5). The right hole visibly mirrors it on the same row, giving X=±82.0, Y=4.5. Slots: callout p1-3 prints 4 x 5,5 X 10,0 THRU ALL. The slots are vertical. 41,0 (n/41.0) is dimensioned from the vertical centerline and 82,0 (n/82.0@1-2) is the pitch to the outer slot, mirrored on the left, giving X=±41.0 and ±123.0. The 2,3 dimension (n/2.3) runs from the horizontal centerline to the slot's lower end-arc center. Reading it as the slot center would put the slot bottom below the centerline, which the view and the iso do not show; in the view the slot centers line up with the 4,5 M5 row. So Y=2.3+(10.0-5.5)/2=4.55 is consistent. Every diameter is the printed drill size; none is inferred from the thread. All holes and slots are through, so face=top is valid. The ordering is holes before slots, then x ascending, and it is correct.",
+        "fact_ids": [
+          "D-013",
+          "D-013/drawing/callout/p1-1",
+          "D-013/drawing/callout/p1-2",
+          "D-013/drawing/callout/p1-3",
+          "D-013/drawing/n/17.9@1-1",
+          "D-013/drawing/n/35.7@1-1",
+          "D-013/drawing/n/7.5@1-1",
+          "D-013/drawing/n/82.0@1-1",
+          "D-013/drawing/n/4.5@1-1",
+          "D-013/drawing/n/4.2@1-1",
+          "D-013/drawing/n/2.5@1-1",
+          "D-013/drawing/n/41.0@1-1",
+          "D-013/drawing/n/82.0@1-2",
+          "D-013/drawing/n/2.3@1-1",
+          "D-013/drawing/n/10.0@1-1",
+          "D-013/drawing/n/5.5@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_complete",
+        "decision": "accept",
+        "reason": "The main and side views in D-013 show clipped corner chamfers with no dimensions. The DEBURR AND BREAK SHARP EDGES note (general/edge_finish) gives no size. Neither detail can be modeled, so features_complete=false is correct.",
+        "fact_ids": [
+          "D-013",
+          "D-013/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_omitted",
+        "decision": "accept",
+        "reason": "Both omissions are real and correctly cited. The four corner chamfers are visible in the D-013 main view with no printed setbacks or angles. The edge-break note (general/edge_finish) gives no size. No hole or slot in the drawing inventory is missing from the features subset.",
+        "fact_ids": [
+          "D-013",
+          "D-013/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 21087,
+      "cache_read_input_tokens": 22686,
+      "output_tokens": 5781,
+      "output_tokens_details": {
+        "thinking_tokens": 3654
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 21087,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 5781,
+        "cacheReadInputTokens": 22686,
+        "cacheCreationInputTokens": 21087,
+        "webSearchRequests": 0,
+        "costUSD": 0.2888692,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 3654,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 21087,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.2888692,
+    "duration_ms": 58281,
+    "is_error": false
+  },
+  "latency_ms": 59437,
+  "cache_key": "c79e07f6217f4762751e6aab26429a0d4e8af28fbba5eaa78a724cd44851d960",
+  "cache_hit": false,
+  "job": "template:D-013:proposal-verification-v1:verification:0",
+  "error": null
+}

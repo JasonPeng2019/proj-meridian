@@ -1,0 +1,2798 @@
+{
+  "complete": true,
+  "results": [
+    {
+      "protocol": "proposal-verification-v1",
+      "job": {
+        "id": "template:D-013",
+        "kind": "template",
+        "drawing": "D-013",
+        "feature_protocol": "supported-feature-subset-v1",
+        "keys": [
+          "outline_type",
+          "length",
+          "width",
+          "outer_diameter",
+          "inner_diameter",
+          "thickness",
+          "features",
+          "features_complete",
+          "features_omitted"
+        ],
+        "images": [
+          "C:\\Users\\Jason\\Documents\\Jason\\Take-Homes-Codex\\active\\Avathon\\generated\\images\\D-013-p1.png"
+        ],
+        "sources": [
+          "D-013",
+          "D-013/drawing/callout/p1-1",
+          "D-013/drawing/callout/p1-2",
+          "D-013/drawing/callout/p1-3",
+          "D-013/drawing/company",
+          "D-013/drawing/date",
+          "D-013/drawing/drawn",
+          "D-013/drawing/general/edge_finish",
+          "D-013/drawing/general/general_tolerance",
+          "D-013/drawing/general/units",
+          "D-013/drawing/material",
+          "D-013/drawing/n/10.0@1-1",
+          "D-013/drawing/n/17.9@1-1",
+          "D-013/drawing/n/2.0@1-1",
+          "D-013/drawing/n/2.3@1-1",
+          "D-013/drawing/n/2.5@1-1",
+          "D-013/drawing/n/25.0@1-1",
+          "D-013/drawing/n/270.0@1-1",
+          "D-013/drawing/n/3.0@1-1",
+          "D-013/drawing/n/35.7@1-1",
+          "D-013/drawing/n/4.0@1-1",
+          "D-013/drawing/n/4.2@1-1",
+          "D-013/drawing/n/4.5@1-1",
+          "D-013/drawing/n/41.0@1-1",
+          "D-013/drawing/n/5.5@1-1",
+          "D-013/drawing/n/6.0@1-1",
+          "D-013/drawing/n/7.5@1-1",
+          "D-013/drawing/n/8.0@1-1",
+          "D-013/drawing/n/82.0@1-1",
+          "D-013/drawing/n/82.0@1-2",
+          "D-013/drawing/notes",
+          "D-013/drawing/scale",
+          "D-013/drawing/source",
+          "D-013/drawing/title",
+          "D-013/drawing/weight_g"
+        ],
+        "numbers": {
+          "D-013/drawing/n/270.0@1-1": 270.0,
+          "D-013/drawing/n/25.0@1-1": 25.0,
+          "D-013/drawing/n/2.0@1-1": 2.0,
+          "D-013/drawing/n/4.2@1-1": 4.2,
+          "D-013/drawing/n/8.0@1-1": 8.0,
+          "D-013/drawing/n/2.5@1-1": 2.5,
+          "D-013/drawing/n/35.7@1-1": 35.7,
+          "D-013/drawing/n/17.9@1-1": 17.9,
+          "D-013/drawing/n/7.5@1-1": 7.5,
+          "D-013/drawing/n/82.0@1-1": 82.0,
+          "D-013/drawing/n/4.5@1-1": 4.5,
+          "D-013/drawing/n/4.0@1-1": 4.0,
+          "D-013/drawing/n/5.5@1-1": 5.5,
+          "D-013/drawing/n/10.0@1-1": 10.0,
+          "D-013/drawing/n/41.0@1-1": 41.0,
+          "D-013/drawing/n/82.0@1-2": 82.0,
+          "D-013/drawing/n/2.3@1-1": 2.3,
+          "D-013/drawing/n/6.0@1-1": 6.0,
+          "D-013/drawing/n/3.0@1-1": 3.0
+        },
+        "prompt": "You are a read-only engineering evidence proposer. Do not edit files,\nrun commands, use other agents, browse the web, or inspect any evidence beyond the supplied inputs.\nReturn the requested JSON schema. Every requested key must appear exactly once. value_json is a\nJSON-encoded value (e.g. a string as \"\\\"text\\\"\", a number as \"5\", an array as \"[3,6]\",\nunknown as \"null\"). State known means one determined value; options means genuinely documented\nalternatives; unknown means the evidence does not determine it. confidence is only sure or unsure.\nUse sure only for a reading supported by the supplied evidence. Copy original spelling and units.\nNever invent evidence IDs. fact_ids must be exact supplied source IDs supporting that item.\nReasons must explain the evidence; changed_because is empty on the first proposal.\n\nFill a flat-part template from this drawing, in millimetres.\nRead the attached full drawing. The main material field and weight are supplied separately.\nRequested keys: outline_type (rectangle/circle/ring), length (X), width (Y), outer_diameter,\ninner_diameter, thickness, features, features_complete, features_omitted.\nFeature protocol: supported-feature-subset-v1. Only relevant dimensions are known; irrelevant ones are unknown.\nStacked thickness values which are alternatives MUST be state options with a JSON array, sorted ascending.\nDo not select one thickness or invent which example is primary. The outline is centered on X=0,Y=0;\nextrusion Z=0..thickness. Use the main face-on outline drawing view as XY, viewed from +Z toward\nthe origin, with X right and Y up. top is Z=thickness, toward that viewer; bottom is Z=0, opposite.\nKeep every feature position in this same XY frame, including bottom features. Verify which face a\ncountersink/counterbore opens from using the side, section, isometric, datum and projection evidence;\ndo not silently force steps onto top. If the opening face genuinely cannot be established, omit that\nstep with its uncertainty; retain a separately supported primary through-hole as plain only when its\ndiameter and placement are independently established. Ignore dimension text placement when interpreting actual geometry.\nfeatures value is a JSON array of hole/slot objects. Each has kind, face='top' or 'bottom', x,y,\ndiameter (hole) or width,length (slot), through boolean, depth for blind holes,\nhole_type plain/threaded/countersunk/counterbored, optional thread string and required actual\ncountersink_diameter/angle or counterbore_diameter/depth. Never infer a drill diameter from a thread.\nUse explicit pattern only if certain: {type:row,count,spacing,direction} (angle degrees, anchor first\nposition) or {type:circle,count,radius,start_angle} (degrees, center x,y). Hole positions are center\ncoordinates in the same XY frame. Conventional drawing-pattern interpretation is allowed when a\nprinted count plus printed pitch, offset, radius or pitch-circle diameter AND clear axes/layout\nestablish a row, circle, or mirrored layout. A circle distributes its printed count using 360/count;\nrows and mirrored positions derive from the printed pitch/offset and count. This is an AI layout\ninterpretation, not a claim that every coordinate or angle is explicitly printed or human approved.\nTag each feature placement_basis='dimensioned' when directly dimensioned, otherwise\nplacement_basis='drawing_pattern_interpretation' with nonempty placement_reason explaining the exact\nprinted dimensions/count, axes/layout and derivation, plus nonempty feature fact_ids citing exact\nsource IDs. Opus must verify this EXACT layout against the original views; ambiguous layouts require\nreject/needs_input and an omission, never arbitrary symmetry or an inferred bolt-circle dimension.\nfeatures is the independently supported SUBSET of cuts, not a\nclaim that every drawing feature is determined. Return features state known with all and ONLY cuts\nwhose geometry, position, and operation are fully supported, even when other features are unresolved.\nUse known [] when no cuts can be supported; do not erase supported cuts because another is uncertain.\nNever fabricate a drill diameter, depth, position, or count to complete a cut. A feature missing any\nrequired geometry must be excluded from features and described separately in features_omitted.\nException for a documented counterbore-step/thickness-variant conflict: preserve the separately\nprinted primary through-hole and actual counterbore dimensions in one counterbored feature using\nallow_primary_hole_without_unresolved_step=true, step_conflict_reason explaining the exact\nprinted conflict, and nonempty feature fact_ids. This flag is only for a supported through-hole whose\ncounterbore (or derived countersink depth) is invalid for at least one documented thickness variant.\nThe step dimensions and opening face must still be established. Explain the unresolved step in\nfeatures_omitted and set features_complete=false. CAD must skip that step per invalid variant and\nreport the omission; never clamp its depth, invent a face, silently replace it, or discard the valid\nprimary hole. Do not use this flag for an unsupported\nprimary hole or for missing primary-hole diameter/position.\nfeatures_omitted is a known JSON array of {description:string,reason:string,fact_ids:[IDs]}.\nEach omission must cite exact supplied evidence IDs (the drawing/source ID may ground an image-only\nfeature) and explain precisely what is missing or why it cannot be modeled. Use [] only if nothing\nis omitted. features_complete is a known JSON boolean: true ONLY when the entire visible feature\ninventory is supported and features_omitted is []; false when any feature/detail is omitted. If the\ninventory cannot be established, set features_complete unknown/null and explain the uncertainty in\nfeatures_omitted. Missing features never justify guessing or claiming the full design is verified.\nAll numeric scalar fields within a feature must be {state:known,value:number,fact_ids:[IDs]}.\nA feature may carry parent fact_ids. Every numeric value must match its cited drawing number.\nFor an arithmetically derived coordinate/radius use {state:known,value:number,fact_ids:[IDs],\nexpression:'n0/2-n1'}, where n0,n1 are cited drawing numbers IN ORDER. Only +,-,*,/ and constants\n0,1,2 are allowed. Do not invent absolute positions from undimensioned views. You may use literal\n0 for a geometrically established center or literal 90/180/270/360 for cardinal pattern directions.\nDo not infer numeric dimensions from pixels, scale, standard hardware, or undimensioned symmetry.\nConventional layout interpretation changes placement only; every numeric dimension/count and every\nderived coordinate still requires the printed evidence and permitted arithmetic above.\nFeatures must use same deterministic ordering: holes before slots, then x ascending, then y ascending.\n\nEvidence:\n{\"callouts\":[{\"box\":[428.392,520.694,118.667,33.984],\"confidence\":\"sure\",\"count\":2,\"feature\":\"threaded_hole\",\"method\":\"parsed\",\"name\":\"D-013/drawing/callout/p1-1\",\"original\":\"2 x 4,2 THRU ALL M5 - 6H THRU ALL\",\"page\":1,\"text\":\"2 x 4,2 THRU ALL M5 - 6H THRU ALL\",\"thread\":\"M5\",\"thread_class\":\"6H\",\"through\":true,\"value\":\"2 x 4,2 THRU ALL M5 - 6H THRU ALL\"},{\"box\":[309.068,564.281,118.668,33.991],\"confidence\":\"sure\",\"count\":8,\"feature\":\"threaded_hole\",\"method\":\"parsed\",\"name\":\"D-013/drawing/callout/p1-2\",\"original\":\"8 x 2,5 THRU ALL M3 - 6H THRU ALL\",\"page\":1,\"text\":\"8 x 2,5 THRU ALL M3 - 6H THRU ALL\",\"thread\":\"M3\",\"thread_class\":\"6H\",\"through\":true,\"value\":\"8 x 2,5 THRU ALL M3 - 6H THRU ALL\"},{\"box\":[760.055,350.781,141.088,18.083],\"confidence\":\"sure\",\"count\":4,\"feature\":\"slot\",\"length_mm\":10.0,\"method\":\"parsed\",\"name\":\"D-013/drawing/callout/p1-3\",\"original\":\"4 x 5,5 X 10,0 THRU ALL\",\"page\":1,\"text\":\"4 x 5,5 X 10,0 THRU ALL\",\"through\":true,\"value\":\"4 x 5,5 X 10,0 THRU ALL\",\"width_mm\":5.5},{\"box\":[978.968,784.149,85.555,7.75],\"confidence\":\"sure\",\"feature\":\"general_note\",\"method\":\"parsed\",\"name\":\"D-013/drawing/general/units\",\"original\":\"DIMENSIONS ARE IN MILLIMETERS\",\"page\":1,\"text\":\"DIMENSIONS ARE IN MILLIMETERS\",\"value\":\"DIMENSIONS ARE IN MILLIMETERS\"},{\"box\":[1016.541,790.957,47.749,8.202],\"confidence\":\"sure\",\"feature\":\"general_note\",\"method\":\"parsed\",\"name\":\"D-013/drawing/general/general_tolerance\",\"original\":\"DIN ISO 2768-1 m\",\"page\":1,\"text\":\"DIN ISO 2768-1 m\",\"value\":\"DIN ISO 2768-1 m\"},{\"box\":[1078.776,781.582,52.887,14.837],\"confidence\":\"sure\",\"feature\":\"general_note\",\"method\":\"parsed\",\"name\":\"D-013/drawing/general/edge_finish\",\"original\":\"DEBURR AND BREAK SHARP EDGES\",\"page\":1,\"text\":\"DEBURR AND BREAK SHARP EDGES\",\"value\":\"DEBURR AND BREAK SHARP EDGES\"}],\"fields\":{\"company\":{\"box\":[975.328,658.942,91.0,48.0],\"confidence\":\"sure\",\"field_box\":[975.328,666.942,91.0,40.0],\"label_box\":[975.328,658.942,30.758,7.75],\"method\":\"parsed\",\"name\":\"D-013/drawing/company\",\"original\":\"DTU MPP\",\"page\":1,\"value\":\"DTU MPP\"},\"date\":{\"box\":[897.013,802.562,76.0,11.0],\"confidence\":\"sure\",\"field_box\":[914.013,802.562,59.0,11.0],\"label_box\":[897.013,803.562,13.623,7.75],\"method\":\"parsed\",\"name\":\"D-013/drawing/date\",\"original\":\"24/11/2021\",\"page\":1,\"value\":\"24/11/2021\"},\"drawn\":{\"box\":[893.294,790.235,78.0,11.0],\"confidence\":\"sure\",\"field_box\":[917.294,790.235,54.0,11.0],\"label_box\":[893.294,791.235,21.062,7.75],\"method\":\"parsed\",\"name\":\"D-013/drawing/drawn\",\"original\":\"MBOKJ\",\"page\":1,\"value\":\"MBOKJ\"},\"material\":{\"box\":[745.28,771.048,135.0,14.0],\"confidence\":\"sure\",\"field_box\":[784.28,771.048,96.0,14.0],\"label_box\":[745.28,772.048,38.539,10.936],\"method\":\"parsed\",\"name\":\"D-013/drawing/material\",\"original\":\"3.3315 (EN-AW 5005)\",\"page\":1,\"value\":\"3.3315 (EN-AW 5005)\"},\"notes\":{\"box\":[741.526,658.942,231.0,111.0],\"confidence\":\"sure\",\"field_box\":[741.526,666.942,231.0,103.0],\"label_box\":[741.526,658.942,15.72,7.75],\"method\":\"parsed\",\"name\":\"D-013/drawing/notes\",\"original\":\"Alu.\\nJusteringsplade til recoater.\",\"page\":1,\"value\":\"Alu.\\nJusteringsplade til recoater.\"},\"scale\":{\"box\":[1082.688,803.564,25.623,7.75],\"confidence\":\"sure\",\"field_box\":[1082.688,803.564,25.623,7.75],\"label_box\":[1082.688,803.564,25.623,7.75],\"method\":\"parsed\",\"name\":\"D-013/drawing/scale\",\"original\":\"1:1\",\"page\":1,\"value\":\"1:1\"},\"title\":{\"box\":[975.328,710.355,181.0,66.0],\"confidence\":\"sure\",\"field_box\":[975.328,718.355,181.0,58.0],\"label_box\":[975.328,710.355,49.95,7.75],\"method\":\"parsed\",\"name\":\"D-013/drawing/title\",\"original\":\"Recoater Plate\",\"page\":1,\"value\":\"Recoater Plate\"},\"weight_g\":{\"box\":[880.717,771.048,93.0,14.0],\"confidence\":\"sure\",\"field_box\":[924.717,771.048,49.0,14.0],\"label_box\":[880.717,772.048,28.747,10.936],\"method\":\"parsed\",\"name\":\"D-013/drawing/weight_g\",\"original\":\"87.5\",\"page\":1,\"value\":87.5}},\"id\":\"D-013\",\"numbers\":[{\"box\":[601.611,308.89,32.988,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/270.0@1-1\",\"original\":\"270,0\",\"page\":1,\"text\":\"270,0\",\"value\":270.0},{\"box\":[1080.266,408.25,18.083,25.657],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/25.0@1-1\",\"original\":\"25,0\",\"page\":1,\"text\":\"25,0\",\"value\":25.0},{\"box\":[428.392,520.694,7.331,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/2.0@1-1\",\"original\":\"2\",\"page\":1,\"text\":\"2\",\"value\":2.0},{\"box\":[468.032,520.694,18.321,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/4.2@1-1\",\"original\":\"4,2\",\"page\":1,\"text\":\"4,2\",\"value\":4.2},{\"box\":[309.068,564.281,7.331,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/8.0@1-1\",\"original\":\"8\",\"page\":1,\"text\":\"8\",\"value\":8.0},{\"box\":[348.709,564.288,18.321,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/2.5@1-1\",\"original\":\"2,5\",\"page\":1,\"text\":\"2,5\",\"value\":2.5},{\"box\":[715.676,504.483,25.657,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/35.7@1-1\",\"original\":\"35,7\",\"page\":1,\"text\":\"35,7\",\"value\":35.7},{\"box\":[630.579,487.472,25.657,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/17.9@1-1\",\"original\":\"17,9\",\"page\":1,\"text\":\"17,9\",\"value\":17.9},{\"box\":[1046.25,394.664,18.083,18.327],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/7.5@1-1\",\"original\":\"7,5\",\"page\":1,\"text\":\"7,5\",\"value\":7.5},{\"box\":[489.056,342.906,25.657,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/82.0@1-1\",\"original\":\"82,0\",\"page\":1,\"text\":\"82,0\",\"value\":82.0},{\"box\":[190.187,370.831,18.083,18.327],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/4.5@1-1\",\"original\":\"4,5\",\"page\":1,\"text\":\"4,5\",\"value\":4.5},{\"box\":[760.055,350.781,7.33,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/4.0@1-1\",\"original\":\"4\",\"page\":1,\"text\":\"4\",\"value\":4.0},{\"box\":[781.065,350.781,18.324,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/5.5@1-1\",\"original\":\"5,5\",\"page\":1,\"text\":\"5,5\",\"value\":5.5},{\"box\":[814.776,350.781,25.654,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/10.0@1-1\",\"original\":\"10,0\",\"page\":1,\"text\":\"10,0\",\"value\":10.0},{\"box\":[663.384,342.91,25.657,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/41.0@1-1\",\"original\":\"41,0\",\"page\":1,\"text\":\"41,0\",\"value\":41.0},{\"box\":[837.72,325.898,25.657,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/82.0@1-2\",\"original\":\"82,0\",\"page\":1,\"text\":\"82,0\",\"value\":82.0},{\"box\":[1012.235,394.664,18.083,18.327],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/2.3@1-1\",\"original\":\"2,3\",\"page\":1,\"text\":\"2,3\",\"value\":2.3},{\"box\":[151.657,330.081,18.327,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/6.0@1-1\",\"original\":\"6,0\",\"page\":1,\"text\":\"6,0\",\"value\":6.0},{\"box\":[151.657,342.913,18.327,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/3.0@1-1\",\"original\":\"3,0\",\"page\":1,\"text\":\"3,0\",\"value\":3.0}],\"page_sizes\":[[1190.550048828125,841.8900146484375]],\"section\":\"Recoater\",\"source_filename\":\"RecoaterPlate.pdf\"}"
+      },
+      "rounds": [
+        {
+          "codex": {
+            "reader": "codex",
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "answer": {
+              "items": [
+                {
+                  "key": "outline_type",
+                  "state": "known",
+                  "value_json": "\"rectangle\"",
+                  "confidence": "sure",
+                  "fact_ids": [
+                    "D-013",
+                    "D-013/drawing/n/270.0@1-1",
+                    "D-013/drawing/n/25.0@1-1"
+                  ],
+                  "reason": "The main view establishes a rectangular 270,0 × 25,0 envelope. Undimensioned corner chamfers are recorded separately as omitted.",
+                  "changed_because": ""
+                },
+                {
+                  "key": "length",
+                  "state": "known",
+                  "value_json": "270.0",
+                  "confidence": "sure",
+                  "fact_ids": [
+                    "D-013/drawing/n/270.0@1-1"
+                  ],
+                  "reason": "The overall horizontal dimension is 270,0 mm.",
+                  "changed_because": ""
+                },
+                {
+                  "key": "width",
+                  "state": "known",
+                  "value_json": "25.0",
+                  "confidence": "sure",
+                  "fact_ids": [
+                    "D-013/drawing/n/25.0@1-1"
+                  ],
+                  "reason": "The overall vertical dimension is 25,0 mm.",
+                  "changed_because": ""
+                },
+                {
+                  "key": "outer_diameter",
+                  "state": "unknown",
+                  "value_json": "null",
+                  "confidence": "unsure",
+                  "fact_ids": [
+                    "D-013"
+                  ],
+                  "reason": "An outer diameter is not applicable to the rectangular outline.",
+                  "changed_because": ""
+                },
+                {
+                  "key": "inner_diameter",
+                  "state": "unknown",
+                  "value_json": "null",
+                  "confidence": "unsure",
+                  "fact_ids": [
+                    "D-013"
+                  ],
+                  "reason": "The part has no ring outline or applicable inner diameter.",
+                  "changed_because": ""
+                },
+                {
+                  "key": "thickness",
+                  "state": "options",
+                  "value_json": "[3.0,6.0]",
+                  "confidence": "sure",
+                  "fact_ids": [
+                    "D-013/drawing/n/3.0@1-1",
+                    "D-013/drawing/n/6.0@1-1"
+                  ],
+                  "reason": "The side-view thickness dimension stacks 6,0 and 3,0 as alternatives. Both are retained in ascending order, in millimetres.",
+                  "changed_because": ""
+                },
+                {
+                  "key": "features",
+                  "state": "known",
+                  "value_json": "[{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-125.0,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"0-n0-n1*(2+1)\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8 x count, 17,9 offset to the first center right of X=0, 35,7 pitch and clearly mirrored row establish 8/2 centers per side. This is the fourth center left; the row is 7,5 below Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-89.3,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"0-n0-2*n1\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the third center left; the row is 7,5 below Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-82.0,\"fact_ids\":[\"D-013/drawing/n/82.0@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":4.5,\"fact_ids\":[\"D-013/drawing/n/4.5@1-1\"]},\"diameter\":{\"state\":\"known\",\"value\":4.2,\"fact_ids\":[\"D-013/drawing/n/4.2@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M5 - 6H\",\"placement_basis\":\"dimensioned\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-1\",\"D-013/drawing/n/82.0@1-1\",\"D-013/drawing/n/4.5@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-53.6,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"0-n0-n1\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the second center left; the row is 7,5 below Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-17.9,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the first center left; the row is 7,5 below Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":17.9,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\"]},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"dimensioned\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/7.5@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":53.6,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"n0+n1\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"dimensioned\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\",\"D-013/drawing/n/7.5@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":82.0,\"fact_ids\":[\"D-013/drawing/n/82.0@1-1\"]},\"y\":{\"state\":\"known\",\"value\":4.5,\"fact_ids\":[\"D-013/drawing/n/4.5@1-1\"]},\"diameter\":{\"state\":\"known\",\"value\":4.2,\"fact_ids\":[\"D-013/drawing/n/4.2@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M5 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 2 x M5 count and 82,0 offset from the vertical centerline, with the visibly mirrored pair, establish the right center at X=82,0. Both centers share the dimensioned Y=4,5 row.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-1\",\"D-013/drawing/n/82.0@1-1\",\"D-013/drawing/n/4.5@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":89.3,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"n0+2*n1\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the third center right; the row is 7,5 below Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":125.0,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"n0+n1*(2+1)\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the fourth center right; the row is 7,5 below Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"]},{\"kind\":\"slot\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-123.0,\"fact_ids\":[\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\"],\"expression\":\"0-n0-n1\"},\"y\":{\"state\":\"known\",\"value\":4.55,\"fact_ids\":[\"D-013/drawing/n/2.3@1-1\",\"D-013/drawing/n/10.0@1-1\",\"D-013/drawing/n/5.5@1-1\"],\"expression\":\"n0+(n1-n2)/2\"},\"width\":{\"state\":\"known\",\"value\":5.5,\"fact_ids\":[\"D-013/drawing/n/5.5@1-1\"]},\"length\":{\"state\":\"known\",\"value\":10.0,\"fact_ids\":[\"D-013/drawing/n/10.0@1-1\"]},\"through\":true,\"hole_type\":\"plain\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 4 x slot count, 41,0 centerline offset and 82,0 pitch establish the mirrored four-slot row. This is the outer left slot. Long axes follow Y. The lower end-arc center is 2,3 above Y=0, so the slot center is 2,3+(10,0-5,5)/2.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-3\",\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\",\"D-013/drawing/n/2.3@1-1\"]},{\"kind\":\"slot\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-41.0,\"fact_ids\":[\"D-013/drawing/n/41.0@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":4.55,\"fact_ids\":[\"D-013/drawing/n/2.3@1-1\",\"D-013/drawing/n/10.0@1-1\",\"D-013/drawing/n/5.5@1-1\"],\"expression\":\"n0+(n1-n2)/2\"},\"width\":{\"state\":\"known\",\"value\":5.5,\"fact_ids\":[\"D-013/drawing/n/5.5@1-1\"]},\"length\":{\"state\":\"known\",\"value\":10.0,\"fact_ids\":[\"D-013/drawing/n/10.0@1-1\"]},\"through\":true,\"hole_type\":\"plain\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 4 x slot count, 41,0 centerline offset and 82,0 pitch establish the mirrored four-slot row. This is the inner left slot. Long axes follow Y. The lower end-arc center is 2,3 above Y=0, so the slot center is 2,3+(10,0-5,5)/2.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-3\",\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\",\"D-013/drawing/n/2.3@1-1\"]},{\"kind\":\"slot\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":41.0,\"fact_ids\":[\"D-013/drawing/n/41.0@1-1\"]},\"y\":{\"state\":\"known\",\"value\":4.55,\"fact_ids\":[\"D-013/drawing/n/2.3@1-1\",\"D-013/drawing/n/10.0@1-1\",\"D-013/drawing/n/5.5@1-1\"],\"expression\":\"n0+(n1-n2)/2\"},\"width\":{\"state\":\"known\",\"value\":5.5,\"fact_ids\":[\"D-013/drawing/n/5.5@1-1\"]},\"length\":{\"state\":\"known\",\"value\":10.0,\"fact_ids\":[\"D-013/drawing/n/10.0@1-1\"]},\"through\":true,\"hole_type\":\"plain\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 4 x slot count, 41,0 centerline offset and 82,0 pitch establish the mirrored four-slot row. This is the inner right slot. Long axes follow Y. The lower end-arc center is 2,3 above Y=0, so the slot center is 2,3+(10,0-5,5)/2.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-3\",\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\",\"D-013/drawing/n/2.3@1-1\"]},{\"kind\":\"slot\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":123.0,\"fact_ids\":[\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\"],\"expression\":\"n0+n1\"},\"y\":{\"state\":\"known\",\"value\":4.55,\"fact_ids\":[\"D-013/drawing/n/2.3@1-1\",\"D-013/drawing/n/10.0@1-1\",\"D-013/drawing/n/5.5@1-1\"],\"expression\":\"n0+(n1-n2)/2\"},\"width\":{\"state\":\"known\",\"value\":5.5,\"fact_ids\":[\"D-013/drawing/n/5.5@1-1\"]},\"length\":{\"state\":\"known\",\"value\":10.0,\"fact_ids\":[\"D-013/drawing/n/10.0@1-1\"]},\"through\":true,\"hole_type\":\"plain\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 4 x slot count, 41,0 centerline offset and 82,0 pitch establish the mirrored four-slot row. This is the outer right slot. Long axes follow Y. The lower end-arc center is 2,3 above Y=0, so the slot center is 2,3+(10,0-5,5)/2.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-3\",\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\",\"D-013/drawing/n/2.3@1-1\"]}]",
+                  "confidence": "sure",
+                  "fact_ids": [
+                    "D-013",
+                    "D-013/drawing/callout/p1-1",
+                    "D-013/drawing/callout/p1-2",
+                    "D-013/drawing/callout/p1-3",
+                    "D-013/drawing/n/17.9@1-1",
+                    "D-013/drawing/n/35.7@1-1",
+                    "D-013/drawing/n/7.5@1-1",
+                    "D-013/drawing/n/82.0@1-1",
+                    "D-013/drawing/n/4.5@1-1",
+                    "D-013/drawing/n/41.0@1-1",
+                    "D-013/drawing/n/82.0@1-2",
+                    "D-013/drawing/n/2.3@1-1",
+                    "D-013/drawing/n/10.0@1-1",
+                    "D-013/drawing/n/5.5@1-1"
+                  ],
+                  "reason": "The supported subset comprises eight Ø 2,5 M3 - 6H through holes, two Ø 4,2 M5 - 6H through holes and four vertical 5,5 X 10,0 through slots. Mirrored placements use the printed counts, offsets and pitches. Slot centers derive from the dimensioned lower end-arc center. These are drawing-layout interpretations, not human approvals.",
+                  "changed_because": ""
+                },
+                {
+                  "key": "features_complete",
+                  "state": "known",
+                  "value_json": "false",
+                  "confidence": "sure",
+                  "fact_ids": [
+                    "D-013",
+                    "D-013/drawing/general/edge_finish"
+                  ],
+                  "reason": "Visible corner chamfers and the unspecified edge-break treatment cannot be included as fully dimensioned cuts.",
+                  "changed_because": ""
+                },
+                {
+                  "key": "features_omitted",
+                  "state": "known",
+                  "value_json": "[{\"description\":\"Four visible outline corner chamfers\",\"reason\":\"The main view shows clipped corners, but no numerical chamfer setbacks or angles establish their geometry. They are outside the supported hole/slot subset; the rectangular outline retains the overall envelope.\",\"fact_ids\":[\"D-013\"]},{\"description\":\"DEBURR AND BREAK SHARP EDGES\",\"reason\":\"The note supplies no numerical edge-break size or profile from which to construct a cut.\",\"fact_ids\":[\"D-013/drawing/general/edge_finish\"]}]",
+                  "confidence": "sure",
+                  "fact_ids": [
+                    "D-013",
+                    "D-013/drawing/general/edge_finish"
+                  ],
+                  "reason": "The drawing supports the presence of these details but does not determine their cut geometry.",
+                  "changed_because": ""
+                }
+              ]
+            },
+            "valid": true,
+            "returncode": 0,
+            "metadata": {
+              "events": [
+                {
+                  "type": "turn.completed",
+                  "usage": {
+                    "input_tokens": 20423,
+                    "cached_input_tokens": 13056,
+                    "cache_write_input_tokens": 0,
+                    "output_tokens": 14343,
+                    "reasoning_output_tokens": 9097
+                  }
+                }
+              ]
+            },
+            "latency_ms": 294453,
+            "cache_key": "f9e3f5eb3000d839fea96920361b3ea8a8cc90c3001af7f9b8f3213d207ea7dc",
+            "cache_hit": false,
+            "job": "template:D-013:proposal-verification-v1:proposal:0",
+            "error": null,
+            "protocol": "proposal-verification-v1",
+            "role": "proposer",
+            "round": 0,
+            "proposal_fingerprint": "c6fabe6778616a1355c32432518786438a3f020b2a2a3b6d644757dc335d531d",
+            "validation": {
+              "outline_type": true,
+              "length": true,
+              "width": true,
+              "outer_diameter": true,
+              "inner_diameter": true,
+              "thickness": true,
+              "features": true,
+              "features_complete": true,
+              "features_omitted": true
+            }
+          },
+          "claude": {
+            "reader": "claude",
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "answer": {
+              "proposal_fingerprint": "c6fabe6778616a1355c32432518786438a3f020b2a2a3b6d644757dc335d531d",
+              "items": [
+                {
+                  "key": "outline_type",
+                  "decision": "accept",
+                  "reason": "The main view in D-013 shows a rectangular plate bounded by the overall 270,0 (D-013/drawing/n/270.0@1-1) and 25,0 (D-013/drawing/n/25.0@1-1) dimensions. The corner chamfers have no dimensions, and features_omitted records them correctly.",
+                  "fact_ids": [
+                    "D-013",
+                    "D-013/drawing/n/270.0@1-1",
+                    "D-013/drawing/n/25.0@1-1"
+                  ],
+                  "repairable": false
+                },
+                {
+                  "key": "length",
+                  "decision": "accept",
+                  "reason": "The overall horizontal dimension 270,0 spans the full outline in the main view.",
+                  "fact_ids": [
+                    "D-013/drawing/n/270.0@1-1"
+                  ],
+                  "repairable": false
+                },
+                {
+                  "key": "width",
+                  "decision": "accept",
+                  "reason": "The overall vertical dimension 25,0 spans the full outline height in the main view.",
+                  "fact_ids": [
+                    "D-013/drawing/n/25.0@1-1"
+                  ],
+                  "repairable": false
+                },
+                {
+                  "key": "outer_diameter",
+                  "decision": "accept",
+                  "reason": "The outline is rectangular (D-013). An outer diameter does not apply, so unknown/null is the correct state and no essential geometry is missing.",
+                  "fact_ids": [
+                    "D-013"
+                  ],
+                  "repairable": false
+                },
+                {
+                  "key": "inner_diameter",
+                  "decision": "accept",
+                  "reason": "This is not a ring outline (D-013). An inner diameter does not apply, so unknown/null is correct.",
+                  "fact_ids": [
+                    "D-013"
+                  ],
+                  "repairable": false
+                },
+                {
+                  "key": "thickness",
+                  "decision": "accept",
+                  "reason": "The side view prints 6,0 and 3,0 stacked on the same thickness dimension line, which indicates documented alternatives. Options [3.0,6.0] are sorted ascending and neither one is chosen as primary.",
+                  "fact_ids": [
+                    "D-013/drawing/n/3.0@1-1",
+                    "D-013/drawing/n/6.0@1-1"
+                  ],
+                  "repairable": false
+                },
+                {
+                  "key": "features",
+                  "decision": "accept",
+                  "reason": "M3 holes: callout p1-2 prints 8 x Ø2,5 THRU ALL M3-6H. The main view shows one row of 8 holes on the 7,5 line below the horizontal centerline (n/7.5). The 17,9 offset from the vertical centerline and the 35,7 pitch are dimensioned on the right half, and the left half clearly mirrors them with 4 holes per side. The cited arithmetic is correct: ±17.9, ±(17.9+35.7)=±53.6, ±(17.9+2*35.7)=±89.3 and ±(17.9+3*35.7)=±125.0. M5 holes: callout p1-1 prints 2 x Ø4,2 THRU ALL M5-6H. The left hole is dimensioned 82,0 from the centerline (n/82.0@1-1) and 4,5 above it (n/4.5). The right hole visibly mirrors it on the same row, giving X=±82.0, Y=4.5. Slots: callout p1-3 prints 4 x 5,5 X 10,0 THRU ALL. The slots are vertical. 41,0 (n/41.0) is dimensioned from the vertical centerline and 82,0 (n/82.0@1-2) is the pitch to the outer slot, mirrored on the left, giving X=±41.0 and ±123.0. The 2,3 dimension (n/2.3) runs from the horizontal centerline to the slot's lower end-arc center. Reading it as the slot center would put the slot bottom below the centerline, which the view and the iso do not show; in the view the slot centers line up with the 4,5 M5 row. So Y=2.3+(10.0-5.5)/2=4.55 is consistent. Every diameter is the printed drill size; none is inferred from the thread. All holes and slots are through, so face=top is valid. The ordering is holes before slots, then x ascending, and it is correct.",
+                  "fact_ids": [
+                    "D-013",
+                    "D-013/drawing/callout/p1-1",
+                    "D-013/drawing/callout/p1-2",
+                    "D-013/drawing/callout/p1-3",
+                    "D-013/drawing/n/17.9@1-1",
+                    "D-013/drawing/n/35.7@1-1",
+                    "D-013/drawing/n/7.5@1-1",
+                    "D-013/drawing/n/82.0@1-1",
+                    "D-013/drawing/n/4.5@1-1",
+                    "D-013/drawing/n/4.2@1-1",
+                    "D-013/drawing/n/2.5@1-1",
+                    "D-013/drawing/n/41.0@1-1",
+                    "D-013/drawing/n/82.0@1-2",
+                    "D-013/drawing/n/2.3@1-1",
+                    "D-013/drawing/n/10.0@1-1",
+                    "D-013/drawing/n/5.5@1-1"
+                  ],
+                  "repairable": false
+                },
+                {
+                  "key": "features_complete",
+                  "decision": "accept",
+                  "reason": "The main and side views in D-013 show clipped corner chamfers with no dimensions. The DEBURR AND BREAK SHARP EDGES note (general/edge_finish) gives no size. Neither detail can be modeled, so features_complete=false is correct.",
+                  "fact_ids": [
+                    "D-013",
+                    "D-013/drawing/general/edge_finish"
+                  ],
+                  "repairable": false
+                },
+                {
+                  "key": "features_omitted",
+                  "decision": "accept",
+                  "reason": "Both omissions are real and correctly cited. The four corner chamfers are visible in the D-013 main view with no printed setbacks or angles. The edge-break note (general/edge_finish) gives no size. No hole or slot in the drawing inventory is missing from the features subset.",
+                  "fact_ids": [
+                    "D-013",
+                    "D-013/drawing/general/edge_finish"
+                  ],
+                  "repairable": false
+                }
+              ]
+            },
+            "valid": true,
+            "returncode": 0,
+            "metadata": {
+              "usage": {
+                "input_tokens": 4,
+                "cache_creation_input_tokens": 21087,
+                "cache_read_input_tokens": 22686,
+                "output_tokens": 5781,
+                "output_tokens_details": {
+                  "thinking_tokens": 3654
+                },
+                "server_tool_use": {
+                  "web_search_requests": 0,
+                  "web_fetch_requests": 0
+                },
+                "service_tier": "standard",
+                "cache_creation": {
+                  "ephemeral_1h_input_tokens": 21087,
+                  "ephemeral_5m_input_tokens": 0
+                },
+                "inference_geo": "global",
+                "iterations": [],
+                "speed": "standard",
+                "fallback_credit": null
+              },
+              "modelUsage": {
+                "claude-opus-5-5": {
+                  "inputTokens": 4,
+                  "outputTokens": 5781,
+                  "cacheReadInputTokens": 22686,
+                  "cacheCreationInputTokens": 21087,
+                  "webSearchRequests": 0,
+                  "costUSD": 0.2888692,
+                  "contextWindow": 1000000,
+                  "maxOutputTokens": 128000,
+                  "thinkingTokens": 3654,
+                  "cacheCreationEphemeral5mInputTokens": 0,
+                  "cacheCreationEphemeral1hInputTokens": 21087,
+                  "canonicalModel": "claude-opus-5-5",
+                  "provider": "firstParty",
+                  "costBasis": "list"
+                }
+              },
+              "total_cost_usd": 0.2888692,
+              "duration_ms": 58281,
+              "is_error": false
+            },
+            "latency_ms": 59437,
+            "cache_key": "c79e07f6217f4762751e6aab26429a0d4e8af28fbba5eaa78a724cd44851d960",
+            "cache_hit": false,
+            "job": "template:D-013:proposal-verification-v1:verification:0",
+            "error": null,
+            "protocol": "proposal-verification-v1",
+            "role": "verifier",
+            "round": 0,
+            "proposal_fingerprint": "c6fabe6778616a1355c32432518786438a3f020b2a2a3b6d644757dc335d531d",
+            "validation": {
+              "outline_type": true,
+              "length": true,
+              "width": true,
+              "outer_diameter": true,
+              "inner_diameter": true,
+              "thickness": true,
+              "features": true,
+              "features_complete": true,
+              "features_omitted": true
+            }
+          }
+        }
+      ],
+      "feedback_rounds": [],
+      "answers": {
+        "codex": {
+          "outline_type": {
+            "key": "outline_type",
+            "state": "known",
+            "confidence": "sure",
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/n/270.0@1-1",
+              "D-013/drawing/n/25.0@1-1"
+            ],
+            "reason": "The main view establishes a rectangular 270,0 × 25,0 envelope. Undimensioned corner chamfers are recorded separately as omitted.",
+            "changed_because": "",
+            "value": "rectangle"
+          },
+          "length": {
+            "key": "length",
+            "state": "known",
+            "confidence": "sure",
+            "fact_ids": [
+              "D-013/drawing/n/270.0@1-1"
+            ],
+            "reason": "The overall horizontal dimension is 270,0 mm.",
+            "changed_because": "",
+            "value": 270.0
+          },
+          "width": {
+            "key": "width",
+            "state": "known",
+            "confidence": "sure",
+            "fact_ids": [
+              "D-013/drawing/n/25.0@1-1"
+            ],
+            "reason": "The overall vertical dimension is 25,0 mm.",
+            "changed_because": "",
+            "value": 25.0
+          },
+          "outer_diameter": {
+            "key": "outer_diameter",
+            "state": "unknown",
+            "confidence": "unsure",
+            "fact_ids": [
+              "D-013"
+            ],
+            "reason": "An outer diameter is not applicable to the rectangular outline.",
+            "changed_because": "",
+            "value": null
+          },
+          "inner_diameter": {
+            "key": "inner_diameter",
+            "state": "unknown",
+            "confidence": "unsure",
+            "fact_ids": [
+              "D-013"
+            ],
+            "reason": "The part has no ring outline or applicable inner diameter.",
+            "changed_because": "",
+            "value": null
+          },
+          "thickness": {
+            "key": "thickness",
+            "state": "options",
+            "confidence": "sure",
+            "fact_ids": [
+              "D-013/drawing/n/3.0@1-1",
+              "D-013/drawing/n/6.0@1-1"
+            ],
+            "reason": "The side-view thickness dimension stacks 6,0 and 3,0 as alternatives. Both are retained in ascending order, in millimetres.",
+            "changed_because": "",
+            "value": [
+              3.0,
+              6.0
+            ]
+          },
+          "features": {
+            "key": "features",
+            "state": "known",
+            "confidence": "sure",
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/callout/p1-1",
+              "D-013/drawing/callout/p1-2",
+              "D-013/drawing/callout/p1-3",
+              "D-013/drawing/n/17.9@1-1",
+              "D-013/drawing/n/35.7@1-1",
+              "D-013/drawing/n/7.5@1-1",
+              "D-013/drawing/n/82.0@1-1",
+              "D-013/drawing/n/4.5@1-1",
+              "D-013/drawing/n/41.0@1-1",
+              "D-013/drawing/n/82.0@1-2",
+              "D-013/drawing/n/2.3@1-1",
+              "D-013/drawing/n/10.0@1-1",
+              "D-013/drawing/n/5.5@1-1"
+            ],
+            "reason": "The supported subset comprises eight Ø 2,5 M3 - 6H through holes, two Ø 4,2 M5 - 6H through holes and four vertical 5,5 X 10,0 through slots. Mirrored placements use the printed counts, offsets and pitches. Slot centers derive from the dimensioned lower end-arc center. These are drawing-layout interpretations, not human approvals.",
+            "changed_because": "",
+            "value": [
+              {
+                "kind": "hole",
+                "face": "top",
+                "x": {
+                  "state": "known",
+                  "value": -125.0,
+                  "fact_ids": [
+                    "D-013/drawing/n/17.9@1-1",
+                    "D-013/drawing/n/35.7@1-1"
+                  ],
+                  "expression": "0-n0-n1*(2+1)"
+                },
+                "y": {
+                  "state": "known",
+                  "value": -7.5,
+                  "fact_ids": [
+                    "D-013/drawing/n/7.5@1-1"
+                  ],
+                  "expression": "0-n0"
+                },
+                "diameter": {
+                  "state": "known",
+                  "value": 2.5,
+                  "fact_ids": [
+                    "D-013/drawing/n/2.5@1-1"
+                  ]
+                },
+                "through": true,
+                "hole_type": "threaded",
+                "thread": "M3 - 6H",
+                "placement_basis": "drawing_pattern_interpretation",
+                "placement_reason": "The printed 8 x count, 17,9 offset to the first center right of X=0, 35,7 pitch and clearly mirrored row establish 8/2 centers per side. This is the fourth center left; the row is 7,5 below Y=0.",
+                "fact_ids": [
+                  "D-013",
+                  "D-013/drawing/callout/p1-2",
+                  "D-013/drawing/n/17.9@1-1",
+                  "D-013/drawing/n/35.7@1-1"
+                ]
+              },
+              {
+                "kind": "hole",
+                "face": "top",
+                "x": {
+                  "state": "known",
+                  "value": -89.3,
+                  "fact_ids": [
+                    "D-013/drawing/n/17.9@1-1",
+                    "D-013/drawing/n/35.7@1-1"
+                  ],
+                  "expression": "0-n0-2*n1"
+                },
+                "y": {
+                  "state": "known",
+                  "value": -7.5,
+                  "fact_ids": [
+                    "D-013/drawing/n/7.5@1-1"
+                  ],
+                  "expression": "0-n0"
+                },
+                "diameter": {
+                  "state": "known",
+                  "value": 2.5,
+                  "fact_ids": [
+                    "D-013/drawing/n/2.5@1-1"
+                  ]
+                },
+                "through": true,
+                "hole_type": "threaded",
+                "thread": "M3 - 6H",
+                "placement_basis": "drawing_pattern_interpretation",
+                "placement_reason": "The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the third center left; the row is 7,5 below Y=0.",
+                "fact_ids": [
+                  "D-013",
+                  "D-013/drawing/callout/p1-2",
+                  "D-013/drawing/n/17.9@1-1",
+                  "D-013/drawing/n/35.7@1-1"
+                ]
+              },
+              {
+                "kind": "hole",
+                "face": "top",
+                "x": {
+                  "state": "known",
+                  "value": -82.0,
+                  "fact_ids": [
+                    "D-013/drawing/n/82.0@1-1"
+                  ],
+                  "expression": "0-n0"
+                },
+                "y": {
+                  "state": "known",
+                  "value": 4.5,
+                  "fact_ids": [
+                    "D-013/drawing/n/4.5@1-1"
+                  ]
+                },
+                "diameter": {
+                  "state": "known",
+                  "value": 4.2,
+                  "fact_ids": [
+                    "D-013/drawing/n/4.2@1-1"
+                  ]
+                },
+                "through": true,
+                "hole_type": "threaded",
+                "thread": "M5 - 6H",
+                "placement_basis": "dimensioned",
+                "fact_ids": [
+                  "D-013",
+                  "D-013/drawing/callout/p1-1",
+                  "D-013/drawing/n/82.0@1-1",
+                  "D-013/drawing/n/4.5@1-1"
+                ]
+              },
+              {
+                "kind": "hole",
+                "face": "top",
+                "x": {
+                  "state": "known",
+                  "value": -53.6,
+                  "fact_ids": [
+                    "D-013/drawing/n/17.9@1-1",
+                    "D-013/drawing/n/35.7@1-1"
+                  ],
+                  "expression": "0-n0-n1"
+                },
+                "y": {
+                  "state": "known",
+                  "value": -7.5,
+                  "fact_ids": [
+                    "D-013/drawing/n/7.5@1-1"
+                  ],
+                  "expression": "0-n0"
+                },
+                "diameter": {
+                  "state": "known",
+                  "value": 2.5,
+                  "fact_ids": [
+                    "D-013/drawing/n/2.5@1-1"
+                  ]
+                },
+                "through": true,
+                "hole_type": "threaded",
+                "thread": "M3 - 6H",
+                "placement_basis": "drawing_pattern_interpretation",
+                "placement_reason": "The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the second center left; the row is 7,5 below Y=0.",
+                "fact_ids": [
+                  "D-013",
+                  "D-013/drawing/callout/p1-2",
+                  "D-013/drawing/n/17.9@1-1",
+                  "D-013/drawing/n/35.7@1-1"
+                ]
+              },
+              {
+                "kind": "hole",
+                "face": "top",
+                "x": {
+                  "state": "known",
+                  "value": -17.9,
+                  "fact_ids": [
+                    "D-013/drawing/n/17.9@1-1"
+                  ],
+                  "expression": "0-n0"
+                },
+                "y": {
+                  "state": "known",
+                  "value": -7.5,
+                  "fact_ids": [
+                    "D-013/drawing/n/7.5@1-1"
+                  ],
+                  "expression": "0-n0"
+                },
+                "diameter": {
+                  "state": "known",
+                  "value": 2.5,
+                  "fact_ids": [
+                    "D-013/drawing/n/2.5@1-1"
+                  ]
+                },
+                "through": true,
+                "hole_type": "threaded",
+                "thread": "M3 - 6H",
+                "placement_basis": "drawing_pattern_interpretation",
+                "placement_reason": "The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the first center left; the row is 7,5 below Y=0.",
+                "fact_ids": [
+                  "D-013",
+                  "D-013/drawing/callout/p1-2",
+                  "D-013/drawing/n/17.9@1-1",
+                  "D-013/drawing/n/35.7@1-1"
+                ]
+              },
+              {
+                "kind": "hole",
+                "face": "top",
+                "x": {
+                  "state": "known",
+                  "value": 17.9,
+                  "fact_ids": [
+                    "D-013/drawing/n/17.9@1-1"
+                  ]
+                },
+                "y": {
+                  "state": "known",
+                  "value": -7.5,
+                  "fact_ids": [
+                    "D-013/drawing/n/7.5@1-1"
+                  ],
+                  "expression": "0-n0"
+                },
+                "diameter": {
+                  "state": "known",
+                  "value": 2.5,
+                  "fact_ids": [
+                    "D-013/drawing/n/2.5@1-1"
+                  ]
+                },
+                "through": true,
+                "hole_type": "threaded",
+                "thread": "M3 - 6H",
+                "placement_basis": "dimensioned",
+                "fact_ids": [
+                  "D-013",
+                  "D-013/drawing/callout/p1-2",
+                  "D-013/drawing/n/17.9@1-1",
+                  "D-013/drawing/n/7.5@1-1"
+                ]
+              },
+              {
+                "kind": "hole",
+                "face": "top",
+                "x": {
+                  "state": "known",
+                  "value": 53.6,
+                  "fact_ids": [
+                    "D-013/drawing/n/17.9@1-1",
+                    "D-013/drawing/n/35.7@1-1"
+                  ],
+                  "expression": "n0+n1"
+                },
+                "y": {
+                  "state": "known",
+                  "value": -7.5,
+                  "fact_ids": [
+                    "D-013/drawing/n/7.5@1-1"
+                  ],
+                  "expression": "0-n0"
+                },
+                "diameter": {
+                  "state": "known",
+                  "value": 2.5,
+                  "fact_ids": [
+                    "D-013/drawing/n/2.5@1-1"
+                  ]
+                },
+                "through": true,
+                "hole_type": "threaded",
+                "thread": "M3 - 6H",
+                "placement_basis": "dimensioned",
+                "fact_ids": [
+                  "D-013",
+                  "D-013/drawing/callout/p1-2",
+                  "D-013/drawing/n/17.9@1-1",
+                  "D-013/drawing/n/35.7@1-1",
+                  "D-013/drawing/n/7.5@1-1"
+                ]
+              },
+              {
+                "kind": "hole",
+                "face": "top",
+                "x": {
+                  "state": "known",
+                  "value": 82.0,
+                  "fact_ids": [
+                    "D-013/drawing/n/82.0@1-1"
+                  ]
+                },
+                "y": {
+                  "state": "known",
+                  "value": 4.5,
+                  "fact_ids": [
+                    "D-013/drawing/n/4.5@1-1"
+                  ]
+                },
+                "diameter": {
+                  "state": "known",
+                  "value": 4.2,
+                  "fact_ids": [
+                    "D-013/drawing/n/4.2@1-1"
+                  ]
+                },
+                "through": true,
+                "hole_type": "threaded",
+                "thread": "M5 - 6H",
+                "placement_basis": "drawing_pattern_interpretation",
+                "placement_reason": "The printed 2 x M5 count and 82,0 offset from the vertical centerline, with the visibly mirrored pair, establish the right center at X=82,0. Both centers share the dimensioned Y=4,5 row.",
+                "fact_ids": [
+                  "D-013",
+                  "D-013/drawing/callout/p1-1",
+                  "D-013/drawing/n/82.0@1-1",
+                  "D-013/drawing/n/4.5@1-1"
+                ]
+              },
+              {
+                "kind": "hole",
+                "face": "top",
+                "x": {
+                  "state": "known",
+                  "value": 89.3,
+                  "fact_ids": [
+                    "D-013/drawing/n/17.9@1-1",
+                    "D-013/drawing/n/35.7@1-1"
+                  ],
+                  "expression": "n0+2*n1"
+                },
+                "y": {
+                  "state": "known",
+                  "value": -7.5,
+                  "fact_ids": [
+                    "D-013/drawing/n/7.5@1-1"
+                  ],
+                  "expression": "0-n0"
+                },
+                "diameter": {
+                  "state": "known",
+                  "value": 2.5,
+                  "fact_ids": [
+                    "D-013/drawing/n/2.5@1-1"
+                  ]
+                },
+                "through": true,
+                "hole_type": "threaded",
+                "thread": "M3 - 6H",
+                "placement_basis": "drawing_pattern_interpretation",
+                "placement_reason": "The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the third center right; the row is 7,5 below Y=0.",
+                "fact_ids": [
+                  "D-013",
+                  "D-013/drawing/callout/p1-2",
+                  "D-013/drawing/n/17.9@1-1",
+                  "D-013/drawing/n/35.7@1-1"
+                ]
+              },
+              {
+                "kind": "hole",
+                "face": "top",
+                "x": {
+                  "state": "known",
+                  "value": 125.0,
+                  "fact_ids": [
+                    "D-013/drawing/n/17.9@1-1",
+                    "D-013/drawing/n/35.7@1-1"
+                  ],
+                  "expression": "n0+n1*(2+1)"
+                },
+                "y": {
+                  "state": "known",
+                  "value": -7.5,
+                  "fact_ids": [
+                    "D-013/drawing/n/7.5@1-1"
+                  ],
+                  "expression": "0-n0"
+                },
+                "diameter": {
+                  "state": "known",
+                  "value": 2.5,
+                  "fact_ids": [
+                    "D-013/drawing/n/2.5@1-1"
+                  ]
+                },
+                "through": true,
+                "hole_type": "threaded",
+                "thread": "M3 - 6H",
+                "placement_basis": "drawing_pattern_interpretation",
+                "placement_reason": "The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the fourth center right; the row is 7,5 below Y=0.",
+                "fact_ids": [
+                  "D-013",
+                  "D-013/drawing/callout/p1-2",
+                  "D-013/drawing/n/17.9@1-1",
+                  "D-013/drawing/n/35.7@1-1"
+                ]
+              },
+              {
+                "kind": "slot",
+                "face": "top",
+                "x": {
+                  "state": "known",
+                  "value": -123.0,
+                  "fact_ids": [
+                    "D-013/drawing/n/41.0@1-1",
+                    "D-013/drawing/n/82.0@1-2"
+                  ],
+                  "expression": "0-n0-n1"
+                },
+                "y": {
+                  "state": "known",
+                  "value": 4.55,
+                  "fact_ids": [
+                    "D-013/drawing/n/2.3@1-1",
+                    "D-013/drawing/n/10.0@1-1",
+                    "D-013/drawing/n/5.5@1-1"
+                  ],
+                  "expression": "n0+(n1-n2)/2"
+                },
+                "width": {
+                  "state": "known",
+                  "value": 5.5,
+                  "fact_ids": [
+                    "D-013/drawing/n/5.5@1-1"
+                  ]
+                },
+                "length": {
+                  "state": "known",
+                  "value": 10.0,
+                  "fact_ids": [
+                    "D-013/drawing/n/10.0@1-1"
+                  ]
+                },
+                "through": true,
+                "hole_type": "plain",
+                "placement_basis": "drawing_pattern_interpretation",
+                "placement_reason": "The printed 4 x slot count, 41,0 centerline offset and 82,0 pitch establish the mirrored four-slot row. This is the outer left slot. Long axes follow Y. The lower end-arc center is 2,3 above Y=0, so the slot center is 2,3+(10,0-5,5)/2.",
+                "fact_ids": [
+                  "D-013",
+                  "D-013/drawing/callout/p1-3",
+                  "D-013/drawing/n/41.0@1-1",
+                  "D-013/drawing/n/82.0@1-2",
+                  "D-013/drawing/n/2.3@1-1"
+                ]
+              },
+              {
+                "kind": "slot",
+                "face": "top",
+                "x": {
+                  "state": "known",
+                  "value": -41.0,
+                  "fact_ids": [
+                    "D-013/drawing/n/41.0@1-1"
+                  ],
+                  "expression": "0-n0"
+                },
+                "y": {
+                  "state": "known",
+                  "value": 4.55,
+                  "fact_ids": [
+                    "D-013/drawing/n/2.3@1-1",
+                    "D-013/drawing/n/10.0@1-1",
+                    "D-013/drawing/n/5.5@1-1"
+                  ],
+                  "expression": "n0+(n1-n2)/2"
+                },
+                "width": {
+                  "state": "known",
+                  "value": 5.5,
+                  "fact_ids": [
+                    "D-013/drawing/n/5.5@1-1"
+                  ]
+                },
+                "length": {
+                  "state": "known",
+                  "value": 10.0,
+                  "fact_ids": [
+                    "D-013/drawing/n/10.0@1-1"
+                  ]
+                },
+                "through": true,
+                "hole_type": "plain",
+                "placement_basis": "drawing_pattern_interpretation",
+                "placement_reason": "The printed 4 x slot count, 41,0 centerline offset and 82,0 pitch establish the mirrored four-slot row. This is the inner left slot. Long axes follow Y. The lower end-arc center is 2,3 above Y=0, so the slot center is 2,3+(10,0-5,5)/2.",
+                "fact_ids": [
+                  "D-013",
+                  "D-013/drawing/callout/p1-3",
+                  "D-013/drawing/n/41.0@1-1",
+                  "D-013/drawing/n/82.0@1-2",
+                  "D-013/drawing/n/2.3@1-1"
+                ]
+              },
+              {
+                "kind": "slot",
+                "face": "top",
+                "x": {
+                  "state": "known",
+                  "value": 41.0,
+                  "fact_ids": [
+                    "D-013/drawing/n/41.0@1-1"
+                  ]
+                },
+                "y": {
+                  "state": "known",
+                  "value": 4.55,
+                  "fact_ids": [
+                    "D-013/drawing/n/2.3@1-1",
+                    "D-013/drawing/n/10.0@1-1",
+                    "D-013/drawing/n/5.5@1-1"
+                  ],
+                  "expression": "n0+(n1-n2)/2"
+                },
+                "width": {
+                  "state": "known",
+                  "value": 5.5,
+                  "fact_ids": [
+                    "D-013/drawing/n/5.5@1-1"
+                  ]
+                },
+                "length": {
+                  "state": "known",
+                  "value": 10.0,
+                  "fact_ids": [
+                    "D-013/drawing/n/10.0@1-1"
+                  ]
+                },
+                "through": true,
+                "hole_type": "plain",
+                "placement_basis": "drawing_pattern_interpretation",
+                "placement_reason": "The printed 4 x slot count, 41,0 centerline offset and 82,0 pitch establish the mirrored four-slot row. This is the inner right slot. Long axes follow Y. The lower end-arc center is 2,3 above Y=0, so the slot center is 2,3+(10,0-5,5)/2.",
+                "fact_ids": [
+                  "D-013",
+                  "D-013/drawing/callout/p1-3",
+                  "D-013/drawing/n/41.0@1-1",
+                  "D-013/drawing/n/82.0@1-2",
+                  "D-013/drawing/n/2.3@1-1"
+                ]
+              },
+              {
+                "kind": "slot",
+                "face": "top",
+                "x": {
+                  "state": "known",
+                  "value": 123.0,
+                  "fact_ids": [
+                    "D-013/drawing/n/41.0@1-1",
+                    "D-013/drawing/n/82.0@1-2"
+                  ],
+                  "expression": "n0+n1"
+                },
+                "y": {
+                  "state": "known",
+                  "value": 4.55,
+                  "fact_ids": [
+                    "D-013/drawing/n/2.3@1-1",
+                    "D-013/drawing/n/10.0@1-1",
+                    "D-013/drawing/n/5.5@1-1"
+                  ],
+                  "expression": "n0+(n1-n2)/2"
+                },
+                "width": {
+                  "state": "known",
+                  "value": 5.5,
+                  "fact_ids": [
+                    "D-013/drawing/n/5.5@1-1"
+                  ]
+                },
+                "length": {
+                  "state": "known",
+                  "value": 10.0,
+                  "fact_ids": [
+                    "D-013/drawing/n/10.0@1-1"
+                  ]
+                },
+                "through": true,
+                "hole_type": "plain",
+                "placement_basis": "drawing_pattern_interpretation",
+                "placement_reason": "The printed 4 x slot count, 41,0 centerline offset and 82,0 pitch establish the mirrored four-slot row. This is the outer right slot. Long axes follow Y. The lower end-arc center is 2,3 above Y=0, so the slot center is 2,3+(10,0-5,5)/2.",
+                "fact_ids": [
+                  "D-013",
+                  "D-013/drawing/callout/p1-3",
+                  "D-013/drawing/n/41.0@1-1",
+                  "D-013/drawing/n/82.0@1-2",
+                  "D-013/drawing/n/2.3@1-1"
+                ]
+              }
+            ]
+          },
+          "features_complete": {
+            "key": "features_complete",
+            "state": "known",
+            "confidence": "sure",
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/general/edge_finish"
+            ],
+            "reason": "Visible corner chamfers and the unspecified edge-break treatment cannot be included as fully dimensioned cuts.",
+            "changed_because": "",
+            "value": false
+          },
+          "features_omitted": {
+            "key": "features_omitted",
+            "state": "known",
+            "confidence": "sure",
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/general/edge_finish"
+            ],
+            "reason": "The drawing supports the presence of these details but does not determine their cut geometry.",
+            "changed_because": "",
+            "value": [
+              {
+                "description": "Four visible outline corner chamfers",
+                "reason": "The main view shows clipped corners, but no numerical chamfer setbacks or angles establish their geometry. They are outside the supported hole/slot subset; the rectangular outline retains the overall envelope.",
+                "fact_ids": [
+                  "D-013"
+                ]
+              },
+              {
+                "description": "DEBURR AND BREAK SHARP EDGES",
+                "reason": "The note supplies no numerical edge-break size or profile from which to construct a cut.",
+                "fact_ids": [
+                  "D-013/drawing/general/edge_finish"
+                ]
+              }
+            ]
+          }
+        },
+        "claude": {
+          "outline_type": {
+            "key": "outline_type",
+            "decision": "accept",
+            "reason": "The main view in D-013 shows a rectangular plate bounded by the overall 270,0 (D-013/drawing/n/270.0@1-1) and 25,0 (D-013/drawing/n/25.0@1-1) dimensions. The corner chamfers have no dimensions, and features_omitted records them correctly.",
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/n/270.0@1-1",
+              "D-013/drawing/n/25.0@1-1"
+            ],
+            "repairable": false
+          },
+          "length": {
+            "key": "length",
+            "decision": "accept",
+            "reason": "The overall horizontal dimension 270,0 spans the full outline in the main view.",
+            "fact_ids": [
+              "D-013/drawing/n/270.0@1-1"
+            ],
+            "repairable": false
+          },
+          "width": {
+            "key": "width",
+            "decision": "accept",
+            "reason": "The overall vertical dimension 25,0 spans the full outline height in the main view.",
+            "fact_ids": [
+              "D-013/drawing/n/25.0@1-1"
+            ],
+            "repairable": false
+          },
+          "outer_diameter": {
+            "key": "outer_diameter",
+            "decision": "accept",
+            "reason": "The outline is rectangular (D-013). An outer diameter does not apply, so unknown/null is the correct state and no essential geometry is missing.",
+            "fact_ids": [
+              "D-013"
+            ],
+            "repairable": false
+          },
+          "inner_diameter": {
+            "key": "inner_diameter",
+            "decision": "accept",
+            "reason": "This is not a ring outline (D-013). An inner diameter does not apply, so unknown/null is correct.",
+            "fact_ids": [
+              "D-013"
+            ],
+            "repairable": false
+          },
+          "thickness": {
+            "key": "thickness",
+            "decision": "accept",
+            "reason": "The side view prints 6,0 and 3,0 stacked on the same thickness dimension line, which indicates documented alternatives. Options [3.0,6.0] are sorted ascending and neither one is chosen as primary.",
+            "fact_ids": [
+              "D-013/drawing/n/3.0@1-1",
+              "D-013/drawing/n/6.0@1-1"
+            ],
+            "repairable": false
+          },
+          "features": {
+            "key": "features",
+            "decision": "accept",
+            "reason": "M3 holes: callout p1-2 prints 8 x Ø2,5 THRU ALL M3-6H. The main view shows one row of 8 holes on the 7,5 line below the horizontal centerline (n/7.5). The 17,9 offset from the vertical centerline and the 35,7 pitch are dimensioned on the right half, and the left half clearly mirrors them with 4 holes per side. The cited arithmetic is correct: ±17.9, ±(17.9+35.7)=±53.6, ±(17.9+2*35.7)=±89.3 and ±(17.9+3*35.7)=±125.0. M5 holes: callout p1-1 prints 2 x Ø4,2 THRU ALL M5-6H. The left hole is dimensioned 82,0 from the centerline (n/82.0@1-1) and 4,5 above it (n/4.5). The right hole visibly mirrors it on the same row, giving X=±82.0, Y=4.5. Slots: callout p1-3 prints 4 x 5,5 X 10,0 THRU ALL. The slots are vertical. 41,0 (n/41.0) is dimensioned from the vertical centerline and 82,0 (n/82.0@1-2) is the pitch to the outer slot, mirrored on the left, giving X=±41.0 and ±123.0. The 2,3 dimension (n/2.3) runs from the horizontal centerline to the slot's lower end-arc center. Reading it as the slot center would put the slot bottom below the centerline, which the view and the iso do not show; in the view the slot centers line up with the 4,5 M5 row. So Y=2.3+(10.0-5.5)/2=4.55 is consistent. Every diameter is the printed drill size; none is inferred from the thread. All holes and slots are through, so face=top is valid. The ordering is holes before slots, then x ascending, and it is correct.",
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/callout/p1-1",
+              "D-013/drawing/callout/p1-2",
+              "D-013/drawing/callout/p1-3",
+              "D-013/drawing/n/17.9@1-1",
+              "D-013/drawing/n/35.7@1-1",
+              "D-013/drawing/n/7.5@1-1",
+              "D-013/drawing/n/82.0@1-1",
+              "D-013/drawing/n/4.5@1-1",
+              "D-013/drawing/n/4.2@1-1",
+              "D-013/drawing/n/2.5@1-1",
+              "D-013/drawing/n/41.0@1-1",
+              "D-013/drawing/n/82.0@1-2",
+              "D-013/drawing/n/2.3@1-1",
+              "D-013/drawing/n/10.0@1-1",
+              "D-013/drawing/n/5.5@1-1"
+            ],
+            "repairable": false
+          },
+          "features_complete": {
+            "key": "features_complete",
+            "decision": "accept",
+            "reason": "The main and side views in D-013 show clipped corner chamfers with no dimensions. The DEBURR AND BREAK SHARP EDGES note (general/edge_finish) gives no size. Neither detail can be modeled, so features_complete=false is correct.",
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/general/edge_finish"
+            ],
+            "repairable": false
+          },
+          "features_omitted": {
+            "key": "features_omitted",
+            "decision": "accept",
+            "reason": "Both omissions are real and correctly cited. The four corner chamfers are visible in the D-013 main view with no printed setbacks or angles. The edge-break note (general/edge_finish) gives no size. No hole or slot in the drawing inventory is missing from the features subset.",
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/general/edge_finish"
+            ],
+            "repairable": false
+          }
+        }
+      },
+      "states": {
+        "outline_type": "verified",
+        "length": "verified",
+        "width": "verified",
+        "outer_diameter": "needs_input",
+        "inner_diameter": "needs_input",
+        "thickness": "verified",
+        "features": "verified",
+        "features_complete": "verified",
+        "features_omitted": "verified"
+      }
+    },
+    {
+      "protocol": "proposal-verification-v1",
+      "job": {
+        "id": "template:D-025",
+        "kind": "template",
+        "drawing": "D-025",
+        "feature_protocol": "supported-feature-subset-v1",
+        "keys": [
+          "outline_type",
+          "length",
+          "width",
+          "outer_diameter",
+          "inner_diameter",
+          "thickness",
+          "features",
+          "features_complete",
+          "features_omitted"
+        ],
+        "images": [
+          "C:\\Users\\Jason\\Documents\\Jason\\Take-Homes-Codex\\active\\Avathon\\generated\\images\\D-025-p1.png"
+        ],
+        "sources": [
+          "D-025",
+          "D-025/drawing/callout/p1-1",
+          "D-025/drawing/callout/p1-2",
+          "D-025/drawing/callout/p1-3",
+          "D-025/drawing/company",
+          "D-025/drawing/date",
+          "D-025/drawing/drawn",
+          "D-025/drawing/general/edge_finish",
+          "D-025/drawing/general/general_tolerance",
+          "D-025/drawing/general/units",
+          "D-025/drawing/material",
+          "D-025/drawing/n/0.0@1-1",
+          "D-025/drawing/n/0.3@1-1",
+          "D-025/drawing/n/115.5@1-1",
+          "D-025/drawing/n/2.0@1-1",
+          "D-025/drawing/n/224.0@1-1",
+          "D-025/drawing/n/250.0@1-1",
+          "D-025/drawing/n/3.0@1-1",
+          "D-025/drawing/n/3.4@1-1",
+          "D-025/drawing/n/6.9@1-1",
+          "D-025/drawing/n/8.0@1-1",
+          "D-025/drawing/n/90.0@1-1",
+          "D-025/drawing/notes",
+          "D-025/drawing/scale",
+          "D-025/drawing/source",
+          "D-025/drawing/title",
+          "D-025/drawing/weight_g"
+        ],
+        "numbers": {
+          "D-025/drawing/n/8.0@1-1": 8.0,
+          "D-025/drawing/n/3.4@1-1": 3.4,
+          "D-025/drawing/n/6.9@1-1": 6.9,
+          "D-025/drawing/n/90.0@1-1": 90.0,
+          "D-025/drawing/n/250.0@1-1": 250.0,
+          "D-025/drawing/n/224.0@1-1": 224.0,
+          "D-025/drawing/n/0.3@1-1": 0.3,
+          "D-025/drawing/n/0.0@1-1": 0.0,
+          "D-025/drawing/n/115.5@1-1": 115.5,
+          "D-025/drawing/n/3.0@1-1": 3.0,
+          "D-025/drawing/n/2.0@1-1": 2.0
+        },
+        "prompt": "You are a read-only engineering evidence proposer. Do not edit files,\nrun commands, use other agents, browse the web, or inspect any evidence beyond the supplied inputs.\nReturn the requested JSON schema. Every requested key must appear exactly once. value_json is a\nJSON-encoded value (e.g. a string as \"\\\"text\\\"\", a number as \"5\", an array as \"[3,6]\",\nunknown as \"null\"). State known means one determined value; options means genuinely documented\nalternatives; unknown means the evidence does not determine it. confidence is only sure or unsure.\nUse sure only for a reading supported by the supplied evidence. Copy original spelling and units.\nNever invent evidence IDs. fact_ids must be exact supplied source IDs supporting that item.\nReasons must explain the evidence; changed_because is empty on the first proposal.\n\nFill a flat-part template from this drawing, in millimetres.\nRead the attached full drawing. The main material field and weight are supplied separately.\nRequested keys: outline_type (rectangle/circle/ring), length (X), width (Y), outer_diameter,\ninner_diameter, thickness, features, features_complete, features_omitted.\nFeature protocol: supported-feature-subset-v1. Only relevant dimensions are known; irrelevant ones are unknown.\nStacked thickness values which are alternatives MUST be state options with a JSON array, sorted ascending.\nDo not select one thickness or invent which example is primary. The outline is centered on X=0,Y=0;\nextrusion Z=0..thickness. Use the main face-on outline drawing view as XY, viewed from +Z toward\nthe origin, with X right and Y up. top is Z=thickness, toward that viewer; bottom is Z=0, opposite.\nKeep every feature position in this same XY frame, including bottom features. Verify which face a\ncountersink/counterbore opens from using the side, section, isometric, datum and projection evidence;\ndo not silently force steps onto top. If the opening face genuinely cannot be established, omit that\nstep with its uncertainty; retain a separately supported primary through-hole as plain only when its\ndiameter and placement are independently established. Ignore dimension text placement when interpreting actual geometry.\nfeatures value is a JSON array of hole/slot objects. Each has kind, face='top' or 'bottom', x,y,\ndiameter (hole) or width,length (slot), through boolean, depth for blind holes,\nhole_type plain/threaded/countersunk/counterbored, optional thread string and required actual\ncountersink_diameter/angle or counterbore_diameter/depth. Never infer a drill diameter from a thread.\nUse explicit pattern only if certain: {type:row,count,spacing,direction} (angle degrees, anchor first\nposition) or {type:circle,count,radius,start_angle} (degrees, center x,y). Hole positions are center\ncoordinates in the same XY frame. Conventional drawing-pattern interpretation is allowed when a\nprinted count plus printed pitch, offset, radius or pitch-circle diameter AND clear axes/layout\nestablish a row, circle, or mirrored layout. A circle distributes its printed count using 360/count;\nrows and mirrored positions derive from the printed pitch/offset and count. This is an AI layout\ninterpretation, not a claim that every coordinate or angle is explicitly printed or human approved.\nTag each feature placement_basis='dimensioned' when directly dimensioned, otherwise\nplacement_basis='drawing_pattern_interpretation' with nonempty placement_reason explaining the exact\nprinted dimensions/count, axes/layout and derivation, plus nonempty feature fact_ids citing exact\nsource IDs. Opus must verify this EXACT layout against the original views; ambiguous layouts require\nreject/needs_input and an omission, never arbitrary symmetry or an inferred bolt-circle dimension.\nfeatures is the independently supported SUBSET of cuts, not a\nclaim that every drawing feature is determined. Return features state known with all and ONLY cuts\nwhose geometry, position, and operation are fully supported, even when other features are unresolved.\nUse known [] when no cuts can be supported; do not erase supported cuts because another is uncertain.\nNever fabricate a drill diameter, depth, position, or count to complete a cut. A feature missing any\nrequired geometry must be excluded from features and described separately in features_omitted.\nException for a documented counterbore-step/thickness-variant conflict: preserve the separately\nprinted primary through-hole and actual counterbore dimensions in one counterbored feature using\nallow_primary_hole_without_unresolved_step=true, step_conflict_reason explaining the exact\nprinted conflict, and nonempty feature fact_ids. This flag is only for a supported through-hole whose\ncounterbore (or derived countersink depth) is invalid for at least one documented thickness variant.\nThe step dimensions and opening face must still be established. Explain the unresolved step in\nfeatures_omitted and set features_complete=false. CAD must skip that step per invalid variant and\nreport the omission; never clamp its depth, invent a face, silently replace it, or discard the valid\nprimary hole. Do not use this flag for an unsupported\nprimary hole or for missing primary-hole diameter/position.\nfeatures_omitted is a known JSON array of {description:string,reason:string,fact_ids:[IDs]}.\nEach omission must cite exact supplied evidence IDs (the drawing/source ID may ground an image-only\nfeature) and explain precisely what is missing or why it cannot be modeled. Use [] only if nothing\nis omitted. features_complete is a known JSON boolean: true ONLY when the entire visible feature\ninventory is supported and features_omitted is []; false when any feature/detail is omitted. If the\ninventory cannot be established, set features_complete unknown/null and explain the uncertainty in\nfeatures_omitted. Missing features never justify guessing or claiming the full design is verified.\nAll numeric scalar fields within a feature must be {state:known,value:number,fact_ids:[IDs]}.\nA feature may carry parent fact_ids. Every numeric value must match its cited drawing number.\nFor an arithmetically derived coordinate/radius use {state:known,value:number,fact_ids:[IDs],\nexpression:'n0/2-n1'}, where n0,n1 are cited drawing numbers IN ORDER. Only +,-,*,/ and constants\n0,1,2 are allowed. Do not invent absolute positions from undimensioned views. You may use literal\n0 for a geometrically established center or literal 90/180/270/360 for cardinal pattern directions.\nDo not infer numeric dimensions from pixels, scale, standard hardware, or undimensioned symmetry.\nConventional layout interpretation changes placement only; every numeric dimension/count and every\nderived coordinate still requires the printed evidence and permitted arithmetic above.\nFeatures must use same deterministic ordering: holes before slots, then x ascending, then y ascending.\n\nEvidence:\n{\"callouts\":[{\"box\":[519.104,627.625,118.667,18.083],\"confidence\":\"sure\",\"count\":8,\"feature\":\"unclassified_callout\",\"method\":\"parsed\",\"name\":\"D-025/drawing/callout/p1-1\",\"original\":\"8 x 3,4 THRU ALL\",\"page\":1,\"text\":\"8 x 3,4 THRU ALL\",\"through\":true,\"value\":\"8 x 3,4 THRU ALL\"},{\"box\":[570.638,643.527,57.336,18.083],\"confidence\":\"sure\",\"feature\":\"unclassified_callout\",\"method\":\"parsed\",\"name\":\"D-025/drawing/callout/p1-2\",\"original\":\"6,9 X 90°\",\"page\":1,\"text\":\"6,9 X 90°\",\"value\":\"6,9 X 90°\"},{\"box\":[593.65,423.501,46.848,47.104],\"confidence\":\"sure\",\"feature\":\"radius\",\"method\":\"parsed\",\"name\":\"D-025/drawing/callout/p1-3\",\"original\":\"R115,5\",\"page\":1,\"radius_mm\":115.5,\"text\":\"R115,5\",\"value\":\"R115,5\"},{\"box\":[978.968,784.149,85.555,7.75],\"confidence\":\"sure\",\"feature\":\"general_note\",\"method\":\"parsed\",\"name\":\"D-025/drawing/general/units\",\"original\":\"DIMENSIONS ARE IN MILLIMETERS\",\"page\":1,\"text\":\"DIMENSIONS ARE IN MILLIMETERS\",\"value\":\"DIMENSIONS ARE IN MILLIMETERS\"},{\"box\":[1016.541,790.957,47.749,8.202],\"confidence\":\"sure\",\"feature\":\"general_note\",\"method\":\"parsed\",\"name\":\"D-025/drawing/general/general_tolerance\",\"original\":\"DIN ISO 2768-1 m\",\"page\":1,\"text\":\"DIN ISO 2768-1 m\",\"value\":\"DIN ISO 2768-1 m\"},{\"box\":[1078.776,781.582,52.887,14.837],\"confidence\":\"sure\",\"feature\":\"general_note\",\"method\":\"parsed\",\"name\":\"D-025/drawing/general/edge_finish\",\"original\":\"DEBURR AND BREAK SHARP EDGES\",\"page\":1,\"text\":\"DEBURR AND BREAK SHARP EDGES\",\"value\":\"DEBURR AND BREAK SHARP EDGES\"}],\"fields\":{\"company\":{\"box\":[975.328,658.942,91.0,48.0],\"confidence\":\"sure\",\"field_box\":[975.328,666.942,91.0,40.0],\"label_box\":[975.328,658.942,30.758,7.75],\"method\":\"parsed\",\"name\":\"D-025/drawing/company\",\"original\":\"DTU MPP\",\"page\":1,\"value\":\"DTU MPP\"},\"date\":{\"box\":[897.013,802.562,76.0,11.0],\"confidence\":\"sure\",\"field_box\":[914.013,802.562,59.0,11.0],\"label_box\":[897.013,803.562,13.623,7.75],\"method\":\"parsed\",\"name\":\"D-025/drawing/date\",\"original\":\"22/02/2022\",\"page\":1,\"value\":\"22/02/2022\"},\"drawn\":{\"box\":[893.294,790.235,78.0,11.0],\"confidence\":\"sure\",\"field_box\":[917.294,790.235,54.0,11.0],\"label_box\":[893.294,791.235,21.062,7.75],\"method\":\"parsed\",\"name\":\"D-025/drawing/drawn\",\"original\":\"MBOKJ\",\"page\":1,\"value\":\"MBOKJ\"},\"material\":{\"box\":[745.28,771.048,135.0,14.0],\"confidence\":\"sure\",\"field_box\":[784.28,771.048,96.0,14.0],\"label_box\":[745.28,772.048,38.539,10.936],\"method\":\"parsed\",\"name\":\"D-025/drawing/material\",\"original\":\"3.3315 (EN-AW 5005)\",\"page\":1,\"value\":\"3.3315 (EN-AW 5005)\"},\"notes\":{\"box\":[741.526,658.942,231.0,111.0],\"confidence\":\"sure\",\"field_box\":[741.526,666.942,231.0,103.0],\"label_box\":[741.526,658.942,15.72,7.75],\"method\":\"parsed\",\"name\":\"D-025/drawing/notes\",\"original\":\"Aluminium\",\"page\":1,\"value\":\"Aluminium\"},\"scale\":{\"box\":[1082.688,803.564,25.837,7.75],\"confidence\":\"sure\",\"field_box\":[1082.688,803.564,25.837,7.75],\"label_box\":[1082.688,803.564,25.837,7.75],\"method\":\"parsed\",\"name\":\"D-025/drawing/scale\",\"original\":\"1:2\",\"page\":1,\"value\":\"1:2\"},\"title\":{\"box\":[975.328,710.355,181.0,66.0],\"confidence\":\"sure\",\"field_box\":[975.328,718.355,181.0,58.0],\"label_box\":[975.328,710.355,49.95,7.75],\"method\":\"parsed\",\"name\":\"D-025/drawing/title\",\"original\":\"Bygge Base Ring\",\"page\":1,\"value\":\"Bygge Base Ring\"},\"weight_g\":{\"box\":[880.717,771.048,93.0,14.0],\"confidence\":\"sure\",\"field_box\":[924.717,771.048,49.0,14.0],\"label_box\":[880.717,772.048,28.747,10.936],\"method\":\"parsed\",\"name\":\"D-025/drawing/weight_g\",\"original\":\"77.3\",\"page\":1,\"value\":77.3}},\"id\":\"D-025\",\"numbers\":[{\"box\":[519.104,627.625,7.331,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-025/drawing/n/8.0@1-1\",\"original\":\"8\",\"page\":1,\"text\":\"8\",\"value\":8.0},{\"box\":[558.745,627.625,18.321,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-025/drawing/n/3.4@1-1\",\"original\":\"3,4\",\"page\":1,\"text\":\"3,4\",\"value\":3.4},{\"box\":[574.303,643.527,18.327,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-025/drawing/n/6.9@1-1\",\"original\":\"6,9\",\"page\":1,\"text\":\"6,9\",\"value\":6.9},{\"box\":[608.02,643.527,19.955,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-025/drawing/n/90.0@1-1\",\"original\":\"90°\",\"page\":1,\"text\":\"90°\",\"value\":90.0},{\"box\":[506.746,170.624,36.112,36.112],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-025/drawing/n/250.0@1-1\",\"original\":\"250,0\",\"page\":1,\"text\":\"250,0\",\"value\":250.0},{\"box\":[465.666,198.967,37.413,33.658],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-025/drawing/n/224.0@1-1\",\"original\":\"224,0\",\"page\":1,\"text\":\"224,0\",\"value\":224.0},{\"box\":[509.608,214.017,25.365,25.303],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-025/drawing/n/0.3@1-1\",\"original\":\"0,3\",\"page\":1,\"text\":\"0,3\",\"value\":0.3},{\"box\":[502.296,224.561,25.365,25.303],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-025/drawing/n/0.0@1-1\",\"original\":\"0,0\",\"page\":1,\"text\":\"0,0\",\"value\":0.0},{\"box\":[596.226,426.108,41.696,41.89],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-025/drawing/n/115.5@1-1\",\"original\":\"R115,5\",\"page\":1,\"text\":\"R115,5\",\"value\":115.5},{\"box\":[332.788,139.504,18.327,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-025/drawing/n/3.0@1-1\",\"original\":\"3,0\",\"page\":1,\"text\":\"3,0\",\"value\":3.0},{\"box\":[332.788,152.336,18.327,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-025/drawing/n/2.0@1-1\",\"original\":\"2,0\",\"page\":1,\"text\":\"2,0\",\"value\":2.0}],\"page_sizes\":[[1190.550048828125,841.8900146484375]],\"section\":\"Z-axis\",\"source_filename\":\"ByggeBaseRing_Version2.PDF\"}"
+      },
+      "rounds": [
+        {
+          "codex": {
+            "reader": "codex",
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "answer": {
+              "items": [
+                {
+                  "key": "outline_type",
+                  "state": "known",
+                  "value_json": "\"ring\"",
+                  "confidence": "sure",
+                  "fact_ids": [
+                    "D-025"
+                  ],
+                  "reason": "The main view shows concentric circular outer and inner boundaries.",
+                  "changed_because": ""
+                },
+                {
+                  "key": "length",
+                  "state": "unknown",
+                  "value_json": "null",
+                  "confidence": "sure",
+                  "fact_ids": [
+                    "D-025"
+                  ],
+                  "reason": "Length is not applicable to the ring template; the outline is defined by diameters.",
+                  "changed_because": ""
+                },
+                {
+                  "key": "width",
+                  "state": "unknown",
+                  "value_json": "null",
+                  "confidence": "sure",
+                  "fact_ids": [
+                    "D-025"
+                  ],
+                  "reason": "Width is not applicable to the ring template; the outline is defined by diameters.",
+                  "changed_because": ""
+                },
+                {
+                  "key": "outer_diameter",
+                  "state": "known",
+                  "value_json": "250.0",
+                  "confidence": "sure",
+                  "fact_ids": [
+                    "D-025",
+                    "D-025/drawing/n/250.0@1-1"
+                  ],
+                  "reason": "The outer circular boundary is dimensioned Ø250,0 ±0,2, in millimetres; 250.0 is the nominal diameter.",
+                  "changed_because": ""
+                },
+                {
+                  "key": "inner_diameter",
+                  "state": "known",
+                  "value_json": "224.0",
+                  "confidence": "sure",
+                  "fact_ids": [
+                    "D-025",
+                    "D-025/drawing/n/224.0@1-1",
+                    "D-025/drawing/n/0.3@1-1",
+                    "D-025/drawing/n/0.0@1-1"
+                  ],
+                  "reason": "The inner circular boundary is dimensioned Ø224,0 with +0,3/0,0 tolerance, in millimetres; 224.0 is the nominal diameter.",
+                  "changed_because": ""
+                },
+                {
+                  "key": "thickness",
+                  "state": "options",
+                  "value_json": "[2.0,3.0]",
+                  "confidence": "sure",
+                  "fact_ids": [
+                    "D-025",
+                    "D-025/drawing/n/2.0@1-1",
+                    "D-025/drawing/n/3.0@1-1"
+                  ],
+                  "reason": "The side-view thickness dimension carries stacked 3,0 and 2,0 values. Both documented alternatives are retained in ascending order.",
+                  "changed_because": ""
+                },
+                {
+                  "key": "features",
+                  "state": "known",
+                  "value_json": "[{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-025\"]},\"y\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-025\"]},\"diameter\":{\"state\":\"known\",\"value\":3.4,\"fact_ids\":[\"D-025/drawing/n/3.4@1-1\",\"D-025/drawing/callout/p1-1\"]},\"through\":true,\"hole_type\":\"countersunk\",\"countersink_diameter\":{\"state\":\"known\",\"value\":6.9,\"fact_ids\":[\"D-025/drawing/n/6.9@1-1\",\"D-025/drawing/callout/p1-2\"]},\"countersink_angle\":{\"state\":\"known\",\"value\":90,\"fact_ids\":[\"D-025/drawing/n/90.0@1-1\",\"D-025/drawing/callout/p1-2\"]},\"pattern\":{\"type\":\"circle\",\"count\":{\"state\":\"known\",\"value\":8,\"fact_ids\":[\"D-025/drawing/n/8.0@1-1\",\"D-025/drawing/callout/p1-1\"]},\"radius\":{\"state\":\"known\",\"value\":115.5,\"fact_ids\":[\"D-025/drawing/n/115.5@1-1\",\"D-025/drawing/callout/p1-3\"]},\"start_angle\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-025\"]}},\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed count 8 and R115,5 radial dimension to a hole center establish the circular pattern. The main view shows four holes on the horizontal and vertical centerlines and four intervening diagonal holes. With the pattern center at the concentric outline origin, the +X hole anchors start_angle 0 and the eight holes are distributed at 360/8 degree intervals. The larger countersink rims are continuous visible circles in this face-on view, establishing openings toward the viewer, on top.\",\"fact_ids\":[\"D-025\",\"D-025/drawing/callout/p1-1\",\"D-025/drawing/callout/p1-2\",\"D-025/drawing/callout/p1-3\"]}]",
+                  "confidence": "sure",
+                  "fact_ids": [
+                    "D-025",
+                    "D-025/drawing/callout/p1-1",
+                    "D-025/drawing/callout/p1-2",
+                    "D-025/drawing/callout/p1-3"
+                  ],
+                  "reason": "The drawing supports eight Ø3,4 THRU ALL holes at R115,5 with top-opening Ø6,9 X 90° countersinks. The countersink geometry fits both documented thickness alternatives.",
+                  "changed_because": ""
+                },
+                {
+                  "key": "features_complete",
+                  "state": "known",
+                  "value_json": "false",
+                  "confidence": "sure",
+                  "fact_ids": [
+                    "D-025",
+                    "D-025/drawing/general/edge_finish"
+                  ],
+                  "reason": "All eight dimensioned hole cuts are supported, but the general edge-breaking operation lacks dimensions and is omitted.",
+                  "changed_because": ""
+                },
+                {
+                  "key": "features_omitted",
+                  "state": "known",
+                  "value_json": "[{\"description\":\"DEBURR AND BREAK SHARP EDGES\",\"reason\":\"The general finishing note does not specify an edge-break size or profile, so a corresponding chamfer or rounding cut cannot be determined.\",\"fact_ids\":[\"D-025/drawing/general/edge_finish\"]}]",
+                  "confidence": "sure",
+                  "fact_ids": [
+                    "D-025/drawing/general/edge_finish"
+                  ],
+                  "reason": "The edge-finish instruction is explicit, but supplies no geometry for a modeled edge break.",
+                  "changed_because": ""
+                }
+              ]
+            },
+            "valid": true,
+            "returncode": 0,
+            "metadata": {
+              "events": [
+                {
+                  "type": "turn.completed",
+                  "usage": {
+                    "input_tokens": 19794,
+                    "cached_input_tokens": 0,
+                    "cache_write_input_tokens": 0,
+                    "output_tokens": 3186,
+                    "reasoning_output_tokens": 1934
+                  }
+                }
+              ]
+            },
+            "latency_ms": 70781,
+            "cache_key": "4e933fd8c738fc17c0e9fcc7cef2fbde8c97d9d8453064ed771964ed3d718cc0",
+            "cache_hit": false,
+            "job": "template:D-025:proposal-verification-v1:proposal:0",
+            "error": null,
+            "protocol": "proposal-verification-v1",
+            "role": "proposer",
+            "round": 0,
+            "proposal_fingerprint": "e3262a22c866b23bcfea0785cd1e388fe40567dc28f95e39f0514674225576bd",
+            "validation": {
+              "outline_type": true,
+              "length": true,
+              "width": true,
+              "outer_diameter": true,
+              "inner_diameter": true,
+              "thickness": true,
+              "features": true,
+              "features_complete": true,
+              "features_omitted": true
+            }
+          },
+          "claude": {
+            "reader": "claude",
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "answer": {
+              "proposal_fingerprint": "e3262a22c866b23bcfea0785cd1e388fe40567dc28f95e39f0514674225576bd",
+              "items": [
+                {
+                  "key": "outline_type",
+                  "decision": "accept",
+                  "reason": "The main face-on view in D-025 shows a concentric outer Ø250,0 circle and inner Ø224,0 circle, which is a ring outline.",
+                  "fact_ids": [
+                    "D-025",
+                    "D-025/drawing/n/250.0@1-1",
+                    "D-025/drawing/n/224.0@1-1"
+                  ],
+                  "repairable": false
+                },
+                {
+                  "key": "length",
+                  "decision": "accept",
+                  "reason": "The outline is a ring defined by diameters. The rectangle length (X) does not apply, so unknown/null is correct.",
+                  "fact_ids": [
+                    "D-025"
+                  ],
+                  "repairable": false
+                },
+                {
+                  "key": "width",
+                  "decision": "accept",
+                  "reason": "The outline is a ring defined by diameters. The rectangle width (Y) does not apply, so unknown/null is correct.",
+                  "fact_ids": [
+                    "D-025"
+                  ],
+                  "repairable": false
+                },
+                {
+                  "key": "outer_diameter",
+                  "decision": "accept",
+                  "reason": "The outer circle is printed as Ø250,0 ±0,2. The nominal value is 250.0 mm.",
+                  "fact_ids": [
+                    "D-025/drawing/n/250.0@1-1"
+                  ],
+                  "repairable": false
+                },
+                {
+                  "key": "inner_diameter",
+                  "decision": "accept",
+                  "reason": "The inner circle is printed as Ø224,0 with a +0,3/0,0 tolerance. The nominal value is 224.0 mm.",
+                  "fact_ids": [
+                    "D-025/drawing/n/224.0@1-1",
+                    "D-025/drawing/n/0.3@1-1",
+                    "D-025/drawing/n/0.0@1-1"
+                  ],
+                  "repairable": false
+                },
+                {
+                  "key": "thickness",
+                  "decision": "accept",
+                  "reason": "The side-view thickness dimension carries stacked values 3,0 and 2,0, which are documented alternatives. The proposal keeps both as options, sorted ascending as [2.0,3.0].",
+                  "fact_ids": [
+                    "D-025/drawing/n/3.0@1-1",
+                    "D-025/drawing/n/2.0@1-1"
+                  ],
+                  "repairable": false
+                },
+                {
+                  "key": "features",
+                  "decision": "accept",
+                  "reason": "The callout '8 x Ø3,4 THRU ALL' with the countersink symbol 'Ø6,9 X 90°' and the R115,5 leader to a hole center support 8 countersunk through-holes on a 115.5 radius. The main view shows holes at the +X, +Y, -X and -Y positions on the centerlines and four more on the diagonals. With the center at the concentric origin, this matches a circle pattern with start_angle 0 and 360/8 = 45° spacing. In the face-on view each hole shows a visible solid outer countersink rim, so the countersink opens toward the +Z viewer, which is the top face. The countersink depth is (6.9-3.4)/2 = 1.75 at 90°, so it fits both the 2,0 and 3,0 thickness options. All numbers cite matching printed values.",
+                  "fact_ids": [
+                    "D-025",
+                    "D-025/drawing/callout/p1-1",
+                    "D-025/drawing/callout/p1-2",
+                    "D-025/drawing/callout/p1-3",
+                    "D-025/drawing/n/8.0@1-1",
+                    "D-025/drawing/n/3.4@1-1",
+                    "D-025/drawing/n/6.9@1-1",
+                    "D-025/drawing/n/90.0@1-1",
+                    "D-025/drawing/n/115.5@1-1"
+                  ],
+                  "repairable": false
+                },
+                {
+                  "key": "features_complete",
+                  "decision": "accept",
+                  "reason": "The note 'DEBURR AND BREAK SHARP EDGES' requires an edge treatment but gives no size, so not every feature can be modeled. false is correct.",
+                  "fact_ids": [
+                    "D-025/drawing/general/edge_finish"
+                  ],
+                  "repairable": false
+                },
+                {
+                  "key": "features_omitted",
+                  "decision": "accept",
+                  "reason": "The single omission correctly records the general deburr/edge-break note, which gives no edge-break size or profile. No other undimensioned cut appears in the drawing.",
+                  "fact_ids": [
+                    "D-025/drawing/general/edge_finish",
+                    "D-025"
+                  ],
+                  "repairable": false
+                }
+              ]
+            },
+            "valid": true,
+            "returncode": 0,
+            "metadata": {
+              "usage": {
+                "input_tokens": 4,
+                "cache_creation_input_tokens": 13924,
+                "cache_read_input_tokens": 15523,
+                "output_tokens": 1924,
+                "output_tokens_details": {
+                  "thinking_tokens": 356
+                },
+                "server_tool_use": {
+                  "web_search_requests": 0,
+                  "web_fetch_requests": 0
+                },
+                "service_tier": "standard",
+                "cache_creation": {
+                  "ephemeral_1h_input_tokens": 13924,
+                  "ephemeral_5m_input_tokens": 0
+                },
+                "inference_geo": "global",
+                "iterations": [],
+                "speed": "standard",
+                "fallback_credit": null
+              },
+              "modelUsage": {
+                "claude-opus-5-5": {
+                  "inputTokens": 4,
+                  "outputTokens": 1924,
+                  "cacheReadInputTokens": 15523,
+                  "cacheCreationInputTokens": 13924,
+                  "webSearchRequests": 0,
+                  "costUSD": 0.15299259999999998,
+                  "contextWindow": 1000000,
+                  "maxOutputTokens": 128000,
+                  "thinkingTokens": 356,
+                  "cacheCreationEphemeral5mInputTokens": 0,
+                  "cacheCreationEphemeral1hInputTokens": 13924,
+                  "canonicalModel": "claude-opus-5-5",
+                  "provider": "firstParty",
+                  "costBasis": "list"
+                }
+              },
+              "total_cost_usd": 0.15299259999999998,
+              "duration_ms": 17914,
+              "is_error": false
+            },
+            "latency_ms": 19031,
+            "cache_key": "1e8e37335e6a7145cab24606dded6b1c599753ae1ada54e86331d4ffa54e8830",
+            "cache_hit": false,
+            "job": "template:D-025:proposal-verification-v1:verification:0",
+            "error": null,
+            "protocol": "proposal-verification-v1",
+            "role": "verifier",
+            "round": 0,
+            "proposal_fingerprint": "e3262a22c866b23bcfea0785cd1e388fe40567dc28f95e39f0514674225576bd",
+            "validation": {
+              "outline_type": true,
+              "length": true,
+              "width": true,
+              "outer_diameter": true,
+              "inner_diameter": true,
+              "thickness": true,
+              "features": true,
+              "features_complete": true,
+              "features_omitted": true
+            }
+          }
+        }
+      ],
+      "feedback_rounds": [],
+      "answers": {
+        "codex": {
+          "outline_type": {
+            "key": "outline_type",
+            "state": "known",
+            "confidence": "sure",
+            "fact_ids": [
+              "D-025"
+            ],
+            "reason": "The main view shows concentric circular outer and inner boundaries.",
+            "changed_because": "",
+            "value": "ring"
+          },
+          "length": {
+            "key": "length",
+            "state": "unknown",
+            "confidence": "unsure",
+            "fact_ids": [
+              "D-025"
+            ],
+            "reason": "Length is not applicable to the ring template; the outline is defined by diameters.",
+            "changed_because": "",
+            "value": null
+          },
+          "width": {
+            "key": "width",
+            "state": "unknown",
+            "confidence": "unsure",
+            "fact_ids": [
+              "D-025"
+            ],
+            "reason": "Width is not applicable to the ring template; the outline is defined by diameters.",
+            "changed_because": "",
+            "value": null
+          },
+          "outer_diameter": {
+            "key": "outer_diameter",
+            "state": "known",
+            "confidence": "sure",
+            "fact_ids": [
+              "D-025",
+              "D-025/drawing/n/250.0@1-1"
+            ],
+            "reason": "The outer circular boundary is dimensioned Ø250,0 ±0,2, in millimetres; 250.0 is the nominal diameter.",
+            "changed_because": "",
+            "value": 250.0
+          },
+          "inner_diameter": {
+            "key": "inner_diameter",
+            "state": "known",
+            "confidence": "sure",
+            "fact_ids": [
+              "D-025",
+              "D-025/drawing/n/224.0@1-1",
+              "D-025/drawing/n/0.3@1-1",
+              "D-025/drawing/n/0.0@1-1"
+            ],
+            "reason": "The inner circular boundary is dimensioned Ø224,0 with +0,3/0,0 tolerance, in millimetres; 224.0 is the nominal diameter.",
+            "changed_because": "",
+            "value": 224.0
+          },
+          "thickness": {
+            "key": "thickness",
+            "state": "options",
+            "confidence": "sure",
+            "fact_ids": [
+              "D-025",
+              "D-025/drawing/n/2.0@1-1",
+              "D-025/drawing/n/3.0@1-1"
+            ],
+            "reason": "The side-view thickness dimension carries stacked 3,0 and 2,0 values. Both documented alternatives are retained in ascending order.",
+            "changed_because": "",
+            "value": [
+              2.0,
+              3.0
+            ]
+          },
+          "features": {
+            "key": "features",
+            "state": "known",
+            "confidence": "sure",
+            "fact_ids": [
+              "D-025",
+              "D-025/drawing/callout/p1-1",
+              "D-025/drawing/callout/p1-2",
+              "D-025/drawing/callout/p1-3"
+            ],
+            "reason": "The drawing supports eight Ø3,4 THRU ALL holes at R115,5 with top-opening Ø6,9 X 90° countersinks. The countersink geometry fits both documented thickness alternatives.",
+            "changed_because": "",
+            "value": [
+              {
+                "kind": "hole",
+                "face": "top",
+                "x": {
+                  "state": "known",
+                  "value": 0,
+                  "fact_ids": [
+                    "D-025"
+                  ]
+                },
+                "y": {
+                  "state": "known",
+                  "value": 0,
+                  "fact_ids": [
+                    "D-025"
+                  ]
+                },
+                "diameter": {
+                  "state": "known",
+                  "value": 3.4,
+                  "fact_ids": [
+                    "D-025/drawing/n/3.4@1-1",
+                    "D-025/drawing/callout/p1-1"
+                  ]
+                },
+                "through": true,
+                "hole_type": "countersunk",
+                "countersink_diameter": {
+                  "state": "known",
+                  "value": 6.9,
+                  "fact_ids": [
+                    "D-025/drawing/n/6.9@1-1",
+                    "D-025/drawing/callout/p1-2"
+                  ]
+                },
+                "countersink_angle": {
+                  "state": "known",
+                  "value": 90,
+                  "fact_ids": [
+                    "D-025/drawing/n/90.0@1-1",
+                    "D-025/drawing/callout/p1-2"
+                  ]
+                },
+                "pattern": {
+                  "type": "circle",
+                  "count": {
+                    "state": "known",
+                    "value": 8,
+                    "fact_ids": [
+                      "D-025/drawing/n/8.0@1-1",
+                      "D-025/drawing/callout/p1-1"
+                    ]
+                  },
+                  "radius": {
+                    "state": "known",
+                    "value": 115.5,
+                    "fact_ids": [
+                      "D-025/drawing/n/115.5@1-1",
+                      "D-025/drawing/callout/p1-3"
+                    ]
+                  },
+                  "start_angle": {
+                    "state": "known",
+                    "value": 0,
+                    "fact_ids": [
+                      "D-025"
+                    ]
+                  }
+                },
+                "placement_basis": "drawing_pattern_interpretation",
+                "placement_reason": "The printed count 8 and R115,5 radial dimension to a hole center establish the circular pattern. The main view shows four holes on the horizontal and vertical centerlines and four intervening diagonal holes. With the pattern center at the concentric outline origin, the +X hole anchors start_angle 0 and the eight holes are distributed at 360/8 degree intervals. The larger countersink rims are continuous visible circles in this face-on view, establishing openings toward the viewer, on top.",
+                "fact_ids": [
+                  "D-025",
+                  "D-025/drawing/callout/p1-1",
+                  "D-025/drawing/callout/p1-2",
+                  "D-025/drawing/callout/p1-3"
+                ]
+              }
+            ]
+          },
+          "features_complete": {
+            "key": "features_complete",
+            "state": "known",
+            "confidence": "sure",
+            "fact_ids": [
+              "D-025",
+              "D-025/drawing/general/edge_finish"
+            ],
+            "reason": "All eight dimensioned hole cuts are supported, but the general edge-breaking operation lacks dimensions and is omitted.",
+            "changed_because": "",
+            "value": false
+          },
+          "features_omitted": {
+            "key": "features_omitted",
+            "state": "known",
+            "confidence": "sure",
+            "fact_ids": [
+              "D-025/drawing/general/edge_finish"
+            ],
+            "reason": "The edge-finish instruction is explicit, but supplies no geometry for a modeled edge break.",
+            "changed_because": "",
+            "value": [
+              {
+                "description": "DEBURR AND BREAK SHARP EDGES",
+                "reason": "The general finishing note does not specify an edge-break size or profile, so a corresponding chamfer or rounding cut cannot be determined.",
+                "fact_ids": [
+                  "D-025/drawing/general/edge_finish"
+                ]
+              }
+            ]
+          }
+        },
+        "claude": {
+          "outline_type": {
+            "key": "outline_type",
+            "decision": "accept",
+            "reason": "The main face-on view in D-025 shows a concentric outer Ø250,0 circle and inner Ø224,0 circle, which is a ring outline.",
+            "fact_ids": [
+              "D-025",
+              "D-025/drawing/n/250.0@1-1",
+              "D-025/drawing/n/224.0@1-1"
+            ],
+            "repairable": false
+          },
+          "length": {
+            "key": "length",
+            "decision": "accept",
+            "reason": "The outline is a ring defined by diameters. The rectangle length (X) does not apply, so unknown/null is correct.",
+            "fact_ids": [
+              "D-025"
+            ],
+            "repairable": false
+          },
+          "width": {
+            "key": "width",
+            "decision": "accept",
+            "reason": "The outline is a ring defined by diameters. The rectangle width (Y) does not apply, so unknown/null is correct.",
+            "fact_ids": [
+              "D-025"
+            ],
+            "repairable": false
+          },
+          "outer_diameter": {
+            "key": "outer_diameter",
+            "decision": "accept",
+            "reason": "The outer circle is printed as Ø250,0 ±0,2. The nominal value is 250.0 mm.",
+            "fact_ids": [
+              "D-025/drawing/n/250.0@1-1"
+            ],
+            "repairable": false
+          },
+          "inner_diameter": {
+            "key": "inner_diameter",
+            "decision": "accept",
+            "reason": "The inner circle is printed as Ø224,0 with a +0,3/0,0 tolerance. The nominal value is 224.0 mm.",
+            "fact_ids": [
+              "D-025/drawing/n/224.0@1-1",
+              "D-025/drawing/n/0.3@1-1",
+              "D-025/drawing/n/0.0@1-1"
+            ],
+            "repairable": false
+          },
+          "thickness": {
+            "key": "thickness",
+            "decision": "accept",
+            "reason": "The side-view thickness dimension carries stacked values 3,0 and 2,0, which are documented alternatives. The proposal keeps both as options, sorted ascending as [2.0,3.0].",
+            "fact_ids": [
+              "D-025/drawing/n/3.0@1-1",
+              "D-025/drawing/n/2.0@1-1"
+            ],
+            "repairable": false
+          },
+          "features": {
+            "key": "features",
+            "decision": "accept",
+            "reason": "The callout '8 x Ø3,4 THRU ALL' with the countersink symbol 'Ø6,9 X 90°' and the R115,5 leader to a hole center support 8 countersunk through-holes on a 115.5 radius. The main view shows holes at the +X, +Y, -X and -Y positions on the centerlines and four more on the diagonals. With the center at the concentric origin, this matches a circle pattern with start_angle 0 and 360/8 = 45° spacing. In the face-on view each hole shows a visible solid outer countersink rim, so the countersink opens toward the +Z viewer, which is the top face. The countersink depth is (6.9-3.4)/2 = 1.75 at 90°, so it fits both the 2,0 and 3,0 thickness options. All numbers cite matching printed values.",
+            "fact_ids": [
+              "D-025",
+              "D-025/drawing/callout/p1-1",
+              "D-025/drawing/callout/p1-2",
+              "D-025/drawing/callout/p1-3",
+              "D-025/drawing/n/8.0@1-1",
+              "D-025/drawing/n/3.4@1-1",
+              "D-025/drawing/n/6.9@1-1",
+              "D-025/drawing/n/90.0@1-1",
+              "D-025/drawing/n/115.5@1-1"
+            ],
+            "repairable": false
+          },
+          "features_complete": {
+            "key": "features_complete",
+            "decision": "accept",
+            "reason": "The note 'DEBURR AND BREAK SHARP EDGES' requires an edge treatment but gives no size, so not every feature can be modeled. false is correct.",
+            "fact_ids": [
+              "D-025/drawing/general/edge_finish"
+            ],
+            "repairable": false
+          },
+          "features_omitted": {
+            "key": "features_omitted",
+            "decision": "accept",
+            "reason": "The single omission correctly records the general deburr/edge-break note, which gives no edge-break size or profile. No other undimensioned cut appears in the drawing.",
+            "fact_ids": [
+              "D-025/drawing/general/edge_finish",
+              "D-025"
+            ],
+            "repairable": false
+          }
+        }
+      },
+      "states": {
+        "outline_type": "verified",
+        "length": "needs_input",
+        "width": "needs_input",
+        "outer_diameter": "verified",
+        "inner_diameter": "verified",
+        "thickness": "verified",
+        "features": "verified",
+        "features_complete": "verified",
+        "features_omitted": "verified"
+      }
+    },
+    {
+      "protocol": "proposal-verification-v1",
+      "job": {
+        "id": "template:D-026",
+        "kind": "template",
+        "drawing": "D-026",
+        "feature_protocol": "supported-feature-subset-v1",
+        "keys": [
+          "outline_type",
+          "length",
+          "width",
+          "outer_diameter",
+          "inner_diameter",
+          "thickness",
+          "features",
+          "features_complete",
+          "features_omitted"
+        ],
+        "images": [
+          "C:\\Users\\Jason\\Documents\\Jason\\Take-Homes-Codex\\active\\Avathon\\generated\\images\\D-026-p1.png"
+        ],
+        "sources": [
+          "D-026",
+          "D-026/drawing/callout/p1-1",
+          "D-026/drawing/callout/p1-2",
+          "D-026/drawing/company",
+          "D-026/drawing/date",
+          "D-026/drawing/drawn",
+          "D-026/drawing/general/edge_finish",
+          "D-026/drawing/general/general_tolerance",
+          "D-026/drawing/general/units",
+          "D-026/drawing/material",
+          "D-026/drawing/n/10.0@1-1",
+          "D-026/drawing/n/105.0@1-1",
+          "D-026/drawing/n/15.0@1-1",
+          "D-026/drawing/n/15.4@1-1",
+          "D-026/drawing/n/25.0@1-1",
+          "D-026/drawing/n/250.0@1-1",
+          "D-026/drawing/n/3.0@1-1",
+          "D-026/drawing/n/5.3@1-1",
+          "D-026/drawing/notes",
+          "D-026/drawing/scale",
+          "D-026/drawing/source",
+          "D-026/drawing/title",
+          "D-026/drawing/weight_g"
+        ],
+        "numbers": {
+          "D-026/drawing/n/250.0@1-1": 250.0,
+          "D-026/drawing/n/105.0@1-1": 105.0,
+          "D-026/drawing/n/3.0@1-1": 3.0,
+          "D-026/drawing/n/5.3@1-1": 5.3,
+          "D-026/drawing/n/10.0@1-1": 10.0,
+          "D-026/drawing/n/15.4@1-1": 15.4,
+          "D-026/drawing/n/25.0@1-1": 25.0,
+          "D-026/drawing/n/15.0@1-1": 15.0
+        },
+        "prompt": "You are a read-only engineering evidence proposer. Do not edit files,\nrun commands, use other agents, browse the web, or inspect any evidence beyond the supplied inputs.\nReturn the requested JSON schema. Every requested key must appear exactly once. value_json is a\nJSON-encoded value (e.g. a string as \"\\\"text\\\"\", a number as \"5\", an array as \"[3,6]\",\nunknown as \"null\"). State known means one determined value; options means genuinely documented\nalternatives; unknown means the evidence does not determine it. confidence is only sure or unsure.\nUse sure only for a reading supported by the supplied evidence. Copy original spelling and units.\nNever invent evidence IDs. fact_ids must be exact supplied source IDs supporting that item.\nReasons must explain the evidence; changed_because is empty on the first proposal.\n\nFill a flat-part template from this drawing, in millimetres.\nRead the attached full drawing. The main material field and weight are supplied separately.\nRequested keys: outline_type (rectangle/circle/ring), length (X), width (Y), outer_diameter,\ninner_diameter, thickness, features, features_complete, features_omitted.\nFeature protocol: supported-feature-subset-v1. Only relevant dimensions are known; irrelevant ones are unknown.\nStacked thickness values which are alternatives MUST be state options with a JSON array, sorted ascending.\nDo not select one thickness or invent which example is primary. The outline is centered on X=0,Y=0;\nextrusion Z=0..thickness. Use the main face-on outline drawing view as XY, viewed from +Z toward\nthe origin, with X right and Y up. top is Z=thickness, toward that viewer; bottom is Z=0, opposite.\nKeep every feature position in this same XY frame, including bottom features. Verify which face a\ncountersink/counterbore opens from using the side, section, isometric, datum and projection evidence;\ndo not silently force steps onto top. If the opening face genuinely cannot be established, omit that\nstep with its uncertainty; retain a separately supported primary through-hole as plain only when its\ndiameter and placement are independently established. Ignore dimension text placement when interpreting actual geometry.\nfeatures value is a JSON array of hole/slot objects. Each has kind, face='top' or 'bottom', x,y,\ndiameter (hole) or width,length (slot), through boolean, depth for blind holes,\nhole_type plain/threaded/countersunk/counterbored, optional thread string and required actual\ncountersink_diameter/angle or counterbore_diameter/depth. Never infer a drill diameter from a thread.\nUse explicit pattern only if certain: {type:row,count,spacing,direction} (angle degrees, anchor first\nposition) or {type:circle,count,radius,start_angle} (degrees, center x,y). Hole positions are center\ncoordinates in the same XY frame. Conventional drawing-pattern interpretation is allowed when a\nprinted count plus printed pitch, offset, radius or pitch-circle diameter AND clear axes/layout\nestablish a row, circle, or mirrored layout. A circle distributes its printed count using 360/count;\nrows and mirrored positions derive from the printed pitch/offset and count. This is an AI layout\ninterpretation, not a claim that every coordinate or angle is explicitly printed or human approved.\nTag each feature placement_basis='dimensioned' when directly dimensioned, otherwise\nplacement_basis='drawing_pattern_interpretation' with nonempty placement_reason explaining the exact\nprinted dimensions/count, axes/layout and derivation, plus nonempty feature fact_ids citing exact\nsource IDs. Opus must verify this EXACT layout against the original views; ambiguous layouts require\nreject/needs_input and an omission, never arbitrary symmetry or an inferred bolt-circle dimension.\nfeatures is the independently supported SUBSET of cuts, not a\nclaim that every drawing feature is determined. Return features state known with all and ONLY cuts\nwhose geometry, position, and operation are fully supported, even when other features are unresolved.\nUse known [] when no cuts can be supported; do not erase supported cuts because another is uncertain.\nNever fabricate a drill diameter, depth, position, or count to complete a cut. A feature missing any\nrequired geometry must be excluded from features and described separately in features_omitted.\nException for a documented counterbore-step/thickness-variant conflict: preserve the separately\nprinted primary through-hole and actual counterbore dimensions in one counterbored feature using\nallow_primary_hole_without_unresolved_step=true, step_conflict_reason explaining the exact\nprinted conflict, and nonempty feature fact_ids. This flag is only for a supported through-hole whose\ncounterbore (or derived countersink depth) is invalid for at least one documented thickness variant.\nThe step dimensions and opening face must still be established. Explain the unresolved step in\nfeatures_omitted and set features_complete=false. CAD must skip that step per invalid variant and\nreport the omission; never clamp its depth, invent a face, silently replace it, or discard the valid\nprimary hole. Do not use this flag for an unsupported\nprimary hole or for missing primary-hole diameter/position.\nfeatures_omitted is a known JSON array of {description:string,reason:string,fact_ids:[IDs]}.\nEach omission must cite exact supplied evidence IDs (the drawing/source ID may ground an image-only\nfeature) and explain precisely what is missing or why it cannot be modeled. Use [] only if nothing\nis omitted. features_complete is a known JSON boolean: true ONLY when the entire visible feature\ninventory is supported and features_omitted is []; false when any feature/detail is omitted. If the\ninventory cannot be established, set features_complete unknown/null and explain the uncertainty in\nfeatures_omitted. Missing features never justify guessing or claiming the full design is verified.\nAll numeric scalar fields within a feature must be {state:known,value:number,fact_ids:[IDs]}.\nA feature may carry parent fact_ids. Every numeric value must match its cited drawing number.\nFor an arithmetically derived coordinate/radius use {state:known,value:number,fact_ids:[IDs],\nexpression:'n0/2-n1'}, where n0,n1 are cited drawing numbers IN ORDER. Only +,-,*,/ and constants\n0,1,2 are allowed. Do not invent absolute positions from undimensioned views. You may use literal\n0 for a geometrically established center or literal 90/180/270/360 for cardinal pattern directions.\nDo not infer numeric dimensions from pixels, scale, standard hardware, or undimensioned symmetry.\nConventional layout interpretation changes placement only; every numeric dimension/count and every\nderived coordinate still requires the printed evidence and permitted arithmetic above.\nFeatures must use same deterministic ordering: holes before slots, then x ascending, then y ascending.\n\nEvidence:\n{\"callouts\":[{\"box\":[443.931,270.988,50.916,39.837],\"confidence\":\"sure\",\"feature\":\"radius\",\"method\":\"parsed\",\"name\":\"D-026/drawing/callout/p1-1\",\"original\":\"R105,0\",\"page\":1,\"radius_mm\":105.0,\"text\":\"R105,0\",\"value\":\"R105,0\"},{\"box\":[472.198,549.465,118.667,18.083],\"confidence\":\"sure\",\"count\":3,\"feature\":\"unclassified_callout\",\"method\":\"parsed\",\"name\":\"D-026/drawing/callout/p1-2\",\"original\":\"3 x 5,3 THRU ALL\",\"page\":1,\"text\":\"3 x 5,3 THRU ALL\",\"through\":true,\"value\":\"3 x 5,3 THRU ALL\"},{\"box\":[978.968,784.149,85.555,7.75],\"confidence\":\"sure\",\"feature\":\"general_note\",\"method\":\"parsed\",\"name\":\"D-026/drawing/general/units\",\"original\":\"DIMENSIONS ARE IN MILLIMETERS\",\"page\":1,\"text\":\"DIMENSIONS ARE IN MILLIMETERS\",\"value\":\"DIMENSIONS ARE IN MILLIMETERS\"},{\"box\":[1016.541,790.957,47.749,8.202],\"confidence\":\"sure\",\"feature\":\"general_note\",\"method\":\"parsed\",\"name\":\"D-026/drawing/general/general_tolerance\",\"original\":\"DIN ISO 2768-1 m\",\"page\":1,\"text\":\"DIN ISO 2768-1 m\",\"value\":\"DIN ISO 2768-1 m\"},{\"box\":[1078.776,781.582,52.887,14.837],\"confidence\":\"sure\",\"feature\":\"general_note\",\"method\":\"parsed\",\"name\":\"D-026/drawing/general/edge_finish\",\"original\":\"DEBURR AND BREAK SHARP EDGES\",\"page\":1,\"text\":\"DEBURR AND BREAK SHARP EDGES\",\"value\":\"DEBURR AND BREAK SHARP EDGES\"}],\"fields\":{\"company\":{\"box\":[975.328,658.942,91.0,48.0],\"confidence\":\"sure\",\"field_box\":[975.328,666.942,91.0,40.0],\"label_box\":[975.328,658.942,30.758,7.75],\"method\":\"parsed\",\"name\":\"D-026/drawing/company\",\"original\":\"DTU MPP\",\"page\":1,\"value\":\"DTU MPP\"},\"date\":{\"box\":[897.013,802.562,76.0,11.0],\"confidence\":\"sure\",\"field_box\":[914.013,802.562,59.0,11.0],\"label_box\":[897.013,803.562,13.623,7.75],\"method\":\"parsed\",\"name\":\"D-026/drawing/date\",\"original\":\"13-09-2023\",\"page\":1,\"value\":\"13-09-2023\"},\"drawn\":{\"box\":[893.294,790.235,78.0,11.0],\"confidence\":\"sure\",\"field_box\":[917.294,790.235,54.0,11.0],\"label_box\":[893.294,791.235,21.062,7.75],\"method\":\"parsed\",\"name\":\"D-026/drawing/drawn\",\"original\":\"MBOKJ\",\"page\":1,\"value\":\"MBOKJ\"},\"material\":{\"box\":[745.28,771.048,164.184,14.0],\"confidence\":\"unsure\",\"field_box\":[784.28,771.048,125.184,14.0],\"label_box\":[745.28,772.048,38.539,10.936],\"method\":\"parsed\",\"name\":\"D-026/drawing/material\",\"note\":\"Material text overlaps the WEIGHT label; garbled/overprinted source.\",\"original\":\"AISI 316 Stainless Steel Sheet (SS)\",\"page\":1,\"value\":\"AISI 316 Stainless Steel Sheet (SS)\"},\"notes\":{\"box\":[741.526,658.942,231.0,111.0],\"confidence\":\"sure\",\"field_box\":[741.526,666.942,231.0,103.0],\"label_box\":[741.526,658.942,15.72,7.75],\"method\":\"parsed\",\"name\":\"D-026/drawing/notes\",\"original\":\"Byggeplade, rustfri og alu.\\n1-3 stk af hver.\",\"page\":1,\"value\":\"Byggeplade, rustfri og alu.\\n1-3 stk af hver.\"},\"scale\":{\"box\":[1082.688,803.564,25.832,7.75],\"confidence\":\"sure\",\"field_box\":[1082.688,803.564,25.832,7.75],\"label_box\":[1082.688,803.564,25.832,7.75],\"method\":\"parsed\",\"name\":\"D-026/drawing/scale\",\"original\":\"1:3\",\"page\":1,\"value\":\"1:3\"},\"title\":{\"box\":[975.328,710.355,181.0,66.0],\"confidence\":\"sure\",\"field_box\":[975.328,718.355,181.0,58.0],\"label_box\":[975.328,710.355,49.95,7.75],\"method\":\"parsed\",\"name\":\"D-026/drawing/title\",\"original\":\"Build Plate\",\"page\":1,\"value\":\"Build Plate\"},\"weight_g\":{\"box\":[880.717,771.048,93.0,14.0],\"confidence\":\"sure\",\"field_box\":[924.717,771.048,49.0,14.0],\"label_box\":[880.717,772.048,28.747,10.936],\"method\":\"parsed\",\"name\":\"D-026/drawing/weight_g\",\"original\":\"7822.5\",\"page\":1,\"value\":7822.5}},\"id\":\"D-026\",\"numbers\":[{\"box\":[458.306,217.394,36.113,36.113],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-026/drawing/n/250.0@1-1\",\"original\":\"250,0\",\"page\":1,\"text\":\"250,0\",\"value\":250.0},{\"box\":[447.106,272.821,44.567,36.171],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-026/drawing/n/105.0@1-1\",\"original\":\"R105,0\",\"page\":1,\"text\":\"R105,0\",\"value\":105.0},{\"box\":[472.198,549.465,7.331,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-026/drawing/n/3.0@1-1\",\"original\":\"3\",\"page\":1,\"text\":\"3\",\"value\":3.0},{\"box\":[511.838,549.465,18.321,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-026/drawing/n/5.3@1-1\",\"original\":\"5,3\",\"page\":1,\"text\":\"5,3\",\"value\":5.3},{\"box\":[517.823,565.367,25.657,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-026/drawing/n/10.0@1-1\",\"original\":\"10,0\",\"page\":1,\"text\":\"10,0\",\"value\":10.0},{\"box\":[564.986,565.367,25.657,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-026/drawing/n/15.4@1-1\",\"original\":\"15,4\",\"page\":1,\"text\":\"15,4\",\"value\":15.4},{\"box\":[224.647,205.994,25.657,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-026/drawing/n/25.0@1-1\",\"original\":\"25,0\",\"page\":1,\"text\":\"25,0\",\"value\":25.0},{\"box\":[224.647,218.825,25.657,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-026/drawing/n/15.0@1-1\",\"original\":\"15,0\",\"page\":1,\"text\":\"15,0\",\"value\":15.0}],\"page_sizes\":[[1190.550048828125,841.8900146484375]],\"section\":\"Z-axis\",\"source_filename\":\"ByggePlade.pdf\"}"
+      },
+      "rounds": [
+        {
+          "codex": {
+            "reader": "codex",
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "answer": {
+              "items": [
+                {
+                  "key": "outline_type",
+                  "state": "known",
+                  "value_json": "\"circle\"",
+                  "confidence": "sure",
+                  "fact_ids": [
+                    "D-026",
+                    "D-026/drawing/n/250.0@1-1"
+                  ],
+                  "reason": "The main face-on view shows a circular plate dimensioned Ø250,0.",
+                  "changed_because": ""
+                },
+                {
+                  "key": "length",
+                  "state": "unknown",
+                  "value_json": "null",
+                  "confidence": "sure",
+                  "fact_ids": [
+                    "D-026"
+                  ],
+                  "reason": "An independent rectangular X length is not relevant to the circular outline.",
+                  "changed_because": ""
+                },
+                {
+                  "key": "width",
+                  "state": "unknown",
+                  "value_json": "null",
+                  "confidence": "sure",
+                  "fact_ids": [
+                    "D-026"
+                  ],
+                  "reason": "An independent rectangular Y width is not relevant to the circular outline.",
+                  "changed_because": ""
+                },
+                {
+                  "key": "outer_diameter",
+                  "state": "known",
+                  "value_json": "250",
+                  "confidence": "sure",
+                  "fact_ids": [
+                    "D-026",
+                    "D-026/drawing/n/250.0@1-1"
+                  ],
+                  "reason": "The outer circle is dimensioned Ø250,0; drawing dimensions are in millimetres.",
+                  "changed_because": ""
+                },
+                {
+                  "key": "inner_diameter",
+                  "state": "unknown",
+                  "value_json": "null",
+                  "confidence": "sure",
+                  "fact_ids": [
+                    "D-026",
+                    "D-026/drawing/callout/p1-1"
+                  ],
+                  "reason": "No central opening is shown. R105,0 locates the peripheral hole pattern and is not an inner outline radius.",
+                  "changed_because": ""
+                },
+                {
+                  "key": "thickness",
+                  "state": "options",
+                  "value_json": "[15,25]",
+                  "confidence": "sure",
+                  "fact_ids": [
+                    "D-026",
+                    "D-026/drawing/n/15.0@1-1",
+                    "D-026/drawing/n/25.0@1-1"
+                  ],
+                  "reason": "The side view stacks 25,0 and 15,0 on the same thickness dimension, documenting two thickness alternatives.",
+                  "changed_because": ""
+                },
+                {
+                  "key": "features",
+                  "state": "known",
+                  "value_json": "[{\"kind\":\"hole\",\"face\":\"bottom\",\"x\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-026\"]},\"y\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-026\"]},\"diameter\":{\"state\":\"known\",\"value\":5.3,\"fact_ids\":[\"D-026/drawing/n/5.3@1-1\",\"D-026/drawing/callout/p1-2\"]},\"through\":true,\"hole_type\":\"counterbored\",\"counterbore_diameter\":{\"state\":\"known\",\"value\":10,\"fact_ids\":[\"D-026\",\"D-026/drawing/n/10.0@1-1\"]},\"counterbore_depth\":{\"state\":\"known\",\"value\":15.4,\"fact_ids\":[\"D-026\",\"D-026/drawing/n/15.4@1-1\"]},\"pattern\":{\"type\":\"circle\",\"count\":{\"state\":\"known\",\"value\":3,\"fact_ids\":[\"D-026/drawing/n/3.0@1-1\",\"D-026/drawing/callout/p1-2\"]},\"radius\":{\"state\":\"known\",\"value\":105,\"fact_ids\":[\"D-026/drawing/callout/p1-1\",\"D-026/drawing/n/105.0@1-1\"]},\"start_angle\":{\"state\":\"known\",\"value\":180,\"fact_ids\":[\"D-026\"]}},\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed count 3 and R105,0 pitch-circle radius, concentric center axes, and three-hole layout establish a circular pattern centered at X=0,Y=0. The first hole is on the negative X axis at 180 degrees; the remaining holes follow at equal 360/count intervals, matching the upper-right and lower-right holes.\",\"allow_primary_hole_without_unresolved_step\":true,\"step_conflict_reason\":\"The printed counterbore depth 15,4 exceeds the documented 15,0 thickness alternative. Retain the separately dimensioned Ø5,3 THRU ALL primary holes, skip the counterbore step for the 15,0 variant, and report that omission. The 15,4-deep counterbore fits the 25,0 variant.\",\"fact_ids\":[\"D-026\",\"D-026/drawing/callout/p1-1\",\"D-026/drawing/callout/p1-2\",\"D-026/drawing/n/3.0@1-1\",\"D-026/drawing/n/5.3@1-1\",\"D-026/drawing/n/10.0@1-1\",\"D-026/drawing/n/15.4@1-1\",\"D-026/drawing/n/15.0@1-1\",\"D-026/drawing/n/25.0@1-1\"]}]",
+                  "confidence": "sure",
+                  "fact_ids": [
+                    "D-026",
+                    "D-026/drawing/callout/p1-1",
+                    "D-026/drawing/callout/p1-2",
+                    "D-026/drawing/n/10.0@1-1",
+                    "D-026/drawing/n/15.4@1-1",
+                    "D-026/drawing/n/15.0@1-1",
+                    "D-026/drawing/n/25.0@1-1"
+                  ],
+                  "reason": "The callout specifies 3 x Ø5,3 THRU ALL with Ø10,0 counterbores 15,4 deep. The side view shows the large recesses opening opposite datum A, with the smaller bores reaching datum A. The isometric shows the smaller openings on the viewer-facing surface, establishing counterbore openings on bottom. The thickness conflict is preserved explicitly.",
+                  "changed_because": ""
+                },
+                {
+                  "key": "features_complete",
+                  "state": "known",
+                  "value_json": "false",
+                  "confidence": "sure",
+                  "fact_ids": [
+                    "D-026",
+                    "D-026/drawing/n/15.4@1-1",
+                    "D-026/drawing/n/15.0@1-1",
+                    "D-026/drawing/general/edge_finish"
+                  ],
+                  "reason": "The counterbore step cannot be retained for the 15,0 thickness alternative, and the general edge-break instruction lacks modeling dimensions.",
+                  "changed_because": ""
+                },
+                {
+                  "key": "features_omitted",
+                  "state": "known",
+                  "value_json": "[{\"description\":\"Ø10,0 counterbore step, depth 15,4, for the 15,0 thickness alternative\",\"reason\":\"The specified depth 15,4 exceeds the 15,0 plate thickness. Skip this step only for that variant and retain the supported Ø5,3 through-hole pattern; do not clamp the depth. The counterbore remains supported for the 25,0 variant.\",\"fact_ids\":[\"D-026\",\"D-026/drawing/n/10.0@1-1\",\"D-026/drawing/n/15.4@1-1\",\"D-026/drawing/n/15.0@1-1\",\"D-026/drawing/n/25.0@1-1\",\"D-026/drawing/callout/p1-2\"]},{\"description\":\"DEBURR AND BREAK SHARP EDGES\",\"reason\":\"The general note specifies edge finishing without a numerical size or a defined chamfer or radius profile, so no dimensioned edge-removal geometry can be modeled.\",\"fact_ids\":[\"D-026/drawing/general/edge_finish\"]}]",
+                  "confidence": "sure",
+                  "fact_ids": [
+                    "D-026",
+                    "D-026/drawing/n/10.0@1-1",
+                    "D-026/drawing/n/15.4@1-1",
+                    "D-026/drawing/n/15.0@1-1",
+                    "D-026/drawing/n/25.0@1-1",
+                    "D-026/drawing/general/edge_finish"
+                  ],
+                  "reason": "These omissions identify the documented counterbore/thickness conflict and the undimensioned edge-finishing instruction.",
+                  "changed_because": ""
+                }
+              ]
+            },
+            "valid": true,
+            "returncode": 0,
+            "metadata": {
+              "events": [
+                {
+                  "type": "turn.completed",
+                  "usage": {
+                    "input_tokens": 19546,
+                    "cached_input_tokens": 0,
+                    "cache_write_input_tokens": 0,
+                    "output_tokens": 4783,
+                    "reasoning_output_tokens": 3106
+                  }
+                }
+              ]
+            },
+            "latency_ms": 109703,
+            "cache_key": "b498f5f4339a8d596525d9bb3d6998b6775a504158a65df13c8d21d554a8baaf",
+            "cache_hit": false,
+            "job": "template:D-026:proposal-verification-v1:proposal:0",
+            "error": null,
+            "protocol": "proposal-verification-v1",
+            "role": "proposer",
+            "round": 0,
+            "proposal_fingerprint": "6a657e213fdffdcf3411b830d1464dee9c498edd6fe51c30f122b5f4d4b71f7f",
+            "validation": {
+              "outline_type": true,
+              "length": true,
+              "width": true,
+              "outer_diameter": true,
+              "inner_diameter": true,
+              "thickness": true,
+              "features": true,
+              "features_complete": true,
+              "features_omitted": true
+            }
+          },
+          "claude": {
+            "reader": "claude",
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "answer": {
+              "proposal_fingerprint": "6a657e213fdffdcf3411b830d1464dee9c498edd6fe51c30f122b5f4d4b71f7f",
+              "items": [
+                {
+                  "key": "outline_type",
+                  "decision": "accept",
+                  "reason": "The main face-on view shows one closed circular outer contour dimensioned Ø250,0, with no central opening, so the outline is a circle.",
+                  "fact_ids": [
+                    "D-026",
+                    "D-026/drawing/n/250.0@1-1"
+                  ],
+                  "repairable": false
+                },
+                {
+                  "key": "length",
+                  "decision": "accept",
+                  "reason": "The outline is circular, so a rectangular X length does not apply. Unknown/null is the correct state for a dimension that does not apply.",
+                  "fact_ids": [
+                    "D-026"
+                  ],
+                  "repairable": false
+                },
+                {
+                  "key": "width",
+                  "decision": "accept",
+                  "reason": "The outline is circular, so a rectangular Y width does not apply. Unknown/null is correct.",
+                  "fact_ids": [
+                    "D-026"
+                  ],
+                  "repairable": false
+                },
+                {
+                  "key": "outer_diameter",
+                  "decision": "accept",
+                  "reason": "The outer circle is dimensioned Ø250,0, and the general note DIMENSIONS ARE IN MILLIMETERS gives the unit. The value 250 matches.",
+                  "fact_ids": [
+                    "D-026",
+                    "D-026/drawing/n/250.0@1-1",
+                    "D-026/drawing/general/units"
+                  ],
+                  "repairable": false
+                },
+                {
+                  "key": "inner_diameter",
+                  "decision": "accept",
+                  "reason": "No central bore or inner contour appears in the face view, side view or isometric. R105,0 points to the dash-dot pitch circle through the three holes and is not an inner edge. Unknown/null is correct because no inner diameter applies.",
+                  "fact_ids": [
+                    "D-026",
+                    "D-026/drawing/callout/p1-1"
+                  ],
+                  "repairable": false
+                },
+                {
+                  "key": "thickness",
+                  "decision": "accept",
+                  "reason": "The side view prints 25,0 stacked above 15,0 on the same thickness dimension. The note 'Byggeplade, rustfri og alu.' supports two variants. Options [15,25] are listed in ascending order and neither is chosen as primary.",
+                  "fact_ids": [
+                    "D-026",
+                    "D-026/drawing/n/25.0@1-1",
+                    "D-026/drawing/n/15.0@1-1",
+                    "D-026/drawing/notes"
+                  ],
+                  "repairable": false
+                },
+                {
+                  "key": "features",
+                  "decision": "accept",
+                  "reason": "Callout p1-2 reads '3 x Ø5,3 THRU ALL' with a counterbore symbol, Ø10,0, depth symbol 15,4 (numbers 3, 5,3, 10,0, 15,4). The circular pattern is checked against the face view. R105,0 points to the dash-dot pitch circle, which shares the outline's centre and lies on the centre-line axes. The three holes sit on the -X axis (180°) and at upper-right and lower-right positions consistent with 360/3 = 120° spacing (60° and 300°). So count 3, radius 105 and start_angle 180 match the drawn layout. Opening face: the hidden counterbore recesses in the side view open from the face opposite datum A. The isometric's visible face shows only small hole openings and no larger recesses, and that face appears to be the +Z face: its edge thickness shows on the right and top, and the hole layout matches the front view. So the counterbores open from the bottom (Z=0). The primary-hole fallback is valid: the Ø5,3 through-holes are separately printed and placed, the step diameter and depth are printed, and the printed depth 15,4 exceeds the documented 15,0 thickness variant. The step remains valid for 25,0. The feature cites exact source IDs.",
+                  "fact_ids": [
+                    "D-026",
+                    "D-026/drawing/callout/p1-1",
+                    "D-026/drawing/callout/p1-2",
+                    "D-026/drawing/n/3.0@1-1",
+                    "D-026/drawing/n/5.3@1-1",
+                    "D-026/drawing/n/10.0@1-1",
+                    "D-026/drawing/n/15.4@1-1",
+                    "D-026/drawing/n/105.0@1-1",
+                    "D-026/drawing/n/15.0@1-1",
+                    "D-026/drawing/n/25.0@1-1"
+                  ],
+                  "repairable": false
+                },
+                {
+                  "key": "features_complete",
+                  "decision": "accept",
+                  "reason": "The design is not fully modelable. The Ø10,0 × 15,4 counterbore step cannot exist in the 15,0 thickness variant, and the general note DEBURR AND BREAK SHARP EDGES has no dimensions. So false is correct.",
+                  "fact_ids": [
+                    "D-026",
+                    "D-026/drawing/n/15.4@1-1",
+                    "D-026/drawing/n/15.0@1-1",
+                    "D-026/drawing/general/edge_finish"
+                  ],
+                  "repairable": false
+                },
+                {
+                  "key": "features_omitted",
+                  "decision": "accept",
+                  "reason": "Both omissions are grounded in the evidence. First, the printed counterbore depth 15,4 exceeds the 15,0 variant thickness, so the step is skipped only for that variant, with no clamping and with the through-hole kept. Second, the edge-break note gives no chamfer or radius size. Each entry cites exact source IDs.",
+                  "fact_ids": [
+                    "D-026",
+                    "D-026/drawing/callout/p1-2",
+                    "D-026/drawing/n/10.0@1-1",
+                    "D-026/drawing/n/15.4@1-1",
+                    "D-026/drawing/n/15.0@1-1",
+                    "D-026/drawing/n/25.0@1-1",
+                    "D-026/drawing/general/edge_finish"
+                  ],
+                  "repairable": false
+                }
+              ]
+            },
+            "valid": true,
+            "returncode": 0,
+            "metadata": {
+              "usage": {
+                "input_tokens": 4,
+                "cache_creation_input_tokens": 14249,
+                "cache_read_input_tokens": 15846,
+                "output_tokens": 6831,
+                "output_tokens_details": {
+                  "thinking_tokens": 4834
+                },
+                "server_tool_use": {
+                  "web_search_requests": 0,
+                  "web_fetch_requests": 0
+                },
+                "service_tier": "standard",
+                "cache_creation": {
+                  "ephemeral_1h_input_tokens": 14249,
+                  "ephemeral_5m_input_tokens": 0
+                },
+                "inference_geo": "global",
+                "iterations": [],
+                "speed": "standard",
+                "fallback_credit": null
+              },
+              "modelUsage": {
+                "claude-opus-5-5": {
+                  "inputTokens": 4,
+                  "outputTokens": 6831,
+                  "cacheReadInputTokens": 15846,
+                  "cacheCreationInputTokens": 14249,
+                  "webSearchRequests": 0,
+                  "costUSD": 0.2537972,
+                  "contextWindow": 1000000,
+                  "maxOutputTokens": 128000,
+                  "thinkingTokens": 4834,
+                  "cacheCreationEphemeral5mInputTokens": 0,
+                  "cacheCreationEphemeral1hInputTokens": 14249,
+                  "canonicalModel": "claude-opus-5-5",
+                  "provider": "firstParty",
+                  "costBasis": "list"
+                }
+              },
+              "total_cost_usd": 0.2537972,
+              "duration_ms": 70981,
+              "is_error": false
+            },
+            "latency_ms": 72141,
+            "cache_key": "9a72ceeda4458a46f80f432a0c56b5481e262cb677cc1fc72b49904b5d95ab12",
+            "cache_hit": false,
+            "job": "template:D-026:proposal-verification-v1:verification:0",
+            "error": null,
+            "protocol": "proposal-verification-v1",
+            "role": "verifier",
+            "round": 0,
+            "proposal_fingerprint": "6a657e213fdffdcf3411b830d1464dee9c498edd6fe51c30f122b5f4d4b71f7f",
+            "validation": {
+              "outline_type": true,
+              "length": true,
+              "width": true,
+              "outer_diameter": true,
+              "inner_diameter": true,
+              "thickness": true,
+              "features": true,
+              "features_complete": true,
+              "features_omitted": true
+            }
+          }
+        }
+      ],
+      "feedback_rounds": [],
+      "answers": {
+        "codex": {
+          "outline_type": {
+            "key": "outline_type",
+            "state": "known",
+            "confidence": "sure",
+            "fact_ids": [
+              "D-026",
+              "D-026/drawing/n/250.0@1-1"
+            ],
+            "reason": "The main face-on view shows a circular plate dimensioned Ø250,0.",
+            "changed_because": "",
+            "value": "circle"
+          },
+          "length": {
+            "key": "length",
+            "state": "unknown",
+            "confidence": "unsure",
+            "fact_ids": [
+              "D-026"
+            ],
+            "reason": "An independent rectangular X length is not relevant to the circular outline.",
+            "changed_because": "",
+            "value": null
+          },
+          "width": {
+            "key": "width",
+            "state": "unknown",
+            "confidence": "unsure",
+            "fact_ids": [
+              "D-026"
+            ],
+            "reason": "An independent rectangular Y width is not relevant to the circular outline.",
+            "changed_because": "",
+            "value": null
+          },
+          "outer_diameter": {
+            "key": "outer_diameter",
+            "state": "known",
+            "confidence": "sure",
+            "fact_ids": [
+              "D-026",
+              "D-026/drawing/n/250.0@1-1"
+            ],
+            "reason": "The outer circle is dimensioned Ø250,0; drawing dimensions are in millimetres.",
+            "changed_because": "",
+            "value": 250
+          },
+          "inner_diameter": {
+            "key": "inner_diameter",
+            "state": "unknown",
+            "confidence": "unsure",
+            "fact_ids": [
+              "D-026",
+              "D-026/drawing/callout/p1-1"
+            ],
+            "reason": "No central opening is shown. R105,0 locates the peripheral hole pattern and is not an inner outline radius.",
+            "changed_because": "",
+            "value": null
+          },
+          "thickness": {
+            "key": "thickness",
+            "state": "options",
+            "confidence": "sure",
+            "fact_ids": [
+              "D-026",
+              "D-026/drawing/n/15.0@1-1",
+              "D-026/drawing/n/25.0@1-1"
+            ],
+            "reason": "The side view stacks 25,0 and 15,0 on the same thickness dimension, documenting two thickness alternatives.",
+            "changed_because": "",
+            "value": [
+              15,
+              25
+            ]
+          },
+          "features": {
+            "key": "features",
+            "state": "known",
+            "confidence": "sure",
+            "fact_ids": [
+              "D-026",
+              "D-026/drawing/callout/p1-1",
+              "D-026/drawing/callout/p1-2",
+              "D-026/drawing/n/10.0@1-1",
+              "D-026/drawing/n/15.4@1-1",
+              "D-026/drawing/n/15.0@1-1",
+              "D-026/drawing/n/25.0@1-1"
+            ],
+            "reason": "The callout specifies 3 x Ø5,3 THRU ALL with Ø10,0 counterbores 15,4 deep. The side view shows the large recesses opening opposite datum A, with the smaller bores reaching datum A. The isometric shows the smaller openings on the viewer-facing surface, establishing counterbore openings on bottom. The thickness conflict is preserved explicitly.",
+            "changed_because": "",
+            "value": [
+              {
+                "kind": "hole",
+                "face": "bottom",
+                "x": {
+                  "state": "known",
+                  "value": 0,
+                  "fact_ids": [
+                    "D-026"
+                  ]
+                },
+                "y": {
+                  "state": "known",
+                  "value": 0,
+                  "fact_ids": [
+                    "D-026"
+                  ]
+                },
+                "diameter": {
+                  "state": "known",
+                  "value": 5.3,
+                  "fact_ids": [
+                    "D-026/drawing/n/5.3@1-1",
+                    "D-026/drawing/callout/p1-2"
+                  ]
+                },
+                "through": true,
+                "hole_type": "counterbored",
+                "counterbore_diameter": {
+                  "state": "known",
+                  "value": 10,
+                  "fact_ids": [
+                    "D-026",
+                    "D-026/drawing/n/10.0@1-1"
+                  ]
+                },
+                "counterbore_depth": {
+                  "state": "known",
+                  "value": 15.4,
+                  "fact_ids": [
+                    "D-026",
+                    "D-026/drawing/n/15.4@1-1"
+                  ]
+                },
+                "pattern": {
+                  "type": "circle",
+                  "count": {
+                    "state": "known",
+                    "value": 3,
+                    "fact_ids": [
+                      "D-026/drawing/n/3.0@1-1",
+                      "D-026/drawing/callout/p1-2"
+                    ]
+                  },
+                  "radius": {
+                    "state": "known",
+                    "value": 105,
+                    "fact_ids": [
+                      "D-026/drawing/callout/p1-1",
+                      "D-026/drawing/n/105.0@1-1"
+                    ]
+                  },
+                  "start_angle": {
+                    "state": "known",
+                    "value": 180,
+                    "fact_ids": [
+                      "D-026"
+                    ]
+                  }
+                },
+                "placement_basis": "drawing_pattern_interpretation",
+                "placement_reason": "The printed count 3 and R105,0 pitch-circle radius, concentric center axes, and three-hole layout establish a circular pattern centered at X=0,Y=0. The first hole is on the negative X axis at 180 degrees; the remaining holes follow at equal 360/count intervals, matching the upper-right and lower-right holes.",
+                "allow_primary_hole_without_unresolved_step": true,
+                "step_conflict_reason": "The printed counterbore depth 15,4 exceeds the documented 15,0 thickness alternative. Retain the separately dimensioned Ø5,3 THRU ALL primary holes, skip the counterbore step for the 15,0 variant, and report that omission. The 15,4-deep counterbore fits the 25,0 variant.",
+                "fact_ids": [
+                  "D-026",
+                  "D-026/drawing/callout/p1-1",
+                  "D-026/drawing/callout/p1-2",
+                  "D-026/drawing/n/3.0@1-1",
+                  "D-026/drawing/n/5.3@1-1",
+                  "D-026/drawing/n/10.0@1-1",
+                  "D-026/drawing/n/15.4@1-1",
+                  "D-026/drawing/n/15.0@1-1",
+                  "D-026/drawing/n/25.0@1-1"
+                ]
+              }
+            ]
+          },
+          "features_complete": {
+            "key": "features_complete",
+            "state": "known",
+            "confidence": "sure",
+            "fact_ids": [
+              "D-026",
+              "D-026/drawing/n/15.4@1-1",
+              "D-026/drawing/n/15.0@1-1",
+              "D-026/drawing/general/edge_finish"
+            ],
+            "reason": "The counterbore step cannot be retained for the 15,0 thickness alternative, and the general edge-break instruction lacks modeling dimensions.",
+            "changed_because": "",
+            "value": false
+          },
+          "features_omitted": {
+            "key": "features_omitted",
+            "state": "known",
+            "confidence": "sure",
+            "fact_ids": [
+              "D-026",
+              "D-026/drawing/n/10.0@1-1",
+              "D-026/drawing/n/15.4@1-1",
+              "D-026/drawing/n/15.0@1-1",
+              "D-026/drawing/n/25.0@1-1",
+              "D-026/drawing/general/edge_finish"
+            ],
+            "reason": "These omissions identify the documented counterbore/thickness conflict and the undimensioned edge-finishing instruction.",
+            "changed_because": "",
+            "value": [
+              {
+                "description": "Ø10,0 counterbore step, depth 15,4, for the 15,0 thickness alternative",
+                "reason": "The specified depth 15,4 exceeds the 15,0 plate thickness. Skip this step only for that variant and retain the supported Ø5,3 through-hole pattern; do not clamp the depth. The counterbore remains supported for the 25,0 variant.",
+                "fact_ids": [
+                  "D-026",
+                  "D-026/drawing/n/10.0@1-1",
+                  "D-026/drawing/n/15.4@1-1",
+                  "D-026/drawing/n/15.0@1-1",
+                  "D-026/drawing/n/25.0@1-1",
+                  "D-026/drawing/callout/p1-2"
+                ]
+              },
+              {
+                "description": "DEBURR AND BREAK SHARP EDGES",
+                "reason": "The general note specifies edge finishing without a numerical size or a defined chamfer or radius profile, so no dimensioned edge-removal geometry can be modeled.",
+                "fact_ids": [
+                  "D-026/drawing/general/edge_finish"
+                ]
+              }
+            ]
+          }
+        },
+        "claude": {
+          "outline_type": {
+            "key": "outline_type",
+            "decision": "accept",
+            "reason": "The main face-on view shows one closed circular outer contour dimensioned Ø250,0, with no central opening, so the outline is a circle.",
+            "fact_ids": [
+              "D-026",
+              "D-026/drawing/n/250.0@1-1"
+            ],
+            "repairable": false
+          },
+          "length": {
+            "key": "length",
+            "decision": "accept",
+            "reason": "The outline is circular, so a rectangular X length does not apply. Unknown/null is the correct state for a dimension that does not apply.",
+            "fact_ids": [
+              "D-026"
+            ],
+            "repairable": false
+          },
+          "width": {
+            "key": "width",
+            "decision": "accept",
+            "reason": "The outline is circular, so a rectangular Y width does not apply. Unknown/null is correct.",
+            "fact_ids": [
+              "D-026"
+            ],
+            "repairable": false
+          },
+          "outer_diameter": {
+            "key": "outer_diameter",
+            "decision": "accept",
+            "reason": "The outer circle is dimensioned Ø250,0, and the general note DIMENSIONS ARE IN MILLIMETERS gives the unit. The value 250 matches.",
+            "fact_ids": [
+              "D-026",
+              "D-026/drawing/n/250.0@1-1",
+              "D-026/drawing/general/units"
+            ],
+            "repairable": false
+          },
+          "inner_diameter": {
+            "key": "inner_diameter",
+            "decision": "accept",
+            "reason": "No central bore or inner contour appears in the face view, side view or isometric. R105,0 points to the dash-dot pitch circle through the three holes and is not an inner edge. Unknown/null is correct because no inner diameter applies.",
+            "fact_ids": [
+              "D-026",
+              "D-026/drawing/callout/p1-1"
+            ],
+            "repairable": false
+          },
+          "thickness": {
+            "key": "thickness",
+            "decision": "accept",
+            "reason": "The side view prints 25,0 stacked above 15,0 on the same thickness dimension. The note 'Byggeplade, rustfri og alu.' supports two variants. Options [15,25] are listed in ascending order and neither is chosen as primary.",
+            "fact_ids": [
+              "D-026",
+              "D-026/drawing/n/25.0@1-1",
+              "D-026/drawing/n/15.0@1-1",
+              "D-026/drawing/notes"
+            ],
+            "repairable": false
+          },
+          "features": {
+            "key": "features",
+            "decision": "accept",
+            "reason": "Callout p1-2 reads '3 x Ø5,3 THRU ALL' with a counterbore symbol, Ø10,0, depth symbol 15,4 (numbers 3, 5,3, 10,0, 15,4). The circular pattern is checked against the face view. R105,0 points to the dash-dot pitch circle, which shares the outline's centre and lies on the centre-line axes. The three holes sit on the -X axis (180°) and at upper-right and lower-right positions consistent with 360/3 = 120° spacing (60° and 300°). So count 3, radius 105 and start_angle 180 match the drawn layout. Opening face: the hidden counterbore recesses in the side view open from the face opposite datum A. The isometric's visible face shows only small hole openings and no larger recesses, and that face appears to be the +Z face: its edge thickness shows on the right and top, and the hole layout matches the front view. So the counterbores open from the bottom (Z=0). The primary-hole fallback is valid: the Ø5,3 through-holes are separately printed and placed, the step diameter and depth are printed, and the printed depth 15,4 exceeds the documented 15,0 thickness variant. The step remains valid for 25,0. The feature cites exact source IDs.",
+            "fact_ids": [
+              "D-026",
+              "D-026/drawing/callout/p1-1",
+              "D-026/drawing/callout/p1-2",
+              "D-026/drawing/n/3.0@1-1",
+              "D-026/drawing/n/5.3@1-1",
+              "D-026/drawing/n/10.0@1-1",
+              "D-026/drawing/n/15.4@1-1",
+              "D-026/drawing/n/105.0@1-1",
+              "D-026/drawing/n/15.0@1-1",
+              "D-026/drawing/n/25.0@1-1"
+            ],
+            "repairable": false
+          },
+          "features_complete": {
+            "key": "features_complete",
+            "decision": "accept",
+            "reason": "The design is not fully modelable. The Ø10,0 × 15,4 counterbore step cannot exist in the 15,0 thickness variant, and the general note DEBURR AND BREAK SHARP EDGES has no dimensions. So false is correct.",
+            "fact_ids": [
+              "D-026",
+              "D-026/drawing/n/15.4@1-1",
+              "D-026/drawing/n/15.0@1-1",
+              "D-026/drawing/general/edge_finish"
+            ],
+            "repairable": false
+          },
+          "features_omitted": {
+            "key": "features_omitted",
+            "decision": "accept",
+            "reason": "Both omissions are grounded in the evidence. First, the printed counterbore depth 15,4 exceeds the 15,0 variant thickness, so the step is skipped only for that variant, with no clamping and with the through-hole kept. Second, the edge-break note gives no chamfer or radius size. Each entry cites exact source IDs.",
+            "fact_ids": [
+              "D-026",
+              "D-026/drawing/callout/p1-2",
+              "D-026/drawing/n/10.0@1-1",
+              "D-026/drawing/n/15.4@1-1",
+              "D-026/drawing/n/15.0@1-1",
+              "D-026/drawing/n/25.0@1-1",
+              "D-026/drawing/general/edge_finish"
+            ],
+            "repairable": false
+          }
+        }
+      },
+      "states": {
+        "outline_type": "verified",
+        "length": "needs_input",
+        "width": "needs_input",
+        "outer_diameter": "verified",
+        "inner_diameter": "needs_input",
+        "thickness": "verified",
+        "features": "verified",
+        "features_complete": "verified",
+        "features_omitted": "verified"
+      }
+    }
+  ],
+  "metrics": {
+    "agreed": 0,
+    "agreed_after_retry": 0,
+    "verified": 20,
+    "verified_after_retry": 0,
+    "sent_to_review": 0,
+    "scan_undetermined": 0,
+    "mapping_approvals_required": 0,
+    "mapping_suggestions_unsure": 0,
+    "status_counts": {
+      "verified": 20
+    },
+    "by_job": {
+      "template": {
+        "verified": 20
+      }
+    },
+    "jobs": 3,
+    "exact_links": 0,
+    "reader_calls": 6,
+    "cache_hits": 0,
+    "provider_calls": 6,
+    "latency_ms_total": 625546,
+    "proposer_calls": 3,
+    "verifier_calls": 3,
+    "feedback_rounds": 0,
+    "feedback_keys": 0,
+    "protocols": [
+      "proposal-verification-v1"
+    ],
+    "configured_readers": {
+      "claude": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "codex": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      }
+    },
+    "roles": {
+      "codex": "proposer",
+      "claude": "verifier"
+    },
+    "wall_time_ms": 631891
+  },
+  "decisions_unchanged": true
+}

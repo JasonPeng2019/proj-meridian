@@ -1,0 +1,34 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "english": "Alu.\nArm for linear guide",
+    "reason": "Preserved “Alu.” and interpreted “linær” as “linear.”"
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 13160,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 237,
+          "reasoning_output_tokens": 194
+        }
+      }
+    ]
+  },
+  "latency_ms": 8563,
+  "cache_key": "af499101d4dcc4136cb9e41602e543abd3ed79919422e2c8fe9fed57177f5e7d",
+  "cache_hit": false,
+  "job": "ui-note-extension:proposal",
+  "error": null
+}

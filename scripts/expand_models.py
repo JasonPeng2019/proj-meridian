@@ -37,6 +37,12 @@ outline must match exactly: do not substitute its bounding rectangle or circle.
 Block bent, stepped, revolved, profiled, tapered, nonplanar or assembled parts and
 essential notches, lobes, rounded outer corners or other contours the generator
 cannot express. Do not classify an essential contour as an omitted minor detail.
+Small undimensioned corner chamfers and edge breaks may be explicitly omitted
+from an otherwise dimensioned rectangular plate, as in the original MVP flat-part
+models. In that case outline_exact refers to the established main rectangular
+body dimensions, not a claim that the omitted corner detail has been reproduced.
+Do not use this allowance for a functional contour, large corner cut, missing
+overall dimension, rounded profile, or a bounding box around another shape.
 Do not infer a constant thickness from an unlabeled number, another part, title,
 material, stock convention, scale, pixels, or a familiar standard. Printed numbers
 must be linked by the actual view/dimension leaders to the dimension claimed;

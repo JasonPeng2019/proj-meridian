@@ -63,7 +63,7 @@ def prepare(batch, output):
     def add(item, path, *, old=False):
         target = item["target"]
         action = item.get("action", item.get("decision", item.get("recommendation")))
-        if action not in {"confirm", "reject", "approve_mapping", "defer_unsupported"}:
+        if action not in {"confirm", "reject", "approve_mapping", "defer_unsupported", "accept_link"}:
             skipped.append({"target": target, "reason": "No supported confirm/reject recommendation"})
             return
         if old and "/template/" in target and target.split('/')[0] in audited:
@@ -98,9 +98,9 @@ def prepare(batch, output):
                           "page": item.get("page"), "box": item.get("box")}],
                      "audit_receipt": {"path": str(path.relative_to(ROOT)),
                                        "sha256": hashlib.sha256(path.read_bytes()).hexdigest()}}
-        if action == "approve_mapping":
+        if action in {"approve_mapping", "accept_link"}:
             operation["value"] = item["value"]
-        else:
+        if action != 'approve_mapping':
             operation["prediction_sha256"] = expected_prediction
         if action == 'defer_unsupported':
             operation['template_capability_sha256'] = store.template_capability_fingerprint(target)
@@ -118,6 +118,10 @@ def prepare(batch, output):
     path = ROOT / "docs/verification/detail-mapping-audit.json"
     for item in load(path)["operations"]:
         add(item, path)
+    path = ROOT / 'docs/verification/link-followup-audit.json'
+    if path.is_file():
+        for item in load(path)['operations']:
+            add(item, path)
     plan = {"status": "prepared_not_applied", "revision": store.revision,
             "batch": str(batch.relative_to(ROOT)), "operations": list(operations.values()),
             "skipped": skipped, "counts": dict(Counter(op["action"] for op in operations.values()))}

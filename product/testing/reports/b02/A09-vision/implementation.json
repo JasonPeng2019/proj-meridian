@@ -1,0 +1,85 @@
+{
+  "accepted_base": "40d015b84d60e761d1165f983e07e297ae6603df",
+  "authored_suite": {
+    "cases_static_count": 36,
+    "execution": "SKIPPED",
+    "existing_remote_entrypoint_from_product": "development/.venv/bin/python -B testing/ci/checks.py modules",
+    "focused_remote_command_from_testing": "../development/.venv/bin/python -B -m pytest -q -p no:cacheprovider --basetemp=tmp/A09-pytest --junitxml=reports/ci/A09-vision.xml tests/test_vision_jobs_m1.py",
+    "path": "testing/tests/test_vision_jobs_m1.py",
+    "root_dispatch_after_exact_harness_v2_publication": "gh workflow run verify.yml --repo JasonPeng2019/proj-meridian --ref harness-v2 -f task=modules",
+    "scope": "Synthetic PNG/typed inventories and existing scripted Python subprocess peer. Crop isolation; verbatim/null scan readings; supported template inventories; numeric/units/proofs/options; source changes/overlays; exact candidate/original image handoff; correction/reverification; persistent disagreement; explicit missing Opus; actual scripted execution failure/next-launch retry; blind guesses/missing or wrong image bytes; cross-field verdict rejection.",
+    "test_functions": 16,
+    "why": "User requires all test execution remotely on Actions."
+  },
+  "batch": "B02",
+  "completed_at": "2026-11-05T12:22:11.327998+00:00",
+  "frozen_interfaces": "Uses accepted M08 JobDefinition/EvidenceInput/EvidenceBundle, definition.request and with_field_validation, and current A02 typed contracts unchanged. No runner/config/package/contract edits.",
+  "lane_id": "A09-vision",
+  "native_inbox": {
+    "assignments": [],
+    "checked_at": "2026-11-05T07:21:00.9022060-05:00",
+    "path": ".agent-workspace/QUEUE.json (resolved via current harness-hook-binding inbox_path)"
+  },
+  "outcome": "PASS",
+  "owned_files": [
+    "development/backend/ai/vision_jobs.py",
+    "testing/tests/test_vision_jobs_m1.py",
+    "testing/reports/b02/A09-vision/implementation.json",
+    "testing/reports/b02/A09-vision/static.json"
+  ],
+  "proposed_user_todo_entries": [],
+  "public_api": {
+    "VisionJob": "Frozen pair: definition: JobDefinition, request: PrepJobRequest. Register definition under definition.job and call the accepted Runner with request.",
+    "build_scan_job": "(drawing: DrawingEvidence, *, image_root: Path, crop_dir: Path, job_id: str | None = None) -> VisionJob",
+    "build_template_job": "(drawing: DrawingEvidence, *, image_root: Path, feature_slots: int = 12, job_id: str | None = None) -> VisionJob",
+    "scan_readings": "(job, original_drawing, result) -> dict[str, DrawingField]; in-memory projection retaining exact text, original whole-field boxes and all rounds. Invokes validate_vision_result. Unresolved is null/unsure and creates no human review.",
+    "template_review_details": "(job, result) -> dict[str, JSON]; in-memory optional Debug/Review details, each actual candidate/verdict/failure per round and explicit missing_opus_output. Invokes validate_vision_result; no queue, decision or publication.",
+    "validate_vision_result": "(job: VisionJob, result: PrepProvenance) -> PrepProvenance; REQUIRED before A11 publishes/counts/consumes accepted fields. Revalidates original bytes, typed source identity, each round candidate and field-specific verified-verdict citations, without repairing candidates or rounds."
+  },
+  "real_corpus": {
+    "full_new_prep": "SKIPPED; mandatory ROOT/A11 redo after integration. Prior outputs remain historical.",
+    "images_read": false,
+    "new_determination_verifier_calls": 0,
+    "real_source_validation_claimed": false,
+    "typed_input_metadata_read_only": "testing/runs/deterministic-inputs-42004415297/harness-v2-extract-42004415297/runs/deterministic-inputs/inputs.json in the primary product tree"
+  },
+  "requested_shared_file_changes": [],
+  "resource_and_scope": "No live prep/CLI readers, subagents, builds, tests, PDF/CAD/browser work or shared generated outputs. No shared package/config/contracts/plan/USER_TODO/other module writes.",
+  "root_requested_deltas": [
+    "A11: register returned definition/request pairs and call validate_vision_result before publishing or counting any accepted vision fields; quarantine domain-invalid raw results as unresolved diagnostics.",
+    "ROOT: publish exact scoped tip on harness-v2 and execute the focused or existing modules Actions entrypoint. Remote runtime acceptance is still pending.",
+    "A11: reserve the actual sequential child CLI slot and run the full fresh determine-then-verify corpus pipeline; do not copy historical blind-reader outputs."
+  ],
+  "scan_evidence": [
+    "Only measured corner fields of degraded original DrawingEvidence are eligible; all eight fields per page, including title-p2 etc., remain separate stable names.",
+    "Attachments are exact whole-field PNG crops computed from the supplied source-point boxes and actual page geometry; full scan pages are not attached.",
+    "Canonical typed inventory binds original PDF/page hashes, page geometry, source boxes, pixel bounds, crop keys and whole-field references. Each admissible scan ID owns only its original crop.",
+    "Original pages and crop bytes are rechecked; content-addressed output paths stay inside the assigned worktree development/testing split.",
+    "Known requires a sure nonblank/nonplaceholder string and exactly the field own ID; text is never trimmed, corrected, translated or repaired. Unknown remains null/unsure."
+  ],
+  "schema": "meridian-vision-implementation/v1",
+  "scope": "Implementation and static inspection complete; remote scripted checks SKIPPED, not a runtime or real-prep acceptance claim.",
+  "static_evidence": "testing/reports/b02/A09-vision/static.json; AST only, no product imports or local test execution.",
+  "template_evidence": {
+    "derivations": "Bounded AST arithmetic interpreter, never eval. References n0/n1/... index the recorded inputs. Supports +,-,*,/,unary signs and constant 2. Pattern proofs require an original page pattern_fact; CAD-frame/circle constants 0/90/180/360 are restricted to positions/angle paths. Every input must be admissible and used; reject extra constants, calls, powers, nonfinite values, unsupported units, wrong outputs or unprinted counts.",
+    "downstream_publication": "A11 owns saved FlatTemplate/scan outputs and must attach ValueEvidence from the ledger when materializing native geometry. Preserve partial unknown subfields, omit only actually verified absent feature slots, and retain full provenance for Review/Debug. No native template assets or engineering values were generated here.",
+    "drawings": [
+      "D-013",
+      "D-025",
+      "D-026"
+    ],
+    "field_inventory": "Stable /template/outline, /thickness, /material, /weight-on-drawing, /feature-01 through /feature-12 (default, configurable 1..32), and /proofs. Feature slot count is a bound, never seeded geometry.",
+    "inputs": "Exact original PNGs plus canonical compact sorted UTF-8 JSON of unmodified deterministic DrawingEvidence and a versioned admissibility/field inventory. Reject prior AI/human overlays.",
+    "numeric_checks": "Check actual token spelling/value, positioned original word, sure confidence, drawing namespace, positive dimensions, schema/integer/boolean types and declared units. Exclude border/grid and corner/title-block numbers as geometry. Weight uses only its sure own corner number and grams; material is verbatim sure corner text; thread text must occur in original drawing words on the cited page.",
+    "options": "Scalar options only; distinct own directly printed numeric IDs plus a locally detected explicit printed connector (or/eller/either/alternative/alt.) and group reference. Two dimensions, equal strings, two reader guesses or disagreement do not create options. Unsupported printed notation remains unresolved.",
+    "proofs": "Known proofs.value={entries:[{field:<stable field name>,option:null|zero-based index,path:<JSON pointer>,evidence:<frozen ValueEvidence>}]}. Numeric values cite one actual admissible number ID or a recorded derivation. All used IDs must equal that candidate field supporting source_ids. No evidence wrappers alter semantic values.",
+    "semantic_values": "Outline/feature values use bare semantic geometry compatible with template_candidate_value. Every scalar leaf has its own proof. Unknown subfields retain {state: unknown}; known {kind: absent} requires image-backed proof and explicit verification. Overflow remains unknown, never silently omitted."
+  },
+  "verification_boundary": {
+    "cache": "Versioned domain policy, fixed inventory, stage-specific prompts, schema/contract, source and candidate binding go through M08. No historical blind-reader cache is read or copied.",
+    "domain_final_check": "M08 generic parsing validates job-wide reference ownership. validate_vision_result additionally requires every verified verdict to cite the exact supporting IDs of its own candidate field. A11 must call it before publication/counting. On EvidenceError, preserve raw runtime provenance for diagnostics and report domain-invalid/unresolved; do not publish raw generic accepted flags as verified or treat the error as an execution-failure fallback.",
+    "ordered_rounds": "Entirely delegated to the accepted shared runner: one Sol correction plus one Opus reverification only on explicit disagreement; preserve both rounds; persistent disagreement/unsure/invalid stays unresolved.",
+    "prompts": "Sol determines from original images; Opus verifies the exact supplied candidate with explicit per-field verdict/reason/evidence. Original geometry meaning, text, units, pattern counts and alternative association require actual Opus inspection. Alternatives remain feedback requiring Sol correction/reverification.",
+    "unverified_exception": "Only genuine Opus execution failure in the initial round, as classified by M08, permits valid source-backed Sol-only continuation. No new fallback logic. Projection uses ai_single_model and Review records missing Opus. Retry Opus next launch through the shared runner."
+  }
+}

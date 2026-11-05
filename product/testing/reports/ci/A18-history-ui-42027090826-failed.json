@@ -1,0 +1,158 @@
+{
+  "schema": "meridian-remote-module-receipt/v1",
+  "module": "M18 test-only qualification repair",
+  "run": {
+    "conclusion": "failure",
+    "databaseId": 42027090826,
+    "headBranch": "harness-v2",
+    "headSha": "401861f6eebaa4a1107688742f56d5acdeb2a31e",
+    "jobs": [
+      {
+        "completedAt": "2026-11-05T12:26:46Z",
+        "conclusion": "failure",
+        "databaseId": 127243905098,
+        "name": "history-ui",
+        "startedAt": "2026-11-05T12:26:10Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-11-05T12:26:12Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-11-05T12:26:11Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:26:13Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 2,
+            "startedAt": "2026-11-05T12:26:12Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:26:13Z",
+            "conclusion": "success",
+            "name": "Run mkdir -p tmp/A18-history-ui cache/npm cache/playwright reports/ci ../development/.runtime/ci-browser",
+            "number": 3,
+            "startedAt": "2026-11-05T12:26:13Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:26:14Z",
+            "conclusion": "success",
+            "name": "Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+            "number": 4,
+            "startedAt": "2026-11-05T12:26:13Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:26:40Z",
+            "conclusion": "success",
+            "name": "Install existing locked frontend and browser dependencies",
+            "number": 5,
+            "startedAt": "2026-11-05T12:26:14Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:26:41Z",
+            "conclusion": "success",
+            "name": "Typecheck and build the history screen remotely",
+            "number": 6,
+            "startedAt": "2026-11-05T12:26:40Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:26:43Z",
+            "conclusion": "failure",
+            "name": "Exercise actual Chat component with deterministic API boundary",
+            "number": 7,
+            "startedAt": "2026-11-05T12:26:41Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:26:44Z",
+            "conclusion": "success",
+            "name": "Save history UI evidence",
+            "number": 8,
+            "startedAt": "2026-11-05T12:26:43Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:26:44Z",
+            "conclusion": "skipped",
+            "name": "Post Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+            "number": 15,
+            "startedAt": "2026-11-05T12:26:44Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:26:45Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 16,
+            "startedAt": "2026-11-05T12:26:44Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:26:45Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 17,
+            "startedAt": "2026-11-05T12:26:45Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42027090826/job/127243905098"
+      },
+      {
+        "completedAt": "2026-11-05T12:26:08Z",
+        "conclusion": "skipped",
+        "databaseId": 127243907219,
+        "name": "history-windows",
+        "startedAt": "2026-11-05T12:26:09Z",
+        "status": "completed",
+        "steps": [],
+        "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42027090826/job/127243907219"
+      },
+      {
+        "completedAt": "2026-11-05T12:26:08Z",
+        "conclusion": "skipped",
+        "databaseId": 127243907546,
+        "name": "cad",
+        "startedAt": "2026-11-05T12:26:09Z",
+        "status": "completed",
+        "steps": [],
+        "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42027090826/job/127243907546"
+      },
+      {
+        "completedAt": "2026-11-05T12:26:08Z",
+        "conclusion": "skipped",
+        "databaseId": 127243907562,
+        "name": "requested",
+        "startedAt": "2026-11-05T12:26:09Z",
+        "status": "completed",
+        "steps": [],
+        "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42027090826/job/127243907562"
+      },
+      {
+        "completedAt": "2026-11-05T12:26:08Z",
+        "conclusion": "skipped",
+        "databaseId": 127243907929,
+        "name": "browser",
+        "startedAt": "2026-11-05T12:26:09Z",
+        "status": "completed",
+        "steps": [],
+        "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42027090826/job/127243907929"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42027090826"
+  },
+  "outcome": "FAIL",
+  "log": "AssertionError [ERR_ASSERTION]: Unexpected text: ENGINEERING_WARNING\n    at absent (/home/runner/work/proj-meridian/proj-meridian/product/testing/tests/chat_history_ui.cjs:92:42)\n    at async run (/home/runner/work/proj-meridian/proj-meridian/product/testing/tests/chat_history_ui.cjs:117:5) {\n  generatedMessage: false,\n  code: 'ERR_ASSERTION',\n  actual: false,\n  expected: true,\n  operator: '==',\n  diff: 'simple'\n}\n",
+  "finding": "Warning Debug enable assertion now passed, then immediate warning-absence assertion raced React commit after disable. Wait for actual answer Debug element detachment before asserting absence; retain hidden/enabled assertions. No production defect demonstrated.",
+  "product_changed": false,
+  "ci_failure_propagation": "Now correct: Actions reports failure; no result.json PASS artifact. Later assertions still pending full rerun."
+}

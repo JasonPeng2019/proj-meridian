@@ -1,0 +1,28 @@
+{
+  "actual_corpus_geometry_determined": false,
+  "actual_corpus_images_read": false,
+  "completed_at": "2026-11-05T12:20:21.916175+00:00",
+  "files": [
+    {
+      "ast": "PASS",
+      "authored_cases_static_count": 0,
+      "lines": 806,
+      "path": "development/backend/ai/vision_jobs.py",
+      "sha256": "f60ee2a9205fffb9fe201aa2218ec86731939b87f9a1647d3e59e7ce01791bec",
+      "test_functions": 0
+    },
+    {
+      "ast": "PASS",
+      "authored_cases_static_count": 36,
+      "lines": 506,
+      "path": "testing/tests/test_vision_jobs_m1.py",
+      "sha256": "c7bdcde49f9b15b85fab74b9746d449173c61191b5d273e6810ed88ad9392f1c",
+      "test_functions": 16
+    }
+  ],
+  "live_model_calls": 0,
+  "outcome": "PASS",
+  "runtime_tests_executed": false,
+  "schema": "meridian-vision-static/v1",
+  "scope": "AST parse and authored-source inventory only; no import, test, build, PDF, browser, CAD or model execution"
+}

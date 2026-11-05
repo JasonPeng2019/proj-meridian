@@ -114,6 +114,7 @@ async function run() {
     await page.locator(".mc-assistant > .meridian-evidence > .me-debug > summary").click();
     await waitText("ENGINEERING_WARNING");
     await page.evaluate(() => window.enableDebug(false));
+    await page.locator(".mc-assistant > .meridian-evidence > .me-debug").waitFor({ state: "detached" });
     await absent("ENGINEERING_WARNING");
 
     // A late read cannot replace another selection, even after returning to A.

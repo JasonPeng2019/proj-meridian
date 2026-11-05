@@ -1,4 +1,4 @@
-﻿"""Read-only browser smoke checks. Never submits a human review action."""
+"""Read-only browser smoke checks. Never submits a human review action."""
 from pathlib import Path
 import json
 import urllib.request
@@ -151,4 +151,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

@@ -15,6 +15,30 @@ def cube():
     return {"part":"D-999", "template":"flat_part", "outline":{"state":"known", "type":"rectangle", "length":known(10), "width":known(10)}, "thickness":known(10), "features":[]}
 
 
+@pytest.mark.parametrize("change", [
+    {"cad_ready": False, "blocking_fields": ["thickness"]},
+    {"blocking_fields": ["outline_type"]},
+    {"outline": {"type": "profile", "length": known(10), "width": known(10)}},
+    {"cad_eligibility": known({"supported": False, "constant_thickness": False, "outline_exact": True, "essential_uncertainty": []})},
+    {"cad_eligibility": {"state": "unknown", "value": None}},
+    {"thickness": {"state": "unknown", "value": None}},
+])
+def test_essential_geometry_blocks_shipped_fallback_before_cad_import(change):
+    template = {**cube(), **change}
+    result = builder._build_part("D-999", template, {"models": {"A": {"glb": "old.glb"}}})
+    assert not result["models"] and not result["examples"]
+    assert result["waiting"]
+
+
+def test_minor_feature_uncertainty_does_not_block_main_geometry():
+    template = cube()
+    template["cad_ready"] = True
+    template["features_review"] = {"state": "unknown", "note": "Minor hole positions are not dimensioned"}
+    template["features"] = [{"kind": "hole", "state": "unknown"}]
+    template["cad_eligibility"] = known({"supported": True, "constant_thickness": True, "outline_exact": True, "essential_uncertainty": []})
+    builder._validate_essential(template)
+
+
 def test_cube_mm_step_glb_and_cached_rebuild(tmp_path, monkeypatch):
     cq = pytest.importorskip("cadquery")
     trimesh = pytest.importorskip("trimesh")

@@ -66,6 +66,10 @@ def create_app(
     settings = settings if settings is not None else load_settings()
     fixtures = Path(fixture_dir) if fixture_dir is not None else _FIXTURES
     input_location = os.environ.get("MERIDIAN_INPUTS_PATH")
+    if not input_location and fixture_dir is None:
+        packaged_inputs = settings.path("generated") / "inputs" / "inputs.json"
+        if packaged_inputs.is_file():
+            input_location = str(packaged_inputs)
     if registry is None and input_location and fixture_dir is None:
         from ..loader.records import RecordRegistry
         from ..loader.decisions import DecisionStore

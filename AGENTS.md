@@ -4,7 +4,9 @@ The only permitted write root for this project is:
 
 `C:\Users\Jason\Documents\Jason\Take-Homes-Codex\active\Avathon`
 
-All project-related files and writes MUST remain inside this directory or its descendants. NOTHING may be written above or outside this repo.
+All local project-related files and writes MUST remain inside this directory or its descendants. NOTHING may be written above or outside this repo.
+
+On GitHub-hosted Actions runners, the equivalent project write root is the resolved `GITHUB_WORKSPACE`. Project outputs, caches, temporary files, virtual environments and verification clones stay under that checkout. Runner-managed tool provisioning and system dependencies may use the disposable runner's standard locations. This remote exception does not relax the local Windows boundary.
 
 This includes source, tests, fixtures, generated data, models, decisions, documentation, screenshots, transcripts, logs, temporary files, dependency caches, virtual environments, browser profiles, downloaded browsers, worktrees, fresh-clone checks, archives, and tool session state.
 
@@ -25,3 +27,11 @@ Parallel agents are authorized. Each agent owns only its assigned folders; the c
 App chat MUST use `gpt-6-luna`. Dataset prep uses Claude Opus at regular speed and `gpt-6.1-sol` with xhigh reasoning and priority/Fast service. Do not silently substitute models or tiers.
 
 Launch coding subagents as `gpt-6.1-sol`, high reasoning, on priority/Fast mode. The project Codex configuration specifies these settings for root coding sessions as well.
+
+## Resource limits
+
+Keep local work lightweight: edits, source inspection, static validation and Git operations. Run frontend builds, PDF regeneration, CAD generation, full tests and browser verification on GitHub-hosted Actions runners. CLI coding/prep agents remain outside Actions.
+
+Dataset-prep CLI readers have a hard cap of four concurrent processes. Coding agents are excluded from that four-reader limit. Do not raise the prep cap from the command line or configuration.
+
+Run heavy stages in succession, never simultaneously. Queue Actions runs in the shared `meridian-heavy` concurrency group. Do not add a parallel matrix or launch concurrent heavy subprocesses. Limit numerical/CAD worker threads. If heavy local work is unavoidable, run one heavy process at a time and wait for it to exit before starting another.

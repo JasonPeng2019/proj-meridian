@@ -46,7 +46,7 @@ For the correction loop, ask about D-019, then explicitly propose changing its p
 
 FastAPI serves the prebuilt React/Vite/Tailwind interface and JSON API. The deterministic loader extracts positioned clean-PDF text, renders sheet/corner images, and cleans the spreadsheet without losing original cell values. Blank prices remain unknown; the misleading zero-total rows become unknown totals rather than free parts. Filename/name matches are accepted only when unique. Other links go through the prep readers and remain unresolved unless they agree confidently.
 
-The offline prep runner uses **Claude Opus in regular mode** and **GPT-6.1 Sol, xhigh, priority/Fast service**, with concurrency four and a hard cap of sixteen. It validates referenced evidence IDs, caches by the complete input/settings hash, and retries only sure-versus-sure disagreements by sharing the other reading. The supported non-interactive CLI adapters and their commands are in `backend/ai/runner.py`; no substitute model is selected silently. Every name mapping still requires human approval, even if the readers agree.
+The offline prep runner uses **Claude Opus in regular mode** and **GPT-6.1 Sol, xhigh, priority/Fast service**, with a hard cap of four concurrent CLI readers. Coding agents are excluded from that reader limit. It validates referenced evidence IDs, caches by the complete input/settings hash, and retries only sure-versus-sure disagreements by sharing the other reading. The supported non-interactive CLI adapters and their commands are in `backend/ai/runner.py`; no substitute model is selected silently. Every name mapping still requires human approval, even if the readers agree.
 
 At runtime, GPT-6-luna calls narrow tools over the resolved structured records. Python decides source precedence, conflicts, mappings, possible readings and uncertainty. The server validates that each citation exists and was returned by a tool in the current turn. A single unambiguous part match provides a visual fallback when an answer omits a part citation. Only the last ten dialogue turns are retained; fresh facts are fetched after review actions.
 
@@ -79,6 +79,12 @@ The recorded BOM subtotal is **168,591.52 DKK**, with 75 missing unit prices and
 - No broad answer-key benchmark or completed human accuracy study is claimed. Automated review events in isolated verification are labelled “Automated verification” and excluded from accuracy. System diagrams, supplier discovery, a graph view, additional 3D parts and an MCP server are outside this MVP.
 
 ## Development and regeneration
+
+Builds and verification run on [GitHub Actions](https://github.com/JasonPeng2019/proj-meridian/actions/workflows/verify.yml). Local work stays lightweight. The workflow runs frontend build → tests → real CAD generation/roundtrips → fresh runtime/cache regeneration → browser verification, in succession on one hosted Linux runner. Numerical/CAD threads are limited to one. Runs share the `meridian-heavy` concurrency queue, so another run waits rather than competing for resources. It never launches coding or dataset-prep CLIs.
+
+Pushes to `main` and pull requests run without API credentials. In Actions → Meridian verification → Run workflow, select `live_api` only when paid GPT-6-luna questions and the isolated correction demonstration are wanted. This uses the repository's `OPENAI_API_KEY` Actions secret; no credential file is uploaded. Reports, screenshots, generated data/models and the built frontend are downloadable from the run's artifact for seven days. Project-owned files on runners remain under `GITHUB_WORKSPACE`; the original Windows write boundary still applies locally.
+
+The commands below are for the hosted runner or an unavoidable sequential local diagnostic; do not run the full sequence locally alongside agents.
 
 ```powershell
 . .\project-env.ps1

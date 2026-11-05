@@ -85,6 +85,8 @@ def main():
     result = {'page_errors':errors,'failed_responses':failures,'model_checked':model,'bom_checked':bom}
     (OUT/'browser-check.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
     print(json.dumps(result,indent=2))
+    assert not errors, errors
+    assert not failures, failures
 
 if __name__ == '__main__':
     main()

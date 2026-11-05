@@ -536,7 +536,7 @@ def run_prep(concurrency: int | None = None, force: bool = False, only: str | No
                 "reader_b": {"model": "gpt-6.1-sol", "reasoning_effort": "xhigh", "service_tier": "fast"}}
     if any(settings.get(reader, {}).get(key) != value for reader, fields in expected.items() for key, value in fields.items()):
         raise RuntimeError("ai_settings.yaml must retain Opus regular and gpt-6.1-sol xhigh fast. No silent substitutions.")
-    workers = max(1, min(16, concurrency or settings.get("concurrency", 4)))
+    workers = max(1, min(4, settings.get("max_concurrency", 4), concurrency or settings.get("concurrency", 4)))
     runner.bootstrap_auth()
     runner.set_concurrency(workers)
     # Always extract raw source facts. A prior app merge must never become reader evidence.

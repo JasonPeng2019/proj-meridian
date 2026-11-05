@@ -6,10 +6,12 @@ labelled Automated verification, in .verification/release-clone, never productio
 from __future__ import annotations
 
 import hashlib
+import argparse
 import json
 import os
 import re
 import shutil
+import signal
 import subprocess
 import time
 from datetime import datetime, timezone
@@ -55,7 +57,8 @@ def clone_environment():
 def start(env, label):
     log = inside(OUT / f"release-{label}.log").open("w", encoding="utf-8")
     proc = subprocess.Popen(["uv", "run", "--locked", "meridian", "--port", "8001"], cwd=CLONE, env=env,
-                            stdout=log, stderr=log, creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
+                            stdout=log, stderr=log, creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
+                            start_new_session=os.name != "nt")
     deadline = time.monotonic() + 90
     while time.monotonic() < deadline:
         if proc.poll() is not None:
@@ -77,7 +80,10 @@ def stop(proc, log):
     if os.name == "nt":
         subprocess.run(["taskkill", "/PID", str(proc.pid), "/T", "/F"], capture_output=True)
     else:
-        proc.terminate()
+        try:
+            os.killpg(proc.pid, signal.SIGTERM)
+        except ProcessLookupError:
+            pass
     proc.wait(timeout=15)
     log.close()
 
@@ -116,7 +122,8 @@ def correction_demo(env, report):
     config["reviewer_name"] = "Automated verification"
     config_path.write_text(yaml.safe_dump(config, sort_keys=False), encoding="utf-8")
     key_path = inside(ROOT / ".codex/.secrets/OpenAI_API_Keys.txt")
-    keys = re.findall(r"sk-[A-Za-z0-9_-]+", key_path.read_text(encoding="utf-8-sig"))
+    supplied = os.environ.get("OPENAI_API_KEY", "").strip()
+    keys = [supplied] if supplied else re.findall(r"sk-[A-Za-z0-9_-]+", key_path.read_text(encoding="utf-8-sig")) if key_path.exists() else []
     assert len(keys) == 1, "A single local key is required for live chat verification"
     env = env.copy()
     env.pop("MERIDIAN_NO_KEY", None)
@@ -189,6 +196,9 @@ def correction_demo(env, report):
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--skip-live", action="store_true", help="Verify release without a paid API correction demonstration")
+    args = parser.parse_args()
     configure_environment()
     OUT.mkdir(parents=True, exist_ok=True)
     assert not CLONE.exists(), "Use a new isolated target; existing verification data is never deleted automatically"
@@ -241,7 +251,10 @@ def main():
         assert len(list((generated / "images").glob("*-p*.png"))) == 33
     finally:
         stop(proc, log)
-    correction_demo(env, report)
+    if args.skip_live:
+        report["correction_ui"] = {"skipped": True, "reason": "Live API checks are opt-in; isolated governance tests still run in pytest."}
+    else:
+        correction_demo(env, report)
     source_after = {str(p.relative_to(corpus)): digest(p) for p in corpus.rglob("*") if p.is_file() and "__MACOSX" not in p.parts}
     assert source_before == source_after
     assert decisions_before == {p.name: digest(p) for p in (ROOT / "decisions").glob("*.json")}

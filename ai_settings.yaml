@@ -6,7 +6,7 @@ chat:
   secret_file: .codex/.secrets/OpenAI_API_Keys.txt
 prep:
   concurrency: 4
-  max_concurrency: 16
+  max_concurrency: 4
   reader_a:
     command: claude
     model: opus

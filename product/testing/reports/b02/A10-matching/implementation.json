@@ -1,0 +1,101 @@
+{
+  "schema": "meridian-matching-implementation-handoff/v1",
+  "lane_id": "A10-matching",
+  "batch": "B02",
+  "implementation_state": "Implemented; remote runtime checks not executed by this coding lane.",
+  "owned_files": [
+    "development/backend/ai/matching.py",
+    "testing/tests/test_matching_m1.py",
+    "testing/reports/b02/A10-matching/implementation.json",
+    "testing/reports/b02/A10-matching/static.json"
+  ],
+  "accepted_dependencies_read": [
+    "CWD AGENTS.md, goal.md and HANDOFF.md (read-only)",
+    "development/docs/PLAN.md and development/docs/WORKFLOW.md",
+    "testing/reports/b01/A08-detverify/implementation.json",
+    "development/backend/ai/runner.py (actual frozen implementation)",
+    "development/backend/contracts.py",
+    "development/backend/loader/drawings.py and development/backend/loader/bom.py",
+    "Original manifest and read-only deterministic-inputs-42004415297 typed extraction metadata"
+  ],
+  "api_for_a11": {
+    "construct": "MatchingRegistry(drawings: Sequence[DrawingEvidence], bom_rows: Sequence[BOMRow], manifest: Mapping[str, JsonValue], *, images: Mapping[drawing_id, Sequence[Path]] | None = None)",
+    "exact_links": "registry.exact_links() -> list[LinkResolution]. States: matched, ambiguous or unresolved. A deterministic miss is not proof of no_match.",
+    "link_job": "registry.link_job(drawing_id) -> RelationshipJob(definition, request, field_name, kind, from_name, to_name). Register definition unchanged with M08; run request through the frozen PrepRunner.",
+    "resolve_link": "registry.resolve_link(drawing_id, PrepProvenance) -> LinkResolution. Only retained accepted Sol fields produce matched/no_match. Other results stay unresolved with complete provenance.",
+    "mapping_jobs": "registry.mapping_jobs(all_link_resolutions) -> list[RelationshipJob]. Supply exactly one current result for every drawing. Non-exact links must have an attempted M08 result; failed/unresolved attempts are allowed. Only matched links contribute recorded section/material pairs and counts.",
+    "resolve_mapping": "registry.resolve_mapping(job, PrepProvenance) -> NameMapping | None. Every returned mapping is not_reviewed, including AI-verified or unverified-fallback proposals.",
+    "review_handoff": "registry.review_item(job, PrepProvenance, at=actual_aware_timestamp) -> pending ReviewItem with original source fields, exact candidate/verifier binding and every retained round. Publish under optional Debug through the existing review consumer.",
+    "serialization": "LinkResolution is a module-local ContractModel and supports model_dump(mode='json'). Nested link/mapping/review/provenance shapes use the frozen A02 contracts. RelationshipJob is an in-memory definition/request carrier, not a new runner callback or saved prep format."
+  },
+  "behavior": [
+    "Unique datasheet filename matches precede normalized original-filename/title matches to custom BOM names. Name normalization ignores case/separators without translating names or using unapproved section/material mappings.",
+    "Repeated filenames in either inventory, normalized-name collisions, BOM identity_conflict and duplicate stable row names never auto-select. A title cannot bypass the two actual RecoaterPlate.pdf attachment references.",
+    "The domain validator independently checks exact drawing ownership, actual unique custom row membership, candidate shape/state, each returned row and paired recorded name/attachment evidence. A section/material resemblance alone cannot support a relationship. Values are never repaired; only validation flags and the candidate digest change.",
+    "No-match uses the explicit drawing_id/bom_rows=[] candidate and requires cited full candidate inventory, absence of actual anchors, a usable title when candidates exist and no excluded custom identity. Unknown/unsupported remains unresolved. Multiple selected rows require separate evidence for every row.",
+    "Jobs use M08 JobDefinition, EvidenceBundle, EvidenceInput, definition.request and with_field_validation exactly as accepted. Sol determines; Opus verifies that exact candidate against original evidence. M08 alone owns the one disagreement correction/reverification, failure policy, cache, timing and resource accounting.",
+    "Each job supplies canonical typed original evidence projections and admissible source IDs. Link jobs include their drawing plus the full eligible custom candidate inventory and explicit excluded custom identities. Mapping jobs include their recorded name pairs, occurrence counts and complete retained link inventory. No PDF is regenerated.",
+    "Drawing manifest path/hash/subsystem/original filename are checked against deterministic DrawingEvidence. Producer inputs are snapshotted. Requests bind the full registry digest, pipeline/domain version, actual projected JSON bytes, attached original image bytes, fixed field/schema/prompt and completed-link candidate identities.",
+    "AI-read title/notes/material fields require original image inputs with hashes present in their retained source identity. Those supplied images are attached to both ordered stages through M08. Changed image bytes invalidate the registry/job instead of being relabeled as verifier failure.",
+    "Post-link mapping jobs propose same, kind_of, different or no_equivalent for observed recorded name pairs. kind_of is directed from specific from_name to broader to_name; no_equivalent uses null to_name. Section counts describe recorded associations, not human approval.",
+    "Every material semantic proposal is labeled general_engineering_knowledge, not dataset evidence. Mapping validation proves the names/linked occurrences are recorded; material taxonomy remains an outside-dataset proposal for Opus and human review.",
+    "The handoff revalidates retained M08 provenance and current candidate source validation. Stale source/job/prompt/contract/candidate bindings cannot be replayed. Historical blind-reader methods/cache are never imported or promoted.",
+    "Only M08's genuine execution-failure fallback can produce AI_SINGLE_MODEL. The review handoff explicitly says UNVERIFIED and retains the failed Opus attempt/next-launch retry. Disagreement, uncertainty, invalid IDs or unsupported source evidence never authorize fallback.",
+    "No decision is appended, mapping approved, fact/search index changed, generated output published, CLI launched or application API key read by this module."
+  ],
+  "source_validation_limits": [
+    "Semantic translations without a recorded lexical/attachment anchor are unsupported even if a model is sure; they stay unresolved for human review.",
+    "Observed linked name pairs are proposals. The source validator does not assert that a material taxonomy is printed in the dataset or independently certify outside engineering knowledge.",
+    "There is no inferred no-equivalent mapping for an unlinked or absent name based solely on missing link coverage. No expected engineering answer or approved mapping is seeded.",
+    "Actual corpus relationship candidates, Opus verification and human decisions have not been executed or fabricated by this coding lane."
+  ],
+  "authored_tests": {
+    "path": "testing/tests/test_matching_m1.py",
+    "scope": "Focused synthetic deterministic cases plus read-only original manifest/BOM duplicate-reference regression. Remote scripted Python peers exercise the real M08 runner without live CLIs.",
+    "coverage": [
+      "Unique filename/name matches; duplicate filename on either side; title-bypass prevention; normalized/stable identity collisions; actual RecoaterPlate.pdf BOM references",
+      "Foreign row/drawing IDs, duplicate selected rows, unanchored/uncited candidates, noncustom rows, manufactured options and immutable values",
+      "Original evidence delivery, exact candidate/verifier binding, explicit verdict, one correction, preserved criticism and persistent disagreement/uncertainty",
+      "Explicit no_match versus unknown; actual simulated Opus execution failure labeled unverified; next-launch Opus retry; unsupported candidates cannot fall back",
+      "Complete/attempted link-stage requirement, fabricated/stale link rejection, changed-source/candidate invalidation and isolated immutable evidence snapshots",
+      "Recorded mapping references/counts, four relationship shapes, outside-knowledge label, pending human review and no effect on source facts"
+    ],
+    "outcome": "SKIPPED",
+    "reason": "All application test execution is reserved for ROOT Actions; no local tests were run."
+  },
+  "local_checks": {
+    "report": "testing/reports/b02/A10-matching/static.json",
+    "kind": "AST parsing, static source/config inspection and Git whitespace/scope only",
+    "runtime_suites_executed": false,
+    "live_model_calls": 0,
+    "generated_prep_outputs_published": 0
+  },
+  "root_actions": [
+    "Integrate this clean scoped tip, publish ordinary product files on harness-v2, then dispatch verify.yml task=modules at the exact published revision. Existing testing/ci/checks.py discovers the new test suite; no shared test/config delta is requested.",
+    "A11 registers RelationshipJob.definition and runs RelationshipJob.request serially using the accepted M08 runner, one shared runtime root and actual shared child-slot reservation. Complete every non-exact link attempt before constructing mapping jobs; unresolved results never wait for human review.",
+    "A11 supplies original M09 image evidence when using overlaid scan fields, bound to the recorded image input hashes. Preserve source images and genuine available rounds with the new saved preparation outputs.",
+    "Redo the FULL actual corpus preparation under determine-verify/v1. Rebuild the registry after changed scan readings and rebuild mapping jobs after changed link candidates. Preserve all historical blind-reader outputs separately; do not copy/promote them.",
+    "A11 alone publishes links/mappings and Debug review handoffs. Existing M12/M14 consumers must continue to enforce human_confirmed before a NameMapping affects facts or search, as already required by the frozen contract/plan."
+  ],
+  "remote_commands": {
+    "dispatch_by_root": "gh workflow run verify.yml --repo JasonPeng2019/proj-meridian --ref harness-v2 -f task=modules",
+    "existing_actions_entry_from_product": "development/.venv/bin/python -B testing/ci/checks.py modules",
+    "focused_from_product_testing": "../development/.venv/bin/python -B -m pytest -q -p no:cacheprovider --basetemp=tmp/A10-pytest --junitxml=reports/ci/A10-matching.xml tests/test_matching_m1.py"
+  },
+  "requested_shared_file_changes": [],
+  "proposed_user_todo_entries": [
+    {
+      "stable_id": "M10-recoater-duplicate-link",
+      "question": "If fresh determine/verify leaves it unresolved, which actual BOM row(s), if any, correspond to D-013? Recoater head and Recoater stage plate both record RecoaterPlate.pdf.",
+      "affected_items": ["D-013", "BOM:recoater/recoater-head", "BOM:recoater/recoater-stage-plate"],
+      "evidence_paths": [
+        "development/inputs/project-meridian/dataset/manifest.json",
+        "development/inputs/project-meridian/dataset/context/openlpbf-bom.csv",
+        "development/inputs/project-meridian/dataset/drawings/D-013.pdf"
+      ],
+      "current_state": "Duplicate recorded attachment references confirmed by static inspection; not auto-selected; no fresh AI or human decision claimed.",
+      "user_action": "After A11 publishes the fresh retained evidence/rounds, compare D-013 against both rows in Debug Review and select actual rows or no match if the job remains unresolved. This never blocks coding or prep."
+    }
+  ],
+  "human_mapping_reviews": "Create concrete pending review entries from actual A11 mapping proposals; no nonexistent mapping values or approvals are fabricated in this coding handoff."
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "meridian-matching-static-inspection/v1",
+  "recorded_at": "2026-11-05T12:37:43.303875+00:00",
+  "command": "python -B - (stdlib ast.parse of the two owned Python files; json.loads of implementation.json; no backend imports)",
+  "outcome": "PASS",
+  "files": [
+    {
+      "path": "development/backend/ai/matching.py",
+      "outcome": "PASS",
+      "sha256": "edcfd70fc7f57fde44a2e27b2f73f365e54808c568ea5c6c0db454a20523734f",
+      "lines": 569,
+      "top_level_test_functions": 0
+    },
+    {
+      "path": "testing/tests/test_matching_m1.py",
+      "outcome": "PASS",
+      "sha256": "92063934999f76d99ef6b789d29e13971c50b08af2d78104bbaf92407806a510",
+      "lines": 400,
+      "top_level_test_functions": 18
+    }
+  ],
+  "handoff_json": "PASS",
+  "application_tests_executed": false,
+  "live_models_executed": false,
+  "remote_test_outcome": "SKIPPED",
+  "pending_command_from_testing": "../development/.venv/bin/python -B -m pytest -q -p no:cacheprovider --basetemp=tmp/A10-pytest --junitxml=reports/ci/A10-matching.xml tests/test_matching_m1.py",
+  "scope": "Syntax/JSON only; no behavioral/runtime/source-truth verification claim."
+}

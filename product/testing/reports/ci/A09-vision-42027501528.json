@@ -1,0 +1,214 @@
+{
+  "schema": "meridian-remote-module-receipt/v1",
+  "module": "M09 scan and template job definitions",
+  "candidate": "c0a92fdbe2120dfcfd9c4901752e101d34af1a62",
+  "run": {
+    "conclusion": "success",
+    "databaseId": 42027501528,
+    "headBranch": "harness-v2",
+    "headSha": "c6108054e3dda8e8c5dcff8dd1506317fa481fac",
+    "jobs": [
+      {
+        "completedAt": "2026-11-05T12:30:56Z",
+        "conclusion": "success",
+        "databaseId": 127245574111,
+        "name": "requested",
+        "startedAt": "2026-11-05T12:29:40Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-11-05T12:29:43Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-11-05T12:29:42Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:29:44Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 2,
+            "startedAt": "2026-11-05T12:29:43Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:29:44Z",
+            "conclusion": "success",
+            "name": "Run mkdir -p tmp cache/uv cache/pip reports/ci",
+            "number": 3,
+            "startedAt": "2026-11-05T12:29:44Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:29:45Z",
+            "conclusion": "success",
+            "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 4,
+            "startedAt": "2026-11-05T12:29:44Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:29:49Z",
+            "conclusion": "success",
+            "name": "Install locked verification dependencies",
+            "number": 5,
+            "startedAt": "2026-11-05T12:29:45Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:29:49Z",
+            "conclusion": "skipped",
+            "name": "Raw positioned-PDF extraction and images (capability, no AI)",
+            "number": 6,
+            "startedAt": "2026-11-05T12:29:49Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:30:51Z",
+            "conclusion": "success",
+            "name": "Focused Python module tests (no live AI or CAD)",
+            "number": 7,
+            "startedAt": "2026-11-05T12:29:49Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:30:51Z",
+            "conclusion": "skipped",
+            "name": "Extract complete deterministic inputs with the committed producers",
+            "number": 8,
+            "startedAt": "2026-11-05T12:30:51Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:30:51Z",
+            "conclusion": "skipped",
+            "name": "Run the requested implemented product checkpoint",
+            "number": 9,
+            "startedAt": "2026-11-05T12:30:51Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:30:51Z",
+            "conclusion": "skipped",
+            "name": "Optional paid Luna capability probe",
+            "number": 10,
+            "startedAt": "2026-11-05T12:30:51Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:30:53Z",
+            "conclusion": "success",
+            "name": "Save requested-stage artifacts",
+            "number": 11,
+            "startedAt": "2026-11-05T12:30:51Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:30:53Z",
+            "conclusion": "success",
+            "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 21,
+            "startedAt": "2026-11-05T12:30:53Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:30:54Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 22,
+            "startedAt": "2026-11-05T12:30:53Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:30:54Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 23,
+            "startedAt": "2026-11-05T12:30:54Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42027501528/job/127245574111"
+      },
+      {
+        "completedAt": "2026-11-05T12:29:38Z",
+        "conclusion": "skipped",
+        "databaseId": 127245576209,
+        "name": "cad",
+        "startedAt": "2026-11-05T12:29:38Z",
+        "status": "completed",
+        "steps": [],
+        "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42027501528/job/127245576209"
+      },
+      {
+        "completedAt": "2026-11-05T12:29:38Z",
+        "conclusion": "skipped",
+        "databaseId": 127245576356,
+        "name": "browser",
+        "startedAt": "2026-11-05T12:29:38Z",
+        "status": "completed",
+        "steps": [],
+        "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42027501528/job/127245576356"
+      },
+      {
+        "completedAt": "2026-11-05T12:29:38Z",
+        "conclusion": "skipped",
+        "databaseId": 127245576391,
+        "name": "history-windows",
+        "startedAt": "2026-11-05T12:29:38Z",
+        "status": "completed",
+        "steps": [],
+        "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42027501528/job/127245576391"
+      },
+      {
+        "completedAt": "2026-11-05T12:29:38Z",
+        "conclusion": "skipped",
+        "databaseId": 127245576409,
+        "name": "history-ui",
+        "startedAt": "2026-11-05T12:29:38Z",
+        "status": "completed",
+        "steps": [],
+        "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42027501528/job/127245576409"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42027501528"
+  },
+  "outcome": "PASS",
+  "cases": {
+    "total": 143,
+    "passed": 143,
+    "failed": 0,
+    "vision": 36
+  },
+  "blob_proof": [
+    {
+      "path": "development/backend/ai/vision_jobs.py",
+      "sha256": "f60ee2a9205fffb9fe201aa2218ec86731939b87f9a1647d3e59e7ce01791bec",
+      "exact_match": true
+    },
+    {
+      "path": "testing/tests/test_vision_jobs_m1.py",
+      "sha256": "c7bdcde49f9b15b85fab74b9746d449173c61191b5d273e6810ed88ad9392f1c",
+      "exact_match": true
+    },
+    {
+      "path": "testing/reports/b02/A09-vision/implementation.json",
+      "sha256": "a26fff87987757a818ecec3fc3b568d97c7d534095f86fcbcb0bdc63b4a4752a",
+      "exact_match": true
+    },
+    {
+      "path": "testing/reports/b02/A09-vision/static.json",
+      "sha256": "0fc6d8209542a100a158dd840416c3adc4fa21b598c28d670ff76a6f0c5199ff",
+      "exact_match": true
+    }
+  ],
+  "root_review": "Read entire806line implementation, current RESULT and85line interface report. Uses accepted M08 without sharedfilechanges, source-bound crops/originals, numeric/proof/option admissibility, exact per-field verification binding and required final validate_vision_result. Fits existing M09; no extra module or semantic gate.",
+  "mandatory_downstream": "A11 must validate_vision_result before publishing/counting/consuming, keep raw invalid rounds unresolved, reserve actual CLI child slot and redo full real corpus.",
+  "limitations": [
+    "36 scripted synthetic/domain cases, not actual corpus/model/source-accuracy qualification.",
+    "No live Sol/Opus, geometry, product gate or full prep performed.",
+    "Tests/builds remote; local AST/Git inspection only."
+  ]
+}

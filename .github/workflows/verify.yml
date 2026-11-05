@@ -6,7 +6,7 @@ on:
       task:
         description: Agent-triggered verification stage
         type: choice
-        options: [capability, pdf, gate, live]
+        options: [capability, pdf, modules, gate, live]
         default: capability
       gate:
         description: Product checkpoint (requires its implemented suite)
@@ -122,6 +122,11 @@ jobs:
       - name: Raw positioned-PDF extraction and images (capability, no AI)
         if: inputs.task == 'pdf'
         run: uv run --project ../development --locked --extra prep python ci/checks.py pdf
+      - name: Focused Python module tests (no live AI or CAD)
+        if: inputs.task == 'modules'
+        env:
+          PYTHONPATH: ${{ github.workspace }}/product/development
+        run: uv run --project ../development --locked --extra test --extra prep python ci/checks.py modules
       - name: Run the requested implemented product checkpoint
         if: inputs.task == 'gate'
         env:

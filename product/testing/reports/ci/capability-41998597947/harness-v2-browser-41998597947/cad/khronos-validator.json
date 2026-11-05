@@ -1,0 +1,38 @@
+{
+  "uri": "synthetic-plate.glb",
+  "mimeType": "model/gltf-binary",
+  "validatorVersion": "2.0.0-dev.3.10",
+  "validatedAt": "2026-11-05T08:59:40.732Z",
+  "issues": {
+    "numErrors": 0,
+    "numWarnings": 0,
+    "numInfos": 0,
+    "numHints": 0,
+    "messages": [],
+    "truncated": false
+  },
+  "info": {
+    "version": "2.0",
+    "generator": "Open CASCADE Technology 7.9 [dev.opencascade.org]",
+    "resources": [
+      {
+        "pointer": "/buffers/0",
+        "mimeType": "application/gltf-buffer",
+        "storage": "glb",
+        "byteLength": 81148
+      }
+    ],
+    "animationCount": 0,
+    "materialCount": 1,
+    "hasMorphTargets": false,
+    "hasSkins": false,
+    "hasTextures": false,
+    "hasDefaultScene": true,
+    "drawCallCount": 9,
+    "totalVertexCount": 2706,
+    "totalTriangleCount": 2700,
+    "maxUVs": 0,
+    "maxInfluences": 0,
+    "maxAttributes": 2
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "scope": "Static syntax and source integrity only; product tests not executed locally",
+  "syntax": {
+    "development/backend/loader/bom.py": "PASS",
+    "testing/tests/test_bom_m1.py": "PASS"
+  },
+  "source_sha256": "b9837f2249247e4465ae5f481f714912bba8ed33a7759cd773ab43092e1b6ae2",
+  "source_bytes": 52534,
+  "data_rows": 192,
+  "header_count": 20,
+  "uniform_width": true,
+  "runtime_tests": "NOT_RUN: ROOT must dispatch focused suite on Actions"
+}

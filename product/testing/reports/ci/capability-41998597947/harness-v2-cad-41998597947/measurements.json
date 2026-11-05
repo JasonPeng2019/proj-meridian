@@ -1,0 +1,191 @@
+{
+  "schema": "a13-cad-qualification/v1",
+  "outcome": "PASS",
+  "completed_at": "2026-11-05T08:59:02.068348+00:00",
+  "synthetic": true,
+  "source": "All dimensions are invented test values, not taken from any drawing. No source drawings read.",
+  "geometry_mm": {
+    "plate": [
+      100.0,
+      60.0,
+      5.0
+    ],
+    "main_hole_diameter": 10.0,
+    "main_hole_centre": [
+      0,
+      0
+    ],
+    "pattern_hole_diameter": 6.0,
+    "pattern_hole_centres": [
+      [
+        -25.0,
+        15.0
+      ],
+      [
+        25.0,
+        15.0
+      ]
+    ]
+  },
+  "analytic_volume_mm3": 29324.557579478194,
+  "analytic_volume_formula": "100*60*5 - pi*5*(5**2 + 2*3**2)",
+  "checks": [
+    {
+      "name": "cad_solid",
+      "outcome": "PASS"
+    },
+    {
+      "name": "glb",
+      "outcome": "PASS"
+    },
+    {
+      "name": "step",
+      "outcome": "PASS"
+    }
+  ],
+  "environment": {
+    "python": "3.12.15",
+    "python_executable": "/home/runner/work/proj-meridian/proj-meridian/product/development/.venv/bin/python3",
+    "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+    "cadquery": "2.8.0",
+    "cadquery_ocp": "7.9.3.1.1",
+    "ocp_module": "7.9.3.1",
+    "numpy": "2.5.4",
+    "windows_path_strategy": "Existing NTFS 8.3 interpreter alias when available; no files relocated"
+  },
+  "cad_solid": {
+    "valid": true,
+    "solid_count": 1,
+    "bounds_mm": [
+      [
+        -50.0,
+        -30.0,
+        0.0
+      ],
+      [
+        50.0,
+        30.0,
+        5.0
+      ]
+    ],
+    "expected_bounds_mm": [
+      [
+        -50.0,
+        -30.0,
+        0.0
+      ],
+      [
+        50.0,
+        30.0,
+        5.0
+      ]
+    ],
+    "bounds_tolerance_mm": 1e-06,
+    "volume_mm3": 29324.557579478194,
+    "volume_error_mm3": 0.0,
+    "volume_tolerance_mm3": 1e-06
+  },
+  "glb": {
+    "export_api": "Assembly.add(shape.scale(0.001), color=cq.Color(0.6,0.6,0.6,1)); Assembly.export(path.glb, exportType='GLTF', tolerance=0.00005, angularTolerance=0.1)",
+    "export_shape_scale": 0.001,
+    "tessellation_linear_tolerance_m": 5e-05,
+    "tessellation_angular_tolerance_rad": 0.1,
+    "requested_cq_color": [
+      0.6,
+      0.6,
+      0.6,
+      1.0
+    ],
+    "path": "testing/runs/capability/cad/synthetic-plate.glb",
+    "bytes": 85432,
+    "sha256": "c1c28f86e045a622ef64d0c8e3405cc1ad450684dbca1a55a1c2d8e16d41ebaf",
+    "header": {
+      "magic": "glTF",
+      "version": 2,
+      "length": 85432
+    },
+    "asset": {
+      "generator": "Open CASCADE Technology 7.9 [dev.opencascade.org]",
+      "version": "2.0"
+    },
+    "chunks": [
+      {
+        "type": 1313821514,
+        "bytes": 4256
+      },
+      {
+        "type": 5130562,
+        "bytes": 81148
+      }
+    ],
+    "meshes": 1,
+    "accessors": 27,
+    "triangles": 2700,
+    "external_resources": false,
+    "base_color_factors": [
+      [
+        0.31854677200317383,
+        0.31854677200317383,
+        0.31854677200317383,
+        1.0
+      ]
+    ],
+    "world_bounds_m": [
+      [
+        -0.05000000074505806,
+        -6.661337998858429e-18,
+        -0.02999999932944774
+      ],
+      [
+        0.05000000074505806,
+        0.004999999888241296,
+        0.02999999932944774
+      ]
+    ],
+    "expected_world_bounds_m": [
+      [
+        -0.05,
+        0.0,
+        -0.03
+      ],
+      [
+        0.05,
+        0.005,
+        0.03
+      ]
+    ],
+    "max_bounds_error_m": 7.450580569168253e-10,
+    "bounds_tolerance_m": 1e-07,
+    "mesh_volume_mm3": 29324.646065383084,
+    "mesh_volume_relative_error": 3.017467685553877e-06,
+    "mesh_volume_relative_tolerance": 0.001,
+    "units": "CadQuery mm -> glTF m (0.001); Z-up -> Y-up: (x,y,z) -> (x,z,-y)"
+  },
+  "step": {
+    "path": "testing/runs/capability/cad/synthetic-plate.step",
+    "bytes": 26309,
+    "sha256": "05a973f0dac1c2bac2cb420799a9d071fb629a056a9c02422413abc34c38a255",
+    "export_api": "cq.exporters.export(plate, path.step, exportType='STEP')",
+    "import_api": "cq.importers.importStep(path.step)",
+    "units": "mm",
+    "valid": true,
+    "solid_count": 1,
+    "volume_mm3": 29324.557579478176,
+    "analytic_error_mm3": 1.8189894035458565e-11,
+    "round_trip_error_mm3": 1.8189894035458565e-11,
+    "volume_tolerance_mm3": 1e-05,
+    "bounds_mm": [
+      [
+        -50.0,
+        -30.0,
+        0.0
+      ],
+      [
+        50.0,
+        30.0,
+        5.0
+      ]
+    ],
+    "bounds_tolerance_mm": 1e-06
+  }
+}

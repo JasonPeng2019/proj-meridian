@@ -39,10 +39,6 @@ def foundation():
         [sys.executable, str(ROOT / "testing/reports/b00/A01-scaffold/smoke_checks.py")],
         [sys.executable, str(ROOT / "testing/smoke/A02-contracts/check_contracts.py")],
     ]
-    suites = ROOT / "testing/tests"
-    available = suites.exists() and any(suites.rglob("test_*.py"))
-    if available:
-        commands.append([sys.executable, "-m", "pytest", str(suites), "--junitxml=" + str(REPORTS / "pytest.xml")])
     results = []
     REPORTS.mkdir(parents=True, exist_ok=True)
     for index, command in enumerate(commands):
@@ -54,8 +50,29 @@ def foundation():
             print(result.stderr, file=sys.stderr)
             write("foundation.json", {"outcome": "FAIL", "checks": results})
             raise SystemExit(result.returncode)
-    write("foundation.json", {"outcome": "PASS", "scope": "B00 foundation plus available tests",
-                               "product_gate_suites_present": bool(available), "checks": results})
+    write("foundation.json", {"outcome": "PASS", "scope": "B00 foundation only; module and product gates are dispatched separately",
+                               "checks": results})
+
+
+def modules():
+    """Run the available focused Python module suite in the queued remote slot."""
+    suites = ROOT / "testing/tests"
+    if not suites.exists() or not any(suites.rglob("test_*.py")):
+        write("modules.json", {"outcome": "BLOCKED", "reason": "No focused Python module tests are present"})
+        raise SystemExit("No module tests are implemented yet")
+    REPORTS.mkdir(parents=True, exist_ok=True)
+    command = [sys.executable, "-m", "pytest", str(suites), "-q", "-p", "no:cacheprovider",
+               "--basetemp=" + str(ROOT / "testing/tmp/pytest-modules"),
+               "--junitxml=" + str(REPORTS / "modules.xml")]
+    result = subprocess.run(command, cwd=ROOT / "testing", capture_output=True, text=True,
+                            timeout=900)
+    (REPORTS / "modules-output.txt").write_text(result.stdout + result.stderr, encoding="utf-8")
+    print(result.stdout, end="")
+    print(result.stderr, end="", file=sys.stderr)
+    write("modules.json", {"outcome": "PASS" if result.returncode == 0 else "FAIL",
+                           "scope": "Available focused Python module tests; not a V1-V5 gate verdict",
+                           "command": command, "exit_code": result.returncode})
+    raise SystemExit(result.returncode)
 
 
 def manifest():
@@ -123,5 +140,5 @@ def live():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("stage", choices=["foundation", "manifest", "pdf", "live"])
+    parser.add_argument("stage", choices=["foundation", "modules", "manifest", "pdf", "live"])
     globals()[parser.parse_args().stage]()

@@ -13,7 +13,7 @@ def get(path):
 
 def verify_debug():
     with sync_playwright() as p:
-        browser=p.chromium.launch(headless=True, args=['--enable-unsafe-swiftshader'])
+        browser=p.chromium.launch(headless=True, args=['--enable-unsafe-swiftshader'], ignore_default_args=['--hide-scrollbars'])
         page=browser.new_page(viewport={'width':1600,'height':1000})
         errors=[]
         page.on('pageerror',lambda e:errors.append(str(e)))
@@ -69,6 +69,7 @@ def verify_debug():
         assert '?part=D-013' in page.url
         expect(search).to_be_visible()
         expect(page.locator('.review-part-focus .debug-view')).to_be_visible()
+        assert page.locator('.review-part-focus .debug-view').evaluate('el => el.clientHeight')>=200
         page.reload()
         expect(page.locator('.review-part-focus .part-title h2')).to_have_text('Recoater Plate')
         search.fill('D-014')

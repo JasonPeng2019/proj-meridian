@@ -10,6 +10,18 @@ from backend.paths import ROOT,GENERATED,configure_environment,inside
 from scripts.expand_models import raw_drawings,require_settings,sequential_readers,digest
 
 
+def add_mapping_lineage(output,current,drawings,bom):
+    from backend.app.store import mapping_source_signature
+    import hashlib
+    old={m['name']:m for m in current.get('mappings',[])}
+    for mapping in output.get('mappings',[]):
+        previous=old.get(mapping['name'])
+        if not previous or any(previous.get(k)!=mapping.get(k) for k in ['kind','left','right']):continue
+        signature=mapping_source_signature(mapping,{did:d.get('sha256','') for did,d in drawings.items()},{row['name']:row.get('sha256','') for row in bom})
+        prior={'sha256':hashlib.sha256(json.dumps({k:v for k,v in previous.items() if k!='review'},sort_keys=True).encode()).hexdigest(), 'source_signature':signature}
+        mapping['prior_proposals']=[*copy.deepcopy(previous.get('prior_proposals',[])),prior]
+
+
 def main():
     configure_environment();require_settings()
     drawings=raw_drawings()
@@ -57,7 +69,10 @@ def main():
         if did not in output['templates']:output['templates'][did]=template
     output['previous_prep']={'receipt':str((folder/'previous-output.json').relative_to(GENERATED)),'protocol':'mixed legacy and targeted proposal-verification','sha256':runner.fingerprint(original)}
     output['prep_runs']=copy.deepcopy(current.get('prep_runs',[]))+[{'kind':'full_reprepare','protocol':p.PROTOCOL,'receipt':str((folder/'checkpoint.json').relative_to(GENERATED)),'metrics':output['metrics']}]
-    assert before=={str(f.relative_to(ROOT)):digest(f) for f in (ROOT/'decisions').glob('*.json')}
+    after={str(f.relative_to(ROOT)):digest(f) for f in (ROOT/'decisions').glob('*.json')}
+    assert all(after.get(path)==value for path,value in before.items()), "Existing decisions must remain byte-identical"
+    # New real user decisions may be appended while a prep batch runs.
+    add_mapping_lineage(output,current,drawings,bom)
     runner.write_json(folder/'checkpoint.json',{'protocol':p.PROTOCOL,'complete':True,'results':results,'exact':exact,'metrics':output['metrics'],'decisions_unchanged':True})
     runner.write_json(GENERATED/'ai_results.json',output)
     runner.write_json(runner.CACHE/'artifacts/ai_results.json',output)

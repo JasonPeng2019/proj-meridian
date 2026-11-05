@@ -168,3 +168,26 @@ def test_partial_supported_features_block_whole_design_until_inventory_resolved(
     template['features_complete']={'state':'known','value':True,'method':'human_decision'}
     template['features_omitted']={'state':'known','value':[],'method':'human_decision'}
     evidence.validate_design(evidence.part('D-019'),'Inspected')
+
+
+def test_mapping_receipt_refresh_preserves_real_decision_only_for_unchanged_sources(evidence):
+    from backend.app.store import mapping_source_signature
+    name=evidence.ai['mappings'][0]['name']
+    fingerprint=evidence.fingerprint(name)
+    signature=mapping_source_signature(evidence.ai['mappings'][0],{'D-019':'drawing-v1'},
+        {key:value['sha256'] for key,value in evidence.rows.items()})
+    evidence.act(name,'approve_mapping','kind_of')
+    path=evidence.generated/'ai_results.json'
+    data=json.loads(path.read_text())
+    data['mappings'][0].update(method='ai_verified',readers={'new':'receipt'},
+        prior_proposals=[{'sha256':fingerprint,'source_signature':signature}])
+    path.write_text(json.dumps(data))
+    fresh=Store(evidence.root)
+    assert fresh.mappings[0]['review']['status']=='human_confirmed'
+    assert fresh.mappings[0]['relationship']=='kind_of'
+    records=json.loads((evidence.generated/'records.json').read_text())
+    records[0]['drawing']['sha256']='changed-source'
+    (evidence.generated/'records.json').write_text(json.dumps(records))
+    changed=Store(evidence.root)
+    assert changed.mappings[0]['review']['status']!='human_confirmed'
+    assert changed.pending_changed()

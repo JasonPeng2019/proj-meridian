@@ -9,6 +9,7 @@ import argparse
 import copy
 import hashlib
 import json
+import re
 import time
 from contextlib import contextmanager
 from datetime import datetime, timezone
@@ -47,8 +48,10 @@ dimension/contour is unresolved. A certain outline and thickness can still produ
 an honest partial model when minor holes/slots lack positions or dimensions:
 list the omissions, retain only fully supported features, and do not guess them.
 Uncertainty about a minor hole alone MUST NOT block the main constant-thickness
-solid. For such partials features may be unknown with only certain features in
-the array; describe every omission explicitly. The object reason must explain
+solid. For such partials features remains known with the supported subset,
+features_complete is false, and features_omitted describes every excluded detail
+with original evidence IDs. Do not erase supported cuts because another feature
+is unresolved. The object reason must explain
 the specific eligibility decision, including the main view and thickness source.
 Do not consult prior AI records, fused application records, existing templates,
 benchmark expectations, accepted human decisions, or any other drawings.
@@ -134,30 +137,121 @@ def assess(result, drawings):
                   "reason": " ".join(dict.fromkeys(reasons)), "blocking_fields": template.get("blocking_fields", []),
                   "omitted_minor_features": value.get("omitted_minor_features", []),
                   "features_state": template.get("features_review", {}).get("state"),
+                  "features_status": template.get("features_status", "unknown"),
+                  "omitted_feature_notes": template.get("omitted_feature_notes", []),
                   "source_sha256": drawings[did].get("sha256"), "protocol": result.get("protocol"),
                   "states": result["states"], "feedback_rounds": result.get("feedback_rounds", [])}
     return template, assessment, assembled["metrics"]
 
 
-def expand(force=False):
+def restore_blocked(journal_path, drawings):
+    """Replay exact, fingerprinted receipts for previously unsupported drawings.
+
+    Ready/partial models are deliberately reassessed under the current feature
+    contract. Only proven blocked drawings avoid another paid provider round.
+    """
+    journal = read_json(journal_path)
+    if (journal.get("protocol") != EXPANSION_PROTOCOL or
+            journal.get("raw_drawings_sha256") != digest(GENERATED / "drawings.json")):
+        raise ValueError("Resume journal does not match the current raw drawing evidence/protocol")
+    templates, assessments, usage = {}, {}, []
+    usage_by_drawing = {item["drawing"]: item for item in journal.get("usage", [])}
+    for did, saved in journal.get("assessments", {}).items():
+        if saved.get("status") != "blocked":
+            continue
+        if did not in drawings or saved.get("protocol") != pipeline.PROTOCOL:
+            raise ValueError("Cannot replay a different drawing/proposal protocol: " + did)
+        item = usage_by_drawing.get(did) or {}
+        calls = item.get("calls", [])
+        if len(calls) not in (2, 4):
+            raise ValueError("Incomplete cached proposal/verification receipt: " + did)
+        job = expansion_job(drawings[did])
+        result = {"protocol": pipeline.PROTOCOL, "job": job, "rounds": [],
+                  "answers": {"codex": {}, "claude": {}}, "states": {},
+                  "feedback_rounds": copy.deepcopy(saved.get("feedback_rounds", []))}
+        images = [digest(path) for path in job["images"]]
+        for round_number in range(len(calls) // 2):
+            raw = {}
+            keys = None
+            for receipt, reader, role in zip(calls[round_number * 2:round_number * 2 + 2],
+                                           ("codex", "claude"), ("proposer", "verifier")):
+                key = receipt.get("cache_key", "")
+                if receipt.get("reader") != reader or not re.fullmatch(r"[a-f0-9]{64}", key):
+                    raise ValueError("Invalid cached reader receipt: " + did)
+                folder = inside(runner.CACHE / key)
+                request, response = read_json(folder / "request.json"), read_json(folder / "result.json")
+                identity = {name: value for name, value in request.items() if name != "job"}
+                expected_job = f"{job['id']}:{pipeline.PROTOCOL}:{'proposal' if reader == 'codex' else 'verification'}:{round_number}"
+                if (runner.fingerprint(identity) != key or request.get("job") != expected_job or
+                        request.get("images") != images or response.get("cache_key") != key):
+                    raise ValueError("Cached input fingerprint changed: " + did)
+                if reader == "codex":
+                    keys = request["schema"]["properties"]["items"]["items"]["properties"]["key"]["enum"]
+                raw[reader] = {**response, "protocol": pipeline.PROTOCOL, "role": role,
+                               "round": round_number, "cache_hit": True}
+            if round_number == 0:
+                job["keys"] = list(keys)
+            round_job = {**job, "keys": keys}
+            proposals = pipeline.decode_answer(raw["codex"], round_job, retry=round_number > 0,
+                                               previous=result["answers"]["codex"])
+            packet = {"protocol": pipeline.PROTOCOL, "keys": keys, "proposal": raw["codex"].get("answer"),
+                      "locally_valid_keys": sorted(proposals), "invalid_keys": [key for key in keys if key not in proposals]}
+            fingerprint = runner.fingerprint(packet)
+            verdicts = pipeline.decode_verification(raw["claude"], round_job, fingerprint)
+            for reader, decoded in (("codex", proposals), ("claude", verdicts)):
+                raw[reader].update({"proposal_fingerprint": fingerprint,
+                                    "validation": {key: key in decoded for key in keys}})
+            result["rounds"].append(raw)
+            for key in keys:
+                result["answers"]["codex"][key] = proposals.get(key)
+                result["answers"]["claude"][key] = verdicts.get(key)
+                result["states"][key] = pipeline.verification_state(proposals.get(key), verdicts.get(key), round_number > 0)
+        if result["states"] != saved.get("states"):
+            raise ValueError("Receipt replay differs from the saved assessment: " + did)
+        template, assessment, _ = assess(result, drawings)
+        if assessment["status"] != "blocked":
+            raise ValueError("Only still-blocked assessments can be reused: " + did)
+        templates[did], assessments[did] = template, saved
+        usage.append(copy.deepcopy(item))
+    return templates, assessments, usage
+
+
+def expand(force=False, pause_file=None, resume=None):
     require_settings()
     drawings = raw_drawings()
     raw_hash = digest(GENERATED / "drawings.json")
     original = read_json(GENERATED / "ai_results.json")
     existing = original.get("templates", {})
-    pending = sorted(set(drawings) - set(existing))
     started = time.monotonic()
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
     journal = inside(runner.CACHE / "model_expansion" / f"{stamp}.json")
+    pause_file = inside(pause_file or runner.CACHE / "model_expansion.pause")
     report = {"run": stamp, "protocol": EXPANSION_PROTOCOL, "raw_drawings_sha256": raw_hash,
               "max_concurrent_readers": 1, "cad_generated_locally": False, "assessments": {}, "usage": []}
     for did in sorted(set(drawings) & set(existing)):
         report["assessments"][did] = {"drawing": did, "status": "preserved", "reason": "Existing template preserved unchanged"}
     additions = {}
+    if resume:
+        restored, assessments, usage = restore_blocked(resume, drawings)
+        additions = {did: value for did, value in restored.items() if did not in existing}
+        report["assessments"].update({did: assessments[did] for did in additions})
+        report["usage"].extend(item for item in usage if item["drawing"] in additions)
+        report["resumed_from"] = str(inside(resume).relative_to(ROOT))
+    pending = sorted(set(drawings) - set(existing) - set(additions))
+    reused = len(additions)
     runner.bootstrap_auth()
     with sequential_readers():
         for index, did in enumerate(pending, 1):
-            print(f"[{index}/{len(pending)}] {did}: Sol proposal -> Opus verification", flush=True)
+            # Check only between complete proposal/verification jobs. Never
+            # interrupt a running provider or its single bounded repair.
+            if pause_file.exists():
+                report.update({"complete": False, "paused": True, "next_drawing": did,
+                               "prepared_templates": additions,
+                               "resume": "Remove the pause file and rerun --execute; exact provider receipts are cached"})
+                runner.write_json(journal, report)
+                return {"run": stamp, "paused": True, "journal": str(journal.relative_to(ROOT)),
+                        "assessed": len(additions), "remaining": len(pending) - index + 1}
+            print(f"[{index + reused}/{len(pending) + reused}] {did}: Sol proposal -> Opus verification", flush=True)
             result = pipeline.run_retry(pipeline.execute(expansion_job(drawings[did]), force=force), force=force)
             template, assessment, metrics = assess(result, drawings)
             additions[did] = template
@@ -167,7 +261,7 @@ def expand(force=False):
                       "metadata": response.get("metadata"), "latency_ms": response.get("latency_ms")}
                      for round_ in result["rounds"] for reader, response in round_.items()]
             report["usage"].append({"drawing": did, "metrics": metrics, "calls": usage})
-            runner.write_json(journal, {**report, "complete": False})
+            runner.write_json(journal, {**report, "complete": False, "prepared_templates": additions})
             print(f"{did}: {assessment['status']}: {assessment['reason']}", flush=True)
     if digest(GENERATED / "drawings.json") != raw_hash:
         raise RuntimeError("Raw evidence changed during expansion; saved receipts were not integrated")
@@ -184,10 +278,10 @@ def expand(force=False):
     report["wall_time_ms"] = round((time.monotonic() - started) * 1000)
     report["ready_for_cad"] = [did for did, value in report["assessments"].items() if value["status"] == "ready_for_cad"]
     report["blocked"] = [did for did, value in report["assessments"].items() if value["status"] == "blocked"]
-    summary = {"run": stamp, "protocol": EXPANSION_PROTOCOL, "assessed": len(pending),
+    summary = {"run": stamp, "protocol": EXPANSION_PROTOCOL, "assessed": len(additions), "reused_blocked": reused,
                "ready_for_cad": report["ready_for_cad"], "blocked": report["blocked"],
                "wall_time_ms": report["wall_time_ms"], "usage": report["usage"]}
-    if pending:
+    if additions:
         output.setdefault("metrics", {}).setdefault("model_expansions", []).append(summary)
         runner.write_json(GENERATED / "ai_results.json", output)
         runner.write_json(runner.CACHE / "artifacts/ai_results.json", output)
@@ -201,6 +295,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--execute", action="store_true", help="Execute paid sequential CLI proposal/verification calls and append templates")
     parser.add_argument("--force", action="store_true", help="Bypass existing provider caches (only with --execute)")
+    parser.add_argument("--pause-file", help="Repo-local sentinel checked between jobs (default generated/ai_cache/model_expansion.pause)")
+    parser.add_argument("--resume", help="Repo-local journal whose fingerprinted blocked assessments can be replayed without providers")
     args = parser.parse_args()
     configure_environment()
     require_settings()
@@ -209,13 +305,16 @@ def main():
             parser.error("--force requires --execute")
         drawings = raw_drawings()
         existing = read_json(GENERATED / "ai_results.json").get("templates", {})
-        print(json.dumps({"execute": False, "assess": sorted(set(drawings) - set(existing)),
+        restored = restore_blocked(args.resume, drawings)[0] if args.resume else {}
+        print(json.dumps({"execute": False, "assess": sorted(set(drawings) - set(existing) - set(restored)),
+                          "reuse_blocked": sorted(set(restored) - set(existing)),
                           "preserve_templates": sorted(existing), "protocol": pipeline.PROTOCOL,
                           "provider_order": [runner.reader_settings("codex"), runner.reader_settings("claude")],
                           "max_concurrent_readers": 1, "maximum_feedback_rounds": 1,
                           "next": "python -m scripts.expand_models --execute"}, indent=2))
         return
-    print(json.dumps(expand(args.force), indent=2, ensure_ascii=False))
+    summary = expand(args.force, args.pause_file, args.resume)
+    print(json.dumps({key: value for key, value in summary.items() if key != "usage"}, indent=2, ensure_ascii=False))
 
 
 if __name__ == "__main__":

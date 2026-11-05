@@ -28,6 +28,12 @@ def settings() -> dict:
 def normalized(value: Any) -> str:
     return re.sub(r"[^\w]", "", str(value or "").casefold())
 
+def mapping_source_signature(mapping: dict, drawing_hashes: dict, row_hashes: dict) -> str:
+    """Bind a mapping review to source evidence, not mutable AI receipt metadata."""
+    basis={"kind":mapping.get("kind"),"left":mapping.get("left"),"right":mapping.get("right"),
+           "drawings":drawing_hashes,"bom_rows":row_hashes}
+    return hashlib.sha256(json.dumps(basis,sort_keys=True).encode()).hexdigest()
+
 class Store:
     def __init__(self, root: Path = ROOT):
         self.root = inside(root)
@@ -178,7 +184,14 @@ class Store:
     def _apply(self, event: dict) -> None:
         target = event.get("applies_to", "")
         fingerprint = event.get("based_on", {}).get("sha256")
-        if fingerprint and fingerprint != self.fingerprint(target):
+        mapping = next((m for m in self.ai.get("mappings", []) if m.get("name") == target), {}) if target.startswith("names/") else {}
+        source_signature = mapping_source_signature(mapping,
+            {p["drawing"]["id"]:p["drawing"].get("sha256", "") for p in self.records if p.get("drawing")},
+            {name:row.get("sha256", "") for name,row in self.rows.items()}) if mapping else None
+        unchanged_mapping_source = bool(mapping) and any(
+            prior.get("sha256") == fingerprint and prior.get("source_signature") == source_signature
+            for prior in mapping.get("prior_proposals", []) if isinstance(prior,dict))
+        if fingerprint and fingerprint != self.fingerprint(target) and not unchanged_mapping_source:
             if event.get("status") != "pending":
                 self.changed.append(event)
             return

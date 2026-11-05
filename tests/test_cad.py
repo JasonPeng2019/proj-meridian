@@ -39,6 +39,30 @@ def test_minor_feature_uncertainty_does_not_block_main_geometry():
     builder._validate_essential(template)
 
 
+def test_inventory_uses_live_review_wrappers_instead_of_stale_flags():
+    template = {**cube(), "features_status": "complete", "features_all_determined": True,
+                "omitted_feature_notes": [], "features_complete": known(False),
+                "features_omitted": known([{"description": "Four holes", "reason": "Positions undimensioned", "fact_ids": ["drawing/source"]}])}
+    inventory = builder.feature_inventory(template)
+    assert inventory["status"] == "partial" and not inventory["all_determined"]
+    assert "Positions undimensioned" in inventory["notes"][0]
+    template.update(features_status="partial", features_all_determined=False, omitted_feature_notes=["stale"],
+                    features_complete=known(True), features_omitted=known([]))
+    assert builder.feature_inventory(template) == {"status": "complete", "all_determined": True, "notes": []}
+
+
+def test_partial_inventory_retains_supported_cut_geometry():
+    pytest.importorskip("cadquery")
+    template = cube()
+    template["features"] = [{"kind": "hole", "face": "top", "x": known(0), "y": known(0), "diameter": known(2), "through": True, "hole_type": "plain"}]
+    template["features_complete"] = known(False)
+    template["features_omitted"] = known([{"description": "Other holes", "reason": "No XY positions", "fact_ids": ["drawing/source"]}])
+    shape, waiting, omitted, labels = builder.build_shape(template)
+    assert shape.val().Volume() == pytest.approx(1000 - math.pi * 10)
+    assert len(labels) == 1 and "features_complete" in waiting
+    assert "Other holes: No XY positions" in omitted
+
+
 def test_cube_mm_step_glb_and_cached_rebuild(tmp_path, monkeypatch):
     cq = pytest.importorskip("cadquery")
     trimesh = pytest.importorskip("trimesh")

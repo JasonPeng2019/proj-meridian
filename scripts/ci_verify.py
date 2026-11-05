@@ -41,6 +41,7 @@ def cad():
     import cadquery as cq
     import trimesh
     from backend.app.store import Store
+    from backend.cad.verification import verify_features
     # Force real generation on this disposable checkout instead of accepting a
     # cache hit as proof that the Linux CAD dependencies work.
     cache = inside(ROOT / "generated/ai_cache/artifacts/cad")
@@ -50,6 +51,7 @@ def cad():
     store = Store()
     before = {p.name: digest(p) for p in (ROOT / "decisions").glob("*.json")}
     store.rebuild_models()
+    drawings = json.loads((ROOT / "generated/drawings.json").read_text(encoding="utf-8"))
     results = []
     for did in ("D-013", "D-025", "D-026"):
         assert store.models[did]["examples"] == ["A", "B"], store.models[did]
@@ -76,7 +78,8 @@ def cad():
             assert "Reconstruction from 2D drawing. Not the original CAD model." in step.read_text(encoding="utf-8")
             for kind in ("glb", "step"):
                 assert digest(inside(ROOT / "generated" / model[kind])) == model[kind + "_sha256"]
-            results.append({"part": did, "variant": variant, "bounds_mm": model["bounds_mm"]["size"], "bounds_error_mm": bounds_error, "mesh_bounds_error_mm": mesh_bounds_error, "step_bounds_error_mm": step_bounds_error, "volume_error_mm3": volume_error, "mesh_volume_error_mm3": mesh_volume_error})
+            fidelity = verify_features(store.templates[did], model, shape, mesh, drawings[did])
+            results.append({"part": did, "variant": variant, "bounds_mm": model["bounds_mm"]["size"], "bounds_error_mm": bounds_error, "mesh_bounds_error_mm": mesh_bounds_error, "step_bounds_error_mm": step_bounds_error, "volume_error_mm3": volume_error, "mesh_volume_error_mm3": mesh_volume_error, "feature_fidelity": fidelity})
     assert len(results) >= 6
     assert before == {p.name: digest(p) for p in (ROOT / "decisions").glob("*.json")}
     write("cad.json", {"passed": True, "built_parts": sum(bool(part["models"]) for part in store.models.values()), "variant_count": len(results), "variants": results, "decisions_unchanged": True})
@@ -85,6 +88,11 @@ def cad():
 def server_check(live=False, debug=False):
     import httpx
     OUT.mkdir(parents=True, exist_ok=True)
+    if not live and not debug:
+        from backend.app.conversations import Conversations
+        fixture_id="f123456789abcdef0123456789abcdef"
+        Conversations().append_turn(fixture_id,"Automated history fixture question",
+            {"text":"Saved conversation test message.","facts":{},"parts_to_show":[],"warnings":[]},create=True)
     env = os.environ.copy()
     env["MERIDIAN_DEBUG_UI"] = "1" if debug else "0"
     if live:

@@ -13,6 +13,7 @@ from dotenv import load_dotenv
 from openai import AsyncOpenAI
 
 from backend.paths import ROOT, inside
+from backend.app.conversations import Conversations, MAX_QUESTION
 from backend.app.store import Store
 from backend.app.tools import KnowledgeTools, api_tools
 
@@ -125,18 +126,19 @@ def validate_markers(text: str, ledger: dict, store: Store, single_matches: list
     return {"text": text, "facts": ledger, "parts_to_show": summaries, "warnings": list(dict.fromkeys(warnings))}
 
 class Chat:
-    def __init__(self):
-        self.sessions: dict[str, list[list[Any]]] = {}
+    def __init__(self, conversations: Conversations | None = None):
+        self.conversations = conversations or Conversations()
 
     async def answer(self, store: Store, message: str, session_id: str | None = None) -> dict:
+        if not message.strip() or len(message) > MAX_QUESTION:
+            raise ValueError(f"Enter a question of at most {MAX_QUESTION:,} characters")
         key = api_key()
         if not key:
             raise ValueError("Add an API key to use the chat.")
-        sid = session_id if session_id in self.sessions else uuid.uuid4().hex
-        turns = self.sessions.setdefault(sid, [])
+        sid = session_id if session_id is not None else uuid.uuid4().hex
         # Previous turns carry only dialogue, not stale accepted evidence. Every new
         # factual answer fetches current tool values after any review action.
-        history = [item for turn in turns[-9:] for item in turn]
+        history = self.conversations.dialogue(sid) if session_id is not None else []
         current: list[Any] = [{"role": "user", "content": message}]
         ledger: dict = {}
         single_matches = []
@@ -165,8 +167,7 @@ class Chat:
                         current.append({"role": "user", "content": "Before sending, correct the evidence formatting/provenance problems in your draft using only the tool evidence already returned. Preserve uncertainty and actual reviewer attribution. Problems: " + json.dumps(result["warnings"])})
                         continue
                     result.update(session_id=sid, model=MODEL, usage=token_totals, latency_ms=round((time.perf_counter() - started) * 1000), tool_trace=tool_trace, revision=store.revision)
-                    turns.append([{"role": "user", "content": message}, {"role": "assistant", "content": text}])
-                    del turns[:-10]
+                    self.conversations.append_turn(sid, message, result, create=session_id is None)
                     return result
                 for call in calls:
                     try:

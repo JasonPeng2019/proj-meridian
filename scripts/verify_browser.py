@@ -1,4 +1,4 @@
-"""Read-only browser smoke checks. Never submits a human review action."""
+"""Browser checks mutate only a labelled chat fixture, never engineering reviews."""
 from pathlib import Path
 import json
 import urllib.request
@@ -102,6 +102,21 @@ def main():
                 assert page.locator('.fact-grid').count() == 0
             page.screenshot(path=str(OUT / (name+'.png')))
             print(name, 'body_chars', len(page.locator('body').inner_text()), 'horizontal_overflow', page.evaluate('document.documentElement.scrollWidth > innerWidth'), flush=True)
+        page.goto(BASE+'/chat')
+        page.get_by_role('button',name='Past chats',exact=True).click()
+        page.locator('.saved-chat-open').filter(has_text='Automated history fixture question').click()
+        page.get_by_text('Saved conversation test message.',exact=True).wait_for()
+        assert '/chat/f123456789abcdef0123456789abcdef' in page.url
+        page.reload()
+        page.get_by_text('Saved conversation test message.',exact=True).wait_for()
+        page.screenshot(path=str(OUT/'saved-chat-restored.png'))
+        page.get_by_role('button',name='New chat',exact=True).click()
+        assert page.locator('.user-message').count()==0
+        page.get_by_role('button',name='Past chats',exact=True).click()
+        page.get_by_title('Delete chat: Automated history fixture question',exact=True).click()
+        page.wait_for_timeout(300)
+        assert not any(chat['id']=='f123456789abcdef0123456789abcdef' for chat in get('/api/chats'))
+        page.get_by_title('Close past chats',exact=True).click()
         page.goto(BASE+'/parts')
         page.get_by_placeholder('Search part or material…').fill('recoater')
         page.wait_for_timeout(250)
@@ -154,7 +169,7 @@ def main():
         context.close()
     result = {'page_errors':errors,'failed_responses':failures,'model_checked':model,'bom_checked':bom,
               'default_hierarchy': {'focused_model': True, 'filters_collapsed': True, 'technical_details_collapsed': True,
-                                    'calculations_moved_to_debug': True, 'debug_hidden_on_customer_launch': True, 'no_horizontal_overflow': True}}
+                                    'calculations_moved_to_debug': True, 'debug_hidden_on_customer_launch': True, 'saved_chats_reopen_refresh_delete': True, 'no_horizontal_overflow': True}}
     (OUT/'browser-check.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
     print(json.dumps(result,indent=2))
     assert not errors, errors

@@ -185,6 +185,19 @@ async def answer(body: ChatInput):
         name = type(exc).__name__
         raise HTTPException(502, f"Chat provider error ({name}). Check credentials and model access.") from None
 
+@app.get("/api/chats")
+def chats():
+    return chat.conversations.list()
+
+@app.get("/api/chats/{conversation_id}")
+def saved_chat(conversation_id: str):
+    return chat.conversations.get(conversation_id)
+
+@app.delete("/api/chats/{conversation_id}")
+def delete_chat(conversation_id: str):
+    chat.conversations.delete(conversation_id)
+    return {"deleted": conversation_id}
+
 @app.get("/generated/{relative:path}")
 def generated_asset(relative: str):
     path = inside(get_store().generated / relative)

@@ -13,7 +13,7 @@ from pathlib import Path
 
 from backend.paths import GENERATED, ROOT, inside
 
-VERSION = "flat-part-11"
+VERSION = "flat-part-12"
 NOTICE = "Reconstruction from 2D drawing. Not the original CAD model."
 
 
@@ -160,6 +160,30 @@ def _validate_essential(template):
     _num(template.get("thickness"), "thickness", template.get("fact_ids"), True)
 
 
+def feature_inventory(template):
+    """Use live reviewable wrappers so human edits cannot leave stale claims."""
+    if "features_complete" not in template and "features_omitted" not in template:
+        return {"status": template.get("features_status", "unknown"),
+                "all_determined": bool(template.get("features_all_determined", False)),
+                "notes": list(template.get("omitted_feature_notes", []))}
+    try:
+        complete = _value(template.get("features_complete"), "features_complete")
+    except Unknown:
+        complete = None
+    try:
+        omissions = _value(template.get("features_omitted"), "features_omitted")
+    except Unknown:
+        omissions = None
+    review = template.get("features_review") or {}
+    supported = (review.get("state") == "known" and isinstance(review.get("value"), list)) or (not review and isinstance(template.get("features"), list))
+    all_determined = supported and complete is True and omissions == []
+    partial = supported and complete is False and isinstance(omissions, list) and bool(omissions)
+    notes = [str(item.get("description", "Feature")) + ": " + str(item.get("reason", "Not determined"))
+             for item in (omissions or []) if isinstance(item, dict)] if isinstance(omissions, list) else []
+    return {"status": "complete" if all_determined else "partial" if partial else "unknown",
+            "all_determined": all_determined, "notes": notes}
+
+
 def build_shape(template):
     """Return (CadQuery solid, waiting names, omitted details, feature labels)."""
     _validate_essential(template)
@@ -186,6 +210,12 @@ def build_shape(template):
     else:
         raise Unknown("unsupported outline " + str(kind))
     waiting, omitted, labels = [], [], []
+    inventory = feature_inventory(template)
+    omitted.extend(inventory["notes"])
+    if inventory["status"] in ("partial", "unknown") and ("features_complete" in template or "features_status" in template):
+        waiting.append("features_complete")
+        if not omitted:
+            omitted.append("The full feature inventory has not been determined; this model contains only supported cuts")
     feature_review = template.get("features_review") or {}
     if feature_review.get("state") == "unknown":
         waiting.append("features_review")
@@ -362,7 +392,8 @@ def weight_check(template, models):
 
 def _build_part(part_id, template, old):
     template_hash = _hash(template)
-    entry = {"examples":[],"models":{},"waiting":[],"omitted":[],"template_sha256":template_hash,"source_sha256":template.get("source_sha256"),"generator_version":VERSION,"notice":NOTICE,"review":template.get("review", {"status":"not_reviewed"}),"label":"AI reconstruction. Not reviewed by a person", "units":"mm"}
+    inventory = feature_inventory(template)
+    entry = {"examples":[],"models":{},"waiting":[],"omitted":[],"template_sha256":template_hash,"source_sha256":template.get("source_sha256"),"generator_version":VERSION,"notice":NOTICE,"review":template.get("review", {"status":"not_reviewed"}),"label":"Partial AI reconstruction. Not reviewed by a person" if inventory["status"] in ("partial", "unknown") else "AI reconstruction. Not reviewed by a person", "units":"mm", "features_status":inventory["status"], "features_all_determined":inventory["all_determined"], "omitted_feature_notes":inventory["notes"]}
     try:
         effective = copy.deepcopy(template)
         feature_field = effective.get("features_review") or {}

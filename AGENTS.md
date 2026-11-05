@@ -22,6 +22,8 @@ This includes source, tests, fixtures, generated data, models, decisions, docume
 
 ## Implementation coordination
 
+Use Jason's configured Git identity, `Jason.Peng <jason.peng.2019@gmail.com>`, for project commits. Do not override author or committer with `Meridian implementation` or `meridian@localhost`. This Git attribution preference does not change engineering review receipts or imply that Jason personally reviewed evidence.
+
 The two named branches are `v1` and `harness-v2`, locally and on origin. Jason calls `harness-v2` v2; preserve its exact branch name. Do not rename these branches or recreate `ui-baseline-reviews` or other named branches. Keep the active product work on its current branch unless the user directs a switch.
 
 Parallel agents are authorized. Each agent owns only its assigned folders; the coordinator owns root configuration, shared contracts, Git, integration, and release artifacts. Do not change shared manifests or lockfiles without coordinating.

@@ -1,195 +1,4 @@
 {
-  "D-026": {
-    "examples": [
-      "A",
-      "B"
-    ],
-    "models": {
-      "A": {
-        "glb": "models/D-026_A.glb",
-        "step": "models/D-026_A_reconstruction_from_drawing.step",
-        "bounds_mm": {
-          "min": [
-            -125.0,
-            -125.0,
-            0.0
-          ],
-          "max": [
-            125.0,
-            125.0,
-            15.0
-          ],
-          "size": [
-            250.0,
-            250.0,
-            15.0
-          ]
-        },
-        "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
-        "volume_mm3": 736310.7781851079,
-        "template_sha256": "78d5cb69baacd2175aa54d5d54c5a796f4c4f6b58d3290bfc71c4d3197456159",
-        "selections": {
-          "thickness": 15.0
-        },
-        "labels": [],
-        "glb_units": "metres",
-        "cad_units": "mm",
-        "glb_to_mm": 1000,
-        "glb_sha256": "f14f1ac68477a71577fa0ea77cdc497aa90bd78a2543dbe0083dbdddc34cc8a0",
-        "step_sha256": "d081ff3f73b08f2bfadf68b2df33feca5dff74714067dda9b5eb7e2b484c8512"
-      },
-      "B": {
-        "glb": "models/D-026_B.glb",
-        "step": "models/D-026_B_reconstruction_from_drawing.step",
-        "bounds_mm": {
-          "min": [
-            -125.0,
-            -125.0,
-            0.0
-          ],
-          "max": [
-            125.0,
-            125.0,
-            25.0
-          ],
-          "size": [
-            250.0,
-            250.0,
-            25.0
-          ]
-        },
-        "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
-        "volume_mm3": 1227184.630308513,
-        "template_sha256": "78d5cb69baacd2175aa54d5d54c5a796f4c4f6b58d3290bfc71c4d3197456159",
-        "selections": {
-          "thickness": 25.0
-        },
-        "labels": [],
-        "glb_units": "metres",
-        "cad_units": "mm",
-        "glb_to_mm": 1000,
-        "glb_sha256": "dc255dcc94f80f418383a665c551f4751a7682cf884e9ef71a2b2ba7a4f07d90",
-        "step_sha256": "7a2ceda8155b0b6dc34e90369695bc21e158a193e4fd0a69efff1e5d33494a44"
-      }
-    },
-    "waiting": [
-      "features_review"
-    ],
-    "omitted": [
-      "Hole and slot details: Waiting for review: unsure"
-    ],
-    "template_sha256": "78d5cb69baacd2175aa54d5d54c5a796f4c4f6b58d3290bfc71c4d3197456159",
-    "source_sha256": "a7ee7f4d75acaf2e8fc67ce14ca223d5cb4a2931063f37f4dfb6fadeeb70256e",
-    "generator_version": "flat-part-11",
-    "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
-    "review": {
-      "status": "not_reviewed"
-    },
-    "label": "AI reconstruction. Not reviewed by a person",
-    "units": "mm",
-    "weight_check": {
-      "state": "FAILED",
-      "message": "FAILED weight check: needs manual approval",
-      "examples": {
-        "A": {
-          "attempts": [
-            {
-              "material": "Stainless steel",
-              "source": "parts list",
-              "names": [
-                "Stainless steel",
-                "304",
-                "1.4301",
-                "X5CrNi18-10"
-              ],
-              "density_g_cm3": 7.9,
-              "source_url": "https://www.outokumpu.com/en/products/product-ranges/-/media/files/products/core/outokumpu-core-range-datasheet.pdf?modified=20251117111909&revision=025e9931-a1d5-4c8f-8ff5-f881d38916da",
-              "source_title": "Outokumpu Core range datasheet, physical properties, Core 304/4301",
-              "looked_up": "2026-11-05",
-              "note": "304 density used as approximate stainless family density when grade is unspecified. Outside source, not the dataset.",
-              "calculated_g": 5816.8551,
-              "drawing_g": 7822.5,
-              "difference_percent": 25.64,
-              "matches": false,
-              "outside_source": true
-            },
-            {
-              "material": "Steel",
-              "source": "parts list",
-              "names": [
-                "Steel",
-                "Carbon steel",
-                "Structural steel"
-              ],
-              "density_g_cm3": 7.85,
-              "source_url": "https://www.ssab.com/-/media/files/en/support/certificates/885en-epd-hot-rolled-steel-plates.pdf?m=20200406080301",
-              "source_title": "SSAB Environmental Product Declaration, Hot Rolled Steel Plates",
-              "looked_up": "2026-11-05",
-              "note": "Approximate structural steel family density. Outside source, not the dataset.",
-              "calculated_g": 5780.0396,
-              "drawing_g": 7822.5,
-              "difference_percent": 26.11,
-              "matches": false,
-              "outside_source": true
-            }
-          ],
-          "matches": false,
-          "drawing_g": 7822.5
-        },
-        "B": {
-          "attempts": [
-            {
-              "material": "Stainless steel",
-              "source": "parts list",
-              "names": [
-                "Stainless steel",
-                "304",
-                "1.4301",
-                "X5CrNi18-10"
-              ],
-              "density_g_cm3": 7.9,
-              "source_url": "https://www.outokumpu.com/en/products/product-ranges/-/media/files/products/core/outokumpu-core-range-datasheet.pdf?modified=20251117111909&revision=025e9931-a1d5-4c8f-8ff5-f881d38916da",
-              "source_title": "Outokumpu Core range datasheet, physical properties, Core 304/4301",
-              "looked_up": "2026-11-05",
-              "note": "304 density used as approximate stainless family density when grade is unspecified. Outside source, not the dataset.",
-              "calculated_g": 9694.7586,
-              "drawing_g": 7822.5,
-              "difference_percent": 23.93,
-              "matches": false,
-              "outside_source": true
-            },
-            {
-              "material": "Steel",
-              "source": "parts list",
-              "names": [
-                "Steel",
-                "Carbon steel",
-                "Structural steel"
-              ],
-              "density_g_cm3": 7.85,
-              "source_url": "https://www.ssab.com/-/media/files/en/support/certificates/885en-epd-hot-rolled-steel-plates.pdf?m=20200406080301",
-              "source_title": "SSAB Environmental Product Declaration, Hot Rolled Steel Plates",
-              "looked_up": "2026-11-05",
-              "note": "Approximate structural steel family density. Outside source, not the dataset.",
-              "calculated_g": 9633.3993,
-              "drawing_g": 7822.5,
-              "difference_percent": 23.15,
-              "matches": false,
-              "outside_source": true
-            }
-          ],
-          "matches": false,
-          "drawing_g": 7822.5
-        }
-      },
-      "drawing_g": 7822.5,
-      "tolerance_percent": 5,
-      "requires_approval": true,
-      "approval_note_required": true,
-      "limitation": "A matching weight does not verify feature positions. No thickness or material is selected automatically.",
-      "density_label": "Outside source, not the dataset"
-    }
-  },
   "D-013": {
     "examples": [
       "A",
@@ -217,17 +26,283 @@
           ]
         },
         "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
-        "volume_mm3": 20250.0,
-        "template_sha256": "91a3be9cbefd3a12e01a989ec5e6ea451f42aad707e3287814f5db3e2d1b2728",
+        "volume_mm3": 19466.964200563136,
+        "template_sha256": "add140b98c1b643879c308b523a8f056e09affb4ed74f0c1f4011844a2555f81",
         "selections": {
           "thickness": 3.0
         },
-        "labels": [],
+        "labels": [
+          {
+            "name": "Feature 1 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "requested_hole_type": "threaded",
+            "step_omitted": null,
+            "thread": "M3 - 6H",
+            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/callout/p1-2",
+              "D-013/drawing/n/17.9@1-1",
+              "D-013/drawing/n/35.7@1-1"
+            ],
+            "method": "ai_verified_after_retry",
+            "feature_index": 0
+          },
+          {
+            "name": "Feature 2 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "requested_hole_type": "threaded",
+            "step_omitted": null,
+            "thread": "M3 - 6H",
+            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/callout/p1-2",
+              "D-013/drawing/n/17.9@1-1",
+              "D-013/drawing/n/35.7@1-1"
+            ],
+            "method": "ai_verified_after_retry",
+            "feature_index": 1
+          },
+          {
+            "name": "Feature 3 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "requested_hole_type": "threaded",
+            "step_omitted": null,
+            "thread": "M5 - 6H",
+            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/callout/p1-1",
+              "D-013/drawing/n/82.0@1-1",
+              "D-013/drawing/n/4.5@1-1"
+            ],
+            "method": "ai_verified_after_retry",
+            "feature_index": 2
+          },
+          {
+            "name": "Feature 4 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "requested_hole_type": "threaded",
+            "step_omitted": null,
+            "thread": "M3 - 6H",
+            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/callout/p1-2",
+              "D-013/drawing/n/17.9@1-1",
+              "D-013/drawing/n/35.7@1-1"
+            ],
+            "method": "ai_verified_after_retry",
+            "feature_index": 3
+          },
+          {
+            "name": "Feature 5 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "requested_hole_type": "threaded",
+            "step_omitted": null,
+            "thread": "M3 - 6H",
+            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/callout/p1-2",
+              "D-013/drawing/n/17.9@1-1",
+              "D-013/drawing/n/35.7@1-1"
+            ],
+            "method": "ai_verified_after_retry",
+            "feature_index": 4
+          },
+          {
+            "name": "Feature 6 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "requested_hole_type": "threaded",
+            "step_omitted": null,
+            "thread": "M3 - 6H",
+            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/callout/p1-2",
+              "D-013/drawing/n/17.9@1-1",
+              "D-013/drawing/n/7.5@1-1"
+            ],
+            "method": "ai_verified_after_retry",
+            "feature_index": 5
+          },
+          {
+            "name": "Feature 7 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "requested_hole_type": "threaded",
+            "step_omitted": null,
+            "thread": "M3 - 6H",
+            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/callout/p1-2",
+              "D-013/drawing/n/17.9@1-1",
+              "D-013/drawing/n/35.7@1-1",
+              "D-013/drawing/n/7.5@1-1"
+            ],
+            "method": "ai_verified_after_retry",
+            "feature_index": 6
+          },
+          {
+            "name": "Feature 8 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "requested_hole_type": "threaded",
+            "step_omitted": null,
+            "thread": "M5 - 6H",
+            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/callout/p1-1",
+              "D-013/drawing/n/82.0@1-1",
+              "D-013/drawing/n/4.5@1-1"
+            ],
+            "method": "ai_verified_after_retry",
+            "feature_index": 7
+          },
+          {
+            "name": "Feature 9 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "requested_hole_type": "threaded",
+            "step_omitted": null,
+            "thread": "M3 - 6H",
+            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/callout/p1-2",
+              "D-013/drawing/n/17.9@1-1",
+              "D-013/drawing/n/35.7@1-1"
+            ],
+            "method": "ai_verified_after_retry",
+            "feature_index": 8
+          },
+          {
+            "name": "Feature 10 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "requested_hole_type": "threaded",
+            "step_omitted": null,
+            "thread": "M3 - 6H",
+            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/callout/p1-2",
+              "D-013/drawing/n/17.9@1-1",
+              "D-013/drawing/n/35.7@1-1"
+            ],
+            "method": "ai_verified_after_retry",
+            "feature_index": 9
+          },
+          {
+            "name": "Feature 11 (slot)",
+            "kind": "slot",
+            "count": 1,
+            "hole_type": null,
+            "requested_hole_type": "plain",
+            "step_omitted": null,
+            "thread": null,
+            "thread_representation": null,
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/callout/p1-3",
+              "D-013/drawing/n/41.0@1-1",
+              "D-013/drawing/n/82.0@1-2",
+              "D-013/drawing/n/2.3@1-1"
+            ],
+            "method": "ai_verified_after_retry",
+            "feature_index": 10
+          },
+          {
+            "name": "Feature 12 (slot)",
+            "kind": "slot",
+            "count": 1,
+            "hole_type": null,
+            "requested_hole_type": "plain",
+            "step_omitted": null,
+            "thread": null,
+            "thread_representation": null,
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/callout/p1-3",
+              "D-013/drawing/n/41.0@1-1",
+              "D-013/drawing/n/82.0@1-2",
+              "D-013/drawing/n/2.3@1-1"
+            ],
+            "method": "ai_verified_after_retry",
+            "feature_index": 11
+          },
+          {
+            "name": "Feature 13 (slot)",
+            "kind": "slot",
+            "count": 1,
+            "hole_type": null,
+            "requested_hole_type": "plain",
+            "step_omitted": null,
+            "thread": null,
+            "thread_representation": null,
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/callout/p1-3",
+              "D-013/drawing/n/41.0@1-1",
+              "D-013/drawing/n/82.0@1-2",
+              "D-013/drawing/n/2.3@1-1"
+            ],
+            "method": "ai_verified_after_retry",
+            "feature_index": 12
+          },
+          {
+            "name": "Feature 14 (slot)",
+            "kind": "slot",
+            "count": 1,
+            "hole_type": null,
+            "requested_hole_type": "plain",
+            "step_omitted": null,
+            "thread": null,
+            "thread_representation": null,
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/callout/p1-3",
+              "D-013/drawing/n/41.0@1-1",
+              "D-013/drawing/n/82.0@1-2",
+              "D-013/drawing/n/2.3@1-1"
+            ],
+            "method": "ai_verified_after_retry",
+            "feature_index": 13
+          }
+        ],
+        "waiting": [
+          "features_complete"
+        ],
+        "omitted": [
+          "Four visible outline corner chamfers: The main view shows clipped corners, but no numerical chamfer setbacks or angles establish their geometry. They are outside the supported hole/slot subset; the rectangular outline retains the overall envelope.",
+          "DEBURR AND BREAK SHARP EDGES: The note supplies no numerical edge-break size or profile from which to construct a cut."
+        ],
+        "features_all_determined": false,
         "glb_units": "metres",
         "cad_units": "mm",
         "glb_to_mm": 1000,
-        "glb_sha256": "0f709f6dcbe308ac73bacba14edc8aec7fffb8fddba6d492aa14e35aeace1998",
-        "step_sha256": "fdfe3a03bb0e5b0c808050f8165e12aa68da19be1a66b21cdd6ce855463e10d8"
+        "glb_sha256": "eda0d853164269b1fc28d6a742edc48155d20f4791bf5f46805e42c87061140a",
+        "step_sha256": "317353e56ef3e9f6660262163939306334c088e43571e1b81bf8189187d68560"
       },
       "B": {
         "glb": "models/D-013_B.glb",
@@ -250,34 +325,307 @@
           ]
         },
         "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
-        "volume_mm3": 40500.0,
-        "template_sha256": "91a3be9cbefd3a12e01a989ec5e6ea451f42aad707e3287814f5db3e2d1b2728",
+        "volume_mm3": 38933.92840112627,
+        "template_sha256": "add140b98c1b643879c308b523a8f056e09affb4ed74f0c1f4011844a2555f81",
         "selections": {
           "thickness": 6.0
         },
-        "labels": [],
+        "labels": [
+          {
+            "name": "Feature 1 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "requested_hole_type": "threaded",
+            "step_omitted": null,
+            "thread": "M3 - 6H",
+            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/callout/p1-2",
+              "D-013/drawing/n/17.9@1-1",
+              "D-013/drawing/n/35.7@1-1"
+            ],
+            "method": "ai_verified_after_retry",
+            "feature_index": 0
+          },
+          {
+            "name": "Feature 2 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "requested_hole_type": "threaded",
+            "step_omitted": null,
+            "thread": "M3 - 6H",
+            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/callout/p1-2",
+              "D-013/drawing/n/17.9@1-1",
+              "D-013/drawing/n/35.7@1-1"
+            ],
+            "method": "ai_verified_after_retry",
+            "feature_index": 1
+          },
+          {
+            "name": "Feature 3 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "requested_hole_type": "threaded",
+            "step_omitted": null,
+            "thread": "M5 - 6H",
+            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/callout/p1-1",
+              "D-013/drawing/n/82.0@1-1",
+              "D-013/drawing/n/4.5@1-1"
+            ],
+            "method": "ai_verified_after_retry",
+            "feature_index": 2
+          },
+          {
+            "name": "Feature 4 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "requested_hole_type": "threaded",
+            "step_omitted": null,
+            "thread": "M3 - 6H",
+            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/callout/p1-2",
+              "D-013/drawing/n/17.9@1-1",
+              "D-013/drawing/n/35.7@1-1"
+            ],
+            "method": "ai_verified_after_retry",
+            "feature_index": 3
+          },
+          {
+            "name": "Feature 5 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "requested_hole_type": "threaded",
+            "step_omitted": null,
+            "thread": "M3 - 6H",
+            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/callout/p1-2",
+              "D-013/drawing/n/17.9@1-1",
+              "D-013/drawing/n/35.7@1-1"
+            ],
+            "method": "ai_verified_after_retry",
+            "feature_index": 4
+          },
+          {
+            "name": "Feature 6 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "requested_hole_type": "threaded",
+            "step_omitted": null,
+            "thread": "M3 - 6H",
+            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/callout/p1-2",
+              "D-013/drawing/n/17.9@1-1",
+              "D-013/drawing/n/7.5@1-1"
+            ],
+            "method": "ai_verified_after_retry",
+            "feature_index": 5
+          },
+          {
+            "name": "Feature 7 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "requested_hole_type": "threaded",
+            "step_omitted": null,
+            "thread": "M3 - 6H",
+            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/callout/p1-2",
+              "D-013/drawing/n/17.9@1-1",
+              "D-013/drawing/n/35.7@1-1",
+              "D-013/drawing/n/7.5@1-1"
+            ],
+            "method": "ai_verified_after_retry",
+            "feature_index": 6
+          },
+          {
+            "name": "Feature 8 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "requested_hole_type": "threaded",
+            "step_omitted": null,
+            "thread": "M5 - 6H",
+            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/callout/p1-1",
+              "D-013/drawing/n/82.0@1-1",
+              "D-013/drawing/n/4.5@1-1"
+            ],
+            "method": "ai_verified_after_retry",
+            "feature_index": 7
+          },
+          {
+            "name": "Feature 9 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "requested_hole_type": "threaded",
+            "step_omitted": null,
+            "thread": "M3 - 6H",
+            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/callout/p1-2",
+              "D-013/drawing/n/17.9@1-1",
+              "D-013/drawing/n/35.7@1-1"
+            ],
+            "method": "ai_verified_after_retry",
+            "feature_index": 8
+          },
+          {
+            "name": "Feature 10 (hole)",
+            "kind": "hole",
+            "count": 1,
+            "hole_type": "threaded",
+            "requested_hole_type": "threaded",
+            "step_omitted": null,
+            "thread": "M3 - 6H",
+            "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/callout/p1-2",
+              "D-013/drawing/n/17.9@1-1",
+              "D-013/drawing/n/35.7@1-1"
+            ],
+            "method": "ai_verified_after_retry",
+            "feature_index": 9
+          },
+          {
+            "name": "Feature 11 (slot)",
+            "kind": "slot",
+            "count": 1,
+            "hole_type": null,
+            "requested_hole_type": "plain",
+            "step_omitted": null,
+            "thread": null,
+            "thread_representation": null,
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/callout/p1-3",
+              "D-013/drawing/n/41.0@1-1",
+              "D-013/drawing/n/82.0@1-2",
+              "D-013/drawing/n/2.3@1-1"
+            ],
+            "method": "ai_verified_after_retry",
+            "feature_index": 10
+          },
+          {
+            "name": "Feature 12 (slot)",
+            "kind": "slot",
+            "count": 1,
+            "hole_type": null,
+            "requested_hole_type": "plain",
+            "step_omitted": null,
+            "thread": null,
+            "thread_representation": null,
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/callout/p1-3",
+              "D-013/drawing/n/41.0@1-1",
+              "D-013/drawing/n/82.0@1-2",
+              "D-013/drawing/n/2.3@1-1"
+            ],
+            "method": "ai_verified_after_retry",
+            "feature_index": 11
+          },
+          {
+            "name": "Feature 13 (slot)",
+            "kind": "slot",
+            "count": 1,
+            "hole_type": null,
+            "requested_hole_type": "plain",
+            "step_omitted": null,
+            "thread": null,
+            "thread_representation": null,
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/callout/p1-3",
+              "D-013/drawing/n/41.0@1-1",
+              "D-013/drawing/n/82.0@1-2",
+              "D-013/drawing/n/2.3@1-1"
+            ],
+            "method": "ai_verified_after_retry",
+            "feature_index": 12
+          },
+          {
+            "name": "Feature 14 (slot)",
+            "kind": "slot",
+            "count": 1,
+            "hole_type": null,
+            "requested_hole_type": "plain",
+            "step_omitted": null,
+            "thread": null,
+            "thread_representation": null,
+            "fact_ids": [
+              "D-013",
+              "D-013/drawing/callout/p1-3",
+              "D-013/drawing/n/41.0@1-1",
+              "D-013/drawing/n/82.0@1-2",
+              "D-013/drawing/n/2.3@1-1"
+            ],
+            "method": "ai_verified_after_retry",
+            "feature_index": 13
+          }
+        ],
+        "waiting": [
+          "features_complete"
+        ],
+        "omitted": [
+          "Four visible outline corner chamfers: The main view shows clipped corners, but no numerical chamfer setbacks or angles establish their geometry. They are outside the supported hole/slot subset; the rectangular outline retains the overall envelope.",
+          "DEBURR AND BREAK SHARP EDGES: The note supplies no numerical edge-break size or profile from which to construct a cut."
+        ],
+        "features_all_determined": false,
         "glb_units": "metres",
         "cad_units": "mm",
         "glb_to_mm": 1000,
-        "glb_sha256": "8925e9cd3c9691ffc4efec2f355a8a26e658dd7969b871494248a16545f0cfad",
-        "step_sha256": "b00d7eac7669dd697df1056c3b52f2c7e01fd6393401110b3410b015e4781756"
+        "glb_sha256": "8bfce74eb3cf247cf9cbc43fc4d4313fc93f0ba7f236bc9b4a9ab397fae18fdd",
+        "step_sha256": "4c204474cdafb95220e568f80feaed643c96f6f1a4004df8ad120448979a70d0"
       }
     },
     "waiting": [
-      "features_review"
+      "features_complete"
     ],
     "omitted": [
-      "Hole and slot details: Waiting for review: unsure"
+      "Four visible outline corner chamfers: The main view shows clipped corners, but no numerical chamfer setbacks or angles establish their geometry. They are outside the supported hole/slot subset; the rectangular outline retains the overall envelope.",
+      "DEBURR AND BREAK SHARP EDGES: The note supplies no numerical edge-break size or profile from which to construct a cut."
     ],
-    "template_sha256": "91a3be9cbefd3a12e01a989ec5e6ea451f42aad707e3287814f5db3e2d1b2728",
+    "template_sha256": "add140b98c1b643879c308b523a8f056e09affb4ed74f0c1f4011844a2555f81",
     "source_sha256": "826076b03bfbaeee961dc3e57cb642c225d41f1ea9a643d0bb1ca7d296280047",
-    "generator_version": "flat-part-11",
+    "generator_version": "flat-part-13",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
     "review": {
       "status": "not_reviewed"
     },
-    "label": "AI reconstruction. Not reviewed by a person",
+    "label": "Partial AI reconstruction. Not reviewed by a person",
     "units": "mm",
+    "features_status": "partial",
+    "features_all_determined": false,
+    "omitted_feature_notes": [
+      "Four visible outline corner chamfers: The main view shows clipped corners, but no numerical chamfer setbacks or angles establish their geometry. They are outside the supported hole/slot subset; the rectangular outline retains the overall envelope.",
+      "DEBURR AND BREAK SHARP EDGES: The note supplies no numerical edge-break size or profile from which to construct a cut."
+    ],
     "weight_check": {
       "state": "FAILED",
       "message": "FAILED weight check: needs manual approval",
@@ -299,9 +647,9 @@
               "source_title": "ASM Aluminum Mill and Engineered Wrought Products, Table 6 (NIST archive)",
               "looked_up": "2026-11-05",
               "note": "5005 alloy density. Outside source, not the dataset.",
-              "calculated_g": 54.675,
+              "calculated_g": 52.5608,
               "drawing_g": 87.5,
-              "difference_percent": 37.51,
+              "difference_percent": 39.93,
               "matches": false,
               "outside_source": true
             }
@@ -326,9 +674,9 @@
               "source_title": "ASM Aluminum Mill and Engineered Wrought Products, Table 6 (NIST archive)",
               "looked_up": "2026-11-05",
               "note": "5005 alloy density. Outside source, not the dataset.",
-              "calculated_g": 109.35,
+              "calculated_g": 105.1216,
               "drawing_g": 87.5,
-              "difference_percent": 24.97,
+              "difference_percent": 20.14,
               "matches": false,
               "outside_source": true
             }
@@ -363,26 +711,52 @@
           "max": [
             125.0,
             125.0,
-            2.0
+            2.0000000000000004
           ],
           "size": [
             250.0,
             250.0,
-            2.0
+            2.0000000000000004
           ]
         },
         "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
-        "volume_mm3": 19358.493931420297,
-        "template_sha256": "40c29fc54a33382ab753f2b5b8cefa2674d55094e6039c5d85f1e46c8a0ef1f1",
+        "volume_mm3": 19037.480758088677,
+        "template_sha256": "9d56f1bfa1da7d10f051710c68a757659f23c5337e5de93be0ffaf9504e261d7",
         "selections": {
           "thickness": 2.0
         },
-        "labels": [],
+        "labels": [
+          {
+            "name": "Feature 1 (hole)",
+            "kind": "hole",
+            "count": 8,
+            "hole_type": "countersunk",
+            "requested_hole_type": "countersunk",
+            "step_omitted": null,
+            "thread": null,
+            "thread_representation": null,
+            "fact_ids": [
+              "D-025",
+              "D-025/drawing/callout/p1-1",
+              "D-025/drawing/callout/p1-2",
+              "D-025/drawing/callout/p1-3"
+            ],
+            "method": "ai_verified",
+            "feature_index": 0
+          }
+        ],
+        "waiting": [
+          "features_complete"
+        ],
+        "omitted": [
+          "DEBURR AND BREAK SHARP EDGES: The general finishing note does not specify an edge-break size or profile, so a corresponding chamfer or rounding cut cannot be determined."
+        ],
+        "features_all_determined": false,
         "glb_units": "metres",
         "cad_units": "mm",
         "glb_to_mm": 1000,
-        "glb_sha256": "50b6f64963a41242482630814b2cc114722a6f9d7427335a7dcc17af39b6a2ea",
-        "step_sha256": "1544331c5622a10ab8c9de162d86d19712840465ba3efce796c907b7a09bbc8a"
+        "glb_sha256": "de51670805792c52a2a9402373e18ef54022f591cc6096e96954469fbe209d9d",
+        "step_sha256": "1e6edfafd9f0f2bee28ed7590473ec853637d44b59773e26fee9d0c2c960cf77"
       },
       "B": {
         "glb": "models/D-025_B.glb",
@@ -396,43 +770,74 @@
           "max": [
             125.0,
             125.0,
-            3.0
+            3.0000000000000004
           ],
           "size": [
             250.0,
             250.0,
-            3.0
+            3.0000000000000004
           ]
         },
         "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
-        "volume_mm3": 29037.74089713047,
-        "template_sha256": "40c29fc54a33382ab753f2b5b8cefa2674d55094e6039c5d85f1e46c8a0ef1f1",
+        "volume_mm3": 28644.094101647897,
+        "template_sha256": "9d56f1bfa1da7d10f051710c68a757659f23c5337e5de93be0ffaf9504e261d7",
         "selections": {
           "thickness": 3.0
         },
-        "labels": [],
+        "labels": [
+          {
+            "name": "Feature 1 (hole)",
+            "kind": "hole",
+            "count": 8,
+            "hole_type": "countersunk",
+            "requested_hole_type": "countersunk",
+            "step_omitted": null,
+            "thread": null,
+            "thread_representation": null,
+            "fact_ids": [
+              "D-025",
+              "D-025/drawing/callout/p1-1",
+              "D-025/drawing/callout/p1-2",
+              "D-025/drawing/callout/p1-3"
+            ],
+            "method": "ai_verified",
+            "feature_index": 0
+          }
+        ],
+        "waiting": [
+          "features_complete"
+        ],
+        "omitted": [
+          "DEBURR AND BREAK SHARP EDGES: The general finishing note does not specify an edge-break size or profile, so a corresponding chamfer or rounding cut cannot be determined."
+        ],
+        "features_all_determined": false,
         "glb_units": "metres",
         "cad_units": "mm",
         "glb_to_mm": 1000,
-        "glb_sha256": "a813b90ee7f6b96f19f56a38f383333e4db8b8cdfcd0c540eb4d8e189a6ddd7f",
-        "step_sha256": "44eb575b66d9c16ad2ecad0d6896f6540fad254c4d2b852891332955a6122e28"
+        "glb_sha256": "28185dc6b069e466ec5aafce7c3433603366c238239ca5baeda1cb11399b6649",
+        "step_sha256": "7dcd2326e0d0acedd89f9519c31096303a8fdec8df3f6e0e500d693f3b845b92"
       }
     },
     "waiting": [
-      "features_review"
+      "features_complete"
     ],
     "omitted": [
-      "Hole and slot details: Waiting for review: unsure"
+      "DEBURR AND BREAK SHARP EDGES: The general finishing note does not specify an edge-break size or profile, so a corresponding chamfer or rounding cut cannot be determined."
     ],
-    "template_sha256": "40c29fc54a33382ab753f2b5b8cefa2674d55094e6039c5d85f1e46c8a0ef1f1",
+    "template_sha256": "9d56f1bfa1da7d10f051710c68a757659f23c5337e5de93be0ffaf9504e261d7",
     "source_sha256": "9b61f2c688fba1b10f502658505c78c0ff99820d3f281822eacdc7283e9b7e9c",
-    "generator_version": "flat-part-11",
+    "generator_version": "flat-part-13",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
     "review": {
       "status": "not_reviewed"
     },
-    "label": "AI reconstruction. Not reviewed by a person",
+    "label": "Partial AI reconstruction. Not reviewed by a person",
     "units": "mm",
+    "features_status": "partial",
+    "features_all_determined": false,
+    "omitted_feature_notes": [
+      "DEBURR AND BREAK SHARP EDGES: The general finishing note does not specify an edge-break size or profile, so a corresponding chamfer or rounding cut cannot be determined."
+    ],
     "weight_check": {
       "state": "Passed",
       "message": "Weight check passed using drawing material",
@@ -454,9 +859,9 @@
               "source_title": "ASM Aluminum Mill and Engineered Wrought Products, Table 6 (NIST archive)",
               "looked_up": "2026-11-05",
               "note": "5005 alloy density. Outside source, not the dataset.",
-              "calculated_g": 52.2679,
+              "calculated_g": 51.4012,
               "drawing_g": 77.3,
-              "difference_percent": 32.38,
+              "difference_percent": 33.5,
               "matches": false,
               "outside_source": true
             }
@@ -481,9 +886,9 @@
               "source_title": "ASM Aluminum Mill and Engineered Wrought Products, Table 6 (NIST archive)",
               "looked_up": "2026-11-05",
               "note": "5005 alloy density. Outside source, not the dataset.",
-              "calculated_g": 78.4019,
+              "calculated_g": 77.3391,
               "drawing_g": 77.3,
-              "difference_percent": 1.43,
+              "difference_percent": 0.05,
               "matches": true,
               "outside_source": true
             }
@@ -496,6 +901,272 @@
       "tolerance_percent": 5,
       "requires_approval": false,
       "approval_note_required": false,
+      "limitation": "A matching weight does not verify feature positions. No thickness or material is selected automatically.",
+      "density_label": "Outside source, not the dataset"
+    }
+  },
+  "D-026": {
+    "examples": [
+      "A",
+      "B"
+    ],
+    "models": {
+      "A": {
+        "glb": "models/D-026_A.glb",
+        "step": "models/D-026_A_reconstruction_from_drawing.step",
+        "bounds_mm": {
+          "min": [
+            -125.0,
+            -125.0,
+            0.0
+          ],
+          "max": [
+            125.0,
+            125.0,
+            15.0
+          ],
+          "size": [
+            250.0,
+            250.0,
+            15.0
+          ]
+        },
+        "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
+        "volume_mm3": 735317.9956366653,
+        "template_sha256": "cabed5b7894ca74eed8251a11071d9c1f54d4d93f1e777524ff057b841b5d905",
+        "selections": {
+          "thickness": 15
+        },
+        "labels": [
+          {
+            "name": "Feature 1 (hole)",
+            "kind": "hole",
+            "count": 3,
+            "hole_type": "plain",
+            "requested_hole_type": "counterbored",
+            "step_omitted": "Feature 1 (hole): counterbore step omitted for 15 mm thickness: documented depth 15.4 mm exceeds primary-hole depth 15 mm. Known 5.3 mm primary hole retained; step depth was not clamped. The printed counterbore depth 15,4 exceeds the documented 15,0 thickness alternative. Retain the separately dimensioned Ø5,3 THRU ALL primary holes, skip the counterbore step for the 15,0 variant, and report that omission. The 15,4-deep counterbore fits the 25,0 variant.",
+            "thread": null,
+            "thread_representation": null,
+            "fact_ids": [
+              "D-026",
+              "D-026/drawing/callout/p1-1",
+              "D-026/drawing/callout/p1-2",
+              "D-026/drawing/n/3.0@1-1",
+              "D-026/drawing/n/5.3@1-1",
+              "D-026/drawing/n/10.0@1-1",
+              "D-026/drawing/n/15.4@1-1",
+              "D-026/drawing/n/15.0@1-1",
+              "D-026/drawing/n/25.0@1-1"
+            ],
+            "method": "ai_verified",
+            "feature_index": 0
+          }
+        ],
+        "waiting": [
+          "features_complete",
+          "features.0.step"
+        ],
+        "omitted": [
+          "Ø10,0 counterbore step, depth 15,4, for the 15,0 thickness alternative: The specified depth 15,4 exceeds the 15,0 plate thickness. Skip this step only for that variant and retain the supported Ø5,3 through-hole pattern; do not clamp the depth. The counterbore remains supported for the 25,0 variant.",
+          "DEBURR AND BREAK SHARP EDGES: The general note specifies edge finishing without a numerical size or a defined chamfer or radius profile, so no dimensioned edge-removal geometry can be modeled.",
+          "Feature 1 (hole): counterbore step omitted for 15 mm thickness: documented depth 15.4 mm exceeds primary-hole depth 15 mm. Known 5.3 mm primary hole retained; step depth was not clamped. The printed counterbore depth 15,4 exceeds the documented 15,0 thickness alternative. Retain the separately dimensioned Ø5,3 THRU ALL primary holes, skip the counterbore step for the 15,0 variant, and report that omission. The 15,4-deep counterbore fits the 25,0 variant."
+        ],
+        "features_all_determined": false,
+        "glb_units": "metres",
+        "cad_units": "mm",
+        "glb_to_mm": 1000,
+        "glb_sha256": "c271955f857dea82a63d8bc0367df9084ebbbe28fae0bbb888a8a940a5966f19",
+        "step_sha256": "6c0ddac3dd3c858be22ab28535e527864cda0e0b49f427605e0c403dac4f5fba"
+      },
+      "B": {
+        "glb": "models/D-026_B.glb",
+        "step": "models/D-026_B_reconstruction_from_drawing.step",
+        "bounds_mm": {
+          "min": [
+            -125.0,
+            -125.0,
+            0.0
+          ],
+          "max": [
+            125.0,
+            125.0,
+            25.0
+          ],
+          "size": [
+            250.0,
+            250.0,
+            25.0
+          ]
+        },
+        "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
+        "volume_mm3": 1222920.709962614,
+        "template_sha256": "cabed5b7894ca74eed8251a11071d9c1f54d4d93f1e777524ff057b841b5d905",
+        "selections": {
+          "thickness": 25
+        },
+        "labels": [
+          {
+            "name": "Feature 1 (hole)",
+            "kind": "hole",
+            "count": 3,
+            "hole_type": "counterbored",
+            "requested_hole_type": "counterbored",
+            "step_omitted": null,
+            "thread": null,
+            "thread_representation": null,
+            "fact_ids": [
+              "D-026",
+              "D-026/drawing/callout/p1-1",
+              "D-026/drawing/callout/p1-2",
+              "D-026/drawing/n/3.0@1-1",
+              "D-026/drawing/n/5.3@1-1",
+              "D-026/drawing/n/10.0@1-1",
+              "D-026/drawing/n/15.4@1-1",
+              "D-026/drawing/n/15.0@1-1",
+              "D-026/drawing/n/25.0@1-1"
+            ],
+            "method": "ai_verified",
+            "feature_index": 0
+          }
+        ],
+        "waiting": [
+          "features_complete"
+        ],
+        "omitted": [
+          "Ø10,0 counterbore step, depth 15,4, for the 15,0 thickness alternative: The specified depth 15,4 exceeds the 15,0 plate thickness. Skip this step only for that variant and retain the supported Ø5,3 through-hole pattern; do not clamp the depth. The counterbore remains supported for the 25,0 variant.",
+          "DEBURR AND BREAK SHARP EDGES: The general note specifies edge finishing without a numerical size or a defined chamfer or radius profile, so no dimensioned edge-removal geometry can be modeled."
+        ],
+        "features_all_determined": false,
+        "glb_units": "metres",
+        "cad_units": "mm",
+        "glb_to_mm": 1000,
+        "glb_sha256": "460e5e86ec7e9273cd23c095222075fd467edd92b5454d8eb977209299544bbe",
+        "step_sha256": "2821eb1dfd669eaaed83ee7678e0ef8f046c17d0ea93abccd01a758d72d68da4"
+      }
+    },
+    "waiting": [
+      "features_complete",
+      "features.0.step"
+    ],
+    "omitted": [
+      "Ø10,0 counterbore step, depth 15,4, for the 15,0 thickness alternative: The specified depth 15,4 exceeds the 15,0 plate thickness. Skip this step only for that variant and retain the supported Ø5,3 through-hole pattern; do not clamp the depth. The counterbore remains supported for the 25,0 variant.",
+      "DEBURR AND BREAK SHARP EDGES: The general note specifies edge finishing without a numerical size or a defined chamfer or radius profile, so no dimensioned edge-removal geometry can be modeled.",
+      "Feature 1 (hole): counterbore step omitted for 15 mm thickness: documented depth 15.4 mm exceeds primary-hole depth 15 mm. Known 5.3 mm primary hole retained; step depth was not clamped. The printed counterbore depth 15,4 exceeds the documented 15,0 thickness alternative. Retain the separately dimensioned Ø5,3 THRU ALL primary holes, skip the counterbore step for the 15,0 variant, and report that omission. The 15,4-deep counterbore fits the 25,0 variant."
+    ],
+    "template_sha256": "cabed5b7894ca74eed8251a11071d9c1f54d4d93f1e777524ff057b841b5d905",
+    "source_sha256": "a7ee7f4d75acaf2e8fc67ce14ca223d5cb4a2931063f37f4dfb6fadeeb70256e",
+    "generator_version": "flat-part-13",
+    "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
+    "review": {
+      "status": "not_reviewed"
+    },
+    "label": "Partial AI reconstruction. Not reviewed by a person",
+    "units": "mm",
+    "features_status": "partial",
+    "features_all_determined": false,
+    "omitted_feature_notes": [
+      "Ø10,0 counterbore step, depth 15,4, for the 15,0 thickness alternative: The specified depth 15,4 exceeds the 15,0 plate thickness. Skip this step only for that variant and retain the supported Ø5,3 through-hole pattern; do not clamp the depth. The counterbore remains supported for the 25,0 variant.",
+      "DEBURR AND BREAK SHARP EDGES: The general note specifies edge finishing without a numerical size or a defined chamfer or radius profile, so no dimensioned edge-removal geometry can be modeled."
+    ],
+    "weight_check": {
+      "state": "FAILED",
+      "message": "FAILED weight check: needs manual approval",
+      "examples": {
+        "A": {
+          "attempts": [
+            {
+              "material": "Stainless steel",
+              "source": "parts list",
+              "names": [
+                "Stainless steel",
+                "304",
+                "1.4301",
+                "X5CrNi18-10"
+              ],
+              "density_g_cm3": 7.9,
+              "source_url": "https://www.outokumpu.com/en/products/product-ranges/-/media/files/products/core/outokumpu-core-range-datasheet.pdf?modified=20251117111909&revision=025e9931-a1d5-4c8f-8ff5-f881d38916da",
+              "source_title": "Outokumpu Core range datasheet, physical properties, Core 304/4301",
+              "looked_up": "2026-11-05",
+              "note": "304 density used as approximate stainless family density when grade is unspecified. Outside source, not the dataset.",
+              "calculated_g": 5809.0122,
+              "drawing_g": 7822.5,
+              "difference_percent": 25.74,
+              "matches": false,
+              "outside_source": true
+            },
+            {
+              "material": "Steel",
+              "source": "parts list",
+              "names": [
+                "Steel",
+                "Carbon steel",
+                "Structural steel"
+              ],
+              "density_g_cm3": 7.85,
+              "source_url": "https://www.ssab.com/-/media/files/en/support/certificates/885en-epd-hot-rolled-steel-plates.pdf?m=20200406080301",
+              "source_title": "SSAB Environmental Product Declaration, Hot Rolled Steel Plates",
+              "looked_up": "2026-11-05",
+              "note": "Approximate structural steel family density. Outside source, not the dataset.",
+              "calculated_g": 5772.2463,
+              "drawing_g": 7822.5,
+              "difference_percent": 26.21,
+              "matches": false,
+              "outside_source": true
+            }
+          ],
+          "matches": false,
+          "drawing_g": 7822.5
+        },
+        "B": {
+          "attempts": [
+            {
+              "material": "Stainless steel",
+              "source": "parts list",
+              "names": [
+                "Stainless steel",
+                "304",
+                "1.4301",
+                "X5CrNi18-10"
+              ],
+              "density_g_cm3": 7.9,
+              "source_url": "https://www.outokumpu.com/en/products/product-ranges/-/media/files/products/core/outokumpu-core-range-datasheet.pdf?modified=20251117111909&revision=025e9931-a1d5-4c8f-8ff5-f881d38916da",
+              "source_title": "Outokumpu Core range datasheet, physical properties, Core 304/4301",
+              "looked_up": "2026-11-05",
+              "note": "304 density used as approximate stainless family density when grade is unspecified. Outside source, not the dataset.",
+              "calculated_g": 9661.0736,
+              "drawing_g": 7822.5,
+              "difference_percent": 23.5,
+              "matches": false,
+              "outside_source": true
+            },
+            {
+              "material": "Steel",
+              "source": "parts list",
+              "names": [
+                "Steel",
+                "Carbon steel",
+                "Structural steel"
+              ],
+              "density_g_cm3": 7.85,
+              "source_url": "https://www.ssab.com/-/media/files/en/support/certificates/885en-epd-hot-rolled-steel-plates.pdf?m=20200406080301",
+              "source_title": "SSAB Environmental Product Declaration, Hot Rolled Steel Plates",
+              "looked_up": "2026-11-05",
+              "note": "Approximate structural steel family density. Outside source, not the dataset.",
+              "calculated_g": 9599.9276,
+              "drawing_g": 7822.5,
+              "difference_percent": 22.72,
+              "matches": false,
+              "outside_source": true
+            }
+          ],
+          "matches": false,
+          "drawing_g": 7822.5
+        }
+      },
+      "drawing_g": 7822.5,
+      "tolerance_percent": 5,
+      "requires_approval": true,
+      "approval_note_required": true,
       "limitation": "A matching weight does not verify feature positions. No thickness or material is selected automatically.",
       "density_label": "Outside source, not the dataset"
     }

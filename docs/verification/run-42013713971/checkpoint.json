@@ -1,0 +1,21 @@
+{
+  "run_id": 42013713971,
+  "source_commit": "85e1bc5",
+  "full_run_conclusion": "failure",
+  "passed_stages": [
+    "frontend build",
+    "163 tests",
+    "production CAD and STEP/GLB feature probes",
+    "pinned-source audit"
+  ],
+  "failed_stage": "fresh offline recovery: new generator13 caches not yet committed",
+  "installed_here": [
+    "projected records",
+    "verified model exports",
+    "generator13 CAD caches"
+  ],
+  "original_models": 3,
+  "variants": 6,
+  "new_parts_pending_expansion": true,
+  "ai_results_and_raw_inputs_unchanged": true
+}

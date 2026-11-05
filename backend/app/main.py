@@ -4,6 +4,7 @@ import argparse
 import io
 import json
 import mimetypes
+import os
 from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Any
@@ -55,7 +56,7 @@ async def value_error(request, exc):
 @app.get("/api/status")
 def status():
     store = get_store()
-    return {"chat_available": bool(api_key()), "chat_model": MODEL, "revision": store.revision,
+    return {"chat_available": bool(api_key()), "chat_model": MODEL, "debug_ui": os.environ.get("MERIDIAN_DEBUG_UI", "").lower() in {"1", "true", "yes"}, "revision": store.revision,
             "parts": len(store.records), "drawings": sum(bool(p.get("drawing")) for p in store.records),
             "models": sum(bool(p.get("has_3d")) for p in store.records), "reviewer_name": settings().get("reviewer_name", "Jason Peng")}
 
@@ -208,7 +209,12 @@ def cli():
     parser = argparse.ArgumentParser(description="Meridian local evidence workbench")
     parser.add_argument("command", nargs="?", choices=["serve", "rebuild", "prep", "models"], default="serve")
     parser.add_argument("--port", type=int, default=8000)
+    debug = parser.add_mutually_exclusive_group()
+    debug.add_argument("--debug-ui", action="store_true", help="Show the engineering Debug tab")
+    debug.add_argument("--hide-debug", action="store_true", help="Hide Debug, including when enabled by the environment")
     args = parser.parse_args()
+    if args.debug_ui or args.hide_debug:
+        os.environ["MERIDIAN_DEBUG_UI"] = "1" if args.debug_ui else "0"
     if args.command == "prep":
         from backend.loader import build_records
         from backend.ai.pipeline import run_prep

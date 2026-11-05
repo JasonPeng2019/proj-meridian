@@ -74,7 +74,7 @@ def assemble_records(drawings: dict, rows: list, output: Path = GENERATED) -> li
         if not isinstance(requested, list):
             requested = []
         invalid = [name for name in requested if name not in row_lookup]
-        allowed = link.get("method") in {"exact_match", "ai_agreed", "ai_agreed_after_retry"}
+        allowed = link.get("method") in {"exact_match", "ai_agreed", "ai_agreed_after_retry", "ai_verified", "ai_verified_after_retry"}
         selected = [] if invalid or not allowed else [row_lookup[name] for name in requested]
         if invalid:
             link.update(method="unresolved", reason="AI returned an invalid BOM stable name.", invalid_rows=invalid)

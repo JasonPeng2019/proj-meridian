@@ -29,7 +29,8 @@ def badge(field: dict) -> str:
         correction = field.get("correction", {})
         return f"Entered by {correction.get('by', 'reviewer')} on {correction.get('at', '')[:10]}"
     if method in AI_METHODS or method.startswith("ai_"):
-        label = "AI reading of a blurry scan" if method == "ai_read" else "AI interpretation (agreed after a second look)" if method == "ai_agreed_after_retry" else "AI interpretation"
+        label = {"ai_read": "AI reading of a blurry scan", "ai_agreed_after_retry": "AI interpretation (agreed after a second look)",
+                 "ai_verified": "AI proposal verified against evidence", "ai_verified_after_retry": "AI proposal verified after feedback"}.get(method, "AI interpretation")
         if review.get("status") == "human_confirmed":
             return f"{label}, reviewed by {review.get('by')} on {review.get('at', '')[:10]}"
         if review.get("status") == "human_rejected":

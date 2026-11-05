@@ -11,9 +11,39 @@ OUT = ROOT / 'docs/verification'
 def get(path):
     return json.load(urllib.request.urlopen(BASE + path))
 
+def verify_debug():
+    with sync_playwright() as p:
+        browser=p.chromium.launch(headless=True, args=['--enable-unsafe-swiftshader'])
+        page=browser.new_page(viewport={'width':1600,'height':1000})
+        errors=[]
+        page.on('pageerror',lambda e:errors.append(str(e)))
+        page.goto(BASE+'/part/D-013/debug')
+        page.locator('.debug-view').wait_for()
+        assert page.locator('.part-tabs').get_by_role('button',name='Debug',exact=True).is_visible()
+        page.locator('.debug-tabs').get_by_role('button',name='Model & checks',exact=True).click()
+        page.locator('.cad-weight > summary').click()
+        assert page.locator('.cad-weight-detail').is_visible()
+        assert page.get_by_text('Download reconstruction (STEP)',exact=True).count()==2
+        page.locator('.cad-provenance > summary').first.click()
+        assert 'template sha256' in page.locator('.debug-model').inner_text()
+        page.screenshot(path=str(OUT/'debug-model.png'))
+        page.locator('.debug-tabs').get_by_role('button',name='History',exact=True).click()
+        page.locator('.timeline-entry').first.wait_for()
+        assert 'Jason Peng' in page.locator('.history-view').inner_text()
+        page.screenshot(path=str(OUT/'debug-history.png'))
+        page.goto(BASE+'/part/D-015/debug')
+        page.locator('.original-fact > summary').first.click()
+        assert page.locator('.original-fact[open]').is_visible()
+        assert not errors,errors
+        browser.close()
+    (OUT/'debug-browser-check.json').write_text(json.dumps({'debug_launch':True,'calculations':True,'history':True,'raw_sources':True,'page_errors':errors},indent=2),encoding='utf-8')
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     parts, review = get('/api/parts'), get('/api/review')
+    if get('/api/status').get('debug_ui'):
+        return verify_debug()
     ai_item = next((i for i in review if i['type']=='ai_interpretation'), review[0])
     model = next((p['key'] for p in parts if p.get('has_3d')), 'D-025')
     bom = next(p['key'] for p in parts if not p.get('has_drawing'))
@@ -47,17 +77,18 @@ def main():
             if name == 'model':
                 assert page.locator('.model-panels').count() == 0
                 assert page.locator('.sheet-rail').count() == 0
-                assert not page.locator('.cad-provenance').evaluate('(el) => el.open')
-                assert not page.locator('.cad-weight').evaluate('(el) => el.open')
+                assert page.locator('.cad-provenance').count() == 0
+                assert page.locator('.cad-weight').count() == 0
+                assert page.locator('.cad-check-summary').is_visible()
+                assert page.locator('.part-tabs').get_by_role('button', name='Debug', exact=True).count() == 0
                 viewer = page.locator('.primary-view').bounding_box()
                 body = page.locator('.part-body').bounding_box()
                 assert viewer['width'] >= body['width'] * .9
-                page.locator('.cad-weight > summary').click()
-                assert page.locator('.cad-weight-detail').is_visible()
-                page.locator('.cad-weight > summary').click()
             if name == 'bom-detail':
                 assert page.locator('.detail-section[open]').count() == 0
-                assert page.locator('.overview-facts .fact-card').count() <= 8
+                assert page.locator('.summary-box').count() <= 4
+                assert page.locator('.notes-box').count() == 1
+                assert page.locator('.fact-grid').count() == 0
             page.screenshot(path=str(OUT / (name+'.png')))
             print(name, 'body_chars', len(page.locator('body').inner_text()), 'horizontal_overflow', page.evaluate('document.documentElement.scrollWidth > innerWidth'), flush=True)
         page.goto(BASE+'/parts')
@@ -70,10 +101,18 @@ def main():
         print('multipage_sheet',page.locator('.viewer-toolbar').inner_text(),flush=True)
         page.screenshot(path=str(OUT/'drawing-page3.png'))
         page.goto(BASE+'/part/D-013/detail')
-        page.locator('.fact-card').filter(has=page.get_by_role('heading',name='Thickness',exact=True)).locator('.fact-badge').click()
+        page.get_by_title('View thickness source and history', exact=True).click()
         page.locator('.history-modal').wait_for()
         page.screenshot(path=str(OUT/'d013-thickness-history.png'))
-        print('human_thickness_history', 'Jason Peng' in page.locator('.history-modal').inner_text(),flush=True)
+        assert page.locator('.source-modal-content').is_visible()
+        assert page.locator('.timeline-entry').count() == 0
+        page.goto(BASE+'/part/D-015/detail')
+        assert 'Silicone Wiper' in page.locator('.part-title h2').inner_text()
+        page.goto(BASE+'/part/D-023/detail')
+        assert 'Build Cylinder' in page.locator('.part-title h2').inner_text()
+        assert 'EN AW6082 T6' in page.locator('.notes-box').inner_text()
+        assert 'længere' not in page.locator('.notes-box').inner_text()
+        page.screenshot(path=str(OUT/'english-notes.png'))
         page.goto(BASE+'/review/part/D-013')
         page.locator('.part-tabs').get_by_role('button',name='2D drawing',exact=True).click()
         print('review_controls_retained',page.locator('.part-review-controls').is_visible(),'approval_disabled',page.get_by_role('button',name='Approve whole design',exact=True).is_disabled(),flush=True)
@@ -104,7 +143,7 @@ def main():
         context.close()
     result = {'page_errors':errors,'failed_responses':failures,'model_checked':model,'bom_checked':bom,
               'default_hierarchy': {'focused_model': True, 'filters_collapsed': True, 'technical_details_collapsed': True,
-                                    'weight_details_expandable': True, 'no_horizontal_overflow': True}}
+                                    'calculations_moved_to_debug': True, 'debug_hidden_on_customer_launch': True, 'no_horizontal_overflow': True}}
     (OUT/'browser-check.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
     print(json.dumps(result,indent=2))
     assert not errors, errors

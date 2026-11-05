@@ -1,3 +1,4 @@
+import {englishName} from '../language';
 import React, {useEffect, useLayoutEffect, useRef, useState} from 'react';
 import {createPortal} from 'react-dom';
 import {ArrowUp, ArrowUpRight, Box, FileText, Sparkles, Plus, ChevronRight, AlertTriangle, Check, Copy, Layers, Search, ExternalLink, Clock3} from 'lucide-react';
@@ -45,8 +46,8 @@ function AnswerText({text,facts,navigate}) {
 
 function PartCards({parts,navigate}) {
   if(!parts?.length)return null;
-  if(parts.length>=4)return <details className="attached-list"><summary><Layers size={13}/>{parts.length} referenced parts</summary>{parts.map(p=><button key={p.id} onClick={()=>navigate(partURL(partKey(p)),{panel:true})}><Box size={16}/><span>{p.display_name}<small>{partKey(p)}</small></span><span className="muted">{p.has_3d?'2D + 3D':p.has_drawing?'2D drawing':'Parts list'}</span><ArrowUpRight size={14}/></button>)}</details>;
-  return <div className="attached-parts"><div className="attachment-label"><Layers size={13}/> Attached evidence</div><div className="part-card-grid">{parts.map(p=><button className="attached-card" key={p.id||p.key} onClick={()=>navigate(partURL(partKey(p)),{panel:true})}>{p.thumbnail || p.has_drawing?<div className="attached-thumbnail"><img src={p.thumbnail||imageURL(partKey(p),1,true)} alt={`${p.display_name} drawing`}/></div>:<div className="attached-thumbnail no-drawing"><Box size={27}/></div>}<div className="attached-card-title"><strong>{p.display_name}</strong><small>{partKey(p)} · {p.has_3d?'2D + 3D':p.has_drawing?'2D drawing':'Parts list'}</small></div><ArrowUpRight size={15}/></button>)}</div></div>;
+  if(parts.length>=4)return <details className="attached-list"><summary><Layers size={13}/>{parts.length} referenced parts</summary>{parts.map(p=><button key={p.id} onClick={()=>navigate(partURL(partKey(p)),{panel:true})}><Box size={16}/><span>{englishName(p.display_name)}<small>{partKey(p)}</small></span><span className="muted">{p.has_3d?'2D + 3D':p.has_drawing?'2D drawing':'Parts list'}</span><ArrowUpRight size={14}/></button>)}</details>;
+  return <div className="attached-parts"><div className="attachment-label"><Layers size={13}/> Attached evidence</div><div className="part-card-grid">{parts.map(p=><button className="attached-card" key={p.id||p.key} onClick={()=>navigate(partURL(partKey(p)),{panel:true})}>{p.thumbnail || p.has_drawing?<div className="attached-thumbnail"><img src={p.thumbnail||imageURL(partKey(p),1,true)} alt={`${englishName(p.display_name)} drawing`}/></div>:<div className="attached-thumbnail no-drawing"><Box size={27}/></div>}<div className="attached-card-title"><strong>{englishName(p.display_name)}</strong><small>{partKey(p)} · {p.has_3d?'2D + 3D':p.has_drawing?'2D drawing':'Parts list'}</small></div><ArrowUpRight size={15}/></button>)}</div></div>;
 }
 
 function Message({message,navigate}) {

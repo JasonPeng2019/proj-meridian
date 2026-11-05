@@ -14,7 +14,7 @@ import yaml
 
 from backend.paths import ROOT, inside
 
-AI_METHODS = {"ai_read", "ai_agreed", "ai_agreed_after_retry"}
+AI_METHODS = {"ai_read", "ai_agreed", "ai_agreed_after_retry", "ai_verified", "ai_verified_after_retry"}
 
 def now() -> str:
     return datetime.now(timezone.utc).isoformat()

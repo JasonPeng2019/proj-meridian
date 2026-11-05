@@ -1,0 +1,278 @@
+{
+  "source_sha256": "92b858c32d1b5d6f0d8e1fd7705816b7419ec238b4346d291cb22f89b29f8a56",
+  "source_strings": 376,
+  "translated_strings": 38,
+  "human_review": false,
+  "numeric_tokens_unchanged": true,
+  "translation": {
+    "cache_key": "0b35fd0f32a9b73a492f18d34906766b17dd855767910759915c9d7bbb908b44",
+    "settings": {
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "xhigh",
+      "service_tier": "fast",
+      "reader": "codex"
+    },
+    "metadata": {
+      "events": [
+        {
+          "type": "turn.completed",
+          "usage": {
+            "input_tokens": 19112,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2825,
+            "reasoning_output_tokens": 2047
+          }
+        }
+      ]
+    },
+    "latency_ms": 56609
+  },
+  "verification": {
+    "cache_key": "45d1ced60e1dc791bb7a1d4c8f650b5cb265f589fc32804a08dbd6b7a85ee8c9",
+    "settings": {
+      "model": "opus",
+      "fast_mode": false,
+      "mode": "regular",
+      "reader": "claude"
+    },
+    "metadata": {
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 10204,
+        "cache_read_input_tokens": 2446,
+        "output_tokens": 2999,
+        "output_tokens_details": {
+          "thinking_tokens": 1216
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 10204,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "modelUsage": {
+        "claude-opus-5-5": {
+          "inputTokens": 2,
+          "outputTokens": 2999,
+          "cacheReadInputTokens": 2446,
+          "cacheCreationInputTokens": 10204,
+          "webSearchRequests": 0,
+          "costUSD": 0.1421092,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 1216,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 10204,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      },
+      "total_cost_usd": 0.1421092,
+      "duration_ms": 24175,
+      "is_error": false
+    },
+    "latency_ms": 25422
+  },
+  "checks": [
+    {
+      "id": 13,
+      "approved": true,
+      "reason": "'pakning' correctly rendered as 'gasket'; the 1mm is kept."
+    },
+    {
+      "id": 17,
+      "approved": true,
+      "reason": "'2 stk.' means '2 pieces'; 'Alu.' is kept."
+    },
+    {
+      "id": 18,
+      "approved": true,
+      "reason": "Faithful: 2 pieces, a silicone wiper made from 1mm silicone sheet."
+    },
+    {
+      "id": 53,
+      "approved": true,
+      "reason": "'Justeringsplade til recoater' means 'Adjustment plate for recoater'."
+    },
+    {
+      "id": 54,
+      "approved": true,
+      "reason": "'Montage klods til linæer føring' means 'Mounting block for linear guide'."
+    },
+    {
+      "id": 55,
+      "approved": true,
+      "reason": "'Plade til linæer føring' means 'Plate for linear guide'."
+    },
+    {
+      "id": 57,
+      "approved": true,
+      "reason": "Faithful: 3 identical grooves, a quoted 'constant triangle' along a continuous arc, the dimensions are important, and 120 degrees between grooves. The line breaks are kept."
+    },
+    {
+      "id": 58,
+      "approved": true,
+      "reason": "'3 styk.' means '3 pieces'."
+    },
+    {
+      "id": 59,
+      "approved": true,
+      "reason": "Reference letters A and B are kept. The heating element hole and the clamping element hole are translated correctly."
+    },
+    {
+      "id": 67,
+      "approved": true,
+      "reason": "Ø280mm, t=15mm, EN AW-6082 T6, Alumeco, [B], the dynamic ceramic gasket and '55 mm longer than version 1' are all kept."
+    },
+    {
+      "id": 70,
+      "approved": true,
+      "reason": "'Beslag til topplade' means 'Bracket for top plate'."
+    },
+    {
+      "id": 76,
+      "approved": true,
+      "reason": "'Brug gerne' means 'Feel free to use'. The alloy series designations are kept."
+    },
+    {
+      "id": 81,
+      "approved": true,
+      "reason": "'Bygge Base Ring' means 'Build Base Ring'."
+    },
+    {
+      "id": 82,
+      "approved": true,
+      "reason": "'ByggeBase' means 'Build Base'."
+    },
+    {
+      "id": 83,
+      "approved": true,
+      "reason": "'ByggeCylinder' means 'Build Cylinder'."
+    },
+    {
+      "id": 84,
+      "approved": true,
+      "reason": "'rustfri og alu' means 'stainless steel and aluminium'. The quantity '1-3 of each' is kept."
+    },
+    {
+      "id": 106,
+      "approved": true,
+      "reason": "'Cyklone' means 'Cyclone'."
+    },
+    {
+      "id": 107,
+      "approved": true,
+      "reason": "'Spænd Ring' means 'Clamping Ring'."
+    },
+    {
+      "id": 126,
+      "approved": true,
+      "reason": "Acceptable label: 'End-stop mechanical plunger' keeps the meaning of 'Endestops Mech Plunger'."
+    },
+    {
+      "id": 147,
+      "approved": true,
+      "reason": "'Bundplade' means 'Bottom Plate'."
+    },
+    {
+      "id": 148,
+      "approved": true,
+      "reason": "'Plade' means 'Plate'. 'Alu' is kept."
+    },
+    {
+      "id": 149,
+      "approved": true,
+      "reason": "'Montage Plade' means 'Mounting Plate'."
+    },
+    {
+      "id": 175,
+      "approved": true,
+      "reason": "'Kabelforskruning' means 'Cable gland'."
+    },
+    {
+      "id": 176,
+      "approved": true,
+      "reason": "Cable gland O-ring: faithful."
+    },
+    {
+      "id": 177,
+      "approved": true,
+      "reason": "Faithful. Using 'routing' for 'sending' cables keeps the meaning."
+    },
+    {
+      "id": 178,
+      "approved": true,
+      "reason": "'Klemrækker Blå' means 'Blue terminal blocks'."
+    },
+    {
+      "id": 179,
+      "approved": true,
+      "reason": "'Klemrækker Grå' means 'Grey terminal blocks'."
+    },
+    {
+      "id": 180,
+      "approved": true,
+      "reason": "'Gul/Grøn' means 'Yellow/Green'."
+    },
+    {
+      "id": 181,
+      "approved": true,
+      "reason": "'Klemrækker endestop' means 'Terminal block end stops'."
+    },
+    {
+      "id": 182,
+      "approved": true,
+      "reason": "'Klemrækker markeringer' means 'Terminal block markers'."
+    },
+    {
+      "id": 186,
+      "approved": true,
+      "reason": "'Laske 2-polet' means '2-pole jumper' (a link or bridge)."
+    },
+    {
+      "id": 187,
+      "approved": true,
+      "reason": "'Laske 3-polet' means '3-pole jumper'."
+    },
+    {
+      "id": 209,
+      "approved": true,
+      "reason": "'Montage pasta' means 'Assembly paste'."
+    },
+    {
+      "id": 227,
+      "approved": true,
+      "reason": "Faithful: an O-ring for sealing the cable gland."
+    },
+    {
+      "id": 290,
+      "approved": true,
+      "reason": "Display label as requested: 'Pakning' becomes 'Gasket', and fTheta and .pdf are kept."
+    },
+    {
+      "id": 291,
+      "approved": true,
+      "reason": "'Silikone Wiper' means 'Silicone Wiper'."
+    },
+    {
+      "id": 313,
+      "approved": true,
+      "reason": "'Termoelement type K' means 'Type K thermocouple'."
+    },
+    {
+      "id": 341,
+      "approved": true,
+      "reason": "'Varmeelement Plade' means 'Heating Element Plate'."
+    }
+  ]
+}

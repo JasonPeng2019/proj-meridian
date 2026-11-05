@@ -146,3 +146,13 @@ def test_whole_design_requires_input_and_failed_weight_note(evidence):
     assert evidence.part("D-019").get("design_review") is None
     with pytest.raises(ValueError, match="still need input"):
         evidence.act("design:D-019/part", "approve_design", note="Cannot override missing essential geometry")
+
+
+@pytest.mark.parametrize("setting,expected", [(None, False), ("0", False), ("1", True), ("true", True)])
+def test_debug_ui_launch_visibility(evidence, monkeypatch, setting, expected):
+    import backend.app.main as main
+    monkeypatch.setattr(main, "get_store", lambda: evidence)
+    monkeypatch.delenv("MERIDIAN_DEBUG_UI", raising=False)
+    if setting is not None:
+        monkeypatch.setenv("MERIDIAN_DEBUG_UI", setting)
+    assert main.status()["debug_ui"] is expected

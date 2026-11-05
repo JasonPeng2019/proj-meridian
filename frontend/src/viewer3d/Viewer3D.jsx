@@ -44,7 +44,7 @@ function Model({ model, section, cut, fit }) {
   </>;
 }
 
-function Weight({ check, selected }) {
+export function Weight({ check, selected }) {
   if (!check) return null;
   const attempts = check.examples?.[selected]?.attempts || [];
   return <details className={`cad-weight cad-weight-${String(check.state).toLowerCase()}`}>
@@ -81,7 +81,7 @@ export default function Viewer3D({ part, example, onExampleChange }) {
       </div>}
     </div>
     {examples.length > 1 && <div className="cad-options">Possible readings · neither is selected as correct</div>}
-    <Weight check={manifest.weight_check && reviewed ? {...manifest.weight_check, approval: reviewed} : manifest.weight_check} selected={selected} />
+    {manifest.weight_check&&<div className={`cad-check-summary ${manifest.weight_check.state==='FAILED'?'failed':''}`}><strong>{manifest.weight_check.state} weight check</strong><span>{manifest.weight_check.state==='FAILED'?'Needs manual review':'See Debug for calculations'}</span></div>}
     {manifest.stale && <p className="cad-warning" role="alert">{manifest.stale_message}</p>}
     {model ? <>
       <div className="cad-canvas">
@@ -100,13 +100,5 @@ export default function Viewer3D({ part, example, onExampleChange }) {
     </> : <div className="cad-empty">{manifest.waiting?.length ? `3D waiting for human input on: ${manifest.waiting.join(', ')}` : part?.drawing?.degraded ? 'No 3D model: this drawing is a degraded scan.' : 'No 3D reconstruction is available for this part.'}</div>}
     <div className="cad-disclosure"><span>{reviewed?reviewLabel:'AI reconstruction · not reviewed'}</span><p>{NOTICE}</p></div>
     {manifest.omitted?.length > 0 && <details className="cad-warning"><summary>Partial reconstruction · some details omitted</summary><ul>{manifest.omitted.map((item, index) => <li key={index}>{typeof item === 'string' ? item : item.reason || item.name}</li>)}</ul></details>}
-    {model && <details className="cad-provenance"><summary>Model provenance & STEP download</summary>
-      <p>Source drawing: {part?.drawing?.id || template.part || part?.key}. Template: {template.template || 'flat_part'}. Model measured in mm; GLB stored in metres.</p>
-      <p>Template SHA-256: <code>{model.template_sha256}</code></p>
-      <p>Solid volume: {number(model.volume_mm3)} mm³. Neutral grey does not indicate material.</p>
-      {model.labels?.length > 0 && <ul>{model.labels.map((label, index) => <li key={index}>{label.name} · {label.method?.replaceAll('_', ' ')}{label.thread_representation ? ` · ${label.thread_representation}` : ''}</li>)}</ul>}
-      <a className="cad-download" href={asset(model.step)} download>Download reconstruction (STEP). Not the original CAD model.</a>
-      <p>{NOTICE}</p>
-    </details>}
   </section>;
 }

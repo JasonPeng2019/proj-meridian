@@ -29,3 +29,7 @@ All local project writes stay under the Avathon repository. Hosted project outpu
 ## UI simplification checkpoint
 
 Keep the default screens focused: one part viewer, one tab bar, concise core facts and one compact check summary. Filters, long chat details/attachment lists, AI readings, raw source records, hashes and calculations open on demand. The review comparison creates its two 3D viewers only after opening it. The coordinator builds on Actions, checks navigation and disclosure controls with Playwright (including no overflow, hidden default technical details and accessible weight calculations), inspects the screenshots, and downloads the verified frontend. Existing paid benchmark captures remain tied to their original code hashes; a presentation-only change does not require repeating paid question calls.
+
+### Customer UI and engineering Debug
+
+Keep Detail to Overview, Dimensions, one Notes section, and Supply & cost when applicable. Translate display labels and readable notes into English while retaining original evidence. Customer launches hide Debug by default. Engineers launch with `uv run meridian --debug-ui`; `--hide-debug` explicitly hides it. Debug collects raw records, calculations, hashes, provider receipts and history. Verify customer and engineering launches sequentially in Actions, download the verified frontend bundle, and serve it locally without Node.

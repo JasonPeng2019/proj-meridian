@@ -1,0 +1,173 @@
+{
+  "schema": "meridian-remote-verification/v1",
+  "outcome": "PASS",
+  "module": "M17 M1 component slice",
+  "candidate": "07f04cce3f42f81e744abec8dee0a31263f0d7ae",
+  "publication": "e5138bac223390f0d4520bc6a560d80c3b28e71a",
+  "branch": "harness-v2",
+  "run_id": 42016904418,
+  "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42016904418",
+  "scope": "Exact candidate source-widget rendering, standalone scoped styling, canonical path, Unicode marker validation, normal/Debug separation, truthful status labels and text redaction; whole-source strict typecheck/build and prior foundation/contracts. Not integrated browser V3 or complete product.",
+  "candidate_blobs_sha256": {
+    "development/frontend/src/chat/Evidence.tsx": "e5c993e8e696fd11f60f4ea714ddb10b891c526ddcd7ee5ef87322ff4dfa48fd",
+    "testing/reports/b03/A17-evidence-ui/2026-11-05-repair.md": "05731ab04afa1c287de5582749a8004563e3b546f89680a4a558dbd2d33e850d",
+    "testing/reports/b03/A17-evidence-ui/HANDOFF.md": "7b1193a90e9e43f34837dc3dfb044e1babbdc5ac48ebc15cdd60ea216c2a905c",
+    "testing/smoke/A17-evidence-ui/render.cjs": "60adf568d106c7b605c8e348bc8608651ca677ed5fec79c83ecd695fb3670c62"
+  },
+  "run": {
+    "conclusion": "success",
+    "headBranch": "harness-v2",
+    "headSha": "e5138bac223390f0d4520bc6a560d80c3b28e71a",
+    "jobs": [
+      {
+        "completedAt": "2026-11-05T11:11:47Z",
+        "conclusion": "success",
+        "databaseId": 127209584979,
+        "name": "checks",
+        "startedAt": "2026-11-05T11:11:21Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-11-05T11:11:23Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-11-05T11:11:22Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:11:24Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 2,
+            "startedAt": "2026-11-05T11:11:23Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:11:24Z",
+            "conclusion": "success",
+            "name": "Run mkdir -p tmp cache/uv cache/npm reports/ci",
+            "number": 3,
+            "startedAt": "2026-11-05T11:11:24Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:11:25Z",
+            "conclusion": "success",
+            "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 4,
+            "startedAt": "2026-11-05T11:11:24Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:11:26Z",
+            "conclusion": "success",
+            "name": "Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+            "number": 5,
+            "startedAt": "2026-11-05T11:11:25Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:11:29Z",
+            "conclusion": "success",
+            "name": "Install locked Python test dependencies without CAD",
+            "number": 6,
+            "startedAt": "2026-11-05T11:11:26Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:11:34Z",
+            "conclusion": "success",
+            "name": "Lightweight foundation checks",
+            "number": 7,
+            "startedAt": "2026-11-05T11:11:29Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:11:42Z",
+            "conclusion": "success",
+            "name": "Build frontend remotely",
+            "number": 8,
+            "startedAt": "2026-11-05T11:11:34Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:11:42Z",
+            "conclusion": "success",
+            "name": "Check frozen TypeScript payloads, fixtures and Debug props",
+            "number": 9,
+            "startedAt": "2026-11-05T11:11:42Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:11:43Z",
+            "conclusion": "success",
+            "name": "Check source widgets and hidden Debug rendering",
+            "number": 10,
+            "startedAt": "2026-11-05T11:11:42Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:11:44Z",
+            "conclusion": "success",
+            "name": "Save frontend and its provenance",
+            "number": 11,
+            "startedAt": "2026-11-05T11:11:43Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:11:45Z",
+            "conclusion": "success",
+            "name": "Save check reports",
+            "number": 12,
+            "startedAt": "2026-11-05T11:11:44Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:11:45Z",
+            "conclusion": "success",
+            "name": "Post Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+            "number": 22,
+            "startedAt": "2026-11-05T11:11:45Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:11:45Z",
+            "conclusion": "success",
+            "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 23,
+            "startedAt": "2026-11-05T11:11:45Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:11:46Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 24,
+            "startedAt": "2026-11-05T11:11:45Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:11:46Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 25,
+            "startedAt": "2026-11-05T11:11:46Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42016904418/job/127209584979"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42016904418"
+  },
+  "evidence": [
+    "testing/runs/remote-check-42016904418/evidence-render.txt",
+    "testing/runs/remote-check-42016904418/evidence-typecheck.txt",
+    "testing/runs/remote-check-42016904418/foundation.json",
+    "testing/runs/remote-check-42016904418/frontend-build.json"
+  ],
+  "local_build_or_test_started": false,
+  "later_checks": "V3 actual pointer/keyboard, popup positioning/scroll, source navigation/highlights and integrated normal/Debug journeys remain pending."
+}

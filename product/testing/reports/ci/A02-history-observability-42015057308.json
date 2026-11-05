@@ -1,0 +1,215 @@
+{
+  "outcome": "PASS",
+  "scope": "M02 full history contracts and truthful CLI observability; contract-only synthetic checks and existing module regressions, no actual persistence/provider/UI or V-gate credit",
+  "native_candidate": "60942c9ef5b33f87a233331dabbb051dc4d400d2",
+  "publication_branch": "harness-v2",
+  "publication_commit": "c848b0dbace86b648ee7f8ccd8c47ceb57e26342",
+  "contract_run": "42015057308",
+  "module_run": "42015057686",
+  "steps": [
+    {
+      "name": "Set up job",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run mkdir -p tmp cache/uv cache/npm reports/ci",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+      "conclusion": "success"
+    },
+    {
+      "name": "Install locked Python test dependencies without CAD",
+      "conclusion": "success"
+    },
+    {
+      "name": "Lightweight foundation checks",
+      "conclusion": "success"
+    },
+    {
+      "name": "Build frontend remotely",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check frozen TypeScript payloads, fixtures and Debug props",
+      "conclusion": "success"
+    },
+    {
+      "name": "Save frontend and its provenance",
+      "conclusion": "success"
+    },
+    {
+      "name": "Save check reports",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+      "conclusion": "success"
+    },
+    {
+      "name": "Complete job",
+      "conclusion": "success"
+    }
+  ],
+  "cumulative_exact_blobs": [
+    {
+      "path": "development/backend/contracts.py",
+      "sha256": "b3945738d0c995792a8c59f4042e7ed5aa5ff45d34330d3a010cb750f58508ef"
+    },
+    {
+      "path": "development/frontend/src/contracts.ts",
+      "sha256": "bc59c240a73926219857ad18d8dd0855f64e8c9c6dd02beb780feb1d20f27e86"
+    },
+    {
+      "path": "testing/fixtures/contracts/D-013-stale.json",
+      "sha256": "cb5e34ad1898786e2b674d8c3378eda6d10bd118b5ca761558e7268a5b1a35f5"
+    },
+    {
+      "path": "testing/fixtures/contracts/D-013.json",
+      "sha256": "91e8a3260bf8a8c7401a1a4d5d72b856c757fcdcd36d2a75d231bb713d9078bd"
+    },
+    {
+      "path": "testing/fixtures/contracts/conversation-context-a.json",
+      "sha256": "28f2a4413650d47d08299949939a99b03b1290b655fcdefc2ab7d365aa82eaef"
+    },
+    {
+      "path": "testing/fixtures/contracts/conversation-create-request.json",
+      "sha256": "181451959a0eae2bea7ea2fbc94c7c6723bbccd0e34a0ee7953baee23120b0d0"
+    },
+    {
+      "path": "testing/fixtures/contracts/conversation-list.json",
+      "sha256": "8c35b931f0d92471c3bc271093b09cb8342e98c5760a388497d98de2011b2b53"
+    },
+    {
+      "path": "testing/fixtures/contracts/conversation-new.json",
+      "sha256": "b07b9b38b7b64470c504447522bfb1fc012eb41b6d4dfad83d029434b73e210f"
+    },
+    {
+      "path": "testing/fixtures/contracts/conversation-read-a.json",
+      "sha256": "08d6e10031317b798970bd1cdf96582f8eae3cdccc1832533645d82653a63f11"
+    },
+    {
+      "path": "testing/fixtures/contracts/conversation-read-b.json",
+      "sha256": "86ae079c8aa6621373f9f57ac022d2713d821ef35a4592ddf55c3d61d97df88a"
+    },
+    {
+      "path": "testing/fixtures/contracts/conversation-send-request.json",
+      "sha256": "7269a1d3e10a3e1881e5c8c60bf5bb95c93d9e7bc7b4d0e7358c42d4389cae25"
+    },
+    {
+      "path": "testing/fixtures/contracts/conversation-send-response.json",
+      "sha256": "264235675c3fc5af17000a19d349d4c12f96bad200f4329c41a6414c22e5a2d0"
+    },
+    {
+      "path": "testing/fixtures/contracts/conversation-state-a.json",
+      "sha256": "00cf853dd5b33ca27ed17a6510c52dc9b3729ea16e0c90f908b072771ad8b34c"
+    },
+    {
+      "path": "testing/fixtures/contracts/conversation-state-b.json",
+      "sha256": "4d76537d02f2ac9a08a8fe90afdd6b997f4a77bb5548858d404e6f0247c31e84"
+    },
+    {
+      "path": "testing/fixtures/contracts/cost-summary.json",
+      "sha256": "fa265014f2358ef92fa50bb6bb3ebeed0c288b8e835fffe7bd77c761045a518d"
+    },
+    {
+      "path": "testing/fixtures/contracts/flat-template.json",
+      "sha256": "8d61f366feb44065f8525fe250afcec3d25e1c9aedb4785a5d2b63cebdb26260"
+    },
+    {
+      "path": "testing/fixtures/contracts/machine-summary.json",
+      "sha256": "239a843829af383be90d818db034f4e994d7df3ac0055aa8ba33b5202ccee2be"
+    },
+    {
+      "path": "testing/fixtures/contracts/manifest.json",
+      "sha256": "fd6159941a4f188382d5b8348728c1268d2fab51cc806384a8627378ec2a23e0"
+    },
+    {
+      "path": "testing/fixtures/contracts/prep-cases.json",
+      "sha256": "01eda916e6c699ac774e88fbfb1fbd9bf5ef7b2c15c1e3fb7e7d5ed9e0d368ae"
+    },
+    {
+      "path": "testing/fixtures/contracts/prep-observability.json",
+      "sha256": "a48124a6ac99c80a173cf93e6b3224169d19077924006713fde25638e2584e1c"
+    },
+    {
+      "path": "testing/fixtures/contracts/proposal-result.json",
+      "sha256": "11a9b907db75c9be1689df98dbe2a2b2e1d14adfea6a8aee878e41cdcbe53a83"
+    },
+    {
+      "path": "testing/fixtures/contracts/review-action-response.json",
+      "sha256": "b90330be06283184b40658251cf13ee54e04856282e1d4cd995bec368dae341a"
+    },
+    {
+      "path": "testing/fixtures/contracts/review-item.json",
+      "sha256": "6dae469bdb78b5007f953a05fbc215e5805e1db2576a30884b5033020ef1f46d"
+    },
+    {
+      "path": "testing/fixtures/contracts/summary-inputs.json",
+      "sha256": "b6d1db032d78fd0539e89a70e3b1f16d95ef86e9ec966ce74eedfe2644afeda1"
+    },
+    {
+      "path": "testing/reports/b01/A02-contracts/2026-11-05-history-static.json",
+      "sha256": "d542d7e0638d85f012dfdb0d648d9ded39d91cc96330e3fd363b90bee50bd707"
+    },
+    {
+      "path": "testing/reports/b01/A02-contracts/2026-11-05-history.md",
+      "sha256": "dff280bd055cb58bdb6c4c9b147d0398cf8bbf2b9e7c41c0bd4c89ea605ffa46"
+    },
+    {
+      "path": "testing/reports/b01/A02-contracts/2026-11-05-observability-static.json",
+      "sha256": "7755708436b3eb2d76f6a5504dd4970ea6381a5776415a1017c897d28995b67b"
+    },
+    {
+      "path": "testing/reports/b01/A02-contracts/2026-11-05-observability.md",
+      "sha256": "f45e62d2dd6d5c39b7cda8ca9941a05cc9a24eed0debb241f11c12807fe403d8"
+    },
+    {
+      "path": "testing/smoke/A02-contracts/build_fixtures.py",
+      "sha256": "560bc7156265fd75fb01a3448632f2c1b370fea1717f631c07528d14b987b898"
+    },
+    {
+      "path": "testing/smoke/A02-contracts/check_contracts.py",
+      "sha256": "615fa8a0bb84e8ee9a6ede786687a78608543c40866cf4d5e9dd3d5ce1eab295"
+    },
+    {
+      "path": "testing/smoke/A02-contracts/check_helpers.cjs",
+      "sha256": "228467ad8e5c6071f8b7135e4deb9f50fcbaf380919fc9f8a934da364328c537"
+    },
+    {
+      "path": "testing/smoke/A02-contracts/check_history.py",
+      "sha256": "5317e7bdb40ea9fc265434fff4303a2c1f03e34a405065835bcb56da970e0177"
+    },
+    {
+      "path": "testing/smoke/A02-contracts/check_policy.py",
+      "sha256": "fb6a64ba4d7dbaef26470c45dc66677455c533360d1e89790345d8bc40a24813"
+    },
+    {
+      "path": "testing/smoke/A02-contracts/check_props.ts",
+      "sha256": "fbda20bdade8ffc49ffeaa11a85b9906b7ba4b1589036c3be6e1fe0919bf72cd"
+    },
+    {
+      "path": "testing/smoke/A02-contracts/inspect_static.py",
+      "sha256": "ea2bd8b569091ca32512c6db21c4aac7968345a16bdff06d1fb8542b19310221"
+    }
+  ],
+  "module_case_count": 23,
+  "local_heavy_execution": false
+}

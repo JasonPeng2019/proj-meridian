@@ -1,0 +1,21 @@
+{
+  "scope": "Static Python syntax only; no application imports or product test execution.",
+  "outcome": "PASS",
+  "completed_at": "2026-11-05T11:23:26.129744+00:00",
+  "working_directory": "testing",
+  "command": "python -B -c \"import ast; from pathlib import Path; files = ('../development/backend/app/chat.py', 'tests/test_chat_history.py'); [compile(ast.parse(Path(p).read_text(encoding='utf-8'), filename=p), p, 'exec') for p in files]; print('PASS: Python syntax only for chat.py and test_chat_history.py; no application imports or test execution')\"",
+  "exit_code": 0,
+  "sources": [
+    {
+      "path": "../development/backend/app/chat.py",
+      "normalized_text_sha256": "92412bf48d5001b71beeb8072bbee63b05ea31dba693193baa20aa9f2c050191"
+    },
+    {
+      "path": "tests/test_chat_history.py",
+      "normalized_text_sha256": "262dfee6387320ea759152b6eaad2937af3d266011b8bb4e267715e0896eb956"
+    }
+  ],
+  "runtime_store_tests": "SKIPPED pending ROOT Actions",
+  "source_validation": "SKIPPED; synthetic cases do not establish engineering source truth",
+  "real_history_created": false
+}

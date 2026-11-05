@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "evaluation_version": 3,
+  "verification_commit": "fb4927f70deab6cb03abe818719b3d503dd296d7",
+  "actions_run": "42085195932",
+  "actions_url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42085195932",
+  "tests_passed": 544,
+  "tests_skipped": 28,
+  "frontend_build_passed": true,
+  "semantic_controls_passed": 21,
+  "semantic_controls_total": 21,
+  "original_capture_unchanged": true,
+  "new_chat_calls": 0,
+  "human_judge_spot_checks": 0,
+  "control_generator_sha256": "337dacc919c947f221755b1aac4687dcd477844ff347075ca20e550700bc649c",
+  "files": {
+    "report.json": "ec83f8831dec74b8e8cf6e1afde7886bfe811f1c14426de49ffb4549a7a6b8ee",
+    "evaluation.json": "1f9980c3827ef15cc30413676409d7bff2b2004dd6f1720440118e4413147bf6",
+    "reference.json": "ab1a6efbb74675eb670f7503cc66a13a3e227406f6a3f6bc9e25b55b6ee97149",
+    "judge-inputs.jsonl": "9d6ea98792d7a79ad7d955a28e3c40e4cae80a6f5b4a03d6db0c44e7a7bf26fb",
+    "judge-results.jsonl": "db2fad330d34a141f390e861c6e80d489b8dfeb95ab3e25df87d52ca87e352ac",
+    "control-inputs.jsonl": "4bcca7e66cca50aa895cf1286b22390926560f78cea8e08cf81dadfa55f02331",
+    "control-expectations.json": "3057e2cbf949fb8a17bfc1771ac269e577f45a40e9ea549ba27b75a433d419f5",
+    "control-report.json": "3a666d18042c27433bc2b1176bb4c35078cb1094e02e68111e43be1ba35f7d6c",
+    "control-judge-results.jsonl": "377773b9cce932d8a79dfd1e86c8dbc8f18be37c4e63828a4104ab0793901a24"
+  }
+}

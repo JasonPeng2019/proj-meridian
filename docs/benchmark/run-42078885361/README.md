@@ -1,6 +1,6 @@
 # Reviewed-dataset benchmark: run 42078885361
 
-**34/42 combined passes (81.0%)**, with 8 failures and no pending judgments. Both unchanged passes score 17/21. All 21 paired cases have identical rule outcomes, judge scores and combined outcomes. The prior capture scored 22/42 on different code and review state; this comparison is not a controlled attribution of the improvement.
+**34/42 combined passes (81.0%)**, with 8 failures and no pending judgments. Both unchanged passes score 17/21. All 21 paired cases have identical rule outcomes, judge scores and combined outcomes. The prior capture's [corrected evaluation](../rescore-42020759881-v2/README.md) scored **40/42**, superseding its original 22/42 evaluation. This is a new answer capture against updated data, not another replay of those earlier answers. The evaluator and question-contract source hashes are identical to that corrected evaluation; the judge adapter additionally supports bounded concurrency. This comparison does not isolate model variability from changed production evidence/review state.
 
 [Actions capture](https://github.com/JasonPeng2019/proj-meridian/actions/runs/42078885361) used `gpt-6-luna` and commit `6182674ab519a459241a94d7966be4a37cc5edfd`. It captured all 42 executions against the reviewed candidate dataset. The independent local Claude Opus regular-mode judge scored 40 answers as 2 and two as 1. Up to eight resource-gated reader jobs were allowed; heavy builds, CAD and browsers remained sequential on Actions. Human spot-checks of judge decisions: **0; still pending**.
 
@@ -13,7 +13,7 @@ Each appears in both passes; neither scores nor rules were changed to hide them.
 - **Q08:** the answer states 30 parts while the captured matching projection contains 32 records. The semantic judge accepts its interpretation, but the count-consistency rule fails. The flagged D-016, D-018 and D-025 drawing-to-BOM links remain unresolved; this is also reported as a coverage gap. D-017 now has a source-backed delegated link decision.
 - **Q10:** the answer cites `D-026/drawing/material` without the uncertainty marking required for that captured fact. Both semantic judgments are 2; the strict output rule fails.
 - **Q11b:** the answer correctly gives the newly accepted title but omits the original printed `Description` placeholder required by the benchmark. Both the literal check and the semantic completeness judgment fail (judge score 1).
-- **Q15:** the answer includes the nonexistent citation `D-013/drawing/callout/p1-1`. The judge accepts the factual answer, but the citation rule fails. This is a model citation error; no output validator or answer-repair retry was introduced.
+- **Q15:** the answer cites `D-013/drawing/callout/p1-1`, which is absent from the returned fact ledger even though CAD provenance references that source identifier. The judge accepts the factual answer, but the citation rule fails. The resulting source marker cannot resolve through the conversation ledger; no output validator or answer-repair retry was introduced.
 
 ## Usage and interpretation
 

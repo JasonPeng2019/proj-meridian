@@ -65,6 +65,10 @@ jobs:
         run: |
           ../development/frontend/node_modules/.bin/tsc --strict --target ES2022 --module commonjs --lib ES2022,DOM --rootDir .. --outDir tmp/A02-contracts/compiled ../development/frontend/src/contracts.ts tmp/A02-contracts/fixtures.ts smoke/A02-contracts/check_props.ts
           node smoke/A02-contracts/check_helpers.cjs
+      - name: Check source widgets and hidden Debug rendering
+        run: |
+          ../development/frontend/node_modules/.bin/tsc --strict --target ES2022 --module commonjs --jsx react-jsx --lib ES2022,DOM --esModuleInterop --skipLibCheck --rootDir ../development/frontend/src --outDir tmp/A17-evidence-ui/compiled ../development/frontend/src/chat/Evidence.tsx 2>&1 | tee reports/ci/evidence-typecheck.txt
+          NODE_PATH="$PWD/../development/frontend/node_modules" node smoke/A17-evidence-ui/render.cjs 2>&1 | tee reports/ci/evidence-render.txt
       - name: Save frontend and its provenance
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:

@@ -1,0 +1,48 @@
+{
+  "schema": "meridian-remote-module-receipt/v1",
+  "module": "M10 drawing/BOM links and name mapping jobs",
+  "candidate": "51ecde1170d9d44fafcb8a1c6138eb66f72f2ffe",
+  "run": {
+    "databaseId": 42029971659,
+    "headBranch": "harness-v2",
+    "headSha": "188e6122595a8ee9211ded962757308376fc1e6f",
+    "conclusion": "success",
+    "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42029971659"
+  },
+  "outcome": "PASS",
+  "cases": {
+    "total": 170,
+    "passed": 170,
+    "failed": 0,
+    "matching": 27
+  },
+  "blob_proof": [
+    {
+      "path": "development/backend/ai/matching.py",
+      "sha256": "edcfd70fc7f57fde44a2e27b2f73f365e54808c568ea5c6c0db454a20523734f",
+      "exact_match": true
+    },
+    {
+      "path": "testing/tests/test_matching_m1.py",
+      "sha256": "92063934999f76d99ef6b789d29e13971c50b08af2d78104bbaf92407806a510",
+      "exact_match": true
+    },
+    {
+      "path": "testing/reports/b02/A10-matching/implementation.json",
+      "sha256": "3be4a06922d80dbab0c773ee0bd5d575f5ba5e0ec865b3dcd2ac1928c5fe6dd0",
+      "exact_match": true
+    },
+    {
+      "path": "testing/reports/b02/A10-matching/static.json",
+      "sha256": "c6c596f06d59003bb5916c7bd7eb45a78730a780a6477ad773ee4f9aefbb09b4",
+      "exact_match": true
+    }
+  ],
+  "root_review": "Read569line implementation, current valid RESULT and implementation handoff; reviewed scoped tests. Unique exact links, duplicate conflicts, actual source admissibility, mandatory complete post-link mapping inputs, source-bound candidates and unapproved relationship proposals fit M10. No shared-file changes or extra gate.",
+  "mandatory_downstream": "A11 must use exact M09 validation/projections and M10 registries/jobs, preserve all actual rounds and unsupported/unresolved values, supply original crop bytes for scan provenance, and redo full actual corpus before any real prep credit.",
+  "limitations": [
+    "Scripted synthetic/domain tests only; no actual Sol/Opus/source accuracy/corpus prep/geometry or V1-V5 credit.",
+    "Actual source Recoater duplicate is not an approved mapping or reason to guess; human TODO only if fresh prep remains unresolved.",
+    "Tests ran on Actions; local Git/static/artifact inspection only."
+  ]
+}

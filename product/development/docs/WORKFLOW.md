@@ -183,6 +183,8 @@ A02's history/observability follow-up can start from accepted M02 while A08 sett
 | A17-evidence-ui | STRONGER | Shared evidence/uncertainty components against the frozen payloads. |
 | A21-viewer | STRONGER | M1 GLB viewer against synthetic fixture assets and model status metadata. |
 
+**Agreed saved boundary:** M11 owns the internal saved boundary in `backend.ai.prepare`: `PreparedKnowledge(ContractModel)` with `pipeline_version` fixed to `determine-verify/v1`, `input_sha256` (SHA256 of the deterministic inputs JSON bytes), `drawings: list[DrawingEvidence]` (source evidence plus validated scan overlays), `bom_rows: list[BOMRow]`, `links: list[matching.LinkResolution]`, `mappings: list[NameMapping]`, `templates: dict[str, FlatTemplate]` keyed by drawing ID, `review_items: list[ReviewItem]`, and `batch: PrepBatchResult`. Export `load_prepared(path: Path) -> PreparedKnowledge` for validated, CLI-free loading. All nested values use existing typed contracts; retain original evidence and all actual rounds, never approve mappings or invent a missing template. M12 consumes this one boundary; it does not guess another JSON layout. A11 publishes it atomically only after source/domain validation. Coding and fixture qualification can precede the separately reserved actual corpus run, which remains mandatory.
+
 **Completion:** Run record assembly on published prep outputs when available; it uses the same code as fixture assembly. UI components build without inventing evidence. Runtime publication follows A11 → A12; the agents do not concurrently rewrite generated records/models.
 
 ### Batch B04 — Knowledge integration and checkpoint plumbing

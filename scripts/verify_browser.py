@@ -53,7 +53,7 @@ def main():
     ai_item = next((i for i in review if i['type']=='ai_interpretation'), review[0])
     model = next((p['key'] for p in parts if p.get('has_3d')), 'D-025')
     bom = next(p['key'] for p in parts if not p.get('has_drawing'))
-    errors, failures = [], []
+    errors, failures, rendered_models = [], [], []
     with sync_playwright() as p:
         context = p.chromium.launch_persistent_context(str(ROOT / '.cache/frontend-browser'), headless=True, viewport={'width': 1600, 'height': 1000}, args=['--enable-unsafe-swiftshader'])
         page = context.new_page()
@@ -102,8 +102,33 @@ def main():
                 assert page.locator('.fact-grid').count() == 0
             page.screenshot(path=str(OUT / (name+'.png')))
             print(name, 'body_chars', len(page.locator('body').inner_text()), 'horizontal_overflow', page.evaluate('document.documentElement.scrollWidth > innerWidth'), flush=True)
+        # Open one model page at a time; closing it releases its WebGL context.
+        page.goto(BASE+'/chat')
+        for item in parts:
+            if not item.get('has_3d'):
+                continue
+            record = get('/api/parts/'+item['key'])
+            for variant, exported in record['model']['models'].items():
+                render_page = context.new_page()
+                render_page.on('pageerror', lambda e, view=render_page: errors.append({'url':view.url,'message':str(e),'stack':e.stack}))
+                render_page.on('response', lambda r: failures.append({'status':r.status,'url':r.url}) if r.status >= 400 else None)
+                try:
+                    expected_url = BASE+'/generated/'+exported['glb']
+                    with render_page.expect_response(lambda r, url=expected_url: r.url == url, timeout=30000) as loaded:
+                        render_page.goto(BASE+'/part/'+item['key']+'/3d?example='+variant)
+                    assert loaded.value.ok, expected_url
+                    render_page.locator('.cad-canvas canvas').wait_for()
+                    render_page.wait_for_timeout(1600)
+                    assert render_page.locator('.cad-empty').count() == 0, item['key']
+                    assert render_page.locator('.part-tabs').get_by_role('button',name='Debug',exact=True).count() == 0
+                    assert 'FAILED' not in render_page.locator('.part-page').inner_text()
+                    render_page.screenshot(path=str(OUT/f"render-{item['key']}-{variant}.png"))
+                    rendered_models.append({'drawing':item['key'],'variant':variant,'glb_sha256':exported['glb_sha256']})
+                finally:
+                    render_page.close()
         page.goto(BASE+'/chat')
         page.get_by_role('button',name='Past chats',exact=True).click()
+        page.screenshot(path=str(OUT/'past-chats.png'))
         page.locator('.saved-chat-open').filter(has_text='Automated history fixture question').click()
         page.get_by_text('Saved conversation test message.',exact=True).wait_for()
         assert '/chat/f123456789abcdef0123456789abcdef' in page.url
@@ -167,7 +192,7 @@ def main():
         else:
             print('source_changed_reapprove_control','no changed-evidence items in live data; action not submitted',flush=True)
         context.close()
-    result = {'page_errors':errors,'failed_responses':failures,'model_checked':model,'bom_checked':bom,
+    result = {'page_errors':errors,'failed_responses':failures,'model_checked':model,'models_rendered':rendered_models,'bom_checked':bom,
               'default_hierarchy': {'focused_model': True, 'filters_collapsed': True, 'technical_details_collapsed': True,
                                     'calculations_moved_to_debug': True, 'debug_hidden_on_customer_launch': True, 'saved_chats_reopen_refresh_delete': True, 'no_horizontal_overflow': True}}
     (OUT/'browser-check.json').write_text(json.dumps(result,indent=2),encoding='utf-8')

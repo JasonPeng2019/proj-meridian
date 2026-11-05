@@ -10,6 +10,12 @@ def known(value):
     return {"state": "known", "value": value, "confidence": "sure", "fact_ids": ["D-999/drawing/source"]}
 
 
+@pytest.mark.parametrize("axis,expected", [("X", 0), ("horizontal", 0), ("Y", 90), ("VERTICAL", 90)])
+def test_verification_axis_aliases_match_builder(axis, expected):
+    assert verification.angle(axis) == builder._angle(axis, "direction") == expected
+    assert verification.angle(known(axis)) == expected
+
+
 def plate_and_template(profile="plain"):
     cq = pytest.importorskip("cadquery")
     feature = {"kind": "hole", "face": "top", "x": known(0), "y": known(0), "through": True,

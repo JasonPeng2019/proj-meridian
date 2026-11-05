@@ -314,6 +314,56 @@ def test_template_prompt_explains_pattern_interpretation_faces_and_variant_fallb
     assert "viewed from +Z" in prompt and "face='top' or 'bottom'" in prompt
     assert "step_conflict_reason" in prompt and "never clamp its depth" in prompt
     assert "Opus must verify this EXACT layout" in prompt
+    assert "Every slot MUST include a structured direction" in prompt
+
+
+def slot_fixture():
+    scalar = lambda value: {"state": "known", "value": value, "fact_ids": ["BOM:a/b"]}
+    return {"kind": "slot", "face": "top", "x": scalar(0), "y": scalar(0),
+            "width": scalar(5), "length": scalar(10), "through": True,
+            "placement_reason": "Long axes follow Y", "fact_ids": ["BOM:a/b"]}
+
+
+@pytest.mark.parametrize("key,direction", [
+    ("direction", {"state": "known", "value": 90, "fact_ids": ["BOM:a/b"]}),
+    ("direction", "Y"), ("direction", "vertical"), ("direction", "x"), ("direction", "horizontal"),
+    ("angle", {"state": "known", "value": 90, "fact_ids": ["BOM:a/b"]}), ("angle", "y")])
+def test_structured_slot_direction_accepts_grounded_cardinals_and_existing_aliases(key, direction):
+    current = {**job(), "kind": "template", "keys": ["features"], "numbers": {"BOM:a/b": 10, "BOM:a/c": 5}}
+    feature = {**slot_fixture(), key: direction}
+    feature["width"]["fact_ids"] = ["BOM:a/c"]
+    decoded = pipeline.decode_answer(output(item("features", [feature])), current)
+    assert decoded["features"]["value"][0][key] == direction
+
+
+@pytest.mark.parametrize("direction", ["diagonal", 45, True, {"state": "known", "value": 45, "fact_ids": ["BOM:a/b"]},
+                                       {"state": "unknown", "value": 90, "fact_ids": ["BOM:a/b"]}])
+def test_slot_direction_rejects_arbitrary_or_unresolved_orientation(direction):
+    current = {**job(), "kind": "template", "keys": ["features"], "numbers": {"BOM:a/b": 10, "BOM:a/c": 5}}
+    feature = {**slot_fixture(), "direction": direction}
+    feature["width"]["fact_ids"] = ["BOM:a/c"]
+    assert pipeline.decode_answer(output(item("features", [feature])), current) == {}
+
+
+def test_missing_slot_direction_triggers_only_one_features_repair_and_preserves_other_fields(monkeypatch):
+    current = {**job(), "kind": "template", "keys": ["length", "features"], "numbers": {"BOM:a/b": 10, "BOM:a/c": 5}}
+    slot = slot_fixture()
+    slot["width"]["fact_ids"] = ["BOM:a/c"]
+    first = output(item("length", 10), item("features", [slot]))
+    repaired = {**slot, "direction": "y"}
+    second = output({**item("features", [repaired]), "changed_because": "The supported Y-axis orientation was only in prose; the structured direction was missing."})
+    calls = mock_readers(monkeypatch, [first, second], [output(verdict("length"), verdict("features")), output(verdict("features"))])
+    result = pipeline.execute(current)
+    original_length = copy.deepcopy(result["answers"]["codex"]["length"])
+    assert result["states"] == {"length": "verified", "features": "invalid"}
+    pipeline.run_retry(result)
+    assert result["feedback_rounds"][0]["keys"] == ["features"]
+    assert result["states"] == {"length": "verified", "features": "verified_after_retry"}
+    assert result["answers"]["codex"]["length"] == original_length
+    assert result["rounds"][0]["codex"]["answer"] == first["answer"]
+    assert len(calls) == 4
+    pipeline.run_retry(result)
+    assert len(calls) == 4
 
 
 @pytest.mark.parametrize("supported", [True, False])

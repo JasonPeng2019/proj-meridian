@@ -1,0 +1,14 @@
+{
+  "receipt": "ai_cache/template_repair/20261105T104514698384Z/checkpoint.json",
+  "source_checkpoint": "ai_cache/template_refinement/20261105T102439724436Z/checkpoint.json",
+  "reason": "Production CAD verification caught missing structured slot directions despite accepted prose. The validator now requires the field; one features-only proposal/verifier feedback retry repaired it.",
+  "metrics": {
+    "new_reader_calls": 2,
+    "provider_calls": 2,
+    "wall_time_ms": 122656
+  },
+  "other_template_fields_unchanged": true,
+  "d025_d026_unchanged": true,
+  "human_approval": false,
+  "production_geometry_regenerated": false
+}

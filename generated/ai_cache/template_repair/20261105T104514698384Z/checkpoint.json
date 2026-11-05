@@ -1,0 +1,1554 @@
+{
+  "complete": true,
+  "result": {
+    "protocol": "proposal-verification-v1",
+    "job": {
+      "id": "template:D-013",
+      "kind": "template",
+      "drawing": "D-013",
+      "feature_protocol": "supported-feature-subset-v1",
+      "keys": [
+        "outline_type",
+        "length",
+        "width",
+        "outer_diameter",
+        "inner_diameter",
+        "thickness",
+        "features",
+        "features_complete",
+        "features_omitted"
+      ],
+      "images": [
+        "C:\\Users\\Jason\\Documents\\Jason\\Take-Homes-Codex\\active\\Avathon\\generated\\images\\D-013-p1.png"
+      ],
+      "sources": [
+        "D-013",
+        "D-013/drawing/callout/p1-1",
+        "D-013/drawing/callout/p1-2",
+        "D-013/drawing/callout/p1-3",
+        "D-013/drawing/company",
+        "D-013/drawing/date",
+        "D-013/drawing/drawn",
+        "D-013/drawing/general/edge_finish",
+        "D-013/drawing/general/general_tolerance",
+        "D-013/drawing/general/units",
+        "D-013/drawing/material",
+        "D-013/drawing/n/10.0@1-1",
+        "D-013/drawing/n/17.9@1-1",
+        "D-013/drawing/n/2.0@1-1",
+        "D-013/drawing/n/2.3@1-1",
+        "D-013/drawing/n/2.5@1-1",
+        "D-013/drawing/n/25.0@1-1",
+        "D-013/drawing/n/270.0@1-1",
+        "D-013/drawing/n/3.0@1-1",
+        "D-013/drawing/n/35.7@1-1",
+        "D-013/drawing/n/4.0@1-1",
+        "D-013/drawing/n/4.2@1-1",
+        "D-013/drawing/n/4.5@1-1",
+        "D-013/drawing/n/41.0@1-1",
+        "D-013/drawing/n/5.5@1-1",
+        "D-013/drawing/n/6.0@1-1",
+        "D-013/drawing/n/7.5@1-1",
+        "D-013/drawing/n/8.0@1-1",
+        "D-013/drawing/n/82.0@1-1",
+        "D-013/drawing/n/82.0@1-2",
+        "D-013/drawing/notes",
+        "D-013/drawing/scale",
+        "D-013/drawing/source",
+        "D-013/drawing/title",
+        "D-013/drawing/weight_g"
+      ],
+      "numbers": {
+        "D-013/drawing/n/270.0@1-1": 270.0,
+        "D-013/drawing/n/25.0@1-1": 25.0,
+        "D-013/drawing/n/2.0@1-1": 2.0,
+        "D-013/drawing/n/4.2@1-1": 4.2,
+        "D-013/drawing/n/8.0@1-1": 8.0,
+        "D-013/drawing/n/2.5@1-1": 2.5,
+        "D-013/drawing/n/35.7@1-1": 35.7,
+        "D-013/drawing/n/17.9@1-1": 17.9,
+        "D-013/drawing/n/7.5@1-1": 7.5,
+        "D-013/drawing/n/82.0@1-1": 82.0,
+        "D-013/drawing/n/4.5@1-1": 4.5,
+        "D-013/drawing/n/4.0@1-1": 4.0,
+        "D-013/drawing/n/5.5@1-1": 5.5,
+        "D-013/drawing/n/10.0@1-1": 10.0,
+        "D-013/drawing/n/41.0@1-1": 41.0,
+        "D-013/drawing/n/82.0@1-2": 82.0,
+        "D-013/drawing/n/2.3@1-1": 2.3,
+        "D-013/drawing/n/6.0@1-1": 6.0,
+        "D-013/drawing/n/3.0@1-1": 3.0
+      },
+      "prompt": "You are a read-only engineering evidence proposer. Do not edit files,\nrun commands, use other agents, browse the web, or inspect any evidence beyond the supplied inputs.\nReturn the requested JSON schema. Every requested key must appear exactly once. value_json is a\nJSON-encoded value (e.g. a string as \"\\\"text\\\"\", a number as \"5\", an array as \"[3,6]\",\nunknown as \"null\"). State known means one determined value; options means genuinely documented\nalternatives; unknown means the evidence does not determine it. confidence is only sure or unsure.\nUse sure only for a reading supported by the supplied evidence. Copy original spelling and units.\nNever invent evidence IDs. fact_ids must be exact supplied source IDs supporting that item.\nReasons must explain the evidence; changed_because is empty on the first proposal.\n\nFill a flat-part template from this drawing, in millimetres.\nRead the attached full drawing. The main material field and weight are supplied separately.\nRequested keys: outline_type (rectangle/circle/ring), length (X), width (Y), outer_diameter,\ninner_diameter, thickness, features, features_complete, features_omitted.\nFeature protocol: supported-feature-subset-v1. Only relevant dimensions are known; irrelevant ones are unknown.\nStacked thickness values which are alternatives MUST be state options with a JSON array, sorted ascending.\nDo not select one thickness or invent which example is primary. The outline is centered on X=0,Y=0;\nextrusion Z=0..thickness. Use the main face-on outline drawing view as XY, viewed from +Z toward\nthe origin, with X right and Y up. top is Z=thickness, toward that viewer; bottom is Z=0, opposite.\nKeep every feature position in this same XY frame, including bottom features. Verify which face a\ncountersink/counterbore opens from using the side, section, isometric, datum and projection evidence;\ndo not silently force steps onto top. If the opening face genuinely cannot be established, omit that\nstep with its uncertainty; retain a separately supported primary through-hole as plain only when its\ndiameter and placement are independently established. Ignore dimension text placement when interpreting actual geometry.\nfeatures value is a JSON array of hole/slot objects. Each has kind, face='top' or 'bottom', x,y,\ndiameter (hole) or width,length (slot), through boolean, depth for blind holes,\nhole_type plain/threaded/countersunk/counterbored, optional thread string and required actual\ncountersink_diameter/angle or counterbore_diameter/depth. Never infer a drill diameter from a thread.\nUse explicit pattern only if certain: {type:row,count,spacing,direction} (angle degrees, anchor first\nposition) or {type:circle,count,radius,start_angle} (degrees, center x,y). Hole positions are center\ncoordinates in the same XY frame. Conventional drawing-pattern interpretation is allowed when a\nprinted count plus printed pitch, offset, radius or pitch-circle diameter AND clear axes/layout\nestablish a row, circle, or mirrored layout. A circle distributes its printed count using 360/count;\nrows and mirrored positions derive from the printed pitch/offset and count. This is an AI layout\ninterpretation, not a claim that every coordinate or angle is explicitly printed or human approved.\nTag each feature placement_basis='dimensioned' when directly dimensioned, otherwise\nplacement_basis='drawing_pattern_interpretation' with nonempty placement_reason explaining the exact\nprinted dimensions/count, axes/layout and derivation, plus nonempty feature fact_ids citing exact\nsource IDs. Opus must verify this EXACT layout against the original views; ambiguous layouts require\nreject/needs_input and an omission, never arbitrary symmetry or an inferred bolt-circle dimension.\nfeatures is the independently supported SUBSET of cuts, not a\nclaim that every drawing feature is determined. Return features state known with all and ONLY cuts\nwhose geometry, position, and operation are fully supported, even when other features are unresolved.\nUse known [] when no cuts can be supported; do not erase supported cuts because another is uncertain.\nNever fabricate a drill diameter, depth, position, or count to complete a cut. A feature missing any\nrequired geometry must be excluded from features and described separately in features_omitted.\nException for a documented counterbore-step/thickness-variant conflict: preserve the separately\nprinted primary through-hole and actual counterbore dimensions in one counterbored feature using\nallow_primary_hole_without_unresolved_step=true, step_conflict_reason explaining the exact\nprinted conflict, and nonempty feature fact_ids. This flag is only for a supported through-hole whose\ncounterbore (or derived countersink depth) is invalid for at least one documented thickness variant.\nThe step dimensions and opening face must still be established. Explain the unresolved step in\nfeatures_omitted and set features_complete=false. CAD must skip that step per invalid variant and\nreport the omission; never clamp its depth, invent a face, silently replace it, or discard the valid\nprimary hole. Do not use this flag for an unsupported\nprimary hole or for missing primary-hole diameter/position.\nfeatures_omitted is a known JSON array of {description:string,reason:string,fact_ids:[IDs]}.\nEach omission must cite exact supplied evidence IDs (the drawing/source ID may ground an image-only\nfeature) and explain precisely what is missing or why it cannot be modeled. Use [] only if nothing\nis omitted. features_complete is a known JSON boolean: true ONLY when the entire visible feature\ninventory is supported and features_omitted is []; false when any feature/detail is omitted. If the\ninventory cannot be established, set features_complete unknown/null and explain the uncertainty in\nfeatures_omitted. Missing features never justify guessing or claiming the full design is verified.\nAll numeric scalar fields within a feature must be {state:known,value:number,fact_ids:[IDs]}.\nA feature may carry parent fact_ids. Every numeric value must match its cited drawing number.\nFor an arithmetically derived coordinate/radius use {state:known,value:number,fact_ids:[IDs],\nexpression:'n0/2-n1'}, where n0,n1 are cited drawing numbers IN ORDER. Only +,-,*,/ and constants\n0,1,2 are allowed. Do not invent absolute positions from undimensioned views. You may use literal\n0 for a geometrically established center or literal 90/180/270/360 for cardinal pattern directions.\nDo not infer numeric dimensions from pixels, scale, standard hardware, or undimensioned symmetry.\nConventional layout interpretation changes placement only; every numeric dimension/count and every\nderived coordinate still requires the printed evidence and permitted arithmetic above.\nFeatures must use same deterministic ordering: holes before slots, then x ascending, then y ascending.\n\nEvidence:\n{\"callouts\":[{\"box\":[428.392,520.694,118.667,33.984],\"confidence\":\"sure\",\"count\":2,\"feature\":\"threaded_hole\",\"method\":\"parsed\",\"name\":\"D-013/drawing/callout/p1-1\",\"original\":\"2 x 4,2 THRU ALL M5 - 6H THRU ALL\",\"page\":1,\"text\":\"2 x 4,2 THRU ALL M5 - 6H THRU ALL\",\"thread\":\"M5\",\"thread_class\":\"6H\",\"through\":true,\"value\":\"2 x 4,2 THRU ALL M5 - 6H THRU ALL\"},{\"box\":[309.068,564.281,118.668,33.991],\"confidence\":\"sure\",\"count\":8,\"feature\":\"threaded_hole\",\"method\":\"parsed\",\"name\":\"D-013/drawing/callout/p1-2\",\"original\":\"8 x 2,5 THRU ALL M3 - 6H THRU ALL\",\"page\":1,\"text\":\"8 x 2,5 THRU ALL M3 - 6H THRU ALL\",\"thread\":\"M3\",\"thread_class\":\"6H\",\"through\":true,\"value\":\"8 x 2,5 THRU ALL M3 - 6H THRU ALL\"},{\"box\":[760.055,350.781,141.088,18.083],\"confidence\":\"sure\",\"count\":4,\"feature\":\"slot\",\"length_mm\":10.0,\"method\":\"parsed\",\"name\":\"D-013/drawing/callout/p1-3\",\"original\":\"4 x 5,5 X 10,0 THRU ALL\",\"page\":1,\"text\":\"4 x 5,5 X 10,0 THRU ALL\",\"through\":true,\"value\":\"4 x 5,5 X 10,0 THRU ALL\",\"width_mm\":5.5},{\"box\":[978.968,784.149,85.555,7.75],\"confidence\":\"sure\",\"feature\":\"general_note\",\"method\":\"parsed\",\"name\":\"D-013/drawing/general/units\",\"original\":\"DIMENSIONS ARE IN MILLIMETERS\",\"page\":1,\"text\":\"DIMENSIONS ARE IN MILLIMETERS\",\"value\":\"DIMENSIONS ARE IN MILLIMETERS\"},{\"box\":[1016.541,790.957,47.749,8.202],\"confidence\":\"sure\",\"feature\":\"general_note\",\"method\":\"parsed\",\"name\":\"D-013/drawing/general/general_tolerance\",\"original\":\"DIN ISO 2768-1 m\",\"page\":1,\"text\":\"DIN ISO 2768-1 m\",\"value\":\"DIN ISO 2768-1 m\"},{\"box\":[1078.776,781.582,52.887,14.837],\"confidence\":\"sure\",\"feature\":\"general_note\",\"method\":\"parsed\",\"name\":\"D-013/drawing/general/edge_finish\",\"original\":\"DEBURR AND BREAK SHARP EDGES\",\"page\":1,\"text\":\"DEBURR AND BREAK SHARP EDGES\",\"value\":\"DEBURR AND BREAK SHARP EDGES\"}],\"fields\":{\"company\":{\"box\":[975.328,658.942,91.0,48.0],\"confidence\":\"sure\",\"field_box\":[975.328,666.942,91.0,40.0],\"label_box\":[975.328,658.942,30.758,7.75],\"method\":\"parsed\",\"name\":\"D-013/drawing/company\",\"original\":\"DTU MPP\",\"page\":1,\"value\":\"DTU MPP\"},\"date\":{\"box\":[897.013,802.562,76.0,11.0],\"confidence\":\"sure\",\"field_box\":[914.013,802.562,59.0,11.0],\"label_box\":[897.013,803.562,13.623,7.75],\"method\":\"parsed\",\"name\":\"D-013/drawing/date\",\"original\":\"24/11/2021\",\"page\":1,\"value\":\"24/11/2021\"},\"drawn\":{\"box\":[893.294,790.235,78.0,11.0],\"confidence\":\"sure\",\"field_box\":[917.294,790.235,54.0,11.0],\"label_box\":[893.294,791.235,21.062,7.75],\"method\":\"parsed\",\"name\":\"D-013/drawing/drawn\",\"original\":\"MBOKJ\",\"page\":1,\"value\":\"MBOKJ\"},\"material\":{\"box\":[745.28,771.048,135.0,14.0],\"confidence\":\"sure\",\"field_box\":[784.28,771.048,96.0,14.0],\"label_box\":[745.28,772.048,38.539,10.936],\"method\":\"parsed\",\"name\":\"D-013/drawing/material\",\"original\":\"3.3315 (EN-AW 5005)\",\"page\":1,\"value\":\"3.3315 (EN-AW 5005)\"},\"notes\":{\"box\":[741.526,658.942,231.0,111.0],\"confidence\":\"sure\",\"field_box\":[741.526,666.942,231.0,103.0],\"label_box\":[741.526,658.942,15.72,7.75],\"method\":\"parsed\",\"name\":\"D-013/drawing/notes\",\"original\":\"Alu.\\nJusteringsplade til recoater.\",\"page\":1,\"value\":\"Alu.\\nJusteringsplade til recoater.\"},\"scale\":{\"box\":[1082.688,803.564,25.623,7.75],\"confidence\":\"sure\",\"field_box\":[1082.688,803.564,25.623,7.75],\"label_box\":[1082.688,803.564,25.623,7.75],\"method\":\"parsed\",\"name\":\"D-013/drawing/scale\",\"original\":\"1:1\",\"page\":1,\"value\":\"1:1\"},\"title\":{\"box\":[975.328,710.355,181.0,66.0],\"confidence\":\"sure\",\"field_box\":[975.328,718.355,181.0,58.0],\"label_box\":[975.328,710.355,49.95,7.75],\"method\":\"parsed\",\"name\":\"D-013/drawing/title\",\"original\":\"Recoater Plate\",\"page\":1,\"value\":\"Recoater Plate\"},\"weight_g\":{\"box\":[880.717,771.048,93.0,14.0],\"confidence\":\"sure\",\"field_box\":[924.717,771.048,49.0,14.0],\"label_box\":[880.717,772.048,28.747,10.936],\"method\":\"parsed\",\"name\":\"D-013/drawing/weight_g\",\"original\":\"87.5\",\"page\":1,\"value\":87.5}},\"id\":\"D-013\",\"numbers\":[{\"box\":[601.611,308.89,32.988,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/270.0@1-1\",\"original\":\"270,0\",\"page\":1,\"text\":\"270,0\",\"value\":270.0},{\"box\":[1080.266,408.25,18.083,25.657],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/25.0@1-1\",\"original\":\"25,0\",\"page\":1,\"text\":\"25,0\",\"value\":25.0},{\"box\":[428.392,520.694,7.331,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/2.0@1-1\",\"original\":\"2\",\"page\":1,\"text\":\"2\",\"value\":2.0},{\"box\":[468.032,520.694,18.321,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/4.2@1-1\",\"original\":\"4,2\",\"page\":1,\"text\":\"4,2\",\"value\":4.2},{\"box\":[309.068,564.281,7.331,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/8.0@1-1\",\"original\":\"8\",\"page\":1,\"text\":\"8\",\"value\":8.0},{\"box\":[348.709,564.288,18.321,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/2.5@1-1\",\"original\":\"2,5\",\"page\":1,\"text\":\"2,5\",\"value\":2.5},{\"box\":[715.676,504.483,25.657,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/35.7@1-1\",\"original\":\"35,7\",\"page\":1,\"text\":\"35,7\",\"value\":35.7},{\"box\":[630.579,487.472,25.657,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/17.9@1-1\",\"original\":\"17,9\",\"page\":1,\"text\":\"17,9\",\"value\":17.9},{\"box\":[1046.25,394.664,18.083,18.327],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/7.5@1-1\",\"original\":\"7,5\",\"page\":1,\"text\":\"7,5\",\"value\":7.5},{\"box\":[489.056,342.906,25.657,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/82.0@1-1\",\"original\":\"82,0\",\"page\":1,\"text\":\"82,0\",\"value\":82.0},{\"box\":[190.187,370.831,18.083,18.327],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/4.5@1-1\",\"original\":\"4,5\",\"page\":1,\"text\":\"4,5\",\"value\":4.5},{\"box\":[760.055,350.781,7.33,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/4.0@1-1\",\"original\":\"4\",\"page\":1,\"text\":\"4\",\"value\":4.0},{\"box\":[781.065,350.781,18.324,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/5.5@1-1\",\"original\":\"5,5\",\"page\":1,\"text\":\"5,5\",\"value\":5.5},{\"box\":[814.776,350.781,25.654,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/10.0@1-1\",\"original\":\"10,0\",\"page\":1,\"text\":\"10,0\",\"value\":10.0},{\"box\":[663.384,342.91,25.657,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/41.0@1-1\",\"original\":\"41,0\",\"page\":1,\"text\":\"41,0\",\"value\":41.0},{\"box\":[837.72,325.898,25.657,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/82.0@1-2\",\"original\":\"82,0\",\"page\":1,\"text\":\"82,0\",\"value\":82.0},{\"box\":[1012.235,394.664,18.083,18.327],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/2.3@1-1\",\"original\":\"2,3\",\"page\":1,\"text\":\"2,3\",\"value\":2.3},{\"box\":[151.657,330.081,18.327,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/6.0@1-1\",\"original\":\"6,0\",\"page\":1,\"text\":\"6,0\",\"value\":6.0},{\"box\":[151.657,342.913,18.327,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/3.0@1-1\",\"original\":\"3,0\",\"page\":1,\"text\":\"3,0\",\"value\":3.0}],\"page_sizes\":[[1190.550048828125,841.8900146484375]],\"section\":\"Recoater\",\"source_filename\":\"RecoaterPlate.pdf\"}"
+    },
+    "rounds": [
+      {
+        "codex": {
+          "reader": "codex",
+          "settings": {
+            "model": "gpt-6.1-sol",
+            "reasoning_effort": "xhigh",
+            "service_tier": "fast",
+            "reader": "codex"
+          },
+          "answer": {
+            "items": [
+              {
+                "key": "outline_type",
+                "state": "known",
+                "value_json": "\"rectangle\"",
+                "confidence": "sure",
+                "fact_ids": [
+                  "D-013",
+                  "D-013/drawing/n/270.0@1-1",
+                  "D-013/drawing/n/25.0@1-1"
+                ],
+                "reason": "The main view establishes a rectangular 270,0 × 25,0 envelope. Undimensioned corner chamfers are recorded separately as omitted.",
+                "changed_because": ""
+              },
+              {
+                "key": "length",
+                "state": "known",
+                "value_json": "270.0",
+                "confidence": "sure",
+                "fact_ids": [
+                  "D-013/drawing/n/270.0@1-1"
+                ],
+                "reason": "The overall horizontal dimension is 270,0 mm.",
+                "changed_because": ""
+              },
+              {
+                "key": "width",
+                "state": "known",
+                "value_json": "25.0",
+                "confidence": "sure",
+                "fact_ids": [
+                  "D-013/drawing/n/25.0@1-1"
+                ],
+                "reason": "The overall vertical dimension is 25,0 mm.",
+                "changed_because": ""
+              },
+              {
+                "key": "outer_diameter",
+                "state": "unknown",
+                "value_json": "null",
+                "confidence": "unsure",
+                "fact_ids": [
+                  "D-013"
+                ],
+                "reason": "An outer diameter is not applicable to the rectangular outline.",
+                "changed_because": ""
+              },
+              {
+                "key": "inner_diameter",
+                "state": "unknown",
+                "value_json": "null",
+                "confidence": "unsure",
+                "fact_ids": [
+                  "D-013"
+                ],
+                "reason": "The part has no ring outline or applicable inner diameter.",
+                "changed_because": ""
+              },
+              {
+                "key": "thickness",
+                "state": "options",
+                "value_json": "[3.0,6.0]",
+                "confidence": "sure",
+                "fact_ids": [
+                  "D-013/drawing/n/3.0@1-1",
+                  "D-013/drawing/n/6.0@1-1"
+                ],
+                "reason": "The side-view thickness dimension stacks 6,0 and 3,0 as alternatives. Both are retained in ascending order, in millimetres.",
+                "changed_because": ""
+              },
+              {
+                "key": "features",
+                "state": "known",
+                "value_json": "[{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-125.0,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"0-n0-n1*(2+1)\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8 x count, 17,9 offset to the first center right of X=0, 35,7 pitch and clearly mirrored row establish 8/2 centers per side. This is the fourth center left; the row is 7,5 below Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-89.3,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"0-n0-2*n1\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the third center left; the row is 7,5 below Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-82.0,\"fact_ids\":[\"D-013/drawing/n/82.0@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":4.5,\"fact_ids\":[\"D-013/drawing/n/4.5@1-1\"]},\"diameter\":{\"state\":\"known\",\"value\":4.2,\"fact_ids\":[\"D-013/drawing/n/4.2@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M5 - 6H\",\"placement_basis\":\"dimensioned\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-1\",\"D-013/drawing/n/82.0@1-1\",\"D-013/drawing/n/4.5@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-53.6,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"0-n0-n1\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the second center left; the row is 7,5 below Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-17.9,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the first center left; the row is 7,5 below Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":17.9,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\"]},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"dimensioned\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/7.5@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":53.6,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"n0+n1\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"dimensioned\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\",\"D-013/drawing/n/7.5@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":82.0,\"fact_ids\":[\"D-013/drawing/n/82.0@1-1\"]},\"y\":{\"state\":\"known\",\"value\":4.5,\"fact_ids\":[\"D-013/drawing/n/4.5@1-1\"]},\"diameter\":{\"state\":\"known\",\"value\":4.2,\"fact_ids\":[\"D-013/drawing/n/4.2@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M5 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 2 x M5 count and 82,0 offset from the vertical centerline, with the visibly mirrored pair, establish the right center at X=82,0. Both centers share the dimensioned Y=4,5 row.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-1\",\"D-013/drawing/n/82.0@1-1\",\"D-013/drawing/n/4.5@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":89.3,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"n0+2*n1\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the third center right; the row is 7,5 below Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":125.0,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"n0+n1*(2+1)\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the fourth center right; the row is 7,5 below Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"]},{\"kind\":\"slot\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-123.0,\"fact_ids\":[\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\"],\"expression\":\"0-n0-n1\"},\"y\":{\"state\":\"known\",\"value\":4.55,\"fact_ids\":[\"D-013/drawing/n/2.3@1-1\",\"D-013/drawing/n/10.0@1-1\",\"D-013/drawing/n/5.5@1-1\"],\"expression\":\"n0+(n1-n2)/2\"},\"width\":{\"state\":\"known\",\"value\":5.5,\"fact_ids\":[\"D-013/drawing/n/5.5@1-1\"]},\"length\":{\"state\":\"known\",\"value\":10.0,\"fact_ids\":[\"D-013/drawing/n/10.0@1-1\"]},\"through\":true,\"hole_type\":\"plain\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 4 x slot count, 41,0 centerline offset and 82,0 pitch establish the mirrored four-slot row. This is the outer left slot. Long axes follow Y. The lower end-arc center is 2,3 above Y=0, so the slot center is 2,3+(10,0-5,5)/2.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-3\",\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\",\"D-013/drawing/n/2.3@1-1\"]},{\"kind\":\"slot\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-41.0,\"fact_ids\":[\"D-013/drawing/n/41.0@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":4.55,\"fact_ids\":[\"D-013/drawing/n/2.3@1-1\",\"D-013/drawing/n/10.0@1-1\",\"D-013/drawing/n/5.5@1-1\"],\"expression\":\"n0+(n1-n2)/2\"},\"width\":{\"state\":\"known\",\"value\":5.5,\"fact_ids\":[\"D-013/drawing/n/5.5@1-1\"]},\"length\":{\"state\":\"known\",\"value\":10.0,\"fact_ids\":[\"D-013/drawing/n/10.0@1-1\"]},\"through\":true,\"hole_type\":\"plain\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 4 x slot count, 41,0 centerline offset and 82,0 pitch establish the mirrored four-slot row. This is the inner left slot. Long axes follow Y. The lower end-arc center is 2,3 above Y=0, so the slot center is 2,3+(10,0-5,5)/2.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-3\",\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\",\"D-013/drawing/n/2.3@1-1\"]},{\"kind\":\"slot\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":41.0,\"fact_ids\":[\"D-013/drawing/n/41.0@1-1\"]},\"y\":{\"state\":\"known\",\"value\":4.55,\"fact_ids\":[\"D-013/drawing/n/2.3@1-1\",\"D-013/drawing/n/10.0@1-1\",\"D-013/drawing/n/5.5@1-1\"],\"expression\":\"n0+(n1-n2)/2\"},\"width\":{\"state\":\"known\",\"value\":5.5,\"fact_ids\":[\"D-013/drawing/n/5.5@1-1\"]},\"length\":{\"state\":\"known\",\"value\":10.0,\"fact_ids\":[\"D-013/drawing/n/10.0@1-1\"]},\"through\":true,\"hole_type\":\"plain\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 4 x slot count, 41,0 centerline offset and 82,0 pitch establish the mirrored four-slot row. This is the inner right slot. Long axes follow Y. The lower end-arc center is 2,3 above Y=0, so the slot center is 2,3+(10,0-5,5)/2.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-3\",\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\",\"D-013/drawing/n/2.3@1-1\"]},{\"kind\":\"slot\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":123.0,\"fact_ids\":[\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\"],\"expression\":\"n0+n1\"},\"y\":{\"state\":\"known\",\"value\":4.55,\"fact_ids\":[\"D-013/drawing/n/2.3@1-1\",\"D-013/drawing/n/10.0@1-1\",\"D-013/drawing/n/5.5@1-1\"],\"expression\":\"n0+(n1-n2)/2\"},\"width\":{\"state\":\"known\",\"value\":5.5,\"fact_ids\":[\"D-013/drawing/n/5.5@1-1\"]},\"length\":{\"state\":\"known\",\"value\":10.0,\"fact_ids\":[\"D-013/drawing/n/10.0@1-1\"]},\"through\":true,\"hole_type\":\"plain\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 4 x slot count, 41,0 centerline offset and 82,0 pitch establish the mirrored four-slot row. This is the outer right slot. Long axes follow Y. The lower end-arc center is 2,3 above Y=0, so the slot center is 2,3+(10,0-5,5)/2.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-3\",\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\",\"D-013/drawing/n/2.3@1-1\"]}]",
+                "confidence": "sure",
+                "fact_ids": [
+                  "D-013",
+                  "D-013/drawing/callout/p1-1",
+                  "D-013/drawing/callout/p1-2",
+                  "D-013/drawing/callout/p1-3",
+                  "D-013/drawing/n/17.9@1-1",
+                  "D-013/drawing/n/35.7@1-1",
+                  "D-013/drawing/n/7.5@1-1",
+                  "D-013/drawing/n/82.0@1-1",
+                  "D-013/drawing/n/4.5@1-1",
+                  "D-013/drawing/n/41.0@1-1",
+                  "D-013/drawing/n/82.0@1-2",
+                  "D-013/drawing/n/2.3@1-1",
+                  "D-013/drawing/n/10.0@1-1",
+                  "D-013/drawing/n/5.5@1-1"
+                ],
+                "reason": "The supported subset comprises eight Ø 2,5 M3 - 6H through holes, two Ø 4,2 M5 - 6H through holes and four vertical 5,5 X 10,0 through slots. Mirrored placements use the printed counts, offsets and pitches. Slot centers derive from the dimensioned lower end-arc center. These are drawing-layout interpretations, not human approvals.",
+                "changed_because": ""
+              },
+              {
+                "key": "features_complete",
+                "state": "known",
+                "value_json": "false",
+                "confidence": "sure",
+                "fact_ids": [
+                  "D-013",
+                  "D-013/drawing/general/edge_finish"
+                ],
+                "reason": "Visible corner chamfers and the unspecified edge-break treatment cannot be included as fully dimensioned cuts.",
+                "changed_because": ""
+              },
+              {
+                "key": "features_omitted",
+                "state": "known",
+                "value_json": "[{\"description\":\"Four visible outline corner chamfers\",\"reason\":\"The main view shows clipped corners, but no numerical chamfer setbacks or angles establish their geometry. They are outside the supported hole/slot subset; the rectangular outline retains the overall envelope.\",\"fact_ids\":[\"D-013\"]},{\"description\":\"DEBURR AND BREAK SHARP EDGES\",\"reason\":\"The note supplies no numerical edge-break size or profile from which to construct a cut.\",\"fact_ids\":[\"D-013/drawing/general/edge_finish\"]}]",
+                "confidence": "sure",
+                "fact_ids": [
+                  "D-013",
+                  "D-013/drawing/general/edge_finish"
+                ],
+                "reason": "The drawing supports the presence of these details but does not determine their cut geometry.",
+                "changed_because": ""
+              }
+            ]
+          },
+          "valid": true,
+          "returncode": 0,
+          "metadata": {
+            "events": [
+              {
+                "type": "turn.completed",
+                "usage": {
+                  "input_tokens": 20423,
+                  "cached_input_tokens": 13056,
+                  "cache_write_input_tokens": 0,
+                  "output_tokens": 14343,
+                  "reasoning_output_tokens": 9097
+                }
+              }
+            ]
+          },
+          "latency_ms": 294453,
+          "cache_key": "f9e3f5eb3000d839fea96920361b3ea8a8cc90c3001af7f9b8f3213d207ea7dc",
+          "cache_hit": false,
+          "job": "template:D-013:proposal-verification-v1:proposal:0",
+          "error": null,
+          "protocol": "proposal-verification-v1",
+          "role": "proposer",
+          "round": 0,
+          "proposal_fingerprint": "c6fabe6778616a1355c32432518786438a3f020b2a2a3b6d644757dc335d531d",
+          "validation": {
+            "outline_type": true,
+            "length": true,
+            "width": true,
+            "outer_diameter": true,
+            "inner_diameter": true,
+            "thickness": true,
+            "features": true,
+            "features_complete": true,
+            "features_omitted": true
+          }
+        },
+        "claude": {
+          "reader": "claude",
+          "settings": {
+            "model": "opus",
+            "fast_mode": false,
+            "mode": "regular",
+            "reader": "claude"
+          },
+          "answer": {
+            "proposal_fingerprint": "c6fabe6778616a1355c32432518786438a3f020b2a2a3b6d644757dc335d531d",
+            "items": [
+              {
+                "key": "outline_type",
+                "decision": "accept",
+                "reason": "The main view in D-013 shows a rectangular plate bounded by the overall 270,0 (D-013/drawing/n/270.0@1-1) and 25,0 (D-013/drawing/n/25.0@1-1) dimensions. The corner chamfers have no dimensions, and features_omitted records them correctly.",
+                "fact_ids": [
+                  "D-013",
+                  "D-013/drawing/n/270.0@1-1",
+                  "D-013/drawing/n/25.0@1-1"
+                ],
+                "repairable": false
+              },
+              {
+                "key": "length",
+                "decision": "accept",
+                "reason": "The overall horizontal dimension 270,0 spans the full outline in the main view.",
+                "fact_ids": [
+                  "D-013/drawing/n/270.0@1-1"
+                ],
+                "repairable": false
+              },
+              {
+                "key": "width",
+                "decision": "accept",
+                "reason": "The overall vertical dimension 25,0 spans the full outline height in the main view.",
+                "fact_ids": [
+                  "D-013/drawing/n/25.0@1-1"
+                ],
+                "repairable": false
+              },
+              {
+                "key": "outer_diameter",
+                "decision": "accept",
+                "reason": "The outline is rectangular (D-013). An outer diameter does not apply, so unknown/null is the correct state and no essential geometry is missing.",
+                "fact_ids": [
+                  "D-013"
+                ],
+                "repairable": false
+              },
+              {
+                "key": "inner_diameter",
+                "decision": "accept",
+                "reason": "This is not a ring outline (D-013). An inner diameter does not apply, so unknown/null is correct.",
+                "fact_ids": [
+                  "D-013"
+                ],
+                "repairable": false
+              },
+              {
+                "key": "thickness",
+                "decision": "accept",
+                "reason": "The side view prints 6,0 and 3,0 stacked on the same thickness dimension line, which indicates documented alternatives. Options [3.0,6.0] are sorted ascending and neither one is chosen as primary.",
+                "fact_ids": [
+                  "D-013/drawing/n/3.0@1-1",
+                  "D-013/drawing/n/6.0@1-1"
+                ],
+                "repairable": false
+              },
+              {
+                "key": "features",
+                "decision": "accept",
+                "reason": "M3 holes: callout p1-2 prints 8 x Ø2,5 THRU ALL M3-6H. The main view shows one row of 8 holes on the 7,5 line below the horizontal centerline (n/7.5). The 17,9 offset from the vertical centerline and the 35,7 pitch are dimensioned on the right half, and the left half clearly mirrors them with 4 holes per side. The cited arithmetic is correct: ±17.9, ±(17.9+35.7)=±53.6, ±(17.9+2*35.7)=±89.3 and ±(17.9+3*35.7)=±125.0. M5 holes: callout p1-1 prints 2 x Ø4,2 THRU ALL M5-6H. The left hole is dimensioned 82,0 from the centerline (n/82.0@1-1) and 4,5 above it (n/4.5). The right hole visibly mirrors it on the same row, giving X=±82.0, Y=4.5. Slots: callout p1-3 prints 4 x 5,5 X 10,0 THRU ALL. The slots are vertical. 41,0 (n/41.0) is dimensioned from the vertical centerline and 82,0 (n/82.0@1-2) is the pitch to the outer slot, mirrored on the left, giving X=±41.0 and ±123.0. The 2,3 dimension (n/2.3) runs from the horizontal centerline to the slot's lower end-arc center. Reading it as the slot center would put the slot bottom below the centerline, which the view and the iso do not show; in the view the slot centers line up with the 4,5 M5 row. So Y=2.3+(10.0-5.5)/2=4.55 is consistent. Every diameter is the printed drill size; none is inferred from the thread. All holes and slots are through, so face=top is valid. The ordering is holes before slots, then x ascending, and it is correct.",
+                "fact_ids": [
+                  "D-013",
+                  "D-013/drawing/callout/p1-1",
+                  "D-013/drawing/callout/p1-2",
+                  "D-013/drawing/callout/p1-3",
+                  "D-013/drawing/n/17.9@1-1",
+                  "D-013/drawing/n/35.7@1-1",
+                  "D-013/drawing/n/7.5@1-1",
+                  "D-013/drawing/n/82.0@1-1",
+                  "D-013/drawing/n/4.5@1-1",
+                  "D-013/drawing/n/4.2@1-1",
+                  "D-013/drawing/n/2.5@1-1",
+                  "D-013/drawing/n/41.0@1-1",
+                  "D-013/drawing/n/82.0@1-2",
+                  "D-013/drawing/n/2.3@1-1",
+                  "D-013/drawing/n/10.0@1-1",
+                  "D-013/drawing/n/5.5@1-1"
+                ],
+                "repairable": false
+              },
+              {
+                "key": "features_complete",
+                "decision": "accept",
+                "reason": "The main and side views in D-013 show clipped corner chamfers with no dimensions. The DEBURR AND BREAK SHARP EDGES note (general/edge_finish) gives no size. Neither detail can be modeled, so features_complete=false is correct.",
+                "fact_ids": [
+                  "D-013",
+                  "D-013/drawing/general/edge_finish"
+                ],
+                "repairable": false
+              },
+              {
+                "key": "features_omitted",
+                "decision": "accept",
+                "reason": "Both omissions are real and correctly cited. The four corner chamfers are visible in the D-013 main view with no printed setbacks or angles. The edge-break note (general/edge_finish) gives no size. No hole or slot in the drawing inventory is missing from the features subset.",
+                "fact_ids": [
+                  "D-013",
+                  "D-013/drawing/general/edge_finish"
+                ],
+                "repairable": false
+              }
+            ]
+          },
+          "valid": true,
+          "returncode": 0,
+          "metadata": {
+            "usage": {
+              "input_tokens": 4,
+              "cache_creation_input_tokens": 21087,
+              "cache_read_input_tokens": 22686,
+              "output_tokens": 5781,
+              "output_tokens_details": {
+                "thinking_tokens": 3654
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 21087,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "global",
+              "iterations": [],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            "modelUsage": {
+              "claude-opus-5-5": {
+                "inputTokens": 4,
+                "outputTokens": 5781,
+                "cacheReadInputTokens": 22686,
+                "cacheCreationInputTokens": 21087,
+                "webSearchRequests": 0,
+                "costUSD": 0.2888692,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 3654,
+                "cacheCreationEphemeral5mInputTokens": 0,
+                "cacheCreationEphemeral1hInputTokens": 21087,
+                "canonicalModel": "claude-opus-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            },
+            "total_cost_usd": 0.2888692,
+            "duration_ms": 58281,
+            "is_error": false
+          },
+          "latency_ms": 59437,
+          "cache_key": "c79e07f6217f4762751e6aab26429a0d4e8af28fbba5eaa78a724cd44851d960",
+          "cache_hit": false,
+          "job": "template:D-013:proposal-verification-v1:verification:0",
+          "error": null,
+          "protocol": "proposal-verification-v1",
+          "role": "verifier",
+          "round": 0,
+          "proposal_fingerprint": "c6fabe6778616a1355c32432518786438a3f020b2a2a3b6d644757dc335d531d",
+          "validation": {
+            "outline_type": true,
+            "length": true,
+            "width": true,
+            "outer_diameter": true,
+            "inner_diameter": true,
+            "thickness": true,
+            "features": true,
+            "features_complete": true,
+            "features_omitted": true
+          }
+        }
+      },
+      {
+        "codex": {
+          "reader": "codex",
+          "settings": {
+            "model": "gpt-6.1-sol",
+            "reasoning_effort": "xhigh",
+            "service_tier": "fast",
+            "reader": "codex"
+          },
+          "answer": {
+            "items": [
+              {
+                "key": "features",
+                "state": "known",
+                "value_json": "[{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-125.0,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"0-n0-n1*(2+1)\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8 x count, 17,9 offset to the first center right of X=0, 35,7 pitch and clearly mirrored row establish 8/2 centers per side. This is the fourth center left; the row is 7,5 below Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-89.3,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"0-n0-2*n1\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the third center left; the row is 7,5 below Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-82.0,\"fact_ids\":[\"D-013/drawing/n/82.0@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":4.5,\"fact_ids\":[\"D-013/drawing/n/4.5@1-1\"]},\"diameter\":{\"state\":\"known\",\"value\":4.2,\"fact_ids\":[\"D-013/drawing/n/4.2@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M5 - 6H\",\"placement_basis\":\"dimensioned\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-1\",\"D-013/drawing/n/82.0@1-1\",\"D-013/drawing/n/4.5@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-53.6,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"0-n0-n1\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the second center left; the row is 7,5 below Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-17.9,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the first center left; the row is 7,5 below Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":17.9,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\"]},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"dimensioned\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/7.5@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":53.6,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"n0+n1\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"dimensioned\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\",\"D-013/drawing/n/7.5@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":82.0,\"fact_ids\":[\"D-013/drawing/n/82.0@1-1\"]},\"y\":{\"state\":\"known\",\"value\":4.5,\"fact_ids\":[\"D-013/drawing/n/4.5@1-1\"]},\"diameter\":{\"state\":\"known\",\"value\":4.2,\"fact_ids\":[\"D-013/drawing/n/4.2@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M5 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 2 x M5 count and 82,0 offset from the vertical centerline, with the visibly mirrored pair, establish the right center at X=82,0. Both centers share the dimensioned Y=4,5 row.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-1\",\"D-013/drawing/n/82.0@1-1\",\"D-013/drawing/n/4.5@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":89.3,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"n0+2*n1\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the third center right; the row is 7,5 below Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":125.0,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"n0+n1*(2+1)\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the fourth center right; the row is 7,5 below Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"]},{\"kind\":\"slot\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-123.0,\"fact_ids\":[\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\"],\"expression\":\"0-n0-n1\"},\"y\":{\"state\":\"known\",\"value\":4.55,\"fact_ids\":[\"D-013/drawing/n/2.3@1-1\",\"D-013/drawing/n/10.0@1-1\",\"D-013/drawing/n/5.5@1-1\"],\"expression\":\"n0+(n1-n2)/2\"},\"width\":{\"state\":\"known\",\"value\":5.5,\"fact_ids\":[\"D-013/drawing/n/5.5@1-1\"]},\"length\":{\"state\":\"known\",\"value\":10.0,\"fact_ids\":[\"D-013/drawing/n/10.0@1-1\"]},\"direction\":\"y\",\"through\":true,\"hole_type\":\"plain\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 4 x slot count, 41,0 centerline offset and 82,0 pitch establish the mirrored four-slot row. This is the outer left slot. Long axes follow Y. The lower end-arc center is 2,3 above Y=0, so the slot center is 2,3+(10,0-5,5)/2.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-3\",\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\",\"D-013/drawing/n/2.3@1-1\"]},{\"kind\":\"slot\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-41.0,\"fact_ids\":[\"D-013/drawing/n/41.0@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":4.55,\"fact_ids\":[\"D-013/drawing/n/2.3@1-1\",\"D-013/drawing/n/10.0@1-1\",\"D-013/drawing/n/5.5@1-1\"],\"expression\":\"n0+(n1-n2)/2\"},\"width\":{\"state\":\"known\",\"value\":5.5,\"fact_ids\":[\"D-013/drawing/n/5.5@1-1\"]},\"length\":{\"state\":\"known\",\"value\":10.0,\"fact_ids\":[\"D-013/drawing/n/10.0@1-1\"]},\"direction\":\"y\",\"through\":true,\"hole_type\":\"plain\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 4 x slot count, 41,0 centerline offset and 82,0 pitch establish the mirrored four-slot row. This is the inner left slot. Long axes follow Y. The lower end-arc center is 2,3 above Y=0, so the slot center is 2,3+(10,0-5,5)/2.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-3\",\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\",\"D-013/drawing/n/2.3@1-1\"]},{\"kind\":\"slot\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":41.0,\"fact_ids\":[\"D-013/drawing/n/41.0@1-1\"]},\"y\":{\"state\":\"known\",\"value\":4.55,\"fact_ids\":[\"D-013/drawing/n/2.3@1-1\",\"D-013/drawing/n/10.0@1-1\",\"D-013/drawing/n/5.5@1-1\"],\"expression\":\"n0+(n1-n2)/2\"},\"width\":{\"state\":\"known\",\"value\":5.5,\"fact_ids\":[\"D-013/drawing/n/5.5@1-1\"]},\"length\":{\"state\":\"known\",\"value\":10.0,\"fact_ids\":[\"D-013/drawing/n/10.0@1-1\"]},\"direction\":\"y\",\"through\":true,\"hole_type\":\"plain\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 4 x slot count, 41,0 centerline offset and 82,0 pitch establish the mirrored four-slot row. This is the inner right slot. Long axes follow Y. The lower end-arc center is 2,3 above Y=0, so the slot center is 2,3+(10,0-5,5)/2.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-3\",\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\",\"D-013/drawing/n/2.3@1-1\"]},{\"kind\":\"slot\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":123.0,\"fact_ids\":[\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\"],\"expression\":\"n0+n1\"},\"y\":{\"state\":\"known\",\"value\":4.55,\"fact_ids\":[\"D-013/drawing/n/2.3@1-1\",\"D-013/drawing/n/10.0@1-1\",\"D-013/drawing/n/5.5@1-1\"],\"expression\":\"n0+(n1-n2)/2\"},\"width\":{\"state\":\"known\",\"value\":5.5,\"fact_ids\":[\"D-013/drawing/n/5.5@1-1\"]},\"length\":{\"state\":\"known\",\"value\":10.0,\"fact_ids\":[\"D-013/drawing/n/10.0@1-1\"]},\"direction\":\"y\",\"through\":true,\"hole_type\":\"plain\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 4 x slot count, 41,0 centerline offset and 82,0 pitch establish the mirrored four-slot row. This is the outer right slot. Long axes follow Y. The lower end-arc center is 2,3 above Y=0, so the slot center is 2,3+(10,0-5,5)/2.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-3\",\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\",\"D-013/drawing/n/2.3@1-1\"]}]",
+                "confidence": "sure",
+                "fact_ids": [
+                  "D-013",
+                  "D-013/drawing/callout/p1-1",
+                  "D-013/drawing/callout/p1-2",
+                  "D-013/drawing/callout/p1-3",
+                  "D-013/drawing/n/17.9@1-1",
+                  "D-013/drawing/n/35.7@1-1",
+                  "D-013/drawing/n/7.5@1-1",
+                  "D-013/drawing/n/82.0@1-1",
+                  "D-013/drawing/n/4.5@1-1",
+                  "D-013/drawing/n/41.0@1-1",
+                  "D-013/drawing/n/82.0@1-2",
+                  "D-013/drawing/n/2.3@1-1",
+                  "D-013/drawing/n/10.0@1-1",
+                  "D-013/drawing/n/5.5@1-1"
+                ],
+                "reason": "The supported subset comprises eight Ø 2,5 M3 - 6H through holes, two Ø 4,2 M5 - 6H through holes and four vertical 5,5 X 10,0 through slots. Mirrored placements use the printed counts, offsets and pitches. Slot centers derive from the dimensioned lower end-arc center. The original main face-on view establishes that every slot's long axis follows Y, represented explicitly by direction='y'. These are drawing-layout interpretations, not human approvals.",
+                "changed_because": "Added direction='y' to each of the four slots after reinspecting the original main face-on view, which shows their long axes parallel to Y. The previous proposal expressed this orientation only in placement_reason. All other feature geometry, positions, operations and ordering are unchanged."
+              }
+            ]
+          },
+          "valid": true,
+          "returncode": 0,
+          "metadata": {
+            "events": [
+              {
+                "type": "turn.completed",
+                "usage": {
+                  "input_tokens": 30766,
+                  "cached_input_tokens": 0,
+                  "cache_write_input_tokens": 0,
+                  "output_tokens": 5062,
+                  "reasoning_output_tokens": 576
+                }
+              }
+            ]
+          },
+          "latency_ms": 78047,
+          "cache_key": "3203a63092669ffffbb210b214d4349cde82ea8b5ab59647d55272e4c644b269",
+          "cache_hit": false,
+          "job": "template:D-013:proposal-verification-v1:proposal:1",
+          "error": null,
+          "protocol": "proposal-verification-v1",
+          "role": "proposer",
+          "round": 1,
+          "proposal_fingerprint": "912dd7c70bf0121c06abcbe77994f207971ccbf3aa9c303917f78f3eed779bb0",
+          "validation": {
+            "features": true
+          },
+          "feedback": [
+            {
+              "key": "features",
+              "state": "invalid",
+              "previous_proposal": {
+                "key": "features",
+                "state": "known",
+                "value_json": "[{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-125.0,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"0-n0-n1*(2+1)\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8 x count, 17,9 offset to the first center right of X=0, 35,7 pitch and clearly mirrored row establish 8/2 centers per side. This is the fourth center left; the row is 7,5 below Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-89.3,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"0-n0-2*n1\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the third center left; the row is 7,5 below Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-82.0,\"fact_ids\":[\"D-013/drawing/n/82.0@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":4.5,\"fact_ids\":[\"D-013/drawing/n/4.5@1-1\"]},\"diameter\":{\"state\":\"known\",\"value\":4.2,\"fact_ids\":[\"D-013/drawing/n/4.2@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M5 - 6H\",\"placement_basis\":\"dimensioned\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-1\",\"D-013/drawing/n/82.0@1-1\",\"D-013/drawing/n/4.5@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-53.6,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"0-n0-n1\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the second center left; the row is 7,5 below Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-17.9,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the first center left; the row is 7,5 below Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":17.9,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\"]},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"dimensioned\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/7.5@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":53.6,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"n0+n1\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"dimensioned\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\",\"D-013/drawing/n/7.5@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":82.0,\"fact_ids\":[\"D-013/drawing/n/82.0@1-1\"]},\"y\":{\"state\":\"known\",\"value\":4.5,\"fact_ids\":[\"D-013/drawing/n/4.5@1-1\"]},\"diameter\":{\"state\":\"known\",\"value\":4.2,\"fact_ids\":[\"D-013/drawing/n/4.2@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M5 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 2 x M5 count and 82,0 offset from the vertical centerline, with the visibly mirrored pair, establish the right center at X=82,0. Both centers share the dimensioned Y=4,5 row.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-1\",\"D-013/drawing/n/82.0@1-1\",\"D-013/drawing/n/4.5@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":89.3,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"n0+2*n1\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the third center right; the row is 7,5 below Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":125.0,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"n0+n1*(2+1)\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the fourth center right; the row is 7,5 below Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"]},{\"kind\":\"slot\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-123.0,\"fact_ids\":[\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\"],\"expression\":\"0-n0-n1\"},\"y\":{\"state\":\"known\",\"value\":4.55,\"fact_ids\":[\"D-013/drawing/n/2.3@1-1\",\"D-013/drawing/n/10.0@1-1\",\"D-013/drawing/n/5.5@1-1\"],\"expression\":\"n0+(n1-n2)/2\"},\"width\":{\"state\":\"known\",\"value\":5.5,\"fact_ids\":[\"D-013/drawing/n/5.5@1-1\"]},\"length\":{\"state\":\"known\",\"value\":10.0,\"fact_ids\":[\"D-013/drawing/n/10.0@1-1\"]},\"through\":true,\"hole_type\":\"plain\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 4 x slot count, 41,0 centerline offset and 82,0 pitch establish the mirrored four-slot row. This is the outer left slot. Long axes follow Y. The lower end-arc center is 2,3 above Y=0, so the slot center is 2,3+(10,0-5,5)/2.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-3\",\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\",\"D-013/drawing/n/2.3@1-1\"]},{\"kind\":\"slot\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-41.0,\"fact_ids\":[\"D-013/drawing/n/41.0@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":4.55,\"fact_ids\":[\"D-013/drawing/n/2.3@1-1\",\"D-013/drawing/n/10.0@1-1\",\"D-013/drawing/n/5.5@1-1\"],\"expression\":\"n0+(n1-n2)/2\"},\"width\":{\"state\":\"known\",\"value\":5.5,\"fact_ids\":[\"D-013/drawing/n/5.5@1-1\"]},\"length\":{\"state\":\"known\",\"value\":10.0,\"fact_ids\":[\"D-013/drawing/n/10.0@1-1\"]},\"through\":true,\"hole_type\":\"plain\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 4 x slot count, 41,0 centerline offset and 82,0 pitch establish the mirrored four-slot row. This is the inner left slot. Long axes follow Y. The lower end-arc center is 2,3 above Y=0, so the slot center is 2,3+(10,0-5,5)/2.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-3\",\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\",\"D-013/drawing/n/2.3@1-1\"]},{\"kind\":\"slot\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":41.0,\"fact_ids\":[\"D-013/drawing/n/41.0@1-1\"]},\"y\":{\"state\":\"known\",\"value\":4.55,\"fact_ids\":[\"D-013/drawing/n/2.3@1-1\",\"D-013/drawing/n/10.0@1-1\",\"D-013/drawing/n/5.5@1-1\"],\"expression\":\"n0+(n1-n2)/2\"},\"width\":{\"state\":\"known\",\"value\":5.5,\"fact_ids\":[\"D-013/drawing/n/5.5@1-1\"]},\"length\":{\"state\":\"known\",\"value\":10.0,\"fact_ids\":[\"D-013/drawing/n/10.0@1-1\"]},\"through\":true,\"hole_type\":\"plain\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 4 x slot count, 41,0 centerline offset and 82,0 pitch establish the mirrored four-slot row. This is the inner right slot. Long axes follow Y. The lower end-arc center is 2,3 above Y=0, so the slot center is 2,3+(10,0-5,5)/2.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-3\",\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\",\"D-013/drawing/n/2.3@1-1\"]},{\"kind\":\"slot\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":123.0,\"fact_ids\":[\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\"],\"expression\":\"n0+n1\"},\"y\":{\"state\":\"known\",\"value\":4.55,\"fact_ids\":[\"D-013/drawing/n/2.3@1-1\",\"D-013/drawing/n/10.0@1-1\",\"D-013/drawing/n/5.5@1-1\"],\"expression\":\"n0+(n1-n2)/2\"},\"width\":{\"state\":\"known\",\"value\":5.5,\"fact_ids\":[\"D-013/drawing/n/5.5@1-1\"]},\"length\":{\"state\":\"known\",\"value\":10.0,\"fact_ids\":[\"D-013/drawing/n/10.0@1-1\"]},\"through\":true,\"hole_type\":\"plain\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 4 x slot count, 41,0 centerline offset and 82,0 pitch establish the mirrored four-slot row. This is the outer right slot. Long axes follow Y. The lower end-arc center is 2,3 above Y=0, so the slot center is 2,3+(10,0-5,5)/2.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-3\",\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\",\"D-013/drawing/n/2.3@1-1\"]}]",
+                "confidence": "sure",
+                "fact_ids": [
+                  "D-013",
+                  "D-013/drawing/callout/p1-1",
+                  "D-013/drawing/callout/p1-2",
+                  "D-013/drawing/callout/p1-3",
+                  "D-013/drawing/n/17.9@1-1",
+                  "D-013/drawing/n/35.7@1-1",
+                  "D-013/drawing/n/7.5@1-1",
+                  "D-013/drawing/n/82.0@1-1",
+                  "D-013/drawing/n/4.5@1-1",
+                  "D-013/drawing/n/41.0@1-1",
+                  "D-013/drawing/n/82.0@1-2",
+                  "D-013/drawing/n/2.3@1-1",
+                  "D-013/drawing/n/10.0@1-1",
+                  "D-013/drawing/n/5.5@1-1"
+                ],
+                "reason": "The supported subset comprises eight Ø 2,5 M3 - 6H through holes, two Ø 4,2 M5 - 6H through holes and four vertical 5,5 X 10,0 through slots. Mirrored placements use the printed counts, offsets and pitches. Slot centers derive from the dimensioned lower end-arc center. These are drawing-layout interpretations, not human approvals.",
+                "changed_because": ""
+              },
+              "local_validation": "Current validator rejects slots with no structured direction or angle. Every slot needs an explicit long-axis direction: a grounded known numeric wrapper, or canonical lowercase x/y/horizontal/vertical. Prose placement_reason is insufficient. Reinspect original evidence; do not guess or change other supported cuts.",
+              "verification": {
+                "key": "features",
+                "decision": "accept",
+                "reason": "M3 holes: callout p1-2 prints 8 x Ø2,5 THRU ALL M3-6H. The main view shows one row of 8 holes on the 7,5 line below the horizontal centerline (n/7.5). The 17,9 offset from the vertical centerline and the 35,7 pitch are dimensioned on the right half, and the left half clearly mirrors them with 4 holes per side. The cited arithmetic is correct: ±17.9, ±(17.9+35.7)=±53.6, ±(17.9+2*35.7)=±89.3 and ±(17.9+3*35.7)=±125.0. M5 holes: callout p1-1 prints 2 x Ø4,2 THRU ALL M5-6H. The left hole is dimensioned 82,0 from the centerline (n/82.0@1-1) and 4,5 above it (n/4.5). The right hole visibly mirrors it on the same row, giving X=±82.0, Y=4.5. Slots: callout p1-3 prints 4 x 5,5 X 10,0 THRU ALL. The slots are vertical. 41,0 (n/41.0) is dimensioned from the vertical centerline and 82,0 (n/82.0@1-2) is the pitch to the outer slot, mirrored on the left, giving X=±41.0 and ±123.0. The 2,3 dimension (n/2.3) runs from the horizontal centerline to the slot's lower end-arc center. Reading it as the slot center would put the slot bottom below the centerline, which the view and the iso do not show; in the view the slot centers line up with the 4,5 M5 row. So Y=2.3+(10.0-5.5)/2=4.55 is consistent. Every diameter is the printed drill size; none is inferred from the thread. All holes and slots are through, so face=top is valid. The ordering is holes before slots, then x ascending, and it is correct.",
+                "fact_ids": [
+                  "D-013",
+                  "D-013/drawing/callout/p1-1",
+                  "D-013/drawing/callout/p1-2",
+                  "D-013/drawing/callout/p1-3",
+                  "D-013/drawing/n/17.9@1-1",
+                  "D-013/drawing/n/35.7@1-1",
+                  "D-013/drawing/n/7.5@1-1",
+                  "D-013/drawing/n/82.0@1-1",
+                  "D-013/drawing/n/4.5@1-1",
+                  "D-013/drawing/n/4.2@1-1",
+                  "D-013/drawing/n/2.5@1-1",
+                  "D-013/drawing/n/41.0@1-1",
+                  "D-013/drawing/n/82.0@1-2",
+                  "D-013/drawing/n/2.3@1-1",
+                  "D-013/drawing/n/10.0@1-1",
+                  "D-013/drawing/n/5.5@1-1"
+                ],
+                "repairable": false
+              }
+            }
+          ]
+        },
+        "claude": {
+          "reader": "claude",
+          "settings": {
+            "model": "opus",
+            "fast_mode": false,
+            "mode": "regular",
+            "reader": "claude"
+          },
+          "answer": {
+            "proposal_fingerprint": "912dd7c70bf0121c06abcbe77994f207971ccbf3aa9c303917f78f3eed779bb0",
+            "items": [
+              {
+                "key": "features",
+                "decision": "accept",
+                "reason": "I checked this against the main face-on view of D-013. The plate is 270,0 x 25,0, and its vertical and horizontal dash-dot centerlines set X=0 and Y=0.\n\nM3 holes: Callout D-013/drawing/callout/p1-2 calls for 8 x Ø2,5 THRU ALL, M3 - 6H THRU ALL. All eight sit in one row below the horizontal centerline, at 7,5 (n/7.5@1-1). Dimension 17,9 (n/17.9@1-1) runs from the vertical centerline to the first hole on the right, and 35,7 (n/35.7@1-1) is the pitch. The view shows 4 holes on each side, mirrored about X=0. That gives X = ±17,9, ±53,6, ±89,3 and ±125,0. Each cited expression gives the right value, for example 17,9+3*35,7=125,0.\n\nM5 holes: Callout D-013/drawing/callout/p1-1 calls for 2 x Ø4,2 THRU ALL, M5 - 6H. Dimension 82,0 (n/82.0@1-1) runs from the left hole to the vertical centerline, and the right hole is drawn as its mirror. Both holes sit 4,5 above the centerline (n/4.5@1-1), so Y=+4,5.\n\nSlots: Callout D-013/drawing/callout/p1-3 calls for 4 x 5,5 X 10,0 THRU ALL, and all four are drawn with their long axis vertical, so direction='y' is correct. Dimension 41,0 (n/41.0@1-1) runs from the centerline to the inner right slot, and 82,0 (n/82.0@1-2) is the slot-to-slot pitch. The left slots mirror the right ones, giving X = ±41 and ±123. Dimension 2,3 (n/2.3@1-1) runs from the centerline to the centre of the slot's lower end arc, so the slot centre is at 2,3+(10,0-5,5)/2=4,55. The view supports this: the slot centres line up with the M5 row, which would not happen if 2,3 measured to the slot centre.\n\nAll the cuts are through cuts, so assigning them to the top face is valid. The Ø2,5 and Ø4,2 drill sizes are printed on the drawing, not inferred from the thread sizes. The features are ordered holes first, then slots, each by ascending X. This check covers only the features list; features_complete and features_omitted were not verified here.",
+                "fact_ids": [
+                  "D-013",
+                  "D-013/drawing/callout/p1-1",
+                  "D-013/drawing/callout/p1-2",
+                  "D-013/drawing/callout/p1-3",
+                  "D-013/drawing/n/17.9@1-1",
+                  "D-013/drawing/n/35.7@1-1",
+                  "D-013/drawing/n/7.5@1-1",
+                  "D-013/drawing/n/82.0@1-1",
+                  "D-013/drawing/n/4.5@1-1",
+                  "D-013/drawing/n/41.0@1-1",
+                  "D-013/drawing/n/82.0@1-2",
+                  "D-013/drawing/n/2.3@1-1",
+                  "D-013/drawing/n/10.0@1-1",
+                  "D-013/drawing/n/5.5@1-1",
+                  "D-013/drawing/n/2.5@1-1",
+                  "D-013/drawing/n/4.2@1-1"
+                ],
+                "repairable": false
+              }
+            ]
+          },
+          "valid": true,
+          "returncode": 0,
+          "metadata": {
+            "usage": {
+              "input_tokens": 4,
+              "cache_creation_input_tokens": 22583,
+              "cache_read_input_tokens": 19045,
+              "output_tokens": 4017,
+              "output_tokens_details": {
+                "thinking_tokens": 2610
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 22583,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "global",
+              "iterations": [],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            "modelUsage": {
+              "claude-opus-5-5": {
+                "inputTokens": 4,
+                "outputTokens": 4017,
+                "cacheReadInputTokens": 19045,
+                "cacheCreationInputTokens": 22583,
+                "webSearchRequests": 0,
+                "costUSD": 0.264829,
+                "contextWindow": 1000000,
+                "maxOutputTokens": 128000,
+                "thinkingTokens": 2610,
+                "cacheCreationEphemeral5mInputTokens": 0,
+                "cacheCreationEphemeral1hInputTokens": 22583,
+                "canonicalModel": "claude-opus-5-5",
+                "provider": "firstParty",
+                "costBasis": "list"
+              }
+            },
+            "total_cost_usd": 0.264829,
+            "duration_ms": 41318,
+            "is_error": false
+          },
+          "latency_ms": 42406,
+          "cache_key": "9ed53b45464b0920749aea98bf70d036e28c6d312e7eb282c36196d4765b0ace",
+          "cache_hit": false,
+          "job": "template:D-013:proposal-verification-v1:verification:1",
+          "error": null,
+          "protocol": "proposal-verification-v1",
+          "role": "verifier",
+          "round": 1,
+          "proposal_fingerprint": "912dd7c70bf0121c06abcbe77994f207971ccbf3aa9c303917f78f3eed779bb0",
+          "validation": {
+            "features": true
+          }
+        }
+      }
+    ],
+    "feedback_rounds": [
+      {
+        "round": 1,
+        "keys": [
+          "features"
+        ],
+        "feedback": [
+          {
+            "key": "features",
+            "state": "invalid",
+            "previous_proposal": {
+              "key": "features",
+              "state": "known",
+              "value_json": "[{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-125.0,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"0-n0-n1*(2+1)\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8 x count, 17,9 offset to the first center right of X=0, 35,7 pitch and clearly mirrored row establish 8/2 centers per side. This is the fourth center left; the row is 7,5 below Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-89.3,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"0-n0-2*n1\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the third center left; the row is 7,5 below Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-82.0,\"fact_ids\":[\"D-013/drawing/n/82.0@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":4.5,\"fact_ids\":[\"D-013/drawing/n/4.5@1-1\"]},\"diameter\":{\"state\":\"known\",\"value\":4.2,\"fact_ids\":[\"D-013/drawing/n/4.2@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M5 - 6H\",\"placement_basis\":\"dimensioned\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-1\",\"D-013/drawing/n/82.0@1-1\",\"D-013/drawing/n/4.5@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-53.6,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"0-n0-n1\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the second center left; the row is 7,5 below Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-17.9,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the first center left; the row is 7,5 below Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":17.9,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\"]},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"dimensioned\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/7.5@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":53.6,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"n0+n1\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"dimensioned\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\",\"D-013/drawing/n/7.5@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":82.0,\"fact_ids\":[\"D-013/drawing/n/82.0@1-1\"]},\"y\":{\"state\":\"known\",\"value\":4.5,\"fact_ids\":[\"D-013/drawing/n/4.5@1-1\"]},\"diameter\":{\"state\":\"known\",\"value\":4.2,\"fact_ids\":[\"D-013/drawing/n/4.2@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M5 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 2 x M5 count and 82,0 offset from the vertical centerline, with the visibly mirrored pair, establish the right center at X=82,0. Both centers share the dimensioned Y=4,5 row.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-1\",\"D-013/drawing/n/82.0@1-1\",\"D-013/drawing/n/4.5@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":89.3,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"n0+2*n1\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the third center right; the row is 7,5 below Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":125.0,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"n0+n1*(2+1)\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the fourth center right; the row is 7,5 below Y=0.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"]},{\"kind\":\"slot\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-123.0,\"fact_ids\":[\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\"],\"expression\":\"0-n0-n1\"},\"y\":{\"state\":\"known\",\"value\":4.55,\"fact_ids\":[\"D-013/drawing/n/2.3@1-1\",\"D-013/drawing/n/10.0@1-1\",\"D-013/drawing/n/5.5@1-1\"],\"expression\":\"n0+(n1-n2)/2\"},\"width\":{\"state\":\"known\",\"value\":5.5,\"fact_ids\":[\"D-013/drawing/n/5.5@1-1\"]},\"length\":{\"state\":\"known\",\"value\":10.0,\"fact_ids\":[\"D-013/drawing/n/10.0@1-1\"]},\"through\":true,\"hole_type\":\"plain\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 4 x slot count, 41,0 centerline offset and 82,0 pitch establish the mirrored four-slot row. This is the outer left slot. Long axes follow Y. The lower end-arc center is 2,3 above Y=0, so the slot center is 2,3+(10,0-5,5)/2.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-3\",\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\",\"D-013/drawing/n/2.3@1-1\"]},{\"kind\":\"slot\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-41.0,\"fact_ids\":[\"D-013/drawing/n/41.0@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":4.55,\"fact_ids\":[\"D-013/drawing/n/2.3@1-1\",\"D-013/drawing/n/10.0@1-1\",\"D-013/drawing/n/5.5@1-1\"],\"expression\":\"n0+(n1-n2)/2\"},\"width\":{\"state\":\"known\",\"value\":5.5,\"fact_ids\":[\"D-013/drawing/n/5.5@1-1\"]},\"length\":{\"state\":\"known\",\"value\":10.0,\"fact_ids\":[\"D-013/drawing/n/10.0@1-1\"]},\"through\":true,\"hole_type\":\"plain\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 4 x slot count, 41,0 centerline offset and 82,0 pitch establish the mirrored four-slot row. This is the inner left slot. Long axes follow Y. The lower end-arc center is 2,3 above Y=0, so the slot center is 2,3+(10,0-5,5)/2.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-3\",\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\",\"D-013/drawing/n/2.3@1-1\"]},{\"kind\":\"slot\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":41.0,\"fact_ids\":[\"D-013/drawing/n/41.0@1-1\"]},\"y\":{\"state\":\"known\",\"value\":4.55,\"fact_ids\":[\"D-013/drawing/n/2.3@1-1\",\"D-013/drawing/n/10.0@1-1\",\"D-013/drawing/n/5.5@1-1\"],\"expression\":\"n0+(n1-n2)/2\"},\"width\":{\"state\":\"known\",\"value\":5.5,\"fact_ids\":[\"D-013/drawing/n/5.5@1-1\"]},\"length\":{\"state\":\"known\",\"value\":10.0,\"fact_ids\":[\"D-013/drawing/n/10.0@1-1\"]},\"through\":true,\"hole_type\":\"plain\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 4 x slot count, 41,0 centerline offset and 82,0 pitch establish the mirrored four-slot row. This is the inner right slot. Long axes follow Y. The lower end-arc center is 2,3 above Y=0, so the slot center is 2,3+(10,0-5,5)/2.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-3\",\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\",\"D-013/drawing/n/2.3@1-1\"]},{\"kind\":\"slot\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":123.0,\"fact_ids\":[\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\"],\"expression\":\"n0+n1\"},\"y\":{\"state\":\"known\",\"value\":4.55,\"fact_ids\":[\"D-013/drawing/n/2.3@1-1\",\"D-013/drawing/n/10.0@1-1\",\"D-013/drawing/n/5.5@1-1\"],\"expression\":\"n0+(n1-n2)/2\"},\"width\":{\"state\":\"known\",\"value\":5.5,\"fact_ids\":[\"D-013/drawing/n/5.5@1-1\"]},\"length\":{\"state\":\"known\",\"value\":10.0,\"fact_ids\":[\"D-013/drawing/n/10.0@1-1\"]},\"through\":true,\"hole_type\":\"plain\",\"placement_basis\":\"drawing_pattern_interpretation\",\"placement_reason\":\"The printed 4 x slot count, 41,0 centerline offset and 82,0 pitch establish the mirrored four-slot row. This is the outer right slot. Long axes follow Y. The lower end-arc center is 2,3 above Y=0, so the slot center is 2,3+(10,0-5,5)/2.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-3\",\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\",\"D-013/drawing/n/2.3@1-1\"]}]",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/callout/p1-1",
+                "D-013/drawing/callout/p1-2",
+                "D-013/drawing/callout/p1-3",
+                "D-013/drawing/n/17.9@1-1",
+                "D-013/drawing/n/35.7@1-1",
+                "D-013/drawing/n/7.5@1-1",
+                "D-013/drawing/n/82.0@1-1",
+                "D-013/drawing/n/4.5@1-1",
+                "D-013/drawing/n/41.0@1-1",
+                "D-013/drawing/n/82.0@1-2",
+                "D-013/drawing/n/2.3@1-1",
+                "D-013/drawing/n/10.0@1-1",
+                "D-013/drawing/n/5.5@1-1"
+              ],
+              "reason": "The supported subset comprises eight Ø 2,5 M3 - 6H through holes, two Ø 4,2 M5 - 6H through holes and four vertical 5,5 X 10,0 through slots. Mirrored placements use the printed counts, offsets and pitches. Slot centers derive from the dimensioned lower end-arc center. These are drawing-layout interpretations, not human approvals.",
+              "changed_because": ""
+            },
+            "local_validation": "Current validator rejects slots with no structured direction or angle. Every slot needs an explicit long-axis direction: a grounded known numeric wrapper, or canonical lowercase x/y/horizontal/vertical. Prose placement_reason is insufficient. Reinspect original evidence; do not guess or change other supported cuts.",
+            "verification": {
+              "key": "features",
+              "decision": "accept",
+              "reason": "M3 holes: callout p1-2 prints 8 x Ø2,5 THRU ALL M3-6H. The main view shows one row of 8 holes on the 7,5 line below the horizontal centerline (n/7.5). The 17,9 offset from the vertical centerline and the 35,7 pitch are dimensioned on the right half, and the left half clearly mirrors them with 4 holes per side. The cited arithmetic is correct: ±17.9, ±(17.9+35.7)=±53.6, ±(17.9+2*35.7)=±89.3 and ±(17.9+3*35.7)=±125.0. M5 holes: callout p1-1 prints 2 x Ø4,2 THRU ALL M5-6H. The left hole is dimensioned 82,0 from the centerline (n/82.0@1-1) and 4,5 above it (n/4.5). The right hole visibly mirrors it on the same row, giving X=±82.0, Y=4.5. Slots: callout p1-3 prints 4 x 5,5 X 10,0 THRU ALL. The slots are vertical. 41,0 (n/41.0) is dimensioned from the vertical centerline and 82,0 (n/82.0@1-2) is the pitch to the outer slot, mirrored on the left, giving X=±41.0 and ±123.0. The 2,3 dimension (n/2.3) runs from the horizontal centerline to the slot's lower end-arc center. Reading it as the slot center would put the slot bottom below the centerline, which the view and the iso do not show; in the view the slot centers line up with the 4,5 M5 row. So Y=2.3+(10.0-5.5)/2=4.55 is consistent. Every diameter is the printed drill size; none is inferred from the thread. All holes and slots are through, so face=top is valid. The ordering is holes before slots, then x ascending, and it is correct.",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/callout/p1-1",
+                "D-013/drawing/callout/p1-2",
+                "D-013/drawing/callout/p1-3",
+                "D-013/drawing/n/17.9@1-1",
+                "D-013/drawing/n/35.7@1-1",
+                "D-013/drawing/n/7.5@1-1",
+                "D-013/drawing/n/82.0@1-1",
+                "D-013/drawing/n/4.5@1-1",
+                "D-013/drawing/n/4.2@1-1",
+                "D-013/drawing/n/2.5@1-1",
+                "D-013/drawing/n/41.0@1-1",
+                "D-013/drawing/n/82.0@1-2",
+                "D-013/drawing/n/2.3@1-1",
+                "D-013/drawing/n/10.0@1-1",
+                "D-013/drawing/n/5.5@1-1"
+              ],
+              "repairable": false
+            }
+          }
+        ]
+      }
+    ],
+    "answers": {
+      "codex": {
+        "outline_type": {
+          "key": "outline_type",
+          "state": "known",
+          "confidence": "sure",
+          "fact_ids": [
+            "D-013",
+            "D-013/drawing/n/270.0@1-1",
+            "D-013/drawing/n/25.0@1-1"
+          ],
+          "reason": "The main view establishes a rectangular 270,0 × 25,0 envelope. Undimensioned corner chamfers are recorded separately as omitted.",
+          "changed_because": "",
+          "value": "rectangle"
+        },
+        "length": {
+          "key": "length",
+          "state": "known",
+          "confidence": "sure",
+          "fact_ids": [
+            "D-013/drawing/n/270.0@1-1"
+          ],
+          "reason": "The overall horizontal dimension is 270,0 mm.",
+          "changed_because": "",
+          "value": 270.0
+        },
+        "width": {
+          "key": "width",
+          "state": "known",
+          "confidence": "sure",
+          "fact_ids": [
+            "D-013/drawing/n/25.0@1-1"
+          ],
+          "reason": "The overall vertical dimension is 25,0 mm.",
+          "changed_because": "",
+          "value": 25.0
+        },
+        "outer_diameter": {
+          "key": "outer_diameter",
+          "state": "unknown",
+          "confidence": "unsure",
+          "fact_ids": [
+            "D-013"
+          ],
+          "reason": "An outer diameter is not applicable to the rectangular outline.",
+          "changed_because": "",
+          "value": null
+        },
+        "inner_diameter": {
+          "key": "inner_diameter",
+          "state": "unknown",
+          "confidence": "unsure",
+          "fact_ids": [
+            "D-013"
+          ],
+          "reason": "The part has no ring outline or applicable inner diameter.",
+          "changed_because": "",
+          "value": null
+        },
+        "thickness": {
+          "key": "thickness",
+          "state": "options",
+          "confidence": "sure",
+          "fact_ids": [
+            "D-013/drawing/n/3.0@1-1",
+            "D-013/drawing/n/6.0@1-1"
+          ],
+          "reason": "The side-view thickness dimension stacks 6,0 and 3,0 as alternatives. Both are retained in ascending order, in millimetres.",
+          "changed_because": "",
+          "value": [
+            3.0,
+            6.0
+          ]
+        },
+        "features": {
+          "key": "features",
+          "state": "known",
+          "confidence": "sure",
+          "fact_ids": [
+            "D-013",
+            "D-013/drawing/callout/p1-1",
+            "D-013/drawing/callout/p1-2",
+            "D-013/drawing/callout/p1-3",
+            "D-013/drawing/n/17.9@1-1",
+            "D-013/drawing/n/35.7@1-1",
+            "D-013/drawing/n/7.5@1-1",
+            "D-013/drawing/n/82.0@1-1",
+            "D-013/drawing/n/4.5@1-1",
+            "D-013/drawing/n/41.0@1-1",
+            "D-013/drawing/n/82.0@1-2",
+            "D-013/drawing/n/2.3@1-1",
+            "D-013/drawing/n/10.0@1-1",
+            "D-013/drawing/n/5.5@1-1"
+          ],
+          "reason": "The supported subset comprises eight Ø 2,5 M3 - 6H through holes, two Ø 4,2 M5 - 6H through holes and four vertical 5,5 X 10,0 through slots. Mirrored placements use the printed counts, offsets and pitches. Slot centers derive from the dimensioned lower end-arc center. The original main face-on view establishes that every slot's long axis follows Y, represented explicitly by direction='y'. These are drawing-layout interpretations, not human approvals.",
+          "changed_because": "Added direction='y' to each of the four slots after reinspecting the original main face-on view, which shows their long axes parallel to Y. The previous proposal expressed this orientation only in placement_reason. All other feature geometry, positions, operations and ordering are unchanged.",
+          "value": [
+            {
+              "kind": "hole",
+              "face": "top",
+              "x": {
+                "state": "known",
+                "value": -125.0,
+                "fact_ids": [
+                  "D-013/drawing/n/17.9@1-1",
+                  "D-013/drawing/n/35.7@1-1"
+                ],
+                "expression": "0-n0-n1*(2+1)"
+              },
+              "y": {
+                "state": "known",
+                "value": -7.5,
+                "fact_ids": [
+                  "D-013/drawing/n/7.5@1-1"
+                ],
+                "expression": "0-n0"
+              },
+              "diameter": {
+                "state": "known",
+                "value": 2.5,
+                "fact_ids": [
+                  "D-013/drawing/n/2.5@1-1"
+                ]
+              },
+              "through": true,
+              "hole_type": "threaded",
+              "thread": "M3 - 6H",
+              "placement_basis": "drawing_pattern_interpretation",
+              "placement_reason": "The printed 8 x count, 17,9 offset to the first center right of X=0, 35,7 pitch and clearly mirrored row establish 8/2 centers per side. This is the fourth center left; the row is 7,5 below Y=0.",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/callout/p1-2",
+                "D-013/drawing/n/17.9@1-1",
+                "D-013/drawing/n/35.7@1-1"
+              ]
+            },
+            {
+              "kind": "hole",
+              "face": "top",
+              "x": {
+                "state": "known",
+                "value": -89.3,
+                "fact_ids": [
+                  "D-013/drawing/n/17.9@1-1",
+                  "D-013/drawing/n/35.7@1-1"
+                ],
+                "expression": "0-n0-2*n1"
+              },
+              "y": {
+                "state": "known",
+                "value": -7.5,
+                "fact_ids": [
+                  "D-013/drawing/n/7.5@1-1"
+                ],
+                "expression": "0-n0"
+              },
+              "diameter": {
+                "state": "known",
+                "value": 2.5,
+                "fact_ids": [
+                  "D-013/drawing/n/2.5@1-1"
+                ]
+              },
+              "through": true,
+              "hole_type": "threaded",
+              "thread": "M3 - 6H",
+              "placement_basis": "drawing_pattern_interpretation",
+              "placement_reason": "The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the third center left; the row is 7,5 below Y=0.",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/callout/p1-2",
+                "D-013/drawing/n/17.9@1-1",
+                "D-013/drawing/n/35.7@1-1"
+              ]
+            },
+            {
+              "kind": "hole",
+              "face": "top",
+              "x": {
+                "state": "known",
+                "value": -82.0,
+                "fact_ids": [
+                  "D-013/drawing/n/82.0@1-1"
+                ],
+                "expression": "0-n0"
+              },
+              "y": {
+                "state": "known",
+                "value": 4.5,
+                "fact_ids": [
+                  "D-013/drawing/n/4.5@1-1"
+                ]
+              },
+              "diameter": {
+                "state": "known",
+                "value": 4.2,
+                "fact_ids": [
+                  "D-013/drawing/n/4.2@1-1"
+                ]
+              },
+              "through": true,
+              "hole_type": "threaded",
+              "thread": "M5 - 6H",
+              "placement_basis": "dimensioned",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/callout/p1-1",
+                "D-013/drawing/n/82.0@1-1",
+                "D-013/drawing/n/4.5@1-1"
+              ]
+            },
+            {
+              "kind": "hole",
+              "face": "top",
+              "x": {
+                "state": "known",
+                "value": -53.6,
+                "fact_ids": [
+                  "D-013/drawing/n/17.9@1-1",
+                  "D-013/drawing/n/35.7@1-1"
+                ],
+                "expression": "0-n0-n1"
+              },
+              "y": {
+                "state": "known",
+                "value": -7.5,
+                "fact_ids": [
+                  "D-013/drawing/n/7.5@1-1"
+                ],
+                "expression": "0-n0"
+              },
+              "diameter": {
+                "state": "known",
+                "value": 2.5,
+                "fact_ids": [
+                  "D-013/drawing/n/2.5@1-1"
+                ]
+              },
+              "through": true,
+              "hole_type": "threaded",
+              "thread": "M3 - 6H",
+              "placement_basis": "drawing_pattern_interpretation",
+              "placement_reason": "The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the second center left; the row is 7,5 below Y=0.",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/callout/p1-2",
+                "D-013/drawing/n/17.9@1-1",
+                "D-013/drawing/n/35.7@1-1"
+              ]
+            },
+            {
+              "kind": "hole",
+              "face": "top",
+              "x": {
+                "state": "known",
+                "value": -17.9,
+                "fact_ids": [
+                  "D-013/drawing/n/17.9@1-1"
+                ],
+                "expression": "0-n0"
+              },
+              "y": {
+                "state": "known",
+                "value": -7.5,
+                "fact_ids": [
+                  "D-013/drawing/n/7.5@1-1"
+                ],
+                "expression": "0-n0"
+              },
+              "diameter": {
+                "state": "known",
+                "value": 2.5,
+                "fact_ids": [
+                  "D-013/drawing/n/2.5@1-1"
+                ]
+              },
+              "through": true,
+              "hole_type": "threaded",
+              "thread": "M3 - 6H",
+              "placement_basis": "drawing_pattern_interpretation",
+              "placement_reason": "The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the first center left; the row is 7,5 below Y=0.",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/callout/p1-2",
+                "D-013/drawing/n/17.9@1-1",
+                "D-013/drawing/n/35.7@1-1"
+              ]
+            },
+            {
+              "kind": "hole",
+              "face": "top",
+              "x": {
+                "state": "known",
+                "value": 17.9,
+                "fact_ids": [
+                  "D-013/drawing/n/17.9@1-1"
+                ]
+              },
+              "y": {
+                "state": "known",
+                "value": -7.5,
+                "fact_ids": [
+                  "D-013/drawing/n/7.5@1-1"
+                ],
+                "expression": "0-n0"
+              },
+              "diameter": {
+                "state": "known",
+                "value": 2.5,
+                "fact_ids": [
+                  "D-013/drawing/n/2.5@1-1"
+                ]
+              },
+              "through": true,
+              "hole_type": "threaded",
+              "thread": "M3 - 6H",
+              "placement_basis": "dimensioned",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/callout/p1-2",
+                "D-013/drawing/n/17.9@1-1",
+                "D-013/drawing/n/7.5@1-1"
+              ]
+            },
+            {
+              "kind": "hole",
+              "face": "top",
+              "x": {
+                "state": "known",
+                "value": 53.6,
+                "fact_ids": [
+                  "D-013/drawing/n/17.9@1-1",
+                  "D-013/drawing/n/35.7@1-1"
+                ],
+                "expression": "n0+n1"
+              },
+              "y": {
+                "state": "known",
+                "value": -7.5,
+                "fact_ids": [
+                  "D-013/drawing/n/7.5@1-1"
+                ],
+                "expression": "0-n0"
+              },
+              "diameter": {
+                "state": "known",
+                "value": 2.5,
+                "fact_ids": [
+                  "D-013/drawing/n/2.5@1-1"
+                ]
+              },
+              "through": true,
+              "hole_type": "threaded",
+              "thread": "M3 - 6H",
+              "placement_basis": "dimensioned",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/callout/p1-2",
+                "D-013/drawing/n/17.9@1-1",
+                "D-013/drawing/n/35.7@1-1",
+                "D-013/drawing/n/7.5@1-1"
+              ]
+            },
+            {
+              "kind": "hole",
+              "face": "top",
+              "x": {
+                "state": "known",
+                "value": 82.0,
+                "fact_ids": [
+                  "D-013/drawing/n/82.0@1-1"
+                ]
+              },
+              "y": {
+                "state": "known",
+                "value": 4.5,
+                "fact_ids": [
+                  "D-013/drawing/n/4.5@1-1"
+                ]
+              },
+              "diameter": {
+                "state": "known",
+                "value": 4.2,
+                "fact_ids": [
+                  "D-013/drawing/n/4.2@1-1"
+                ]
+              },
+              "through": true,
+              "hole_type": "threaded",
+              "thread": "M5 - 6H",
+              "placement_basis": "drawing_pattern_interpretation",
+              "placement_reason": "The printed 2 x M5 count and 82,0 offset from the vertical centerline, with the visibly mirrored pair, establish the right center at X=82,0. Both centers share the dimensioned Y=4,5 row.",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/callout/p1-1",
+                "D-013/drawing/n/82.0@1-1",
+                "D-013/drawing/n/4.5@1-1"
+              ]
+            },
+            {
+              "kind": "hole",
+              "face": "top",
+              "x": {
+                "state": "known",
+                "value": 89.3,
+                "fact_ids": [
+                  "D-013/drawing/n/17.9@1-1",
+                  "D-013/drawing/n/35.7@1-1"
+                ],
+                "expression": "n0+2*n1"
+              },
+              "y": {
+                "state": "known",
+                "value": -7.5,
+                "fact_ids": [
+                  "D-013/drawing/n/7.5@1-1"
+                ],
+                "expression": "0-n0"
+              },
+              "diameter": {
+                "state": "known",
+                "value": 2.5,
+                "fact_ids": [
+                  "D-013/drawing/n/2.5@1-1"
+                ]
+              },
+              "through": true,
+              "hole_type": "threaded",
+              "thread": "M3 - 6H",
+              "placement_basis": "drawing_pattern_interpretation",
+              "placement_reason": "The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the third center right; the row is 7,5 below Y=0.",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/callout/p1-2",
+                "D-013/drawing/n/17.9@1-1",
+                "D-013/drawing/n/35.7@1-1"
+              ]
+            },
+            {
+              "kind": "hole",
+              "face": "top",
+              "x": {
+                "state": "known",
+                "value": 125.0,
+                "fact_ids": [
+                  "D-013/drawing/n/17.9@1-1",
+                  "D-013/drawing/n/35.7@1-1"
+                ],
+                "expression": "n0+n1*(2+1)"
+              },
+              "y": {
+                "state": "known",
+                "value": -7.5,
+                "fact_ids": [
+                  "D-013/drawing/n/7.5@1-1"
+                ],
+                "expression": "0-n0"
+              },
+              "diameter": {
+                "state": "known",
+                "value": 2.5,
+                "fact_ids": [
+                  "D-013/drawing/n/2.5@1-1"
+                ]
+              },
+              "through": true,
+              "hole_type": "threaded",
+              "thread": "M3 - 6H",
+              "placement_basis": "drawing_pattern_interpretation",
+              "placement_reason": "The printed 8 x count, 17,9 centerline offset, 35,7 pitch and mirrored row establish 8/2 centers per side. This is the fourth center right; the row is 7,5 below Y=0.",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/callout/p1-2",
+                "D-013/drawing/n/17.9@1-1",
+                "D-013/drawing/n/35.7@1-1"
+              ]
+            },
+            {
+              "kind": "slot",
+              "face": "top",
+              "x": {
+                "state": "known",
+                "value": -123.0,
+                "fact_ids": [
+                  "D-013/drawing/n/41.0@1-1",
+                  "D-013/drawing/n/82.0@1-2"
+                ],
+                "expression": "0-n0-n1"
+              },
+              "y": {
+                "state": "known",
+                "value": 4.55,
+                "fact_ids": [
+                  "D-013/drawing/n/2.3@1-1",
+                  "D-013/drawing/n/10.0@1-1",
+                  "D-013/drawing/n/5.5@1-1"
+                ],
+                "expression": "n0+(n1-n2)/2"
+              },
+              "width": {
+                "state": "known",
+                "value": 5.5,
+                "fact_ids": [
+                  "D-013/drawing/n/5.5@1-1"
+                ]
+              },
+              "length": {
+                "state": "known",
+                "value": 10.0,
+                "fact_ids": [
+                  "D-013/drawing/n/10.0@1-1"
+                ]
+              },
+              "direction": "y",
+              "through": true,
+              "hole_type": "plain",
+              "placement_basis": "drawing_pattern_interpretation",
+              "placement_reason": "The printed 4 x slot count, 41,0 centerline offset and 82,0 pitch establish the mirrored four-slot row. This is the outer left slot. Long axes follow Y. The lower end-arc center is 2,3 above Y=0, so the slot center is 2,3+(10,0-5,5)/2.",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/callout/p1-3",
+                "D-013/drawing/n/41.0@1-1",
+                "D-013/drawing/n/82.0@1-2",
+                "D-013/drawing/n/2.3@1-1"
+              ]
+            },
+            {
+              "kind": "slot",
+              "face": "top",
+              "x": {
+                "state": "known",
+                "value": -41.0,
+                "fact_ids": [
+                  "D-013/drawing/n/41.0@1-1"
+                ],
+                "expression": "0-n0"
+              },
+              "y": {
+                "state": "known",
+                "value": 4.55,
+                "fact_ids": [
+                  "D-013/drawing/n/2.3@1-1",
+                  "D-013/drawing/n/10.0@1-1",
+                  "D-013/drawing/n/5.5@1-1"
+                ],
+                "expression": "n0+(n1-n2)/2"
+              },
+              "width": {
+                "state": "known",
+                "value": 5.5,
+                "fact_ids": [
+                  "D-013/drawing/n/5.5@1-1"
+                ]
+              },
+              "length": {
+                "state": "known",
+                "value": 10.0,
+                "fact_ids": [
+                  "D-013/drawing/n/10.0@1-1"
+                ]
+              },
+              "direction": "y",
+              "through": true,
+              "hole_type": "plain",
+              "placement_basis": "drawing_pattern_interpretation",
+              "placement_reason": "The printed 4 x slot count, 41,0 centerline offset and 82,0 pitch establish the mirrored four-slot row. This is the inner left slot. Long axes follow Y. The lower end-arc center is 2,3 above Y=0, so the slot center is 2,3+(10,0-5,5)/2.",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/callout/p1-3",
+                "D-013/drawing/n/41.0@1-1",
+                "D-013/drawing/n/82.0@1-2",
+                "D-013/drawing/n/2.3@1-1"
+              ]
+            },
+            {
+              "kind": "slot",
+              "face": "top",
+              "x": {
+                "state": "known",
+                "value": 41.0,
+                "fact_ids": [
+                  "D-013/drawing/n/41.0@1-1"
+                ]
+              },
+              "y": {
+                "state": "known",
+                "value": 4.55,
+                "fact_ids": [
+                  "D-013/drawing/n/2.3@1-1",
+                  "D-013/drawing/n/10.0@1-1",
+                  "D-013/drawing/n/5.5@1-1"
+                ],
+                "expression": "n0+(n1-n2)/2"
+              },
+              "width": {
+                "state": "known",
+                "value": 5.5,
+                "fact_ids": [
+                  "D-013/drawing/n/5.5@1-1"
+                ]
+              },
+              "length": {
+                "state": "known",
+                "value": 10.0,
+                "fact_ids": [
+                  "D-013/drawing/n/10.0@1-1"
+                ]
+              },
+              "direction": "y",
+              "through": true,
+              "hole_type": "plain",
+              "placement_basis": "drawing_pattern_interpretation",
+              "placement_reason": "The printed 4 x slot count, 41,0 centerline offset and 82,0 pitch establish the mirrored four-slot row. This is the inner right slot. Long axes follow Y. The lower end-arc center is 2,3 above Y=0, so the slot center is 2,3+(10,0-5,5)/2.",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/callout/p1-3",
+                "D-013/drawing/n/41.0@1-1",
+                "D-013/drawing/n/82.0@1-2",
+                "D-013/drawing/n/2.3@1-1"
+              ]
+            },
+            {
+              "kind": "slot",
+              "face": "top",
+              "x": {
+                "state": "known",
+                "value": 123.0,
+                "fact_ids": [
+                  "D-013/drawing/n/41.0@1-1",
+                  "D-013/drawing/n/82.0@1-2"
+                ],
+                "expression": "n0+n1"
+              },
+              "y": {
+                "state": "known",
+                "value": 4.55,
+                "fact_ids": [
+                  "D-013/drawing/n/2.3@1-1",
+                  "D-013/drawing/n/10.0@1-1",
+                  "D-013/drawing/n/5.5@1-1"
+                ],
+                "expression": "n0+(n1-n2)/2"
+              },
+              "width": {
+                "state": "known",
+                "value": 5.5,
+                "fact_ids": [
+                  "D-013/drawing/n/5.5@1-1"
+                ]
+              },
+              "length": {
+                "state": "known",
+                "value": 10.0,
+                "fact_ids": [
+                  "D-013/drawing/n/10.0@1-1"
+                ]
+              },
+              "direction": "y",
+              "through": true,
+              "hole_type": "plain",
+              "placement_basis": "drawing_pattern_interpretation",
+              "placement_reason": "The printed 4 x slot count, 41,0 centerline offset and 82,0 pitch establish the mirrored four-slot row. This is the outer right slot. Long axes follow Y. The lower end-arc center is 2,3 above Y=0, so the slot center is 2,3+(10,0-5,5)/2.",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/callout/p1-3",
+                "D-013/drawing/n/41.0@1-1",
+                "D-013/drawing/n/82.0@1-2",
+                "D-013/drawing/n/2.3@1-1"
+              ]
+            }
+          ]
+        },
+        "features_complete": {
+          "key": "features_complete",
+          "state": "known",
+          "confidence": "sure",
+          "fact_ids": [
+            "D-013",
+            "D-013/drawing/general/edge_finish"
+          ],
+          "reason": "Visible corner chamfers and the unspecified edge-break treatment cannot be included as fully dimensioned cuts.",
+          "changed_because": "",
+          "value": false
+        },
+        "features_omitted": {
+          "key": "features_omitted",
+          "state": "known",
+          "confidence": "sure",
+          "fact_ids": [
+            "D-013",
+            "D-013/drawing/general/edge_finish"
+          ],
+          "reason": "The drawing supports the presence of these details but does not determine their cut geometry.",
+          "changed_because": "",
+          "value": [
+            {
+              "description": "Four visible outline corner chamfers",
+              "reason": "The main view shows clipped corners, but no numerical chamfer setbacks or angles establish their geometry. They are outside the supported hole/slot subset; the rectangular outline retains the overall envelope.",
+              "fact_ids": [
+                "D-013"
+              ]
+            },
+            {
+              "description": "DEBURR AND BREAK SHARP EDGES",
+              "reason": "The note supplies no numerical edge-break size or profile from which to construct a cut.",
+              "fact_ids": [
+                "D-013/drawing/general/edge_finish"
+              ]
+            }
+          ]
+        }
+      },
+      "claude": {
+        "outline_type": {
+          "key": "outline_type",
+          "decision": "accept",
+          "reason": "The main view in D-013 shows a rectangular plate bounded by the overall 270,0 (D-013/drawing/n/270.0@1-1) and 25,0 (D-013/drawing/n/25.0@1-1) dimensions. The corner chamfers have no dimensions, and features_omitted records them correctly.",
+          "fact_ids": [
+            "D-013",
+            "D-013/drawing/n/270.0@1-1",
+            "D-013/drawing/n/25.0@1-1"
+          ],
+          "repairable": false
+        },
+        "length": {
+          "key": "length",
+          "decision": "accept",
+          "reason": "The overall horizontal dimension 270,0 spans the full outline in the main view.",
+          "fact_ids": [
+            "D-013/drawing/n/270.0@1-1"
+          ],
+          "repairable": false
+        },
+        "width": {
+          "key": "width",
+          "decision": "accept",
+          "reason": "The overall vertical dimension 25,0 spans the full outline height in the main view.",
+          "fact_ids": [
+            "D-013/drawing/n/25.0@1-1"
+          ],
+          "repairable": false
+        },
+        "outer_diameter": {
+          "key": "outer_diameter",
+          "decision": "accept",
+          "reason": "The outline is rectangular (D-013). An outer diameter does not apply, so unknown/null is the correct state and no essential geometry is missing.",
+          "fact_ids": [
+            "D-013"
+          ],
+          "repairable": false
+        },
+        "inner_diameter": {
+          "key": "inner_diameter",
+          "decision": "accept",
+          "reason": "This is not a ring outline (D-013). An inner diameter does not apply, so unknown/null is correct.",
+          "fact_ids": [
+            "D-013"
+          ],
+          "repairable": false
+        },
+        "thickness": {
+          "key": "thickness",
+          "decision": "accept",
+          "reason": "The side view prints 6,0 and 3,0 stacked on the same thickness dimension line, which indicates documented alternatives. Options [3.0,6.0] are sorted ascending and neither one is chosen as primary.",
+          "fact_ids": [
+            "D-013/drawing/n/3.0@1-1",
+            "D-013/drawing/n/6.0@1-1"
+          ],
+          "repairable": false
+        },
+        "features": {
+          "key": "features",
+          "decision": "accept",
+          "reason": "I checked this against the main face-on view of D-013. The plate is 270,0 x 25,0, and its vertical and horizontal dash-dot centerlines set X=0 and Y=0.\n\nM3 holes: Callout D-013/drawing/callout/p1-2 calls for 8 x Ø2,5 THRU ALL, M3 - 6H THRU ALL. All eight sit in one row below the horizontal centerline, at 7,5 (n/7.5@1-1). Dimension 17,9 (n/17.9@1-1) runs from the vertical centerline to the first hole on the right, and 35,7 (n/35.7@1-1) is the pitch. The view shows 4 holes on each side, mirrored about X=0. That gives X = ±17,9, ±53,6, ±89,3 and ±125,0. Each cited expression gives the right value, for example 17,9+3*35,7=125,0.\n\nM5 holes: Callout D-013/drawing/callout/p1-1 calls for 2 x Ø4,2 THRU ALL, M5 - 6H. Dimension 82,0 (n/82.0@1-1) runs from the left hole to the vertical centerline, and the right hole is drawn as its mirror. Both holes sit 4,5 above the centerline (n/4.5@1-1), so Y=+4,5.\n\nSlots: Callout D-013/drawing/callout/p1-3 calls for 4 x 5,5 X 10,0 THRU ALL, and all four are drawn with their long axis vertical, so direction='y' is correct. Dimension 41,0 (n/41.0@1-1) runs from the centerline to the inner right slot, and 82,0 (n/82.0@1-2) is the slot-to-slot pitch. The left slots mirror the right ones, giving X = ±41 and ±123. Dimension 2,3 (n/2.3@1-1) runs from the centerline to the centre of the slot's lower end arc, so the slot centre is at 2,3+(10,0-5,5)/2=4,55. The view supports this: the slot centres line up with the M5 row, which would not happen if 2,3 measured to the slot centre.\n\nAll the cuts are through cuts, so assigning them to the top face is valid. The Ø2,5 and Ø4,2 drill sizes are printed on the drawing, not inferred from the thread sizes. The features are ordered holes first, then slots, each by ascending X. This check covers only the features list; features_complete and features_omitted were not verified here.",
+          "fact_ids": [
+            "D-013",
+            "D-013/drawing/callout/p1-1",
+            "D-013/drawing/callout/p1-2",
+            "D-013/drawing/callout/p1-3",
+            "D-013/drawing/n/17.9@1-1",
+            "D-013/drawing/n/35.7@1-1",
+            "D-013/drawing/n/7.5@1-1",
+            "D-013/drawing/n/82.0@1-1",
+            "D-013/drawing/n/4.5@1-1",
+            "D-013/drawing/n/41.0@1-1",
+            "D-013/drawing/n/82.0@1-2",
+            "D-013/drawing/n/2.3@1-1",
+            "D-013/drawing/n/10.0@1-1",
+            "D-013/drawing/n/5.5@1-1",
+            "D-013/drawing/n/2.5@1-1",
+            "D-013/drawing/n/4.2@1-1"
+          ],
+          "repairable": false
+        },
+        "features_complete": {
+          "key": "features_complete",
+          "decision": "accept",
+          "reason": "The main and side views in D-013 show clipped corner chamfers with no dimensions. The DEBURR AND BREAK SHARP EDGES note (general/edge_finish) gives no size. Neither detail can be modeled, so features_complete=false is correct.",
+          "fact_ids": [
+            "D-013",
+            "D-013/drawing/general/edge_finish"
+          ],
+          "repairable": false
+        },
+        "features_omitted": {
+          "key": "features_omitted",
+          "decision": "accept",
+          "reason": "Both omissions are real and correctly cited. The four corner chamfers are visible in the D-013 main view with no printed setbacks or angles. The edge-break note (general/edge_finish) gives no size. No hole or slot in the drawing inventory is missing from the features subset.",
+          "fact_ids": [
+            "D-013",
+            "D-013/drawing/general/edge_finish"
+          ],
+          "repairable": false
+        }
+      }
+    },
+    "states": {
+      "outline_type": "verified",
+      "length": "verified",
+      "width": "verified",
+      "outer_diameter": "needs_input",
+      "inner_diameter": "needs_input",
+      "thickness": "verified",
+      "features": "verified_after_retry",
+      "features_complete": "verified",
+      "features_omitted": "verified"
+    },
+    "contract_errors": {}
+  },
+  "metrics": {
+    "new_reader_calls": 2,
+    "provider_calls": 2,
+    "wall_time_ms": 122656
+  },
+  "other_fields_unchanged": true,
+  "existing_decisions_unchanged": true
+}

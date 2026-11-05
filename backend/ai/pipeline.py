@@ -105,9 +105,16 @@ do not silently force steps onto top. If the opening face genuinely cannot be es
 step with its uncertainty; retain a separately supported primary through-hole as plain only when its
 diameter and placement are independently established. Ignore dimension text placement when interpreting actual geometry.
 features value is a JSON array of hole/slot objects. Each has kind, face='top' or 'bottom', x,y,
-diameter (hole) or width,length (slot), through boolean, depth for blind holes,
+diameter (hole) or width,length,direction (slot), through boolean, depth for blind holes,
 hole_type plain/threaded/countersunk/counterbored, optional thread string and required actual
 countersink_diameter/angle or counterbore_diameter/depth. Never infer a drill diameter from a thread.
+Every slot MUST include a structured direction for its LONG axis in the main XY frame, measured in
+degrees counterclockwise from +X. Use a known numeric wrapper with exact evidence IDs and permitted
+arithmetic, or a canonical lowercase named axis: x/horizontal or y/vertical. The legacy angle alias
+is accepted, but prefer direction. Cardinal 0/90/180/270/360 orientations may follow established
+drawing axes; arbitrary angles need cited printed numeric evidence or permitted derivation. Prose
+such as 'long axes follow Y' in placement_reason does NOT replace the structured direction field.
+If slot orientation is genuinely unresolved, omit that slot with its reason rather than guessing.
 Use explicit pattern only if certain: {type:row,count,spacing,direction} (angle degrees, anchor first
 position) or {type:circle,count,radius,start_angle} (degrees, center x,y). Hole positions are center
 coordinates in the same XY frame. Conventional drawing-pattern interpretation is allowed when a
@@ -319,6 +326,7 @@ def validate_features(features: list, numbers: dict, allowed: set[str], refs: li
         if type(value) not in (int, float) or not math.isfinite(value) or (positive and value <= 0):
             raise ValueError(f"Missing or invalid feature {key}")
         return value
+    geometry_features = []
     for feature in features:
         if not isinstance(feature, dict) or feature.get("kind") not in ("hole", "slot") or feature.get("face") not in ("top", "bottom"):
             raise ValueError("Unsupported feature type or face")
@@ -358,6 +366,16 @@ def validate_features(features: list, numbers: dict, allowed: set[str], refs: li
             numeric(feature, "width", True)
             if numeric(feature, "length", True) < numeric(feature, "width", True):
                 raise ValueError("Slot length is smaller than its width")
+            direction_key = "direction" if "direction" in feature else "angle"
+            if direction_key not in feature:
+                raise ValueError("Missing structured slot direction (direction or angle)")
+            direction = feature.get(direction_key)
+            if isinstance(direction, dict):
+                if direction.get("state") != "known":
+                    raise ValueError("Unknown slot direction")
+                direction = direction.get("value")
+            if not isinstance(direction, str) or direction.lower() not in ("x", "y", "horizontal", "vertical"):
+                numeric(feature, direction_key)
         pattern = feature.get("pattern")
         if pattern:
             count = numeric(pattern, "count", True)
@@ -369,7 +387,13 @@ def validate_features(features: list, numbers: dict, allowed: set[str], refs: li
                 numeric(pattern, "spacing", True)
                 if pattern.get("direction") not in ("x", "y"): numeric(pattern, "direction")
             else: raise ValueError("Unsupported feature pattern")
-    validate_geometry(features, numbers, allowed, refs)
+        # The legacy angle alias has the same cardinal-direction grounding rules.
+        geometry_feature = feature
+        if feature["kind"] == "slot" and "direction" not in feature and "angle" in feature:
+            geometry_feature = {key: value for key, value in feature.items() if key != "angle"}
+            geometry_feature["direction"] = feature["angle"]
+        geometry_features.append(geometry_feature)
+    validate_geometry(geometry_features, numbers, allowed, refs)
 
 
 def decode_answer(raw: dict, job: dict, retry: bool = False, previous: dict | None = None) -> dict:

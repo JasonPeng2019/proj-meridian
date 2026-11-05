@@ -27,9 +27,9 @@ def number(field):
 
 def angle(field):
     result = value(field)
-    if result in ("x", "horizontal"):
+    if isinstance(result, str) and result.lower() in ("x", "horizontal"):
         return 0.0
-    if result in ("y", "vertical"):
+    if isinstance(result, str) and result.lower() in ("y", "vertical"):
         return 90.0
     return number(field)
 

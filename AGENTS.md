@@ -26,6 +26,8 @@ Parallel agents are authorized. Each agent owns only its assigned folders; the c
 
 App chat MUST use `gpt-6-luna`. Dataset prep uses Claude Opus at regular speed and `gpt-6.1-sol` with xhigh reasoning and priority/Fast service. Do not silently substitute models or tiers.
 
+Dataset prep runs Sol as proposer, then Opus verifies that exact proposal against the original evidence; allow one bounded feedback retry. Preserve legacy independent-reader receipts without relabelling them. Retain supported cuts independently, document omitted features, and assess all drawings within the MVP template limits. Never invent geometry or human approvals to increase the model count.
+
 Launch coding subagents as `gpt-6.1-sol`, high reasoning, on priority/Fast mode. The project Codex configuration specifies these settings for root coding sessions as well.
 
 ## Resource limits

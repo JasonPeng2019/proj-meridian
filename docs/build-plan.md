@@ -1,5 +1,28 @@
 # Build and verification plan
 
+## Current priority: reconstruction detail fidelity
+
+Pause the delegated review confirmation batch until reconstruction detail work is
+complete. Preserve its read-only audit notes; do not apply those recommendations
+to templates changed by a new prep run.
+
+Compare every shipped reconstruction with the original drawing. Add support for
+source-dimensioned side-drilled holes and full-thickness corner chamfers, then
+rerun geometry prep using Sol xhigh priority/Fast proposals and Opus regular
+verification of the exact proposal. Read printed dimensions from image-only
+drawings into a separate, source-hash-bound AI evidence ledger before proposing
+templates. Preserve deterministic PDF extraction and every existing decision.
+
+Run local CLI readers sequentially behind the resource gate. Publish fresh prep
+only after its receipt is complete. Generate and probe STEP and GLB geometry on
+the queued GitHub Actions runner, including side-hole axes, depth, opening face,
+chamfer cuts and retained feature counts. Missing drawing dimensions remain
+unresolved; no pixel measurements or inferred standard hardware sizes may fill
+them. Inspect the verified exports and source comparison before resuming reviews.
+
+The formatted local app at http://127.0.0.1:8001 is primary. Port 8000 is closed
+and retired locally; isolated remote verification may use its own port 8000.
+
 “Manual” means the coordinator dispatches and monitors a workflow itself. It does not mean Jason must click, run commands, approve execution or confirm a checkpoint. Actual engineering reviews remain actual human decisions; never manufacture them.
 
 ## Routine pushes

@@ -86,6 +86,14 @@ def scan_job(drawing: dict) -> dict:
 def template_job(drawing: dict) -> dict:
     did = drawing["id"]
     image = drawing.get("images") or [drawing["image"]]
+    evidence = {k: v for k, v in drawing.items() if k in
+                ("id", "fields", "numbers", "callouts", "page_sizes", "section", "source_filename")}
+    # Transcription receipts stay in Debug/the index. Feeding prior model verdicts
+    # back as source evidence would both bloat the prompt and bias verification.
+    evidence["numbers"] = [{k: v for k, v in number.items() if k in
+                            ("name", "value", "original", "text", "page", "box", "method", "confidence",
+                             "label", "token", "unit", "source_sha256")}
+                           for number in drawing.get("numbers", [])]
     return {"id": f"template:{did}", "kind": "template", "drawing": did,
             "feature_protocol": FEATURE_PROTOCOL,
             "keys": list(TEMPLATE_KEYS), "images": [str(inside(GENERATED / p)) for p in image], "sources": sorted(source_ids(drawing)),
@@ -160,8 +168,24 @@ Do not infer numeric dimensions from pixels, scale, standard hardware, or undime
 Conventional layout interpretation changes placement only; every numeric dimension/count and every
 derived coordinate still requires the printed evidence and permitted arithmetic above.
 Features must use same deterministic ordering: holes before slots, then x ascending, then y ascending.
-""" + "\nEvidence:\n" + runner.json_text({k: v for k, v in drawing.items() if k in
-    ("id", "fields", "numbers", "callouts", "page_sizes", "section", "source_filename")})}
+Additional supported cuts: a hole in a rectangular body's side may use face x_min/x_max/y_min/y_max.
+It still needs global entry x,y plus a sourced z numeric wrapper in the Z=0..thickness frame.
+Its side-normal entry coordinate must equal that rectangle face boundary (+/-length/2 or +/-width/2),
+using cited arithmetic. Its other coordinates, drill diameter, plain/threaded hole_type, through
+boolean or blind depth must be established by the actual projected side/section views. A centered
+z may use expression n0/2 from printed thickness ONLY when those views establish that centering;
+do not assume side holes are centered merely to create a model. Side patterns and stepped side holes
+are unsupported. No face changes are allowed just to make a top/bottom cut fit.
+A dimensioned through-thickness rectangular outline corner clip may use
+{kind:'corner_chamfer',corners:['x_min_y_min','x_min_y_max','x_max_y_min','x_max_y_max'],
+x_setback:{state:'known',value:number,fact_ids:[IDs]},
+y_setback:{state:'known',value:number,fact_ids:[IDs]},fact_ids:[IDs]}.
+corners is only the nonempty unique subset actually established in the original views. This object
+has no face/x/y/through or pattern. Both setbacks must be independently printed or equal setbacks
+explicitly established by a 45-degree chamfer callout. Never treat an arbitrary rounded/stepped
+outline as corner clips, infer setback from pixels, or assume every corner shares a lone callout.
+Use corner_chamfer only for straight through-thickness outline clips, not surface edge bevels.
+""" + "\nEvidence:\n" + runner.json_text(evidence)}
 
 
 def custom_rows(bom: list[dict]) -> list[dict]:
@@ -328,8 +352,32 @@ def validate_features(features: list, numbers: dict, allowed: set[str], refs: li
         return value
     geometry_features = []
     for feature in features:
-        if not isinstance(feature, dict) or feature.get("kind") not in ("hole", "slot") or feature.get("face") not in ("top", "bottom"):
+        if not isinstance(feature, dict):
+            raise ValueError("Unsupported feature type")
+        if feature.get("kind") == "corner_chamfer":
+            corners = feature.get("corners")
+            allowed_corners = {"x_min_y_min", "x_min_y_max", "x_max_y_min", "x_max_y_max"}
+            if (not isinstance(corners, list) or not corners or
+                    any(not isinstance(corner, str) or corner not in allowed_corners for corner in corners) or
+                    len(corners) != len(set(corners)) or
+                    any(key in feature for key in ("face", "x", "y", "z", "through", "depth", "pattern")) or
+                    not isinstance(feature.get("fact_ids"), list) or not feature["fact_ids"] or
+                    any(ref not in allowed for ref in feature["fact_ids"])):
+                raise ValueError("Corner clip requires unique explicit corners and original evidence")
+            for key in ("x_setback", "y_setback"):
+                if not isinstance(feature.get(key), dict):
+                    raise ValueError("Corner setback requires a sourced numeric wrapper")
+                numeric(feature, key, True)
+            geometry_features.append(feature)
+            continue
+        side = feature.get("face") in ("x_min", "x_max", "y_min", "y_max")
+        if feature.get("kind") not in ("hole", "slot") or (feature.get("face") not in ("top", "bottom") and not side):
             raise ValueError("Unsupported feature type or face")
+        if side:
+            if (feature.get("kind") != "hole" or feature.get("hole_type") not in ("plain", "threaded") or
+                    "pattern" in feature or not isinstance(feature.get("z"), dict)):
+                raise ValueError("Side cuts support individual plain/threaded holes with sourced z")
+            numeric(feature, "z", True)
         placement = feature.get("placement_basis")
         if placement is not None:
             if placement not in ("dimensioned", "drawing_pattern_interpretation"):
@@ -438,6 +486,11 @@ def decode_answer(raw: dict, job: dict, retry: bool = False, previous: dict | No
                     if type(value) not in (int, float) or not math.isfinite(value): continue
                 elif not isinstance(value, str):
                     continue
+            elif job["kind"] == "image_dimensions":
+                from . import dimensions
+                if item["state"] != "known":
+                    continue
+                dimensions.validate(value, job, key, refs)
             elif job["kind"] == "template":
                 if key == "features_complete":
                     if item["state"] != "known" or type(value) is not bool: continue
@@ -604,6 +657,11 @@ def _proposal_round(job: dict, force: bool, round_number: int = 0,
                      "in the declared +Z viewing convention. A primary-hole fallback flag requires a separately "
                      "supported through-hole, known step geometry/face, and an explicit source-backed conflict "
                      "with a documented thickness variant; it never authorizes guessing or clamping a step. "
+                     "For image-number reading verify every literal token, complete callout context, unit, "
+                     "original page and PDF-point text box; a box locates printed text only. For side holes "
+                     "verify entry face, side-normal operation and sourced z against actual projections. "
+                     "For corner_chamfer verify the named corners and both setbacks against printed callouts; "
+                     "a corner clip is not a surface bevel or a guessed outer profile. "
                      "Cite exact original source IDs, never proposal or feedback as evidence. No guessed "
                      "values, pixel measurements, assumed standard dimensions, or benchmark answers. "
                      "Do not modify files or run commands. Copy this proposal_fingerprint exactly: " + fingerprint +
@@ -699,7 +757,7 @@ def resolved(result: dict, key: str) -> dict:
 
 
 def assemble(results: list[dict], drawings: dict, exact: dict) -> dict:
-    output = {"scans": {}, "links": copy.deepcopy(exact), "mappings": [], "templates": {}, "metrics": {}}
+    output = {"scans": {}, "links": copy.deepcopy(exact), "mappings": [], "templates": {}, "dimension_evidence": {}, "metrics": {}}
     counts = Counter()
     job_counts: dict[str, Counter] = {}
     actual_review = 0
@@ -719,7 +777,10 @@ def assemble(results: list[dict], drawings: dict, exact: dict) -> dict:
             if not agreed(result, key):
                 if job["kind"] == "scan": scan_undetermined += 1
                 elif job["kind"] != "mapping": actual_review += 1
-        if job["kind"] == "scan":
+        if job["kind"] == "image_dimensions":
+            from . import dimensions
+            output["dimension_evidence"][job["drawing"]] = dimensions.assemble(result)
+        elif job["kind"] == "scan":
             did = job["drawing"]
             fields = {}
             for key in job["keys"]:

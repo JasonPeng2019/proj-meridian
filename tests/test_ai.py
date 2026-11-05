@@ -8,6 +8,7 @@ from types import SimpleNamespace
 import pytest
 
 from backend.ai import pipeline, runner
+from backend.ai import dimensions
 
 
 def item(key="link", value=None, confidence="sure", state="known", refs=None):
@@ -60,6 +61,110 @@ def test_numeric_grounding_and_safe_derivation():
         pipeline.expression_value("__import__('os')", [])
     with pytest.raises(ValueError):
         pipeline.validate_geometry({"x": {"value": 126, "expression": "n0/2-n1", "fact_ids": ["a", "b"]}}, nums, set(nums), [])
+
+
+def image_dimension_fixture():
+    drawing = {"id": "D-011", "sha256": "a" * 64, "page_sizes": [[100, 200]],
+               "images": ["images/D-011-p1.png"], "numbers": [], "fields": {}, "degraded": True}
+    number = {"text": "2 x ⌀6,5 THRU ALL", "token": "6,5", "value": 6.5,
+              "unit": "mm", "box": [10, 20, 35, 8]}
+    return drawing, number
+
+
+def test_image_dimensions_use_original_images_and_preserve_verified_source_provenance(monkeypatch):
+    drawing, number = image_dimension_fixture()
+    original = copy.deepcopy(drawing)
+    current = dimensions.job(drawing)
+    source = "D-011/drawing/source"
+    calls = mock_readers(monkeypatch, [output(item("page_1", [number], refs=[source]))],
+                         [output(verdict("page_1", refs=[source]))])
+    result = pipeline.run_retry(pipeline.execute(current))
+    evidence = pipeline.assemble([result], {drawing["id"]: drawing}, {})["dimension_evidence"]["D-011"]
+    attached = dimensions.attach(drawing, evidence)
+    field = attached["numbers"][0]
+    assert [call["reader"] for call in calls] == ["codex", "claude"]
+    assert calls[0]["images"] == calls[1]["images"] == current["images"]
+    assert evidence["source_sha256"] == drawing["sha256"]
+    assert field["value"] == 6.5 and field["page"] == 1 and field["box"] == number["box"]
+    assert field["name"].startswith("D-011/drawing/visual-n/p1-")
+    assert field["original"] == number["text"] and field["fact_ids"] == [source]
+    assert field["method"] == "ai_verified" and field["review"] == {"status": "not_reviewed"}
+    assert field["readers"]["codex"]["role"] == "proposer"
+    assert field["readers"]["claude"]["role"] == "verifier"
+    assert drawing == original and dimensions.attach(attached, evidence) == attached
+    template = pipeline.template_job(attached)
+    assert template["numbers"][field["name"]] == 6.5
+    assert field["name"] in template["sources"]
+    assert '"readers"' not in template["prompt"] and '"proposal_fingerprint"' not in template["prompt"]
+    assert dimensions.attach(drawing, {**evidence, "source_sha256": "b" * 64}) == original
+    tampered = copy.deepcopy(evidence)
+    tampered["fields"][0]["value"] = 65
+    assert dimensions.attach(drawing, tampered) == original
+    unverified = copy.deepcopy(evidence)
+    unverified["pages"]["page_1"]["method"] = "ai_unsure"
+    assert dimensions.attach(drawing, unverified) == original
+
+
+@pytest.mark.parametrize("mutation", [
+    {"value": 13}, {"value": True}, {"value": float("inf")}, {"token": "7"},
+    {"token": "6.5"}, {"unit": "in"}, {"box": [-1, 0, 1, 1]},
+    {"box": [90, 0, 20, 1]}, {"box": [0, 0, 1, 0]}, {"box": [0, 0, 1, float("nan")]},
+])
+def test_image_dimensions_reject_conversions_unsupported_tokens_and_invalid_source_boxes(mutation):
+    drawing, number = image_dimension_fixture()
+    current = dimensions.job(drawing)
+    answer = item("page_1", [{**number, **mutation}], refs=current["sources"])
+    assert pipeline.decode_answer(output(answer), current) == {}
+
+
+def test_image_dimensions_rejected_page_stays_unindexed_and_repairs_once(monkeypatch):
+    drawing, number = image_dimension_fixture()
+    current = dimensions.job(drawing)
+    source = current["sources"]
+    first = output(item("page_1", [{**number, "value": 65}], refs=source))
+    repair = output({**item("page_1", [number], refs=source),
+                     "changed_because": "Original printed decimal comma was missed; corrected from the same label."})
+    calls = mock_readers(monkeypatch, [first, repair],
+                         [output(verdict("page_1", "reject", True, source)), output(verdict("page_1", refs=source))])
+    result = pipeline.execute(current)
+    assert dimensions.assemble(result)["fields"] == []
+    pipeline.run_retry(result)
+    assert result["states"] == {"page_1": "verified_after_retry"} and len(calls) == 4
+    assert dimensions.assemble(result)["fields"][0]["value"] == 6.5
+    assert pipeline.run_retry(result) is result and len(calls) == 4
+
+
+def test_image_dimensions_reject_duplicate_tokens_and_wrong_source():
+    drawing, number = image_dimension_fixture()
+    current = dimensions.job(drawing)
+    assert pipeline.decode_answer(output(item("page_1", [number, number], refs=current["sources"])), current) == {}
+    assert pipeline.decode_answer(output(item("page_1", [number], refs=["D-020/drawing/source"])), current) == {}
+
+
+def test_dimensioned_corner_clips_require_explicit_corners_and_sourced_setbacks():
+    current = {**job(), "kind": "template", "keys": ["features"], "numbers": {"BOM:a/b": 1}}
+    scalar = {"state": "known", "value": 1, "fact_ids": ["BOM:a/b"]}
+    clip = {"kind": "corner_chamfer", "corners": ["x_min_y_min", "x_max_y_max"],
+            "x_setback": scalar, "y_setback": scalar, "fact_ids": ["BOM:a/b"]}
+    assert pipeline.decode_answer(output(item("features", [clip])), current)["features"]["value"] == [clip]
+    for mutation in ({"corners": []}, {"corners": ["top"]}, {"corners": ["x_min_y_min"] * 2},
+                     {"x_setback": 1}, {"y_setback": {**scalar, "value": 2}}, {"face": "top"},
+                     {"through": True}, {"fact_ids": []}):
+        assert pipeline.decode_answer(output(item("features", [{**clip, **mutation}])), current) == {}
+
+
+def test_side_holes_need_sourced_z_and_keep_global_frame():
+    current = {**job(), "kind": "template", "keys": ["features"],
+               "numbers": {"BOM:a/b": 10, "BOM:a/c": 5}}
+    scalar = lambda value, **extra: {"state": "known", "value": value, "fact_ids": ["BOM:a/b"], **extra}
+    hole = {"kind": "hole", "face": "x_min", "x": scalar(-5, expression="-n0/2"), "y": scalar(0),
+            "z": scalar(5, expression="n0/2"),
+            "diameter": {"state": "known", "value": 5, "fact_ids": ["BOM:a/c"]},
+            "hole_type": "plain", "through": True}
+    assert pipeline.decode_answer(output(item("features", [hole])), current)["features"]["value"] == [hole]
+    for mutation in ({"z": None}, {"z": 5}, {"z": scalar(0)}, {"z": scalar(4, expression="n0/2")},
+                     {"kind": "slot"}, {"hole_type": "counterbored"}, {"pattern": {}}):
+        assert pipeline.decode_answer(output(item("features", [{**hole, **mutation}])), current) == {}
 
 
 def test_legacy_receipts_are_not_reinterpreted_or_retried(monkeypatch):

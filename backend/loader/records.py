@@ -52,6 +52,11 @@ def assemble_records(drawings: dict, rows: list, output: Path = GENERATED) -> li
     if not ai_path.exists() and cached_ai.exists():
         write_json(ai_path, read_json(cached_ai, {}))
     ai = read_json(ai_path, {})
+    # Image-only dimension readings are separate verified evidence. Never add AI
+    # readings to drawings.json or present them as deterministic PDF extraction.
+    from backend.ai.dimensions import attach as attach_dimensions
+    drawings = {did: attach_dimensions(drawing, ai.get("dimension_evidence", {}).get(did))
+                for did, drawing in drawings.items()}
     manifest = read_json(output / "models/manifest.json", {})
     row_lookup = {row["name"]: row for row in rows}
     linked = set()

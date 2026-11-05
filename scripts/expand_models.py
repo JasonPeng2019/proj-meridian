@@ -32,7 +32,10 @@ with EXACT keys: supported (boolean), constant_thickness (boolean), outline_exac
 omitted_minor_features (array of strings). Cite original drawing source IDs.
 supported=true only when the main body can be represented by the supported
 rectangle/circle/ring outline, a single constant thickness (or explicitly printed
-alternative constant thicknesses), plus the supported hole/slot cuts. The MAIN
+alternative constant thicknesses), plus supported hole/slot cuts, source-dimensioned
+plain/threaded side holes and explicit full-thickness rectangular-corner chamfers.
+Known corner clips are represented by corner_chamfer features, never silently
+discarded. The MAIN
 outline must match exactly: do not substitute its bounding rectangle or circle.
 Block bent, stepped, revolved, profiled, tapered, nonplanar or assembled parts and
 essential notches, lobes, rounded outer corners or other contours the generator
@@ -47,7 +50,8 @@ Do not infer a constant thickness from an unlabeled number, another part, title,
 material, stock convention, scale, pixels, or a familiar standard. Printed numbers
 must be linked by the actual view/dimension leaders to the dimension claimed;
 detached text and unrelated numbers are not dimension evidence. All numeric
-geometry must cite exact supplied parsed drawing-number IDs; the original image
+geometry must cite exact supplied parsed or separately verified image-dimension
+IDs; verified image dimensions are AI evidence, not deterministic PDF text. The original image
 can establish their meaning, but never invent missing numbers or evidence IDs.
 If dimensions are absent/unreadable, keep them unknown. Explain which essential
 dimension/contour is unresolved. A certain outline and thickness can still produce

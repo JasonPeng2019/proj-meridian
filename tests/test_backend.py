@@ -258,7 +258,8 @@ def test_delegated_dispositions_and_confirmations_have_human_review_labels(evide
     assert not evidence.part("D-019").get("design_review")
 
 
-def test_authorized_review_uses_jason_identity_without_rewriting_event(evidence):
+def test_authorized_review_uses_jason_identity_without_rewriting_event(evidence, monkeypatch):
+    monkeypatch.setattr("backend.app.store.settings", lambda: {"reviewer_name": "Jason Peng"})
     from backend.app.review_identity import presented_review
     target = "D-019/template/thickness"
     event = {"applies_to": target, "type": "confirm", "status": "accepted",

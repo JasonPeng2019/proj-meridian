@@ -264,12 +264,16 @@ def score_rules(case: dict, response: dict, preconditions: list[dict] | None = N
         if not valid:
             missing_cites.append("D-013 cited M3 template feature or drawing callout")
     check("citations", not missing_cites, missing_cites)
-    invalid = [n for n in cited if n not in facts]
-    invalid += [n for n in found["undetermined"] if facts.get(n, {}).get("display", {}).get("state") != "undetermined"]
+    missing_facts = [n for n in cited if n not in facts]
+    unknown_marker_on_known_fact = [n for n in found["undetermined"] if n in facts
+                                    and facts[n].get("display", {}).get("state") != "undetermined"]
+    invalid = missing_facts + unknown_marker_on_known_fact
     naked_unknown = [n for n in found["cite"] if facts.get(n, {}).get("display", {}).get("state") == "undetermined" and n not in found["undetermined"]]
     malformed = re.findall(r"\[(?:cite|undetermined)\b[^\]]*(?:\]|$)", MARKER.sub("", text), re.I)
     check("clean_output", not response.get("warnings") and not invalid and not naked_unknown and not malformed and bool(text.strip()) and bool(cited),
-          {"warnings": response.get("warnings", []), "invalid": invalid, "unmarked_unknown": naked_unknown, "malformed": malformed, "has_evidence_markers": bool(cited)})
+          {"warnings": response.get("warnings", []), "invalid": invalid, "missing_facts": missing_facts,
+           "unknown_marker_on_known_fact": unknown_marker_on_known_fact,
+           "unmarked_unknown": naked_unknown, "malformed": malformed, "has_evidence_markers": bool(cited)})
     if cid == "Q13":
         known = [n for n in cited if n.startswith("D-017/template/outline/") and n.endswith(("/width", "/length"))
                  and facts.get(n, {}).get("display", {}).get("state") == "value"]

@@ -13,7 +13,7 @@ Each appears in both passes; neither scores nor rules were changed to hide them.
 - **Q08:** the answer states 30 parts while the captured matching projection contains 32 records. The semantic judge accepts its interpretation, but the count-consistency rule fails. The flagged D-016, D-018 and D-025 drawing-to-BOM links remain unresolved; this is also reported as a coverage gap. D-017 now has a source-backed delegated link decision.
 - **Q10:** the answer cites `D-026/drawing/material` without the uncertainty marking required for that captured fact. Both semantic judgments are 2; the strict output rule fails.
 - **Q11b:** the answer correctly gives the newly accepted title but omits the original printed `Description` placeholder required by the benchmark. Both the literal check and the semantic completeness judgment fail (judge score 1).
-- **Q15:** the answer cites `D-013/drawing/callout/p1-1`, which is absent from the returned fact ledger even though CAD provenance references that source identifier. The judge accepts the factual answer, but the citation rule fails. The resulting source marker cannot resolve through the conversation ledger; no output validator or answer-repair retry was introduced.
+- **Q15:** the known M5-hole callout `D-013/drawing/callout/p1-1` is present in the returned fact ledger, but the answer also marks it as Undetermined to express the absence of a torque specification. That state mismatch fails the citation rule. An earlier explanation incorrectly interpreted the scorer's combined `invalid` category as a missing fact; v3 reports missing facts and state mismatches separately. No output validator or answer-repair retry was introduced.
 
 ## Usage and interpretation
 

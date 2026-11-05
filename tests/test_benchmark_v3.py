@@ -84,7 +84,18 @@ def test_valid_unknown_marker_accepts_existing_material_answer(cases):
     assert score_rules(cases["Q10"], response)["status"] == "pass"
 
 
-def test_missing_source_marker_still_fails_correct_torque_abstention(cases):
-    result = score_rules(cases["Q15"], captured("Q15")["response"])
-    assert "D-013/drawing/callout/p1-1" in check(result, "clean_output")["detail"]["invalid"]
+def test_known_hole_callout_cannot_serve_as_unknown_torque_fact(cases):
+    response = captured("Q15")["response"]
+    assert response["facts"]["D-013/drawing/callout/p1-1"]["display"]["state"] == "value"
+    result = score_rules(cases["Q15"], response)
+    detail = check(result, "clean_output")["detail"]
+    assert detail["missing_facts"] == []
+    assert detail["unknown_marker_on_known_fact"] == ["D-013/drawing/callout/p1-1"]
     assert result["status"] == "fail"
+
+
+def test_truly_missing_source_marker_is_reported_separately(cases):
+    response = captured("Q15")["response"]
+    response["text"] += " [cite: nonexistent/fact]"
+    detail = check(score_rules(cases["Q15"], response), "clean_output")["detail"]
+    assert detail["missing_facts"] == ["nonexistent/fact"]

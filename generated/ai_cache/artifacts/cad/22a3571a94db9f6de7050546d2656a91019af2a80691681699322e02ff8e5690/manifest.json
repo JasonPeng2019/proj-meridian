@@ -1,0 +1,115 @@
+{
+  "examples": [
+    "A"
+  ],
+  "models": {
+    "A": {
+      "glb": "models/D-017_A.glb",
+      "step": "models/D-017_A_reconstruction_from_drawing.step",
+      "bounds_mm": {
+        "min": [
+          -90.0,
+          -55.0,
+          0.0
+        ],
+        "max": [
+          90.0,
+          55.0,
+          10.0
+        ],
+        "size": [
+          180.0,
+          110.0,
+          10.0
+        ]
+      },
+      "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
+      "volume_mm3": 184145.576397669,
+      "template_sha256": "5adb12ddd1a9befdfa5e8ac3e166e57d821439b2726b92117ef1adab372295af",
+      "selections": {},
+      "labels": [
+        {
+          "name": "Feature 1 (hole)",
+          "kind": "hole",
+          "count": 1,
+          "hole_type": "plain",
+          "requested_hole_type": "plain",
+          "step_omitted": null,
+          "thread": null,
+          "thread_representation": null,
+          "fact_ids": [
+            "D-017",
+            "D-017/drawing/n/28.2@1-1",
+            "D-017/drawing/n/4.1@1-1",
+            "D-017/drawing/n/50.9@1-1",
+            "D-017/drawing/n/110.0@1-1",
+            "D-017/drawing/n/42.0@1-1"
+          ],
+          "method": "ai_verified",
+          "feature_index": 0
+        }
+      ],
+      "waiting": [
+        "features_complete"
+      ],
+      "omitted": [
+        "Four countersunk holes: 4x Ø5,5 THRU, Ø10,8 X 90°: The count, primary diameter, through operation and countersink dimensions are printed, but no locating dimensions or dimensioned pattern establish the four centers. Their apparent layout cannot supply missing coordinates.",
+        "Eight M5 threaded holes: The image contains the 8x M5 callout, but the hole centers lack locating dimensions. A separate drill diameter and thread depth or explicit through-thread specification are also absent; none is inferred from M5.",
+        "Two Ø6,0 H7 holes: Both holes are identified as Ø6,0 H7 and lie on the bore-center horizontal line, but their horizontal center coordinates are not dimensioned. No printed pitch or offset establishes their placement.",
+        "Four small outer-corner chamfers, 4x1,0 X 45°: The leader identifies small corner edge breaks. The rectangle/hole/slot template cannot reproduce these chamfers; they are explicitly omitted from the otherwise dimensioned rectangular body.",
+        "Additional bore-edge and general sharp-edge treatment: The close concentric outlines at the Ø42,00 opening and the DEBURR AND BREAK SHARP EDGES note do not independently establish an additional step diameter, depth or angle. Only the supported primary bore is modeled; unspecified edge treatment is omitted."
+      ],
+      "features_all_determined": false,
+      "glb_units": "metres",
+      "cad_units": "mm",
+      "glb_to_mm": 1000,
+      "glb_sha256": "41284247fd2c2ed9ec963af511099614dd2d89279b724ea3581c8c2a5db889c1",
+      "step_sha256": "b6f7b455984a03b21543244cef950c068d70d9af6c3fe8144228048012f6be3e"
+    }
+  },
+  "waiting": [
+    "features_complete"
+  ],
+  "omitted": [
+    "Four countersunk holes: 4x Ø5,5 THRU, Ø10,8 X 90°: The count, primary diameter, through operation and countersink dimensions are printed, but no locating dimensions or dimensioned pattern establish the four centers. Their apparent layout cannot supply missing coordinates.",
+    "Eight M5 threaded holes: The image contains the 8x M5 callout, but the hole centers lack locating dimensions. A separate drill diameter and thread depth or explicit through-thread specification are also absent; none is inferred from M5.",
+    "Two Ø6,0 H7 holes: Both holes are identified as Ø6,0 H7 and lie on the bore-center horizontal line, but their horizontal center coordinates are not dimensioned. No printed pitch or offset establishes their placement.",
+    "Four small outer-corner chamfers, 4x1,0 X 45°: The leader identifies small corner edge breaks. The rectangle/hole/slot template cannot reproduce these chamfers; they are explicitly omitted from the otherwise dimensioned rectangular body.",
+    "Additional bore-edge and general sharp-edge treatment: The close concentric outlines at the Ø42,00 opening and the DEBURR AND BREAK SHARP EDGES note do not independently establish an additional step diameter, depth or angle. Only the supported primary bore is modeled; unspecified edge treatment is omitted."
+  ],
+  "template_sha256": "5adb12ddd1a9befdfa5e8ac3e166e57d821439b2726b92117ef1adab372295af",
+  "source_sha256": "a460ab37d94f2d8f4c9bac58da15ea9d1e93b4f48ee0825e51adac0ec81f37ae",
+  "generator_version": "flat-part-14",
+  "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
+  "review": {
+    "status": "not_reviewed"
+  },
+  "label": "Partial AI reconstruction. Not reviewed by a person",
+  "units": "mm",
+  "features_status": "partial",
+  "features_all_determined": false,
+  "omitted_feature_notes": [
+    "Four countersunk holes: 4x Ø5,5 THRU, Ø10,8 X 90°: The count, primary diameter, through operation and countersink dimensions are printed, but no locating dimensions or dimensioned pattern establish the four centers. Their apparent layout cannot supply missing coordinates.",
+    "Eight M5 threaded holes: The image contains the 8x M5 callout, but the hole centers lack locating dimensions. A separate drill diameter and thread depth or explicit through-thread specification are also absent; none is inferred from M5.",
+    "Two Ø6,0 H7 holes: Both holes are identified as Ø6,0 H7 and lie on the bore-center horizontal line, but their horizontal center coordinates are not dimensioned. No printed pitch or offset establishes their placement.",
+    "Four small outer-corner chamfers, 4x1,0 X 45°: The leader identifies small corner edge breaks. The rectangle/hole/slot template cannot reproduce these chamfers; they are explicitly omitted from the otherwise dimensioned rectangular body.",
+    "Additional bore-edge and general sharp-edge treatment: The close concentric outlines at the Ø42,00 opening and the DEBURR AND BREAK SHARP EDGES note do not independently establish an additional step diameter, depth or angle. Only the supported primary bore is modeled; unspecified edge treatment is omitted."
+  ],
+  "weight_check": {
+    "state": "FAILED",
+    "message": "FAILED weight check: needs manual approval — no trusted material with a sourced density is available",
+    "examples": {
+      "A": {
+        "attempts": [],
+        "matches": false,
+        "drawing_g": 508.9
+      }
+    },
+    "drawing_g": 508.9,
+    "tolerance_percent": 5,
+    "requires_approval": true,
+    "approval_note_required": true,
+    "limitation": "A matching weight does not verify feature positions. No thickness or material is selected automatically.",
+    "density_label": "Outside source, not the dataset"
+  }
+}

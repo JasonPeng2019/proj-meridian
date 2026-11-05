@@ -1,0 +1,167 @@
+{
+  "examples": [
+    "A"
+  ],
+  "models": {
+    "A": {
+      "glb": "models/D-012_A.glb",
+      "step": "models/D-012_A_reconstruction_from_drawing.step",
+      "bounds_mm": {
+        "min": [
+          -12.5,
+          -60.0,
+          0.0
+        ],
+        "max": [
+          12.5,
+          60.0,
+          15.0
+        ],
+        "size": [
+          25.0,
+          120.0,
+          15.0
+        ]
+      },
+      "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
+      "volume_mm3": 44410.951377451915,
+      "template_sha256": "145ae791079abe6a53320360397f95092b981df4e8483a7132fae5bae6fe4b83",
+      "selections": {},
+      "labels": [
+        {
+          "name": "Feature 1 (hole)",
+          "kind": "hole",
+          "count": 1,
+          "hole_type": "threaded",
+          "requested_hole_type": "threaded",
+          "step_omitted": null,
+          "thread": "M6 - 6H",
+          "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+          "fact_ids": [
+            "D-012",
+            "D-012/drawing/callout/p1-1",
+            "D-012/drawing/n/2.0@1-1",
+            "D-012/drawing/n/12.5@1-1",
+            "D-012/drawing/n/25.0@1-1",
+            "D-012/drawing/n/40.0@1-1",
+            "D-012/drawing/n/5.0@1-1"
+          ],
+          "method": "ai_verified",
+          "feature_index": 0
+        },
+        {
+          "name": "Feature 2 (hole)",
+          "kind": "hole",
+          "count": 1,
+          "hole_type": "threaded",
+          "requested_hole_type": "threaded",
+          "step_omitted": null,
+          "thread": "M6 - 6H",
+          "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+          "fact_ids": [
+            "D-012",
+            "D-012/drawing/callout/p1-1",
+            "D-012/drawing/n/12.5@1-1",
+            "D-012/drawing/n/25.0@1-1",
+            "D-012/drawing/n/40.0@1-1",
+            "D-012/drawing/n/5.0@1-1"
+          ],
+          "method": "ai_verified",
+          "feature_index": 1
+        }
+      ],
+      "waiting": [
+        "features_complete"
+      ],
+      "omitted": [
+        "Two transverse holes: 2 x 5,0 THRU ALL, M6 - 6H THRU ALL.: The narrow orthographic view and corresponding hidden lines in the main view establish a second hole pair entering a side face, perpendicular to the main-face hole axes. The printed 30,0 offset concerns this pair. Their transverse cutting direction cannot be represented by the template's top/bottom holes; rotating them into Z would change the design.",
+        "DEBURR AND BREAK SHARP EDGES: The note requires edge finishing but supplies no edge-break size or profile, so no numerical finishing cut can be modeled."
+      ],
+      "features_all_determined": false,
+      "glb_units": "metres",
+      "cad_units": "mm",
+      "glb_to_mm": 1000,
+      "glb_sha256": "9f53bc959e8af0c61942d1a1279232e3d93c00a38e3ef53b6193f41d5694b6c1",
+      "step_sha256": "e88e1316d3aa65b2209fa7a8603db18fedac7cbb205cdc7cad818032ddf1cbca"
+    }
+  },
+  "waiting": [
+    "features_complete"
+  ],
+  "omitted": [
+    "Two transverse holes: 2 x 5,0 THRU ALL, M6 - 6H THRU ALL.: The narrow orthographic view and corresponding hidden lines in the main view establish a second hole pair entering a side face, perpendicular to the main-face hole axes. The printed 30,0 offset concerns this pair. Their transverse cutting direction cannot be represented by the template's top/bottom holes; rotating them into Z would change the design.",
+    "DEBURR AND BREAK SHARP EDGES: The note requires edge finishing but supplies no edge-break size or profile, so no numerical finishing cut can be modeled."
+  ],
+  "template_sha256": "145ae791079abe6a53320360397f95092b981df4e8483a7132fae5bae6fe4b83",
+  "source_sha256": "23ba5d97ee7a744cf12072e1338ab62fa5e49c09c5229af4f20a6ff5a455f64a",
+  "generator_version": "flat-part-14",
+  "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
+  "review": {
+    "status": "not_reviewed"
+  },
+  "label": "Partial AI reconstruction. Not reviewed by a person",
+  "units": "mm",
+  "features_status": "partial",
+  "features_all_determined": false,
+  "omitted_feature_notes": [
+    "Two transverse holes: 2 x 5,0 THRU ALL, M6 - 6H THRU ALL.: The narrow orthographic view and corresponding hidden lines in the main view establish a second hole pair entering a side face, perpendicular to the main-face hole axes. The printed 30,0 offset concerns this pair. Their transverse cutting direction cannot be represented by the template's top/bottom holes; rotating them into Z would change the design.",
+    "DEBURR AND BREAK SHARP EDGES: The note requires edge finishing but supplies no edge-break size or profile, so no numerical finishing cut can be modeled."
+  ],
+  "weight_check": {
+    "state": "Passed",
+    "message": "Weight check passed using drawing material",
+    "examples": {
+      "A": {
+        "attempts": [
+          {
+            "material": "3.3315 (EN-AW 5005)",
+            "source": "drawing",
+            "names": [
+              "3.3315 (EN-AW 5005)",
+              "EN-AW 5005",
+              "EN AW-5005",
+              "5005",
+              "3.3315"
+            ],
+            "density_g_cm3": 2.7,
+            "source_url": "https://materialsdata.nist.gov/bitstream/handle/11115/168/Properties%20of%20Aluminum%20Mill%20Products.pdf?isAllowed=y&sequence=3",
+            "source_title": "ASM Aluminum Mill and Engineered Wrought Products, Table 6 (NIST archive)",
+            "looked_up": "2026-11-05",
+            "note": "5005 alloy density. Outside source, not the dataset.",
+            "calculated_g": 119.9096,
+            "drawing_g": 117.3,
+            "difference_percent": 2.22,
+            "matches": true,
+            "outside_source": true
+          },
+          {
+            "material": "Aluminium",
+            "source": "parts list",
+            "names": [
+              "Aluminium",
+              "Aluminum"
+            ],
+            "density_g_cm3": 2.7,
+            "source_url": "https://materialsdata.nist.gov/bitstream/handle/11115/168/Properties%20of%20Aluminum%20Mill%20Products.pdf?isAllowed=y&sequence=3",
+            "source_title": "ASM Aluminum Mill and Engineered Wrought Products (NIST archive)",
+            "looked_up": "2026-11-05",
+            "note": "Approximate family density; alloy is unspecified. Outside source, not the dataset.",
+            "calculated_g": 119.9096,
+            "drawing_g": 117.3,
+            "difference_percent": 2.22,
+            "matches": true,
+            "outside_source": true
+          }
+        ],
+        "matches": true,
+        "drawing_g": 117.3
+      }
+    },
+    "drawing_g": 117.3,
+    "tolerance_percent": 5,
+    "requires_approval": false,
+    "approval_note_required": false,
+    "limitation": "A matching weight does not verify feature positions. No thickness or material is selected automatically.",
+    "density_label": "Outside source, not the dataset"
+  }
+}

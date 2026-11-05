@@ -407,6 +407,8 @@ class Store:
             if action not in {"accept", "reject"}:
                 raise ValueError("A correction must be accepted or rejected")
             event = self.append(target, "correction", found["value"], "accepted" if action == "accept" else "rejected", note, proposal_id=item_id, old_value=found.get("original"), check_result=found.get("check_result"))
+            if action == "accept" and "/template/" in target:
+                self.rebuild_models([target.split("/")[0]])
         elif kind == "source_changed" and action in {"accept", "set_value"}:
             previous = found["previous_decision"]
             if target not in self.fields and not any(m["name"] == target for m in self.mappings):
@@ -418,7 +420,7 @@ class Store:
                 self.validate_design(self.owners[target], note)
             event = self.append(target, previous["type"], chosen, note=note or "Re-approved against changed source evidence", previous_decision_id=previous["decision_id"], **parser_metadata)
             if "/template/" in target:
-                self.rebuild_models()
+                self.rebuild_models([target.split("/")[0]])
         elif kind == "name_mapping" and action == "reject":
             event = self.append(target, "name_mapping", found["value"], "rejected", note)
         elif action == "approve_mapping" and kind == "name_mapping":
@@ -441,7 +443,7 @@ class Store:
         elif action in {"confirm", "reject"}:
             event = self.append(target, action, note=note)
             if action == "reject" and "/template/" in target:
-                self.rebuild_models()
+                self.rebuild_models([target.split("/")[0]])
         elif action in {"set_value", "choose_option"}:
             if action == "choose_option":
                 options = [o.get("value") if isinstance(o, dict) else o for o in self.fields[target].get("options", [])]
@@ -451,7 +453,7 @@ class Store:
                 value = validate_review_value(target, value, self.fields.get(target, {}), self.templates.get(target.split("/")[0]))
             event = self.append(target, action, value, note=note, **parser_metadata)
             if "/template/" in target:
-                self.rebuild_models()
+                self.rebuild_models([target.split("/")[0]])
         else:
             raise ValueError("Action is not valid for this item")
         return {"decision": event, "revision": self.revision, "status": "saved"}
@@ -478,19 +480,32 @@ class Store:
         if str(weight.get("state", weight.get("status", ""))).lower() == "failed" and not note.strip():
             raise ValueError("Approving a FAILED weight check requires a note")
 
-    def rebuild_models(self) -> None:
+    def rebuild_models(self, part_ids: list[str] | set[str] | tuple[str, ...] | None = None) -> None:
+        selected = None
+        if part_ids is not None:
+            if not isinstance(part_ids, (list, set, tuple)) or any(
+                    not isinstance(part_id, str) or not re.fullmatch(r"D-\d{3}", part_id) for part_id in part_ids):
+                raise ValueError("CAD refresh requires a collection of drawing IDs")
+            selected = set(part_ids)
+            unknown = selected - self.templates.keys()
+            if unknown:
+                raise ValueError("No CAD template for drawing IDs: " + ", ".join(sorted(unknown)))
+            if not selected:
+                return
         try:
             from backend.cad.builder import build_all
             for part in self.records:
                 drawing = part.get("drawing") or {}
+                if selected is not None and drawing.get("id") not in selected:
+                    continue
                 template = self.templates.get(drawing.get("id"))
                 if template is not None:
                     template["bom_materials"] = [row["fields"]["material"] for row in part.get("bom", []) if row.get("fields", {}).get("material")]
-            build_all(self.templates, allow_generation=os.environ.get("GITHUB_ACTIONS") == "true")
+            build_all(self.templates, allow_generation=os.environ.get("GITHUB_ACTIONS") == "true", part_ids=part_ids)
             self.reload()
         except ImportError:
             for part in self.records:
-                if part.get("model"):
+                if part.get("model") and (selected is None or (part.get("drawing") or {}).get("id") in selected):
                     part["model"]["stale"] = True
                     part["model"]["stale_message"] = "Model out of date: rebuild needed. Showing the version from before this change."
 

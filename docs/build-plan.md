@@ -13,12 +13,29 @@ verification of the exact proposal. Read printed dimensions from image-only
 drawings into a separate, source-hash-bound AI evidence ledger before proposing
 templates. Preserve deterministic PDF extraction and every existing decision.
 
-Run local CLI readers sequentially behind the resource gate. Publish fresh prep
-only after its receipt is complete. Generate and probe STEP and GLB geometry on
+Run local CLI readers sequentially behind the resource gate. Stage fresh prep
+as a candidate; keep the current live data and working models available. Generate and probe STEP and GLB geometry on
 the queued GitHub Actions runner, including side-hole axes, depth, opening face,
 chamfer cuts and retained feature counts. Missing drawing dimensions remain
 unresolved; no pixel measurements or inferred standard hardware sizes may fill
 them. Inspect the verified exports and source comparison before resuming reviews.
+
+Before detailed extraction, route each drawing using its original PDF hash and
+the reusable base-body capability contract. Reuse a verified assessment for an
+unchanged essential unsupported shape, retaining its original receipts. Numeric
+uncertainty alone cannot exclude a part. New evidence, changed capabilities and
+unresolved assessments get a qualitative proposer/verifier screen. Only plausible
+template candidates get the expensive dimension and feature extraction. For this
+corpus the gate selects nine candidates and reuses 21 unsupported assessments.
+
+The completed batch writes `candidate/generated` inside its prep receipt folder.
+The coordinator dispatches integration with `prep_batch` to activate that candidate
+only on the disposable runner. After CAD and customer/Debug browser checks pass,
+install the matching verified artifact with source and current-decision hashes
+checked before any live writes. Keep a local rollback copy and publish the model
+manifest last under a short snapshot lock. Rebuild only the edited drawing after
+an interactive template change. Full integration still regenerates all eligible
+models, with fresh-clone/cache recovery checked after the verified release is shipped.
 
 The Parts library defaults to **Designed parts**: exactly the 30 records backed
 by the supplied engineering drawings. **Components & supplies** separately holds
@@ -82,3 +99,8 @@ For a presentation/runtime checkpoint while new prep is running, the coordinator
 ### Human review entry formatting
 
 Allow plain-language values by default, with optional guided fields listing supported shapes and units. Send entries through one bounded GPT-6-luna backend parsing call; normalize to the field schema and validate without inventing geometry. Show the interpretation or specific clarification questions before saving. Bind the save to a short-lived server preview and preserve original input plus parser provenance under the actual reviewer. Verify mocked parse/clarify/save behavior, token integrity, stale evidence, invalid geometry, and browser interaction remotely. Run a small sequential live parse-only smoke check locally when Actions secrets are unavailable; it must not save engineering decisions.
+
+Scalar template dimensions accept two explicit alternatives such as `3 mm or 6 mm`.
+Preview and retain both using the pipeline options representation, with neither
+selected. Ranges, tolerances and limit pairs need clarification rather than a guessed
+nominal value. Preserve legacy option records and earlier decision files unchanged.

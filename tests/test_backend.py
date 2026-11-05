@@ -147,7 +147,7 @@ def test_options_are_not_unknown_and_selection_is_durable(evidence):
     target = "D-019/template/thickness"
     assert KnowledgeTools(evidence).display(target)["display"] == {"state": "options", "values": [1.0,2.0]}
     # Avoid optional geometry in a trust-rule test; CAD has its own roundtrip tests.
-    evidence.rebuild_models = lambda: None
+    evidence.rebuild_models = lambda *args, **kwargs: None
     evidence.act("options:" + target, "choose_option", 2.0)
     assert KnowledgeTools(evidence).display(target)["display"]["value"] == 2.0
     assert evidence.fields[target]["options"] == [1.0,2.0]

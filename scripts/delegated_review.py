@@ -29,10 +29,11 @@ class DelegatedStore(Store):
         extra.update(by=ACTOR, review_kind="delegated", delegated_by="Jason Peng",
                      authorization="User explicitly delegated obvious source-backed input/review decisions and their accuracy outcomes on 2026-11-05.",
                      source_evidence=self.context.get("source_fact_ids", []),
-                     source_locations=self.context.get("source_locations", []))
+                     source_locations=self.context.get("source_locations", []),
+                     review_audit=self.context.get("audit_receipt"))
         return super().append(*args, **extra)
 
-    def rebuild_models(self):
+    def rebuild_models(self, part_ids=None):
         # All geometry/density regeneration is queued on Actions after the batch.
         self.reload()
 
@@ -40,6 +41,8 @@ class DelegatedStore(Store):
 def run(plan_path: Path, apply=False):
     plan = json.loads(inside(plan_path).read_text(encoding="utf-8"))
     store = DelegatedStore()
+    if plan.get("revision") and plan["revision"] != store.revision:
+        raise ValueError("The live dataset changed after this review plan was prepared; prepare it again")
     before = hashes(store.decisions_dir)
     prepared = []
     for operation in plan["operations"]:
@@ -56,6 +59,11 @@ def run(plan_path: Path, apply=False):
             raise ValueError(f"AI prediction changed since audit: {target}")
         if not operation.get("note") or not operation.get("source_fact_ids"):
             raise ValueError("Every delegated operation requires evidence and a reason")
+        audit = operation.get("audit_receipt")
+        if audit:
+            path = inside(audit["path"])
+            if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != audit.get("sha256"):
+                raise ValueError("The source-inspection audit changed since planning: " + target)
         if operation.get("based_on") != store.fingerprint(target):
             raise ValueError(f"Evidence changed since audit: {target}")
         if any(source_record(store, name) is None for name in operation["source_fact_ids"]):

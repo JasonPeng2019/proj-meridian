@@ -53,6 +53,10 @@ def cad():
         shutil.rmtree(cache)
     store = Store()
     before = {p.name: digest(p) for p in (ROOT / "decisions").glob("*.json")}
+    from backend.cad.builder import VERSION
+    write('cad-inputs.json', {'ai_results_sha256': digest(ROOT / 'generated/ai_results.json'),
+                            'drawings_sha256': digest(ROOT / 'generated/drawings.json'),
+                            'decisions': before, 'generator_version': VERSION})
     store.rebuild_models()
     drawings = json.loads((ROOT / "generated/drawings.json").read_text(encoding="utf-8"))
     assert set(store.models) == set(store.templates), "A prepared template was lost from the CAD manifest"
@@ -98,6 +102,9 @@ def cad():
     assert len(results) == sum(expected_variants.values()) and len(results) >= 6
     assert before == {p.name: digest(p) for p in (ROOT / "decisions").glob("*.json")}
     write("cad.json", {"passed": True, "built_parts": sum(bool(part["models"]) for part in store.models.values()), "variant_count": len(results), "expected_variants": expected_variants, "variants": results, "decisions_unchanged": True})
+    # Keep the shipped projection synchronized with the verified manifest.
+    from backend.loader.records import assemble_records
+    assemble_records(drawings, json.loads((ROOT / 'generated/bom.json').read_text(encoding='utf-8')))
 
 
 def server_check(live=False, debug=False):

@@ -33,8 +33,16 @@ review_parser = ReviewParser()
 def get_store() -> Store:
     global _store, _snapshot_signature, _snapshot_store
     with _store_lock:
+        live_root = _store.root if _store is not None else ROOT
+        if (live_root / 'generated/.publish.lock').exists():
+            if _store is None:
+                raise HTTPException(503, 'Publishing the verified release; retry shortly')
+            return _store
         if _store is None:
             _store = Store()
+        # The verified release installer publishes a complete dataset/model set.
+        # Requests already using the app retain the last complete snapshot until
+        # the short file promotion completes; prep itself never writes live data.
         if _snapshot_store is not _store:
             _snapshot_signature = None
         root = _store.root

@@ -302,7 +302,7 @@
         "cad_units": "mm",
         "glb_to_mm": 1000,
         "glb_sha256": "eda0d853164269b1fc28d6a742edc48155d20f4791bf5f46805e42c87061140a",
-        "step_sha256": "7c3ea795a119db1dd84653c55d73848839ce81ad2a5d944446b43d1570730d01"
+        "step_sha256": "1bbe175d12205f609027344a20daab4a8e2cff5513082093214e7f26f1affe2a"
       },
       "B": {
         "glb": "models/D-013_B.glb",
@@ -601,7 +601,7 @@
         "cad_units": "mm",
         "glb_to_mm": 1000,
         "glb_sha256": "8bfce74eb3cf247cf9cbc43fc4d4313fc93f0ba7f236bc9b4a9ab397fae18fdd",
-        "step_sha256": "6de29773cef755abc40358cde5329410d43588286eb20e69c2c236e9e181df2f"
+        "step_sha256": "a876bf494a8371f7b547e73968b4800ae0a5f54b47f1a17d9d9b97b49ea46429"
       }
     },
     "waiting": [
@@ -613,7 +613,7 @@
     ],
     "template_sha256": "ca65f2bc56d73409c45963c7e68f0f2a8a25768705ef2694e5fa5a9084c7ac39",
     "source_sha256": "826076b03bfbaeee961dc3e57cb642c225d41f1ea9a643d0bb1ca7d296280047",
-    "generator_version": "flat-part-13",
+    "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
     "review": {
       "status": "not_reviewed"
@@ -792,7 +792,7 @@
         "cad_units": "mm",
         "glb_to_mm": 1000,
         "glb_sha256": "de51670805792c52a2a9402373e18ef54022f591cc6096e96954469fbe209d9d",
-        "step_sha256": "b6f9ff54170176c4dab13ac803eea592e6e382eb674f7349ba9864101a55cc27"
+        "step_sha256": "507b60c63526ecbb1fb80b6fcef7391ce8ffcaac32f43dad7aed1852ff88303c"
       },
       "B": {
         "glb": "models/D-025_B.glb",
@@ -851,7 +851,7 @@
         "cad_units": "mm",
         "glb_to_mm": 1000,
         "glb_sha256": "28185dc6b069e466ec5aafce7c3433603366c238239ca5baeda1cb11399b6649",
-        "step_sha256": "083e97746c8b53e3fa4b1cfe209d5191c434d51e9f7aae2a9540d1d62839fc86"
+        "step_sha256": "82cb2f192d8e6648d07bffacaf5482c044fe122a9882072dfacfb80188b090c3"
       }
     },
     "waiting": [
@@ -862,7 +862,7 @@
     ],
     "template_sha256": "9d56f1bfa1da7d10f051710c68a757659f23c5337e5de93be0ffaf9504e261d7",
     "source_sha256": "9b61f2c688fba1b10f502658505c78c0ff99820d3f281822eacdc7283e9b7e9c",
-    "generator_version": "flat-part-13",
+    "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
     "review": {
       "status": "not_reviewed"
@@ -939,8 +939,7 @@
       "approval_note_required": false,
       "limitation": "A matching weight does not verify feature positions. No thickness or material is selected automatically.",
       "density_label": "Outside source, not the dataset"
-    },
-    "cache_hit": true
+    }
   },
   "D-026": {
     "examples": [
@@ -1013,7 +1012,7 @@
         "cad_units": "mm",
         "glb_to_mm": 1000,
         "glb_sha256": "c271955f857dea82a63d8bc0367df9084ebbbe28fae0bbb888a8a940a5966f19",
-        "step_sha256": "6affdff78dc65e3c61918215f0ccf6ef0d8689940af9be5f5f832dbd92ce3079"
+        "step_sha256": "d6c245d168fec818baffb893021a9f61c1d2f8742fa26a6fbd61ade4177ac4d3"
       },
       "B": {
         "glb": "models/D-026_B.glb",
@@ -1078,7 +1077,7 @@
         "cad_units": "mm",
         "glb_to_mm": 1000,
         "glb_sha256": "460e5e86ec7e9273cd23c095222075fd467edd92b5454d8eb977209299544bbe",
-        "step_sha256": "9c638ad3670130ae706c4b6fbafacbae8356d884754222cd4cdc11637d9ebc32"
+        "step_sha256": "ac502074c0e05b974f9969588080d456a85664d8ca70005cea31d0a5a46d6b97"
       }
     },
     "waiting": [
@@ -1092,7 +1091,7 @@
     ],
     "template_sha256": "cabed5b7894ca74eed8251a11071d9c1f54d4d93f1e777524ff057b841b5d905",
     "source_sha256": "a7ee7f4d75acaf2e8fc67ce14ca223d5cb4a2931063f37f4dfb6fadeeb70256e",
-    "generator_version": "flat-part-13",
+    "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
     "review": {
       "status": "not_reviewed"
@@ -1206,8 +1205,7 @@
       "approval_note_required": true,
       "limitation": "A matching weight does not verify feature positions. No thickness or material is selected automatically.",
       "density_label": "Outside source, not the dataset"
-    },
-    "cache_hit": true
+    }
   },
   "D-001": {
     "examples": [],
@@ -1218,7 +1216,7 @@
     "omitted": [],
     "template_sha256": "e7c2f9cdfd98db1f6fc3c6a9e9e25aa392aa74a166b82b6997416af9ec5cc809",
     "source_sha256": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f",
-    "generator_version": "flat-part-13",
+    "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
     "review": {
       "status": "not_reviewed"
@@ -1243,7 +1241,7 @@
     "omitted": [],
     "template_sha256": "0cd9622c419b0058b08b4bb7d95baa000680a489177b1d525932a9a9a22cc5dc",
     "source_sha256": "6822d609aa047ddbcb9446e1215f697ec12f5764ba9aa5ef3906543b9a1887bc",
-    "generator_version": "flat-part-13",
+    "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
     "review": {
       "status": "not_reviewed"
@@ -1268,7 +1266,7 @@
     "omitted": [],
     "template_sha256": "1ee324abac755cbcffc97798fba8290cc3c1b5423eb346f5f7deb30b8247de32",
     "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
-    "generator_version": "flat-part-13",
+    "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
     "review": {
       "status": "not_reviewed"
@@ -1293,7 +1291,7 @@
     "omitted": [],
     "template_sha256": "7d6dfa6436a65b49a6e758825fb6cc1c9da3a90fc3cd9ce8f0c357e3f6b584b8",
     "source_sha256": "947fee0986f4799388d5bd41411b2abedcee5d6a644e909238f005fb4802f64b",
-    "generator_version": "flat-part-13",
+    "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
     "review": {
       "status": "not_reviewed"
@@ -1318,7 +1316,7 @@
     "omitted": [],
     "template_sha256": "a65c752721fceeaef75d15c3ab6428941bef17fb4e700e83c27fa95cd45ca78c",
     "source_sha256": "6f49feb435d02be842ac6933d726b6785cf9cb7cef70e8193976dc4ab265cf26",
-    "generator_version": "flat-part-13",
+    "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
     "review": {
       "status": "not_reviewed"
@@ -1343,7 +1341,7 @@
     "omitted": [],
     "template_sha256": "d840bffbc83368ed98d9af9e20959a6c5b54dd3cc52f25afd0ce6c3d35fc408d",
     "source_sha256": "b9bd89aa9449889adb5335b1f4f3550be072a37447b1c134fb703435f04fbaad",
-    "generator_version": "flat-part-13",
+    "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
     "review": {
       "status": "not_reviewed"
@@ -1368,7 +1366,7 @@
     "omitted": [],
     "template_sha256": "51d550ef31d5911149e66624ef8eb9d24d4cd5e3b614826af763678908a8216c",
     "source_sha256": "e5d57d66cae6ca7bbb2956249e89c11db91d4ea3e258f48658af191e926870c9",
-    "generator_version": "flat-part-13",
+    "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
     "review": {
       "status": "not_reviewed"
@@ -1391,9 +1389,9 @@
       "Essential geometry unresolved: outline_type, cad_eligibility"
     ],
     "omitted": [],
-    "template_sha256": "b761b1a6b275d8001445c247ff22c238084d67fb09fd4dcde9809d43faa9805d",
+    "template_sha256": "613f4721618e62af2bb9af564f56fe78d5affe545776a2276e12ebfce5c58b6c",
     "source_sha256": "2642be4f1d3471cc440aa7830166adfa298a8e1a31cef90911662bb2b4a26448",
-    "generator_version": "flat-part-13",
+    "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
     "review": {
       "status": "not_reviewed"
@@ -1418,7 +1416,7 @@
     "omitted": [],
     "template_sha256": "4a6d3502e052b449f609aee320f9ff9762268ddfecb7cfa5a6a1f5de0ab7dd9e",
     "source_sha256": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea",
-    "generator_version": "flat-part-13",
+    "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
     "review": {
       "status": "not_reviewed"
@@ -1443,7 +1441,7 @@
     "omitted": [],
     "template_sha256": "a98fe5ac56d4057b01266246b5d6830791886cb7ec0862154ba601e9be3ab5d4",
     "source_sha256": "700cc64cb7e7c31d1d7a6d6f506bac453cdcb3c7daf76dc2272ffebfe5e2d911",
-    "generator_version": "flat-part-13",
+    "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
     "review": {
       "status": "not_reviewed"
@@ -1468,7 +1466,7 @@
     "omitted": [],
     "template_sha256": "677fc931cec6de4056833428cf64375496e7fe9bdcc7c33cd2cf4dc3cb343511",
     "source_sha256": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67",
-    "generator_version": "flat-part-13",
+    "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
     "review": {
       "status": "not_reviewed"
@@ -1568,7 +1566,7 @@
         "cad_units": "mm",
         "glb_to_mm": 1000,
         "glb_sha256": "9f53bc959e8af0c61942d1a1279232e3d93c00a38e3ef53b6193f41d5694b6c1",
-        "step_sha256": "2951325e377890385509b78dc53dd0f4646dc750eacfb6f5ff23bdd1927409cd"
+        "step_sha256": "e88e1316d3aa65b2209fa7a8603db18fedac7cbb205cdc7cad818032ddf1cbca"
       }
     },
     "waiting": [
@@ -1580,7 +1578,7 @@
     ],
     "template_sha256": "145ae791079abe6a53320360397f95092b981df4e8483a7132fae5bae6fe4b83",
     "source_sha256": "23ba5d97ee7a744cf12072e1338ab62fa5e49c09c5229af4f20a6ff5a455f64a",
-    "generator_version": "flat-part-13",
+    "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
     "review": {
       "status": "not_reviewed"
@@ -1649,8 +1647,7 @@
       "approval_note_required": false,
       "limitation": "A matching weight does not verify feature positions. No thickness or material is selected automatically.",
       "density_label": "Outside source, not the dataset"
-    },
-    "cache_hit": true
+    }
   },
   "D-014": {
     "examples": [
@@ -1992,7 +1989,7 @@
         "cad_units": "mm",
         "glb_to_mm": 1000,
         "glb_sha256": "614f28f44d5566303c37cbd28522cc5509e85982f9b52a34289e96e4c26e9e1c",
-        "step_sha256": "a4c5c455053adcbd79541d67e3bd6008fb0a43b28819caa5d92f8c1db19db3c1"
+        "step_sha256": "942b7036e6cd61a2793b4f4c81076cf2d9db0af132155bcb56ee9fda49356807"
       }
     },
     "waiting": [
@@ -2003,7 +2000,7 @@
     ],
     "template_sha256": "5bb98138de769d2feeeb33cb437b8cafa06d1d261cf371e3f5e780be64c2b152",
     "source_sha256": "0e6fa42e39eda320d42f45576a0825c5d0c002abd6863188b3c98774d52867f6",
-    "generator_version": "flat-part-13",
+    "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
     "review": {
       "status": "not_reviewed"
@@ -2071,8 +2068,7 @@
       "approval_note_required": false,
       "limitation": "A matching weight does not verify feature positions. No thickness or material is selected automatically.",
       "density_label": "Outside source, not the dataset"
-    },
-    "cache_hit": true
+    }
   },
   "D-015": {
     "examples": [
@@ -2116,7 +2112,7 @@
         "cad_units": "mm",
         "glb_to_mm": 1000,
         "glb_sha256": "9e2f0925f5a64c49a915ca7b87fb424f34cd563fe14a4510a8075065fe29c167",
-        "step_sha256": "deb4d99a710958f284c8f57b13fe2bc5d276b9909557e02c4031ce878149906e"
+        "step_sha256": "ad7521dc891d13f911b837402514a81d3b6521a2270fceb18dd60d97c680ef52"
       }
     },
     "waiting": [
@@ -2128,7 +2124,7 @@
     ],
     "template_sha256": "ea885e419942949161abe7db4ec1f03cc16fb6586deda74009b743fb601db818",
     "source_sha256": "0828f6fee0d3bc087524df08c8b3fbadc5201212e5f86fcfc08b984fe9e32c60",
-    "generator_version": "flat-part-13",
+    "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
     "review": {
       "status": "not_reviewed"
@@ -2157,8 +2153,7 @@
       "approval_note_required": true,
       "limitation": "A matching weight does not verify feature positions. No thickness or material is selected automatically.",
       "density_label": "Outside source, not the dataset"
-    },
-    "cache_hit": true
+    }
   },
   "D-016": {
     "examples": [],
@@ -2169,7 +2164,7 @@
     "omitted": [],
     "template_sha256": "c0b9836401ac77484b78d25e166bbe2f76b9f67b306a1753e8180159a6119a3c",
     "source_sha256": "4f9799f28352975cd39a5c52daf0e1dcb036d379fb58ecf6413f0befc67525f3",
-    "generator_version": "flat-part-13",
+    "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
     "review": {
       "status": "not_reviewed"
@@ -2257,7 +2252,7 @@
         "cad_units": "mm",
         "glb_to_mm": 1000,
         "glb_sha256": "41284247fd2c2ed9ec963af511099614dd2d89279b724ea3581c8c2a5db889c1",
-        "step_sha256": "f94396bc65b8f39b4da156ae08a620cdb45683632efac9bb43adfe7f519d2ef7"
+        "step_sha256": "b6f7b455984a03b21543244cef950c068d70d9af6c3fe8144228048012f6be3e"
       }
     },
     "waiting": [
@@ -2272,7 +2267,7 @@
     ],
     "template_sha256": "5adb12ddd1a9befdfa5e8ac3e166e57d821439b2726b92117ef1adab372295af",
     "source_sha256": "a460ab37d94f2d8f4c9bac58da15ea9d1e93b4f48ee0825e51adac0ec81f37ae",
-    "generator_version": "flat-part-13",
+    "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
     "review": {
       "status": "not_reviewed"
@@ -2304,8 +2299,7 @@
       "approval_note_required": true,
       "limitation": "A matching weight does not verify feature positions. No thickness or material is selected automatically.",
       "density_label": "Outside source, not the dataset"
-    },
-    "cache_hit": true
+    }
   },
   "D-018": {
     "examples": [],
@@ -2316,7 +2310,7 @@
     "omitted": [],
     "template_sha256": "99bd9d5d2f0ed4791367e3baea12f92115f28798968c36bb72d6900430128b10",
     "source_sha256": "816b582d82ed383ad0ff5452afde74e98b74981a6e9afb3c8d1ff6dbd6fa50a0",
-    "generator_version": "flat-part-13",
+    "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
     "review": {
       "status": "not_reviewed"
@@ -2377,7 +2371,7 @@
         "cad_units": "mm",
         "glb_to_mm": 1000,
         "glb_sha256": "13469b249c567ffd9d74c13ced0eddd4efb4e2c8411a25093cae6944e36acaa8",
-        "step_sha256": "ebebc3356cbdd2401cee16536245a24ddc134e6074be9f566aa207aab095e010"
+        "step_sha256": "d848e010503db43d98106d18f1298d7c843164eeb91dd469223fbdc5934d543c"
       }
     },
     "waiting": [
@@ -2389,7 +2383,7 @@
     ],
     "template_sha256": "2986a961afc35e5ae425ecbfdd45aece3ac5146f23331ba8ee2ac62667a4e596",
     "source_sha256": "581fbaf7562ac75008243463af6956d6f88cd6a0a858cf6c22aa62ce39041e11",
-    "generator_version": "flat-part-13",
+    "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
     "review": {
       "status": "not_reviewed"
@@ -2418,8 +2412,7 @@
       "approval_note_required": true,
       "limitation": "A matching weight does not verify feature positions. No thickness or material is selected automatically.",
       "density_label": "Outside source, not the dataset"
-    },
-    "cache_hit": true
+    }
   },
   "D-020": {
     "examples": [],
@@ -2430,7 +2423,7 @@
     "omitted": [],
     "template_sha256": "7df5a08e24bb21af7e3f52c9edb75b9a5b55bdac4476546a01f175082c11aa18",
     "source_sha256": "06242966c0f3c15c3031982fa56585859ff1d64e52f6215a30fcf0e912225fa6",
-    "generator_version": "flat-part-13",
+    "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
     "review": {
       "status": "not_reviewed"
@@ -2458,7 +2451,7 @@
     "omitted": [],
     "template_sha256": "b075d2cda78c0e4648ab8b0417aa1a6951aae4eb886d6363ef1469bb500aca7d",
     "source_sha256": "c8b07157f3b40ef8d2dc18ae915d4f7244479ea6219d4fe3e8bb6ef1fedea1bc",
-    "generator_version": "flat-part-13",
+    "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
     "review": {
       "status": "not_reviewed"
@@ -2490,7 +2483,7 @@
     "omitted": [],
     "template_sha256": "984f969d94434873eb7a61a4057f919435982b6a25c9892d2c69fc24202d996c",
     "source_sha256": "7f3f8efc002bc2545386c1a355341ca61ebd984084b21cb07575331c4c1cc9ee",
-    "generator_version": "flat-part-13",
+    "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
     "review": {
       "status": "not_reviewed"
@@ -2519,7 +2512,7 @@
     "omitted": [],
     "template_sha256": "57b5d3f02df1bfcf94d0f881c7e11847ed4bc28aeb42e2d60da690cf8548de67",
     "source_sha256": "5d838d31ad5e803b6c421bc6867447f73756d51509259385e07caf81e453c36d",
-    "generator_version": "flat-part-13",
+    "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
     "review": {
       "status": "not_reviewed"
@@ -2548,7 +2541,7 @@
     "omitted": [],
     "template_sha256": "6207f3c7825c982452922a6d367a1000300cc66879467bb26b9628788e054e01",
     "source_sha256": "f6da4da2e0c21231939c15f13535cf068d1c1f778774816f3cb65ddf30f96e3d",
-    "generator_version": "flat-part-13",
+    "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
     "review": {
       "status": "not_reviewed"
@@ -2684,7 +2677,7 @@
         "cad_units": "mm",
         "glb_to_mm": 1000,
         "glb_sha256": "5de02068b766a365e762d28844ffe07d4181597edbfa64b4aedb5fb80a6988e6",
-        "step_sha256": "339bfd45b4b3b468ef29e5b50569c62badc05b78b2cc53f6eac266383e7c5c01"
+        "step_sha256": "6f0b46e0eb8dd45290776fd7c96a7a2edb1649c14ddeb759a42f0bce07a250f6"
       }
     },
     "waiting": [
@@ -2695,7 +2688,7 @@
     ],
     "template_sha256": "012bcc0e68338b17a9950004b1716d50347b08b8bddd3deff15864efdf2210db",
     "source_sha256": "9a270f0ddf24b173b85b6879b4fbd1ba9cf67d71cff7b13f722699699a667bcc",
-    "generator_version": "flat-part-13",
+    "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
     "review": {
       "status": "not_reviewed"
@@ -2742,8 +2735,7 @@
       "approval_note_required": false,
       "limitation": "A matching weight does not verify feature positions. No thickness or material is selected automatically.",
       "density_label": "Outside source, not the dataset"
-    },
-    "cache_hit": true
+    }
   },
   "D-028": {
     "examples": [],
@@ -2754,7 +2746,7 @@
     "omitted": [],
     "template_sha256": "d0c1983061eea152f01bae8ab8b06ae23f55e2891c443607cb17f8f67629492c",
     "source_sha256": "30fb8b6088f535c51107389aa8eb4c7420841cd0f4c6175d3deb90a154e9881f",
-    "generator_version": "flat-part-13",
+    "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
     "review": {
       "status": "not_reviewed"
@@ -2781,7 +2773,7 @@
     "omitted": [],
     "template_sha256": "f9c302deafaca78fa2e98c009e11e7507b6b4248a08555e9577653faea0817ff",
     "source_sha256": "066ed91474bb74b652451a34c6b9f5b719d23dba56043b8ba6aa8f5b7479cf15",
-    "generator_version": "flat-part-13",
+    "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
     "review": {
       "status": "not_reviewed"
@@ -2814,7 +2806,7 @@
     "omitted": [],
     "template_sha256": "3a6852ede99dcad49faca92cabeb920dda79091908b8b4b8c3d422650f04ebb2",
     "source_sha256": "849100de6d2abbbcca5c6e39cd4a1778918b17818cc88c91340612981d9220ee",
-    "generator_version": "flat-part-13",
+    "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
     "review": {
       "status": "not_reviewed"

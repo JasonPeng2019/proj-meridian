@@ -1,0 +1,171 @@
+{
+  "examples": [
+    "A"
+  ],
+  "models": {
+    "A": {
+      "glb": "models/D-027_A.glb",
+      "step": "models/D-027_A_reconstruction_from_drawing.step",
+      "bounds_mm": {
+        "min": [
+          -165.0,
+          -165.0,
+          0.0
+        ],
+        "max": [
+          165.0,
+          165.0,
+          15.000000000000005
+        ],
+        "size": [
+          330.0,
+          330.0,
+          15.000000000000005
+        ]
+      },
+      "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
+      "volume_mm3": 445957.87991968665,
+      "template_sha256": "012bcc0e68338b17a9950004b1716d50347b08b8bddd3deff15864efdf2210db",
+      "selections": {},
+      "labels": [
+        {
+          "name": "Feature 1 (hole)",
+          "kind": "hole",
+          "count": 6,
+          "hole_type": "plain",
+          "requested_hole_type": "plain",
+          "step_omitted": null,
+          "thread": null,
+          "thread_representation": null,
+          "fact_ids": [
+            "D-027",
+            "D-027/drawing/callout/p1-1",
+            "D-027/drawing/callout/p1-2",
+            "D-027/drawing/n/148.5@1-1",
+            "D-027/drawing/n/6.0@1-1",
+            "D-027/drawing/n/9.0@1-1",
+            "D-027/drawing/n/60.0@1-1"
+          ],
+          "method": "ai_verified",
+          "feature_index": 0
+        },
+        {
+          "name": "Feature 2 (hole)",
+          "kind": "hole",
+          "count": 3,
+          "hole_type": "countersunk",
+          "requested_hole_type": "countersunk",
+          "step_omitted": null,
+          "thread": null,
+          "thread_representation": null,
+          "fact_ids": [
+            "D-027",
+            "D-027/drawing/callout/p1-1",
+            "D-027/drawing/callout/p1-3",
+            "D-027/drawing/callout/p1-4",
+            "D-027/drawing/n/148.5@1-1",
+            "D-027/drawing/n/3.0@1-2",
+            "D-027/drawing/n/11.0@1-1",
+            "D-027/drawing/n/24.4@1-1",
+            "D-027/drawing/n/90.0@1-1",
+            "D-027/drawing/n/120.0@1-1"
+          ],
+          "method": "ai_verified",
+          "feature_index": 1
+        },
+        {
+          "name": "Feature 3 (hole)",
+          "kind": "hole",
+          "count": 3,
+          "hole_type": "counterbored",
+          "requested_hole_type": "counterbored",
+          "step_omitted": null,
+          "thread": null,
+          "thread_representation": null,
+          "fact_ids": [
+            "D-027",
+            "D-027/drawing/n/3.0@1-1",
+            "D-027/drawing/n/20.0@1-1",
+            "D-027/drawing/n/4.0@1-1",
+            "D-027/drawing/n/0.05@1-1",
+            "D-027/drawing/n/0.021@1-1",
+            "D-027/drawing/n/0.0@1-1",
+            "D-027/drawing/n/11.0@1-1",
+            "D-027/drawing/n/148.5@1-1",
+            "D-027/drawing/n/120.0@1-1"
+          ],
+          "method": "ai_verified",
+          "feature_index": 2
+        }
+      ],
+      "waiting": [
+        "features_complete"
+      ],
+      "omitted": [
+        "Undimensioned edge breaks specified by DEBURR AND BREAK SHARP EDGES.: The note supplies no edge-break size or profile. Retain the nominal ring and supported holes without inventing chamfer geometry."
+      ],
+      "features_all_determined": false,
+      "glb_units": "metres",
+      "cad_units": "mm",
+      "glb_to_mm": 1000,
+      "glb_sha256": "5de02068b766a365e762d28844ffe07d4181597edbfa64b4aedb5fb80a6988e6",
+      "step_sha256": "6f0b46e0eb8dd45290776fd7c96a7a2edb1649c14ddeb759a42f0bce07a250f6"
+    }
+  },
+  "waiting": [
+    "features_complete"
+  ],
+  "omitted": [
+    "Undimensioned edge breaks specified by DEBURR AND BREAK SHARP EDGES.: The note supplies no edge-break size or profile. Retain the nominal ring and supported holes without inventing chamfer geometry."
+  ],
+  "template_sha256": "012bcc0e68338b17a9950004b1716d50347b08b8bddd3deff15864efdf2210db",
+  "source_sha256": "9a270f0ddf24b173b85b6879b4fbd1ba9cf67d71cff7b13f722699699a667bcc",
+  "generator_version": "flat-part-14",
+  "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
+  "review": {
+    "status": "not_reviewed"
+  },
+  "label": "Partial AI reconstruction. Not reviewed by a person",
+  "units": "mm",
+  "features_status": "partial",
+  "features_all_determined": false,
+  "omitted_feature_notes": [
+    "Undimensioned edge breaks specified by DEBURR AND BREAK SHARP EDGES.: The note supplies no edge-break size or profile. Retain the nominal ring and supported holes without inventing chamfer geometry."
+  ],
+  "weight_check": {
+    "state": "Flagged",
+    "message": "Weight check flagged: only matches using the parts list's material. The drawing's material, or the model's size, may be wrong.",
+    "examples": {
+      "A": {
+        "attempts": [
+          {
+            "material": "Aluminium",
+            "source": "parts list",
+            "names": [
+              "Aluminium",
+              "Aluminum"
+            ],
+            "density_g_cm3": 2.7,
+            "source_url": "https://materialsdata.nist.gov/bitstream/handle/11115/168/Properties%20of%20Aluminum%20Mill%20Products.pdf?isAllowed=y&sequence=3",
+            "source_title": "ASM Aluminum Mill and Engineered Wrought Products (NIST archive)",
+            "looked_up": "2026-11-05",
+            "note": "Approximate family density; alloy is unspecified. Outside source, not the dataset.",
+            "calculated_g": 1204.0863,
+            "drawing_g": 1204.1,
+            "difference_percent": 0.0,
+            "matches": true,
+            "outside_source": true
+          }
+        ],
+        "matches": true,
+        "drawing_g": 1204.1
+      }
+    },
+    "drawing_g": 1204.1,
+    "tolerance_percent": 5,
+    "requires_approval": true,
+    "approval_note_required": false,
+    "limitation": "A matching weight does not verify feature positions. No thickness or material is selected automatically.",
+    "density_label": "Outside source, not the dataset"
+  }
+}

@@ -8,11 +8,12 @@ from __future__ import annotations
 import argparse
 import copy
 import json
+import shutil
 import time
 from datetime import datetime, timezone
 from pathlib import Path
 
-from backend.ai import dimensions, pipeline, runner
+from backend.ai import dimensions, eligibility, pipeline, runner
 from backend.paths import GENERATED, ROOT, configure_environment, inside
 from scripts.expand_models import assess, digest, expansion_job, raw_drawings, require_settings, sequential_readers
 
@@ -35,6 +36,34 @@ all independently supported cuts. Do not label a partial reconstruction complete
 """
 
 
+def screen_job(drawing):
+    """Qualitative body screening precedes numeric extraction for new evidence."""
+    did = drawing['id']
+    return {"id": f"screen:{did}:{eligibility.PROTOCOL}", "kind": "template", "drawing": did,
+            "keys": ["cad_eligibility"], "numbers": {}, "sources": sorted(pipeline.source_ids(drawing)),
+            "images": [str(inside(GENERATED / image)) for image in drawing['images']],
+            "prompt": pipeline.BASE_PROMPT + "\nQUALITATIVE TEMPLATE CAPABILITY SCREEN ONLY.\n"
+            "Inspect the original drawing views. Do not transcribe numeric dimensions, locate holes, "
+            "or extract a complete feature list. Decide only whether the essential body fits the "
+            "provided reusable base-body contract. Missing numeric evidence or hole positions alone "
+            "does not make a body structurally unsupported; uncertain body shape stays unknown. "
+            "Never substitute a bounding rectangle/circle for a formed or custom-profiled body. "
+            "Return only cad_eligibility: known object with exactly supported, constant_thickness, "
+            "outline_exact (booleans), reason (source-specific structural explanation), "
+            "essential_uncertainty and omitted_minor_features (string arrays). supported=true "
+            "requires a certain compatible base shape, constant extrusion and empty essential_uncertainty. "
+            "This is routing, not a complete reconstruction or human approval. Cite original source IDs.\n" +
+            runner.json_text({"drawing": did, "source_ids": sorted(pipeline.source_ids(drawing)),
+                              "capabilities": eligibility.CAPABILITIES,
+                              "notes": drawing.get('fields', {}).get('notes')})}
+
+
+def route_drawings(drawings, original):
+    return {did: eligibility.route(drawing, original.get('templates', {}).get(did),
+                                  original.get('template_routing', {}).get(did))
+            for did, drawing in sorted(drawings.items())}
+
+
 def main():
     configure_environment()
     parser = argparse.ArgumentParser()
@@ -43,20 +72,22 @@ def main():
     args = parser.parse_args()
     require_settings()
     drawings = raw_drawings()
+    original = json.loads((GENERATED / "ai_results.json").read_text(encoding="utf-8"))
+    routing = route_drawings(drawings, original)
     # D-017's fused 4x1,0 corner note is visible but absent from the
     # deterministic numeric index. It needs the same verified image pass.
     image_ids = [did for did, drawing in sorted(drawings.items())
-                 if drawing.get("degraded") or did == "D-017"]
+                 if routing[did]['action'] != 'reuse_unsupported' and (drawing.get("degraded") or did == "D-017")]
     if not args.execute:
         print(json.dumps({"protocol": DETAIL_PROTOCOL, "image_dimension_jobs": image_ids,
-                          "template_jobs": sorted(drawings), "reader_concurrency": 1,
+                          "template_jobs": [did for did in drawings if routing[did]['action'] == 'detailed_candidate'],
+                          "routing": routing, "reader_concurrency": 1,
                           "providers": {r: runner.reader_settings(r) for r in ("codex", "claude")}}))
         return
     baseline = {str(p.relative_to(ROOT)): digest(p) for p in (ROOT / "decisions").glob("*.json")}
     source_hashes = {str(p.relative_to(ROOT)): digest(p) for p in
                      [GENERATED / "drawings.json", *[inside(GENERATED / image) for d in drawings.values() for image in d["images"]]]}
     raw_hash = digest(GENERATED / "drawings.json")
-    original = json.loads((GENERATED / "ai_results.json").read_text(encoding="utf-8"))
     if args.resume:
         folder = inside(args.resume)
         checkpoint = json.loads((folder / "checkpoint.json").read_text(encoding="utf-8"))
@@ -76,7 +107,7 @@ def main():
         runner.write_json(folder / "checkpoint.json", {
             "protocol": DETAIL_PROTOCOL, "complete": complete,
             "raw_drawings_sha256": raw_hash, "source_hashes": source_hashes,
-            "results": results, **extra})
+            "results": results, "routing": routing, **extra})
 
     def run(job):
         existing = next((r for r in results if r["job"]["id"] == job["id"]), None)
@@ -93,13 +124,34 @@ def main():
 
     save()
     with sequential_readers():
+        for did, decision in list(routing.items()):
+            if decision['action'] != 'screen_required':
+                continue
+            result = run(screen_job(drawings[did]))
+            field = pipeline.resolved(result, 'cad_eligibility')
+            routing[did] = eligibility.route(drawings[did], original.get('templates', {}).get(did), {
+                'source_sha256': drawings[did]['sha256'],
+                'capabilities_sha256': eligibility.CAPABILITIES_SHA256, 'cad_eligibility': field})
+            if routing[did]['action'] == 'screen_required':
+                routing[did]['reason'] = 'Qualitative screen remains unresolved; detailed geometry is deferred. ' + routing[did]['reason']
+        save()
+        image_ids = [did for did, drawing in sorted(drawings.items())
+                     if routing[did]['action'] == 'detailed_candidate' and (drawing.get('degraded') or did == 'D-017')]
         for did in image_ids:
             for job in dimensions.jobs(drawings[did]):
                 run(job)
-        index = pipeline.assemble(results, drawings, {}).get("dimension_evidence", {})
+        ordinary_results = [result for result in results if not result['job']['id'].startswith('screen:')]
+        index = pipeline.assemble(ordinary_results, drawings, {}).get("dimension_evidence", {})
         augmented = {did: dimensions.attach(drawing, index.get(did)) for did, drawing in drawings.items()}
         assessments = {}
         for did, drawing in sorted(augmented.items()):
+            existing = next((r for r in results if r['job']['id'] == f'detail:{did}:{DETAIL_PROTOCOL}'), None)
+            if routing[did]['action'] != 'detailed_candidate' and existing is None:
+                assessments[did] = {'drawing': did, 'status': 'blocked' if routing[did]['action'] == 'reuse_unsupported' else 'screen_unresolved',
+                                    'reason': routing[did]['reason'], 'source_sha256': drawing['sha256'],
+                                    'fresh_detailed_extraction': False, 'routing': routing[did]}
+                print(json.dumps({'drawing': did, 'routing': routing[did]['action'], 'detail_skipped': True}), flush=True)
+                continue
             job = expansion_job(drawing)
             job["id"] = f"detail:{did}:{DETAIL_PROTOCOL}"
             job["prompt"] += "\n" + DETAIL_PROMPT
@@ -111,37 +163,43 @@ def main():
                               "cuts": len(template.get("features", [])),
                               "features_status": template.get("features_status"),
                               "omissions": template.get("omitted_feature_notes", [])}), flush=True)
-    assembled = pipeline.assemble(results, augmented, {})
+    assembled = pipeline.assemble([r for r in results if not r['job']['id'].startswith('screen:')], augmented, {})
     output = copy.deepcopy(json.loads((GENERATED / "ai_results.json").read_text(encoding="utf-8")))
     output["dimension_evidence"] = {**output.get("dimension_evidence", {}), **index}
     output["templates"] = {**output.get("templates", {}), **assembled["templates"]}
+    output['template_routing'] = routing
+    for did, decision in routing.items():
+        if did not in assembled['templates'] and decision.get('assessment'):
+            template = output['templates'].setdefault(did, {'part': did, 'template': 'flat_part',
+                'outline': {'state': 'unknown'}, 'thickness': {'state': 'unknown'}, 'features': [],
+                'source_sha256': drawings[did]['sha256']})
+            template['cad_eligibility'] = copy.deepcopy(decision['assessment'])
+            template['cad_ready'] = False
+            template['blocking_fields'] = list(dict.fromkeys([*template.get('blocking_fields', []), 'cad_eligibility']))
     output["detail_assessments"] = assessments
     metrics = {**assembled["metrics"], "wall_time_ms": round((time.monotonic() - started) * 1000)}
     output.setdefault("prep_runs", []).append({"kind": DETAIL_PROTOCOL, "protocol": pipeline.PROTOCOL,
-        "receipt": str((folder / "checkpoint.json").relative_to(GENERATED)), "metrics": metrics})
-    output["previous_geometry_prep"] = {"receipt": str((folder / "previous-output.json").relative_to(GENERATED)),
+        "receipt": (folder / "checkpoint.json").relative_to(GENERATED).as_posix(), "metrics": metrics})
+    output["previous_geometry_prep"] = {"receipt": (folder / "previous-output.json").relative_to(GENERATED).as_posix(),
                                         "sha256": runner.fingerprint(original)}
     for name, expected in source_hashes.items():
         if digest(inside(name)) != expected:
             raise ValueError("Original evidence changed during prep: " + name)
     if any(not inside(name).is_file() or digest(inside(name)) != expected for name, expected in baseline.items()):
         raise ValueError("A prior human decision changed during prep")
-    save(complete=True, metrics=metrics, decisions_unchanged=True, assessments=assessments)
-    runner.write_json(GENERATED / "ai_results.json", output)
-    runner.write_json(runner.CACHE / "artifacts/ai_results.json", output)
-    # Merge existing evidence only; no PDF rendering, geometry generation, or API.
+    # Stage a candidate. Never replace live data or invalidate working meshes
+    # before the remote CAD and browser checks have produced a matching release.
+    candidate = inside(folder / 'candidate/generated')
+    runner.write_json(candidate / 'ai_results.json', output)
     from backend.loader.records import assemble_records
     bom = json.loads((GENERATED / "bom.json").read_text(encoding="utf-8"))
-    assemble_records(drawings, bom)
-    # Restore only matching shipped caches; new geometry must not masquerade as
-    # an already verified old mesh while remote reconstruction is pending.
-    from backend.app.store import Store
-    from backend.cad.builder import build_all
-    store = Store()
-    for did, template in store.templates.items():
-        template["bom_materials"] = [row["fields"]["material"] for row in store.parts[did].get("bom", [])
-                                     if row.get("fields", {}).get("material")]
-    build_all(store.templates, allow_generation=False)
+    for name in ('bom.json', 'drawings.json', 'readme.json'):
+        if (GENERATED / name).is_file():
+            shutil.copyfile(GENERATED / name, candidate / name)
+    assemble_records(drawings, bom, output=candidate)
+    save(complete=True, published=False, candidate=candidate.relative_to(ROOT).as_posix(),
+         candidate_sha256=digest(candidate / 'ai_results.json'), metrics=metrics,
+         decisions_unchanged=True, assessments=assessments)
     runner.write_json(folder / "summary.json", {"complete": True, "protocol": DETAIL_PROTOCOL,
                       "metrics": metrics, "decisions_unchanged": True,
                       "eligible_drawings": [did for did, a in assessments.items() if a["status"] == "ready_for_cad"]})

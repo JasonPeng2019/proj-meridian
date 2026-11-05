@@ -1,0 +1,36 @@
+{
+  "feature": "Two unresolved reviewed scalar template alternatives",
+  "commit": "fe3127b",
+  "remote_checks": {
+    "run": 42065878222,
+    "passed": 421,
+    "skipped_cad": 28
+  },
+  "browser_run": 42066109343,
+  "browser_status": "passed",
+  "live_unsaved_preview": {
+    "status": "ready",
+    "value": {
+      "state": "options",
+      "options": [
+        3,
+        6
+      ]
+    },
+    "summary": "Thickness alternatives are 3 mm and 6 mm; both remain unresolved alternatives.",
+    "model": "gpt-6-luna",
+    "questions": []
+  },
+  "confirmation_required": true,
+  "no_decision_saved_by_live_check": true,
+  "scope": [
+    "thickness",
+    "length",
+    "width",
+    "outer_diameter",
+    "inner_diameter"
+  ],
+  "range_tolerance_policy": "Requires clarification; no endpoint choices or midpoint",
+  "legacy_option_receipts": "Original structure, notes and prior files preserved",
+  "browser_artifact": "meridian-87-1"
+}

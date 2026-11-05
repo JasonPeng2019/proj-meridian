@@ -7,6 +7,10 @@ on:
         description: Regenerate pinned data/CAD and verify fresh-clone recovery (false checks cached runtime/UI and unit fixtures)
         type: boolean
         default: true
+      prep_batch:
+        description: Optional staged detail-prep batch to verify before local publication
+        type: string
+        default: ''
       live_api:
         description: Run paid isolated correction UI check
         type: boolean
@@ -77,6 +81,11 @@ jobs:
           npm --prefix frontend ci --maxsockets=2
       - name: Check pinned source evidence and tracked paths
         run: uv run --locked python scripts/ci_verify.py audit
+      - name: Activate staged prep on the disposable checkout
+        if: inputs.prep_batch != ''
+        env:
+          MERIDIAN_PREP_BATCH: ${{ inputs.prep_batch }}
+        run: uv run --locked python -m scripts.prep_candidate "$MERIDIAN_PREP_BATCH"
       - name: Build frontend
         run: npm --prefix frontend run build
       - name: Record frontend artifact provenance
@@ -91,11 +100,11 @@ jobs:
         run: uv run --locked python scripts/ci_verify.py cad
       - name: Install headless browser and Linux dependencies
         run: uv run --locked playwright install --with-deps chromium
+      - name: Verify browser pages and screenshots without a key
+        run: uv run --locked python scripts/ci_verify.py browser
       - name: Verify fresh runtime and cache regeneration without a key
         if: inputs.regenerate
         run: uv run --locked python scripts/verify_release.py --skip-live
-      - name: Verify browser pages and screenshots without a key
-        run: uv run --locked python scripts/ci_verify.py browser
       - name: Optional canonical benchmark (two sequential passes)
         if: github.event_name == 'workflow_dispatch' && inputs.regenerate && inputs.benchmark
         env:

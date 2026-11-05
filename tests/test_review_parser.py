@@ -23,7 +23,7 @@ def store():
     value.owners = {}
     value.fingerprint = lambda target: "source-one"
     value.review_items = lambda: [{"id": target, "target": target, "type": "template"} for target in value.fields]
-    value.rebuild_models = lambda: None
+    value.rebuild_models = lambda *args, **kwargs: None
     value.saved = []
 
     def append(target, action, parsed, **metadata):
@@ -331,7 +331,7 @@ def test_options_preview_save_and_restart_preserve_both_values_and_prior_receipt
     prior = live.append(target, "choose_option", 4, by="Automated options fixture reviewer")
     old_receipt_path = live.decisions_dir / (prior["decision_id"] + ".json")
     old_receipt_bytes = old_receipt_path.read_bytes()
-    monkeypatch.setattr(live, "rebuild_models", lambda: None)
+    monkeypatch.setattr(live, "rebuild_models", lambda *args, **kwargs: None)
     monkeypatch.setattr(main, "get_store", lambda: live)
     monkeypatch.setattr(main, "review_parser", ReviewParser())
     provider[0].output_text = json.dumps({"status": "ready", "value_json": json.dumps({"state": "options", "options": [3, 6]}),

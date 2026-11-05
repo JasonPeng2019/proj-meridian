@@ -1,0 +1,212 @@
+{
+  "examples": [
+    "A",
+    "B"
+  ],
+  "models": {
+    "A": {
+      "glb": "models/D-025_A.glb",
+      "step": "models/D-025_A_reconstruction_from_drawing.step",
+      "bounds_mm": {
+        "min": [
+          -125.0,
+          -125.0,
+          0.0
+        ],
+        "max": [
+          125.0,
+          125.0,
+          2.0000000000000004
+        ],
+        "size": [
+          250.0,
+          250.0,
+          2.0000000000000004
+        ]
+      },
+      "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
+      "volume_mm3": 19037.480758088677,
+      "template_sha256": "9d56f1bfa1da7d10f051710c68a757659f23c5337e5de93be0ffaf9504e261d7",
+      "selections": {
+        "thickness": 2.0
+      },
+      "labels": [
+        {
+          "name": "Feature 1 (hole)",
+          "kind": "hole",
+          "count": 8,
+          "hole_type": "countersunk",
+          "requested_hole_type": "countersunk",
+          "step_omitted": null,
+          "thread": null,
+          "thread_representation": null,
+          "fact_ids": [
+            "D-025",
+            "D-025/drawing/callout/p1-1",
+            "D-025/drawing/callout/p1-2",
+            "D-025/drawing/callout/p1-3"
+          ],
+          "method": "ai_verified",
+          "feature_index": 0
+        }
+      ],
+      "waiting": [
+        "features_complete"
+      ],
+      "omitted": [
+        "DEBURR AND BREAK SHARP EDGES: The general finishing note does not specify an edge-break size or profile, so a corresponding chamfer or rounding cut cannot be determined."
+      ],
+      "features_all_determined": false,
+      "glb_units": "metres",
+      "cad_units": "mm",
+      "glb_to_mm": 1000,
+      "glb_sha256": "de51670805792c52a2a9402373e18ef54022f591cc6096e96954469fbe209d9d",
+      "step_sha256": "507b60c63526ecbb1fb80b6fcef7391ce8ffcaac32f43dad7aed1852ff88303c"
+    },
+    "B": {
+      "glb": "models/D-025_B.glb",
+      "step": "models/D-025_B_reconstruction_from_drawing.step",
+      "bounds_mm": {
+        "min": [
+          -125.0,
+          -125.0,
+          0.0
+        ],
+        "max": [
+          125.0,
+          125.0,
+          3.0000000000000004
+        ],
+        "size": [
+          250.0,
+          250.0,
+          3.0000000000000004
+        ]
+      },
+      "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
+      "volume_mm3": 28644.094101647897,
+      "template_sha256": "9d56f1bfa1da7d10f051710c68a757659f23c5337e5de93be0ffaf9504e261d7",
+      "selections": {
+        "thickness": 3.0
+      },
+      "labels": [
+        {
+          "name": "Feature 1 (hole)",
+          "kind": "hole",
+          "count": 8,
+          "hole_type": "countersunk",
+          "requested_hole_type": "countersunk",
+          "step_omitted": null,
+          "thread": null,
+          "thread_representation": null,
+          "fact_ids": [
+            "D-025",
+            "D-025/drawing/callout/p1-1",
+            "D-025/drawing/callout/p1-2",
+            "D-025/drawing/callout/p1-3"
+          ],
+          "method": "ai_verified",
+          "feature_index": 0
+        }
+      ],
+      "waiting": [
+        "features_complete"
+      ],
+      "omitted": [
+        "DEBURR AND BREAK SHARP EDGES: The general finishing note does not specify an edge-break size or profile, so a corresponding chamfer or rounding cut cannot be determined."
+      ],
+      "features_all_determined": false,
+      "glb_units": "metres",
+      "cad_units": "mm",
+      "glb_to_mm": 1000,
+      "glb_sha256": "28185dc6b069e466ec5aafce7c3433603366c238239ca5baeda1cb11399b6649",
+      "step_sha256": "82cb2f192d8e6648d07bffacaf5482c044fe122a9882072dfacfb80188b090c3"
+    }
+  },
+  "waiting": [
+    "features_complete"
+  ],
+  "omitted": [
+    "DEBURR AND BREAK SHARP EDGES: The general finishing note does not specify an edge-break size or profile, so a corresponding chamfer or rounding cut cannot be determined."
+  ],
+  "template_sha256": "9d56f1bfa1da7d10f051710c68a757659f23c5337e5de93be0ffaf9504e261d7",
+  "source_sha256": "9b61f2c688fba1b10f502658505c78c0ff99820d3f281822eacdc7283e9b7e9c",
+  "generator_version": "flat-part-14",
+  "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
+  "review": {
+    "status": "not_reviewed"
+  },
+  "label": "Partial AI reconstruction. Not reviewed by a person",
+  "units": "mm",
+  "features_status": "partial",
+  "features_all_determined": false,
+  "omitted_feature_notes": [
+    "DEBURR AND BREAK SHARP EDGES: The general finishing note does not specify an edge-break size or profile, so a corresponding chamfer or rounding cut cannot be determined."
+  ],
+  "weight_check": {
+    "state": "Passed",
+    "message": "Weight check passed using drawing material",
+    "examples": {
+      "A": {
+        "attempts": [
+          {
+            "material": "3.3315 (EN-AW 5005)",
+            "source": "drawing",
+            "names": [
+              "3.3315 (EN-AW 5005)",
+              "EN-AW 5005",
+              "EN AW-5005",
+              "5005",
+              "3.3315"
+            ],
+            "density_g_cm3": 2.7,
+            "source_url": "https://materialsdata.nist.gov/bitstream/handle/11115/168/Properties%20of%20Aluminum%20Mill%20Products.pdf?isAllowed=y&sequence=3",
+            "source_title": "ASM Aluminum Mill and Engineered Wrought Products, Table 6 (NIST archive)",
+            "looked_up": "2026-11-05",
+            "note": "5005 alloy density. Outside source, not the dataset.",
+            "calculated_g": 51.4012,
+            "drawing_g": 77.3,
+            "difference_percent": 33.5,
+            "matches": false,
+            "outside_source": true
+          }
+        ],
+        "matches": false,
+        "drawing_g": 77.3
+      },
+      "B": {
+        "attempts": [
+          {
+            "material": "3.3315 (EN-AW 5005)",
+            "source": "drawing",
+            "names": [
+              "3.3315 (EN-AW 5005)",
+              "EN-AW 5005",
+              "EN AW-5005",
+              "5005",
+              "3.3315"
+            ],
+            "density_g_cm3": 2.7,
+            "source_url": "https://materialsdata.nist.gov/bitstream/handle/11115/168/Properties%20of%20Aluminum%20Mill%20Products.pdf?isAllowed=y&sequence=3",
+            "source_title": "ASM Aluminum Mill and Engineered Wrought Products, Table 6 (NIST archive)",
+            "looked_up": "2026-11-05",
+            "note": "5005 alloy density. Outside source, not the dataset.",
+            "calculated_g": 77.3391,
+            "drawing_g": 77.3,
+            "difference_percent": 0.05,
+            "matches": true,
+            "outside_source": true
+          }
+        ],
+        "matches": true,
+        "drawing_g": 77.3
+      }
+    },
+    "drawing_g": 77.3,
+    "tolerance_percent": 5,
+    "requires_approval": false,
+    "approval_note_required": false,
+    "limitation": "A matching weight does not verify feature positions. No thickness or material is selected automatically.",
+    "density_label": "Outside source, not the dataset"
+  }
+}

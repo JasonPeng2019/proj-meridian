@@ -565,22 +565,39 @@ def _build_part(part_id, template, old, allow_generation=True):
     return entry
 
 
-def build_all(templates: dict | None = None, *, allow_generation: bool = True) -> dict:
-    """Build provided templates, or use AI prep output; no paid calls are made."""
+def build_all(templates: dict | None = None, *, allow_generation: bool = True,
+              part_ids: list[str] | set[str] | tuple[str, ...] | None = None) -> dict:
+    """Refresh selected drawings without reevaluating unrelated shipped models.
+
+    With no selection this remains a full build of the provided/prepared templates.
+    No paid calls are made; callers control the existing CAD generation gate.
+    """
     models_dir = inside(GENERATED / "models")
-    models_dir.mkdir(parents=True, exist_ok=True)
     manifest_path = models_dir / "manifest.json"
     old = _read(manifest_path, {})
+    if part_ids is not None and not isinstance(part_ids, (list, set, tuple)):
+        raise ValueError("CAD refresh requires a collection of drawing IDs")
     if templates is None:
         templates = _read(GENERATED / "ai_results.json", {}).get("templates")
         if templates is None:
+            if part_ids:
+                raise ValueError("No CAD templates are available for the selected drawing IDs")
             return old
-    manifest = {}
-    for part_id, template in templates.items():
-        if not re.fullmatch(r"D-\d{3}", part_id):
+    selected = list(templates) if part_ids is None else list(part_ids)
+    for part_id in selected:
+        if not isinstance(part_id, str) or not re.fullmatch(r"D-\d{3}", part_id):
             raise ValueError("Unsafe drawing ID in CAD template")
-        if not isinstance(template, dict):
+        if part_id not in templates:
+            raise ValueError("No CAD template for drawing ID: " + part_id)
+        if not isinstance(templates[part_id], dict):
             raise ValueError("Template must be an object: " + part_id)
+    selected = list(dict.fromkeys(selected))
+    if part_ids is not None and not selected:
+        return old
+    manifest = {} if part_ids is None else copy.deepcopy(old)
+    models_dir.mkdir(parents=True, exist_ok=True)
+    for part_id in selected:
+        template = templates[part_id]
         manifest[part_id] = _build_part(part_id, template, old.get(part_id), allow_generation=allow_generation)
     _write(manifest_path, manifest)
     return manifest

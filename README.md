@@ -12,6 +12,8 @@ its parts, engineering drawings, source evidence, and available 3D reconstructio
 - Reopen saved chats. Use optional **Debug** for evidence, model checks, review
   queues, corrections, and decision history.
 
+The submission report and accompanying screenshots are in [report/](report/).
+
 ## Setup
 
 You need **[uv](https://docs.astral.sh/uv/getting-started/installation/)**.

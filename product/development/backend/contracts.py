@@ -1,12 +1,14 @@
 """Frozen M02 payloads and boundaries. No I/O, chat, router, or CAD imports.
 
 JSON uses snake_case in both languages. contracts.ts mirrors the Pydantic schema;
-the focused B00 checker verifies that mirror. Reserved M2/M3 shapes are contracts,
+the focused contract checker verifies that mirror. Reserved M2/M3 shapes are contracts,
 not a claim that their endpoints or behavior have been implemented.
 """
 
 from __future__ import annotations
 
+import hashlib
+import json
 import math
 import re
 import unicodedata
@@ -23,9 +25,12 @@ from pydantic import (
 
 SCHEMA_NAME = "meridian-contracts"
 RECONSTRUCTION_LABEL = "Reconstruction from 2D drawing. Not the original CAD model."
-SINGLE_MODEL_LABEL = "Single-model fallback: Sol only; Opus output unavailable."
+SINGLE_MODEL_LABEL = "UNVERIFIED: Sol only; Opus execution failed."  # Debug only.
+PREP_PIPELINE_VERSION = "determine-verify/v1"
+DEBUG_ENV = "MERIDIAN_DEBUG"  # A01 owns parsing; unset/0 disables, 1 explicitly enables.
 CHAT_MODEL = "gpt-6-luna"
 NonEmpty = Annotated[str, StringConstraints(min_length=1)]
+Reason = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1)]
 SHA256 = Annotated[str, StringConstraints(pattern=r"^[0-9a-f]{64}$")]
 NonNegative = Annotated[float, Field(ge=0)]
 Positive = Annotated[float, Field(gt=0)]
@@ -180,9 +185,11 @@ class Method(StrEnum):
     PARSED = "parsed"
     CLEANUP_RULE = "cleanup_rule"
     EXACT_MATCH = "exact_match"
-    AI_READ = "ai_read"
-    AI_AGREED = "ai_agreed"
-    AI_AGREED_AFTER_RETRY = "ai_agreed_after_retry"
+    AI_READ = "ai_read"  # Historical only; never establishes verification.
+    AI_AGREED = "ai_agreed"  # Historical blind-reader method.
+    AI_AGREED_AFTER_RETRY = "ai_agreed_after_retry"  # Historical only.
+    AI_VERIFIED = "ai_verified"
+    AI_VERIFIED_AFTER_RETRY = "ai_verified_after_retry"
     AI_SINGLE_MODEL = "ai_single_model"
     HUMAN_DECISION = "human_decision"
     UNRESOLVED = "unresolved"
@@ -222,7 +229,7 @@ class ReviewState(ContractModel):
 
 class ReviewLink(ContractModel):
     id: NonEmpty
-    href: NonEmpty
+    href: NonEmpty  # Debug-only navigation; historical /review links cannot bypass the launch gate.
 
 
 class ReaderSettings(ContractModel):
@@ -268,107 +275,387 @@ class ReaderFailure(ContractModel):
         return self
 
 
-class ReaderAnswer(ContractModel):
+def contract_digest(value: JsonValue | BaseModel) -> str:
+    """SHA256 of sorted compact UTF-8 JSON; normalize models before hashing.
+
+    This binds records; it does not prove the cited source was actually inspected.
+    M08/domain validators must check original bytes and admissible references.
+    """
+    if isinstance(value, BaseModel):
+        value = value.model_dump(mode="json")
+    return hashlib.sha256(json.dumps(value, sort_keys=True, separators=(",", ":"),
+                                     ensure_ascii=False, allow_nan=False).encode("utf-8")).hexdigest()
+
+
+class PrepSourceIdentity(ContractModel):
+    # Original evidence, including supplied images/rows/number inventories.
+    inputs: dict[NonEmpty, SHA256] = Field(min_length=1)
+    source_ids: dict[NonEmpty, NonEmpty] = Field(min_length=1)  # Stable ID -> input key.
+
+    @model_validator(mode="after")
+    def owned_references(self) -> PrepSourceIdentity:
+        if not set(self.source_ids.values()) <= self.inputs.keys():
+            raise ValueError("Every source ID must identify an original hashed input")
+        return self
+
+
+class DeterminedField(ContractModel):
     state: Literal["known", "options", "unknown", "value", "match", "no_match", "relationship"]
     value: JsonValue = None
     options: list[JsonValue] = Field(default_factory=list)
     confidence: Confidence
-    source_ids: list[str] = Field(default_factory=list)
-    reason: NonEmpty
-    schema_valid: bool = True
-    evidence_valid: bool = True
+    source_ids: list[NonEmpty] = Field(default_factory=list)
+    reason: Reason
+    # Required host/domain validation, not inferred from matching strings.
+    schema_valid: bool
+    evidence_valid: bool
+    basis: Literal["printed_alternatives"] | None = None
+
+    @model_validator(mode="after")
+    def candidate_shape(self) -> DeterminedField:
+        if self.state == "options":
+            if len(self.options) < 2 or self.value is not None or self.basis != "printed_alternatives":
+                raise ValueError("Options require actual printed alternatives, never model disagreement")
+        elif self.options or self.basis:
+            raise ValueError("Only an options candidate carries alternatives")
+        if self.state == "unknown" and (self.value is not None or self.confidence != Confidence.UNSURE):
+            raise ValueError("Unknown candidate has no usable value and is unsure")
+        if self.state not in {"options", "unknown", "no_match"} and self.value is None:
+            raise ValueError("A known candidate needs an explicit value")
+        return self
 
 
-class ReaderOutput(ContractModel):
-    answers: dict[str, ReaderAnswer]
-    output_sha256: SHA256
+def usable_candidate(field: DeterminedField) -> bool:
+    return (field.state != "unknown" and field.confidence == Confidence.SURE
+            and field.schema_valid and field.evidence_valid and bool(field.source_ids))
 
 
-class ReaderAttempt(ContractModel):
+class DeterminationOutput(ContractModel):
+    source_sha256: SHA256  # contract_digest(PrepSourceIdentity).
+    fields: dict[NonEmpty, DeterminedField] = Field(min_length=1)
+    candidate_sha256: SHA256  # Hash of this object excluding candidate_sha256.
+
+    @model_validator(mode="after")
+    def bound_candidate(self) -> DeterminationOutput:
+        if self.candidate_sha256 != contract_digest(self.model_dump(mode="json", exclude={"candidate_sha256"})):
+            raise ValueError("Candidate digest must bind every field/state/value/reason/source reference")
+        return self
+
+
+class FieldVerification(ContractModel):
+    verdict: Literal["verified", "disagrees", "unsure"]
+    reason: Reason
+    source_ids: list[NonEmpty] = Field(min_length=1)
+    alternative: DeterminedField | None = None  # Feedback only, NEVER an accepted value.
+
+    @model_validator(mode="after")
+    def alternative_is_feedback(self) -> FieldVerification:
+        if self.alternative is not None and self.verdict != "disagrees":
+            raise ValueError("Only disagreement feedback may suggest an alternative")
+        return self
+
+
+class VerificationOutput(ContractModel):
+    candidate_sha256: SHA256
+    source_sha256: SHA256
+    fields: dict[NonEmpty, FieldVerification] = Field(min_length=1)
+    verification_sha256: SHA256
+
+    @model_validator(mode="after")
+    def bound_verdicts(self) -> VerificationOutput:
+        if self.verification_sha256 != contract_digest(self.model_dump(mode="json", exclude={"verification_sha256"})):
+            raise ValueError("Verification digest must bind verdicts and the exact candidate/source")
+        return self
+
+
+class PrepCacheIdentity(ContractModel):
+    # Historical B00/dual_reader keys cannot validate as this identity.
+    pipeline_version: Literal["determine-verify/v1"] = PREP_PIPELINE_VERSION
+    role: Literal["determination", "verification"]
+    source_sha256: SHA256
+    field_names_sha256: SHA256  # Hash of the requested ordered field inventory.
+    candidate_sha256: SHA256 | None  # Previous candidate for correction; current for verification.
+    feedback_sha256: SHA256 | None  # Previous Opus verification for correction only.
+    prompt_sha256: SHA256
+    output_contract_sha256: SHA256
+    settings: ReaderSettings  # Actual effective settings, requested if execution never started.
+    mode: Literal["determine_verify", "single_model_unverified"]
+    # Cache key is contract_digest(this object). Reusing Sol never skips a new
+    # Opus launch after unverified fallback; a verifier failure is not reusable success.
+
+
+def _stage_settings(settings: ReaderSettings, role: str) -> None:
+    expected = ("codex_cli", "gpt-6.1-sol", "max") if role == "determination" else (
+        "claude_code", "claude-opus-5-5", "xhigh")
+    tiers = {"fast", "priority"} if role == "determination" else {"regular"}
+    if (settings.provider, settings.model, settings.reasoning) != expected or settings.service_tier not in tiers:
+        raise ValueError("Prep requires Sol max/priority determination then Opus xhigh/regular verification")
+    if role == "verification" and (settings.settings.get("fastMode", False) is not False
+                                   or settings.settings.get("fallbackModel", []) != []):
+        raise ValueError("Opus verification cannot enable fast mode or substitute another model")
+
+
+class PrepAttempt(ContractModel):
     requested: ReaderSettings
     effective: ReaderSettings | None  # Null means the CLI never confirmed an identity.
     status: Literal["success", "execution_failed", "invalid_output"]
-    output: ReaderOutput | None  # Missing Opus is ALWAYS null, never a second Sol answer.
     failure: ReaderFailure | None = None
     prior_failures: list[ReaderFailure] = Field(default_factory=list)
-    started_at: AwareDatetime | None = None
-    finished_at: AwareDatetime | None = None
+    started_at: AwareDatetime
+    finished_at: AwareDatetime
+    cache: PrepCacheIdentity
 
-    @model_validator(mode="after")
-    def truthful_output(self) -> ReaderAttempt:
-        if self.status == "success" and (self.output is None or self.effective is None or self.failure):
-            raise ValueError("Successful reader needs actual identity/output and no current failure")
+    def check_attempt(self, role: str, output: BaseModel | None) -> None:
+        _stage_settings(self.requested, role)
+        if any(not failure.execution_failure for failure in self.prior_failures):
+            raise ValueError("Prior failures record execution troubleshooting only; invalid output is terminal, never repaired/retried")
+        if self.effective:
+            _stage_settings(self.effective, role)
+        if self.cache.role != role or self.cache.settings != (self.effective or self.requested):
+            raise ValueError("Cache identity must retain the actual stage and settings")
+        if self.finished_at < self.started_at:
+            raise ValueError("Stage cannot finish before starting")
+        if self.status == "success" and (output is None or self.effective is None or self.failure):
+            raise ValueError("Successful stage needs actual identity/output and no current failure")
         if self.status == "execution_failed":
-            if self.output is not None or not self.failure or not self.failure.execution_failure:
+            if output is not None or not self.failure or not self.failure.execution_failure:
                 raise ValueError("Failed execution needs classified failure and no invented output")
         if self.status == "invalid_output" and (not self.failure or self.failure.execution_failure):
             raise ValueError("Invalid output must be classified separately from execution failure")
+
+
+class DeterminationAttempt(PrepAttempt):
+    role: Literal["determination"] = "determination"
+    output: DeterminationOutput | None
+
+    @model_validator(mode="after")
+    def truthful_determination(self) -> DeterminationAttempt:
+        self.check_attempt(self.role, self.output)
+        return self
+
+
+class VerificationAttempt(PrepAttempt):
+    role: Literal["verification"] = "verification"
+    # Even failures retain the identity actually submitted for verification.
+    candidate_sha256: SHA256
+    source_sha256: SHA256
+    output: VerificationOutput | None
+
+    @model_validator(mode="after")
+    def truthful_verification(self) -> VerificationAttempt:
+        self.check_attempt(self.role, self.output)
+        if (self.cache.candidate_sha256 != self.candidate_sha256
+                or self.cache.source_sha256 != self.source_sha256):
+            raise ValueError("Verifier cache must bind the submitted candidate and source")
+        if self.output and (self.output.candidate_sha256 != self.candidate_sha256
+                            or self.output.source_sha256 != self.source_sha256):
+            raise ValueError("Verifier output does not describe the submitted candidate/source")
         return self
 
 
 class PrepRound(ContractModel):
     round: Literal[1, 2]
-    sol: ReaderAttempt
-    opus: ReaderAttempt
+    determination: DeterminationAttempt
+    verification: VerificationAttempt | None  # Null ONLY if determination could not produce a candidate.
+
+
+class PrepFieldResult(ContractModel):
+    status: Literal["first_pass_verified", "retry_verified", "unresolved", "unverified_fallback"]
+    candidate_sha256: SHA256 | None
+    accepted: DeterminedField | None  # Always from Sol; unresolved has no accepted value.
 
 
 class PrepProvenance(ContractModel):
+    pipeline_version: Literal["determine-verify/v1"] = PREP_PIPELINE_VERSION
     job: NonEmpty
     job_id: NonEmpty
-    mode: Literal["dual_reader", "single_model"]
-    outcome: Literal["agreed", "agreed_after_retry", "single_model_fallback", "unresolved"]
+    mode: Literal["determine_verify", "single_model_unverified"]
+    outcome: Literal["first_pass_verified", "retry_verified", "unverified_fallback", "unresolved"]
     rounds: list[PrepRound] = Field(min_length=1, max_length=2)
-    inputs: dict[str, SHA256]
-    prompt_sha256: SHA256
+    source: PrepSourceIdentity
+    field_names: list[NonEmpty] = Field(min_length=1)
+    determination_prompt_sha256: SHA256
+    verification_prompt_sha256: SHA256
     output_contract_sha256: SHA256
-    cache_key: SHA256  # Hash inputs, prompts, contracts, actual settings, and mode.
+    field_results: dict[str, PrepFieldResult] = Field(default_factory=dict)  # Derived, checked if supplied.
     next_launch_attempt_opus: Literal[True] = True
 
     @model_validator(mode="after")
-    def independent_readers(self) -> PrepProvenance:
+    def ordered_verification(self) -> PrepProvenance:
         if [r.round for r in self.rounds] != list(range(1, len(self.rounds) + 1)):
-            raise ValueError("Preserve the initial round and at most one mutual-feedback round")
+            raise ValueError("Preserve the initial round and at most one correction/reverification round")
+        names = set(self.field_names)
+        if len(names) != len(self.field_names):
+            raise ValueError("Field inventory must be unique and fixed across rounds")
+        source_hash = contract_digest(self.source)
+        previous: PrepRound | None = None
         for round_ in self.rounds:
-            for attempt, provider, model in (
-                (round_.sol, "codex_cli", "gpt-6.1-sol"),
-                (round_.opus, "claude_code", "claude-opus-5-5"),
-            ):
-                if (attempt.requested.provider, attempt.requested.model) != (provider, model):
-                    raise ValueError("Each launch must request the independent Sol/Opus pair")
+            sol, opus = round_.determination, round_.verification
+            candidate = sol.output
+            if previous:
+                prior = previous.verification
+                if (prior is None or prior.status != "success" or prior.output is None
+                        or not any(v.verdict == "disagrees" for v in prior.output.fields.values())):
+                    raise ValueError("Only explicit Opus disagreement permits one Sol reconsideration")
+                if sol.started_at < prior.finished_at:
+                    raise ValueError("Sol correction must follow Opus feedback")
+            for attempt, prompt in ((sol, self.determination_prompt_sha256),
+                                    (opus, self.verification_prompt_sha256)):
+                if attempt is None:
+                    continue
+                cache = attempt.cache
+                if (cache.source_sha256 != source_hash or cache.field_names_sha256 != contract_digest(self.field_names)
+                        or cache.prompt_sha256 != prompt
+                        or cache.output_contract_sha256 != self.output_contract_sha256):
+                    raise ValueError("Stage cache must bind original evidence, prompt and contract")
+                expected_candidate = (previous.determination.output.candidate_sha256 if previous
+                                      and previous.determination.output else None) if attempt is sol else (
+                                          candidate.candidate_sha256 if candidate else None)
+                expected_feedback = (previous.verification.output.verification_sha256 if previous
+                                     and previous.verification and previous.verification.output else None
+                                     ) if attempt is sol else None
+                if cache.candidate_sha256 != expected_candidate or cache.feedback_sha256 != expected_feedback:
+                    raise ValueError("Stage cache must bind the candidate and correction feedback")
+                if cache.mode != self.mode:
+                    raise ValueError("Verified and unverified cache modes cannot be substituted")
+            if candidate:
+                if candidate.source_sha256 != source_hash or set(candidate.fields) != names:
+                    raise ValueError("Candidate must bind exact original sources and the fixed field inventory")
+                for field in candidate.fields.values():
+                    if not set(field.source_ids) <= self.source.source_ids.keys():
+                        raise ValueError("Candidate cites a source ID outside original evidence")
+            if sol.status != "success":
+                if opus is not None:
+                    raise ValueError("Do not verify an unsuccessful determination")
+            else:
+                if opus is None or candidate is None:
+                    raise ValueError("A successful determination always attempts Opus, including later launches")
+                if (opus.started_at < sol.finished_at or opus.source_sha256 != source_hash
+                        or opus.candidate_sha256 != candidate.candidate_sha256):
+                    raise ValueError("Verification must follow and bind the exact Sol candidate/source")
+                if opus.output:
+                    if set(opus.output.fields) != names:
+                        raise ValueError("Opus must explicitly judge every candidate field")
+                    for name, verdict in opus.output.fields.items():
+                        refs = verdict.source_ids + (verdict.alternative.source_ids if verdict.alternative else [])
+                        if not set(refs) <= self.source.source_ids.keys():
+                            raise ValueError("Verifier cites a source ID outside original evidence")
+                        if verdict.verdict == "verified" and not usable_candidate(candidate.fields[name]):
+                            raise ValueError("Unknown/unsure/schema-invalid/unsupported Sol fields cannot be verified")
+            previous = round_
         last = self.rounds[-1]
-        if self.mode == "single_model":
-            if (self.outcome != "single_model_fallback" or len(self.rounds) != 1
-                    or last.sol.status != "success" or last.opus.status != "execution_failed"):
-                raise ValueError("Sol-only fallback requires an actual failed Opus execution")
-            assert last.sol.output is not None
-            if not last.sol.output.answers or not all(
-                a.confidence == Confidence.SURE and a.schema_valid and a.evidence_valid
-                and a.state != "unknown" for a in last.sol.output.answers.values()
-            ):
-                raise ValueError("Fallback accepts only sure, valid, source-validated Sol answers")
-        elif self.outcome == "single_model_fallback":
-            raise ValueError("Fallback must not be counted as dual-reader agreement")
-        if self.outcome in {"agreed", "agreed_after_retry", "single_model_fallback"}:
-            sol = last.sol.effective
-            if sol is None or (sol.provider, sol.model) != ("codex_cli", "gpt-6.1-sol"):
-                raise ValueError("Accepted output must retain the actual Sol identity")
-        if self.outcome in {"agreed", "agreed_after_retry"}:
-            opus = last.opus.effective
-            if (last.sol.status != "success" or last.opus.status != "success" or opus is None
-                    or (opus.provider, opus.model) != ("claude_code", "claude-opus-5-5")):
-                raise ValueError("Independent agreement needs two actual different readers")
-            if (self.outcome == "agreed_after_retry") != (len(self.rounds) == 2):
-                raise ValueError("Retry agreement must retain both rounds")
+        sol, opus = last.determination, last.verification
+        fallback = (len(self.rounds) == 1 and sol.status == "success" and opus is not None
+                    and opus.status == "execution_failed" and opus.failure is not None
+                    and bool(opus.failure.troubleshooting)
+                    and all(f.execution_failure for f in opus.prior_failures))
+        results = {}
+        for name in self.field_names:
+            candidate = sol.output
+            field = candidate.fields[name] if candidate else None
+            status = "unresolved"
+            if field and usable_candidate(field) and sol.status == "success":
+                if opus and opus.status == "success" and opus.output and opus.output.fields[name].verdict == "verified":
+                    status = "first_pass_verified" if len(self.rounds) == 1 else "retry_verified"
+                    first = self.rounds[0]
+                    if (len(self.rounds) == 2 and first.verification and first.verification.output
+                            and first.verification.output.fields[name].verdict == "verified"
+                            and first.determination.output and first.determination.output.fields[name] == field):
+                        status = "first_pass_verified"
+                elif fallback:
+                    status = "unverified_fallback"
+            results[name] = PrepFieldResult(status=status,
+                candidate_sha256=candidate.candidate_sha256 if candidate else None,
+                accepted=field if status != "unresolved" else None)
+        if self.field_results and self.field_results != results:
+            raise ValueError("Accepted fields/statuses must derive from Sol candidates and explicit Opus verdicts")
+        self.field_results = results
+        statuses = {r.status for r in results.values()}
+        expected_mode = "single_model_unverified" if "unverified_fallback" in statuses else "determine_verify"
+        expected_outcome = ("unresolved" if "unresolved" in statuses else "unverified_fallback"
+                            if "unverified_fallback" in statuses else "retry_verified"
+                            if "retry_verified" in statuses else "first_pass_verified")
+        if self.mode != expected_mode or self.outcome != expected_outcome:
+            raise ValueError("Mode/outcome must honestly reflect derived per-field results")
         return self
 
 
 class PrepCounts(ContractModel):
-    dual_reader_items: int = Field(ge=0)
-    agreed: int = Field(ge=0)
-    agreed_after_retry: int = Field(ge=0)
-    dual_reader_unresolved: int = Field(ge=0)
-    single_model_fallback: int = Field(ge=0)  # Outside BOTH dual agreement numerator/denominator.
-    execution_failed: int = Field(ge=0)
+    count_unit: Literal["field"] = "field"
+    total_fields: int = Field(ge=0)
+    first_pass_verified: int = Field(ge=0)
+    retry_verified: int = Field(ge=0)
+    unresolved: int = Field(ge=0)
+    unverified_fallback: int = Field(ge=0)  # Never in either verified numerator.
+    execution_failed_attempts: int = Field(ge=0)  # Orthogonal diagnostic, not a field bucket.
+
+    @model_validator(mode="after")
+    def exhaustive_counts(self) -> PrepCounts:
+        if self.total_fields != self.first_pass_verified + self.retry_verified + self.unresolved + self.unverified_fallback:
+            raise ValueError("Every field belongs to exactly one outcome bucket")
+        return self
+
+
+def prep_counts(records: Sequence[PrepProvenance]) -> PrepCounts:
+    counts = dict.fromkeys(("first_pass_verified", "retry_verified", "unresolved", "unverified_fallback"), 0)
+    failures = 0
+    for record in records:
+        for field in record.field_results.values():
+            counts[field.status] += 1
+        failures += sum(attempt.status == "execution_failed" for round_ in record.rounds
+                        for attempt in (round_.determination, round_.verification) if attempt is not None)
+    return PrepCounts(total_fields=sum(counts.values()), execution_failed_attempts=failures, **counts)
+
+
+class PrepBatchResult(Payload):
+    records: list[PrepProvenance]
+    counts: PrepCounts
+
+    @model_validator(mode="after")
+    def actual_counts(self) -> PrepBatchResult:
+        if self.counts != prep_counts(self.records):
+            raise ValueError("Counts must derive from retained preparation records")
+        return self
+
+
+def _accepted_ai_field(method: Method, name: str, provenance: PrepProvenance | None) -> DeterminedField | None:
+    expected = {Method.AI_VERIFIED: "first_pass_verified", Method.AI_VERIFIED_AFTER_RETRY: "retry_verified",
+                Method.AI_SINGLE_MODEL: "unverified_fallback"}
+    if method in {Method.AI_READ, Method.AI_AGREED, Method.AI_AGREED_AFTER_RETRY}:
+        raise ValueError("Historical blind-reader methods cannot establish current prep acceptance")
+    if method not in expected:
+        return None
+    result = provenance.field_results.get(name) if provenance else None
+    if result is None or result.status != expected[method] or result.accepted is None:
+        raise ValueError("AI method needs this exact field's derived verification/fallback result")
+    return result.accepted
+
+
+class CustomerReviewStatus(StrEnum):
+    HUMAN_REVIEWED = "Human reviewed"
+    AI_REVIEWED = "AI reviewed"
+    UNAVAILABLE = "Unavailable"
+
+
+def customer_review_status(*, usable: bool, current_source_hashes: dict[str, str],
+                           review: ReviewState | None = None, provenance: PrepProvenance | None = None,
+                           field_name: str | None = None) -> CustomerReviewStatus:
+    """Review label only; parsed values can remain usable without claiming review.
+
+    Callers supply current source hashes from records, never a UI-selected label.
+    Human rejection/source-changed history and Sol-only fallback do not confer review.
+    """
+    if not usable or not current_source_hashes:
+        return CustomerReviewStatus.UNAVAILABLE
+    if (review and review.status == ReviewStatus.HUMAN_CONFIRMED and review.by and review.at
+            and review.based_on and all(current_source_hashes.get(k) == v for k, v in review.based_on.items())):
+        return CustomerReviewStatus.HUMAN_REVIEWED
+    if provenance and all(current_source_hashes.get(k) == v for k, v in provenance.source.inputs.items()):
+        fields = ([provenance.field_results[field_name]] if field_name in provenance.field_results else []
+                  ) if field_name is not None else list(provenance.field_results.values())
+        if fields and all(f.status in {"first_pass_verified", "retry_verified"} for f in fields):
+            return CustomerReviewStatus.AI_REVIEWED
+    return CustomerReviewStatus.UNAVAILABLE
 
 
 class Correction(ContractModel):
@@ -392,12 +679,9 @@ class EvidenceField(ContractModel):
 
     @model_validator(mode="after")
     def ai_provenance(self) -> EvidenceField:
-        if self.method == Method.AI_SINGLE_MODEL:
-            if self.provenance is None or self.provenance.mode != "single_model":
-                raise ValueError("Single-model method needs explicit fallback provenance")
-        if self.method in {Method.AI_READ, Method.AI_AGREED, Method.AI_AGREED_AFTER_RETRY}:
-            if self.provenance is None or self.provenance.mode != "dual_reader":
-                raise ValueError("Dual-reader method needs independent-reader provenance")
+        field = _accepted_ai_field(self.method, self.name, self.provenance)
+        if field and (field.value != self.value or field.state not in {"known", "value"}):
+            raise ValueError("Evidence value must be the exact accepted Sol field, never an Opus alternative")
         return self
 
 
@@ -496,6 +780,15 @@ class LinkInfo(ContractModel):
     review: ReviewState | None = None
     review_item: ReviewLink | None = None
     provenance: PrepProvenance | None = None
+    prep_field_name: str | None = None  # Required for an AI link; exact/human links stay compatible.
+
+    @model_validator(mode="after")
+    def accepted_candidate(self) -> LinkInfo:
+        field = _accepted_ai_field(self.method, self.prep_field_name or "", self.provenance)
+        if field and (field.state not in {"match", "no_match"}
+                      or field.value != {"drawing_id": self.drawing_id, "bom_rows": self.bom_rows}):
+            raise ValueError("AI link must use Sol's accepted drawing_id/bom_rows candidate, never verifier feedback")
+        return self
 
 
 class MappingRelationship(StrEnum):
@@ -517,7 +810,16 @@ class NameMapping(Payload):
     review: ReviewState = Field(default_factory=ReviewState)
     review_item: ReviewLink | None = None
     provenance: PrepProvenance | None = None
-    # Every mapping, even exact/AI-agreed, is unusable until human_confirmed.
+    # Every mapping, even exact/AI-verified, is unusable until human_confirmed.
+
+    @model_validator(mode="after")
+    def accepted_candidate(self) -> NameMapping:
+        field = _accepted_ai_field(self.method, self.name, self.provenance)
+        if field and (field.state != "relationship" or field.value != {
+            "relationship": self.relationship.value, "to_name": self.to_name,
+        }):
+            raise ValueError("AI mapping must use Sol's accepted relationship/to_name candidate")
+        return self
 
 
 class SourceTarget(ContractModel):
@@ -595,12 +897,12 @@ class FactResult(Payload):
     part_id: str | None
     display: FactDisplay
     rule: NonEmpty
-    badge: NonEmpty  # Human-readable provenance; separate from 'Undetermined'.
-    provenance_badge: str | None = None  # Single-model fallback is always disclosed.
+    badge: NonEmpty  # Engineering provenance, Debug only; citations remain customer-visible.
+    provenance_badge: str | None = None  # Fallback details belong inside optional Debug.
     review: ReviewState | None = None  # Null for rule-based/human values.
     sources: list[FactSource] = Field(min_length=1)
     snapshot_note: bool = False
-    review_item: ReviewLink | None = None  # Only an actual item permits 'Waiting for review'.
+    review_item: ReviewLink | None = None  # Actual review actions/queues are Debug only.
     correction: Correction | None = None
 
 
@@ -617,6 +919,29 @@ class ValueEvidence(ContractModel):
     derivation: Derivation | None = None
 
 
+def template_candidate_value(value: JsonValue | BaseModel) -> JsonValue:
+    """Semantic geometry for Sol's candidate, before attaching provenance/review.
+
+    Nested known template fields become their values; options/unknown retain
+    their state. This avoids recursively including a field's own provenance in
+    its candidate digest. Numeric units are the FlatTemplate's frozen mm frame.
+    """
+    if isinstance(value, BaseModel):
+        value = value.model_dump(mode="json")
+    if isinstance(value, list):
+        return [template_candidate_value(item) for item in value]
+    if isinstance(value, dict):
+        if {"name", "method", "state"} <= value.keys():
+            if value["state"] == "known":
+                return template_candidate_value(value["value"])
+            if value["state"] == "options":
+                return {"state": "options", "options": [template_candidate_value(o["value"]) for o in value["options"]]}
+            if value["state"] == "unknown":
+                return {"state": "unknown"}
+        return {key: template_candidate_value(item) for key, item in value.items()}
+    return value
+
+
 class TemplateFieldBase(ContractModel):
     name: NonEmpty
     method: Method
@@ -625,6 +950,17 @@ class TemplateFieldBase(ContractModel):
     review_item: ReviewLink | None = None
     provenance: PrepProvenance | None = None
     essential: bool = False
+
+    @model_validator(mode="after")
+    def exact_candidate_field(self) -> TemplateFieldBase:
+        field = _accepted_ai_field(self.method, self.name, self.provenance)
+        if field:
+            value = self.model_dump(mode="json")
+            options = [o["value"] for o in value.get("options", [])]
+            if (field.state != value.get("state") or field.value != template_candidate_value(value.get("value"))
+                    or field.options != [template_candidate_value(option) for option in options]):
+                raise ValueError("Template value/state/options must come from the accepted Sol candidate")
+        return self
 
 
 T = TypeVar("T")
@@ -664,7 +1000,7 @@ class OptionsField(TemplateFieldBase, Generic[T]):
     options: list[TemplateOption[T]] = Field(min_length=2)
     basis: Literal["printed_alternatives"] = "printed_alternatives"
     unit: str | None = None
-    # Options are printed alternatives; disagreement between readers is unknown.
+    # Options are printed alternatives; verifier disagreement remains unknown.
 
 
 class UnknownField(TemplateFieldBase):
@@ -820,7 +1156,7 @@ class FlatTemplate(Payload):
     part: NonEmpty  # Drawing ID, e.g. D-013, not its /part stable name.
     template: Literal["flat_part"] = "flat_part"
     units: Literal["mm"] = "mm"
-    filled_by: Literal["two_models", "single_model", "human"]
+    filled_by: Literal["determine_verify", "single_model_unverified", "human"]
     source_sha256: SHA256
     review: ReviewState = Field(default_factory=ReviewState)
     provenance: PrepProvenance | None = None
@@ -835,10 +1171,10 @@ class FlatTemplate(Payload):
     @model_validator(mode="after")
     def template_provenance(self) -> FlatTemplate:
         drawing_id(self.part)
-        if self.filled_by in {"two_models", "single_model"}:
-            expected = "dual_reader" if self.filled_by == "two_models" else "single_model"
-            if self.provenance is None or self.provenance.mode != expected:
-                raise ValueError("Template filled_by must match its actual reader provenance")
+        if self.filled_by != "human":
+            if (self.provenance is None or self.provenance.mode != self.filled_by
+                    or self.source_sha256 not in self.provenance.source.inputs.values()):
+                raise ValueError("Template filled_by/source must match its actual preparation provenance")
         return self
 
 
@@ -1246,6 +1582,7 @@ class StatusResponse(Payload):
     chat_provider: Literal["openai"] = "openai"
     chat_model: Literal["gpt-6-luna"] = CHAT_MODEL
     cad_available: bool | None = None
+    debug_enabled: bool = False  # A01 launch setting -> A03 status -> A04/all component props.
 
     @model_validator(mode="after")
     def configured(self) -> StatusResponse:
@@ -1405,6 +1742,147 @@ class PartGroupResult(Payload):
     message: NonEmpty
 
 
+class SummarySection(ContractModel):
+    # Drawing section and BOM section inventories remain separate; no implicit mapping approval.
+    section: NonEmpty | None
+    member_ids: list[NonEmpty]  # Drawing IDs OR stable BOM row names, according to containing list.
+    part_ids: list[NonEmpty]
+    count: int = Field(ge=0)
+    fact: NonEmpty
+
+    @model_validator(mode="after")
+    def actual_members(self) -> SummarySection:
+        if self.count != len(set(self.member_ids)) or len(self.member_ids) != self.count:
+            raise ValueError("Section counts must count unique actual source members")
+        if len(self.part_ids) != len(set(self.part_ids)):
+            raise ValueError("Section part IDs must be unique")
+        return self
+
+
+class SummaryInput(Payload):
+    records: list[PartRecord]  # Snapshot supplied by the records loader, never expected-answer data.
+
+
+class MachineSummaryResult(Payload):
+    # M14 derives this snapshot from current PartRecords, never benchmark expectations.
+    records_sha256: SHA256  # contract_digest(records sorted by id, model_dump(mode='json')).
+    source_hashes: dict[NonEmpty, SHA256]
+    record_count: int = Field(ge=0)
+    drawing_count: int = Field(ge=0)
+    bom_row_count: int = Field(ge=0)
+    drawing_sections: list[SummarySection]  # Include section=null for unsectioned sources.
+    bom_sections: list[SummarySection]
+    facts: dict[str, FactResult]  # Aggregates are returned as citable facts with actual sources.
+
+    @model_validator(mode="after")
+    def source_counts(self) -> MachineSummaryResult:
+        for sections, count in ((self.drawing_sections, self.drawing_count), (self.bom_sections, self.bom_row_count)):
+            ids = [name for section in sections for name in section.member_ids]
+            if len(ids) != count or len(set(ids)) != count:
+                raise ValueError("Summary sections must partition actual sources without duplicate linked rows")
+            if any(section.fact not in self.facts for section in sections):
+                raise ValueError("Each section summary needs its returned citation fact")
+        if any(name != fact.fact for name, fact in self.facts.items()):
+            raise ValueError("Summary fact map keys must equal stable fact names")
+        return self
+
+
+MoneyDKK = Annotated[str, StringConstraints(pattern=r"^(0|[1-9]\d*)\.\d{2}$")]
+
+
+class MissingCostGroup(ContractModel):
+    reason: Literal["missing_unit_cost", "missing_amount", "missing_total", "invalid_total", "unresolved"]
+    row_names: list[NonEmpty]
+    count: int = Field(ge=0)
+
+    @model_validator(mode="after")
+    def actual_rows(self) -> MissingCostGroup:
+        if self.count != len(set(self.row_names)) or self.count != len(self.row_names):
+            raise ValueError("Missing-cost counts must count actual unique rows")
+        return self
+
+
+class CostSummaryResult(Payload):
+    records_sha256: SHA256  # Same record snapshot convention as MachineSummaryResult.
+    source_hashes: dict[NonEmpty, SHA256]
+    currency: Literal["DKK"] = "DKK"
+    recorded_total: MoneyDKK  # Decimal/integer-ore arithmetic; JSON string avoids binary rounding.
+    recorded_row_names: list[NonEmpty]
+    recorded_total_count: int = Field(ge=0)
+    missing_total_count: int = Field(ge=0)
+    row_count: int = Field(ge=0)
+    missing_reasons: list[MissingCostGroup]  # Exclusive primary reason, ordered by the literal above.
+    fact: NonEmpty
+    facts: dict[str, FactResult]
+    snapshot_note: Literal[True] = True
+    caveat: NonEmpty  # Recorded snapshot only; missing totals never imply zero/free/current pricing.
+
+    @model_validator(mode="after")
+    def exhaustive_rows(self) -> CostSummaryResult:
+        missing = [name for group in self.missing_reasons for name in group.row_names]
+        all_rows = self.recorded_row_names + missing
+        if (self.recorded_total_count != len(self.recorded_row_names)
+                or self.missing_total_count != len(missing)
+                or self.row_count != self.recorded_total_count + self.missing_total_count
+                or len(set(all_rows)) != len(all_rows)):
+            raise ValueError("Recorded and missing-cost rows must partition actual BOM rows exactly once")
+        if self.fact not in self.facts or any(name != fact.fact for name, fact in self.facts.items()):
+            raise ValueError("Cost summary needs its returned source-backed citation fact")
+        return self
+
+
+class PrepJobRequest(Payload):
+    pipeline_version: Literal["determine-verify/v1"] = PREP_PIPELINE_VERSION
+    job: NonEmpty
+    job_id: NonEmpty
+    source: PrepSourceIdentity
+    field_names: list[NonEmpty] = Field(min_length=1)
+    determination_prompt_sha256: SHA256
+    verification_prompt_sha256: SHA256
+    output_contract_sha256: SHA256
+
+    @model_validator(mode="after")
+    def unique_inventory(self) -> PrepJobRequest:
+        if len(self.field_names) != len(set(self.field_names)):
+            raise ValueError("Job field inventory must be unique")
+        return self
+
+
+class DeterminationRequest(ContractModel):
+    job: PrepJobRequest
+    round: Literal[1, 2]
+    previous_candidate: DeterminationOutput | None = None
+    feedback: VerificationOutput | None = None
+
+    @model_validator(mode="after")
+    def correction_feedback(self) -> DeterminationRequest:
+        if self.round == 1:
+            if self.previous_candidate or self.feedback:
+                raise ValueError("First determination has original evidence, without invented feedback")
+        elif (self.previous_candidate is None or self.feedback is None
+              or self.feedback.candidate_sha256 != self.previous_candidate.candidate_sha256
+              or self.previous_candidate.source_sha256 != contract_digest(self.job.source)
+              or self.feedback.source_sha256 != contract_digest(self.job.source)
+              or set(self.previous_candidate.fields) != set(self.job.field_names)
+              or set(self.feedback.fields) != set(self.job.field_names)
+              or not any(v.verdict == "disagrees" for v in self.feedback.fields.values())):
+            raise ValueError("Correction needs the previous exact candidate and actual Opus disagreement")
+        return self
+
+
+class VerificationRequest(ContractModel):
+    job: PrepJobRequest  # Original evidence identity; M08 supplies the actual original attachments.
+    round: Literal[1, 2]
+    candidate: DeterminationOutput  # Exact Sol output, not a new blind prompt.
+
+    @model_validator(mode="after")
+    def exact_source(self) -> VerificationRequest:
+        if (self.candidate.source_sha256 != contract_digest(self.job.source)
+                or set(self.candidate.fields) != set(self.job.field_names)):
+            raise ValueError("Verification input must bind the job's source and field inventory")
+        return self
+
+
 # Wire aliases: list endpoints return JSON arrays, not invented wrapper objects.
 PartsResponse = list[PartSummary]
 ReviewListResponse = list[ReviewItem]
@@ -1480,7 +1958,36 @@ class FactTools(Protocol):
     def get_connections(self, part_id: str) -> GetConnectionsResult: ...
     def parts_in_section(self, section: str) -> PartGroupResult: ...
     def parts_with_material(self, material: str) -> PartGroupResult: ...
+    def machine_summary(self) -> MachineSummaryResult: ...
+    def cost_summary(self) -> CostSummaryResult: ...
     def propose_correction(self, fact_id: str, new_value: JsonValue, reason: str) -> ProposeCorrectionResult: ...
+
+
+class PrepRunner(Protocol):
+    # M08 owns one serial job/queue, CLI execution, bounded retry, cache and next-launch Opus retry.
+    def __call__(self, request: PrepJobRequest) -> PrepProvenance: ...
+
+
+class Determiner(Protocol):
+    def __call__(self, request: DeterminationRequest) -> DeterminationAttempt: ...
+
+
+class Verifier(Protocol):
+    def __call__(self, request: VerificationRequest) -> VerificationAttempt: ...
+
+
+class CandidateValidator(Protocol):
+    # M09/M10 inspect actual evidence and return field validation; structure/hashes
+    # alone cannot establish source truth. Never change values to repair bad JSON.
+    def __call__(self, candidate: DeterminationOutput, source: PrepSourceIdentity) -> DeterminationOutput: ...
+
+
+class MachineSummarizer(Protocol):
+    def __call__(self, records: Sequence[PartRecord]) -> MachineSummaryResult: ...
+
+
+class CostSummarizer(Protocol):
+    def __call__(self, records: Sequence[PartRecord]) -> CostSummaryResult: ...
 
 
 # The checker uses this finite inventory to verify the TS mirror and fixtures.
@@ -1488,7 +1995,7 @@ class FactTools(Protocol):
 CONTRACT_MODELS = {
     name: value for name, value in tuple(globals().items())
     if isinstance(value, type) and issubclass(value, ContractModel)
-    and value not in {ContractModel, Payload, TemplateFieldBase, KnownField, OptionsField, TemplateOption}
+    and value not in {ContractModel, Payload, PrepAttempt, TemplateFieldBase, KnownField, OptionsField, TemplateOption}
     and "[" not in name
 }
 CONTRACT_ALIASES = {
@@ -1497,6 +2004,7 @@ CONTRACT_ALIASES = {
     "TextField": TextField, "Outline": Outline, "OutlineField": OutlineField,
     "Pattern": Pattern, "Face": Face, "Feature": Feature, "FeatureField": FeatureField,
     "PartsResponse": PartsResponse, "ReviewListResponse": ReviewListResponse,
+    "CustomerReviewStatus": CustomerReviewStatus, "MoneyDKK": MoneyDKK,
 }
 
 

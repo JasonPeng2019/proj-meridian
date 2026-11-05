@@ -60,11 +60,31 @@
       "model": "ReviewActionResponse"
     },
     {
+      "file": "prep-cases.json",
+      "model": "PrepBatchResult"
+    },
+    {
+      "file": "summary-inputs.json",
+      "model": "SummaryInput"
+    },
+    {
+      "file": "machine-summary.json",
+      "model": "MachineSummaryResult"
+    },
+    {
+      "file": "cost-summary.json",
+      "model": "CostSummaryResult"
+    },
+    {
       "file": "status-configured.json",
       "model": "StatusResponse"
     },
     {
       "file": "status-missing-key.json",
+      "model": "StatusResponse"
+    },
+    {
+      "file": "status-debug-enabled.json",
       "model": "StatusResponse"
     },
     {

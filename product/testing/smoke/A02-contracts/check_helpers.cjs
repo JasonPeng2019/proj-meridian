@@ -31,10 +31,23 @@ assert.throws(() => contracts.source_box_to_pixels([1, 1, 2, 2], cases.page, 0))
 assert.throws(() => contracts.source_box_to_pixels([1, 1, -2, 2], cases.page));
 assert.equal(contracts.image_api_path("D-013/part", 1, true), "/api/parts/D-013%2Fpart/image?page=1&thumb=1");
 assert.equal(contracts.review_api_path("review/D-013/drawing/title"), "/api/review/review%2FD-013%2Fdrawing%2Ftitle");
+assert.equal(contracts.review_link("review/D-013/drawing/title"), "/debug/review/review%2FD-013%2Fdrawing%2Ftitle");
 assert.equal(contracts.model_api_path("D-013", "B"), "/api/models/D-013_B.glb");
 assert.deepEqual(contracts.API_ENDPOINTS, cases.endpoints);
+for (const {input, expected} of cases.review_status) {
+  assert.equal(contracts.customer_review_status(input), expected);
+}
+assert.deepEqual(contracts.shell_navigation({}), ["chat", "parts"]);
+assert.deepEqual(contracts.shell_navigation({debug_enabled: false}), ["chat", "parts"]);
+assert.deepEqual(contracts.shell_navigation({debug_enabled: true}), ["chat", "parts", "debug"]);
+const actions = {on_open_review: () => { throw new Error("Hidden Debug action leaked"); }};
+assert.deepEqual(contracts.debug_context({}, actions), {enabled: false});
+assert.deepEqual(contracts.debug_context({debug_enabled: false}, actions), {enabled: false});
+assert.equal(contracts.debug_context({debug_enabled: true}, actions).on_open_review, actions.on_open_review);
+assert.equal(contracts.PREP_PIPELINE_VERSION, "determine-verify/v1");
+assert.equal(contracts.RECONSTRUCTION_LABEL, "Reconstruction from 2D drawing. Not the original CAD model.");
 const chat = JSON.parse(fs.readFileSync(path.join(root, "testing/fixtures/contracts/chat-response.json"), "utf8"));
 for (const marker of chat.markers) {
   assert.equal(Array.from(chat.text).slice(marker.start, marker.end).join(""), marker.raw);
 }
-console.log("PASS TypeScript runtime: names, five URL round trips, three pixel mappings/inverses, endpoint parity, Unicode marker spans");
+console.log("PASS TypeScript runtime: names/URLs/coordinates/endpoints/Unicode, honest review status parity, default-hidden/enabled Debug navigation and actions");

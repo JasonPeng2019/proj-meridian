@@ -1,0 +1,121 @@
+{
+  "fixture": true,
+  "synthetic": true,
+  "fixture_note": "Invented contract fixture only; not dataset evidence, an executed AI run, or a human decision.",
+  "records_sha256": "36edde26ae14fc0da58a7c5a29848fd017b2f8c48114713b175ba35717a8568b",
+  "source_hashes": {
+    "BOM:mock-section/synthetic-training-bar": "ef5ddc6b4d7e28998d1d2e97be2836168f73b1f4a12ae421b8c4070dc184f0fd",
+    "BOM:synthetic-priced-group/synthetic-item-0": "6b7d3e0632c8f06c59c4bb22486e30ded2debd25b978ea9f7cc00faa79a4dd93",
+    "BOM:synthetic-priced-group/synthetic-item-1": "04681e5e0427a42176eb2dbb9a0653ad081a1efefe93919f092e0e445a70be8b",
+    "D-013": "8d016551a76941cf73cdca0ef95167d9aeb75bb74fb16912a2f6a514bb824a43",
+    "D-025": "49487665d9ca5523d7eade72bf2faf2dd073d1dbb012d2d25cba5115b4d220e3"
+  },
+  "currency": "DKK",
+  "recorded_total": "0.30",
+  "recorded_row_names": [
+    "BOM:synthetic-priced-group/synthetic-item-0",
+    "BOM:synthetic-priced-group/synthetic-item-1"
+  ],
+  "recorded_total_count": 2,
+  "missing_total_count": 1,
+  "row_count": 3,
+  "missing_reasons": [
+    {
+      "reason": "missing_unit_cost",
+      "row_names": [
+        "BOM:mock-section/synthetic-training-bar"
+      ],
+      "count": 1
+    }
+  ],
+  "fact": "summary/cost/recorded_total",
+  "facts": {
+    "summary/cost/recorded_total": {
+      "fixture": true,
+      "synthetic": true,
+      "fixture_note": "Invented contract fixture only; not dataset evidence, an executed AI run, or a human decision.",
+      "fact": "summary/cost/recorded_total",
+      "part_id": null,
+      "display": {
+        "state": "value",
+        "value": "0.30",
+        "label": null,
+        "unit": "DKK"
+      },
+      "rule": "Decimal sum of recorded synthetic total_cost fields; missing rows excluded",
+      "badge": "Synthetic summary fixture",
+      "provenance_badge": null,
+      "review": null,
+      "sources": [
+        {
+          "name": "BOM:mock-section/synthetic-training-bar/total_cost",
+          "says": "DKK0.00",
+          "method": "cleanup_rule",
+          "target": {
+            "kind": "bom",
+            "name": "BOM:mock-section/synthetic-training-bar/total_cost",
+            "part_id": null,
+            "drawing_id": null,
+            "row_name": "BOM:mock-section/synthetic-training-bar",
+            "page": null,
+            "box": null
+          },
+          "source_sha256": "ef5ddc6b4d7e28998d1d2e97be2836168f73b1f4a12ae421b8c4070dc184f0fd",
+          "confidence": "sure",
+          "source_quality": null,
+          "note": null,
+          "review": null,
+          "provenance": null,
+          "crop": null
+        },
+        {
+          "name": "BOM:synthetic-priced-group/synthetic-item-0/total_cost",
+          "says": "0.10",
+          "method": "parsed",
+          "target": {
+            "kind": "bom",
+            "name": "BOM:synthetic-priced-group/synthetic-item-0/total_cost",
+            "part_id": null,
+            "drawing_id": null,
+            "row_name": "BOM:synthetic-priced-group/synthetic-item-0",
+            "page": null,
+            "box": null
+          },
+          "source_sha256": "6b7d3e0632c8f06c59c4bb22486e30ded2debd25b978ea9f7cc00faa79a4dd93",
+          "confidence": "sure",
+          "source_quality": null,
+          "note": null,
+          "review": null,
+          "provenance": null,
+          "crop": null
+        },
+        {
+          "name": "BOM:synthetic-priced-group/synthetic-item-1/total_cost",
+          "says": "0.20",
+          "method": "parsed",
+          "target": {
+            "kind": "bom",
+            "name": "BOM:synthetic-priced-group/synthetic-item-1/total_cost",
+            "part_id": null,
+            "drawing_id": null,
+            "row_name": "BOM:synthetic-priced-group/synthetic-item-1",
+            "page": null,
+            "box": null
+          },
+          "source_sha256": "04681e5e0427a42176eb2dbb9a0653ad081a1efefe93919f092e0e445a70be8b",
+          "confidence": "sure",
+          "source_quality": null,
+          "note": null,
+          "review": null,
+          "provenance": null,
+          "crop": null
+        }
+      ],
+      "snapshot_note": true,
+      "review_item": null,
+      "correction": null
+    }
+  },
+  "snapshot_note": true,
+  "caveat": "Synthetic recorded snapshot; prices may be out of date and missing costs are unknown."
+}

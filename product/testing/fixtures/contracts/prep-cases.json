@@ -1,0 +1,1931 @@
+{
+  "fixture": true,
+  "synthetic": true,
+  "fixture_note": "Invented contract fixture only; not dataset evidence, an executed AI run, or a human decision.",
+  "records": [
+    {
+      "pipeline_version": "determine-verify/v1",
+      "job": "synthetic-prep",
+      "job_id": "synthetic-first",
+      "mode": "determine_verify",
+      "outcome": "first_pass_verified",
+      "rounds": [
+        {
+          "round": 1,
+          "determination": {
+            "requested": {
+              "provider": "codex_cli",
+              "model": "gpt-6.1-sol",
+              "reasoning": "max",
+              "service_tier": "fast",
+              "read_only": true,
+              "settings": {
+                "image_input": true
+              }
+            },
+            "effective": {
+              "provider": "codex_cli",
+              "model": "gpt-6.1-sol",
+              "reasoning": "max",
+              "service_tier": "fast",
+              "read_only": true,
+              "settings": {
+                "image_input": true
+              }
+            },
+            "status": "success",
+            "failure": null,
+            "prior_failures": [],
+            "started_at": "2000-01-01T00:00:00Z",
+            "finished_at": "2000-01-01T00:00:01Z",
+            "cache": {
+              "pipeline_version": "determine-verify/v1",
+              "role": "determination",
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "field_names_sha256": "9615de14e5aaca895b486523b3259249c6b86d79d73b05100800785a187600a4",
+              "candidate_sha256": null,
+              "feedback_sha256": null,
+              "prompt_sha256": "64bbdc724763d1ad226ef324482403e6bf42939bc5642c72b048081eae9e86d9",
+              "output_contract_sha256": "5b72432404eeb3e66aa58cfbd8c0216730f21c483f52d30d27fe4e4f8a63a629",
+              "settings": {
+                "provider": "codex_cli",
+                "model": "gpt-6.1-sol",
+                "reasoning": "max",
+                "service_tier": "fast",
+                "read_only": true,
+                "settings": {
+                  "image_input": true
+                }
+              },
+              "mode": "determine_verify"
+            },
+            "role": "determination",
+            "output": {
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "fields": {
+                "D-013/template/thickness": {
+                  "state": "options",
+                  "value": null,
+                  "options": [
+                    4.25,
+                    1.75
+                  ],
+                  "confidence": "sure",
+                  "source_ids": [
+                    "D-013/drawing/n/4-25@1",
+                    "D-013/drawing/n/1-75@1"
+                  ],
+                  "reason": "Invented determination; no model was executed and no real source was inspected.",
+                  "schema_valid": true,
+                  "evidence_valid": true,
+                  "basis": "printed_alternatives"
+                }
+              },
+              "candidate_sha256": "6df7d8d66638c17f2dfc2381d3355eee596941f61a5890bb3b6d68f8718a4dfa"
+            }
+          },
+          "verification": {
+            "requested": {
+              "provider": "claude_code",
+              "model": "claude-opus-5-5",
+              "reasoning": "xhigh",
+              "service_tier": "regular",
+              "read_only": true,
+              "settings": {
+                "fastMode": false,
+                "fallbackModel": [],
+                "image_input": true
+              }
+            },
+            "effective": {
+              "provider": "claude_code",
+              "model": "claude-opus-5-5",
+              "reasoning": "xhigh",
+              "service_tier": "regular",
+              "read_only": true,
+              "settings": {
+                "fastMode": false,
+                "fallbackModel": [],
+                "image_input": true
+              }
+            },
+            "status": "success",
+            "failure": null,
+            "prior_failures": [],
+            "started_at": "2000-01-01T00:00:02Z",
+            "finished_at": "2000-01-01T00:00:03Z",
+            "cache": {
+              "pipeline_version": "determine-verify/v1",
+              "role": "verification",
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "field_names_sha256": "9615de14e5aaca895b486523b3259249c6b86d79d73b05100800785a187600a4",
+              "candidate_sha256": "6df7d8d66638c17f2dfc2381d3355eee596941f61a5890bb3b6d68f8718a4dfa",
+              "feedback_sha256": null,
+              "prompt_sha256": "dbae248bcd2680bfd08653d2914c4fd29f7eab8f6079d7604307bdf487418eed",
+              "output_contract_sha256": "5b72432404eeb3e66aa58cfbd8c0216730f21c483f52d30d27fe4e4f8a63a629",
+              "settings": {
+                "provider": "claude_code",
+                "model": "claude-opus-5-5",
+                "reasoning": "xhigh",
+                "service_tier": "regular",
+                "read_only": true,
+                "settings": {
+                  "fastMode": false,
+                  "fallbackModel": [],
+                  "image_input": true
+                }
+              },
+              "mode": "determine_verify"
+            },
+            "role": "verification",
+            "candidate_sha256": "6df7d8d66638c17f2dfc2381d3355eee596941f61a5890bb3b6d68f8718a4dfa",
+            "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+            "output": {
+              "candidate_sha256": "6df7d8d66638c17f2dfc2381d3355eee596941f61a5890bb3b6d68f8718a4dfa",
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "fields": {
+                "D-013/template/thickness": {
+                  "verdict": "verified",
+                  "reason": "Invented explicit verdict against fictional original evidence.",
+                  "source_ids": [
+                    "D-013/drawing/n/4-25@1",
+                    "D-013/drawing/n/1-75@1"
+                  ],
+                  "alternative": null
+                }
+              },
+              "verification_sha256": "07cd951444cfbba6b6d783d248a7d417a06ec90529b39efdf64b1c94a678d831"
+            }
+          }
+        }
+      ],
+      "source": {
+        "inputs": {
+          "synthetic-drawing": "8d016551a76941cf73cdca0ef95167d9aeb75bb74fb16912a2f6a514bb824a43"
+        },
+        "source_ids": {
+          "D-013/drawing/title": "synthetic-drawing",
+          "D-013/drawing/n/4-25@1": "synthetic-drawing",
+          "D-013/drawing/n/1-75@1": "synthetic-drawing"
+        }
+      },
+      "field_names": [
+        "D-013/template/thickness"
+      ],
+      "determination_prompt_sha256": "64bbdc724763d1ad226ef324482403e6bf42939bc5642c72b048081eae9e86d9",
+      "verification_prompt_sha256": "dbae248bcd2680bfd08653d2914c4fd29f7eab8f6079d7604307bdf487418eed",
+      "output_contract_sha256": "5b72432404eeb3e66aa58cfbd8c0216730f21c483f52d30d27fe4e4f8a63a629",
+      "field_results": {
+        "D-013/template/thickness": {
+          "status": "first_pass_verified",
+          "candidate_sha256": "6df7d8d66638c17f2dfc2381d3355eee596941f61a5890bb3b6d68f8718a4dfa",
+          "accepted": {
+            "state": "options",
+            "value": null,
+            "options": [
+              4.25,
+              1.75
+            ],
+            "confidence": "sure",
+            "source_ids": [
+              "D-013/drawing/n/4-25@1",
+              "D-013/drawing/n/1-75@1"
+            ],
+            "reason": "Invented determination; no model was executed and no real source was inspected.",
+            "schema_valid": true,
+            "evidence_valid": true,
+            "basis": "printed_alternatives"
+          }
+        }
+      },
+      "next_launch_attempt_opus": true
+    },
+    {
+      "pipeline_version": "determine-verify/v1",
+      "job": "synthetic-prep",
+      "job_id": "synthetic-retry",
+      "mode": "determine_verify",
+      "outcome": "retry_verified",
+      "rounds": [
+        {
+          "round": 1,
+          "determination": {
+            "requested": {
+              "provider": "codex_cli",
+              "model": "gpt-6.1-sol",
+              "reasoning": "max",
+              "service_tier": "fast",
+              "read_only": true,
+              "settings": {
+                "image_input": true
+              }
+            },
+            "effective": {
+              "provider": "codex_cli",
+              "model": "gpt-6.1-sol",
+              "reasoning": "max",
+              "service_tier": "fast",
+              "read_only": true,
+              "settings": {
+                "image_input": true
+              }
+            },
+            "status": "success",
+            "failure": null,
+            "prior_failures": [],
+            "started_at": "2000-01-01T00:00:00Z",
+            "finished_at": "2000-01-01T00:00:01Z",
+            "cache": {
+              "pipeline_version": "determine-verify/v1",
+              "role": "determination",
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "field_names_sha256": "9615de14e5aaca895b486523b3259249c6b86d79d73b05100800785a187600a4",
+              "candidate_sha256": null,
+              "feedback_sha256": null,
+              "prompt_sha256": "64bbdc724763d1ad226ef324482403e6bf42939bc5642c72b048081eae9e86d9",
+              "output_contract_sha256": "5b72432404eeb3e66aa58cfbd8c0216730f21c483f52d30d27fe4e4f8a63a629",
+              "settings": {
+                "provider": "codex_cli",
+                "model": "gpt-6.1-sol",
+                "reasoning": "max",
+                "service_tier": "fast",
+                "read_only": true,
+                "settings": {
+                  "image_input": true
+                }
+              },
+              "mode": "determine_verify"
+            },
+            "role": "determination",
+            "output": {
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "fields": {
+                "D-013/template/thickness": {
+                  "state": "known",
+                  "value": 4.25,
+                  "options": [],
+                  "confidence": "sure",
+                  "source_ids": [
+                    "D-013/drawing/n/4-25@1"
+                  ],
+                  "reason": "Invented determination; no model was executed and no real source was inspected.",
+                  "schema_valid": true,
+                  "evidence_valid": true,
+                  "basis": null
+                }
+              },
+              "candidate_sha256": "ca0b7e34d635a3642b4d28045a92d0c382ba3c006265dbbea07a1e32d9043d46"
+            }
+          },
+          "verification": {
+            "requested": {
+              "provider": "claude_code",
+              "model": "claude-opus-5-5",
+              "reasoning": "xhigh",
+              "service_tier": "regular",
+              "read_only": true,
+              "settings": {
+                "fastMode": false,
+                "fallbackModel": [],
+                "image_input": true
+              }
+            },
+            "effective": {
+              "provider": "claude_code",
+              "model": "claude-opus-5-5",
+              "reasoning": "xhigh",
+              "service_tier": "regular",
+              "read_only": true,
+              "settings": {
+                "fastMode": false,
+                "fallbackModel": [],
+                "image_input": true
+              }
+            },
+            "status": "success",
+            "failure": null,
+            "prior_failures": [],
+            "started_at": "2000-01-01T00:00:02Z",
+            "finished_at": "2000-01-01T00:00:03Z",
+            "cache": {
+              "pipeline_version": "determine-verify/v1",
+              "role": "verification",
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "field_names_sha256": "9615de14e5aaca895b486523b3259249c6b86d79d73b05100800785a187600a4",
+              "candidate_sha256": "ca0b7e34d635a3642b4d28045a92d0c382ba3c006265dbbea07a1e32d9043d46",
+              "feedback_sha256": null,
+              "prompt_sha256": "dbae248bcd2680bfd08653d2914c4fd29f7eab8f6079d7604307bdf487418eed",
+              "output_contract_sha256": "5b72432404eeb3e66aa58cfbd8c0216730f21c483f52d30d27fe4e4f8a63a629",
+              "settings": {
+                "provider": "claude_code",
+                "model": "claude-opus-5-5",
+                "reasoning": "xhigh",
+                "service_tier": "regular",
+                "read_only": true,
+                "settings": {
+                  "fastMode": false,
+                  "fallbackModel": [],
+                  "image_input": true
+                }
+              },
+              "mode": "determine_verify"
+            },
+            "role": "verification",
+            "candidate_sha256": "ca0b7e34d635a3642b4d28045a92d0c382ba3c006265dbbea07a1e32d9043d46",
+            "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+            "output": {
+              "candidate_sha256": "ca0b7e34d635a3642b4d28045a92d0c382ba3c006265dbbea07a1e32d9043d46",
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "fields": {
+                "D-013/template/thickness": {
+                  "verdict": "disagrees",
+                  "reason": "Invented explicit verdict against fictional original evidence.",
+                  "source_ids": [
+                    "D-013/drawing/n/4-25@1",
+                    "D-013/drawing/n/1-75@1"
+                  ],
+                  "alternative": {
+                    "state": "known",
+                    "value": 1.75,
+                    "options": [],
+                    "confidence": "sure",
+                    "source_ids": [
+                      "D-013/drawing/n/1-75@1"
+                    ],
+                    "reason": "Synthetic feedback only; this is not accepted without Sol reconsideration.",
+                    "schema_valid": true,
+                    "evidence_valid": true,
+                    "basis": null
+                  }
+                }
+              },
+              "verification_sha256": "62b7f050b0de72e435d772fc100bd16f94635fc7c60abf61ab43297f6100e635"
+            }
+          }
+        },
+        {
+          "round": 2,
+          "determination": {
+            "requested": {
+              "provider": "codex_cli",
+              "model": "gpt-6.1-sol",
+              "reasoning": "max",
+              "service_tier": "fast",
+              "read_only": true,
+              "settings": {
+                "image_input": true
+              }
+            },
+            "effective": {
+              "provider": "codex_cli",
+              "model": "gpt-6.1-sol",
+              "reasoning": "max",
+              "service_tier": "fast",
+              "read_only": true,
+              "settings": {
+                "image_input": true
+              }
+            },
+            "status": "success",
+            "failure": null,
+            "prior_failures": [],
+            "started_at": "2000-01-01T00:00:04Z",
+            "finished_at": "2000-01-01T00:00:05Z",
+            "cache": {
+              "pipeline_version": "determine-verify/v1",
+              "role": "determination",
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "field_names_sha256": "9615de14e5aaca895b486523b3259249c6b86d79d73b05100800785a187600a4",
+              "candidate_sha256": "ca0b7e34d635a3642b4d28045a92d0c382ba3c006265dbbea07a1e32d9043d46",
+              "feedback_sha256": "62b7f050b0de72e435d772fc100bd16f94635fc7c60abf61ab43297f6100e635",
+              "prompt_sha256": "64bbdc724763d1ad226ef324482403e6bf42939bc5642c72b048081eae9e86d9",
+              "output_contract_sha256": "5b72432404eeb3e66aa58cfbd8c0216730f21c483f52d30d27fe4e4f8a63a629",
+              "settings": {
+                "provider": "codex_cli",
+                "model": "gpt-6.1-sol",
+                "reasoning": "max",
+                "service_tier": "fast",
+                "read_only": true,
+                "settings": {
+                  "image_input": true
+                }
+              },
+              "mode": "determine_verify"
+            },
+            "role": "determination",
+            "output": {
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "fields": {
+                "D-013/template/thickness": {
+                  "state": "known",
+                  "value": 1.75,
+                  "options": [],
+                  "confidence": "sure",
+                  "source_ids": [
+                    "D-013/drawing/n/1-75@1"
+                  ],
+                  "reason": "Invented Sol revision following verifier criticism.",
+                  "schema_valid": true,
+                  "evidence_valid": true,
+                  "basis": null
+                }
+              },
+              "candidate_sha256": "301eb367847c0283d425233e3118f14a0196f0964b94bdc3076439867bceab7c"
+            }
+          },
+          "verification": {
+            "requested": {
+              "provider": "claude_code",
+              "model": "claude-opus-5-5",
+              "reasoning": "xhigh",
+              "service_tier": "regular",
+              "read_only": true,
+              "settings": {
+                "fastMode": false,
+                "fallbackModel": [],
+                "image_input": true
+              }
+            },
+            "effective": {
+              "provider": "claude_code",
+              "model": "claude-opus-5-5",
+              "reasoning": "xhigh",
+              "service_tier": "regular",
+              "read_only": true,
+              "settings": {
+                "fastMode": false,
+                "fallbackModel": [],
+                "image_input": true
+              }
+            },
+            "status": "success",
+            "failure": null,
+            "prior_failures": [],
+            "started_at": "2000-01-01T00:00:06Z",
+            "finished_at": "2000-01-01T00:00:07Z",
+            "cache": {
+              "pipeline_version": "determine-verify/v1",
+              "role": "verification",
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "field_names_sha256": "9615de14e5aaca895b486523b3259249c6b86d79d73b05100800785a187600a4",
+              "candidate_sha256": "301eb367847c0283d425233e3118f14a0196f0964b94bdc3076439867bceab7c",
+              "feedback_sha256": null,
+              "prompt_sha256": "dbae248bcd2680bfd08653d2914c4fd29f7eab8f6079d7604307bdf487418eed",
+              "output_contract_sha256": "5b72432404eeb3e66aa58cfbd8c0216730f21c483f52d30d27fe4e4f8a63a629",
+              "settings": {
+                "provider": "claude_code",
+                "model": "claude-opus-5-5",
+                "reasoning": "xhigh",
+                "service_tier": "regular",
+                "read_only": true,
+                "settings": {
+                  "fastMode": false,
+                  "fallbackModel": [],
+                  "image_input": true
+                }
+              },
+              "mode": "determine_verify"
+            },
+            "role": "verification",
+            "candidate_sha256": "301eb367847c0283d425233e3118f14a0196f0964b94bdc3076439867bceab7c",
+            "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+            "output": {
+              "candidate_sha256": "301eb367847c0283d425233e3118f14a0196f0964b94bdc3076439867bceab7c",
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "fields": {
+                "D-013/template/thickness": {
+                  "verdict": "verified",
+                  "reason": "Invented explicit verdict against fictional original evidence.",
+                  "source_ids": [
+                    "D-013/drawing/n/4-25@1",
+                    "D-013/drawing/n/1-75@1"
+                  ],
+                  "alternative": null
+                }
+              },
+              "verification_sha256": "d6dd2636cf3be73f9d4e0645d8517caaa752aaf47d000270553f47ca2acd8d24"
+            }
+          }
+        }
+      ],
+      "source": {
+        "inputs": {
+          "synthetic-drawing": "8d016551a76941cf73cdca0ef95167d9aeb75bb74fb16912a2f6a514bb824a43"
+        },
+        "source_ids": {
+          "D-013/drawing/title": "synthetic-drawing",
+          "D-013/drawing/n/4-25@1": "synthetic-drawing",
+          "D-013/drawing/n/1-75@1": "synthetic-drawing"
+        }
+      },
+      "field_names": [
+        "D-013/template/thickness"
+      ],
+      "determination_prompt_sha256": "64bbdc724763d1ad226ef324482403e6bf42939bc5642c72b048081eae9e86d9",
+      "verification_prompt_sha256": "dbae248bcd2680bfd08653d2914c4fd29f7eab8f6079d7604307bdf487418eed",
+      "output_contract_sha256": "5b72432404eeb3e66aa58cfbd8c0216730f21c483f52d30d27fe4e4f8a63a629",
+      "field_results": {
+        "D-013/template/thickness": {
+          "status": "retry_verified",
+          "candidate_sha256": "301eb367847c0283d425233e3118f14a0196f0964b94bdc3076439867bceab7c",
+          "accepted": {
+            "state": "known",
+            "value": 1.75,
+            "options": [],
+            "confidence": "sure",
+            "source_ids": [
+              "D-013/drawing/n/1-75@1"
+            ],
+            "reason": "Invented Sol revision following verifier criticism.",
+            "schema_valid": true,
+            "evidence_valid": true,
+            "basis": null
+          }
+        }
+      },
+      "next_launch_attempt_opus": true
+    },
+    {
+      "pipeline_version": "determine-verify/v1",
+      "job": "synthetic-prep",
+      "job_id": "synthetic-persistent",
+      "mode": "determine_verify",
+      "outcome": "unresolved",
+      "rounds": [
+        {
+          "round": 1,
+          "determination": {
+            "requested": {
+              "provider": "codex_cli",
+              "model": "gpt-6.1-sol",
+              "reasoning": "max",
+              "service_tier": "fast",
+              "read_only": true,
+              "settings": {
+                "image_input": true
+              }
+            },
+            "effective": {
+              "provider": "codex_cli",
+              "model": "gpt-6.1-sol",
+              "reasoning": "max",
+              "service_tier": "fast",
+              "read_only": true,
+              "settings": {
+                "image_input": true
+              }
+            },
+            "status": "success",
+            "failure": null,
+            "prior_failures": [],
+            "started_at": "2000-01-01T00:00:00Z",
+            "finished_at": "2000-01-01T00:00:01Z",
+            "cache": {
+              "pipeline_version": "determine-verify/v1",
+              "role": "determination",
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "field_names_sha256": "9615de14e5aaca895b486523b3259249c6b86d79d73b05100800785a187600a4",
+              "candidate_sha256": null,
+              "feedback_sha256": null,
+              "prompt_sha256": "64bbdc724763d1ad226ef324482403e6bf42939bc5642c72b048081eae9e86d9",
+              "output_contract_sha256": "5b72432404eeb3e66aa58cfbd8c0216730f21c483f52d30d27fe4e4f8a63a629",
+              "settings": {
+                "provider": "codex_cli",
+                "model": "gpt-6.1-sol",
+                "reasoning": "max",
+                "service_tier": "fast",
+                "read_only": true,
+                "settings": {
+                  "image_input": true
+                }
+              },
+              "mode": "determine_verify"
+            },
+            "role": "determination",
+            "output": {
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "fields": {
+                "D-013/template/thickness": {
+                  "state": "known",
+                  "value": 4.25,
+                  "options": [],
+                  "confidence": "sure",
+                  "source_ids": [
+                    "D-013/drawing/n/4-25@1"
+                  ],
+                  "reason": "Invented determination; no model was executed and no real source was inspected.",
+                  "schema_valid": true,
+                  "evidence_valid": true,
+                  "basis": null
+                }
+              },
+              "candidate_sha256": "ca0b7e34d635a3642b4d28045a92d0c382ba3c006265dbbea07a1e32d9043d46"
+            }
+          },
+          "verification": {
+            "requested": {
+              "provider": "claude_code",
+              "model": "claude-opus-5-5",
+              "reasoning": "xhigh",
+              "service_tier": "regular",
+              "read_only": true,
+              "settings": {
+                "fastMode": false,
+                "fallbackModel": [],
+                "image_input": true
+              }
+            },
+            "effective": {
+              "provider": "claude_code",
+              "model": "claude-opus-5-5",
+              "reasoning": "xhigh",
+              "service_tier": "regular",
+              "read_only": true,
+              "settings": {
+                "fastMode": false,
+                "fallbackModel": [],
+                "image_input": true
+              }
+            },
+            "status": "success",
+            "failure": null,
+            "prior_failures": [],
+            "started_at": "2000-01-01T00:00:02Z",
+            "finished_at": "2000-01-01T00:00:03Z",
+            "cache": {
+              "pipeline_version": "determine-verify/v1",
+              "role": "verification",
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "field_names_sha256": "9615de14e5aaca895b486523b3259249c6b86d79d73b05100800785a187600a4",
+              "candidate_sha256": "ca0b7e34d635a3642b4d28045a92d0c382ba3c006265dbbea07a1e32d9043d46",
+              "feedback_sha256": null,
+              "prompt_sha256": "dbae248bcd2680bfd08653d2914c4fd29f7eab8f6079d7604307bdf487418eed",
+              "output_contract_sha256": "5b72432404eeb3e66aa58cfbd8c0216730f21c483f52d30d27fe4e4f8a63a629",
+              "settings": {
+                "provider": "claude_code",
+                "model": "claude-opus-5-5",
+                "reasoning": "xhigh",
+                "service_tier": "regular",
+                "read_only": true,
+                "settings": {
+                  "fastMode": false,
+                  "fallbackModel": [],
+                  "image_input": true
+                }
+              },
+              "mode": "determine_verify"
+            },
+            "role": "verification",
+            "candidate_sha256": "ca0b7e34d635a3642b4d28045a92d0c382ba3c006265dbbea07a1e32d9043d46",
+            "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+            "output": {
+              "candidate_sha256": "ca0b7e34d635a3642b4d28045a92d0c382ba3c006265dbbea07a1e32d9043d46",
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "fields": {
+                "D-013/template/thickness": {
+                  "verdict": "disagrees",
+                  "reason": "Invented explicit verdict against fictional original evidence.",
+                  "source_ids": [
+                    "D-013/drawing/n/4-25@1",
+                    "D-013/drawing/n/1-75@1"
+                  ],
+                  "alternative": {
+                    "state": "known",
+                    "value": 1.75,
+                    "options": [],
+                    "confidence": "sure",
+                    "source_ids": [
+                      "D-013/drawing/n/1-75@1"
+                    ],
+                    "reason": "Synthetic feedback only; this is not accepted without Sol reconsideration.",
+                    "schema_valid": true,
+                    "evidence_valid": true,
+                    "basis": null
+                  }
+                }
+              },
+              "verification_sha256": "62b7f050b0de72e435d772fc100bd16f94635fc7c60abf61ab43297f6100e635"
+            }
+          }
+        },
+        {
+          "round": 2,
+          "determination": {
+            "requested": {
+              "provider": "codex_cli",
+              "model": "gpt-6.1-sol",
+              "reasoning": "max",
+              "service_tier": "fast",
+              "read_only": true,
+              "settings": {
+                "image_input": true
+              }
+            },
+            "effective": {
+              "provider": "codex_cli",
+              "model": "gpt-6.1-sol",
+              "reasoning": "max",
+              "service_tier": "fast",
+              "read_only": true,
+              "settings": {
+                "image_input": true
+              }
+            },
+            "status": "success",
+            "failure": null,
+            "prior_failures": [],
+            "started_at": "2000-01-01T00:00:04Z",
+            "finished_at": "2000-01-01T00:00:05Z",
+            "cache": {
+              "pipeline_version": "determine-verify/v1",
+              "role": "determination",
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "field_names_sha256": "9615de14e5aaca895b486523b3259249c6b86d79d73b05100800785a187600a4",
+              "candidate_sha256": "ca0b7e34d635a3642b4d28045a92d0c382ba3c006265dbbea07a1e32d9043d46",
+              "feedback_sha256": "62b7f050b0de72e435d772fc100bd16f94635fc7c60abf61ab43297f6100e635",
+              "prompt_sha256": "64bbdc724763d1ad226ef324482403e6bf42939bc5642c72b048081eae9e86d9",
+              "output_contract_sha256": "5b72432404eeb3e66aa58cfbd8c0216730f21c483f52d30d27fe4e4f8a63a629",
+              "settings": {
+                "provider": "codex_cli",
+                "model": "gpt-6.1-sol",
+                "reasoning": "max",
+                "service_tier": "fast",
+                "read_only": true,
+                "settings": {
+                  "image_input": true
+                }
+              },
+              "mode": "determine_verify"
+            },
+            "role": "determination",
+            "output": {
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "fields": {
+                "D-013/template/thickness": {
+                  "state": "known",
+                  "value": 4.25,
+                  "options": [],
+                  "confidence": "sure",
+                  "source_ids": [
+                    "D-013/drawing/n/4-25@1"
+                  ],
+                  "reason": "Invented determination; no model was executed and no real source was inspected.",
+                  "schema_valid": true,
+                  "evidence_valid": true,
+                  "basis": null
+                }
+              },
+              "candidate_sha256": "ca0b7e34d635a3642b4d28045a92d0c382ba3c006265dbbea07a1e32d9043d46"
+            }
+          },
+          "verification": {
+            "requested": {
+              "provider": "claude_code",
+              "model": "claude-opus-5-5",
+              "reasoning": "xhigh",
+              "service_tier": "regular",
+              "read_only": true,
+              "settings": {
+                "fastMode": false,
+                "fallbackModel": [],
+                "image_input": true
+              }
+            },
+            "effective": {
+              "provider": "claude_code",
+              "model": "claude-opus-5-5",
+              "reasoning": "xhigh",
+              "service_tier": "regular",
+              "read_only": true,
+              "settings": {
+                "fastMode": false,
+                "fallbackModel": [],
+                "image_input": true
+              }
+            },
+            "status": "success",
+            "failure": null,
+            "prior_failures": [],
+            "started_at": "2000-01-01T00:00:06Z",
+            "finished_at": "2000-01-01T00:00:07Z",
+            "cache": {
+              "pipeline_version": "determine-verify/v1",
+              "role": "verification",
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "field_names_sha256": "9615de14e5aaca895b486523b3259249c6b86d79d73b05100800785a187600a4",
+              "candidate_sha256": "ca0b7e34d635a3642b4d28045a92d0c382ba3c006265dbbea07a1e32d9043d46",
+              "feedback_sha256": null,
+              "prompt_sha256": "dbae248bcd2680bfd08653d2914c4fd29f7eab8f6079d7604307bdf487418eed",
+              "output_contract_sha256": "5b72432404eeb3e66aa58cfbd8c0216730f21c483f52d30d27fe4e4f8a63a629",
+              "settings": {
+                "provider": "claude_code",
+                "model": "claude-opus-5-5",
+                "reasoning": "xhigh",
+                "service_tier": "regular",
+                "read_only": true,
+                "settings": {
+                  "fastMode": false,
+                  "fallbackModel": [],
+                  "image_input": true
+                }
+              },
+              "mode": "determine_verify"
+            },
+            "role": "verification",
+            "candidate_sha256": "ca0b7e34d635a3642b4d28045a92d0c382ba3c006265dbbea07a1e32d9043d46",
+            "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+            "output": {
+              "candidate_sha256": "ca0b7e34d635a3642b4d28045a92d0c382ba3c006265dbbea07a1e32d9043d46",
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "fields": {
+                "D-013/template/thickness": {
+                  "verdict": "disagrees",
+                  "reason": "Invented explicit verdict against fictional original evidence.",
+                  "source_ids": [
+                    "D-013/drawing/n/4-25@1",
+                    "D-013/drawing/n/1-75@1"
+                  ],
+                  "alternative": {
+                    "state": "known",
+                    "value": 1.75,
+                    "options": [],
+                    "confidence": "sure",
+                    "source_ids": [
+                      "D-013/drawing/n/1-75@1"
+                    ],
+                    "reason": "Synthetic feedback only; this is not accepted without Sol reconsideration.",
+                    "schema_valid": true,
+                    "evidence_valid": true,
+                    "basis": null
+                  }
+                }
+              },
+              "verification_sha256": "62b7f050b0de72e435d772fc100bd16f94635fc7c60abf61ab43297f6100e635"
+            }
+          }
+        }
+      ],
+      "source": {
+        "inputs": {
+          "synthetic-drawing": "8d016551a76941cf73cdca0ef95167d9aeb75bb74fb16912a2f6a514bb824a43"
+        },
+        "source_ids": {
+          "D-013/drawing/title": "synthetic-drawing",
+          "D-013/drawing/n/4-25@1": "synthetic-drawing",
+          "D-013/drawing/n/1-75@1": "synthetic-drawing"
+        }
+      },
+      "field_names": [
+        "D-013/template/thickness"
+      ],
+      "determination_prompt_sha256": "64bbdc724763d1ad226ef324482403e6bf42939bc5642c72b048081eae9e86d9",
+      "verification_prompt_sha256": "dbae248bcd2680bfd08653d2914c4fd29f7eab8f6079d7604307bdf487418eed",
+      "output_contract_sha256": "5b72432404eeb3e66aa58cfbd8c0216730f21c483f52d30d27fe4e4f8a63a629",
+      "field_results": {
+        "D-013/template/thickness": {
+          "status": "unresolved",
+          "candidate_sha256": "ca0b7e34d635a3642b4d28045a92d0c382ba3c006265dbbea07a1e32d9043d46",
+          "accepted": null
+        }
+      },
+      "next_launch_attempt_opus": true
+    },
+    {
+      "pipeline_version": "determine-verify/v1",
+      "job": "synthetic-prep",
+      "job_id": "synthetic-unsure",
+      "mode": "determine_verify",
+      "outcome": "unresolved",
+      "rounds": [
+        {
+          "round": 1,
+          "determination": {
+            "requested": {
+              "provider": "codex_cli",
+              "model": "gpt-6.1-sol",
+              "reasoning": "max",
+              "service_tier": "fast",
+              "read_only": true,
+              "settings": {
+                "image_input": true
+              }
+            },
+            "effective": {
+              "provider": "codex_cli",
+              "model": "gpt-6.1-sol",
+              "reasoning": "max",
+              "service_tier": "fast",
+              "read_only": true,
+              "settings": {
+                "image_input": true
+              }
+            },
+            "status": "success",
+            "failure": null,
+            "prior_failures": [],
+            "started_at": "2000-01-01T00:00:00Z",
+            "finished_at": "2000-01-01T00:00:01Z",
+            "cache": {
+              "pipeline_version": "determine-verify/v1",
+              "role": "determination",
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "field_names_sha256": "9615de14e5aaca895b486523b3259249c6b86d79d73b05100800785a187600a4",
+              "candidate_sha256": null,
+              "feedback_sha256": null,
+              "prompt_sha256": "64bbdc724763d1ad226ef324482403e6bf42939bc5642c72b048081eae9e86d9",
+              "output_contract_sha256": "5b72432404eeb3e66aa58cfbd8c0216730f21c483f52d30d27fe4e4f8a63a629",
+              "settings": {
+                "provider": "codex_cli",
+                "model": "gpt-6.1-sol",
+                "reasoning": "max",
+                "service_tier": "fast",
+                "read_only": true,
+                "settings": {
+                  "image_input": true
+                }
+              },
+              "mode": "determine_verify"
+            },
+            "role": "determination",
+            "output": {
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "fields": {
+                "D-013/template/thickness": {
+                  "state": "options",
+                  "value": null,
+                  "options": [
+                    4.25,
+                    1.75
+                  ],
+                  "confidence": "sure",
+                  "source_ids": [
+                    "D-013/drawing/n/4-25@1",
+                    "D-013/drawing/n/1-75@1"
+                  ],
+                  "reason": "Invented determination; no model was executed and no real source was inspected.",
+                  "schema_valid": true,
+                  "evidence_valid": true,
+                  "basis": "printed_alternatives"
+                }
+              },
+              "candidate_sha256": "6df7d8d66638c17f2dfc2381d3355eee596941f61a5890bb3b6d68f8718a4dfa"
+            }
+          },
+          "verification": {
+            "requested": {
+              "provider": "claude_code",
+              "model": "claude-opus-5-5",
+              "reasoning": "xhigh",
+              "service_tier": "regular",
+              "read_only": true,
+              "settings": {
+                "fastMode": false,
+                "fallbackModel": [],
+                "image_input": true
+              }
+            },
+            "effective": {
+              "provider": "claude_code",
+              "model": "claude-opus-5-5",
+              "reasoning": "xhigh",
+              "service_tier": "regular",
+              "read_only": true,
+              "settings": {
+                "fastMode": false,
+                "fallbackModel": [],
+                "image_input": true
+              }
+            },
+            "status": "success",
+            "failure": null,
+            "prior_failures": [],
+            "started_at": "2000-01-01T00:00:02Z",
+            "finished_at": "2000-01-01T00:00:03Z",
+            "cache": {
+              "pipeline_version": "determine-verify/v1",
+              "role": "verification",
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "field_names_sha256": "9615de14e5aaca895b486523b3259249c6b86d79d73b05100800785a187600a4",
+              "candidate_sha256": "6df7d8d66638c17f2dfc2381d3355eee596941f61a5890bb3b6d68f8718a4dfa",
+              "feedback_sha256": null,
+              "prompt_sha256": "dbae248bcd2680bfd08653d2914c4fd29f7eab8f6079d7604307bdf487418eed",
+              "output_contract_sha256": "5b72432404eeb3e66aa58cfbd8c0216730f21c483f52d30d27fe4e4f8a63a629",
+              "settings": {
+                "provider": "claude_code",
+                "model": "claude-opus-5-5",
+                "reasoning": "xhigh",
+                "service_tier": "regular",
+                "read_only": true,
+                "settings": {
+                  "fastMode": false,
+                  "fallbackModel": [],
+                  "image_input": true
+                }
+              },
+              "mode": "determine_verify"
+            },
+            "role": "verification",
+            "candidate_sha256": "6df7d8d66638c17f2dfc2381d3355eee596941f61a5890bb3b6d68f8718a4dfa",
+            "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+            "output": {
+              "candidate_sha256": "6df7d8d66638c17f2dfc2381d3355eee596941f61a5890bb3b6d68f8718a4dfa",
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "fields": {
+                "D-013/template/thickness": {
+                  "verdict": "unsure",
+                  "reason": "Invented explicit verdict against fictional original evidence.",
+                  "source_ids": [
+                    "D-013/drawing/n/4-25@1",
+                    "D-013/drawing/n/1-75@1"
+                  ],
+                  "alternative": null
+                }
+              },
+              "verification_sha256": "49fdad73ce85ea9543bb40cdd2541ce3e8122ced680fb14844cff5e1e2f34f19"
+            }
+          }
+        }
+      ],
+      "source": {
+        "inputs": {
+          "synthetic-drawing": "8d016551a76941cf73cdca0ef95167d9aeb75bb74fb16912a2f6a514bb824a43"
+        },
+        "source_ids": {
+          "D-013/drawing/title": "synthetic-drawing",
+          "D-013/drawing/n/4-25@1": "synthetic-drawing",
+          "D-013/drawing/n/1-75@1": "synthetic-drawing"
+        }
+      },
+      "field_names": [
+        "D-013/template/thickness"
+      ],
+      "determination_prompt_sha256": "64bbdc724763d1ad226ef324482403e6bf42939bc5642c72b048081eae9e86d9",
+      "verification_prompt_sha256": "dbae248bcd2680bfd08653d2914c4fd29f7eab8f6079d7604307bdf487418eed",
+      "output_contract_sha256": "5b72432404eeb3e66aa58cfbd8c0216730f21c483f52d30d27fe4e4f8a63a629",
+      "field_results": {
+        "D-013/template/thickness": {
+          "status": "unresolved",
+          "candidate_sha256": "6df7d8d66638c17f2dfc2381d3355eee596941f61a5890bb3b6d68f8718a4dfa",
+          "accepted": null
+        }
+      },
+      "next_launch_attempt_opus": true
+    },
+    {
+      "pipeline_version": "determine-verify/v1",
+      "job": "synthetic-prep",
+      "job_id": "synthetic-invalid",
+      "mode": "determine_verify",
+      "outcome": "unresolved",
+      "rounds": [
+        {
+          "round": 1,
+          "determination": {
+            "requested": {
+              "provider": "codex_cli",
+              "model": "gpt-6.1-sol",
+              "reasoning": "max",
+              "service_tier": "fast",
+              "read_only": true,
+              "settings": {
+                "image_input": true
+              }
+            },
+            "effective": {
+              "provider": "codex_cli",
+              "model": "gpt-6.1-sol",
+              "reasoning": "max",
+              "service_tier": "fast",
+              "read_only": true,
+              "settings": {
+                "image_input": true
+              }
+            },
+            "status": "success",
+            "failure": null,
+            "prior_failures": [],
+            "started_at": "2000-01-01T00:00:00Z",
+            "finished_at": "2000-01-01T00:00:01Z",
+            "cache": {
+              "pipeline_version": "determine-verify/v1",
+              "role": "determination",
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "field_names_sha256": "9615de14e5aaca895b486523b3259249c6b86d79d73b05100800785a187600a4",
+              "candidate_sha256": null,
+              "feedback_sha256": null,
+              "prompt_sha256": "64bbdc724763d1ad226ef324482403e6bf42939bc5642c72b048081eae9e86d9",
+              "output_contract_sha256": "5b72432404eeb3e66aa58cfbd8c0216730f21c483f52d30d27fe4e4f8a63a629",
+              "settings": {
+                "provider": "codex_cli",
+                "model": "gpt-6.1-sol",
+                "reasoning": "max",
+                "service_tier": "fast",
+                "read_only": true,
+                "settings": {
+                  "image_input": true
+                }
+              },
+              "mode": "determine_verify"
+            },
+            "role": "determination",
+            "output": {
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "fields": {
+                "D-013/template/thickness": {
+                  "state": "options",
+                  "value": null,
+                  "options": [
+                    4.25,
+                    1.75
+                  ],
+                  "confidence": "sure",
+                  "source_ids": [
+                    "D-013/drawing/n/4-25@1",
+                    "D-013/drawing/n/1-75@1"
+                  ],
+                  "reason": "Invented determination; no model was executed and no real source was inspected.",
+                  "schema_valid": true,
+                  "evidence_valid": true,
+                  "basis": "printed_alternatives"
+                }
+              },
+              "candidate_sha256": "6df7d8d66638c17f2dfc2381d3355eee596941f61a5890bb3b6d68f8718a4dfa"
+            }
+          },
+          "verification": {
+            "requested": {
+              "provider": "claude_code",
+              "model": "claude-opus-5-5",
+              "reasoning": "xhigh",
+              "service_tier": "regular",
+              "read_only": true,
+              "settings": {
+                "fastMode": false,
+                "fallbackModel": [],
+                "image_input": true
+              }
+            },
+            "effective": {
+              "provider": "claude_code",
+              "model": "claude-opus-5-5",
+              "reasoning": "xhigh",
+              "service_tier": "regular",
+              "read_only": true,
+              "settings": {
+                "fastMode": false,
+                "fallbackModel": [],
+                "image_input": true
+              }
+            },
+            "status": "invalid_output",
+            "failure": {
+              "classification": "output_schema",
+              "execution_failure": false,
+              "message": "Synthetic failure only, never a real execution observation.",
+              "exit_code": 0,
+              "retryable": false,
+              "troubleshooting": [
+                "Invented diagnostic; no CLI invocation was performed."
+              ],
+              "diagnostic_sha256": "5f0fed651d4e459fa94ce75706a469d7dd320cf3d06b48de5d6b273b654241b3"
+            },
+            "prior_failures": [],
+            "started_at": "2000-01-01T00:00:02Z",
+            "finished_at": "2000-01-01T00:00:03Z",
+            "cache": {
+              "pipeline_version": "determine-verify/v1",
+              "role": "verification",
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "field_names_sha256": "9615de14e5aaca895b486523b3259249c6b86d79d73b05100800785a187600a4",
+              "candidate_sha256": "6df7d8d66638c17f2dfc2381d3355eee596941f61a5890bb3b6d68f8718a4dfa",
+              "feedback_sha256": null,
+              "prompt_sha256": "dbae248bcd2680bfd08653d2914c4fd29f7eab8f6079d7604307bdf487418eed",
+              "output_contract_sha256": "5b72432404eeb3e66aa58cfbd8c0216730f21c483f52d30d27fe4e4f8a63a629",
+              "settings": {
+                "provider": "claude_code",
+                "model": "claude-opus-5-5",
+                "reasoning": "xhigh",
+                "service_tier": "regular",
+                "read_only": true,
+                "settings": {
+                  "fastMode": false,
+                  "fallbackModel": [],
+                  "image_input": true
+                }
+              },
+              "mode": "determine_verify"
+            },
+            "role": "verification",
+            "candidate_sha256": "6df7d8d66638c17f2dfc2381d3355eee596941f61a5890bb3b6d68f8718a4dfa",
+            "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+            "output": null
+          }
+        }
+      ],
+      "source": {
+        "inputs": {
+          "synthetic-drawing": "8d016551a76941cf73cdca0ef95167d9aeb75bb74fb16912a2f6a514bb824a43"
+        },
+        "source_ids": {
+          "D-013/drawing/title": "synthetic-drawing",
+          "D-013/drawing/n/4-25@1": "synthetic-drawing",
+          "D-013/drawing/n/1-75@1": "synthetic-drawing"
+        }
+      },
+      "field_names": [
+        "D-013/template/thickness"
+      ],
+      "determination_prompt_sha256": "64bbdc724763d1ad226ef324482403e6bf42939bc5642c72b048081eae9e86d9",
+      "verification_prompt_sha256": "dbae248bcd2680bfd08653d2914c4fd29f7eab8f6079d7604307bdf487418eed",
+      "output_contract_sha256": "5b72432404eeb3e66aa58cfbd8c0216730f21c483f52d30d27fe4e4f8a63a629",
+      "field_results": {
+        "D-013/template/thickness": {
+          "status": "unresolved",
+          "candidate_sha256": "6df7d8d66638c17f2dfc2381d3355eee596941f61a5890bb3b6d68f8718a4dfa",
+          "accepted": null
+        }
+      },
+      "next_launch_attempt_opus": true
+    },
+    {
+      "pipeline_version": "determine-verify/v1",
+      "job": "synthetic-prep",
+      "job_id": "synthetic-unsupported",
+      "mode": "determine_verify",
+      "outcome": "unresolved",
+      "rounds": [
+        {
+          "round": 1,
+          "determination": {
+            "requested": {
+              "provider": "codex_cli",
+              "model": "gpt-6.1-sol",
+              "reasoning": "max",
+              "service_tier": "fast",
+              "read_only": true,
+              "settings": {
+                "image_input": true
+              }
+            },
+            "effective": {
+              "provider": "codex_cli",
+              "model": "gpt-6.1-sol",
+              "reasoning": "max",
+              "service_tier": "fast",
+              "read_only": true,
+              "settings": {
+                "image_input": true
+              }
+            },
+            "status": "success",
+            "failure": null,
+            "prior_failures": [],
+            "started_at": "2000-01-01T00:00:00Z",
+            "finished_at": "2000-01-01T00:00:01Z",
+            "cache": {
+              "pipeline_version": "determine-verify/v1",
+              "role": "determination",
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "field_names_sha256": "9615de14e5aaca895b486523b3259249c6b86d79d73b05100800785a187600a4",
+              "candidate_sha256": null,
+              "feedback_sha256": null,
+              "prompt_sha256": "64bbdc724763d1ad226ef324482403e6bf42939bc5642c72b048081eae9e86d9",
+              "output_contract_sha256": "5b72432404eeb3e66aa58cfbd8c0216730f21c483f52d30d27fe4e4f8a63a629",
+              "settings": {
+                "provider": "codex_cli",
+                "model": "gpt-6.1-sol",
+                "reasoning": "max",
+                "service_tier": "fast",
+                "read_only": true,
+                "settings": {
+                  "image_input": true
+                }
+              },
+              "mode": "determine_verify"
+            },
+            "role": "determination",
+            "output": {
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "fields": {
+                "D-013/template/thickness": {
+                  "state": "options",
+                  "value": null,
+                  "options": [
+                    4.25,
+                    1.75
+                  ],
+                  "confidence": "sure",
+                  "source_ids": [
+                    "D-013/drawing/n/4-25@1",
+                    "D-013/drawing/n/1-75@1"
+                  ],
+                  "reason": "Invented determination; no model was executed and no real source was inspected.",
+                  "schema_valid": true,
+                  "evidence_valid": false,
+                  "basis": "printed_alternatives"
+                }
+              },
+              "candidate_sha256": "02af3210506761c9d137983a61001dc06d60a94270f5f5c77c39140c1b37be9a"
+            }
+          },
+          "verification": {
+            "requested": {
+              "provider": "claude_code",
+              "model": "claude-opus-5-5",
+              "reasoning": "xhigh",
+              "service_tier": "regular",
+              "read_only": true,
+              "settings": {
+                "fastMode": false,
+                "fallbackModel": [],
+                "image_input": true
+              }
+            },
+            "effective": {
+              "provider": "claude_code",
+              "model": "claude-opus-5-5",
+              "reasoning": "xhigh",
+              "service_tier": "regular",
+              "read_only": true,
+              "settings": {
+                "fastMode": false,
+                "fallbackModel": [],
+                "image_input": true
+              }
+            },
+            "status": "success",
+            "failure": null,
+            "prior_failures": [],
+            "started_at": "2000-01-01T00:00:02Z",
+            "finished_at": "2000-01-01T00:00:03Z",
+            "cache": {
+              "pipeline_version": "determine-verify/v1",
+              "role": "verification",
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "field_names_sha256": "9615de14e5aaca895b486523b3259249c6b86d79d73b05100800785a187600a4",
+              "candidate_sha256": "02af3210506761c9d137983a61001dc06d60a94270f5f5c77c39140c1b37be9a",
+              "feedback_sha256": null,
+              "prompt_sha256": "dbae248bcd2680bfd08653d2914c4fd29f7eab8f6079d7604307bdf487418eed",
+              "output_contract_sha256": "5b72432404eeb3e66aa58cfbd8c0216730f21c483f52d30d27fe4e4f8a63a629",
+              "settings": {
+                "provider": "claude_code",
+                "model": "claude-opus-5-5",
+                "reasoning": "xhigh",
+                "service_tier": "regular",
+                "read_only": true,
+                "settings": {
+                  "fastMode": false,
+                  "fallbackModel": [],
+                  "image_input": true
+                }
+              },
+              "mode": "determine_verify"
+            },
+            "role": "verification",
+            "candidate_sha256": "02af3210506761c9d137983a61001dc06d60a94270f5f5c77c39140c1b37be9a",
+            "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+            "output": {
+              "candidate_sha256": "02af3210506761c9d137983a61001dc06d60a94270f5f5c77c39140c1b37be9a",
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "fields": {
+                "D-013/template/thickness": {
+                  "verdict": "unsure",
+                  "reason": "Invented explicit verdict against fictional original evidence.",
+                  "source_ids": [
+                    "D-013/drawing/n/4-25@1",
+                    "D-013/drawing/n/1-75@1"
+                  ],
+                  "alternative": null
+                }
+              },
+              "verification_sha256": "1d8865d9bb83c79484b56beb2dd40b1fe853057ae12da397f0e8b1a619b8935c"
+            }
+          }
+        }
+      ],
+      "source": {
+        "inputs": {
+          "synthetic-drawing": "8d016551a76941cf73cdca0ef95167d9aeb75bb74fb16912a2f6a514bb824a43"
+        },
+        "source_ids": {
+          "D-013/drawing/title": "synthetic-drawing",
+          "D-013/drawing/n/4-25@1": "synthetic-drawing",
+          "D-013/drawing/n/1-75@1": "synthetic-drawing"
+        }
+      },
+      "field_names": [
+        "D-013/template/thickness"
+      ],
+      "determination_prompt_sha256": "64bbdc724763d1ad226ef324482403e6bf42939bc5642c72b048081eae9e86d9",
+      "verification_prompt_sha256": "dbae248bcd2680bfd08653d2914c4fd29f7eab8f6079d7604307bdf487418eed",
+      "output_contract_sha256": "5b72432404eeb3e66aa58cfbd8c0216730f21c483f52d30d27fe4e4f8a63a629",
+      "field_results": {
+        "D-013/template/thickness": {
+          "status": "unresolved",
+          "candidate_sha256": "02af3210506761c9d137983a61001dc06d60a94270f5f5c77c39140c1b37be9a",
+          "accepted": null
+        }
+      },
+      "next_launch_attempt_opus": true
+    },
+    {
+      "pipeline_version": "determine-verify/v1",
+      "job": "synthetic-prep",
+      "job_id": "synthetic-retry_failure",
+      "mode": "determine_verify",
+      "outcome": "unresolved",
+      "rounds": [
+        {
+          "round": 1,
+          "determination": {
+            "requested": {
+              "provider": "codex_cli",
+              "model": "gpt-6.1-sol",
+              "reasoning": "max",
+              "service_tier": "fast",
+              "read_only": true,
+              "settings": {
+                "image_input": true
+              }
+            },
+            "effective": {
+              "provider": "codex_cli",
+              "model": "gpt-6.1-sol",
+              "reasoning": "max",
+              "service_tier": "fast",
+              "read_only": true,
+              "settings": {
+                "image_input": true
+              }
+            },
+            "status": "success",
+            "failure": null,
+            "prior_failures": [],
+            "started_at": "2000-01-01T00:00:00Z",
+            "finished_at": "2000-01-01T00:00:01Z",
+            "cache": {
+              "pipeline_version": "determine-verify/v1",
+              "role": "determination",
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "field_names_sha256": "9615de14e5aaca895b486523b3259249c6b86d79d73b05100800785a187600a4",
+              "candidate_sha256": null,
+              "feedback_sha256": null,
+              "prompt_sha256": "64bbdc724763d1ad226ef324482403e6bf42939bc5642c72b048081eae9e86d9",
+              "output_contract_sha256": "5b72432404eeb3e66aa58cfbd8c0216730f21c483f52d30d27fe4e4f8a63a629",
+              "settings": {
+                "provider": "codex_cli",
+                "model": "gpt-6.1-sol",
+                "reasoning": "max",
+                "service_tier": "fast",
+                "read_only": true,
+                "settings": {
+                  "image_input": true
+                }
+              },
+              "mode": "determine_verify"
+            },
+            "role": "determination",
+            "output": {
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "fields": {
+                "D-013/template/thickness": {
+                  "state": "known",
+                  "value": 4.25,
+                  "options": [],
+                  "confidence": "sure",
+                  "source_ids": [
+                    "D-013/drawing/n/4-25@1"
+                  ],
+                  "reason": "Invented determination; no model was executed and no real source was inspected.",
+                  "schema_valid": true,
+                  "evidence_valid": true,
+                  "basis": null
+                }
+              },
+              "candidate_sha256": "ca0b7e34d635a3642b4d28045a92d0c382ba3c006265dbbea07a1e32d9043d46"
+            }
+          },
+          "verification": {
+            "requested": {
+              "provider": "claude_code",
+              "model": "claude-opus-5-5",
+              "reasoning": "xhigh",
+              "service_tier": "regular",
+              "read_only": true,
+              "settings": {
+                "fastMode": false,
+                "fallbackModel": [],
+                "image_input": true
+              }
+            },
+            "effective": {
+              "provider": "claude_code",
+              "model": "claude-opus-5-5",
+              "reasoning": "xhigh",
+              "service_tier": "regular",
+              "read_only": true,
+              "settings": {
+                "fastMode": false,
+                "fallbackModel": [],
+                "image_input": true
+              }
+            },
+            "status": "success",
+            "failure": null,
+            "prior_failures": [],
+            "started_at": "2000-01-01T00:00:02Z",
+            "finished_at": "2000-01-01T00:00:03Z",
+            "cache": {
+              "pipeline_version": "determine-verify/v1",
+              "role": "verification",
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "field_names_sha256": "9615de14e5aaca895b486523b3259249c6b86d79d73b05100800785a187600a4",
+              "candidate_sha256": "ca0b7e34d635a3642b4d28045a92d0c382ba3c006265dbbea07a1e32d9043d46",
+              "feedback_sha256": null,
+              "prompt_sha256": "dbae248bcd2680bfd08653d2914c4fd29f7eab8f6079d7604307bdf487418eed",
+              "output_contract_sha256": "5b72432404eeb3e66aa58cfbd8c0216730f21c483f52d30d27fe4e4f8a63a629",
+              "settings": {
+                "provider": "claude_code",
+                "model": "claude-opus-5-5",
+                "reasoning": "xhigh",
+                "service_tier": "regular",
+                "read_only": true,
+                "settings": {
+                  "fastMode": false,
+                  "fallbackModel": [],
+                  "image_input": true
+                }
+              },
+              "mode": "determine_verify"
+            },
+            "role": "verification",
+            "candidate_sha256": "ca0b7e34d635a3642b4d28045a92d0c382ba3c006265dbbea07a1e32d9043d46",
+            "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+            "output": {
+              "candidate_sha256": "ca0b7e34d635a3642b4d28045a92d0c382ba3c006265dbbea07a1e32d9043d46",
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "fields": {
+                "D-013/template/thickness": {
+                  "verdict": "disagrees",
+                  "reason": "Invented explicit verdict against fictional original evidence.",
+                  "source_ids": [
+                    "D-013/drawing/n/4-25@1",
+                    "D-013/drawing/n/1-75@1"
+                  ],
+                  "alternative": {
+                    "state": "known",
+                    "value": 1.75,
+                    "options": [],
+                    "confidence": "sure",
+                    "source_ids": [
+                      "D-013/drawing/n/1-75@1"
+                    ],
+                    "reason": "Synthetic feedback only; this is not accepted without Sol reconsideration.",
+                    "schema_valid": true,
+                    "evidence_valid": true,
+                    "basis": null
+                  }
+                }
+              },
+              "verification_sha256": "62b7f050b0de72e435d772fc100bd16f94635fc7c60abf61ab43297f6100e635"
+            }
+          }
+        },
+        {
+          "round": 2,
+          "determination": {
+            "requested": {
+              "provider": "codex_cli",
+              "model": "gpt-6.1-sol",
+              "reasoning": "max",
+              "service_tier": "fast",
+              "read_only": true,
+              "settings": {
+                "image_input": true
+              }
+            },
+            "effective": {
+              "provider": "codex_cli",
+              "model": "gpt-6.1-sol",
+              "reasoning": "max",
+              "service_tier": "fast",
+              "read_only": true,
+              "settings": {
+                "image_input": true
+              }
+            },
+            "status": "success",
+            "failure": null,
+            "prior_failures": [],
+            "started_at": "2000-01-01T00:00:04Z",
+            "finished_at": "2000-01-01T00:00:05Z",
+            "cache": {
+              "pipeline_version": "determine-verify/v1",
+              "role": "determination",
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "field_names_sha256": "9615de14e5aaca895b486523b3259249c6b86d79d73b05100800785a187600a4",
+              "candidate_sha256": "ca0b7e34d635a3642b4d28045a92d0c382ba3c006265dbbea07a1e32d9043d46",
+              "feedback_sha256": "62b7f050b0de72e435d772fc100bd16f94635fc7c60abf61ab43297f6100e635",
+              "prompt_sha256": "64bbdc724763d1ad226ef324482403e6bf42939bc5642c72b048081eae9e86d9",
+              "output_contract_sha256": "5b72432404eeb3e66aa58cfbd8c0216730f21c483f52d30d27fe4e4f8a63a629",
+              "settings": {
+                "provider": "codex_cli",
+                "model": "gpt-6.1-sol",
+                "reasoning": "max",
+                "service_tier": "fast",
+                "read_only": true,
+                "settings": {
+                  "image_input": true
+                }
+              },
+              "mode": "determine_verify"
+            },
+            "role": "determination",
+            "output": {
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "fields": {
+                "D-013/template/thickness": {
+                  "state": "known",
+                  "value": 4.25,
+                  "options": [],
+                  "confidence": "sure",
+                  "source_ids": [
+                    "D-013/drawing/n/4-25@1"
+                  ],
+                  "reason": "Invented determination; no model was executed and no real source was inspected.",
+                  "schema_valid": true,
+                  "evidence_valid": true,
+                  "basis": null
+                }
+              },
+              "candidate_sha256": "ca0b7e34d635a3642b4d28045a92d0c382ba3c006265dbbea07a1e32d9043d46"
+            }
+          },
+          "verification": {
+            "requested": {
+              "provider": "claude_code",
+              "model": "claude-opus-5-5",
+              "reasoning": "xhigh",
+              "service_tier": "regular",
+              "read_only": true,
+              "settings": {
+                "fastMode": false,
+                "fallbackModel": [],
+                "image_input": true
+              }
+            },
+            "effective": null,
+            "status": "execution_failed",
+            "failure": {
+              "classification": "invocation",
+              "execution_failure": true,
+              "message": "Synthetic failure only, never a real execution observation.",
+              "exit_code": 99,
+              "retryable": false,
+              "troubleshooting": [
+                "Invented diagnostic; no CLI invocation was performed."
+              ],
+              "diagnostic_sha256": "5f0fed651d4e459fa94ce75706a469d7dd320cf3d06b48de5d6b273b654241b3"
+            },
+            "prior_failures": [],
+            "started_at": "2000-01-01T00:00:06Z",
+            "finished_at": "2000-01-01T00:00:07Z",
+            "cache": {
+              "pipeline_version": "determine-verify/v1",
+              "role": "verification",
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "field_names_sha256": "9615de14e5aaca895b486523b3259249c6b86d79d73b05100800785a187600a4",
+              "candidate_sha256": "ca0b7e34d635a3642b4d28045a92d0c382ba3c006265dbbea07a1e32d9043d46",
+              "feedback_sha256": null,
+              "prompt_sha256": "dbae248bcd2680bfd08653d2914c4fd29f7eab8f6079d7604307bdf487418eed",
+              "output_contract_sha256": "5b72432404eeb3e66aa58cfbd8c0216730f21c483f52d30d27fe4e4f8a63a629",
+              "settings": {
+                "provider": "claude_code",
+                "model": "claude-opus-5-5",
+                "reasoning": "xhigh",
+                "service_tier": "regular",
+                "read_only": true,
+                "settings": {
+                  "fastMode": false,
+                  "fallbackModel": [],
+                  "image_input": true
+                }
+              },
+              "mode": "determine_verify"
+            },
+            "role": "verification",
+            "candidate_sha256": "ca0b7e34d635a3642b4d28045a92d0c382ba3c006265dbbea07a1e32d9043d46",
+            "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+            "output": null
+          }
+        }
+      ],
+      "source": {
+        "inputs": {
+          "synthetic-drawing": "8d016551a76941cf73cdca0ef95167d9aeb75bb74fb16912a2f6a514bb824a43"
+        },
+        "source_ids": {
+          "D-013/drawing/title": "synthetic-drawing",
+          "D-013/drawing/n/4-25@1": "synthetic-drawing",
+          "D-013/drawing/n/1-75@1": "synthetic-drawing"
+        }
+      },
+      "field_names": [
+        "D-013/template/thickness"
+      ],
+      "determination_prompt_sha256": "64bbdc724763d1ad226ef324482403e6bf42939bc5642c72b048081eae9e86d9",
+      "verification_prompt_sha256": "dbae248bcd2680bfd08653d2914c4fd29f7eab8f6079d7604307bdf487418eed",
+      "output_contract_sha256": "5b72432404eeb3e66aa58cfbd8c0216730f21c483f52d30d27fe4e4f8a63a629",
+      "field_results": {
+        "D-013/template/thickness": {
+          "status": "unresolved",
+          "candidate_sha256": "ca0b7e34d635a3642b4d28045a92d0c382ba3c006265dbbea07a1e32d9043d46",
+          "accepted": null
+        }
+      },
+      "next_launch_attempt_opus": true
+    },
+    {
+      "pipeline_version": "determine-verify/v1",
+      "job": "synthetic-prep",
+      "job_id": "synthetic-fallback",
+      "mode": "single_model_unverified",
+      "outcome": "unverified_fallback",
+      "rounds": [
+        {
+          "round": 1,
+          "determination": {
+            "requested": {
+              "provider": "codex_cli",
+              "model": "gpt-6.1-sol",
+              "reasoning": "max",
+              "service_tier": "fast",
+              "read_only": true,
+              "settings": {
+                "image_input": true
+              }
+            },
+            "effective": {
+              "provider": "codex_cli",
+              "model": "gpt-6.1-sol",
+              "reasoning": "max",
+              "service_tier": "fast",
+              "read_only": true,
+              "settings": {
+                "image_input": true
+              }
+            },
+            "status": "success",
+            "failure": null,
+            "prior_failures": [],
+            "started_at": "2000-01-01T00:00:00Z",
+            "finished_at": "2000-01-01T00:00:01Z",
+            "cache": {
+              "pipeline_version": "determine-verify/v1",
+              "role": "determination",
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "field_names_sha256": "85e1f740bd108d8e08f1fb3e39b63d6bba994dc5e79af6ad24825facfe41e122",
+              "candidate_sha256": null,
+              "feedback_sha256": null,
+              "prompt_sha256": "64bbdc724763d1ad226ef324482403e6bf42939bc5642c72b048081eae9e86d9",
+              "output_contract_sha256": "5b72432404eeb3e66aa58cfbd8c0216730f21c483f52d30d27fe4e4f8a63a629",
+              "settings": {
+                "provider": "codex_cli",
+                "model": "gpt-6.1-sol",
+                "reasoning": "max",
+                "service_tier": "fast",
+                "read_only": true,
+                "settings": {
+                  "image_input": true
+                }
+              },
+              "mode": "single_model_unverified"
+            },
+            "role": "determination",
+            "output": {
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "fields": {
+                "D-013/drawing/title": {
+                  "state": "known",
+                  "value": "Synthetic revised title",
+                  "options": [],
+                  "confidence": "sure",
+                  "source_ids": [
+                    "D-013/drawing/title"
+                  ],
+                  "reason": "Invented determination; no model was executed and no real source was inspected.",
+                  "schema_valid": true,
+                  "evidence_valid": true,
+                  "basis": null
+                }
+              },
+              "candidate_sha256": "5ff098893b3a09d6387ae13929349fbe34d701b75e58504583d7f61e96888ecb"
+            }
+          },
+          "verification": {
+            "requested": {
+              "provider": "claude_code",
+              "model": "claude-opus-5-5",
+              "reasoning": "xhigh",
+              "service_tier": "regular",
+              "read_only": true,
+              "settings": {
+                "fastMode": false,
+                "fallbackModel": [],
+                "image_input": true
+              }
+            },
+            "effective": null,
+            "status": "execution_failed",
+            "failure": {
+              "classification": "invocation",
+              "execution_failure": true,
+              "message": "Synthetic failure only, never a real execution observation.",
+              "exit_code": 99,
+              "retryable": false,
+              "troubleshooting": [
+                "Invented diagnostic; no CLI invocation was performed."
+              ],
+              "diagnostic_sha256": "5f0fed651d4e459fa94ce75706a469d7dd320cf3d06b48de5d6b273b654241b3"
+            },
+            "prior_failures": [],
+            "started_at": "2000-01-01T00:00:02Z",
+            "finished_at": "2000-01-01T00:00:03Z",
+            "cache": {
+              "pipeline_version": "determine-verify/v1",
+              "role": "verification",
+              "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+              "field_names_sha256": "85e1f740bd108d8e08f1fb3e39b63d6bba994dc5e79af6ad24825facfe41e122",
+              "candidate_sha256": "5ff098893b3a09d6387ae13929349fbe34d701b75e58504583d7f61e96888ecb",
+              "feedback_sha256": null,
+              "prompt_sha256": "dbae248bcd2680bfd08653d2914c4fd29f7eab8f6079d7604307bdf487418eed",
+              "output_contract_sha256": "5b72432404eeb3e66aa58cfbd8c0216730f21c483f52d30d27fe4e4f8a63a629",
+              "settings": {
+                "provider": "claude_code",
+                "model": "claude-opus-5-5",
+                "reasoning": "xhigh",
+                "service_tier": "regular",
+                "read_only": true,
+                "settings": {
+                  "fastMode": false,
+                  "fallbackModel": [],
+                  "image_input": true
+                }
+              },
+              "mode": "single_model_unverified"
+            },
+            "role": "verification",
+            "candidate_sha256": "5ff098893b3a09d6387ae13929349fbe34d701b75e58504583d7f61e96888ecb",
+            "source_sha256": "de9a81b519cc629444852a8a7b51f8646c533230871363443decccd872789330",
+            "output": null
+          }
+        }
+      ],
+      "source": {
+        "inputs": {
+          "synthetic-drawing": "8d016551a76941cf73cdca0ef95167d9aeb75bb74fb16912a2f6a514bb824a43"
+        },
+        "source_ids": {
+          "D-013/drawing/title": "synthetic-drawing",
+          "D-013/drawing/n/4-25@1": "synthetic-drawing",
+          "D-013/drawing/n/1-75@1": "synthetic-drawing"
+        }
+      },
+      "field_names": [
+        "D-013/drawing/title"
+      ],
+      "determination_prompt_sha256": "64bbdc724763d1ad226ef324482403e6bf42939bc5642c72b048081eae9e86d9",
+      "verification_prompt_sha256": "dbae248bcd2680bfd08653d2914c4fd29f7eab8f6079d7604307bdf487418eed",
+      "output_contract_sha256": "5b72432404eeb3e66aa58cfbd8c0216730f21c483f52d30d27fe4e4f8a63a629",
+      "field_results": {
+        "D-013/drawing/title": {
+          "status": "unverified_fallback",
+          "candidate_sha256": "5ff098893b3a09d6387ae13929349fbe34d701b75e58504583d7f61e96888ecb",
+          "accepted": {
+            "state": "known",
+            "value": "Synthetic revised title",
+            "options": [],
+            "confidence": "sure",
+            "source_ids": [
+              "D-013/drawing/title"
+            ],
+            "reason": "Invented determination; no model was executed and no real source was inspected.",
+            "schema_valid": true,
+            "evidence_valid": true,
+            "basis": null
+          }
+        }
+      },
+      "next_launch_attempt_opus": true
+    }
+  ],
+  "counts": {
+    "count_unit": "field",
+    "total_fields": 8,
+    "first_pass_verified": 1,
+    "retry_verified": 1,
+    "unresolved": 5,
+    "unverified_fallback": 1,
+    "execution_failed_attempts": 2
+  }
+}

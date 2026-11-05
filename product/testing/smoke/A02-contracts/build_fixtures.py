@@ -5,6 +5,7 @@ Writes ONLY testing/fixtures/contracts. No journal, prep CLI, source PDF, or app
 from __future__ import annotations
 
 import copy
+from decimal import Decimal
 import hashlib
 import json
 from pathlib import Path
@@ -35,38 +36,79 @@ def save(file: str, model: type, data: dict) -> dict:
     return canonical
 
 
-def provenance(single: bool = False) -> dict:
+def provenance(single: bool = False, case: str = "first") -> dict:
+    """Generate fictional stage records, never execute a CLI or validate real evidence."""
+    case = "fallback" if single else case
     settings = [
         {"provider": "codex_cli", "model": "gpt-6.1-sol", "reasoning": "max", "service_tier": "fast",
          "read_only": True, "settings": {"image_input": True}},
         {"provider": "claude_code", "model": "claude-opus-5-5", "reasoning": "xhigh", "service_tier": "regular",
          "read_only": True, "settings": {"fastMode": False, "fallbackModel": [], "image_input": True}},
     ]
+    title = c.drawing_fact_name("D-013", "title")
+    name = title if single else c.template_fact_name("D-013", "thickness")
+    numbers = [c.drawing_number_name("D-013", text, 1) for text in ("4.25", "1.75")]
+    source = c.PrepSourceIdentity(inputs={"synthetic-drawing": digest("D-013")},
+                                source_ids={ref: "synthetic-drawing" for ref in [title, *numbers]})
+    source_hash = c.contract_digest(source)
+    mode = "single_model_unverified" if case == "fallback" else "determine_verify"
     answer = {"state": "known" if single else "options", "value": "Synthetic revised title" if single else None,
-              "options": [] if single else [4.25, 1.75], "confidence": "sure",
-              "source_ids": [c.drawing_fact_name("D-013", "title")] if single else
-              [c.drawing_number_name("D-013", "4.25", 1), c.drawing_number_name("D-013", "1.75", 1)],
-              "reason": "Invented reader output for a declared fixture; no reader was executed."}
-    attempts = []
-    for index, requested in enumerate(settings):
-        failed = single and index == 1
-        attempts.append({
-            "requested": requested, "effective": None if failed else requested,
-            "status": "execution_failed" if failed else "success",
-            "output": None if failed else {"answers": {"title" if single else "thickness": answer},
-                                             "output_sha256": digest(f"output-{single}-{index}")},
-            "failure": {"classification": "invocation", "execution_failure": True,
-                        "message": "Simulated Opus execution failure, not a real CLI observation.",
-                        "exit_code": 99, "retryable": False,
-                        "troubleshooting": ["Synthetic failure example only; no invocation performed."]} if failed else None,
-            "started_at": TIME, "finished_at": TIME,
-        })
-    return {"job": "scan_fixture" if single else "template_fixture", "job_id": "synthetic-single" if single else "synthetic-dual",
-            "mode": "single_model" if single else "dual_reader",
-            "outcome": "single_model_fallback" if single else "agreed",
-            "rounds": [{"round": 1, "sol": attempts[0], "opus": attempts[1]}],
-            "inputs": {"synthetic-drawing": digest("D-013")}, "prompt_sha256": digest("prompt"),
-            "output_contract_sha256": digest("output-contract"), "cache_key": digest(f"cache-{single}")}
+              "options": [] if single else [4.25, 1.75], "confidence": "sure", "basis": None if single else "printed_alternatives",
+              "source_ids": [title] if single else numbers,
+              "schema_valid": True, "evidence_valid": True,
+              "reason": "Invented determination; no model was executed and no real source was inspected."}
+    if case in {"retry", "persistent", "retry_failure"}:
+        answer.update(state="known", value=4.25, options=[], basis=None, source_ids=[numbers[0]])
+    if case == "unsupported":
+        answer["evidence_valid"] = False
+    rounds = []
+    previous_candidate = previous_feedback = None
+    for index in range(2 if case in {"retry", "persistent", "retry_failure"} else 1):
+        if index and case == "retry":
+            answer.update(value=1.75, source_ids=[numbers[1]], reason="Invented Sol revision following verifier criticism.")
+        fields = {name: c.DeterminedField.model_validate(answer).model_dump(mode="json")}
+        candidate = {"source_sha256": source_hash, "fields": fields}
+        candidate["candidate_sha256"] = c.contract_digest(candidate)
+        cache = {"pipeline_version": c.PREP_PIPELINE_VERSION, "source_sha256": source_hash,
+                 "field_names_sha256": c.contract_digest([name]),
+                 "output_contract_sha256": digest("output-contract"), "mode": mode}
+        sol = {"role": "determination", "requested": settings[0], "effective": settings[0], "status": "success",
+               "output": candidate, "started_at": f"2000-01-01T00:00:0{index * 4}+00:00",
+               "finished_at": f"2000-01-01T00:00:0{index * 4 + 1}+00:00",
+               "cache": {**cache, "role": "determination", "settings": settings[0],
+                         "prompt_sha256": digest("determination-prompt"), "candidate_sha256": previous_candidate,
+                         "feedback_sha256": previous_feedback}}
+        verdict = "disagrees" if case in {"retry", "persistent", "retry_failure"} and (not index or case == "persistent") else (
+            "unsure" if case in {"unsure", "unsupported"} else "verified")
+        feedback = {"verdict": verdict, "reason": "Invented explicit verdict against fictional original evidence.",
+                    "source_ids": [title] if single else numbers, "alternative": None}
+        if verdict == "disagrees":
+            feedback["alternative"] = {**answer, "value": 1.75, "source_ids": [numbers[1]],
+                                       "reason": "Synthetic feedback only; this is not accepted without Sol reconsideration."}
+        output = {"candidate_sha256": candidate["candidate_sha256"], "source_sha256": source_hash, "fields": {name: feedback}}
+        output["verification_sha256"] = c.contract_digest(output)
+        failed = case == "fallback" or (case == "retry_failure" and index == 1)
+        invalid = case == "invalid"
+        opus = {"role": "verification", "requested": settings[1], "effective": None if failed else settings[1],
+                "status": "execution_failed" if failed else "invalid_output" if invalid else "success",
+                "candidate_sha256": candidate["candidate_sha256"], "source_sha256": source_hash,
+                "output": None if failed or invalid else output,
+                "failure": {"classification": "invocation" if failed else "output_schema", "execution_failure": failed,
+                            "message": "Synthetic failure only, never a real execution observation.", "exit_code": 99 if failed else 0,
+                            "troubleshooting": ["Invented diagnostic; no CLI invocation was performed."],
+                            "diagnostic_sha256": digest("synthetic-invalid-diagnostic")} if failed or invalid else None,
+                "started_at": f"2000-01-01T00:00:0{index * 4 + 2}+00:00",
+                "finished_at": f"2000-01-01T00:00:0{index * 4 + 3}+00:00",
+                "cache": {**cache, "role": "verification", "settings": settings[1], "prompt_sha256": digest("verification-prompt"),
+                          "candidate_sha256": candidate["candidate_sha256"], "feedback_sha256": None}}
+        rounds.append({"round": index + 1, "determination": sol, "verification": opus})
+        previous_candidate, previous_feedback = candidate["candidate_sha256"], output["verification_sha256"]
+    outcome = "unverified_fallback" if case == "fallback" else "retry_verified" if case == "retry" else (
+        "first_pass_verified" if case == "first" else "unresolved")
+    return c.PrepProvenance.model_validate({"job": "synthetic-prep", "job_id": "synthetic-" + case,
+            "mode": mode, "outcome": outcome, "rounds": rounds, "source": source, "field_names": [name],
+            "determination_prompt_sha256": digest("determination-prompt"), "verification_prompt_sha256": digest("verification-prompt"),
+            "output_contract_sha256": digest("output-contract")}).model_dump(mode="json")
 
 
 def number(value: float, index: int) -> dict:
@@ -76,7 +118,7 @@ def number(value: float, index: int) -> dict:
 
 def known(name: str, value, evidence: dict, unit: str | None = "mm") -> dict:
     return {"name": c.template_fact_name("D-013", name), "state": "known", "value": value,
-            "method": "ai_agreed", "review": {"status": "not_reviewed"}, "provenance": provenance(),
+            "method": "parsed", "review": {"status": "not_reviewed"},
             "evidence": evidence, "unit": unit}
 
 
@@ -137,6 +179,78 @@ def glb(size_mm: tuple[float, float, float]) -> bytes:
             + struct.pack("<II", len(binary), 0x004E4942) + binary)
 
 
+def summary_fixtures(records: list[dict]) -> None:
+    """Invent inputs, then calculate summaries from those records; no benchmark values."""
+    records = copy.deepcopy(records)
+    for index, price in enumerate(("0.10", "0.20")):
+        row_name = c.bom_row_name("Synthetic priced group", f"Synthetic item {index}")
+        row = {"name": row_name, "display_id": f"BOM-SYN-PRICE-{index}", "display_name": f"Synthetic item {index}",
+               "section": "Synthetic priced group", "source_sha256": digest(row_name), "fields": {
+                   key: {"name": row_name + "/" + key, "original": str(value), "value": value, "method": "parsed"}
+                   for key, value in (("cost", price), ("amount", 1), ("total_cost", price))}}
+        records.append(c.PartRecord.model_validate({**MARKER, "id": row_name + "/part", "display_name": row["display_name"],
+                       "section": row["section"], "has_drawing": False, "has_3d": False, "examples": [], "drawing": None,
+                       "bom": [row], "link": None, "template": None,
+                       "model": {"state": "missing", "message": "Synthetic summary input."}}).model_dump(mode="json"))
+    records.sort(key=lambda record: record["id"])
+    save("summary-inputs.json", c.SummaryInput, {"records": records})
+    snapshot = c.contract_digest(records)
+    sources, rows, drawing_groups, bom_groups = {}, {}, {}, {}
+    for record in records:
+        if record["drawing"]:
+            drawing = record["drawing"]
+            sources[drawing["id"]] = drawing["source_sha256"]
+            section = drawing["fields"].get("section", {}).get("value")
+            group = drawing_groups.setdefault(section, {"members": {}, "parts": set()})
+            group["members"][drawing["id"]] = {"name": record["id"], "says": record["display_name"], "method": "parsed",
+                "source_sha256": drawing["source_sha256"], "target": {"kind": "part", "name": record["id"], "part_id": record["id"]}}
+            group["parts"].add(record["id"])
+        for row in record["bom"]:
+            rows[row["name"]] = row
+            sources[row["name"]] = row["source_sha256"]
+            group = bom_groups.setdefault(row["section"], {"members": {}, "parts": set()})
+            group["members"][row["name"]] = {"name": row["name"], "says": row["display_name"], "method": "parsed",
+                "source_sha256": row["source_sha256"], "target": {"kind": "bom", "name": row["name"], "row_name": row["name"]}}
+            group["parts"].add(record["id"])
+    facts = {}
+    groups = []
+    for kind, inventory in (("drawing", drawing_groups), ("bom", bom_groups)):
+        sections = []
+        for section, group in sorted(inventory.items(), key=lambda pair: pair[0] or ""):
+            name = f"summary/machine/{kind}/" + (c.normalize_component(section) if section else "unsectioned")
+            members = sorted(group["members"])
+            facts[name] = {**MARKER, "fact": name, "part_id": None, "display": {"state": "value", "value": len(members)}, "rule": "Unique synthetic source members",
+                           "badge": "Synthetic summary fixture", "sources": list(group["members"].values()), "snapshot_note": True}
+            sections.append({"section": section, "member_ids": members, "part_ids": sorted(group["parts"]), "count": len(members), "fact": name})
+        groups.append(sections)
+    save("machine-summary.json", c.MachineSummaryResult, {"records_sha256": snapshot, "source_hashes": sources,
+         "record_count": len(records), "drawing_count": sum(s["count"] for s in groups[0]), "bom_row_count": len(rows),
+         "drawing_sections": groups[0], "bom_sections": groups[1], "facts": facts})
+    recorded, missing, total, cost_sources = [], {}, Decimal("0"), []
+    for name, row in sorted(rows.items()):
+        fields = row["fields"]
+        value = fields.get("total_cost", {}).get("value")
+        if value is not None:
+            recorded.append(name)
+            total += Decimal(str(value))
+        else:
+            reason = "missing_unit_cost" if fields.get("cost", {}).get("value") is None else (
+                "missing_amount" if fields.get("amount", {}).get("value") is None else "missing_total")
+            missing.setdefault(reason, []).append(name)
+        fact_name = name + "/total_cost"
+        cost_sources.append({"name": fact_name, "says": fields["total_cost"]["original"], "method": fields["total_cost"]["method"],
+                             "source_sha256": row["source_sha256"], "target": {"kind": "bom", "name": fact_name, "row_name": name}})
+    fact_name = "summary/cost/recorded_total"
+    money = format(total.quantize(Decimal("0.01")), ".2f")
+    fact = {**MARKER, "fact": fact_name, "part_id": None, "display": {"state": "value", "value": money, "unit": "DKK"},
+            "rule": "Decimal sum of recorded synthetic total_cost fields; missing rows excluded",
+            "badge": "Synthetic summary fixture", "sources": cost_sources, "snapshot_note": True}
+    save("cost-summary.json", c.CostSummaryResult, {"records_sha256": snapshot, "source_hashes": sources, "recorded_total": money,
+         "recorded_row_names": recorded, "recorded_total_count": len(recorded), "missing_total_count": sum(map(len, missing.values())),
+         "row_count": len(rows), "missing_reasons": [{"reason": reason, "row_names": names, "count": len(names)} for reason, names in missing.items()],
+         "fact": fact_name, "facts": {fact_name: fact}, "caveat": "Synthetic recorded snapshot; prices may be out of date and missing costs are unknown."})
+
+
 def main() -> None:
     DEST.mkdir(parents=True, exist_ok=True)
     numbers = [number(value, index) for index, value in enumerate([37.0, 22.0, 4.25, 1.75])]
@@ -147,9 +261,9 @@ def main() -> None:
                                                     "inputs": [ids[1]]}})}, {"source_ids": [c.drawing_fact_name("D-013", "title")]}, None)
     outline["essential"] = True
     template = save("flat-template.json", c.FlatTemplate, {
-        "part": "D-013", "filled_by": "two_models", "source_sha256": digest("D-013"),
+        "part": "D-013", "filled_by": "determine_verify", "source_sha256": digest("D-013"),
         "provenance": provenance(), "outline": outline,
-        "thickness": {"name": c.template_fact_name("D-013", "thickness"), "state": "options", "method": "ai_agreed",
+        "thickness": {"name": c.template_fact_name("D-013", "thickness"), "state": "options", "method": "ai_verified",
                       "review": {"status": "not_reviewed"}, "provenance": provenance(), "essential": True, "unit": "mm",
                       "options": [{"value": 4.25, "evidence": {"number_ids": [ids[2]]}, "label": "Synthetic A"},
                                   {"value": 1.75, "evidence": {"number_ids": [ids[3]]}, "label": "Synthetic B"}]},
@@ -193,7 +307,7 @@ def main() -> None:
                                        "reason": "Synthetic minor feature intentionally unknown and omitted."}],
                   "built_at": TIME, "built_template_sha256": digest("template"), "current_template_sha256": digest("template")},
     })
-    save("D-025.json", c.PartRecord, {
+    disc = save("D-025.json", c.PartRecord, {
         "id": "D-025/part", "display_name": "Synthetic training disc", "section": None, "has_drawing": True,
         "has_3d": False, "examples": [],
         "drawing": {"id": "D-025", "pages": 1, "image": "images/synthetic-D-025-p1.png",
@@ -209,7 +323,7 @@ def main() -> None:
     stale["model"].update(state="stale", stale_reason="Synthetic template edit with builder unavailable; shipped GLBs remain viewable.",
                           current_template_sha256=digest("changed-template"))
     save("D-013-stale.json", c.PartRecord, stale)
-    save("bom-only.json", c.PartRecord, {
+    bom_only = save("bom-only.json", c.PartRecord, {
         "id": row_name + "/part", "display_name": "Synthetic BOM-only bar", "section": "Mock Section", "has_drawing": False,
         "has_3d": False, "examples": [], "drawing": None, "bom": [row], "link": None, "template": None,
         "model": {"state": "missing", "message": "Synthetic BOM-only record: no drawing or model recorded."},
@@ -260,7 +374,7 @@ def main() -> None:
         "based_on": item["source_hashes"], "check_result": check, "reason": "Invented proposal for smoke checks.", "proposal_id": "SYN-P-001",
     })
     save("proposal-result.json", c.ProposeCorrectionResult, {"item": item, "decision": pending,
-         "review_link": {"id": item["id"], "href": "/review/" + c.encode_id(item["id"])}})
+         "review_link": {"id": item["id"], "href": "/debug/review/" + c.encode_id(item["id"])}})
     save("review-action.json", c.ReviewActionRequest, {"action": "reject", "note": "Synthetic rejection example."})
     rejected_item = copy.deepcopy(item)
     rejected_item.update(status="rejected", allowed_actions=[], message="Synthetic proposal rejected; effective title remains unchanged.")
@@ -270,12 +384,19 @@ def main() -> None:
         "item": rejected_item, "decisions": [rejected_decision],
         "refresh": {"part_ids": [part_id], "facts": chat["facts"], "models": {part_id: record["model"]}, "warnings": []},
     })
+    prep_records = [c.PrepProvenance.model_validate(provenance(case=case)) for case in
+                    ("first", "retry", "persistent", "unsure", "invalid", "unsupported", "retry_failure")]
+    prep_records.append(c.PrepProvenance.model_validate(provenance(True)))
+    save("prep-cases.json", c.PrepBatchResult, {"records": prep_records, "counts": c.prep_counts(prep_records)})
+    summary_fixtures([record, disc, bom_only])
     for state in ("configured", "missing_key"):
         save("status-" + state.replace("_", "-") + ".json", c.StatusResponse, {
             "chat_available": state == "configured", "chat_state": state,
             "message": "Synthetic configured-status example; no provider was called." if state == "configured" else
                        "Add an API key to use chat. This is a synthetic missing-key example.", "cad_available": False,
         })
+    save("status-debug-enabled.json", c.StatusResponse, {"chat_available": False, "chat_state": "missing_key",
+         "message": "Synthetic explicit Debug launch; no runtime launch was performed.", "debug_enabled": True})
     save("error.json", c.ErrorResponse, {"error": {"code": "missing_key", "message": "Synthetic example: chat key is not configured.", "retryable": False}})
     manifest = FixtureManifest.model_validate({**MARKER, "entries": entries, "binary_assets": ["sample.glb", "sample-B.glb"]})
     (DEST / "manifest.json").write_text(manifest.model_dump_json(indent=2) + "\n", encoding="utf-8")

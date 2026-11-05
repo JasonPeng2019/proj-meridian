@@ -1,0 +1,48 @@
+{
+  "schema": "A02-static-inspection/v1",
+  "command": "python -B testing/smoke/A02-contracts/inspect_static.py --base-revision 570f0dc9d329acad21396f1df2acf203caf8b3d5",
+  "completed_at": "2026-11-05T09:45:10.666047+00:00",
+  "outcome": "PASS",
+  "scope": "Python AST and JSON parsing/inventory/fixture declarations only; no runtime policy/schema/TS checks",
+  "python_files": [
+    "development/backend/contracts.py",
+    "testing/smoke/A02-contracts/build_fixtures.py",
+    "testing/smoke/A02-contracts/check_contracts.py",
+    "testing/smoke/A02-contracts/check_policy.py",
+    "testing/smoke/A02-contracts/inspect_static.py"
+  ],
+  "base_revision": "570f0dc9d329acad21396f1df2acf203caf8b3d5",
+  "unchanged_nonprep_declarations": [
+    "DrawingField",
+    "DrawingNumber",
+    "DrawingWord",
+    "DrawingEvidence",
+    "BOMField",
+    "ConnectionEvidence",
+    "BOMRow",
+    "Decision",
+    "DecisionJournal",
+    "ReviewActionRequest",
+    "ReviewActionResponse",
+    "RefreshRequest",
+    "RefreshResult",
+    "PartRecord",
+    "PartSummary",
+    "FactResult",
+    "SourceTarget",
+    "FactSource"
+  ],
+  "declared_json_examples": 22,
+  "json_files_including_manifest": 23,
+  "binary_assets_declared": [
+    "sample.glb",
+    "sample-B.glb"
+  ],
+  "typescript_generated_sha256": "e52aab6a1206a2b05aa79c4307ee8c9a196a8b95ad7c0d4781e0f3e10c1e826c",
+  "typescript_handwritten_sha256": "007d7e140e0d7aa254b5752a5a86b4f97b745bb20ad50debdd13b10f8f7d5aa8",
+  "contracts_python_sha256": "2c33a6715ece3fd1b42851fa44add0e3a9ae278479b32c114ae1bd5323a38789",
+  "runtime_contract_checker": "PENDING_ROOT_ACTIONS",
+  "typescript_compile_and_helpers": "PENDING_ROOT_ACTIONS",
+  "real_source_validation": "NOT_PERFORMED_SYNTHETIC_ONLY",
+  "live_cli_execution": "NOT_PERFORMED"
+}

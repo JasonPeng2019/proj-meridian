@@ -60,6 +60,10 @@ jobs:
           npm --prefix ../development/frontend ci --ignore-scripts --no-audit --no-fund
           npm --prefix ../development/frontend run build
           python ci/checks.py manifest
+      - name: Check frozen TypeScript payloads, fixtures and Debug props
+        run: |
+          ../development/frontend/node_modules/.bin/tsc --strict --target ES2022 --module commonjs --lib ES2022,DOM --rootDir .. --outDir tmp/A02-contracts/compiled ../development/frontend/src/contracts.ts tmp/A02-contracts/fixtures.ts smoke/A02-contracts/check_props.ts
+          node smoke/A02-contracts/check_helpers.cjs
       - name: Save frontend and its provenance
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:

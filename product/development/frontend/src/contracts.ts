@@ -161,6 +161,25 @@ export type CorrectionCheck = {
   "proves_correct"?: false;
 };
 
+export type CostSummaryResult = {
+  "fixture"?: boolean;
+  "synthetic"?: boolean;
+  "fixture_note"?: string | null;
+  "records_sha256": string;
+  "source_hashes": { [key: string]: string };
+  "currency"?: "DKK";
+  "recorded_total": string;
+  "recorded_row_names": Array<string>;
+  "recorded_total_count": number;
+  "missing_total_count": number;
+  "row_count": number;
+  "missing_reasons": Array<MissingCostGroup>;
+  "fact": string;
+  "facts": { [key: string]: FactResult };
+  "snapshot_note"?: true;
+  "caveat": string;
+};
+
 export type CropReference = {
   "url": string;
   "target": SourceTarget;
@@ -172,6 +191,8 @@ export type CropRequest = {
   "id": string;
   "fact": string;
 };
+
+export type CustomerReviewStatus = "Human reviewed" | "AI reviewed" | "Unavailable";
 
 export type Decision = {
   "fixture"?: boolean;
@@ -218,6 +239,44 @@ export type Derivation = {
   "expression": string;
   "inputs": Array<string>;
   "pattern_fact"?: string | null;
+};
+
+export type DeterminationAttempt = {
+  "requested": ReaderSettings;
+  "effective": ReaderSettings | null;
+  "status": "success" | "execution_failed" | "invalid_output";
+  "failure"?: ReaderFailure | null;
+  "prior_failures"?: Array<ReaderFailure>;
+  "started_at": string;
+  "finished_at": string;
+  "cache": PrepCacheIdentity;
+  "role"?: "determination";
+  "output": DeterminationOutput | null;
+};
+
+export type DeterminationOutput = {
+  "source_sha256": string;
+  "fields": { [key: string]: DeterminedField };
+  "candidate_sha256": string;
+};
+
+export type DeterminationRequest = {
+  "job": PrepJobRequest;
+  "round": 1 | 2;
+  "previous_candidate"?: DeterminationOutput | null;
+  "feedback"?: VerificationOutput | null;
+};
+
+export type DeterminedField = {
+  "state": "known" | "options" | "unknown" | "value" | "match" | "no_match" | "relationship";
+  "value"?: JsonValue;
+  "options"?: Array<JsonValue>;
+  "confidence": Confidence;
+  "source_ids"?: Array<string>;
+  "reason": string;
+  "schema_valid": boolean;
+  "evidence_valid": boolean;
+  "basis"?: "printed_alternatives" | null;
 };
 
 export type DrawingEvidence = {
@@ -344,6 +403,13 @@ export type FeaturePosition = {
   "y": KnownNumberField | OptionsNumberField | UnknownField;
 };
 
+export type FieldVerification = {
+  "verdict": "verified" | "disagrees" | "unsure";
+  "reason": string;
+  "source_ids": Array<string>;
+  "alternative"?: DeterminedField | null;
+};
+
 export type FindPartRequest = {
   "text": string;
 };
@@ -364,7 +430,7 @@ export type FlatTemplate = {
   "part": string;
   "template"?: "flat_part";
   "units"?: "mm";
-  "filled_by": "two_models" | "single_model" | "human";
+  "filled_by": "determine_verify" | "single_model_unverified" | "human";
   "source_sha256": string;
   "review"?: ReviewState;
   "provenance"?: PrepProvenance | null;
@@ -544,11 +610,32 @@ export type LinkInfo = {
   "review"?: ReviewState | null;
   "review_item"?: ReviewLink | null;
   "provenance"?: PrepProvenance | null;
+  "prep_field_name"?: string | null;
+};
+
+export type MachineSummaryResult = {
+  "fixture"?: boolean;
+  "synthetic"?: boolean;
+  "fixture_note"?: string | null;
+  "records_sha256": string;
+  "source_hashes": { [key: string]: string };
+  "record_count": number;
+  "drawing_count": number;
+  "bom_row_count": number;
+  "drawing_sections": Array<SummarySection>;
+  "bom_sections": Array<SummarySection>;
+  "facts": { [key: string]: FactResult };
 };
 
 export type MappingRelationship = "same" | "kind_of" | "different" | "no_equivalent";
 
-export type Method = "parsed" | "cleanup_rule" | "exact_match" | "ai_read" | "ai_agreed" | "ai_agreed_after_retry" | "ai_single_model" | "human_decision" | "unresolved";
+export type Method = "parsed" | "cleanup_rule" | "exact_match" | "ai_read" | "ai_agreed" | "ai_agreed_after_retry" | "ai_verified" | "ai_verified_after_retry" | "ai_single_model" | "human_decision" | "unresolved";
+
+export type MissingCostGroup = {
+  "reason": "missing_unit_cost" | "missing_amount" | "missing_total" | "invalid_total" | "unresolved";
+  "row_names": Array<string>;
+  "count": number;
+};
 
 export type ModelExample = {
   "id": "A" | "B" | "C" | "D";
@@ -583,6 +670,8 @@ export type ModelStatus = {
   "overall_size_mm"?: [number, number, number] | null;
   "section_view_available"?: boolean | null;
 };
+
+export type MoneyDKK = string;
 
 export type NameMapping = {
   "fixture"?: boolean;
@@ -784,32 +873,82 @@ export type Pattern = RowPattern | CirclePattern;
 
 export type Point = [number, number];
 
+export type PrepBatchResult = {
+  "fixture"?: boolean;
+  "synthetic"?: boolean;
+  "fixture_note"?: string | null;
+  "records": Array<PrepProvenance>;
+  "counts": PrepCounts;
+};
+
+export type PrepCacheIdentity = {
+  "pipeline_version"?: "determine-verify/v1";
+  "role": "determination" | "verification";
+  "source_sha256": string;
+  "field_names_sha256": string;
+  "candidate_sha256": string | null;
+  "feedback_sha256": string | null;
+  "prompt_sha256": string;
+  "output_contract_sha256": string;
+  "settings": ReaderSettings;
+  "mode": "determine_verify" | "single_model_unverified";
+};
+
 export type PrepCounts = {
-  "dual_reader_items": number;
-  "agreed": number;
-  "agreed_after_retry": number;
-  "dual_reader_unresolved": number;
-  "single_model_fallback": number;
-  "execution_failed": number;
+  "count_unit"?: "field";
+  "total_fields": number;
+  "first_pass_verified": number;
+  "retry_verified": number;
+  "unresolved": number;
+  "unverified_fallback": number;
+  "execution_failed_attempts": number;
+};
+
+export type PrepFieldResult = {
+  "status": "first_pass_verified" | "retry_verified" | "unresolved" | "unverified_fallback";
+  "candidate_sha256": string | null;
+  "accepted": DeterminedField | null;
+};
+
+export type PrepJobRequest = {
+  "fixture"?: boolean;
+  "synthetic"?: boolean;
+  "fixture_note"?: string | null;
+  "pipeline_version"?: "determine-verify/v1";
+  "job": string;
+  "job_id": string;
+  "source": PrepSourceIdentity;
+  "field_names": Array<string>;
+  "determination_prompt_sha256": string;
+  "verification_prompt_sha256": string;
+  "output_contract_sha256": string;
 };
 
 export type PrepProvenance = {
+  "pipeline_version"?: "determine-verify/v1";
   "job": string;
   "job_id": string;
-  "mode": "dual_reader" | "single_model";
-  "outcome": "agreed" | "agreed_after_retry" | "single_model_fallback" | "unresolved";
+  "mode": "determine_verify" | "single_model_unverified";
+  "outcome": "first_pass_verified" | "retry_verified" | "unverified_fallback" | "unresolved";
   "rounds": Array<PrepRound>;
-  "inputs": { [key: string]: string };
-  "prompt_sha256": string;
+  "source": PrepSourceIdentity;
+  "field_names": Array<string>;
+  "determination_prompt_sha256": string;
+  "verification_prompt_sha256": string;
   "output_contract_sha256": string;
-  "cache_key": string;
+  "field_results"?: { [key: string]: PrepFieldResult };
   "next_launch_attempt_opus"?: true;
 };
 
 export type PrepRound = {
   "round": 1 | 2;
-  "sol": ReaderAttempt;
-  "opus": ReaderAttempt;
+  "determination": DeterminationAttempt;
+  "verification": VerificationAttempt | null;
+};
+
+export type PrepSourceIdentity = {
+  "inputs": { [key: string]: string };
+  "source_ids": { [key: string]: string };
 };
 
 export type ProposeCorrectionRequest = {
@@ -827,28 +966,6 @@ export type ProposeCorrectionResult = {
   "review_link": ReviewLink;
 };
 
-export type ReaderAnswer = {
-  "state": "known" | "options" | "unknown" | "value" | "match" | "no_match" | "relationship";
-  "value"?: JsonValue;
-  "options"?: Array<JsonValue>;
-  "confidence": Confidence;
-  "source_ids"?: Array<string>;
-  "reason": string;
-  "schema_valid"?: boolean;
-  "evidence_valid"?: boolean;
-};
-
-export type ReaderAttempt = {
-  "requested": ReaderSettings;
-  "effective": ReaderSettings | null;
-  "status": "success" | "execution_failed" | "invalid_output";
-  "output": ReaderOutput | null;
-  "failure"?: ReaderFailure | null;
-  "prior_failures"?: Array<ReaderFailure>;
-  "started_at"?: string | null;
-  "finished_at"?: string | null;
-};
-
 export type ReaderFailure = {
   "classification": FailureClass;
   "execution_failure": boolean;
@@ -857,11 +974,6 @@ export type ReaderFailure = {
   "retryable"?: boolean;
   "troubleshooting"?: Array<string>;
   "diagnostic_sha256"?: string | null;
-};
-
-export type ReaderOutput = {
-  "answers": { [key: string]: ReaderAnswer };
-  "output_sha256": string;
 };
 
 export type ReaderSettings = {
@@ -1052,12 +1164,28 @@ export type StatusResponse = {
   "chat_provider"?: "openai";
   "chat_model"?: "gpt-6-luna";
   "cad_available"?: boolean | null;
+  "debug_enabled"?: boolean;
 };
 
 export type StringMatchEvidence = {
   "source_name": string;
   "matched": boolean;
   "text": string | null;
+};
+
+export type SummaryInput = {
+  "fixture"?: boolean;
+  "synthetic"?: boolean;
+  "fixture_note"?: string | null;
+  "records": Array<PartRecord>;
+};
+
+export type SummarySection = {
+  "section": string | null;
+  "member_ids": Array<string>;
+  "part_ids": Array<string>;
+  "count": number;
+  "fact": string;
 };
 
 export type TemplateOption_float_ = {
@@ -1116,6 +1244,34 @@ export type ValueEvidence = {
 };
 
 export type Vector3 = [number, number, number];
+
+export type VerificationAttempt = {
+  "requested": ReaderSettings;
+  "effective": ReaderSettings | null;
+  "status": "success" | "execution_failed" | "invalid_output";
+  "failure"?: ReaderFailure | null;
+  "prior_failures"?: Array<ReaderFailure>;
+  "started_at": string;
+  "finished_at": string;
+  "cache": PrepCacheIdentity;
+  "role"?: "verification";
+  "candidate_sha256": string;
+  "source_sha256": string;
+  "output": VerificationOutput | null;
+};
+
+export type VerificationOutput = {
+  "candidate_sha256": string;
+  "source_sha256": string;
+  "fields": { [key: string]: FieldVerification };
+  "verification_sha256": string;
+};
+
+export type VerificationRequest = {
+  "job": PrepJobRequest;
+  "round": 1 | 2;
+  "candidate": DeterminationOutput;
+};
 
 export type WarningCode = "invalid_citation" | "invalid_undetermined" | "unsupported_value" | "uncited_answer" | "malformed_marker" | "single_model" | "stale_model";
 
@@ -1291,7 +1447,7 @@ export function model_api_path(id: string, example: ModelRequest["example"], for
   return `/api/models/${drawing_id(id)}_${example}.${format}`;
 }
 export const part_link = (id: string): string => `/part/${encode_id(id)}`;
-export const review_link = (id: string): string => `/review/${encode_id(id)}`;
+export const review_link = (id: string): string => `/debug/review/${encode_id(id)}`;
 
 function box_transform(box: Box, page: PageGeometry, zoom: number, offset: Point, inverse: boolean): Box {
   if (![...box, zoom, ...offset, page.source_width, page.source_height, page.image_width, page.image_height]
@@ -1316,7 +1472,9 @@ export const pixel_box_to_source = (box: Box, page: PageGeometry, zoom = 1, offs
   box_transform(box, page, zoom, offset, true);
 
 export const RECONSTRUCTION_LABEL = "Reconstruction from 2D drawing. Not the original CAD model." as const;
-export const SINGLE_MODEL_LABEL = "Single-model fallback: Sol only; Opus output unavailable." as const;
+export const SINGLE_MODEL_LABEL = "UNVERIFIED: Sol only; Opus execution failed." as const; // Debug only.
+export const PREP_PIPELINE_VERSION = "determine-verify/v1" as const;
+export const DEBUG_ENV = "MERIDIAN_DEBUG" as const;
 export const CHAT_MODEL = "gpt-6-luna" as const;
 
 // API call shapes distinguish decoded path IDs, query values, and POST bodies.
@@ -1377,10 +1535,72 @@ export interface FactTools {
   get_connections(part_id: string): GetConnectionsResult;
   parts_in_section(section: string): PartGroupResult;
   parts_with_material(material: string): PartGroupResult;
+  machine_summary(): MachineSummaryResult;
+  cost_summary(): CostSummaryResult;
   propose_correction(fact_id: string, new_value: JsonValue, reason: string): ProposeCorrectionResult;
 }
 
-export type PartViewTab = "drawing" | "model" | "detail" | "history";
+export type PrepRunner = (request: PrepJobRequest) => PrepProvenance;
+export type Determiner = (request: DeterminationRequest) => DeterminationAttempt;
+export type Verifier = (request: VerificationRequest) => VerificationAttempt;
+export type CandidateValidator = (candidate: DeterminationOutput, source: PrepSourceIdentity) => DeterminationOutput;
+export type MachineSummarizer = (records: readonly PartRecord[]) => MachineSummaryResult;
+export type CostSummarizer = (records: readonly PartRecord[]) => CostSummaryResult;
+
+// Customer labels describe actual current review. Source values remain usable
+// even when their review is Unavailable. Fallback/parsed/legacy methods confer no AI review.
+export interface CustomerReviewInput {
+  usable: boolean;
+  current_source_hashes: Readonly<Record<string, string>>;
+  review?: ReviewState | null;
+  provenance?: PrepProvenance | null;
+  field_name?: string | null;
+}
+export function customer_review_status(input: CustomerReviewInput): CustomerReviewStatus {
+  const {usable, current_source_hashes: current, review, provenance, field_name} = input;
+  if (!usable || Object.keys(current).length === 0) return "Unavailable";
+  const based = Object.entries(review?.based_on ?? {});
+  if (review?.status === "human_confirmed" && review.by && review.at && based.length > 0 &&
+      based.every(([name, hash]) => current[name] === hash)) return "Human reviewed";
+  if (provenance?.pipeline_version === PREP_PIPELINE_VERSION &&
+      Object.entries(provenance.source.inputs).every(([name, hash]) => current[name] === hash)) {
+    const fields = field_name == null ? Object.values(provenance.field_results ?? {}) :
+      (provenance.field_results?.[field_name] ? [provenance.field_results[field_name]] : []);
+    if (fields.length > 0 && fields.every(field => field.status === "first_pass_verified" || field.status === "retry_verified")) {
+      return "AI reviewed";
+    }
+  }
+  return "Unavailable";
+}
+
+export type CustomerPage = "chat" | "parts";
+export type ShellNavigationItem = CustomerPage | "debug";
+export function shell_navigation(status: Pick<StatusResponse, "debug_enabled">): ShellNavigationItem[] {
+  return status.debug_enabled === true ? ["chat", "parts", "debug"] : ["chat", "parts"];
+}
+export type DebugPanel = "review" | "history" | "preparation" | "diagnostics";
+export type DebugAccess = {
+  enabled: true;
+  on_open_review: (item: ReviewLink) => void;
+  on_open_history?: (fact_name: string) => void;
+};
+export type DebugContext = { enabled: false } | DebugAccess;
+// A03 propagates A01's launch setting in /api/status. A04 passes the same context
+// to every embedded/standalone view; missing props/status always hide Debug.
+export function debug_context(status: Pick<StatusResponse, "debug_enabled">,
+                              actions: Omit<DebugAccess, "enabled">): DebugContext {
+  return status.debug_enabled === true ? { ...actions, enabled: true } : { enabled: false };
+}
+export interface ShellProps {
+  api: ApiClient;
+  status: StatusResponse;
+  initial_page?: CustomerPage;
+  initial_debug_panel?: DebugPanel; // Ignored unless status.debug_enabled === true.
+  on_open_part: OpenPart;
+  on_open_source: OpenSource;
+}
+
+export type PartViewTab = "drawing" | "model" | "detail";
 export interface PartOpenRequest {
   part_id: string;
   tab?: PartViewTab;
@@ -1390,30 +1610,38 @@ export interface PartOpenRequest {
 export type OpenPart = (request: PartOpenRequest) => void;
 export type OpenSource = (target: SourceTarget) => void;
 
-// A17 Evidence.tsx: source badges, uncertainty, corrections, and warnings.
+// A17 Evidence.tsx: values, units, source navigation and three honest review labels.
+// All provenance, uncertainty reasons, review actions and warnings are inside Debug.
 // Marker spans count Unicode code points (Array.from(text)); hide raw markers.
 export interface EvidenceProps {
   response: ChatResponse;
   on_open_source: OpenSource;
-  on_open_review: (item: ReviewLink) => void;
+  debug?: DebugContext;
 }
 export interface SourceTagProps {
   facts: FactResult[];
   on_open_source: OpenSource;
+  debug?: DebugContext;
 }
 export interface UndeterminedProps {
   fact: FactResult;
-  on_open_review?: (item: ReviewLink) => void;
+  debug?: DebugContext; // Ordinary label is Unavailable; detailed reason/action is Debug only.
 }
 export interface MethodBadgeProps {
+  debug: DebugAccess;
   method: Method;
   badge: string;
   review?: ReviewState | null;
   provenance?: PrepProvenance | null;
-  on_open_history?: (fact_name: string) => void;
   fact_name?: string;
 }
-export interface WarningListProps { warnings: ChatWarning[] }
+export interface WarningListProps { debug: DebugAccess; warnings: ChatWarning[] }
+export interface ReviewStatusProps { status: CustomerReviewStatus }
+export interface PartDebugProps {
+  debug: DebugAccess;
+  part: PartRecord; // Weight (including failed/flagged/skipped), stale/omitted details, review queues, hashes.
+  facts?: Record<string, FactResult>;
+}
 
 export type ClientChatMessage =
   | { id: string; role: "user"; text: string }
@@ -1425,7 +1653,7 @@ export interface ChatProps {
   status: StatusResponse;
   on_open_part: OpenPart;
   on_open_source: OpenSource;
-  on_open_review: (item: ReviewLink) => void;
+  debug?: DebugContext;
   initial_messages?: ClientChatMessage[];
 }
 
@@ -1441,7 +1669,7 @@ export interface PartPageProps {
   embedded?: boolean;
   on_open_part: OpenPart;
   on_open_source: OpenSource;
-  on_open_review: (item: ReviewLink) => void;
+  debug?: DebugContext;
   on_close?: () => void;
 }
 export interface DrawingViewProps {
@@ -1450,30 +1678,34 @@ export interface DrawingViewProps {
   highlights?: SourceTarget[];
   initial_page?: number;
   initial_zoom?: number;
+  debug?: DebugContext;
 }
-export interface BOMRowCardProps { row: BOMRow; facts: FactResult[]; on_open_source: OpenSource }
+export interface BOMRowCardProps { row: BOMRow; facts: FactResult[]; on_open_source: OpenSource; debug?: DebugContext }
 
 // A20 Parts.tsx: same navigation callback as Chat and the shell.
 export interface PartsProps {
   api: ApiClient;
   on_open_part: OpenPart;
   initial_query?: PartsRequest;
+  debug?: DebugContext; // Engineering review filters and queues are Debug only.
 }
 
 // A21 Viewer3D.tsx: A is only the initial viewing choice, never an approval.
-// Hide the tab for unavailable assets; stale assets remain viewable with notice.
+// Hide unavailable tabs; stale assets remain viewable, with details inside Debug.
+// Keep RECONSTRUCTION_LABEL visible in the ordinary viewer.
 export interface Viewer3DProps {
   part: PartRecord;
   example?: ModelRequest["example"] | null;
   on_select_example?: (example: ModelRequest["example"]) => void;
   on_open_source: OpenSource;
-  on_open_review: (item: ReviewLink) => void;
+  debug?: DebugContext;
   show_section?: boolean; // Reserved M3, hollow clip only.
 }
 
 // A22 Review.tsx: action body goes to review_action; updated item/refresh comes
 // back. Reviewer is displayed from settings; the server stamps the journal.
 export interface ReviewProps {
+  debug: DebugAccess; // Mounted only inside Debug, never an ordinary navigation tab.
   api: ApiClient;
   reviewer_name: string;
   on_open_part: OpenPart;

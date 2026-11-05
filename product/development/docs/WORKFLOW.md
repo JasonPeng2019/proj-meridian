@@ -2,7 +2,7 @@
 
 ## Basis
 
-- **Plan:** [PLAN.md](PLAN.md), including its 27 modules, requirements R1–R15, expectations E1–E13, and five verification checkpoints. Module IDs `M01`–`M27` are different from product milestones `M0`–`M3`.
+- **Plan:** [PLAN.md](PLAN.md), including 27 modules, requirements R1-R17, expectations E1-E15 and five verification checkpoints. Module IDs M01-M27 differ from product milestones M0-M3.
 - **Assignment:** [Project Meridian requirements](../inputs/project-meridian/README.md). [mvp (1).md](<../inputs/mvp (1).md>) controls build scope; [proposal.md](../inputs/proposal.md) supplies included-feature behavior. The user's later instructions add minimal deterministic tests and selective semantic verification.
 - **Destination/application root:** This workflow is `product/development/docs/WORKFLOW.md`. Implementation paths below are relative to `Avathon/product/development/`.
 - **Status:** B00 M01/M02 and the bounded prep/CAD qualification slices were accepted and integrated locally. Product V1?V5 and the final benchmark remain unverified; HANDOFF records exact evidence and current execution state.
@@ -19,6 +19,8 @@ M01 owns CI/artifact setup; M23 adds the real gate suites and the preliminary [2
 B03 implementation can remain parallel against frozen interfaces, but A11's actual local prep waits for a reserved child CLI slot. Sol determination finishes before Opus verification starts, including the single disagreement retry. Stop/suspend other project coding launches as needed to stay within the shared ceiling. Deterministic regeneration, CAD and browser workloads use Actions; local agents author code and inspect reports.
 
 The customer UI is clean by default. Ordinary review status has exactly **Human reviewed**, **AI reviewed**, or **Unavailable**, mapped honestly from actual state. All verification details, needs-human-review notices/queues/actions, disagreements/fallback, weight failures/flags and detailed history/accuracy belong inside **Debug**. A01 supplies its default-hidden launch setting; A02 freezes the status mapping/props; A03 exposes the setting; A04 shows Chat/Parts and optional Debug (Review inside Debug); A19 owns part Debug and A22 its review controls. A17/A21 keep normal views free of engineering warnings/counters. Source navigation and reconstruction identification remain usable. Debug exposes only available non-secret information, not invented evidence. V3 covers hidden/enabled modes and status truthfulness. No new module or semantic checkpoint is added.
+
+**Past chats (R17/E15)** are ordinary customer functionality. A01 configures/ignores `development/chat_history/`; A02 freezes conversation list/create/read/send payloads and server-owned ledger boundaries; A15 owns local JSON conversations and the grounded reply service in its existing file; A03 wires routes; A18 supplies New chat/history selection/reopening/continuation; A04 coordinates thread/part-panel changes. Persist all messages/citations/attachments across reload/restart, but send only that thread's last 10 turns to Luna. Reads work without a key. V2 covers persistence/context/ledger isolation; V3 covers two threads/reload. A02's bounded history-contract follow-up must finish before A15/A18, while A08 can use the refreshed prep contracts. Keep 27 modules and the existing gates/reviewer schedule.
 
 ## Model bindings and fallback
 

@@ -1,0 +1,138 @@
+{
+  "at": "2026-11-05T09:45:18.946583+00:00",
+  "base_commit": "f74f65e5d0572cad22ab6edc544db1a72755b6d8",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "-"
+      ],
+      "method": "ast.parse of both owned Python files; no product imports or test execution",
+      "name": "Owned Python syntax",
+      "outcome": "PASS"
+    },
+    {
+      "command": [
+        "git",
+        "-C",
+        "..",
+        "ls-tree",
+        "-r",
+        "-z",
+        "f74f65e5d0572cad22ab6edc544db1a72755b6d8",
+        "--",
+        "development/inputs"
+      ],
+      "files": 51,
+      "method": "Raw Git blob digest of each current file equals its assigned-base blob; SHA256 inventory retained",
+      "name": "Supplied input byte identity",
+      "outcome": "PASS"
+    },
+    {
+      "command": [
+        "git",
+        "-C",
+        "..",
+        "diff",
+        "--exit-code",
+        "f74f65e5d0572cad22ab6edc544db1a72755b6d8",
+        "--",
+        "development/inputs",
+        "development/backend/contracts.py",
+        "development/pyproject.toml",
+        "development/backend/settings.py",
+        "development/ai_settings.yaml",
+        "development/uv.lock",
+        "development/docs/PLAN.md",
+        "development/docs/WORKFLOW.md",
+        "development/USER_TODO.md"
+      ],
+      "exit_code": 0,
+      "name": "Protected source and shared file integrity",
+      "outcome": "PASS",
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_decisions_m1.py",
+        "-o",
+        "cache_dir=cache/pytest-A07-decisions",
+        "--junitxml=reports/b01/A07-decisions/pytest.xml"
+      ],
+      "name": "Focused runtime suite",
+      "outcome": "SKIPPED",
+      "reason": "ROOT assignment requires remote Actions dispatch; no local Python suite execution."
+    }
+  ],
+  "files": {
+    "development/backend/loader/decisions.py": {
+      "sha256": "dfaaf2d88085ac560aa0d2c3253c54bcc83cbb0d7566a8a5bbcb4764546482dc",
+      "test_functions": 0
+    },
+    "testing/tests/test_decisions_m1.py": {
+      "sha256": "95b65081ead1194117f02e1a5ca4e49fb8f67ba680de75c8bb2128d9a36c3320",
+      "test_functions": 7
+    }
+  },
+  "input_sha256": {
+    "development/inputs/mvp (1).md": "7109fa87ec18f6c2b73823d0b5ec0de98134f4f303b3319d213f5927ade10611",
+    "development/inputs/project-meridian/.DS_Store": "3c280cb337c31d62c0c0565ed6893d7faa8e58c3ef3540af3c1a95b2295ed654",
+    "development/inputs/project-meridian/ATTRIBUTION.md": "524d652a593a7b37288a3df80dee24775906e202b4535e8897687a4e0dfcd37a",
+    "development/inputs/project-meridian/README.md": "5bf95c59217976994ac4d0329d3552de14fa7fccfd802a1736a01ae57888cf58",
+    "development/inputs/project-meridian/dataset/.DS_Store": "bdea449415c931fe407ef796cf9bc22f09047406944716d54aa71985f57f5192",
+    "development/inputs/project-meridian/dataset/README.md": "3ac8b8c75c9c99efce544c31985ad65ff33f1427545bf8a2065c64b7e71bef3e",
+    "development/inputs/project-meridian/dataset/context/OpenLPBF-LICENSE.md": "4f6226d3b4c338f9adebbe2b56001cd6c627890e06b6601bec853bbeef09e2c3",
+    "development/inputs/project-meridian/dataset/context/diagrams/PowderLegend.png": "cdaffdb229774ab013e4a29c16b3ef6ac1fd5bf7d6d94cb18cfe40328378e7a0",
+    "development/inputs/project-meridian/dataset/context/diagrams/RecoaterLegend.png": "a97ffcfbb97fb0538232759c193fd1dd7bc1665c98ff038b40629f491e2f1c92",
+    "development/inputs/project-meridian/dataset/context/diagrams/SafetyOPM.png": "30477ff0f11e9e4d766245fcfc8bd4f527280a4a0542f28ff2ffe437fa01a006",
+    "development/inputs/project-meridian/dataset/context/diagrams/SimpleDiagram.png": "b277e23825ce809747104eeb4164b82c8016d4ef95b181d0c72afec6ba4e0e94",
+    "development/inputs/project-meridian/dataset/context/diagrams/SystemLevels.png": "6252f374edc6e21418bcab4565ceebbfb825c49a500fd7fcbccdad9ce32c6eef",
+    "development/inputs/project-meridian/dataset/context/diagrams/Zaxis_legend.png": "e38f096c858aaa88c4b61efc270884f2502e990ced69cfd5d0fdc2cda11a73ca",
+    "development/inputs/project-meridian/dataset/context/openlpbf-bom.csv": "b9837f2249247e4465ae5f481f714912bba8ed33a7759cd773ab43092e1b6ae2",
+    "development/inputs/project-meridian/dataset/context/openlpbf-source-metadata.json": "fcde4fc582b3e806690c3879cec1f2b58672007d489794ba24a4b5de98710480",
+    "development/inputs/project-meridian/dataset/context/openlpbf-upstream-readme.md": "8e6f424f0c2e2607db5e48a9bd4ca005bb9b2f476d5a363b06789998dbca00d0",
+    "development/inputs/project-meridian/dataset/drawings/D-001.pdf": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f",
+    "development/inputs/project-meridian/dataset/drawings/D-002.pdf": "6822d609aa047ddbcb9446e1215f697ec12f5764ba9aa5ef3906543b9a1887bc",
+    "development/inputs/project-meridian/dataset/drawings/D-003.pdf": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+    "development/inputs/project-meridian/dataset/drawings/D-004.pdf": "947fee0986f4799388d5bd41411b2abedcee5d6a644e909238f005fb4802f64b",
+    "development/inputs/project-meridian/dataset/drawings/D-005.pdf": "6f49feb435d02be842ac6933d726b6785cf9cb7cef70e8193976dc4ab265cf26",
+    "development/inputs/project-meridian/dataset/drawings/D-006.pdf": "b9bd89aa9449889adb5335b1f4f3550be072a37447b1c134fb703435f04fbaad",
+    "development/inputs/project-meridian/dataset/drawings/D-007.pdf": "e5d57d66cae6ca7bbb2956249e89c11db91d4ea3e258f48658af191e926870c9",
+    "development/inputs/project-meridian/dataset/drawings/D-008.pdf": "2642be4f1d3471cc440aa7830166adfa298a8e1a31cef90911662bb2b4a26448",
+    "development/inputs/project-meridian/dataset/drawings/D-009.pdf": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea",
+    "development/inputs/project-meridian/dataset/drawings/D-010.pdf": "700cc64cb7e7c31d1d7a6d6f506bac453cdcb3c7daf76dc2272ffebfe5e2d911",
+    "development/inputs/project-meridian/dataset/drawings/D-011.pdf": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67",
+    "development/inputs/project-meridian/dataset/drawings/D-012.pdf": "23ba5d97ee7a744cf12072e1338ab62fa5e49c09c5229af4f20a6ff5a455f64a",
+    "development/inputs/project-meridian/dataset/drawings/D-013.pdf": "826076b03bfbaeee961dc3e57cb642c225d41f1ea9a643d0bb1ca7d296280047",
+    "development/inputs/project-meridian/dataset/drawings/D-014.pdf": "0e6fa42e39eda320d42f45576a0825c5d0c002abd6863188b3c98774d52867f6",
+    "development/inputs/project-meridian/dataset/drawings/D-015.pdf": "0828f6fee0d3bc087524df08c8b3fbadc5201212e5f86fcfc08b984fe9e32c60",
+    "development/inputs/project-meridian/dataset/drawings/D-016.pdf": "4f9799f28352975cd39a5c52daf0e1dcb036d379fb58ecf6413f0befc67525f3",
+    "development/inputs/project-meridian/dataset/drawings/D-017.pdf": "a460ab37d94f2d8f4c9bac58da15ea9d1e93b4f48ee0825e51adac0ec81f37ae",
+    "development/inputs/project-meridian/dataset/drawings/D-018.pdf": "816b582d82ed383ad0ff5452afde74e98b74981a6e9afb3c8d1ff6dbd6fa50a0",
+    "development/inputs/project-meridian/dataset/drawings/D-019.pdf": "581fbaf7562ac75008243463af6956d6f88cd6a0a858cf6c22aa62ce39041e11",
+    "development/inputs/project-meridian/dataset/drawings/D-020.pdf": "06242966c0f3c15c3031982fa56585859ff1d64e52f6215a30fcf0e912225fa6",
+    "development/inputs/project-meridian/dataset/drawings/D-021.pdf": "c8b07157f3b40ef8d2dc18ae915d4f7244479ea6219d4fe3e8bb6ef1fedea1bc",
+    "development/inputs/project-meridian/dataset/drawings/D-022.pdf": "7f3f8efc002bc2545386c1a355341ca61ebd984084b21cb07575331c4c1cc9ee",
+    "development/inputs/project-meridian/dataset/drawings/D-023.pdf": "5d838d31ad5e803b6c421bc6867447f73756d51509259385e07caf81e453c36d",
+    "development/inputs/project-meridian/dataset/drawings/D-024.pdf": "f6da4da2e0c21231939c15f13535cf068d1c1f778774816f3cb65ddf30f96e3d",
+    "development/inputs/project-meridian/dataset/drawings/D-025.pdf": "9b61f2c688fba1b10f502658505c78c0ff99820d3f281822eacdc7283e9b7e9c",
+    "development/inputs/project-meridian/dataset/drawings/D-026.pdf": "a7ee7f4d75acaf2e8fc67ce14ca223d5cb4a2931063f37f4dfb6fadeeb70256e",
+    "development/inputs/project-meridian/dataset/drawings/D-027.pdf": "9a270f0ddf24b173b85b6879b4fbd1ba9cf67d71cff7b13f722699699a667bcc",
+    "development/inputs/project-meridian/dataset/drawings/D-028.pdf": "30fb8b6088f535c51107389aa8eb4c7420841cd0f4c6175d3deb90a154e9881f",
+    "development/inputs/project-meridian/dataset/drawings/D-029.pdf": "066ed91474bb74b652451a34c6b9f5b719d23dba56043b8ba6aa8f5b7479cf15",
+    "development/inputs/project-meridian/dataset/drawings/D-030.pdf": "849100de6d2abbbcca5c6e39cd4a1778918b17818cc88c91340612981d9220ee",
+    "development/inputs/project-meridian/dataset/manifest.json": "c4be660f5296ff39e561ee24220392fb24aa4f1423ff201bfe3ed35408df541d",
+    "development/inputs/project-meridian/refrence_ui/ui_3d_visualizer.png": "4d807ab8b6dcd7e5339721bd8187aea44dac193fb1c4eb171d8378986ddededd",
+    "development/inputs/project-meridian/refrence_ui/ui_chat_interface.png": "26998df46616787182f470eb07be1448ebe2ad3a1619ef0264b6d17c2b9de53b",
+    "development/inputs/project-meridian/refrence_ui/ui_document_viewer.png": "b3ab7a128e05ad928bcaffe67bce8392ec21678a557a5d069fb06b98c2e05bed",
+    "development/inputs/proposal.md": "13aa199c4c5f722b923dfddea0405497c2bdee37e109562b3332d0dc55a98f47"
+  },
+  "scope": "A07 B01 M1 local static inspection only"
+}

@@ -1,0 +1,231 @@
+{
+  "fixture": true,
+  "synthetic": true,
+  "fixture_note": "Invented contract fixture only; not dataset evidence, an executed AI run, or a human decision.",
+  "records_sha256": "36edde26ae14fc0da58a7c5a29848fd017b2f8c48114713b175ba35717a8568b",
+  "source_hashes": {
+    "BOM:mock-section/synthetic-training-bar": "ef5ddc6b4d7e28998d1d2e97be2836168f73b1f4a12ae421b8c4070dc184f0fd",
+    "BOM:synthetic-priced-group/synthetic-item-0": "6b7d3e0632c8f06c59c4bb22486e30ded2debd25b978ea9f7cc00faa79a4dd93",
+    "BOM:synthetic-priced-group/synthetic-item-1": "04681e5e0427a42176eb2dbb9a0653ad081a1efefe93919f092e0e445a70be8b",
+    "D-013": "8d016551a76941cf73cdca0ef95167d9aeb75bb74fb16912a2f6a514bb824a43",
+    "D-025": "49487665d9ca5523d7eade72bf2faf2dd073d1dbb012d2d25cba5115b4d220e3"
+  },
+  "record_count": 5,
+  "drawing_count": 2,
+  "bom_row_count": 3,
+  "drawing_sections": [
+    {
+      "section": null,
+      "member_ids": [
+        "D-013",
+        "D-025"
+      ],
+      "part_ids": [
+        "D-013/part",
+        "D-025/part"
+      ],
+      "count": 2,
+      "fact": "summary/machine/drawing/unsectioned"
+    }
+  ],
+  "bom_sections": [
+    {
+      "section": "Mock Section",
+      "member_ids": [
+        "BOM:mock-section/synthetic-training-bar"
+      ],
+      "part_ids": [
+        "BOM:mock-section/synthetic-training-bar/part",
+        "D-013/part"
+      ],
+      "count": 1,
+      "fact": "summary/machine/bom/mock-section"
+    },
+    {
+      "section": "Synthetic priced group",
+      "member_ids": [
+        "BOM:synthetic-priced-group/synthetic-item-0",
+        "BOM:synthetic-priced-group/synthetic-item-1"
+      ],
+      "part_ids": [
+        "BOM:synthetic-priced-group/synthetic-item-0/part",
+        "BOM:synthetic-priced-group/synthetic-item-1/part"
+      ],
+      "count": 2,
+      "fact": "summary/machine/bom/synthetic-priced-group"
+    }
+  ],
+  "facts": {
+    "summary/machine/drawing/unsectioned": {
+      "fixture": true,
+      "synthetic": true,
+      "fixture_note": "Invented contract fixture only; not dataset evidence, an executed AI run, or a human decision.",
+      "fact": "summary/machine/drawing/unsectioned",
+      "part_id": null,
+      "display": {
+        "state": "value",
+        "value": 2,
+        "label": null,
+        "unit": null
+      },
+      "rule": "Unique synthetic source members",
+      "badge": "Synthetic summary fixture",
+      "provenance_badge": null,
+      "review": null,
+      "sources": [
+        {
+          "name": "D-013/part",
+          "says": "Synthetic training bar",
+          "method": "parsed",
+          "target": {
+            "kind": "part",
+            "name": "D-013/part",
+            "part_id": "D-013/part",
+            "drawing_id": null,
+            "row_name": null,
+            "page": null,
+            "box": null
+          },
+          "source_sha256": "8d016551a76941cf73cdca0ef95167d9aeb75bb74fb16912a2f6a514bb824a43",
+          "confidence": "sure",
+          "source_quality": null,
+          "note": null,
+          "review": null,
+          "provenance": null,
+          "crop": null
+        },
+        {
+          "name": "D-025/part",
+          "says": "Synthetic training disc",
+          "method": "parsed",
+          "target": {
+            "kind": "part",
+            "name": "D-025/part",
+            "part_id": "D-025/part",
+            "drawing_id": null,
+            "row_name": null,
+            "page": null,
+            "box": null
+          },
+          "source_sha256": "49487665d9ca5523d7eade72bf2faf2dd073d1dbb012d2d25cba5115b4d220e3",
+          "confidence": "sure",
+          "source_quality": null,
+          "note": null,
+          "review": null,
+          "provenance": null,
+          "crop": null
+        }
+      ],
+      "snapshot_note": true,
+      "review_item": null,
+      "correction": null
+    },
+    "summary/machine/bom/mock-section": {
+      "fixture": true,
+      "synthetic": true,
+      "fixture_note": "Invented contract fixture only; not dataset evidence, an executed AI run, or a human decision.",
+      "fact": "summary/machine/bom/mock-section",
+      "part_id": null,
+      "display": {
+        "state": "value",
+        "value": 1,
+        "label": null,
+        "unit": null
+      },
+      "rule": "Unique synthetic source members",
+      "badge": "Synthetic summary fixture",
+      "provenance_badge": null,
+      "review": null,
+      "sources": [
+        {
+          "name": "BOM:mock-section/synthetic-training-bar",
+          "says": "Synthetic training bar",
+          "method": "parsed",
+          "target": {
+            "kind": "bom",
+            "name": "BOM:mock-section/synthetic-training-bar",
+            "part_id": null,
+            "drawing_id": null,
+            "row_name": "BOM:mock-section/synthetic-training-bar",
+            "page": null,
+            "box": null
+          },
+          "source_sha256": "ef5ddc6b4d7e28998d1d2e97be2836168f73b1f4a12ae421b8c4070dc184f0fd",
+          "confidence": "sure",
+          "source_quality": null,
+          "note": null,
+          "review": null,
+          "provenance": null,
+          "crop": null
+        }
+      ],
+      "snapshot_note": true,
+      "review_item": null,
+      "correction": null
+    },
+    "summary/machine/bom/synthetic-priced-group": {
+      "fixture": true,
+      "synthetic": true,
+      "fixture_note": "Invented contract fixture only; not dataset evidence, an executed AI run, or a human decision.",
+      "fact": "summary/machine/bom/synthetic-priced-group",
+      "part_id": null,
+      "display": {
+        "state": "value",
+        "value": 2,
+        "label": null,
+        "unit": null
+      },
+      "rule": "Unique synthetic source members",
+      "badge": "Synthetic summary fixture",
+      "provenance_badge": null,
+      "review": null,
+      "sources": [
+        {
+          "name": "BOM:synthetic-priced-group/synthetic-item-0",
+          "says": "Synthetic item 0",
+          "method": "parsed",
+          "target": {
+            "kind": "bom",
+            "name": "BOM:synthetic-priced-group/synthetic-item-0",
+            "part_id": null,
+            "drawing_id": null,
+            "row_name": "BOM:synthetic-priced-group/synthetic-item-0",
+            "page": null,
+            "box": null
+          },
+          "source_sha256": "6b7d3e0632c8f06c59c4bb22486e30ded2debd25b978ea9f7cc00faa79a4dd93",
+          "confidence": "sure",
+          "source_quality": null,
+          "note": null,
+          "review": null,
+          "provenance": null,
+          "crop": null
+        },
+        {
+          "name": "BOM:synthetic-priced-group/synthetic-item-1",
+          "says": "Synthetic item 1",
+          "method": "parsed",
+          "target": {
+            "kind": "bom",
+            "name": "BOM:synthetic-priced-group/synthetic-item-1",
+            "part_id": null,
+            "drawing_id": null,
+            "row_name": "BOM:synthetic-priced-group/synthetic-item-1",
+            "page": null,
+            "box": null
+          },
+          "source_sha256": "04681e5e0427a42176eb2dbb9a0653ad081a1efefe93919f092e0e445a70be8b",
+          "confidence": "sure",
+          "source_quality": null,
+          "note": null,
+          "review": null,
+          "provenance": null,
+          "crop": null
+        }
+      ],
+      "snapshot_note": true,
+      "review_item": null,
+      "correction": null
+    }
+  }
+}

@@ -1,0 +1,1646 @@
+{
+  "pass": 2,
+  "case_id": "Q05",
+  "question": "Who supplied the Recoater Arm, and what did it cost?",
+  "server_start_status": {
+    "chat_available": true,
+    "chat_model": "gpt-6-luna",
+    "debug_ui": false,
+    "revision": "05f500b3c0117561",
+    "parts": 211,
+    "drawings": 30,
+    "models": 9,
+    "reviewer_name": "Automated verification"
+  },
+  "preconditions": [],
+  "response": {
+    "text": "The supplier is listed as DTU, as recorded in the snapshot, which may be out of date. [cite: BOM:recoater/recoater-arm/supplier]\n\nThe unit cost is [undetermined: BOM:recoater/recoater-arm/cost]. The total cost is [undetermined: BOM:recoater/recoater-arm/total_cost]; its recorded DKK0.00 placeholder was cleaned up because the unit cost was blank. [cite: BOM:recoater/recoater-arm/cost, BOM:recoater/recoater-arm/total_cost]\n\nThe Recoater Arm drawing is attached below. [cite: D-011/part]",
+    "facts": {
+      "D-011/part": {
+        "fact": "D-011/part",
+        "field": "part",
+        "part_key": "D-011",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Recoater Arm"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-011/part",
+            "says": "Recoater Arm",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-011/resolved/material": {
+        "fact": "D-011/resolved/material",
+        "field": "material",
+        "part_key": "D-011",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Drawing: 7075-T6, Plate (SS). Parts list: Aluminium. These names haven't been mapped yet."
+        },
+        "badge": "Unresolved evidence",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-011/resolved/material",
+            "says": "Drawing: 7075-T6, Plate (SS). Parts list: Aluminium. These names haven't been mapped yet.",
+            "method": "unresolved",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": "Drawing: 7075-T6, Plate (SS). Parts list: Aluminium. These names haven't been mapped yet.",
+            "badge": "Unresolved evidence",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-011/drawing/material",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              738.906,
+              766.467,
+              145.983,
+              24.008
+            ],
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": "The MATERIAL field reads “7075-T6, Plate (SS)”. Verification: The image shows 'MATERIAL: 7075-T6, Plate (SS)', which matches the proposed string.",
+            "badge": "AI proposal verified against evidence, not reviewed",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "BOM:recoater/recoater-arm/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": "names/material/7075-t6-plate-ss -> aluminium",
+        "correction": null,
+        "callout": null,
+        "derivation": {
+          "operation": "unresolved",
+          "source_fact_ids": [
+            "D-011/drawing/material",
+            "BOM:recoater/recoater-arm/material"
+          ]
+        }
+      },
+      "D-011/drawing/material": {
+        "fact": "D-011/drawing/material",
+        "field": "material",
+        "part_key": "D-011",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "7075-T6, Plate (SS)"
+        },
+        "badge": "AI proposal verified against evidence, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-011/drawing/material",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              738.906,
+              766.467,
+              145.983,
+              24.008
+            ],
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": "The MATERIAL field reads “7075-T6, Plate (SS)”. Verification: The image shows 'MATERIAL: 7075-T6, Plate (SS)', which matches the proposed string.",
+            "badge": "AI proposal verified against evidence, not reviewed",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-011/drawing/material",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              738.906,
+              766.467,
+              145.983,
+              24.008
+            ],
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": "The MATERIAL field reads “7075-T6, Plate (SS)”. Verification: The image shows 'MATERIAL: 7075-T6, Plate (SS)', which matches the proposed string.",
+            "badge": "AI proposal verified against evidence, not reviewed",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-arm/material": {
+        "fact": "BOM:recoater/recoater-arm/material",
+        "field": "material",
+        "part_key": "D-011",
+        "part_keys": [
+          "D-011"
+        ],
+        "display": {
+          "state": "value",
+          "value": [
+            "Aluminium"
+          ]
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-arm/material",
+            "says": "Aluminium",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-011/drawing/title": {
+        "fact": "D-011/drawing/title",
+        "field": "title",
+        "part_key": "D-011",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Recoater Arm"
+        },
+        "badge": "AI proposal verified against evidence, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-011/drawing/title",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              968.877,
+              705.43,
+              193.977,
+              69.036
+            ],
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": "The title field reads “Recoater Arm”. Verification: The supplied title-block image shows 'Recoater Arm' under TITLE/DESCRIPTION, which matches the proposal exactly.",
+            "badge": "AI proposal verified against evidence, not reviewed",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-011/drawing/title",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              968.877,
+              705.43,
+              193.977,
+              69.036
+            ],
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": "The title field reads “Recoater Arm”. Verification: The supplied title-block image shows 'Recoater Arm' under TITLE/DESCRIPTION, which matches the proposal exactly.",
+            "badge": "AI proposal verified against evidence, not reviewed",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-011/drawing/notes": {
+        "fact": "D-011/drawing/notes",
+        "field": "notes",
+        "part_key": "D-011",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Alu.\nArm til linær føring"
+        },
+        "badge": "AI proposal verified against evidence, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-011/drawing/notes",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              734.907,
+              653.399,
+              242.971,
+              121.067
+            ],
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": "The note lines read “Alu.” and “Arm til linær føring”. Verification: The NOTE box has two lines, 'Alu.' and 'Arm til linær føring'. The image shows the æ ligature, which matches the proposed newline-separated string.",
+            "badge": "AI proposal verified against evidence, not reviewed",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-011/drawing/notes",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              734.907,
+              653.399,
+              242.971,
+              121.067
+            ],
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": "The note lines read “Alu.” and “Arm til linær føring”. Verification: The NOTE box has two lines, 'Alu.' and 'Arm til linær føring'. The image shows the æ ligature, which matches the proposed newline-separated string.",
+            "badge": "AI proposal verified against evidence, not reviewed",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-011/drawing/company": {
+        "fact": "D-011/drawing/company",
+        "field": "company",
+        "part_key": "D-011",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "DTU MPP"
+        },
+        "badge": "AI proposal verified against evidence, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-011/drawing/company",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              968.877,
+              653.399,
+              102.988,
+              59.03
+            ],
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": "The COMPANY field reads “DTU MPP”. Verification: The COMPANY cell reads 'DTU MPP'. The contact details in the next cell are separate and not part of the company field.",
+            "badge": "AI proposal verified against evidence, not reviewed",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-011/drawing/company",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              968.877,
+              653.399,
+              102.988,
+              59.03
+            ],
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": "The COMPANY field reads “DTU MPP”. Verification: The COMPANY cell reads 'DTU MPP'. The contact details in the next cell are separate and not part of the company field.",
+            "badge": "AI proposal verified against evidence, not reviewed",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-011/drawing/weight_g": {
+        "fact": "D-011/drawing/weight_g",
+        "field": "weight_g",
+        "part_key": "D-011",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 415.3
+        },
+        "badge": "AI proposal verified against evidence, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-011/drawing/weight_g",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              874.889,
+              766.467,
+              102.988,
+              24.008
+            ],
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": "The WEIGHT [g] field prints 415.3. Verification: The image clearly prints 'WEIGHT [g]: 415.3', so the unit is grams and the value is 415.3.",
+            "badge": "AI proposal verified against evidence, not reviewed",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-011/drawing/weight_g",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              874.889,
+              766.467,
+              102.988,
+              24.008
+            ],
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": "The WEIGHT [g] field prints 415.3. Verification: The image clearly prints 'WEIGHT [g]: 415.3', so the unit is grams and the value is 415.3.",
+            "badge": "AI proposal verified against evidence, not reviewed",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-011/drawing/drawn": {
+        "fact": "D-011/drawing/drawn",
+        "field": "drawn",
+        "part_key": "D-011",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "MBOKJ"
+        },
+        "badge": "AI proposal verified against evidence, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-011/drawing/drawn",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              884.888,
+              785.479,
+              91.99,
+              21.007
+            ],
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": "The DRAWN field reads “MBOKJ”. Verification: The DRAWN cell reads 'MBOKJ', which matches the proposal.",
+            "badge": "AI proposal verified against evidence, not reviewed",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-011/drawing/drawn",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              884.888,
+              785.479,
+              91.99,
+              21.007
+            ],
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": "The DRAWN field reads “MBOKJ”. Verification: The DRAWN cell reads 'MBOKJ', which matches the proposal.",
+            "badge": "AI proposal verified against evidence, not reviewed",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-011/drawing/date": {
+        "fact": "D-011/drawing/date",
+        "field": "date",
+        "part_key": "D-011",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "24/11/2021"
+        },
+        "badge": "AI proposal verified against evidence, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-011/drawing/date",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              889.887,
+              797.486,
+              86.99,
+              21.007
+            ],
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": "The DATE field reads “24/11/2021”. Verification: The DATE cell reads '24/11/2021', which matches the proposal.",
+            "badge": "AI proposal verified against evidence, not reviewed",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-011/drawing/date",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              889.887,
+              797.486,
+              86.99,
+              21.007
+            ],
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": "The DATE field reads “24/11/2021”. Verification: The DATE cell reads '24/11/2021', which matches the proposal.",
+            "badge": "AI proposal verified against evidence, not reviewed",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-011/drawing/scale": {
+        "fact": "D-011/drawing/scale",
+        "field": "scale",
+        "part_key": "D-011",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "1:2"
+        },
+        "badge": "AI proposal verified against evidence, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-011/drawing/scale",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              1066.865,
+              797.486,
+              59.994,
+              22.007
+            ],
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": "The SCALE field reads “1:2”. Verification: The image reads 'SCALE:1:2', so the scale value is '1:2'.",
+            "badge": "AI proposal verified against evidence, not reviewed",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-011/drawing/scale",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              1066.865,
+              797.486,
+              59.994,
+              22.007
+            ],
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": "The SCALE field reads “1:2”. Verification: The image reads 'SCALE:1:2', so the scale value is '1:2'.",
+            "badge": "AI proposal verified against evidence, not reviewed",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-arm/name": {
+        "fact": "BOM:recoater/recoater-arm/name",
+        "field": "name",
+        "part_key": "D-011",
+        "part_keys": [
+          "D-011"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Recoater Arm"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-arm/name",
+            "says": "Recoater Arm",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-arm/part_family": {
+        "fact": "BOM:recoater/recoater-arm/part_family",
+        "field": "part_family",
+        "part_key": "D-011",
+        "part_keys": [
+          "D-011"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Recoater"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-arm/part_family",
+            "says": "Recoater",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-arm/type": {
+        "fact": "BOM:recoater/recoater-arm/type",
+        "field": "type",
+        "part_key": "D-011",
+        "part_keys": [
+          "D-011"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Custom"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-arm/type",
+            "says": "Custom",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-arm/design": {
+        "fact": "BOM:recoater/recoater-arm/design",
+        "field": "design",
+        "part_key": "D-011",
+        "part_keys": [
+          "D-011"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Done"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-arm/design",
+            "says": "Done",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-arm/order": {
+        "fact": "BOM:recoater/recoater-arm/order",
+        "field": "order",
+        "part_key": "D-011",
+        "part_keys": [
+          "D-011"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Received"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-arm/order",
+            "says": "Recieved",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [
+              "status_spelling_Recieved_to_Received"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-arm/validation": {
+        "fact": "BOM:recoater/recoater-arm/validation",
+        "field": "validation",
+        "part_key": "D-011",
+        "part_keys": [
+          "D-011"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Good"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-arm/validation",
+            "says": "Good",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-arm/notes": {
+        "fact": "BOM:recoater/recoater-arm/notes",
+        "field": "notes",
+        "part_key": "D-011",
+        "part_keys": [
+          "D-011"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. "
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-arm/notes",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-arm/design_intent": {
+        "fact": "BOM:recoater/recoater-arm/design_intent",
+        "field": "design_intent",
+        "part_key": "D-011",
+        "part_keys": [
+          "D-011"
+        ],
+        "display": {
+          "state": "value",
+          "value": "The arm should be very stiff and safe travel back and forth, going free of the gas flow ducting.\nSimple rotational (axis normal to travel) and vertical translational degrees of freedom. One clamping connection point in one side could work"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-arm/design_intent",
+            "says": "The arm should be very stiff and safe travel back and forth, going free of the gas flow ducting.\nSimple rotational (axis normal to travel) and vertical translational degrees of freedom. One clamping connection point in one side could work",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-arm/image": {
+        "fact": "BOM:recoater/recoater-arm/image",
+        "field": "image",
+        "part_key": "D-011",
+        "part_keys": [
+          "D-011"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-arm/image",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-arm/product_name": {
+        "fact": "BOM:recoater/recoater-arm/product_name",
+        "field": "product_name",
+        "part_key": "D-011",
+        "part_keys": [
+          "D-011"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-arm/product_name",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-arm/supplier_order": {
+        "fact": "BOM:recoater/recoater-arm/supplier_order",
+        "field": "supplier_order",
+        "part_key": "D-011",
+        "part_keys": [
+          "D-011"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-arm/supplier_order",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-arm/interface_with": {
+        "fact": "BOM:recoater/recoater-arm/interface_with",
+        "field": "interface_with",
+        "part_key": "D-011",
+        "part_keys": [
+          "D-011"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. "
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-arm/interface_with",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-arm/link": {
+        "fact": "BOM:recoater/recoater-arm/link",
+        "field": "link",
+        "part_key": "D-011",
+        "part_keys": [
+          "D-011"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-arm/link",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-arm/supplier": {
+        "fact": "BOM:recoater/recoater-arm/supplier",
+        "field": "supplier",
+        "part_key": "D-011",
+        "part_keys": [
+          "D-011"
+        ],
+        "display": {
+          "state": "value",
+          "value": "DTU"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-arm/supplier",
+            "says": "DTU",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-arm/datasheet": {
+        "fact": "BOM:recoater/recoater-arm/datasheet",
+        "field": "datasheet",
+        "part_key": "D-011",
+        "part_keys": [
+          "D-011"
+        ],
+        "display": {
+          "state": "value",
+          "value": {
+            "filename": "RecoaterArm.PDF",
+            "url": "https://v5.airtableusercontent.com/v3/u/33/33/1728496800000/H_8QWz7tI0HkrbGYsi9bCg/rPAjoh529VjWHRU_8VPhbr416zAb1eZBDm076jvXIseswqvjAlsRFLUalONrHYk57QxZKyv-Byow6K0qZQOf0O0yRGguyjh4hQZOweEt7GeE3LU2HimIFyw54UKKRvM0539b4aj2ojDoQb9MBWHRbw/lF7u5lsRAPKg2Qe1BmLw_I75P1Vj21iVR017Y34WStU"
+          }
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-arm/datasheet",
+            "says": "RecoaterArm.PDF (https://v5.airtableusercontent.com/v3/u/33/33/1728496800000/H_8QWz7tI0HkrbGYsi9bCg/rPAjoh529VjWHRU_8VPhbr416zAb1eZBDm076jvXIseswqvjAlsRFLUalONrHYk57QxZKyv-Byow6K0qZQOf0O0yRGguyjh4hQZOweEt7GeE3LU2HimIFyw54UKKRvM0539b4aj2ojDoQb9MBWHRbw/lF7u5lsRAPKg2Qe1BmLw_I75P1Vj21iVR017Y34WStU)",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [
+              "split_filename_link"
+            ],
+            "note": "Recorded in the snapshot, may be out of date. Temporary link from the original export, likely expired.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-arm/amount": {
+        "fact": "BOM:recoater/recoater-arm/amount",
+        "field": "amount",
+        "part_key": "D-011",
+        "part_keys": [
+          "D-011"
+        ],
+        "display": {
+          "state": "value",
+          "value": 1
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-arm/amount",
+            "says": "1",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [
+              "parse_number"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-arm/cost": {
+        "fact": "BOM:recoater/recoater-arm/cost",
+        "field": "cost",
+        "part_key": "D-011",
+        "part_keys": [
+          "D-011"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-arm/cost",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-arm/total_cost": {
+        "fact": "BOM:recoater/recoater-arm/total_cost",
+        "field": "total_cost",
+        "part_key": "D-011",
+        "part_keys": [
+          "D-011"
+        ],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: 'DKK0.00'. Cleanup: parse_dkk_price, zero_total_with_blank_cost_or_amount_to_not_recorded. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-arm/total_cost",
+            "says": "DKK0.00",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [
+              "parse_dkk_price",
+              "zero_total_with_blank_cost_or_amount_to_not_recorded"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/recoater-arm/interface_count": {
+        "fact": "BOM:recoater/recoater-arm/interface_count",
+        "field": "interface_count",
+        "part_key": "D-011",
+        "part_keys": [
+          "D-011"
+        ],
+        "display": {
+          "state": "value",
+          "value": 0
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/recoater-arm/interface_count",
+            "says": "0",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [
+              "parse_number"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-011/template/outline": {
+        "fact": "D-011/template/outline",
+        "field": "outline",
+        "part_key": "D-011",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Too blurry to read on the scan."
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-011/template/outline",
+            "says": null,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": "D-011/template/outline",
+        "correction": null,
+        "callout": null
+      },
+      "D-011/template/thickness": {
+        "fact": "D-011/template/thickness",
+        "field": "thickness",
+        "part_key": "D-011",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Waiting for review: needs_input. The side view prints stacked 15,0 and 12,0 linked to the thickness dimension. However, D-011 supplies no parsed drawing-number IDs, so the options cannot be cited and the value stays unknown."
+        },
+        "badge": "AI interpretation, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-011/template/thickness",
+            "says": null,
+            "method": "ai_unsure",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": "Waiting for review: needs_input. The side view prints stacked 15,0 and 12,0 linked to the thickness dimension. However, D-011 supplies no parsed drawing-number IDs, so the options cannot be cited and the value stays unknown.",
+            "badge": "AI interpretation, not reviewed",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": "D-011/template/thickness",
+        "correction": null,
+        "callout": null
+      },
+      "D-011/template/features_review": {
+        "fact": "D-011/template/features_review",
+        "field": "features_review",
+        "part_key": "D-011",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Waiting for review: needs_input. The drawing shows 2x Ø6,6 THRU ALL holes on the upright leg and 4x Ø4,2 / M5-6H THRU ALL holes on the horizontal leg, with 20,0, 80,0, 82,0, 10,5 and 8,0 locating them. D-011 supplies no parsed number IDs, so the features cannot be cited and the state is correctly unknown with an empty array."
+        },
+        "badge": "AI interpretation, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-011/template/features_review",
+            "says": null,
+            "method": "ai_unsure",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": "Waiting for review: needs_input. The drawing shows 2x Ø6,6 THRU ALL holes on the upright leg and 4x Ø4,2 / M5-6H THRU ALL holes on the horizontal leg, with 20,0, 80,0, 82,0, 10,5 and 8,0 locating them. D-011 supplies no parsed number IDs, so the features cannot be cited and the state is correctly unknown with an empty array.",
+            "badge": "AI interpretation, not reviewed",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": "D-011/template/features_review",
+        "correction": null,
+        "callout": null
+      },
+      "D-011/template/cad_eligibility": {
+        "fact": "D-011/template/cad_eligibility",
+        "field": "cad_eligibility",
+        "part_key": "D-011",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "supported": false,
+            "constant_thickness": true,
+            "outline_exact": false,
+            "reason": "The main view shows an essential L-shaped profile with a curved elbow that the rectangle/circle/ring generator cannot express. The dimensioned side view indicates constant plate thickness with stacked alternatives, but their numeric values lack supplied parsed drawing-number IDs. The essential contour alone prevents eligibility.",
+            "essential_uncertainty": [
+              "No parsed drawing-number IDs were supplied for the overall extents, elbow radii or thickness alternatives."
+            ],
+            "omitted_minor_features": [
+              "Upright-leg plain through holes: diameters and positions lack parsed drawing-number IDs.",
+              "Horizontal-leg threaded through holes: diameters, thread dimensions and positions lack parsed drawing-number IDs."
+            ]
+          }
+        },
+        "badge": "AI proposal verified against evidence, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-011/template/cad_eligibility",
+            "says": {
+              "supported": false,
+              "constant_thickness": true,
+              "outline_exact": false,
+              "reason": "The main view shows an essential L-shaped profile with a curved elbow that the rectangle/circle/ring generator cannot express. The dimensioned side view indicates constant plate thickness with stacked alternatives, but their numeric values lack supplied parsed drawing-number IDs. The essential contour alone prevents eligibility.",
+              "essential_uncertainty": [
+                "No parsed drawing-number IDs were supplied for the overall extents, elbow radii or thickness alternatives."
+              ],
+              "omitted_minor_features": [
+                "Upright-leg plain through holes: diameters and positions lack parsed drawing-number IDs.",
+                "Horizontal-leg threaded through holes: diameters, thread dimensions and positions lack parsed drawing-number IDs."
+              ]
+            },
+            "method": "ai_verified",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": "The supplied drawing establishes the essential curved L-shaped contour and its incompatibility with the supported main outlines. Verification: The D-011 main view has an essential curved L contour (R35,0/R60,0 elbow) that the rectangle/circle/ring generator cannot represent. That makes supported=false and outline_exact=false correct. The side view shows a single plate with stacked thickness alternatives, so constant_thickness=true is consistent. The uncertainties and omitted holes are described honestly.",
+            "badge": "AI proposal verified against evidence, not reviewed",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-011/link": {
+        "fact": "D-011/link",
+        "field": "link",
+        "part_key": "D-011",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": [
+            "BOM:recoater/recoater-arm"
+          ]
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-011/link",
+            "says": [
+              "BOM:recoater/recoater-arm"
+            ],
+            "method": "exact_match",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-011/source-inventory": {
+        "fact": "D-011/source-inventory",
+        "field": "source-inventory",
+        "part_key": "D-011",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "id": "D-011/part",
+            "key": "D-011",
+            "name": "Recoater Arm",
+            "source_filename": "RecoaterArm.PDF",
+            "section": "Recoater"
+          }
+        },
+        "badge": "From source inventory",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-011/source-inventory",
+            "says": "Drawing membership in the supplied source inventory; names may be filenames when a printed title is unreadable.",
+            "method": "source_inventory",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": "Drawing membership in the supplied source inventory; names may be filenames when a printed title is unreadable.",
+            "badge": "From source inventory",
+            "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-011.pdf",
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-011/model/verification": {
+        "fact": "D-011/model/verification",
+        "field": "verification",
+        "part_key": "D-011",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "weight_check": {
+              "state": "Skipped",
+              "message": "No model built; waiting for human input",
+              "examples": {}
+            },
+            "omitted": [],
+            "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
+            "review": {
+              "status": "not_reviewed"
+            },
+            "examples": {}
+          }
+        },
+        "badge": "Computed from recorded source facts",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-011/model/verification",
+            "says": "Computed model verification, not a design approval. Density references are outside sources, not the dataset. Failed checks need manual review; possible readings are never selected by weight.",
+            "method": "computed_summary",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": "Computed model verification, not a design approval. Density references are outside sources, not the dataset. Failed checks need manual review; possible readings are never selected by weight.",
+            "badge": "Computed from recorded source facts",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-011/drawing/weight_g",
+            "says": null,
+            "method": "ai_verified",
+            "page": 1,
+            "box": [
+              874.889,
+              766.467,
+              102.988,
+              24.008
+            ],
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": "The WEIGHT [g] field prints 415.3. Verification: The image clearly prints 'WEIGHT [g]: 415.3', so the unit is grams and the value is 415.3.",
+            "badge": "AI proposal verified against evidence, not reviewed",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-011/template/thickness",
+            "says": null,
+            "method": "ai_unsure",
+            "page": 1,
+            "box": null,
+            "part_key": "D-011",
+            "cleanup": [],
+            "note": "Waiting for review: needs_input. The side view prints stacked 15,0 and 12,0 linked to the thickness dimension. However, D-011 supplies no parsed drawing-number IDs, so the options cannot be cited and the value stays unknown.",
+            "badge": "AI interpretation, not reviewed",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      }
+    },
+    "parts_to_show": [
+      {
+        "id": "D-011/part",
+        "key": "D-011",
+        "display_name": "Recoater Arm",
+        "section": "Recoater",
+        "has_drawing": true,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "not_reviewed",
+        "thumbnail": "/api/parts/D-011/image?page=1&thumb=1",
+        "drawing_url": "/part/D-011/2d",
+        "model_url": null,
+        "shown_reason": null
+      }
+    ],
+    "warnings": [],
+    "session_id": "d9b47abe98f34feaad6741e99bc6c6b1",
+    "model": "gpt-6-luna",
+    "usage": {
+      "input_tokens": 26444,
+      "output_tokens": 329,
+      "total_tokens": 26773
+    },
+    "latency_ms": 6780,
+    "tool_trace": [
+      {
+        "tool": "find_part",
+        "arguments": {
+          "text": "Recoater Arm"
+        },
+        "facts_returned": [
+          "D-011/part"
+        ]
+      },
+      {
+        "tool": "get_facts",
+        "arguments": {
+          "part_id": "D-011/part"
+        },
+        "facts_returned": [
+          "D-011/part",
+          "D-011/resolved/material",
+          "D-011/drawing/material",
+          "BOM:recoater/recoater-arm/material",
+          "D-011/drawing/title",
+          "D-011/drawing/notes",
+          "D-011/drawing/company",
+          "D-011/drawing/weight_g",
+          "D-011/drawing/drawn",
+          "D-011/drawing/date",
+          "D-011/drawing/scale",
+          "BOM:recoater/recoater-arm/name",
+          "BOM:recoater/recoater-arm/part_family",
+          "BOM:recoater/recoater-arm/type",
+          "BOM:recoater/recoater-arm/design",
+          "BOM:recoater/recoater-arm/order",
+          "BOM:recoater/recoater-arm/validation",
+          "BOM:recoater/recoater-arm/notes",
+          "BOM:recoater/recoater-arm/design_intent",
+          "BOM:recoater/recoater-arm/image",
+          "BOM:recoater/recoater-arm/product_name",
+          "BOM:recoater/recoater-arm/supplier_order",
+          "BOM:recoater/recoater-arm/interface_with",
+          "BOM:recoater/recoater-arm/link",
+          "BOM:recoater/recoater-arm/supplier",
+          "BOM:recoater/recoater-arm/datasheet",
+          "BOM:recoater/recoater-arm/amount",
+          "BOM:recoater/recoater-arm/cost",
+          "BOM:recoater/recoater-arm/total_cost",
+          "BOM:recoater/recoater-arm/interface_count",
+          "D-011/template/outline",
+          "D-011/template/thickness",
+          "D-011/template/features_review",
+          "D-011/template/cad_eligibility",
+          "D-011/link",
+          "D-011/source-inventory",
+          "D-011/model/verification"
+        ]
+      }
+    ],
+    "revision": "05f500b3c0117561"
+  },
+  "wall_latency_ms": 6793
+}

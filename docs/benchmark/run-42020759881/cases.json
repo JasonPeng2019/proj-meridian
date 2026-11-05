@@ -1,0 +1,583 @@
+{
+  "schema_version": 1,
+  "source": "benchmark_draft.md",
+  "source_sha256": "62098867c412942326997b292999c7208b1b7ec00652a2b8657c210f71921fe5",
+  "ground_truth_status": "draft; not approved by Jason",
+  "cases": [
+    {
+      "id": "Q01",
+      "category": "Machine organization",
+      "question": "How many drawings are there, and which machine sections do they cover?",
+      "expected_answer": "- **Answer:** \"There are 30 drawings: Z-axis 8, Box 5, Powder 5, Recoater 5, Optical 5, and Gas Flow 2.\"\n- **Must include:** `30`, `Z-axis 8`, `Box 5`, `Powder 5`, `Recoater 5`, `Optical 5`, `Gas Flow 2`\n- **Shows:** compact parts list",
+      "answer_excerpt": "\"There are 30 drawings: Z-axis 8, Box 5, Powder 5, Recoater 5, Optical 5, and Gas Flow 2.\"",
+      "must_include": [
+        "30",
+        "Z-axis 8",
+        "Box 5",
+        "Powder 5",
+        "Recoater 5",
+        "Optical 5",
+        "Gas Flow 2"
+      ],
+      "must_not_include": [],
+      "must_cite": [],
+      "citation_instruction": "",
+      "must_show_parts": [],
+      "compact_list": true,
+      "show_instruction": "compact parts list",
+      "needs_3d": false,
+      "behavior": "answer",
+      "behavior_fact": null,
+      "allows_abstention": false,
+      "milestone": "M1",
+      "rule_notes": []
+    },
+    {
+      "id": "Q02",
+      "category": "Machine organization",
+      "question": "Which parts list items belong to the Optics section?",
+      "expected_answer": "- **Answer:** \"10 items: Sunny Galvo Adapter Plate, F-theta seal ring, Galvo box bracket, Galve support bracket, Silicone gasket f-theta ring, Laser source, Collimator, Sunny Galvo, F-Theta, and Water chiller for collimator.\"\n- **Must include:** `10` and all 10 names\n- **Shows:** compact parts list",
+      "answer_excerpt": "\"10 items: Sunny Galvo Adapter Plate, F-theta seal ring, Galvo box bracket, Galve support bracket, Silicone gasket f-theta ring, Laser source, Collimator, Sunny Galvo, F-Theta, and Water chiller for collimator.\"",
+      "must_include": [
+        "10",
+        "Sunny Galvo Adapter Plate",
+        "F-theta seal ring",
+        "Galvo box bracket",
+        "Galve support bracket",
+        "Silicone gasket f-theta ring",
+        "Laser source",
+        "Collimator",
+        "Sunny Galvo",
+        "F-Theta",
+        "Water chiller for collimator"
+      ],
+      "must_not_include": [],
+      "must_cite": [],
+      "citation_instruction": "",
+      "must_show_parts": [],
+      "compact_list": true,
+      "show_instruction": "compact parts list",
+      "needs_3d": false,
+      "behavior": "answer",
+      "behavior_fact": null,
+      "allows_abstention": false,
+      "milestone": "M1",
+      "rule_notes": []
+    },
+    {
+      "id": "Q03",
+      "category": "Machine organization",
+      "question": "Are the \"Optical\" drawing section and the \"Optics\" parts list section the same thing?",
+      "expected_answer": "- **Answer:** \"Yes. They're the same section; the two sources just name it differently.\"\n- **Must include:** `same`\n- **Must cite:** `names/section/optical -> optics`",
+      "answer_excerpt": "\"Yes. They're the same section; the two sources just name it differently.\"",
+      "must_include": [
+        "same"
+      ],
+      "must_not_include": [],
+      "must_cite": [
+        "names/section/optical -> optics"
+      ],
+      "citation_instruction": "`names/section/optical -> optics`",
+      "must_show_parts": [],
+      "compact_list": false,
+      "show_instruction": "",
+      "needs_3d": false,
+      "behavior": "answer",
+      "behavior_fact": null,
+      "allows_abstention": false,
+      "milestone": "M1",
+      "rule_notes": []
+    },
+    {
+      "id": "Q04",
+      "category": "Linking drawings to the parts list, and one value per field",
+      "question": "What is the recoater plate made of?",
+      "expected_answer": "- **Answer:** \"EN-AW 5005 aluminium.\" (Drawing D-013 says \"3.3315 (EN-AW 5005),\" and both parts list rows it could link to, \"Recoater head\" and \"Recoater stage plate,\" say \"Aluminium.\" If the link is still unresolved, the answer is \"3.3315 (EN-AW 5005)\" from the drawing alone, and that also passes.)\n- **Must include:** `EN-AW 5005`\n- **Must cite:** `D-013/drawing/material`\n- **Shows:** D-013",
+      "answer_excerpt": "\"EN-AW 5005 aluminium.\" (Drawing D-013 says \"3.3315 (EN-AW 5005),\" and both parts list rows it could link to, \"Recoater head\" and \"Recoater stage plate,\" say \"Aluminium.\" If the link is still unresolved, the answer is \"3.3315 (EN-AW 5005)\" from the drawing alone, and that also passes.)",
+      "must_include": [
+        "EN-AW 5005"
+      ],
+      "must_not_include": [],
+      "must_cite": [
+        "D-013/drawing/material"
+      ],
+      "citation_instruction": "`D-013/drawing/material`",
+      "must_show_parts": [
+        "D-013"
+      ],
+      "compact_list": false,
+      "show_instruction": "D-013",
+      "needs_3d": false,
+      "behavior": "answer",
+      "behavior_fact": null,
+      "allows_abstention": false,
+      "milestone": "M1",
+      "rule_notes": []
+    },
+    {
+      "id": "Q05",
+      "category": "Linking drawings to the parts list, and one value per field",
+      "question": "Who supplied the Recoater Arm, and what did it cost?",
+      "expected_answer": "- **Answer:** \"The recorded supplier is DTU (as recorded in the snapshot; may be out of date). Its cost isn't recorded: the parts list shows a total of DKK 0.00, but it has no unit cost, so that zero means 'not recorded,' not free.\"\n- **Must include:** `DTU`, `not recorded`, `may be out of date`\n- **Must not include:** `free`, `costs DKK 0`\n- **Must cite:** `BOM:recoater/recoater-arm/supplier`, `BOM:recoater/recoater-arm/total_cost`\n- **Shows:** D-011 (linked by its datasheet filename, `RecoaterArm.PDF`; it's a degraded scan)",
+      "answer_excerpt": "\"The recorded supplier is DTU (as recorded in the snapshot; may be out of date). Its cost isn't recorded: the parts list shows a total of DKK 0.00, but it has no unit cost, so that zero means 'not recorded,' not free.\"",
+      "must_include": [
+        "DTU",
+        "not recorded",
+        "may be out of date"
+      ],
+      "must_not_include": [
+        "free",
+        "costs DKK 0"
+      ],
+      "must_cite": [
+        "BOM:recoater/recoater-arm/supplier",
+        "BOM:recoater/recoater-arm/total_cost"
+      ],
+      "citation_instruction": "`BOM:recoater/recoater-arm/supplier`, `BOM:recoater/recoater-arm/total_cost`",
+      "must_show_parts": [
+        "D-011"
+      ],
+      "compact_list": false,
+      "show_instruction": "D-011 (linked by its datasheet filename, `RecoaterArm.PDF`; it's a degraded scan)",
+      "needs_3d": false,
+      "behavior": "answer",
+      "behavior_fact": null,
+      "allows_abstention": false,
+      "milestone": "M1",
+      "rule_notes": [
+        "Literal prohibited-word rules are unchanged: even negated occurrences fail. Semantic judge evaluates the actual claim separately. No Jason-approved exception exists."
+      ]
+    },
+    {
+      "id": "Q06",
+      "category": "Linking drawings to the parts list, and one value per field",
+      "question": "What does the front door hinge connect to?",
+      "expected_answer": "- **Answer:** \"The front door hinge connects to the Front Door and the Front Side Box.\"\n- **Must include:** `Front Door`, `Front Side Box`\n- **Must cite:** `BOM:box/front-door-hinge/interface_with`\n- **Shows:** its parts-list-only card",
+      "answer_excerpt": "\"The front door hinge connects to the Front Door and the Front Side Box.\"",
+      "must_include": [
+        "Front Door",
+        "Front Side Box"
+      ],
+      "must_not_include": [],
+      "must_cite": [
+        "BOM:box/front-door-hinge/interface_with"
+      ],
+      "citation_instruction": "`BOM:box/front-door-hinge/interface_with`",
+      "must_show_parts": [
+        "BOM:box/front-door-hinge/part"
+      ],
+      "compact_list": false,
+      "show_instruction": "its parts-list-only card",
+      "needs_3d": false,
+      "behavior": "answer",
+      "behavior_fact": null,
+      "allows_abstention": false,
+      "milestone": "M1",
+      "rule_notes": []
+    },
+    {
+      "id": "Q07",
+      "category": "Linking drawings to the parts list, and one value per field",
+      "question": "What is the T5 timing belt made of?",
+      "expected_answer": "- **Answer:** \"Materials recorded: Steel, Elastomer.\"\n- **Must include:** `Steel`, `Elastomer`\n- **Must not include:** `made of steel`\n- **Must cite:** `BOM:recoater/t5-timing-belt-300-teeth/material`\n- **Shows:** its parts-list-only card",
+      "answer_excerpt": "\"Materials recorded: Steel, Elastomer.\"",
+      "must_include": [
+        "Steel",
+        "Elastomer"
+      ],
+      "must_not_include": [
+        "made of steel"
+      ],
+      "must_cite": [
+        "BOM:recoater/t5-timing-belt-300-teeth/material"
+      ],
+      "citation_instruction": "`BOM:recoater/t5-timing-belt-300-teeth/material`",
+      "must_show_parts": [
+        "BOM:recoater/t5-timing-belt-300-teeth/part"
+      ],
+      "compact_list": false,
+      "show_instruction": "its parts-list-only card",
+      "needs_3d": false,
+      "behavior": "answer",
+      "behavior_fact": null,
+      "allows_abstention": false,
+      "milestone": "M1",
+      "rule_notes": []
+    },
+    {
+      "id": "Q08",
+      "category": "Linking drawings to the parts list, and one value per field",
+      "question": "Which parts are aluminium?",
+      "expected_answer": "- **Answer:** these parts list rows (29), plus these drawings, counting a drawing and its linked row as one part:\n  - **Parts list rows recorded as Aluminium:** Front Door, Print Platform, Window Frame, Back Door, 2020 internal profile, 2020 angle bracket, Recoater head, Recoater Clamp, Recoater Arm, Recoater stage plate, Recoater mount block, Timing pulley Ø6.35 T5, Timing belt idler Ø8 T5, Timing belt clamp plate, Build cylinder, Build base, Motor plate, Build cylinder clamp ring, Heating element plate, Thermocouple plate, Seal clamp plate, Sunny Galvo Adapter Plate, F-theta seal ring, Galvo box bracket, Powder roller, Powder roller housing, Powder Valve Fitting, Dispenser drum coupling, and Gas blower (recorded with \"Polymer, Steel, Aluminium\").\n  - **Drawings with an aluminium alloy:** D-005 (6061), D-012, D-013, D-014, D-024, D-025, D-028 (EN-AW 5005), D-016, D-017, D-018 (7075-T6), D-027 (6063-T6); and from the scans, if they're read: D-011 (7075-T6), D-020 (6061), D-023 (EN AW-6082).\n  - ⚠️ Most of these drawings link to one of the rows above (for example D-005 → Window Frame, D-027 → Build cylinder clamp ring). **D-016, D-017, D-018, and D-025 have no obvious row**, so they may count as separate parts. Check those four links after matching runs.\n- **Must include:** `Recoater Arm`, `Gas blower`, `Bygge Base Ring` (D-025), `Galvo Bundplade` (D-016)\n- **Shows:** compact parts list",
+      "answer_excerpt": "these parts list rows (29), plus these drawings, counting a drawing and its linked row as one part:",
+      "must_include": [
+        "Recoater Arm",
+        "Gas blower",
+        "Bygge Base Ring",
+        "Galvo Bundplade"
+      ],
+      "must_not_include": [],
+      "must_cite": [],
+      "citation_instruction": "",
+      "must_show_parts": [],
+      "compact_list": true,
+      "show_instruction": "compact parts list",
+      "needs_3d": false,
+      "behavior": "answer",
+      "behavior_fact": null,
+      "allows_abstention": false,
+      "milestone": "M1",
+      "rule_notes": [
+        "Four flagged drawing links require verification; unresolved links keep this case pending. Actual links/deduplication are recorded in preconditions."
+      ]
+    },
+    {
+      "id": "Q09",
+      "category": "Linking drawings to the parts list, and one value per field",
+      "question": "Which parts are EN-AW 5005?",
+      "expected_answer": "- **Answer:** \"Six parts: Recoater Mount Block (D-012), Recoater Plate (D-013), Recoater Linear Plate (D-014), ByggeBase (D-024), Bygge Base Ring (D-025), and Varmeelement Plade (D-028).\"\n- **Must include:** all 6 drawing IDs\n- **Must not include:** `Recoater Arm`, `Window Frame` (recorded only as \"Aluminium,\" or a different alloy)\n- **Shows:** compact parts list",
+      "answer_excerpt": "\"Six parts: Recoater Mount Block (D-012), Recoater Plate (D-013), Recoater Linear Plate (D-014), ByggeBase (D-024), Bygge Base Ring (D-025), and Varmeelement Plade (D-028).\"",
+      "must_include": [
+        "D-012",
+        "D-013",
+        "D-014",
+        "D-024",
+        "D-025",
+        "D-028"
+      ],
+      "must_not_include": [
+        "Recoater Arm",
+        "Window Frame"
+      ],
+      "must_cite": [],
+      "citation_instruction": "",
+      "must_show_parts": [],
+      "compact_list": true,
+      "show_instruction": "compact parts list",
+      "needs_3d": false,
+      "behavior": "answer",
+      "behavior_fact": null,
+      "allows_abstention": false,
+      "milestone": "M1",
+      "rule_notes": [
+        "Exact printed EN-AW grade notation is a literal source match, not a general-material mapping. No family-mapping approval is needed for this exact-grade query."
+      ]
+    },
+    {
+      "id": "Q10",
+      "category": "Uncertainty and honesty",
+      "question": "What is the build plate made of?",
+      "expected_answer": "- **Answer:** \"Materials recorded: Stainless steel, Steel.\" (Drawing D-026's own material text is printed on top of the weight label and can't be read reliably, so it's only shown in the hover card.)\n- **Must include:** `Stainless steel`, `Steel`\n- **Must not include:** `AISI 316` as the answer's value\n- **Must cite:** `BOM:build-plate/build-plate/material`\n- **Shows:** D-026",
+      "answer_excerpt": "\"Materials recorded: Stainless steel, Steel.\" (Drawing D-026's own material text is printed on top of the weight label and can't be read reliably, so it's only shown in the hover card.)",
+      "must_include": [
+        "Stainless steel",
+        "Steel"
+      ],
+      "must_not_include": [
+        "AISI 316"
+      ],
+      "must_cite": [
+        "BOM:build-plate/build-plate/material"
+      ],
+      "citation_instruction": "`BOM:build-plate/build-plate/material`",
+      "must_show_parts": [
+        "D-026"
+      ],
+      "compact_list": false,
+      "show_instruction": "D-026",
+      "needs_3d": false,
+      "behavior": "answer",
+      "behavior_fact": null,
+      "allows_abstention": false,
+      "milestone": "M1",
+      "rule_notes": []
+    },
+    {
+      "id": "Q11a",
+      "category": "Uncertainty and honesty",
+      "question": "What is the title of drawing D-019?",
+      "expected_answer": "- **Answer:** the title is Undetermined: \"The title field says 'Description,' which is a placeholder.\"\n- **Behavior:** `undetermined` on `D-019/drawing/title`\n- **Shows:** D-019",
+      "answer_excerpt": "the title is Undetermined: \"The title field says 'Description,' which is a placeholder.\"",
+      "must_include": [],
+      "must_not_include": [],
+      "must_cite": [],
+      "citation_instruction": "",
+      "must_show_parts": [
+        "D-019"
+      ],
+      "compact_list": false,
+      "show_instruction": "D-019",
+      "needs_3d": false,
+      "behavior": "undetermined",
+      "behavior_fact": "D-019/drawing/title",
+      "allows_abstention": false,
+      "milestone": "M1",
+      "rule_notes": []
+    },
+    {
+      "id": "Q11b",
+      "category": "Uncertainty and honesty",
+      "question": "What is the title of drawing D-019?",
+      "expected_answer": "- **Answer:** \"Silicone gasket for f-theta lens (originally 'Description'; corrected by Jason Peng).\"\n- **Must include:** `Silicone gasket for f-theta lens`, `Description`\n- **Must cite:** `D-019/drawing/title`\n- **Shows:** D-019",
+      "answer_excerpt": "\"Silicone gasket for f-theta lens (originally 'Description'; corrected by Jason Peng).\"",
+      "must_include": [
+        "Silicone gasket for f-theta lens",
+        "Description"
+      ],
+      "must_not_include": [],
+      "must_cite": [
+        "D-019/drawing/title"
+      ],
+      "citation_instruction": "`D-019/drawing/title`",
+      "must_show_parts": [
+        "D-019"
+      ],
+      "compact_list": false,
+      "show_instruction": "D-019",
+      "needs_3d": false,
+      "behavior": "answer",
+      "behavior_fact": null,
+      "allows_abstention": false,
+      "milestone": "M1",
+      "rule_notes": [
+        "Automated verification workflow acceptance substitutes its true reviewer attribution for the draft's Jason attribution; this is not a human approval. Key values/citations remain unchanged."
+      ]
+    },
+    {
+      "id": "Q12",
+      "category": "Uncertainty and honesty",
+      "question": "What does drawing D-023 weigh?",
+      "expected_answer": "- **Answer:** \"3195.5 g. This is an AI reading of a blurry scan and hasn't been reviewed.\"\n- **Must include:** `3195.5`\n- **Must cite:** `D-023/drawing/weight_g`\n- **Shows:** D-023\n- (Read from the scan with OCR during planning. If the two models don't agree on it, Undetermined also passes.)",
+      "answer_excerpt": "\"3195.5 g. This is an AI reading of a blurry scan and hasn't been reviewed.\"",
+      "must_include": [
+        "3195.5"
+      ],
+      "must_not_include": [],
+      "must_cite": [
+        "D-023/drawing/weight_g"
+      ],
+      "citation_instruction": "`D-023/drawing/weight_g`",
+      "must_show_parts": [
+        "D-023"
+      ],
+      "compact_list": false,
+      "show_instruction": "D-023",
+      "needs_3d": false,
+      "behavior": "answer",
+      "behavior_fact": null,
+      "allows_abstention": true,
+      "milestone": "M1",
+      "rule_notes": []
+    },
+    {
+      "id": "Q13",
+      "category": "Uncertainty and honesty",
+      "question": "How wide is the Galvo Montage Plade",
+      "expected_answer": "- **Answer:** Undetermined: \"The drawing shows several measurements, but I can't tell which edge each one measures.\"\n- **Behavior:** `undetermined`\n- **Shows:** D-017, with its numbers highlighted",
+      "answer_excerpt": "Undetermined: \"The drawing shows several measurements, but I can't tell which edge each one measures.\"",
+      "must_include": [],
+      "must_not_include": [],
+      "must_cite": [],
+      "citation_instruction": "",
+      "must_show_parts": [
+        "D-017"
+      ],
+      "compact_list": false,
+      "show_instruction": "D-017, with its numbers highlighted",
+      "needs_3d": false,
+      "behavior": "undetermined",
+      "behavior_fact": null,
+      "allows_abstention": false,
+      "milestone": "M1",
+      "rule_notes": []
+    },
+    {
+      "id": "Q14",
+      "category": "Uncertainty and honesty",
+      "question": "How thick is the Bygge Base Ring",
+      "expected_answer": "- **Answer:** \"The drawing shows two thicknesses, 3 mm and 2 mm. You can switch between both in the 3D view (Examples A and B).\"\n- **Must include:** `3`, `2`\n- **Must cite:** `D-025/template/thickness`\n- **Shows:** D-025, with 3D",
+      "answer_excerpt": "\"The drawing shows two thicknesses, 3 mm and 2 mm. You can switch between both in the 3D view (Examples A and B).\"",
+      "must_include": [
+        "3",
+        "2"
+      ],
+      "must_not_include": [],
+      "must_cite": [
+        "D-025/template/thickness"
+      ],
+      "citation_instruction": "`D-025/template/thickness`",
+      "must_show_parts": [
+        "D-025"
+      ],
+      "compact_list": false,
+      "show_instruction": "D-025, with 3D",
+      "needs_3d": true,
+      "behavior": "answer",
+      "behavior_fact": null,
+      "allows_abstention": false,
+      "milestone": "M1",
+      "rule_notes": []
+    },
+    {
+      "id": "Q15",
+      "category": "Uncertainty and honesty",
+      "question": "What torque should the recoater plate's M5 screws be tightened to?",
+      "expected_answer": "- **Answer:** \"There's no evidence for this. The drawing and parts list don't give a tightening torque.\"\n- **Behavior:** `no_evidence`\n- **Must not include:** `Nm`\n- **Must cite:** `D-013/part`\n- **Shows:** D-013",
+      "answer_excerpt": "\"There's no evidence for this. The drawing and parts list don't give a tightening torque.\"",
+      "must_include": [],
+      "must_not_include": [
+        "Nm"
+      ],
+      "must_cite": [
+        "D-013/part"
+      ],
+      "citation_instruction": "`D-013/part`",
+      "must_show_parts": [
+        "D-013"
+      ],
+      "compact_list": false,
+      "show_instruction": "D-013",
+      "needs_3d": false,
+      "behavior": "no_evidence",
+      "behavior_fact": null,
+      "allows_abstention": false,
+      "milestone": "M1",
+      "rule_notes": []
+    },
+    {
+      "id": "Q16",
+      "category": "Holes, 3D, and checks",
+      "question": "How many M3 threaded holes does the recoater plate have?",
+      "expected_answer": "- **Answer:** \"8 (from the callout '8x Ø2,5 THRU ALL, M3 - 6H').\"\n- **Must include:** `8`\n- **Must cite:** the template's M3 hole feature (M1), or the callout fact (M3)\n- **Shows:** D-013",
+      "answer_excerpt": "\"8 (from the callout '8x Ø2,5 THRU ALL, M3 - 6H').\"",
+      "must_include": [
+        "8"
+      ],
+      "must_not_include": [],
+      "must_cite": [],
+      "citation_instruction": "the template's M3 hole feature (M1), or the callout fact (M3)",
+      "must_show_parts": [
+        "D-013"
+      ],
+      "compact_list": false,
+      "show_instruction": "D-013",
+      "needs_3d": false,
+      "behavior": "answer",
+      "behavior_fact": null,
+      "allows_abstention": false,
+      "milestone": "M1",
+      "rule_notes": []
+    },
+    {
+      "id": "Q17",
+      "category": "Holes, 3D, and checks",
+      "question": "Show me the build plate in 3D. Does its model match the drawing?",
+      "expected_answer": "- **Answer:** \"Here's D-026 in 3D, with two examples: 25 mm and 15 mm thick. The weight check FAILED: the drawing says 7,822.5 g, but the model comes out to about 9,800 g at 25 mm and about 5,900 g at 15 mm (using stainless steel, from the parts list, since the drawing's material can't be read reliably). It needs manual approval.\"\n- **Must include:** `25`, `15`, `FAILED` (from M2)\n- **Shows:** D-026, with 3D\n- (Weights estimated during planning with a stainless density of 8.0 g/cm³; the exact figures depend on the density table.)",
+      "answer_excerpt": "\"Here's D-026 in 3D, with two examples: 25 mm and 15 mm thick. The weight check FAILED: the drawing says 7,822.5 g, but the model comes out to about 9,800 g at 25 mm and about 5,900 g at 15 mm (using stainless steel, from the parts list, since the drawing's material can't be read reliably). It needs manual approval.\"",
+      "must_include": [
+        "25",
+        "15",
+        "FAILED"
+      ],
+      "must_not_include": [],
+      "must_cite": [],
+      "citation_instruction": "",
+      "must_show_parts": [
+        "D-026"
+      ],
+      "compact_list": false,
+      "show_instruction": "D-026, with 3D",
+      "needs_3d": true,
+      "behavior": "answer",
+      "behavior_fact": null,
+      "allows_abstention": false,
+      "milestone": "M1",
+      "rule_notes": [
+        "Approximate planning weights are not literal checks; compare actual tool density table and model variants. FAILED/manual-review disclosure remains required."
+      ]
+    },
+    {
+      "id": "Q18",
+      "category": "Costs, the README, and current information",
+      "question": "What did the machine cost in total?",
+      "expected_answer": "- **Answer:** \"The recorded total is DKK 168,591.52, from the 116 parts list rows that have a total recorded. 76 rows have no total recorded (75 with no unit cost and 1 with no amount), so the real cost is higher. These are prices as recorded in the snapshot and may be out of date.\"\n- **Must include:** `168,591.52`, `116`, `76`, `may be out of date`\n- **Must cite:** the cost summary",
+      "answer_excerpt": "\"The recorded total is DKK 168,591.52, from the 116 parts list rows that have a total recorded. 76 rows have no total recorded (75 with no unit cost and 1 with no amount), so the real cost is higher. These are prices as recorded in the snapshot and may be out of date.\"",
+      "must_include": [
+        "168,591.52",
+        "116",
+        "76",
+        "may be out of date"
+      ],
+      "must_not_include": [],
+      "must_cite": [],
+      "citation_instruction": "the cost summary",
+      "must_show_parts": [],
+      "compact_list": false,
+      "show_instruction": "",
+      "needs_3d": false,
+      "behavior": "answer",
+      "behavior_fact": null,
+      "allows_abstention": false,
+      "milestone": "M1",
+      "rule_notes": [
+        "Missing recorded prices show incomplete evidence, not proof that the real cost is strictly greater; judge must not demand that unsupported draft inference."
+      ]
+    },
+    {
+      "id": "Q19",
+      "category": "Costs, the README, and current information",
+      "question": "What is the machine's build volume?",
+      "expected_answer": "- **Answer:** \"250 mm × 150 mm (from the README).\"\n- **Must include:** `250`, `150`\n- **Must cite:** `README/physical-system/p...` (the passage)",
+      "answer_excerpt": "\"250 mm × 150 mm (from the README).\"",
+      "must_include": [
+        "250",
+        "150"
+      ],
+      "must_not_include": [],
+      "must_cite": [
+        "README/physical-system/p..."
+      ],
+      "citation_instruction": "`README/physical-system/p...` (the passage)",
+      "must_show_parts": [],
+      "compact_list": false,
+      "show_instruction": "",
+      "needs_3d": false,
+      "behavior": "answer",
+      "behavior_fact": null,
+      "allows_abstention": false,
+      "milestone": "M3",
+      "rule_notes": []
+    },
+    {
+      "id": "Q20",
+      "category": "Costs, the README, and current information",
+      "question": "Who supplies the laser source today, and is it in stock?",
+      "expected_answer": "- **Answer:** \"The recorded supplier is Max Photonics, as recorded in the snapshot, so it may be out of date. The data can't tell whether it's currently in stock.\"\n- **Must include:** `Max Photonics`, `may be out of date`\n- **Must not include:** `in stock` (as a claim), `available`\n- **Must cite:** `BOM:optics/laser-source/supplier`",
+      "answer_excerpt": "\"The recorded supplier is Max Photonics, as recorded in the snapshot, so it may be out of date. The data can't tell whether it's currently in stock.\"",
+      "must_include": [
+        "Max Photonics",
+        "may be out of date"
+      ],
+      "must_not_include": [
+        "in stock",
+        "available"
+      ],
+      "must_cite": [
+        "BOM:optics/laser-source/supplier"
+      ],
+      "citation_instruction": "`BOM:optics/laser-source/supplier`",
+      "must_show_parts": [],
+      "compact_list": false,
+      "show_instruction": "",
+      "needs_3d": false,
+      "behavior": "answer",
+      "behavior_fact": null,
+      "allows_abstention": false,
+      "milestone": "M1",
+      "rule_notes": [
+        "Literal prohibited-word rules are unchanged: even negated occurrences fail. Semantic judge evaluates the actual claim separately. No Jason-approved exception exists.",
+        "No Shows instruction exists in the draft; an attached supplier part is permitted, not required to be absent."
+      ]
+    }
+  ]
+}

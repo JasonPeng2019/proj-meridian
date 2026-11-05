@@ -1,0 +1,77 @@
+{
+  "page_errors": [],
+  "failed_responses": [],
+  "model_checked": "D-012",
+  "models_rendered": [
+    {
+      "drawing": "D-012",
+      "variant": "A",
+      "glb_sha256": "9f53bc959e8af0c61942d1a1279232e3d93c00a38e3ef53b6193f41d5694b6c1"
+    },
+    {
+      "drawing": "D-013",
+      "variant": "A",
+      "glb_sha256": "eda0d853164269b1fc28d6a742edc48155d20f4791bf5f46805e42c87061140a"
+    },
+    {
+      "drawing": "D-013",
+      "variant": "B",
+      "glb_sha256": "8bfce74eb3cf247cf9cbc43fc4d4313fc93f0ba7f236bc9b4a9ab397fae18fdd"
+    },
+    {
+      "drawing": "D-014",
+      "variant": "A",
+      "glb_sha256": "614f28f44d5566303c37cbd28522cc5509e85982f9b52a34289e96e4c26e9e1c"
+    },
+    {
+      "drawing": "D-015",
+      "variant": "A",
+      "glb_sha256": "9e2f0925f5a64c49a915ca7b87fb424f34cd563fe14a4510a8075065fe29c167"
+    },
+    {
+      "drawing": "D-017",
+      "variant": "A",
+      "glb_sha256": "41284247fd2c2ed9ec963af511099614dd2d89279b724ea3581c8c2a5db889c1"
+    },
+    {
+      "drawing": "D-019",
+      "variant": "A",
+      "glb_sha256": "13469b249c567ffd9d74c13ced0eddd4efb4e2c8411a25093cae6944e36acaa8"
+    },
+    {
+      "drawing": "D-025",
+      "variant": "A",
+      "glb_sha256": "de51670805792c52a2a9402373e18ef54022f591cc6096e96954469fbe209d9d"
+    },
+    {
+      "drawing": "D-025",
+      "variant": "B",
+      "glb_sha256": "28185dc6b069e466ec5aafce7c3433603366c238239ca5baeda1cb11399b6649"
+    },
+    {
+      "drawing": "D-026",
+      "variant": "A",
+      "glb_sha256": "c271955f857dea82a63d8bc0367df9084ebbbe28fae0bbb888a8a940a5966f19"
+    },
+    {
+      "drawing": "D-026",
+      "variant": "B",
+      "glb_sha256": "460e5e86ec7e9273cd23c095222075fd467edd92b5454d8eb977209299544bbe"
+    },
+    {
+      "drawing": "D-027",
+      "variant": "A",
+      "glb_sha256": "5de02068b766a365e762d28844ffe07d4181597edbfa64b4aedb5fb80a6988e6"
+    }
+  ],
+  "bom_checked": "bom/box/silicone-gun",
+  "default_hierarchy": {
+    "focused_model": true,
+    "filters_collapsed": true,
+    "technical_details_collapsed": true,
+    "calculations_moved_to_debug": true,
+    "debug_hidden_on_customer_launch": true,
+    "saved_chats_reopen_refresh_delete": true,
+    "no_horizontal_overflow": true
+  }
+}

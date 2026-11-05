@@ -1,0 +1,191 @@
+{
+  "pass": 2,
+  "case_id": "Q13",
+  "question": "How wide is the Galvo Montage Plade",
+  "server_start_status": {
+    "chat_available": true,
+    "chat_model": "gpt-6-luna",
+    "debug_ui": false,
+    "revision": "05f500b3c0117561",
+    "parts": 211,
+    "drawings": 30,
+    "models": 9,
+    "reviewer_name": "Automated verification"
+  },
+  "preconditions": [],
+  "response": {
+    "text": "The Galvo Montage Plade is 110 mm wide. [cite: D-017/template/outline/width, D-017/part] The drawing and 3D model are attached below.",
+    "facts": {
+      "D-017/part": {
+        "fact": "D-017/part",
+        "field": "part",
+        "part_key": "D-017",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Galvo Montage Plade"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-017/part",
+            "says": "Galvo Montage Plade",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-017/template/outline/width": {
+        "fact": "D-017/template/outline/width",
+        "field": "width",
+        "part_key": "D-017",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 110
+        },
+        "badge": "AI proposal verified against evidence, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-017/template/outline/width",
+            "says": 110,
+            "method": "ai_verified",
+            "page": 1,
+            "box": null,
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": "The right-hand overall vertical dimension is 110,0 mm. Verification: The overall vertical dimension on the right side spans the plate's full height and reads 110,0.",
+            "badge": "AI proposal verified against evidence, not reviewed",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-017/drawing/n/110.0@1-1",
+            "says": "110,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              672.1,
+              437.344,
+              18.083,
+              32.988
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-017/drawing/n/110.0@1-1": {
+        "fact": "D-017/drawing/n/110.0@1-1",
+        "field": "110.0@1-1",
+        "part_key": "D-017",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 110.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-017/drawing/n/110.0@1-1",
+            "says": "110,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              672.1,
+              437.344,
+              18.083,
+              32.988
+            ],
+            "part_key": "D-017",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      }
+    },
+    "parts_to_show": [
+      {
+        "id": "D-017/part",
+        "key": "D-017",
+        "display_name": "Galvo Montage Plade",
+        "section": "Optical",
+        "has_drawing": true,
+        "has_3d": true,
+        "examples": [
+          "A"
+        ],
+        "review_status": "not_reviewed",
+        "thumbnail": "/api/parts/D-017/image?page=1&thumb=1",
+        "drawing_url": "/part/D-017/2d",
+        "model_url": "/part/D-017/3d",
+        "shown_reason": null
+      }
+    ],
+    "warnings": [],
+    "session_id": "b5f7bf31b63a435796155303a4ffd16a",
+    "model": "gpt-6-luna",
+    "usage": {
+      "input_tokens": 5081,
+      "output_tokens": 94,
+      "total_tokens": 5175
+    },
+    "latency_ms": 3432,
+    "tool_trace": [
+      {
+        "tool": "find_part",
+        "arguments": {
+          "text": "Galvo Montage Plade"
+        },
+        "facts_returned": [
+          "D-017/part"
+        ]
+      },
+      {
+        "tool": "get_field",
+        "arguments": {
+          "part_id": "D-017/part",
+          "field": "width"
+        },
+        "facts_returned": [
+          "D-017/part",
+          "D-017/template/outline/width",
+          "D-017/drawing/n/110.0@1-1"
+        ]
+      }
+    ],
+    "revision": "fca7048061729c11"
+  },
+  "wall_latency_ms": 3437
+}

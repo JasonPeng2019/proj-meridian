@@ -1,0 +1,206 @@
+{
+  "pass": 2,
+  "case_id": "Q16",
+  "question": "How many M3 threaded holes does the recoater plate have?",
+  "server_start_status": {
+    "chat_available": true,
+    "chat_model": "gpt-6-luna",
+    "debug_ui": false,
+    "revision": "05f500b3c0117561",
+    "parts": 211,
+    "drawings": 30,
+    "models": 9,
+    "reviewer_name": "Automated verification"
+  },
+  "preconditions": [],
+  "response": {
+    "text": "The recoater plate has **8 explicitly counted M3 threaded-hole callouts** (M3–6H, through). This is not a census of every physical hole. [cite: D-013/drawing/callout-summary/m3threadedholecount, D-013/drawing/callout/p1-2, D-013/part]\n\nThe drawing and 3D model are attached below.",
+    "facts": {
+      "D-013/part": {
+        "fact": "D-013/part",
+        "field": "part",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Recoater Plate"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/part",
+            "says": "Recoater Plate",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-013/drawing/callout-summary/m3threadedholecount": {
+        "fact": "D-013/drawing/callout-summary/m3threadedholecount",
+        "field": "m3threadedholecount",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "count": 8,
+            "thread": "M3",
+            "scope": "Explicit counted callouts of the requested feature only; holes and slots are separate. This is not a census of all physical features."
+          }
+        },
+        "badge": "Computed from recorded source facts",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/callout-summary/m3threadedholecount",
+            "says": "Only explicit trusted hole counts are summed; unlabeled dimensions and unclassified callouts cannot establish a complete hole count.",
+            "method": "computed_summary",
+            "page": 1,
+            "box": null,
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": "Only explicit trusted hole counts are summed; unlabeled dimensions and unclassified callouts cannot establish a complete hole count.",
+            "badge": "Computed from recorded source facts",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-013/drawing/callout/p1-2",
+            "says": "8 x 2,5 THRU ALL M3 - 6H THRU ALL",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              309.068,
+              564.281,
+              118.668,
+              33.991
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null,
+        "derivation": {
+          "operation": "computed_summary",
+          "source_fact_ids": [
+            "D-013/drawing/callout/p1-2"
+          ]
+        }
+      },
+      "D-013/drawing/callout/p1-2": {
+        "fact": "D-013/drawing/callout/p1-2",
+        "field": "p1-2",
+        "part_key": "D-013",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "8 x 2,5 THRU ALL M3 - 6H THRU ALL"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-013/drawing/callout/p1-2",
+            "says": "8 x 2,5 THRU ALL M3 - 6H THRU ALL",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              309.068,
+              564.281,
+              118.668,
+              33.991
+            ],
+            "part_key": "D-013",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": {
+          "feature": "threaded_hole",
+          "count": 8,
+          "thread": "M3",
+          "thread_class": "6H",
+          "through": true
+        }
+      }
+    },
+    "parts_to_show": [
+      {
+        "id": "D-013/part",
+        "key": "D-013",
+        "display_name": "Recoater Plate",
+        "section": "Recoater",
+        "has_drawing": true,
+        "has_3d": true,
+        "examples": [
+          "A",
+          "B"
+        ],
+        "review_status": "not_reviewed",
+        "thumbnail": "/api/parts/D-013/image?page=1&thumb=1",
+        "drawing_url": "/part/D-013/2d",
+        "model_url": "/part/D-013/3d",
+        "shown_reason": null
+      }
+    ],
+    "warnings": [],
+    "session_id": "6d5324bd053c4b649563adaa451024a6",
+    "model": "gpt-6-luna",
+    "usage": {
+      "input_tokens": 5455,
+      "output_tokens": 140,
+      "total_tokens": 5595
+    },
+    "latency_ms": 4056,
+    "tool_trace": [
+      {
+        "tool": "find_part",
+        "arguments": {
+          "text": "recoater plate"
+        },
+        "facts_returned": [
+          "D-013/part"
+        ]
+      },
+      {
+        "tool": "get_field",
+        "arguments": {
+          "part_id": "D-013/part",
+          "field": "M3 threaded hole count"
+        },
+        "facts_returned": [
+          "D-013/part",
+          "D-013/drawing/callout-summary/m3threadedholecount",
+          "D-013/drawing/callout/p1-2"
+        ]
+      }
+    ],
+    "revision": "fca7048061729c11"
+  },
+  "wall_latency_ms": 4061
+}

@@ -1,0 +1,1381 @@
+{
+  "pass": 2,
+  "case_id": "Q02",
+  "question": "Which parts list items belong to the Optics section?",
+  "server_start_status": {
+    "chat_available": true,
+    "chat_model": "gpt-6-luna",
+    "debug_ui": false,
+    "revision": "05f500b3c0117561",
+    "parts": 211,
+    "drawings": 30,
+    "models": 9,
+    "reviewer_name": "Automated verification"
+  },
+  "preconditions": [],
+  "response": {
+    "text": "There are **10 parts list items** in the Optics section:\n\n- Sunny Galvo Adapter Plate [cite: BOM:optics/sunny-galvo-adapter-plate/name]\n- F-theta seal ring [cite: BOM:optics/f-theta-seal-ring/name]\n- Galvo box bracket [cite: BOM:optics/galvo-box-bracket/name]\n- Galve support bracket [cite: BOM:optics/galve-support-bracket/name]\n- Silicone gasket f-theta ring [cite: BOM:optics/silicone-gasket-f-theta-ring/name]\n- Laser source [cite: BOM:optics/laser-source/name]\n- Collimator [cite: BOM:optics/collimator/name]\n- Sunny Galvo [cite: BOM:optics/sunny-galvo/name]\n- F-Theta [cite: BOM:optics/f-theta/name]\n- Water chiller for collimator [cite: BOM:optics/water-chiller-for-collimator/name]\n\nThe linked drawing’s section is “Optical,” but the proposed mapping to “Optics” is pending review, so it is not treated as an approved section mapping. [cite: names/section/optical -> optics]",
+    "facts": {
+      "D-020/part": {
+        "fact": "D-020/part",
+        "field": "part",
+        "part_key": "D-020",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "SealRing"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-020/part",
+            "says": "SealRing",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-020",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/sunny-galvo-adapter-plate/part": {
+        "fact": "BOM:optics/sunny-galvo-adapter-plate/part",
+        "field": "part",
+        "part_key": "bom/optics/sunny-galvo-adapter-plate",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Sunny Galvo Adapter Plate"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/sunny-galvo-adapter-plate/part",
+            "says": "Sunny Galvo Adapter Plate",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/sunny-galvo-adapter-plate",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/galvo-box-bracket/part": {
+        "fact": "BOM:optics/galvo-box-bracket/part",
+        "field": "part",
+        "part_key": "bom/optics/galvo-box-bracket",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Galvo box bracket"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/galvo-box-bracket/part",
+            "says": "Galvo box bracket",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/galvo-box-bracket",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/galve-support-bracket/part": {
+        "fact": "BOM:optics/galve-support-bracket/part",
+        "field": "part",
+        "part_key": "bom/optics/galve-support-bracket",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Galve support bracket"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/galve-support-bracket/part",
+            "says": "Galve support bracket",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/galve-support-bracket",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/silicone-gasket-f-theta-ring/part": {
+        "fact": "BOM:optics/silicone-gasket-f-theta-ring/part",
+        "field": "part",
+        "part_key": "bom/optics/silicone-gasket-f-theta-ring",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Silicone gasket f-theta ring"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/silicone-gasket-f-theta-ring/part",
+            "says": "Silicone gasket f-theta ring",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/silicone-gasket-f-theta-ring",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/laser-source/part": {
+        "fact": "BOM:optics/laser-source/part",
+        "field": "part",
+        "part_key": "bom/optics/laser-source",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Laser source"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/laser-source/part",
+            "says": "Laser source",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/laser-source",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/collimator/part": {
+        "fact": "BOM:optics/collimator/part",
+        "field": "part",
+        "part_key": "bom/optics/collimator",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Collimator"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/collimator/part",
+            "says": "Collimator",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/collimator",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/sunny-galvo/part": {
+        "fact": "BOM:optics/sunny-galvo/part",
+        "field": "part",
+        "part_key": "bom/optics/sunny-galvo",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Sunny Galvo"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/sunny-galvo/part",
+            "says": "Sunny Galvo",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/sunny-galvo",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/f-theta/part": {
+        "fact": "BOM:optics/f-theta/part",
+        "field": "part",
+        "part_key": "bom/optics/f-theta",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "F-Theta"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/f-theta/part",
+            "says": "F-Theta",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/f-theta",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/water-chiller-for-collimator/part": {
+        "fact": "BOM:optics/water-chiller-for-collimator/part",
+        "field": "part",
+        "part_key": "bom/optics/water-chiller-for-collimator",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Water chiller for collimator"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/water-chiller-for-collimator/part",
+            "says": "Water chiller for collimator",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/water-chiller-for-collimator",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/sunny-galvo-adapter-plate/name": {
+        "fact": "BOM:optics/sunny-galvo-adapter-plate/name",
+        "field": "name",
+        "part_key": "bom/optics/sunny-galvo-adapter-plate",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Sunny Galvo Adapter Plate"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/sunny-galvo-adapter-plate/name",
+            "says": "Sunny Galvo Adapter Plate",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/sunny-galvo-adapter-plate",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/sunny-galvo-adapter-plate/part_family": {
+        "fact": "BOM:optics/sunny-galvo-adapter-plate/part_family",
+        "field": "part_family",
+        "part_key": "bom/optics/sunny-galvo-adapter-plate",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Optics"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/sunny-galvo-adapter-plate/part_family",
+            "says": "Optics",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/sunny-galvo-adapter-plate",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/f-theta-seal-ring/name": {
+        "fact": "BOM:optics/f-theta-seal-ring/name",
+        "field": "name",
+        "part_key": "D-020",
+        "part_keys": [
+          "D-020"
+        ],
+        "display": {
+          "state": "value",
+          "value": "F-theta seal ring"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/f-theta-seal-ring/name",
+            "says": "F-theta seal ring",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-020",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/f-theta-seal-ring/part_family": {
+        "fact": "BOM:optics/f-theta-seal-ring/part_family",
+        "field": "part_family",
+        "part_key": "D-020",
+        "part_keys": [
+          "D-020"
+        ],
+        "display": {
+          "state": "value",
+          "value": "Optics"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/f-theta-seal-ring/part_family",
+            "says": "Optics",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-020",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/galvo-box-bracket/name": {
+        "fact": "BOM:optics/galvo-box-bracket/name",
+        "field": "name",
+        "part_key": "bom/optics/galvo-box-bracket",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Galvo box bracket"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/galvo-box-bracket/name",
+            "says": "Galvo box bracket",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/galvo-box-bracket",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/galvo-box-bracket/part_family": {
+        "fact": "BOM:optics/galvo-box-bracket/part_family",
+        "field": "part_family",
+        "part_key": "bom/optics/galvo-box-bracket",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Optics"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/galvo-box-bracket/part_family",
+            "says": "Optics",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/galvo-box-bracket",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/galve-support-bracket/name": {
+        "fact": "BOM:optics/galve-support-bracket/name",
+        "field": "name",
+        "part_key": "bom/optics/galve-support-bracket",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Galve support bracket"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/galve-support-bracket/name",
+            "says": "Galve support bracket",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/galve-support-bracket",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/galve-support-bracket/part_family": {
+        "fact": "BOM:optics/galve-support-bracket/part_family",
+        "field": "part_family",
+        "part_key": "bom/optics/galve-support-bracket",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Optics"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/galve-support-bracket/part_family",
+            "says": "Optics",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/galve-support-bracket",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/silicone-gasket-f-theta-ring/name": {
+        "fact": "BOM:optics/silicone-gasket-f-theta-ring/name",
+        "field": "name",
+        "part_key": "bom/optics/silicone-gasket-f-theta-ring",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Silicone gasket f-theta ring"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/silicone-gasket-f-theta-ring/name",
+            "says": "Silicone gasket f-theta ring",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/silicone-gasket-f-theta-ring",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/silicone-gasket-f-theta-ring/part_family": {
+        "fact": "BOM:optics/silicone-gasket-f-theta-ring/part_family",
+        "field": "part_family",
+        "part_key": "bom/optics/silicone-gasket-f-theta-ring",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Optics"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/silicone-gasket-f-theta-ring/part_family",
+            "says": "Optics",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/silicone-gasket-f-theta-ring",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/laser-source/name": {
+        "fact": "BOM:optics/laser-source/name",
+        "field": "name",
+        "part_key": "bom/optics/laser-source",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Laser source"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/laser-source/name",
+            "says": "Laser source",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/laser-source",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/laser-source/part_family": {
+        "fact": "BOM:optics/laser-source/part_family",
+        "field": "part_family",
+        "part_key": "bom/optics/laser-source",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Optics"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/laser-source/part_family",
+            "says": "Optics",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/laser-source",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/collimator/name": {
+        "fact": "BOM:optics/collimator/name",
+        "field": "name",
+        "part_key": "bom/optics/collimator",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Collimator"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/collimator/name",
+            "says": "Collimator",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/collimator",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/collimator/part_family": {
+        "fact": "BOM:optics/collimator/part_family",
+        "field": "part_family",
+        "part_key": "bom/optics/collimator",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Optics"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/collimator/part_family",
+            "says": "Optics",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/collimator",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/sunny-galvo/name": {
+        "fact": "BOM:optics/sunny-galvo/name",
+        "field": "name",
+        "part_key": "bom/optics/sunny-galvo",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Sunny Galvo"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/sunny-galvo/name",
+            "says": "Sunny Galvo",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/sunny-galvo",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/sunny-galvo/part_family": {
+        "fact": "BOM:optics/sunny-galvo/part_family",
+        "field": "part_family",
+        "part_key": "bom/optics/sunny-galvo",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Optics"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/sunny-galvo/part_family",
+            "says": "Optics",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/sunny-galvo",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/f-theta/name": {
+        "fact": "BOM:optics/f-theta/name",
+        "field": "name",
+        "part_key": "bom/optics/f-theta",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "F-Theta"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/f-theta/name",
+            "says": "F-Theta",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/f-theta",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/f-theta/part_family": {
+        "fact": "BOM:optics/f-theta/part_family",
+        "field": "part_family",
+        "part_key": "bom/optics/f-theta",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Optics"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/f-theta/part_family",
+            "says": "Optics",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/f-theta",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/water-chiller-for-collimator/name": {
+        "fact": "BOM:optics/water-chiller-for-collimator/name",
+        "field": "name",
+        "part_key": "bom/optics/water-chiller-for-collimator",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Water chiller for collimator"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/water-chiller-for-collimator/name",
+            "says": "Water chiller for collimator",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/water-chiller-for-collimator",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:optics/water-chiller-for-collimator/part_family": {
+        "fact": "BOM:optics/water-chiller-for-collimator/part_family",
+        "field": "part_family",
+        "part_key": "bom/optics/water-chiller-for-collimator",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Optics"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:optics/water-chiller-for-collimator/part_family",
+            "says": "Optics",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/optics/water-chiller-for-collimator",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "names/section/ -> electric": {
+        "fact": "names/section/ -> electric",
+        "field": " -> electric",
+        "part_key": null,
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "kind": "section",
+            "left": null,
+            "right": "Electric",
+            "status": "pending_approval",
+            "approved_relationship": null,
+            "direction": null
+          }
+        },
+        "badge": "Name mapping awaiting review",
+        "review": {
+          "status": "pending_approval"
+        },
+        "sources": [
+          {
+            "name": "names/section/ -> electric",
+            "says": "Approved mappings alone may resolve different names. Pending or rejected proposals do not establish equivalence.",
+            "method": "mapping_status",
+            "page": 1,
+            "box": null,
+            "part_key": null,
+            "cleanup": [],
+            "note": "Approved mappings alone may resolve different names. Pending or rejected proposals do not establish equivalence.",
+            "badge": "Name mapping awaiting review",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": "names/section/ -> electric",
+        "correction": null,
+        "callout": null,
+        "derivation": {
+          "operation": "mapping_status",
+          "source_fact_ids": []
+        },
+        "mapping_evidence": []
+      },
+      "names/section/ -> raw-materials": {
+        "fact": "names/section/ -> raw-materials",
+        "field": " -> raw-materials",
+        "part_key": null,
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "kind": "section",
+            "left": null,
+            "right": "Raw Materials",
+            "status": "pending_approval",
+            "approved_relationship": null,
+            "direction": null
+          }
+        },
+        "badge": "Name mapping awaiting review",
+        "review": {
+          "status": "pending_approval"
+        },
+        "sources": [
+          {
+            "name": "names/section/ -> raw-materials",
+            "says": "Approved mappings alone may resolve different names. Pending or rejected proposals do not establish equivalence.",
+            "method": "mapping_status",
+            "page": 1,
+            "box": null,
+            "part_key": null,
+            "cleanup": [],
+            "note": "Approved mappings alone may resolve different names. Pending or rejected proposals do not establish equivalence.",
+            "badge": "Name mapping awaiting review",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": "names/section/ -> raw-materials",
+        "correction": null,
+        "callout": null,
+        "derivation": {
+          "operation": "mapping_status",
+          "source_fact_ids": []
+        },
+        "mapping_evidence": []
+      },
+      "names/section/ -> sensorgantry": {
+        "fact": "names/section/ -> sensorgantry",
+        "field": " -> sensorgantry",
+        "part_key": null,
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "kind": "section",
+            "left": null,
+            "right": "SensorGantry",
+            "status": "pending_approval",
+            "approved_relationship": null,
+            "direction": null
+          }
+        },
+        "badge": "Name mapping awaiting review",
+        "review": {
+          "status": "pending_approval"
+        },
+        "sources": [
+          {
+            "name": "names/section/ -> sensorgantry",
+            "says": "Approved mappings alone may resolve different names. Pending or rejected proposals do not establish equivalence.",
+            "method": "mapping_status",
+            "page": 1,
+            "box": null,
+            "part_key": null,
+            "cleanup": [],
+            "note": "Approved mappings alone may resolve different names. Pending or rejected proposals do not establish equivalence.",
+            "badge": "Name mapping awaiting review",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": "names/section/ -> sensorgantry",
+        "correction": null,
+        "callout": null,
+        "derivation": {
+          "operation": "mapping_status",
+          "source_fact_ids": []
+        },
+        "mapping_evidence": []
+      },
+      "names/section/ -> support": {
+        "fact": "names/section/ -> support",
+        "field": " -> support",
+        "part_key": null,
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "kind": "section",
+            "left": null,
+            "right": "Support",
+            "status": "pending_approval",
+            "approved_relationship": null,
+            "direction": null
+          }
+        },
+        "badge": "Name mapping awaiting review",
+        "review": {
+          "status": "pending_approval"
+        },
+        "sources": [
+          {
+            "name": "names/section/ -> support",
+            "says": "Approved mappings alone may resolve different names. Pending or rejected proposals do not establish equivalence.",
+            "method": "mapping_status",
+            "page": 1,
+            "box": null,
+            "part_key": null,
+            "cleanup": [],
+            "note": "Approved mappings alone may resolve different names. Pending or rejected proposals do not establish equivalence.",
+            "badge": "Name mapping awaiting review",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": "names/section/ -> support",
+        "correction": null,
+        "callout": null,
+        "derivation": {
+          "operation": "mapping_status",
+          "source_fact_ids": []
+        },
+        "mapping_evidence": []
+      },
+      "names/section/optical -> optics": {
+        "fact": "names/section/optical -> optics",
+        "field": "optical -> optics",
+        "part_key": null,
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "kind": "section",
+            "left": "Optical",
+            "right": "Optics",
+            "status": "pending_approval",
+            "approved_relationship": null,
+            "direction": null
+          }
+        },
+        "badge": "Name mapping awaiting review",
+        "review": {
+          "status": "pending_approval"
+        },
+        "sources": [
+          {
+            "name": "names/section/optical -> optics",
+            "says": "Approved mappings alone may resolve different names. Pending or rejected proposals do not establish equivalence.",
+            "method": "mapping_status",
+            "page": 1,
+            "box": null,
+            "part_key": null,
+            "cleanup": [],
+            "note": "Approved mappings alone may resolve different names. Pending or rejected proposals do not establish equivalence.",
+            "badge": "Name mapping awaiting review",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": "names/section/optical -> optics",
+        "correction": null,
+        "callout": null,
+        "derivation": {
+          "operation": "mapping_status",
+          "source_fact_ids": []
+        },
+        "mapping_evidence": [
+          "BOM:optics/f-theta-seal-ring",
+          "D-020/drawing/source"
+        ]
+      }
+    },
+    "parts_to_show": [
+      {
+        "id": "BOM:optics/sunny-galvo-adapter-plate/part",
+        "key": "bom/optics/sunny-galvo-adapter-plate",
+        "display_name": "Sunny Galvo Adapter Plate",
+        "section": "Optics",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "D-020/part",
+        "key": "D-020",
+        "display_name": "SealRing",
+        "section": "Optical",
+        "has_drawing": true,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "not_reviewed",
+        "thumbnail": "/api/parts/D-020/image?page=1&thumb=1",
+        "drawing_url": "/part/D-020/2d",
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "BOM:optics/galvo-box-bracket/part",
+        "key": "bom/optics/galvo-box-bracket",
+        "display_name": "Galvo box bracket",
+        "section": "Optics",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "BOM:optics/galve-support-bracket/part",
+        "key": "bom/optics/galve-support-bracket",
+        "display_name": "Galve support bracket",
+        "section": "Optics",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "BOM:optics/silicone-gasket-f-theta-ring/part",
+        "key": "bom/optics/silicone-gasket-f-theta-ring",
+        "display_name": "Silicone gasket f-theta ring",
+        "section": "Optics",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "BOM:optics/laser-source/part",
+        "key": "bom/optics/laser-source",
+        "display_name": "Laser source",
+        "section": "Optics",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "BOM:optics/collimator/part",
+        "key": "bom/optics/collimator",
+        "display_name": "Collimator",
+        "section": "Optics",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "BOM:optics/sunny-galvo/part",
+        "key": "bom/optics/sunny-galvo",
+        "display_name": "Sunny Galvo",
+        "section": "Optics",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "BOM:optics/f-theta/part",
+        "key": "bom/optics/f-theta",
+        "display_name": "F-Theta",
+        "section": "Optics",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      },
+      {
+        "id": "BOM:optics/water-chiller-for-collimator/part",
+        "key": "bom/optics/water-chiller-for-collimator",
+        "display_name": "Water chiller for collimator",
+        "section": "Optics",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      }
+    ],
+    "warnings": [],
+    "session_id": "9cce9c98a1c044d9a13b6bd78dbf2bd5",
+    "model": "gpt-6-luna",
+    "usage": {
+      "input_tokens": 9464,
+      "output_tokens": 283,
+      "total_tokens": 9747
+    },
+    "latency_ms": 4582,
+    "tool_trace": [
+      {
+        "tool": "parts_in_section",
+        "arguments": {
+          "section": "Optics"
+        },
+        "facts_returned": [
+          "D-020/part",
+          "BOM:optics/sunny-galvo-adapter-plate/part",
+          "BOM:optics/galvo-box-bracket/part",
+          "BOM:optics/galve-support-bracket/part",
+          "BOM:optics/silicone-gasket-f-theta-ring/part",
+          "BOM:optics/laser-source/part",
+          "BOM:optics/collimator/part",
+          "BOM:optics/sunny-galvo/part",
+          "BOM:optics/f-theta/part",
+          "BOM:optics/water-chiller-for-collimator/part",
+          "BOM:optics/sunny-galvo-adapter-plate/name",
+          "BOM:optics/sunny-galvo-adapter-plate/part_family",
+          "BOM:optics/f-theta-seal-ring/name",
+          "BOM:optics/f-theta-seal-ring/part_family",
+          "BOM:optics/galvo-box-bracket/name",
+          "BOM:optics/galvo-box-bracket/part_family",
+          "BOM:optics/galve-support-bracket/name",
+          "BOM:optics/galve-support-bracket/part_family",
+          "BOM:optics/silicone-gasket-f-theta-ring/name",
+          "BOM:optics/silicone-gasket-f-theta-ring/part_family",
+          "BOM:optics/laser-source/name",
+          "BOM:optics/laser-source/part_family",
+          "BOM:optics/collimator/name",
+          "BOM:optics/collimator/part_family",
+          "BOM:optics/sunny-galvo/name",
+          "BOM:optics/sunny-galvo/part_family",
+          "BOM:optics/f-theta/name",
+          "BOM:optics/f-theta/part_family",
+          "BOM:optics/water-chiller-for-collimator/name",
+          "BOM:optics/water-chiller-for-collimator/part_family",
+          "names/section/ -> electric",
+          "names/section/ -> raw-materials",
+          "names/section/ -> sensorgantry",
+          "names/section/ -> support",
+          "names/section/optical -> optics"
+        ]
+      }
+    ],
+    "revision": "05f500b3c0117561"
+  },
+  "wall_latency_ms": 4594
+}

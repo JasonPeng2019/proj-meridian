@@ -1,0 +1,373 @@
+{
+  "pass": 1,
+  "case_id": "Q03",
+  "question": "Are the \"Optical\" drawing section and the \"Optics\" parts list section the same thing?",
+  "server_start_status": {
+    "chat_available": true,
+    "chat_model": "gpt-6-luna",
+    "debug_ui": false,
+    "revision": "05f500b3c0117561",
+    "parts": 211,
+    "drawings": 30,
+    "models": 9,
+    "reviewer_name": "Automated verification"
+  },
+  "preconditions": [
+    {
+      "name": "approved_optical_optics_mapping",
+      "status": "pending",
+      "records": [
+        {
+          "id": "names/section/optical -> optics",
+          "target": "names/section/optical -> optics",
+          "type": "name_mapping",
+          "title": "Optical → Optics",
+          "value": "same",
+          "status": "pending_approval",
+          "readers": {
+            "claude": {
+              "role": "verifier",
+              "protocol": "proposal-verification-v1",
+              "rounds": [
+                {
+                  "answer": {
+                    "key": "relationship",
+                    "decision": "accept",
+                    "reason": "The supplied established links connect drawing D-020 (D-020/drawing/source, section 'Optical', source file 'f-theta-SealRing.PDF') with BOM entry BOM:optics/f-theta-seal-ring (section 'Optics', display name 'F-theta seal ring'). These are the same physical part. The drawing title 'SealRing' (D-020/drawing/title) and the note 'Aluminium' (D-020/drawing/notes) match the BOM name and material 'Aluminium'. Because one linked part is placed in 'Optical' on the drawing side and in 'Optics' on the BOM side, the two names refer to the same section, so 'same' is supported. 'Optical' is one of the represented drawing sections, so no_equivalent does not apply. This is only a mapping suggestion and still needs separate human approval.",
+                    "fact_ids": [
+                      "D-020/drawing/source",
+                      "BOM:optics/f-theta-seal-ring",
+                      "D-020/drawing/title",
+                      "D-020/drawing/notes"
+                    ],
+                    "repairable": false
+                  },
+                  "valid": true,
+                  "validation_passed": true,
+                  "contract_error": null,
+                  "requested": true,
+                  "proposal_fingerprint": "e3f7dde1044c49162525f346df1feb93602337c6dcee3a5abecd74fea25b2d3f",
+                  "response_proposal_fingerprint": "e3f7dde1044c49162525f346df1feb93602337c6dcee3a5abecd74fea25b2d3f",
+                  "feedback": [],
+                  "settings": {
+                    "model": "opus",
+                    "fast_mode": false,
+                    "mode": "regular",
+                    "reader": "claude"
+                  },
+                  "cache_key": "523806c9cc77becf8c6e974dbc8239e94026aee0194f74ec7b98bc168531b5c7"
+                }
+              ]
+            },
+            "codex": {
+              "role": "proposer",
+              "protocol": "proposal-verification-v1",
+              "rounds": [
+                {
+                  "answer": {
+                    "key": "relationship",
+                    "state": "known",
+                    "value_json": "\"same\"",
+                    "confidence": "sure",
+                    "fact_ids": [
+                      "D-020/drawing/source",
+                      "BOM:optics/f-theta-seal-ring"
+                    ],
+                    "reason": "The supplied established links connect D-020 in “Optical” to the BOM entry in “Optics”, supporting the same section under these two names. This suggestion requires actual human approval before use.",
+                    "changed_because": ""
+                  },
+                  "valid": true,
+                  "validation_passed": true,
+                  "contract_error": null,
+                  "requested": true,
+                  "proposal_fingerprint": "e3f7dde1044c49162525f346df1feb93602337c6dcee3a5abecd74fea25b2d3f",
+                  "response_proposal_fingerprint": null,
+                  "feedback": [],
+                  "settings": {
+                    "model": "gpt-6.1-sol",
+                    "reasoning_effort": "xhigh",
+                    "service_tier": "fast",
+                    "reader": "codex"
+                  },
+                  "cache_key": "d81286136e8bc4a39e4f24181303d8754476f7ad6674d3068c6e95776dd6269b"
+                }
+              ]
+            }
+          },
+          "evidence": [
+            "BOM:optics/f-theta-seal-ring",
+            "D-020/drawing/source"
+          ],
+          "kind": "section",
+          "options": [
+            "same",
+            "kind_of",
+            "different",
+            "no_equivalent"
+          ]
+        }
+      ]
+    }
+  ],
+  "response": {
+    "text": "I can’t confirm they are the same: the “Optical” drawing section → “Optics” parts-list section mapping is pending approval, not an approved equivalence. [cite: names/section/optical -> optics]",
+    "facts": {
+      "names/section/ -> electric": {
+        "fact": "names/section/ -> electric",
+        "field": " -> electric",
+        "part_key": null,
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "kind": "section",
+            "left": null,
+            "right": "Electric",
+            "status": "pending_approval",
+            "approved_relationship": null,
+            "direction": null
+          }
+        },
+        "badge": "Name mapping awaiting review",
+        "review": {
+          "status": "pending_approval"
+        },
+        "sources": [
+          {
+            "name": "names/section/ -> electric",
+            "says": "Approved mappings alone may resolve different names. Pending or rejected proposals do not establish equivalence.",
+            "method": "mapping_status",
+            "page": 1,
+            "box": null,
+            "part_key": null,
+            "cleanup": [],
+            "note": "Approved mappings alone may resolve different names. Pending or rejected proposals do not establish equivalence.",
+            "badge": "Name mapping awaiting review",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": "names/section/ -> electric",
+        "correction": null,
+        "callout": null,
+        "derivation": {
+          "operation": "mapping_status",
+          "source_fact_ids": []
+        },
+        "mapping_evidence": []
+      },
+      "names/section/ -> raw-materials": {
+        "fact": "names/section/ -> raw-materials",
+        "field": " -> raw-materials",
+        "part_key": null,
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "kind": "section",
+            "left": null,
+            "right": "Raw Materials",
+            "status": "pending_approval",
+            "approved_relationship": null,
+            "direction": null
+          }
+        },
+        "badge": "Name mapping awaiting review",
+        "review": {
+          "status": "pending_approval"
+        },
+        "sources": [
+          {
+            "name": "names/section/ -> raw-materials",
+            "says": "Approved mappings alone may resolve different names. Pending or rejected proposals do not establish equivalence.",
+            "method": "mapping_status",
+            "page": 1,
+            "box": null,
+            "part_key": null,
+            "cleanup": [],
+            "note": "Approved mappings alone may resolve different names. Pending or rejected proposals do not establish equivalence.",
+            "badge": "Name mapping awaiting review",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": "names/section/ -> raw-materials",
+        "correction": null,
+        "callout": null,
+        "derivation": {
+          "operation": "mapping_status",
+          "source_fact_ids": []
+        },
+        "mapping_evidence": []
+      },
+      "names/section/ -> sensorgantry": {
+        "fact": "names/section/ -> sensorgantry",
+        "field": " -> sensorgantry",
+        "part_key": null,
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "kind": "section",
+            "left": null,
+            "right": "SensorGantry",
+            "status": "pending_approval",
+            "approved_relationship": null,
+            "direction": null
+          }
+        },
+        "badge": "Name mapping awaiting review",
+        "review": {
+          "status": "pending_approval"
+        },
+        "sources": [
+          {
+            "name": "names/section/ -> sensorgantry",
+            "says": "Approved mappings alone may resolve different names. Pending or rejected proposals do not establish equivalence.",
+            "method": "mapping_status",
+            "page": 1,
+            "box": null,
+            "part_key": null,
+            "cleanup": [],
+            "note": "Approved mappings alone may resolve different names. Pending or rejected proposals do not establish equivalence.",
+            "badge": "Name mapping awaiting review",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": "names/section/ -> sensorgantry",
+        "correction": null,
+        "callout": null,
+        "derivation": {
+          "operation": "mapping_status",
+          "source_fact_ids": []
+        },
+        "mapping_evidence": []
+      },
+      "names/section/ -> support": {
+        "fact": "names/section/ -> support",
+        "field": " -> support",
+        "part_key": null,
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "kind": "section",
+            "left": null,
+            "right": "Support",
+            "status": "pending_approval",
+            "approved_relationship": null,
+            "direction": null
+          }
+        },
+        "badge": "Name mapping awaiting review",
+        "review": {
+          "status": "pending_approval"
+        },
+        "sources": [
+          {
+            "name": "names/section/ -> support",
+            "says": "Approved mappings alone may resolve different names. Pending or rejected proposals do not establish equivalence.",
+            "method": "mapping_status",
+            "page": 1,
+            "box": null,
+            "part_key": null,
+            "cleanup": [],
+            "note": "Approved mappings alone may resolve different names. Pending or rejected proposals do not establish equivalence.",
+            "badge": "Name mapping awaiting review",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": "names/section/ -> support",
+        "correction": null,
+        "callout": null,
+        "derivation": {
+          "operation": "mapping_status",
+          "source_fact_ids": []
+        },
+        "mapping_evidence": []
+      },
+      "names/section/optical -> optics": {
+        "fact": "names/section/optical -> optics",
+        "field": "optical -> optics",
+        "part_key": null,
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "kind": "section",
+            "left": "Optical",
+            "right": "Optics",
+            "status": "pending_approval",
+            "approved_relationship": null,
+            "direction": null
+          }
+        },
+        "badge": "Name mapping awaiting review",
+        "review": {
+          "status": "pending_approval"
+        },
+        "sources": [
+          {
+            "name": "names/section/optical -> optics",
+            "says": "Approved mappings alone may resolve different names. Pending or rejected proposals do not establish equivalence.",
+            "method": "mapping_status",
+            "page": 1,
+            "box": null,
+            "part_key": null,
+            "cleanup": [],
+            "note": "Approved mappings alone may resolve different names. Pending or rejected proposals do not establish equivalence.",
+            "badge": "Name mapping awaiting review",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": "names/section/optical -> optics",
+        "correction": null,
+        "callout": null,
+        "derivation": {
+          "operation": "mapping_status",
+          "source_fact_ids": []
+        },
+        "mapping_evidence": [
+          "BOM:optics/f-theta-seal-ring",
+          "D-020/drawing/source"
+        ]
+      }
+    },
+    "parts_to_show": [],
+    "warnings": [],
+    "session_id": "7ab49131014644dcb741b2f0dd3f81e2",
+    "model": "gpt-6-luna",
+    "usage": {
+      "input_tokens": 4416,
+      "output_tokens": 77,
+      "total_tokens": 4493
+    },
+    "latency_ms": 4169,
+    "tool_trace": [
+      {
+        "tool": "mapping_status",
+        "arguments": {
+          "text": "Optical; Optics",
+          "kind": "section"
+        },
+        "facts_returned": [
+          "names/section/ -> electric",
+          "names/section/ -> raw-materials",
+          "names/section/ -> sensorgantry",
+          "names/section/ -> support",
+          "names/section/optical -> optics"
+        ]
+      }
+    ],
+    "revision": "05f500b3c0117561"
+  },
+  "wall_latency_ms": 5294
+}

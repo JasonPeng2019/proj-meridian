@@ -1,0 +1,136 @@
+{
+  "pass": 1,
+  "case_id": "Q06",
+  "question": "What does the front door hinge connect to?",
+  "server_start_status": {
+    "chat_available": true,
+    "chat_model": "gpt-6-luna",
+    "debug_ui": false,
+    "revision": "05f500b3c0117561",
+    "parts": 211,
+    "drawings": 30,
+    "models": 9,
+    "reviewer_name": "Automated verification"
+  },
+  "preconditions": [],
+  "response": {
+    "text": "The front door hinge is recorded as connecting to the **Front Door** and the **Front Side Box**. [cite: BOM:box/front-door-hinge/interface_with]\n\nThe hinge has no drawing or 3D model attached. [cite: BOM:box/front-door-hinge/part]",
+    "facts": {
+      "BOM:box/front-door-hinge/part": {
+        "fact": "BOM:box/front-door-hinge/part",
+        "field": "part",
+        "part_key": "bom/box/front-door-hinge",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Front door hinge"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/front-door-hinge/part",
+            "says": "Front door hinge",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/box/front-door-hinge",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:box/front-door-hinge/interface_with": {
+        "fact": "BOM:box/front-door-hinge/interface_with",
+        "field": "interface_with",
+        "part_key": "bom/box/front-door-hinge",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": [
+            "Front Door",
+            "Front Side Box"
+          ]
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/front-door-hinge/interface_with",
+            "says": "Front Door,Front Side Box",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/box/front-door-hinge",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      }
+    },
+    "parts_to_show": [
+      {
+        "id": "BOM:box/front-door-hinge/part",
+        "key": "bom/box/front-door-hinge",
+        "display_name": "Front door hinge",
+        "section": "Box",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      }
+    ],
+    "warnings": [],
+    "session_id": "7334602f8d5d44aaab903bf27d45aaf6",
+    "model": "gpt-6-luna",
+    "usage": {
+      "input_tokens": 5052,
+      "output_tokens": 112,
+      "total_tokens": 5164
+    },
+    "latency_ms": 9542,
+    "tool_trace": [
+      {
+        "tool": "find_part",
+        "arguments": {
+          "text": "front door hinge"
+        },
+        "facts_returned": [
+          "BOM:box/front-door-hinge/part"
+        ]
+      },
+      {
+        "tool": "get_connections",
+        "arguments": {
+          "part_id": "BOM:box/front-door-hinge/part"
+        },
+        "facts_returned": [
+          "BOM:box/front-door-hinge/part",
+          "BOM:box/front-door-hinge/interface_with"
+        ]
+      }
+    ],
+    "revision": "05f500b3c0117561"
+  },
+  "wall_latency_ms": 9548
+}

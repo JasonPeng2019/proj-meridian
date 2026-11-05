@@ -1,0 +1,1547 @@
+{
+  "pass": 2,
+  "case_id": "Q11b",
+  "question": "What is the title of drawing D-019?",
+  "server_start_status": {
+    "chat_available": true,
+    "chat_model": "gpt-6-luna",
+    "debug_ui": false,
+    "revision": "05f500b3c0117561",
+    "parts": 211,
+    "drawings": 30,
+    "models": 9,
+    "reviewer_name": "Automated verification"
+  },
+  "workflow_setup": {
+    "usage": {
+      "input_tokens": 35484,
+      "output_tokens": 426,
+      "total_tokens": 35910
+    },
+    "latency_ms": 8772
+  },
+  "preconditions": [
+    {
+      "name": "isolated_automated_correction_accepted",
+      "status": "met",
+      "fact": {
+        "fact": "D-019/drawing/title",
+        "field": "title",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Silicone gasket for f-theta lens"
+        },
+        "badge": "Entered by Automated verification on 2026-11-05",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/title",
+            "says": "Description",
+            "method": "human_decision",
+            "page": 1,
+            "box": [
+              975.328,
+              710.355,
+              181.0,
+              66.0
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": "Printed placeholder; not a reliable part title.",
+            "badge": "Entered by Automated verification on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": {
+          "original": "Description",
+          "corrected": "Silicone gasket for f-theta lens",
+          "by": "Automated verification",
+          "at": "2026-11-05T11:47:21.436535+00:00"
+        },
+        "callout": null
+      }
+    }
+  ],
+  "workflow": {
+    "reviewer": "Automated verification",
+    "purpose": "isolated automated workflow verification; not a human approval",
+    "accepted": true
+  },
+  "response": {
+    "text": "The corrected title is **Silicone gasket for f-theta lens**; the original value was **“Description.”** The correction was made by **Automated verification** on **2026-11-05**. [cite: D-019/drawing/title, D-019/part]\n\nThe drawing and 3D model are attached below.",
+    "facts": {
+      "D-019/part": {
+        "fact": "D-019/part",
+        "field": "part",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Silicone gasket for f-theta lens"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/part",
+            "says": "Silicone gasket for f-theta lens",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/material": {
+        "fact": "D-019/drawing/material",
+        "field": "material",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Silicon Rubber"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/material",
+            "says": "Silicon Rubber",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              745.28,
+              771.048,
+              135.0,
+              14.0
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/title": {
+        "fact": "D-019/drawing/title",
+        "field": "title",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Silicone gasket for f-theta lens"
+        },
+        "badge": "Entered by Automated verification on 2026-11-05",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/title",
+            "says": "Description",
+            "method": "human_decision",
+            "page": 1,
+            "box": [
+              975.328,
+              710.355,
+              181.0,
+              66.0
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": "Printed placeholder; not a reliable part title.",
+            "badge": "Entered by Automated verification on 2026-11-05",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": {
+          "original": "Description",
+          "corrected": "Silicone gasket for f-theta lens",
+          "by": "Automated verification",
+          "at": "2026-11-05T11:47:21.436535+00:00"
+        },
+        "callout": null
+      },
+      "D-019/drawing/notes": {
+        "fact": "D-019/drawing/notes",
+        "field": "notes",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "1mm silicone pakning"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/notes",
+            "says": "1mm silicone pakning",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              741.526,
+              658.942,
+              231.0,
+              111.0
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/company": {
+        "fact": "D-019/drawing/company",
+        "field": "company",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "DTU MPP"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/company",
+            "says": "DTU MPP",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              975.328,
+              658.942,
+              91.0,
+              48.0
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/weight_g": {
+        "fact": "D-019/drawing/weight_g",
+        "field": "weight_g",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 5.7
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/weight_g",
+            "says": "5.7",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              880.717,
+              771.048,
+              93.0,
+              14.0
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/drawn": {
+        "fact": "D-019/drawing/drawn",
+        "field": "drawn",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "MBOKJ"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/drawn",
+            "says": "MBOKJ",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              893.294,
+              790.235,
+              78.0,
+              11.0
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/date": {
+        "fact": "D-019/drawing/date",
+        "field": "date",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "06/01/2022"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/date",
+            "says": "06/01/2022",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              897.013,
+              802.562,
+              76.0,
+              11.0
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/scale": {
+        "fact": "D-019/drawing/scale",
+        "field": "scale",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "1:2"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/scale",
+            "says": "1:2",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1082.688,
+              803.564,
+              25.837,
+              7.75
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/callout/p1-1": {
+        "fact": "D-019/drawing/callout/p1-1",
+        "field": "p1-1",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "6 x 4,5 THRU ALL"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/callout/p1-1",
+            "says": "6 x 4,5 THRU ALL",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              449.788,
+              231.957,
+              118.667,
+              18.083
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": {
+          "feature": "unclassified_callout",
+          "count": 6,
+          "through": true
+        }
+      },
+      "D-019/drawing/general/units": {
+        "fact": "D-019/drawing/general/units",
+        "field": "units",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "DIMENSIONS ARE IN MILLIMETERS"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/general/units",
+            "says": "DIMENSIONS ARE IN MILLIMETERS",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              978.968,
+              784.149,
+              85.555,
+              7.75
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": {
+          "feature": "general_note"
+        }
+      },
+      "D-019/drawing/general/general_tolerance": {
+        "fact": "D-019/drawing/general/general_tolerance",
+        "field": "general_tolerance",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "DIN ISO 2768-1 m"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/general/general_tolerance",
+            "says": "DIN ISO 2768-1 m",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1016.541,
+              790.957,
+              47.749,
+              8.202
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": {
+          "feature": "general_note"
+        }
+      },
+      "D-019/drawing/general/edge_finish": {
+        "fact": "D-019/drawing/general/edge_finish",
+        "field": "edge_finish",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "DEBURR AND BREAK SHARP EDGES"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/general/edge_finish",
+            "says": "DEBURR AND BREAK SHARP EDGES",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1078.776,
+              781.582,
+              52.887,
+              14.837
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": {
+          "feature": "general_note"
+        }
+      },
+      "D-019/template/outline": {
+        "fact": "D-019/template/outline",
+        "field": "outline",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "ring"
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/template/outline",
+            "says": null,
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/template/outline/outer_diameter": {
+        "fact": "D-019/template/outline/outer_diameter",
+        "field": "outer_diameter",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 141.0
+        },
+        "badge": "AI proposal verified against evidence, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-019/template/outline/outer_diameter",
+            "says": 141.0,
+            "method": "ai_verified",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": "The Ø141,0 dimension in the main view identifies the outer circular boundary. Dimensions are in millimetres. Verification: In the main view, the Ø141,0 leader ends on the outermost circle. The units note says dimensions are in millimetres, so the outer diameter is 141.0 mm.",
+            "badge": "AI proposal verified against evidence, not reviewed",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/n/141.0@1-1",
+            "says": "141,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              728.205,
+              230.219,
+              36.113,
+              36.113
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/n/141.0@1-1": {
+        "fact": "D-019/drawing/n/141.0@1-1",
+        "field": "141.0@1-1",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 141.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/n/141.0@1-1",
+            "says": "141,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              728.205,
+              230.219,
+              36.113,
+              36.113
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/template/outline/inner_diameter": {
+        "fact": "D-019/template/outline/inner_diameter",
+        "field": "inner_diameter",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 118.0
+        },
+        "badge": "AI proposal verified against evidence, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-019/template/outline/inner_diameter",
+            "says": 118.0,
+            "method": "ai_verified",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": "The Ø118,0 dimension in the main view identifies the inner circular boundary. Dimensions are in millimetres. Verification: In the main view, the Ø118,0 leader ends on the inner circle of the opening, so the inner diameter is 118.0 mm.",
+            "badge": "AI proposal verified against evidence, not reviewed",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/n/118.0@1-1",
+            "says": "118,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              673.172,
+              230.001,
+              32.155,
+              37.61
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/n/118.0@1-1": {
+        "fact": "D-019/drawing/n/118.0@1-1",
+        "field": "118.0@1-1",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 118.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/n/118.0@1-1",
+            "says": "118,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              673.172,
+              230.001,
+              32.155,
+              37.61
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/template/thickness": {
+        "fact": "D-019/template/thickness",
+        "field": "thickness",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 1.0
+        },
+        "badge": "AI proposal verified against evidence, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-019/template/thickness",
+            "says": 1.0,
+            "method": "ai_verified",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": "The side-view dimension 1,0 spans the plate thickness. The note '1mm silicone pakning' corroborates this reading. Verification: In the side view on the left, the 1,0 dimension is drawn between extension lines across the thin edge of the part, so it is the thickness. The NOTE '1mm silicone pakning' agrees. There is only one thickness and no alternatives.",
+            "badge": "AI proposal verified against evidence, not reviewed",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/n/1.0@1-1",
+            "says": "1,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              323.877,
+              242.209,
+              18.327,
+              18.083
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/notes",
+            "says": "1mm silicone pakning",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              741.526,
+              658.942,
+              231.0,
+              111.0
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/n/1.0@1-1": {
+        "fact": "D-019/drawing/n/1.0@1-1",
+        "field": "1.0@1-1",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 1.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/n/1.0@1-1",
+            "says": "1,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              323.877,
+              242.209,
+              18.327,
+              18.083
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/template/features_review": {
+        "fact": "D-019/template/features_review",
+        "field": "features_review",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": []
+        },
+        "badge": "AI proposal verified against evidence, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-019/template/features_review",
+            "says": [],
+            "method": "ai_verified",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": "The six through-holes have a supported count and diameter, but their center radius is not dimensioned. No additional cuts have fully supported geometry and placement; the central opening is represented by inner_diameter. Verification: The callout '6 x 4,5 THRU ALL' gives the hole count, diameter and through operation. The holes sit on a dash-dot pitch circle, but no pitch-circle diameter or radius is printed, so none of the six can be positioned without guessing. The central opening is already covered by inner_diameter. An empty supported subset is therefore correct.",
+            "badge": "AI proposal verified against evidence, not reviewed",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/callout/p1-1",
+            "says": "6 x 4,5 THRU ALL",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              449.788,
+              231.957,
+              118.667,
+              18.083
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/template/cad_eligibility": {
+        "fact": "D-019/template/cad_eligibility",
+        "field": "cad_eligibility",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "supported": true,
+            "constant_thickness": true,
+            "outline_exact": true,
+            "reason": "Eligible for a partial annular-body model: the main face-on view establishes Ø141,0 outside and Ø118,0 inside, and the side-view 1,0 dimension establishes a single constant thickness. The ring outline is directly representable. The six Ø4,5 through-holes lack a dimensioned center radius and must be omitted, so this partial model does not reproduce the complete functional part. Undimensioned edge finishing is also omitted.",
+            "essential_uncertainty": [],
+            "omitted_minor_features": [
+              "Six Ø4,5 THRU ALL holes: pitch-circle diameter or equivalent center-location dimensions are missing.",
+              "DEBURR AND BREAK SHARP EDGES: edge-break size and profile are unspecified."
+            ]
+          }
+        },
+        "badge": "AI proposal verified against evidence, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-019/template/cad_eligibility",
+            "says": {
+              "supported": true,
+              "constant_thickness": true,
+              "outline_exact": true,
+              "reason": "Eligible for a partial annular-body model: the main face-on view establishes Ø141,0 outside and Ø118,0 inside, and the side-view 1,0 dimension establishes a single constant thickness. The ring outline is directly representable. The six Ø4,5 through-holes lack a dimensioned center radius and must be omitted, so this partial model does not reproduce the complete functional part. Undimensioned edge finishing is also omitted.",
+              "essential_uncertainty": [],
+              "omitted_minor_features": [
+                "Six Ø4,5 THRU ALL holes: pitch-circle diameter or equivalent center-location dimensions are missing.",
+                "DEBURR AND BREAK SHARP EDGES: edge-break size and profile are unspecified."
+              ]
+            },
+            "method": "ai_verified",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": "The main annular outline and constant thickness are established independently of the unresolved peripheral-hole placement. Verification: The ring outline is fully dimensioned (Ø141,0 and Ø118,0) in the main face-on view, and the side view gives a single constant thickness of 1,0. There are no bends, steps or unsupported contours. The only gaps are the bolt-hole positions, which lack a pitch-circle diameter, and the unsized edge break. Under the rules, these lead to an honest partial model, not a blocked one. supported=true with the hole and edge omissions listed is consistent, and the reason correctly says the functional part is not fully reproduced.",
+            "badge": "AI proposal verified against evidence, not reviewed",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/n/141.0@1-1",
+            "says": "141,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              728.205,
+              230.219,
+              36.113,
+              36.113
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/n/118.0@1-1",
+            "says": "118,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              673.172,
+              230.001,
+              32.155,
+              37.61
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/n/1.0@1-1",
+            "says": "1,0",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              323.877,
+              242.209,
+              18.327,
+              18.083
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/callout/p1-1",
+            "says": "6 x 4,5 THRU ALL",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              449.788,
+              231.957,
+              118.667,
+              18.083
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/general/edge_finish",
+            "says": "DEBURR AND BREAK SHARP EDGES",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1078.776,
+              781.582,
+              52.887,
+              14.837
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/template/features_complete": {
+        "fact": "D-019/template/features_complete",
+        "field": "features_complete",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": false
+        },
+        "badge": "AI proposal verified against evidence, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-019/template/features_complete",
+            "says": false,
+            "method": "ai_verified",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": "The six through-holes and unspecified edge-breaking detail are omitted. Verification: The six Ø4,5 through-holes cannot be positioned and the edge-break detail has no size, so the feature set is incomplete. false is correct.",
+            "badge": "AI proposal verified against evidence, not reviewed",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/callout/p1-1",
+            "says": "6 x 4,5 THRU ALL",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              449.788,
+              231.957,
+              118.667,
+              18.083
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/general/edge_finish",
+            "says": "DEBURR AND BREAK SHARP EDGES",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1078.776,
+              781.582,
+              52.887,
+              14.837
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/template/features_omitted": {
+        "fact": "D-019/template/features_omitted",
+        "field": "features_omitted",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": [
+            {
+              "description": "6 x Ø4,5 THRU ALL holes",
+              "reason": "The printed count, diameter and through operation are established. The circular layout is visible, but no pitch-circle diameter, hole-center radius or equivalent locating dimensions are printed. The outer and inner diameters do not establish the hole-center radius, so these holes cannot be positioned without guessing.",
+              "fact_ids": [
+                "D-019",
+                "D-019/drawing/callout/p1-1",
+                "D-019/drawing/n/6.0@1-1",
+                "D-019/drawing/n/4.5@1-1"
+              ]
+            },
+            {
+              "description": "DEBURR AND BREAK SHARP EDGES",
+              "reason": "The finishing note specifies no edge-break size or profile, so no explicit chamfer or rounding cut can be modeled.",
+              "fact_ids": [
+                "D-019/drawing/general/edge_finish"
+              ]
+            }
+          ]
+        },
+        "badge": "AI proposal verified against evidence, not reviewed",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-019/template/features_omitted",
+            "says": [
+              {
+                "description": "6 x Ø4,5 THRU ALL holes",
+                "reason": "The printed count, diameter and through operation are established. The circular layout is visible, but no pitch-circle diameter, hole-center radius or equivalent locating dimensions are printed. The outer and inner diameters do not establish the hole-center radius, so these holes cannot be positioned without guessing.",
+                "fact_ids": [
+                  "D-019",
+                  "D-019/drawing/callout/p1-1",
+                  "D-019/drawing/n/6.0@1-1",
+                  "D-019/drawing/n/4.5@1-1"
+                ]
+              },
+              {
+                "description": "DEBURR AND BREAK SHARP EDGES",
+                "reason": "The finishing note specifies no edge-break size or profile, so no explicit chamfer or rounding cut can be modeled.",
+                "fact_ids": [
+                  "D-019/drawing/general/edge_finish"
+                ]
+              }
+            ],
+            "method": "ai_verified",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": "Retains the dimensioned annular body while explicitly documenting unsupported hole placement and undimensioned edge finishing. Verification: Both omissions match the original drawing. (1) The 6 x Ø4,5 THRU ALL holes have a printed count, diameter and through operation, and they lie on a visible pitch circle, but no pitch-circle dimension is printed, so they cannot be located. (2) The 'DEBURR AND BREAK SHARP EDGES' note gives no size or profile. Each omission cites the correct source IDs.",
+            "badge": "AI proposal verified against evidence, not reviewed",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/callout/p1-1",
+            "says": "6 x 4,5 THRU ALL",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              449.788,
+              231.957,
+              118.667,
+              18.083
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/n/6.0@1-1",
+            "says": "6",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              449.788,
+              231.957,
+              7.331,
+              18.083
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/n/4.5@1-1",
+            "says": "4,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              489.428,
+              231.957,
+              18.321,
+              18.083
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/general/edge_finish",
+            "says": "DEBURR AND BREAK SHARP EDGES",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              1078.776,
+              781.582,
+              52.887,
+              14.837
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/n/6.0@1-1": {
+        "fact": "D-019/drawing/n/6.0@1-1",
+        "field": "6.0@1-1",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 6.0
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/n/6.0@1-1",
+            "says": "6",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              449.788,
+              231.957,
+              7.331,
+              18.083
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/drawing/n/4.5@1-1": {
+        "fact": "D-019/drawing/n/4.5@1-1",
+        "field": "4.5@1-1",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 4.5
+        },
+        "badge": "From PDF",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/drawing/n/4.5@1-1",
+            "says": "4,5",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              489.428,
+              231.957,
+              18.321,
+              18.083
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "D-019/link": {
+        "fact": "D-019/link",
+        "field": "link",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Waiting for review: needs_input. The proposal is unknown/null, and under the protocol an unknown/null value must be needs_input. The evidence points toward one candidate: source_filename 'SiliconePakningfTheta.pdf' on D-019 and D-019/drawing/notes '1mm silicone pakning' match BOM:optics/silicone-gasket-f-theta-ring ('Silicone gasket f-theta ring'). No other BOM row combines silicone, gasket and f-theta. The recoater blade is silicone but has its own datasheet, 'Silicone270mm_1mm_x2.pdf'. Two names still differ and have not been approved as equivalent. The drawing section is 'Optical' but the BOM section is 'Optics'. D-019/drawing/material reads 'Silicon Rubber' but the BOM material is 'Silicone'. 'Silicon' could be a typo for silicone, but elemental silicon must not be treated as silicone without approval. D-019/drawing/title is null, and the candidate BOM row lists no datasheet that would confirm the match. The task forbids assuming these differing section and material names are equivalent, so resolving this needs a human mapping decision rather than another proposal from the existing evidence."
+        },
+        "badge": "Unresolved evidence",
+        "review": {
+          "status": "not_reviewed"
+        },
+        "sources": [
+          {
+            "name": "D-019/link",
+            "says": [],
+            "method": "unresolved",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "Unresolved evidence",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": "D-019/link",
+        "correction": null,
+        "callout": null
+      },
+      "D-019/model/verification": {
+        "fact": "D-019/model/verification",
+        "field": "verification",
+        "part_key": "D-019",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "weight_check": {
+              "state": "FAILED",
+              "message": "FAILED weight check: needs manual approval — no trusted material with a sourced density is available",
+              "examples": {
+                "A": {
+                  "attempts": [],
+                  "matches": false,
+                  "drawing_g": 5.7
+                }
+              },
+              "drawing_g": 5.7,
+              "tolerance_percent": 5,
+              "requires_approval": true,
+              "approval_note_required": true,
+              "limitation": "A matching weight does not verify feature positions. No thickness or material is selected automatically.",
+              "density_label": "Outside source, not the dataset"
+            },
+            "omitted": [
+              "6 x Ø4,5 THRU ALL holes: The printed count, diameter and through operation are established. The circular layout is visible, but no pitch-circle diameter, hole-center radius or equivalent locating dimensions are printed. The outer and inner diameters do not establish the hole-center radius, so these holes cannot be positioned without guessing.",
+              "DEBURR AND BREAK SHARP EDGES: The finishing note specifies no edge-break size or profile, so no explicit chamfer or rounding cut can be modeled."
+            ],
+            "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
+            "review": {
+              "status": "not_reviewed"
+            },
+            "examples": {
+              "A": {
+                "selections": {},
+                "volume_mm3": 4678.6168593586
+              }
+            }
+          }
+        },
+        "badge": "Computed from recorded source facts",
+        "review": null,
+        "sources": [
+          {
+            "name": "D-019/model/verification",
+            "says": "Computed model verification, not a design approval. Density references are outside sources, not the dataset. Failed checks need manual review; possible readings are never selected by weight.",
+            "method": "computed_summary",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": "Computed model verification, not a design approval. Density references are outside sources, not the dataset. Failed checks need manual review; possible readings are never selected by weight.",
+            "badge": "Computed from recorded source facts",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/drawing/weight_g",
+            "says": "5.7",
+            "method": "parsed",
+            "page": 1,
+            "box": [
+              880.717,
+              771.048,
+              93.0,
+              14.0
+            ],
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": null,
+            "badge": "From PDF",
+            "source_path": null,
+            "source_row": null
+          },
+          {
+            "name": "D-019/template/thickness",
+            "says": 1.0,
+            "method": "ai_verified",
+            "page": 1,
+            "box": null,
+            "part_key": "D-019",
+            "cleanup": [],
+            "note": "The side-view dimension 1,0 spans the plate thickness. The note '1mm silicone pakning' corroborates this reading. Verification: In the side view on the left, the 1,0 dimension is drawn between extension lines across the thin edge of the part, so it is the thickness. The NOTE '1mm silicone pakning' agrees. There is only one thickness and no alternatives.",
+            "badge": "AI proposal verified against evidence, not reviewed",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      }
+    },
+    "parts_to_show": [
+      {
+        "id": "D-019/part",
+        "key": "D-019",
+        "display_name": "Silicone gasket for f-theta lens",
+        "section": "Optical",
+        "has_drawing": true,
+        "has_3d": true,
+        "examples": [
+          "A"
+        ],
+        "review_status": "not_reviewed",
+        "thumbnail": "/api/parts/D-019/image?page=1&thumb=1",
+        "drawing_url": "/part/D-019/2d",
+        "model_url": "/part/D-019/3d",
+        "shown_reason": null
+      }
+    ],
+    "warnings": [],
+    "session_id": "7a711a07616a40bda95a0a964d5c1fa2",
+    "model": "gpt-6-luna",
+    "usage": {
+      "input_tokens": 23371,
+      "output_tokens": 211,
+      "total_tokens": 23582
+    },
+    "latency_ms": 6269,
+    "tool_trace": [
+      {
+        "tool": "find_part",
+        "arguments": {
+          "text": "D-019"
+        },
+        "facts_returned": [
+          "D-019/part"
+        ]
+      },
+      {
+        "tool": "get_facts",
+        "arguments": {
+          "part_id": "D-019/part"
+        },
+        "facts_returned": [
+          "D-019/part",
+          "D-019/drawing/material",
+          "D-019/drawing/title",
+          "D-019/drawing/notes",
+          "D-019/drawing/company",
+          "D-019/drawing/weight_g",
+          "D-019/drawing/drawn",
+          "D-019/drawing/date",
+          "D-019/drawing/scale",
+          "D-019/drawing/callout/p1-1",
+          "D-019/drawing/general/units",
+          "D-019/drawing/general/general_tolerance",
+          "D-019/drawing/general/edge_finish",
+          "D-019/template/outline",
+          "D-019/template/outline/outer_diameter",
+          "D-019/drawing/n/141.0@1-1",
+          "D-019/template/outline/inner_diameter",
+          "D-019/drawing/n/118.0@1-1",
+          "D-019/template/thickness",
+          "D-019/drawing/n/1.0@1-1",
+          "D-019/template/features_review",
+          "D-019/template/cad_eligibility",
+          "D-019/template/features_complete",
+          "D-019/template/features_omitted",
+          "D-019/drawing/n/6.0@1-1",
+          "D-019/drawing/n/4.5@1-1",
+          "D-019/link",
+          "D-019/model/verification"
+        ]
+      }
+    ],
+    "revision": "fca7048061729c11"
+  },
+  "wall_latency_ms": 20371
+}

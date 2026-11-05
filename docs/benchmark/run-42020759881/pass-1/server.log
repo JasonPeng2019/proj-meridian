@@ -1,0 +1,57 @@
+INFO:     Started server process [3642]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8002 (Press CTRL+C to quit)
+INFO:     127.0.0.1:33728 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "GET /api/review HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "GET /api/review HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "GET /api/review HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "GET /api/parts/D-016 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "GET /api/parts/D-017 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "GET /api/parts/D-018 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "GET /api/parts/D-025 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "GET /api/parts/D-019 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "GET /api/review HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "GET /api/parts/D-019 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48456 - "GET /review/corrections/HD-67406fe894c445faa8c46c0970490b13 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48456 - "GET /assets/index-D4uwgcdO.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48468 - "GET /assets/index-D-0YdJzV.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48468 - "GET /api/accuracy HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48484 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48456 - "GET /api/review HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48470 - "GET /api/parts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48484 - "GET /api/parts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48456 - "GET /api/parts/D-019/image?page=1&thumb=0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48456 - "POST /api/review/HD-67406fe894c445faa8c46c0970490b13 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48484 - "GET /api/accuracy HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48468 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48456 - "GET /api/review HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48470 - "GET /api/parts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "GET /api/parts/D-019 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "GET /api/parts/D-026 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33740 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [3642]

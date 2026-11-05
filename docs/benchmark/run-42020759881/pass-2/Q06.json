@@ -1,0 +1,800 @@
+{
+  "pass": 2,
+  "case_id": "Q06",
+  "question": "What does the front door hinge connect to?",
+  "server_start_status": {
+    "chat_available": true,
+    "chat_model": "gpt-6-luna",
+    "debug_ui": false,
+    "revision": "05f500b3c0117561",
+    "parts": 211,
+    "drawings": 30,
+    "models": 9,
+    "reviewer_name": "Automated verification"
+  },
+  "preconditions": [],
+  "response": {
+    "text": "The front door hinge is recorded as interfacing with the **Front Door** and **Front Side Box**. [cite: BOM:box/front-door-hinge/part, BOM:box/front-door-hinge/interface_with]",
+    "facts": {
+      "BOM:box/front-door-hinge/part": {
+        "fact": "BOM:box/front-door-hinge/part",
+        "field": "part",
+        "part_key": "bom/box/front-door-hinge",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Front door hinge"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/front-door-hinge/part",
+            "says": "Front door hinge",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/box/front-door-hinge",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:box/front-door-hinge/material": {
+        "fact": "BOM:box/front-door-hinge/material",
+        "field": "material",
+        "part_key": "bom/box/front-door-hinge",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Steel"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/front-door-hinge/material",
+            "says": "Steel",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/box/front-door-hinge",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:box/front-door-hinge/name": {
+        "fact": "BOM:box/front-door-hinge/name",
+        "field": "name",
+        "part_key": "bom/box/front-door-hinge",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Front door hinge"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/front-door-hinge/name",
+            "says": "Front door hinge",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/box/front-door-hinge",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:box/front-door-hinge/part_family": {
+        "fact": "BOM:box/front-door-hinge/part_family",
+        "field": "part_family",
+        "part_key": "bom/box/front-door-hinge",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Box"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/front-door-hinge/part_family",
+            "says": "Box",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/box/front-door-hinge",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:box/front-door-hinge/type": {
+        "fact": "BOM:box/front-door-hinge/type",
+        "field": "type",
+        "part_key": "bom/box/front-door-hinge",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Standard"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/front-door-hinge/type",
+            "says": "Standard",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/box/front-door-hinge",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:box/front-door-hinge/design": {
+        "fact": "BOM:box/front-door-hinge/design",
+        "field": "design",
+        "part_key": "bom/box/front-door-hinge",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Done"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/front-door-hinge/design",
+            "says": "Done",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/box/front-door-hinge",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:box/front-door-hinge/order": {
+        "fact": "BOM:box/front-door-hinge/order",
+        "field": "order",
+        "part_key": "bom/box/front-door-hinge",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Received"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/front-door-hinge/order",
+            "says": "Recieved",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/box/front-door-hinge",
+            "cleanup": [
+              "status_spelling_Recieved_to_Received"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:box/front-door-hinge/validation": {
+        "fact": "BOM:box/front-door-hinge/validation",
+        "field": "validation",
+        "part_key": "bom/box/front-door-hinge",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Good"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/front-door-hinge/validation",
+            "says": "Good",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/box/front-door-hinge",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:box/front-door-hinge/notes": {
+        "fact": "BOM:box/front-door-hinge/notes",
+        "field": "notes",
+        "part_key": "bom/box/front-door-hinge",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Seems rigid enough"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/front-door-hinge/notes",
+            "says": "Seems rigid enough",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/box/front-door-hinge",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:box/front-door-hinge/design_intent": {
+        "fact": "BOM:box/front-door-hinge/design_intent",
+        "field": "design_intent",
+        "part_key": "bom/box/front-door-hinge",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. "
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/front-door-hinge/design_intent",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/box/front-door-hinge",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:box/front-door-hinge/image": {
+        "fact": "BOM:box/front-door-hinge/image",
+        "field": "image",
+        "part_key": "bom/box/front-door-hinge",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "filename": "110302362350_001.jpg",
+            "url": "https://v5.airtableusercontent.com/v3/u/33/33/1728496800000/U-elxf76KxwjxUQhVVOq7Q/7oriLrogT3Nhu5HxfL_kgqhFSaLyv-079XajWTfrzleSRxA_y_kivuPbr3R8oGD3pPuicKSD6_9EFgq8UDxH-JWqXRg_zztGg7PPvpTEhekFmPndnMpMuJafTpBGCnpHRuMWNTBmZJuX8KkN5c29GA/Vwy4HA6WgB0h95cu6uKsjDvNyt8eLicbu69GrE2isSA"
+          }
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/front-door-hinge/image",
+            "says": "110302362350_001.jpg (https://v5.airtableusercontent.com/v3/u/33/33/1728496800000/U-elxf76KxwjxUQhVVOq7Q/7oriLrogT3Nhu5HxfL_kgqhFSaLyv-079XajWTfrzleSRxA_y_kivuPbr3R8oGD3pPuicKSD6_9EFgq8UDxH-JWqXRg_zztGg7PPvpTEhekFmPndnMpMuJafTpBGCnpHRuMWNTBmZJuX8KkN5c29GA/Vwy4HA6WgB0h95cu6uKsjDvNyt8eLicbu69GrE2isSA)",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/box/front-door-hinge",
+            "cleanup": [
+              "split_filename_link"
+            ],
+            "note": "Recorded in the snapshot, may be out of date. Temporary link from the original export, likely expired.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:box/front-door-hinge/product_name": {
+        "fact": "BOM:box/front-door-hinge/product_name",
+        "field": "product_name",
+        "part_key": "bom/box/front-door-hinge",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "HHPSNL6"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/front-door-hinge/product_name",
+            "says": "HHPSNL6",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/box/front-door-hinge",
+            "cleanup": [],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:box/front-door-hinge/supplier_order": {
+        "fact": "BOM:box/front-door-hinge/supplier_order",
+        "field": "supplier_order",
+        "part_key": "bom/box/front-door-hinge",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "HHPSNL6"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/front-door-hinge/supplier_order",
+            "says": "HHPSNL6",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/box/front-door-hinge",
+            "cleanup": [],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:box/front-door-hinge/interface_with": {
+        "fact": "BOM:box/front-door-hinge/interface_with",
+        "field": "interface_with",
+        "part_key": "bom/box/front-door-hinge",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": [
+            "Front Door",
+            "Front Side Box"
+          ]
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/front-door-hinge/interface_with",
+            "says": "Front Door,Front Side Box",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/box/front-door-hinge",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:box/front-door-hinge/link": {
+        "fact": "BOM:box/front-door-hinge/link",
+        "field": "link",
+        "part_key": "bom/box/front-door-hinge",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "https://uk.misumi-ec.com/vona2/detail/110302362350/?HissuCode=HHPSNL6"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/front-door-hinge/link",
+            "says": "https://uk.misumi-ec.com/vona2/detail/110302362350/?HissuCode=HHPSNL6",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/box/front-door-hinge",
+            "cleanup": [],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:box/front-door-hinge/supplier": {
+        "fact": "BOM:box/front-door-hinge/supplier",
+        "field": "supplier",
+        "part_key": "bom/box/front-door-hinge",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Misumi"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/front-door-hinge/supplier",
+            "says": "Misumi",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/box/front-door-hinge",
+            "cleanup": [],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:box/front-door-hinge/datasheet": {
+        "fact": "BOM:box/front-door-hinge/datasheet",
+        "field": "datasheet",
+        "part_key": "bom/box/front-door-hinge",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/front-door-hinge/datasheet",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/box/front-door-hinge",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:box/front-door-hinge/amount": {
+        "fact": "BOM:box/front-door-hinge/amount",
+        "field": "amount",
+        "part_key": "bom/box/front-door-hinge",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 4
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/front-door-hinge/amount",
+            "says": "4",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/box/front-door-hinge",
+            "cleanup": [
+              "parse_number"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:box/front-door-hinge/cost": {
+        "fact": "BOM:box/front-door-hinge/cost",
+        "field": "cost",
+        "part_key": "bom/box/front-door-hinge",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "amount": 52.0,
+            "currency": "DKK"
+          }
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/front-door-hinge/cost",
+            "says": "DKK52.00",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/box/front-door-hinge",
+            "cleanup": [
+              "parse_dkk_price"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:box/front-door-hinge/total_cost": {
+        "fact": "BOM:box/front-door-hinge/total_cost",
+        "field": "total_cost",
+        "part_key": "bom/box/front-door-hinge",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "amount": 208.0,
+            "currency": "DKK"
+          }
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/front-door-hinge/total_cost",
+            "says": "DKK208.00",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/box/front-door-hinge",
+            "cleanup": [
+              "parse_dkk_price"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:box/front-door-hinge/interface_count": {
+        "fact": "BOM:box/front-door-hinge/interface_count",
+        "field": "interface_count",
+        "part_key": "bom/box/front-door-hinge",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 2
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:box/front-door-hinge/interface_count",
+            "says": "2",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/box/front-door-hinge",
+            "cleanup": [
+              "parse_number"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      }
+    },
+    "parts_to_show": [
+      {
+        "id": "BOM:box/front-door-hinge/part",
+        "key": "bom/box/front-door-hinge",
+        "display_name": "Front door hinge",
+        "section": "Box",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      }
+    ],
+    "warnings": [],
+    "session_id": "d385d174973442cd937b4a27953b9648",
+    "model": "gpt-6-luna",
+    "usage": {
+      "input_tokens": 15754,
+      "output_tokens": 126,
+      "total_tokens": 15880
+    },
+    "latency_ms": 5387,
+    "tool_trace": [
+      {
+        "tool": "find_part",
+        "arguments": {
+          "text": "front door hinge"
+        },
+        "facts_returned": [
+          "BOM:box/front-door-hinge/part"
+        ]
+      },
+      {
+        "tool": "get_facts",
+        "arguments": {
+          "part_id": "BOM:box/front-door-hinge/part"
+        },
+        "facts_returned": [
+          "BOM:box/front-door-hinge/part",
+          "BOM:box/front-door-hinge/material",
+          "BOM:box/front-door-hinge/name",
+          "BOM:box/front-door-hinge/part_family",
+          "BOM:box/front-door-hinge/type",
+          "BOM:box/front-door-hinge/design",
+          "BOM:box/front-door-hinge/order",
+          "BOM:box/front-door-hinge/validation",
+          "BOM:box/front-door-hinge/notes",
+          "BOM:box/front-door-hinge/design_intent",
+          "BOM:box/front-door-hinge/image",
+          "BOM:box/front-door-hinge/product_name",
+          "BOM:box/front-door-hinge/supplier_order",
+          "BOM:box/front-door-hinge/interface_with",
+          "BOM:box/front-door-hinge/link",
+          "BOM:box/front-door-hinge/supplier",
+          "BOM:box/front-door-hinge/datasheet",
+          "BOM:box/front-door-hinge/amount",
+          "BOM:box/front-door-hinge/cost",
+          "BOM:box/front-door-hinge/total_cost",
+          "BOM:box/front-door-hinge/interface_count"
+        ]
+      },
+      {
+        "tool": "get_connections",
+        "arguments": {
+          "part_id": "BOM:box/front-door-hinge/part"
+        },
+        "facts_returned": [
+          "BOM:box/front-door-hinge/part",
+          "BOM:box/front-door-hinge/material",
+          "BOM:box/front-door-hinge/name",
+          "BOM:box/front-door-hinge/part_family",
+          "BOM:box/front-door-hinge/type",
+          "BOM:box/front-door-hinge/design",
+          "BOM:box/front-door-hinge/order",
+          "BOM:box/front-door-hinge/validation",
+          "BOM:box/front-door-hinge/notes",
+          "BOM:box/front-door-hinge/design_intent",
+          "BOM:box/front-door-hinge/image",
+          "BOM:box/front-door-hinge/product_name",
+          "BOM:box/front-door-hinge/supplier_order",
+          "BOM:box/front-door-hinge/interface_with",
+          "BOM:box/front-door-hinge/link",
+          "BOM:box/front-door-hinge/supplier",
+          "BOM:box/front-door-hinge/datasheet",
+          "BOM:box/front-door-hinge/amount",
+          "BOM:box/front-door-hinge/cost",
+          "BOM:box/front-door-hinge/total_cost",
+          "BOM:box/front-door-hinge/interface_count"
+        ]
+      }
+    ],
+    "revision": "05f500b3c0117561"
+  },
+  "wall_latency_ms": 5427
+}

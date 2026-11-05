@@ -1,0 +1,111 @@
+{
+  "pass": 1,
+  "case_id": "Q19",
+  "question": "What is the machine's build volume?",
+  "server_start_status": {
+    "chat_available": true,
+    "chat_model": "gpt-6-luna",
+    "debug_ui": false,
+    "revision": "05f500b3c0117561",
+    "parts": 211,
+    "drawings": 30,
+    "models": 9,
+    "reviewer_name": "Automated verification"
+  },
+  "preconditions": [],
+  "response": {
+    "text": "The machine’s build volume is 250 mm × 150 mm. [cite: README/physical-system/p1]",
+    "facts": {
+      "README/physical-system/p1": {
+        "fact": "README/physical-system/p1",
+        "field": "p1",
+        "part_key": null,
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "The system can be seen below. It features a 250mm x 150mm build volume and a 300W 1080nm laser. It is self-contained and has a closed-loop gas flow cross flow. The system uses a PC running Ubuntu, but Windows is also supported. The PC runs the custom Python-based software."
+        },
+        "badge": "From README",
+        "review": null,
+        "sources": [
+          {
+            "name": "README/physical-system/p1",
+            "says": "The system can be seen below. It features a 250mm x 150mm build volume and a 300W 1080nm laser. It is self-contained and has a closed-loop gas flow cross flow. The system uses a PC running Ubuntu, but Windows is also supported. The PC runs the custom Python-based software.",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": null,
+            "cleanup": [],
+            "note": "Describes the upstream project as recorded in this snapshot.",
+            "badge": "From README",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null,
+        "mentions_unavailable_files": false,
+        "heading": "Physical System"
+      },
+      "README/safety/p1": {
+        "fact": "README/safety/p1",
+        "field": "p1",
+        "part_key": null,
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Thorough consideration is needed before working with metal L-PBF, whether you buy or build. This system is an experimental setup meant for R&D, and a certified official has not approved its safety aspects. Proceed with caution at your own risk."
+        },
+        "badge": "From README",
+        "review": null,
+        "sources": [
+          {
+            "name": "README/safety/p1",
+            "says": "Thorough consideration is needed before working with metal L-PBF, whether you buy or build. This system is an experimental setup meant for R&D, and a certified official has not approved its safety aspects. Proceed with caution at your own risk.",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": null,
+            "cleanup": [],
+            "note": "Describes the upstream project as recorded in this snapshot.",
+            "badge": "From README",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null,
+        "mentions_unavailable_files": false,
+        "heading": "Safety"
+      }
+    },
+    "parts_to_show": [],
+    "warnings": [],
+    "session_id": "0c9cb975f3314badb06876fe9cc56ba4",
+    "model": "gpt-6-luna",
+    "usage": {
+      "input_tokens": 3599,
+      "output_tokens": 48,
+      "total_tokens": 3647
+    },
+    "latency_ms": 2300,
+    "tool_trace": [
+      {
+        "tool": "search_readme",
+        "arguments": {
+          "text": "build volume"
+        },
+        "facts_returned": [
+          "README/physical-system/p1",
+          "README/safety/p1"
+        ]
+      }
+    ],
+    "revision": "2e9cd82f13c333e8"
+  },
+  "wall_latency_ms": 2304
+}

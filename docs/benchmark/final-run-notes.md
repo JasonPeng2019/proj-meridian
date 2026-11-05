@@ -1,6 +1,6 @@
 # Final benchmark: pre-run notes
 
-**Status: awaiting stable expansion and CAD packaging; no new scores.** The primary prep run completed all 45 jobs, and the original three reconstructions were refined to retain 14, 8 and 3 supported cuts respectively. Prep completion is not proof of correct geometry or a benchmark pass. The final capture and judging will run only after expansion and CAD artifacts stabilize.
+**Status: final capture and judging completed.** See [run 42020759881](run-42020759881/README.md) for the actual results. The notes below preserve the pre-run state and caveats; they are not a final model inventory or score report. At that pre-run point, the primary prep run had completed all 45 jobs and the original three reconstructions were refined to retain 14, 8 and 3 supported cuts. Final integration subsequently verified nine parts/twelve variants before the unchanged two-pass capture.
 
 The canonical [question draft](../Question-benchmark/benchmark_draft.md), derived case expectations and current [scorer](../../backend/evaluation/benchmark.py) remain frozen. Keep expected answers out of chat/prep inputs. Preserve previous reports, including [run 41997526697](run-41997526697/README.md): that capture is a historical baseline from before the latest UI, prompt and prep changes, not a measurement of the final implementation.
 

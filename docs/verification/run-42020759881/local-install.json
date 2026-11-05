@@ -1,0 +1,50 @@
+{
+  "checked_at": "2026-11-05T11:52:42.106750+00:00",
+  "app_url": "http://127.0.0.1:8000",
+  "status": {
+    "chat_available": true,
+    "chat_model": "gpt-6-luna",
+    "debug_ui": false,
+    "revision": "05f500b3c0117561",
+    "parts": 211,
+    "drawings": 30,
+    "models": 9,
+    "reviewer_name": "Jason Peng"
+  },
+  "models_and_effective_template_BOM_hashes_match": {
+    "D-012": [
+      "A"
+    ],
+    "D-013": [
+      "A",
+      "B"
+    ],
+    "D-014": [
+      "A"
+    ],
+    "D-015": [
+      "A"
+    ],
+    "D-017": [
+      "A"
+    ],
+    "D-019": [
+      "A"
+    ],
+    "D-025": [
+      "A",
+      "B"
+    ],
+    "D-026": [
+      "A",
+      "B"
+    ],
+    "D-027": [
+      "A"
+    ]
+  },
+  "verified_exports": 24,
+  "frontend_source_and_asset_hashes_match": true,
+  "frontend_build_run": "42015878807",
+  "local_CAD_or_frontend_build_performed": false
+}

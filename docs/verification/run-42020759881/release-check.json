@@ -1,0 +1,3167 @@
+{
+  "at": "2026-11-05T11:48:09.006550+00:00",
+  "source_commit": "b40ec11790494d169831e25492fbcd97756f942f",
+  "source_manifest_hashes": {
+    "passed": 40,
+    "total": 40
+  },
+  "expected_model_inventory": {
+    "D-012": {
+      "template_sha256": "145ae791079abe6a53320360397f95092b981df4e8483a7132fae5bae6fe4b83",
+      "generator_version": "flat-part-13",
+      "source_sha256": "23ba5d97ee7a744cf12072e1338ab62fa5e49c09c5229af4f20a6ff5a455f64a",
+      "variants": {
+        "A": {
+          "template_sha256": "145ae791079abe6a53320360397f95092b981df4e8483a7132fae5bae6fe4b83",
+          "selections": {}
+        }
+      }
+    },
+    "D-013": {
+      "template_sha256": "add140b98c1b643879c308b523a8f056e09affb4ed74f0c1f4011844a2555f81",
+      "generator_version": "flat-part-13",
+      "source_sha256": "826076b03bfbaeee961dc3e57cb642c225d41f1ea9a643d0bb1ca7d296280047",
+      "variants": {
+        "A": {
+          "template_sha256": "add140b98c1b643879c308b523a8f056e09affb4ed74f0c1f4011844a2555f81",
+          "selections": {
+            "thickness": 3.0
+          }
+        },
+        "B": {
+          "template_sha256": "add140b98c1b643879c308b523a8f056e09affb4ed74f0c1f4011844a2555f81",
+          "selections": {
+            "thickness": 6.0
+          }
+        }
+      }
+    },
+    "D-014": {
+      "template_sha256": "5bb98138de769d2feeeb33cb437b8cafa06d1d261cf371e3f5e780be64c2b152",
+      "generator_version": "flat-part-13",
+      "source_sha256": "0e6fa42e39eda320d42f45576a0825c5d0c002abd6863188b3c98774d52867f6",
+      "variants": {
+        "A": {
+          "template_sha256": "5bb98138de769d2feeeb33cb437b8cafa06d1d261cf371e3f5e780be64c2b152",
+          "selections": {}
+        }
+      }
+    },
+    "D-015": {
+      "template_sha256": "ea885e419942949161abe7db4ec1f03cc16fb6586deda74009b743fb601db818",
+      "generator_version": "flat-part-13",
+      "source_sha256": "0828f6fee0d3bc087524df08c8b3fbadc5201212e5f86fcfc08b984fe9e32c60",
+      "variants": {
+        "A": {
+          "template_sha256": "ea885e419942949161abe7db4ec1f03cc16fb6586deda74009b743fb601db818",
+          "selections": {}
+        }
+      }
+    },
+    "D-017": {
+      "template_sha256": "5adb12ddd1a9befdfa5e8ac3e166e57d821439b2726b92117ef1adab372295af",
+      "generator_version": "flat-part-13",
+      "source_sha256": "a460ab37d94f2d8f4c9bac58da15ea9d1e93b4f48ee0825e51adac0ec81f37ae",
+      "variants": {
+        "A": {
+          "template_sha256": "5adb12ddd1a9befdfa5e8ac3e166e57d821439b2726b92117ef1adab372295af",
+          "selections": {}
+        }
+      }
+    },
+    "D-019": {
+      "template_sha256": "9505b251da2eeb02a660f7fc4f21f1ab1d9435d2f418fafc43b48a2a20b91541",
+      "generator_version": "flat-part-13",
+      "source_sha256": "581fbaf7562ac75008243463af6956d6f88cd6a0a858cf6c22aa62ce39041e11",
+      "variants": {
+        "A": {
+          "template_sha256": "9505b251da2eeb02a660f7fc4f21f1ab1d9435d2f418fafc43b48a2a20b91541",
+          "selections": {}
+        }
+      }
+    },
+    "D-025": {
+      "template_sha256": "9d56f1bfa1da7d10f051710c68a757659f23c5337e5de93be0ffaf9504e261d7",
+      "generator_version": "flat-part-13",
+      "source_sha256": "9b61f2c688fba1b10f502658505c78c0ff99820d3f281822eacdc7283e9b7e9c",
+      "variants": {
+        "A": {
+          "template_sha256": "9d56f1bfa1da7d10f051710c68a757659f23c5337e5de93be0ffaf9504e261d7",
+          "selections": {
+            "thickness": 2.0
+          }
+        },
+        "B": {
+          "template_sha256": "9d56f1bfa1da7d10f051710c68a757659f23c5337e5de93be0ffaf9504e261d7",
+          "selections": {
+            "thickness": 3.0
+          }
+        }
+      }
+    },
+    "D-026": {
+      "template_sha256": "cabed5b7894ca74eed8251a11071d9c1f54d4d93f1e777524ff057b841b5d905",
+      "generator_version": "flat-part-13",
+      "source_sha256": "a7ee7f4d75acaf2e8fc67ce14ca223d5cb4a2931063f37f4dfb6fadeeb70256e",
+      "variants": {
+        "A": {
+          "template_sha256": "cabed5b7894ca74eed8251a11071d9c1f54d4d93f1e777524ff057b841b5d905",
+          "selections": {
+            "thickness": 15
+          }
+        },
+        "B": {
+          "template_sha256": "cabed5b7894ca74eed8251a11071d9c1f54d4d93f1e777524ff057b841b5d905",
+          "selections": {
+            "thickness": 25
+          }
+        }
+      }
+    },
+    "D-027": {
+      "template_sha256": "b3d11b8c50e18a40978514bff2c21fee6d698910f0533c1c1d6396f7b4d24386",
+      "generator_version": "flat-part-13",
+      "source_sha256": "9a270f0ddf24b173b85b6879b4fbd1ba9cf67d71cff7b13f722699699a667bcc",
+      "variants": {
+        "A": {
+          "template_sha256": "b3d11b8c50e18a40978514bff2c21fee6d698910f0533c1c1d6396f7b4d24386",
+          "selections": {}
+        }
+      }
+    }
+  },
+  "optional_dependencies_absent": {
+    "cadquery": true,
+    "pytest": true,
+    "playwright": true
+  },
+  "fresh_runtime": {
+    "status": {
+      "chat_available": false,
+      "chat_model": "gpt-6-luna",
+      "debug_ui": false,
+      "revision": "05f500b3c0117561",
+      "parts": 211,
+      "drawings": 30,
+      "models": 9,
+      "reviewer_name": "Jason Peng"
+    },
+    "record_inventory": {
+      "parts": 211,
+      "drawings": 30,
+      "bom_rows": 192,
+      "part_identities": [
+        [
+          "D-001",
+          "D-001/part",
+          "D-001"
+        ],
+        [
+          "D-002",
+          "D-002/part",
+          "D-002"
+        ],
+        [
+          "D-003",
+          "D-003/part",
+          "D-003"
+        ],
+        [
+          "D-004",
+          "D-004/part",
+          "D-004"
+        ],
+        [
+          "D-005",
+          "D-005/part",
+          "D-005"
+        ],
+        [
+          "D-006",
+          "D-006/part",
+          "D-006"
+        ],
+        [
+          "D-007",
+          "D-007/part",
+          "D-007"
+        ],
+        [
+          "D-008",
+          "D-008/part",
+          "D-008"
+        ],
+        [
+          "D-009",
+          "D-009/part",
+          "D-009"
+        ],
+        [
+          "D-010",
+          "D-010/part",
+          "D-010"
+        ],
+        [
+          "D-011",
+          "D-011/part",
+          "D-011"
+        ],
+        [
+          "D-012",
+          "D-012/part",
+          "D-012"
+        ],
+        [
+          "D-013",
+          "D-013/part",
+          "D-013"
+        ],
+        [
+          "D-014",
+          "D-014/part",
+          "D-014"
+        ],
+        [
+          "D-015",
+          "D-015/part",
+          "D-015"
+        ],
+        [
+          "D-016",
+          "D-016/part",
+          "D-016"
+        ],
+        [
+          "D-017",
+          "D-017/part",
+          "D-017"
+        ],
+        [
+          "D-018",
+          "D-018/part",
+          "D-018"
+        ],
+        [
+          "D-019",
+          "D-019/part",
+          "D-019"
+        ],
+        [
+          "D-020",
+          "D-020/part",
+          "D-020"
+        ],
+        [
+          "D-021",
+          "D-021/part",
+          "D-021"
+        ],
+        [
+          "D-022",
+          "D-022/part",
+          "D-022"
+        ],
+        [
+          "D-023",
+          "D-023/part",
+          "D-023"
+        ],
+        [
+          "D-024",
+          "D-024/part",
+          "D-024"
+        ],
+        [
+          "D-025",
+          "D-025/part",
+          "D-025"
+        ],
+        [
+          "D-026",
+          "D-026/part",
+          "D-026"
+        ],
+        [
+          "D-027",
+          "D-027/part",
+          "D-027"
+        ],
+        [
+          "D-028",
+          "D-028/part",
+          "D-028"
+        ],
+        [
+          "D-029",
+          "D-029/part",
+          "D-029"
+        ],
+        [
+          "D-030",
+          "D-030/part",
+          "D-030"
+        ],
+        [
+          "bom/box/2020-angle-bracket",
+          "BOM:box/2020-angle-bracket/part",
+          null
+        ],
+        [
+          "bom/box/2020-internal-profile",
+          "BOM:box/2020-internal-profile/part",
+          null
+        ],
+        [
+          "bom/box/back-box",
+          "BOM:box/back-box/part",
+          null
+        ],
+        [
+          "bom/box/back-door",
+          "BOM:box/back-door/part",
+          null
+        ],
+        [
+          "bom/box/front-door",
+          "BOM:box/front-door/part",
+          null
+        ],
+        [
+          "bom/box/front-door-hinge",
+          "BOM:box/front-door-hinge/part",
+          null
+        ],
+        [
+          "bom/box/front-door-latch",
+          "BOM:box/front-door-latch/part",
+          null
+        ],
+        [
+          "bom/box/front-side-box",
+          "BOM:box/front-side-box/part",
+          null
+        ],
+        [
+          "bom/box/laser-safety-window",
+          "BOM:box/laser-safety-window/part",
+          null
+        ],
+        [
+          "bom/box/m4-nut-for-2020-not-5mm",
+          "BOM:box/m4-nut-for-2020-not-5mm/part",
+          null
+        ],
+        [
+          "bom/box/m5-nut-for-2020-not-5mm",
+          "BOM:box/m5-nut-for-2020-not-5mm/part",
+          null
+        ],
+        [
+          "bom/box/m5x12-button-head-screws",
+          "BOM:box/m5x12-button-head-screws/part",
+          null
+        ],
+        [
+          "bom/box/m5x8-button-head-screws",
+          "BOM:box/m5x8-button-head-screws/part",
+          null
+        ],
+        [
+          "bom/box/m8-8mm-not-t-nut",
+          "BOM:box/m8-8mm-not-t-nut/part",
+          null
+        ],
+        [
+          "bom/box/m8x12-button-head-screws",
+          "BOM:box/m8x12-button-head-screws/part",
+          null
+        ],
+        [
+          "bom/box/right-box",
+          "BOM:box/right-box/part",
+          null
+        ],
+        [
+          "bom/box/rubber-seal-for-doors",
+          "BOM:box/rubber-seal-for-doors/part",
+          null
+        ],
+        [
+          "bom/box/silicone",
+          "BOM:box/silicone/part",
+          null
+        ],
+        [
+          "bom/box/silicone-gun",
+          "BOM:box/silicone-gun/part",
+          null
+        ],
+        [
+          "bom/box/top-side-bracing",
+          "BOM:box/top-side-bracing/part",
+          null
+        ],
+        [
+          "bom/box/top-side-powder-bracing",
+          "BOM:box/top-side-powder-bracing/part",
+          null
+        ],
+        [
+          "bom/build-plate/build-base",
+          "BOM:build-plate/build-base/part",
+          null
+        ],
+        [
+          "bom/build-plate/build-cylinder",
+          "BOM:build-plate/build-cylinder/part",
+          null
+        ],
+        [
+          "bom/build-plate/build-cylinder-clamp-ring",
+          "BOM:build-plate/build-cylinder-clamp-ring/part",
+          null
+        ],
+        [
+          "bom/build-plate/ceramic-build-base-seal",
+          "BOM:build-plate/ceramic-build-base-seal/part",
+          null
+        ],
+        [
+          "bom/build-plate/heating-element",
+          "BOM:build-plate/heating-element/part",
+          null
+        ],
+        [
+          "bom/build-plate/heating-element-plate",
+          "BOM:build-plate/heating-element-plate/part",
+          null
+        ],
+        [
+          "bom/build-plate/motor-plate",
+          "BOM:build-plate/motor-plate/part",
+          null
+        ],
+        [
+          "bom/build-plate/motor-plate-shaft",
+          "BOM:build-plate/motor-plate-shaft/part",
+          null
+        ],
+        [
+          "bom/build-plate/nema-23-tr11x2-non-captive",
+          "BOM:build-plate/nema-23-tr11x2-non-captive/part",
+          null
+        ],
+        [
+          "bom/build-plate/seal-clamp-plate",
+          "BOM:build-plate/seal-clamp-plate/part",
+          null
+        ],
+        [
+          "bom/build-plate/self-centering-keyless-bushing",
+          "BOM:build-plate/self-centering-keyless-bushing/part",
+          null
+        ],
+        [
+          "bom/build-plate/stepper-driver-nema23",
+          "BOM:build-plate/stepper-driver-nema23/part",
+          null
+        ],
+        [
+          "bom/build-plate/thermocouple-plate",
+          "BOM:build-plate/thermocouple-plate/part",
+          null
+        ],
+        [
+          "bom/electric/12v-psu",
+          "BOM:electric/12v-psu/part",
+          null
+        ],
+        [
+          "bom/electric/15mm-din-rail",
+          "BOM:electric/15mm-din-rail/part",
+          null
+        ],
+        [
+          "bom/electric/19-usb-hub",
+          "BOM:electric/19-usb-hub/part",
+          null
+        ],
+        [
+          "bom/electric/2-pin-connector-female-chassis",
+          "BOM:electric/2-pin-connector-female-chassis/part",
+          null
+        ],
+        [
+          "bom/electric/2-pin-connector-male-cable-mount",
+          "BOM:electric/2-pin-connector-male-cable-mount/part",
+          null
+        ],
+        [
+          "bom/electric/230v-power-plug",
+          "BOM:electric/230v-power-plug/part",
+          null
+        ],
+        [
+          "bom/electric/24vdc-psu-20a",
+          "BOM:electric/24vdc-psu-20a/part",
+          null
+        ],
+        [
+          "bom/electric/35mm-din-rail",
+          "BOM:electric/35mm-din-rail/part",
+          null
+        ],
+        [
+          "bom/electric/3p-n-e-female",
+          "BOM:electric/3p-n-e-female/part",
+          null
+        ],
+        [
+          "bom/electric/3p-n-e-male",
+          "BOM:electric/3p-n-e-male/part",
+          null
+        ],
+        [
+          "bom/electric/400v-power-cable",
+          "BOM:electric/400v-power-cable/part",
+          null
+        ],
+        [
+          "bom/electric/40x40-cable-duct",
+          "BOM:electric/40x40-cable-duct/part",
+          null
+        ],
+        [
+          "bom/electric/5-pin-connector-female",
+          "BOM:electric/5-pin-connector-female/part",
+          null
+        ],
+        [
+          "bom/electric/5-pin-connector-male",
+          "BOM:electric/5-pin-connector-male/part",
+          null
+        ],
+        [
+          "bom/electric/5v-4a-power-to-usb-hub-5-5-x2-1mm-jack",
+          "BOM:electric/5v-4a-power-to-usb-hub-5-5-x2-1mm-jack/part",
+          null
+        ],
+        [
+          "bom/electric/5v-psu",
+          "BOM:electric/5v-psu/part",
+          null
+        ],
+        [
+          "bom/electric/adam-dyn-info-m12-5",
+          "BOM:electric/adam-dyn-info-m12-5/part",
+          null
+        ],
+        [
+          "bom/electric/compact-screw-terminal",
+          "BOM:electric/compact-screw-terminal/part",
+          null
+        ],
+        [
+          "bom/electric/din-relay",
+          "BOM:electric/din-relay/part",
+          null
+        ],
+        [
+          "bom/electric/din-solidstate-relay",
+          "BOM:electric/din-solidstate-relay/part",
+          null
+        ],
+        [
+          "bom/electric/e-stop",
+          "BOM:electric/e-stop/part",
+          null
+        ],
+        [
+          "bom/electric/electric-cabinet-fan",
+          "BOM:electric/electric-cabinet-fan/part",
+          null
+        ],
+        [
+          "bom/electric/electrical-cabinet",
+          "BOM:electric/electrical-cabinet/part",
+          null
+        ],
+        [
+          "bom/electric/endestops-mech-plunger",
+          "BOM:electric/endestops-mech-plunger/part",
+          null
+        ],
+        [
+          "bom/electric/eva-general-code",
+          "BOM:electric/eva-general-code/part",
+          null
+        ],
+        [
+          "bom/electric/glams",
+          "BOM:electric/glams/part",
+          null
+        ],
+        [
+          "bom/electric/heater-pid",
+          "BOM:electric/heater-pid/part",
+          null
+        ],
+        [
+          "bom/electric/inca-1-tina-estop",
+          "BOM:electric/inca-1-tina-estop/part",
+          null
+        ],
+        [
+          "bom/electric/kabelforskruning",
+          "BOM:electric/kabelforskruning/part",
+          null
+        ],
+        [
+          "bom/electric/kabelforskruning-oring",
+          "BOM:electric/kabelforskruning-oring/part",
+          null
+        ],
+        [
+          "bom/electric/klemraekker-bla",
+          "BOM:electric/klemraekker-bla/part",
+          null
+        ],
+        [
+          "bom/electric/klemraekker-endestop",
+          "BOM:electric/klemraekker-endestop/part",
+          null
+        ],
+        [
+          "bom/electric/klemraekker-gra",
+          "BOM:electric/klemraekker-gra/part",
+          null
+        ],
+        [
+          "bom/electric/klemraekker-gul-gron",
+          "BOM:electric/klemraekker-gul-gron/part",
+          null
+        ],
+        [
+          "bom/electric/klemraekker-markeringer",
+          "BOM:electric/klemraekker-markeringer/part",
+          null
+        ],
+        [
+          "bom/electric/laske-2-polet",
+          "BOM:electric/laske-2-polet/part",
+          null
+        ],
+        [
+          "bom/electric/laske-3-polet",
+          "BOM:electric/laske-3-polet/part",
+          null
+        ],
+        [
+          "bom/electric/m12-c61-6m-cable",
+          "BOM:electric/m12-c61-6m-cable/part",
+          null
+        ],
+        [
+          "bom/electric/m12-c63-6m-cable",
+          "BOM:electric/m12-c63-6m-cable/part",
+          null
+        ],
+        [
+          "bom/electric/pluto-d20-safety-plc",
+          "BOM:electric/pluto-d20-safety-plc/part",
+          null
+        ],
+        [
+          "bom/electric/safety-contactor",
+          "BOM:electric/safety-contactor/part",
+          null
+        ],
+        [
+          "bom/electric/self-cutting-panel-screw",
+          "BOM:electric/self-cutting-panel-screw/part",
+          null
+        ],
+        [
+          "bom/electric/smile-41-ewwwp-estop-box",
+          "BOM:electric/smile-41-ewwwp-estop-box/part",
+          null
+        ],
+        [
+          "bom/electric/switch-for-vfd",
+          "BOM:electric/switch-for-vfd/part",
+          null
+        ],
+        [
+          "bom/electric/termoelement-type-k",
+          "BOM:electric/termoelement-type-k/part",
+          null
+        ],
+        [
+          "bom/electric/vfd",
+          "BOM:electric/vfd/part",
+          null
+        ],
+        [
+          "bom/gas-flow/blower-vibration-rubber-mount",
+          "BOM:gas-flow/blower-vibration-rubber-mount/part",
+          null
+        ],
+        [
+          "bom/gas-flow/cyklone",
+          "BOM:gas-flow/cyklone/part",
+          null
+        ],
+        [
+          "bom/gas-flow/din-plug-solenoid",
+          "BOM:gas-flow/din-plug-solenoid/part",
+          null
+        ],
+        [
+          "bom/gas-flow/filter-housing-2-with-one-filter",
+          "BOM:gas-flow/filter-housing-2-with-one-filter/part",
+          null
+        ],
+        [
+          "bom/gas-flow/g1-2-locking-nut-for-oxygen-sensor",
+          "BOM:gas-flow/g1-2-locking-nut-for-oxygen-sensor/part",
+          null
+        ],
+        [
+          "bom/gas-flow/gas-blower",
+          "BOM:gas-flow/gas-blower/part",
+          null
+        ],
+        [
+          "bom/gas-flow/gas-bottle-input",
+          "BOM:gas-flow/gas-bottle-input/part",
+          null
+        ],
+        [
+          "bom/gas-flow/gas-flow-ducting-tube",
+          "BOM:gas-flow/gas-flow-ducting-tube/part",
+          null
+        ],
+        [
+          "bom/gas-flow/gas-flow-end-duct",
+          "BOM:gas-flow/gas-flow-end-duct/part",
+          null
+        ],
+        [
+          "bom/gas-flow/gas-flow-inlet-geometry",
+          "BOM:gas-flow/gas-flow-inlet-geometry/part",
+          null
+        ],
+        [
+          "bom/gas-flow/main-solenoid-valve",
+          "BOM:gas-flow/main-solenoid-valve/part",
+          null
+        ],
+        [
+          "bom/gas-flow/o6-panel-mount-manual-flow-reg",
+          "BOM:gas-flow/o6-panel-mount-manual-flow-reg/part",
+          null
+        ],
+        [
+          "bom/gas-flow/o6-quick-connect-bulkhead",
+          "BOM:gas-flow/o6-quick-connect-bulkhead/part",
+          null
+        ],
+        [
+          "bom/gas-flow/o8-gas-tubing",
+          "BOM:gas-flow/o8-gas-tubing/part",
+          null
+        ],
+        [
+          "bom/gas-flow/o8-process-chamber-inlet",
+          "BOM:gas-flow/o8-process-chamber-inlet/part",
+          null
+        ],
+        [
+          "bom/gas-flow/o8-quick-connect-tube-barb",
+          "BOM:gas-flow/o8-quick-connect-tube-barb/part",
+          null
+        ],
+        [
+          "bom/gas-flow/oxygen-sensor",
+          "BOM:gas-flow/oxygen-sensor/part",
+          null
+        ],
+        [
+          "bom/gas-flow/spare-gas-filters-polyether",
+          "BOM:gas-flow/spare-gas-filters-polyether/part",
+          null
+        ],
+        [
+          "bom/gas-flow/tangential-blower",
+          "BOM:gas-flow/tangential-blower/part",
+          null
+        ],
+        [
+          "bom/optics/collimator",
+          "BOM:optics/collimator/part",
+          null
+        ],
+        [
+          "bom/optics/f-theta",
+          "BOM:optics/f-theta/part",
+          null
+        ],
+        [
+          "bom/optics/galve-support-bracket",
+          "BOM:optics/galve-support-bracket/part",
+          null
+        ],
+        [
+          "bom/optics/galvo-box-bracket",
+          "BOM:optics/galvo-box-bracket/part",
+          null
+        ],
+        [
+          "bom/optics/laser-source",
+          "BOM:optics/laser-source/part",
+          null
+        ],
+        [
+          "bom/optics/silicone-gasket-f-theta-ring",
+          "BOM:optics/silicone-gasket-f-theta-ring/part",
+          null
+        ],
+        [
+          "bom/optics/sunny-galvo",
+          "BOM:optics/sunny-galvo/part",
+          null
+        ],
+        [
+          "bom/optics/sunny-galvo-adapter-plate",
+          "BOM:optics/sunny-galvo-adapter-plate/part",
+          null
+        ],
+        [
+          "bom/optics/water-chiller-for-collimator",
+          "BOM:optics/water-chiller-for-collimator/part",
+          null
+        ],
+        [
+          "bom/powder/1-butterfly-valve-for-filling",
+          "BOM:powder/1-butterfly-valve-for-filling/part",
+          null
+        ],
+        [
+          "bom/powder/1-ferrule-tri-clamp",
+          "BOM:powder/1-ferrule-tri-clamp/part",
+          null
+        ],
+        [
+          "bom/powder/ball-bearing-dispenser",
+          "BOM:powder/ball-bearing-dispenser/part",
+          null
+        ],
+        [
+          "bom/powder/capacitive-sensor-for-powder-level",
+          "BOM:powder/capacitive-sensor-for-powder-level/part",
+          null
+        ],
+        [
+          "bom/powder/digital-stepper-driver",
+          "BOM:powder/digital-stepper-driver/part",
+          null
+        ],
+        [
+          "bom/powder/dispenser-drum-coupling",
+          "BOM:powder/dispenser-drum-coupling/part",
+          null
+        ],
+        [
+          "bom/powder/powder-dispense-stepper",
+          "BOM:powder/powder-dispense-stepper/part",
+          null
+        ],
+        [
+          "bom/powder/powder-handling-mount-bracket",
+          "BOM:powder/powder-handling-mount-bracket/part",
+          null
+        ],
+        [
+          "bom/powder/powder-hopper",
+          "BOM:powder/powder-hopper/part",
+          null
+        ],
+        [
+          "bom/powder/powder-inlet",
+          "BOM:powder/powder-inlet/part",
+          null
+        ],
+        [
+          "bom/powder/powder-roller-ceramic-gasket",
+          "BOM:powder/powder-roller-ceramic-gasket/part",
+          null
+        ],
+        [
+          "bom/powder/powder-roller-housing",
+          "BOM:powder/powder-roller-housing/part",
+          null
+        ],
+        [
+          "bom/powder/powder-stepper-bracket",
+          "BOM:powder/powder-stepper-bracket/part",
+          null
+        ],
+        [
+          "bom/powder/powder-valve-fitting",
+          "BOM:powder/powder-valve-fitting/part",
+          null
+        ],
+        [
+          "bom/powder/tri-clamp-silicone-gasket-5pcs",
+          "BOM:powder/tri-clamp-silicone-gasket-5pcs/part",
+          null
+        ],
+        [
+          "bom/powder/valve-weld-adapter",
+          "BOM:powder/valve-weld-adapter/part",
+          null
+        ],
+        [
+          "bom/raw-materials/loctite-222",
+          "BOM:raw-materials/loctite-222/part",
+          null
+        ],
+        [
+          "bom/raw-materials/montage-pasta",
+          "BOM:raw-materials/montage-pasta/part",
+          null
+        ],
+        [
+          "bom/raw-materials/silicone-sheet",
+          "BOM:raw-materials/silicone-sheet/part",
+          null
+        ],
+        [
+          "bom/recoater/bearing-spacer-for-idler",
+          "BOM:recoater/bearing-spacer-for-idler/part",
+          null
+        ],
+        [
+          "bom/recoater/linear-bushing-shaft",
+          "BOM:recoater/linear-bushing-shaft/part",
+          null
+        ],
+        [
+          "bom/recoater/linear-shaft-support",
+          "BOM:recoater/linear-shaft-support/part",
+          null
+        ],
+        [
+          "bom/recoater/pivot-pin-for-timing-idler",
+          "BOM:recoater/pivot-pin-for-timing-idler/part",
+          null
+        ],
+        [
+          "bom/recoater/recoater-clamp",
+          "BOM:recoater/recoater-clamp/part",
+          null
+        ],
+        [
+          "bom/recoater/recoater-end-stop-bracket",
+          "BOM:recoater/recoater-end-stop-bracket/part",
+          null
+        ],
+        [
+          "bom/recoater/recoater-head",
+          "BOM:recoater/recoater-head/part",
+          null
+        ],
+        [
+          "bom/recoater/recoater-linear-rod",
+          "BOM:recoater/recoater-linear-rod/part",
+          null
+        ],
+        [
+          "bom/recoater/recoater-stepper-nema-23",
+          "BOM:recoater/recoater-stepper-nema-23/part",
+          null
+        ],
+        [
+          "bom/recoater/recoater-wall",
+          "BOM:recoater/recoater-wall/part",
+          null
+        ],
+        [
+          "bom/recoater/stepper-driver",
+          "BOM:recoater/stepper-driver/part",
+          null
+        ],
+        [
+          "bom/recoater/t5-timing-belt-300-teeth",
+          "BOM:recoater/t5-timing-belt-300-teeth/part",
+          null
+        ],
+        [
+          "bom/recoater/timing-belt-clamp-plate",
+          "BOM:recoater/timing-belt-clamp-plate/part",
+          null
+        ],
+        [
+          "bom/recoater/timing-belt-idler-o8-t5",
+          "BOM:recoater/timing-belt-idler-o8-t5/part",
+          null
+        ],
+        [
+          "bom/recoater/timing-pulley-o6-35-t5",
+          "BOM:recoater/timing-pulley-o6-35-t5/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/2020-x-arm",
+          "BOM:sensorgantry/2020-x-arm/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/2040-alu-support",
+          "BOM:sensorgantry/2040-alu-support/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/gt2-6mm-belt",
+          "BOM:sensorgantry/gt2-6mm-belt/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/sensor-bracket",
+          "BOM:sensorgantry/sensor-bracket/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/x-axis-bottom-bracket",
+          "BOM:sensorgantry/x-axis-bottom-bracket/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/x-axis-idler-bracket",
+          "BOM:sensorgantry/x-axis-idler-bracket/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/x-axis-linear-guide",
+          "BOM:sensorgantry/x-axis-linear-guide/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/x-axis-nema-11",
+          "BOM:sensorgantry/x-axis-nema-11/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/x-axis-timing-idler",
+          "BOM:sensorgantry/x-axis-timing-idler/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/x-axis-timing-pulley",
+          "BOM:sensorgantry/x-axis-timing-pulley/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/x-axis-top-bracket",
+          "BOM:sensorgantry/x-axis-top-bracket/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/y-axis-idler-plate",
+          "BOM:sensorgantry/y-axis-idler-plate/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/y-axis-linear-guide",
+          "BOM:sensorgantry/y-axis-linear-guide/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/y-axis-nema-14",
+          "BOM:sensorgantry/y-axis-nema-14/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/y-axis-stepper-bracket",
+          "BOM:sensorgantry/y-axis-stepper-bracket/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/y-axis-timing-idler",
+          "BOM:sensorgantry/y-axis-timing-idler/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/y-axis-timing-pulley",
+          "BOM:sensorgantry/y-axis-timing-pulley/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/z-axis-guide-clamp",
+          "BOM:sensorgantry/z-axis-guide-clamp/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/z-axis-linear-guide",
+          "BOM:sensorgantry/z-axis-linear-guide/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/z-axis-linear-rod",
+          "BOM:sensorgantry/z-axis-linear-rod/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/z-axis-linear-stepper",
+          "BOM:sensorgantry/z-axis-linear-stepper/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/z-axis-stepper-bracket",
+          "BOM:sensorgantry/z-axis-stepper-bracket/part",
+          null
+        ],
+        [
+          "bom/support/19-rack-plates",
+          "BOM:support/19-rack-plates/part",
+          null
+        ],
+        [
+          "bom/support/19-rack-shelves",
+          "BOM:support/19-rack-shelves/part",
+          null
+        ],
+        [
+          "bom/support/4040-extrusion",
+          "BOM:support/4040-extrusion/part",
+          null
+        ],
+        [
+          "bom/support/8040-extrusion",
+          "BOM:support/8040-extrusion/part",
+          null
+        ],
+        [
+          "bom/support/automatic-fasteners",
+          "BOM:support/automatic-fasteners/part",
+          null
+        ],
+        [
+          "bom/support/beslag-til-topplade",
+          "BOM:support/beslag-til-topplade/part",
+          null
+        ],
+        [
+          "bom/support/castors",
+          "BOM:support/castors/part",
+          null
+        ],
+        [
+          "bom/support/cover-handles",
+          "BOM:support/cover-handles/part",
+          null
+        ],
+        [
+          "bom/support/cover-hinges",
+          "BOM:support/cover-hinges/part",
+          null
+        ],
+        [
+          "bom/support/cover-latches",
+          "BOM:support/cover-latches/part",
+          null
+        ],
+        [
+          "bom/support/cover-plates",
+          "BOM:support/cover-plates/part",
+          null
+        ],
+        [
+          "bom/support/cover-plates-w-door",
+          "BOM:support/cover-plates-w-door/part",
+          null
+        ],
+        [
+          "bom/support/desktop",
+          "BOM:support/desktop/part",
+          null
+        ],
+        [
+          "bom/support/leveling-feet",
+          "BOM:support/leveling-feet/part",
+          null
+        ],
+        [
+          "bom/support/multiblock",
+          "BOM:support/multiblock/part",
+          null
+        ],
+        [
+          "bom/support/standard-fasteners",
+          "BOM:support/standard-fasteners/part",
+          null
+        ],
+        [
+          "bom/support/system-pc",
+          "BOM:support/system-pc/part",
+          null
+        ]
+      ],
+      "drawing_bom_links": {
+        "D-001": [],
+        "D-002": [
+          "BOM:box/left-side-box"
+        ],
+        "D-003": [
+          "BOM:box/print-platform"
+        ],
+        "D-004": [
+          "BOM:box/top-side"
+        ],
+        "D-005": [
+          "BOM:box/window-frame"
+        ],
+        "D-006": [],
+        "D-007": [
+          "BOM:powder/powder-roller"
+        ],
+        "D-008": [],
+        "D-009": [],
+        "D-010": [],
+        "D-011": [
+          "BOM:recoater/recoater-arm"
+        ],
+        "D-012": [
+          "BOM:recoater/recoater-mount-block"
+        ],
+        "D-013": [],
+        "D-014": [
+          "BOM:recoater/recoater-stage-plate"
+        ],
+        "D-015": [
+          "BOM:recoater/recoater-blade"
+        ],
+        "D-016": [],
+        "D-017": [],
+        "D-018": [],
+        "D-019": [],
+        "D-020": [
+          "BOM:optics/f-theta-seal-ring"
+        ],
+        "D-021": [],
+        "D-022": [],
+        "D-023": [],
+        "D-024": [],
+        "D-025": [],
+        "D-026": [
+          "BOM:build-plate/build-plate"
+        ],
+        "D-027": [],
+        "D-028": [],
+        "D-029": [],
+        "D-030": []
+      },
+      "standalone_bom_rows": [
+        "BOM:box/2020-angle-bracket",
+        "BOM:box/2020-internal-profile",
+        "BOM:box/back-box",
+        "BOM:box/back-door",
+        "BOM:box/front-door",
+        "BOM:box/front-door-hinge",
+        "BOM:box/front-door-latch",
+        "BOM:box/front-side-box",
+        "BOM:box/laser-safety-window",
+        "BOM:box/m4-nut-for-2020-not-5mm",
+        "BOM:box/m5-nut-for-2020-not-5mm",
+        "BOM:box/m5x12-button-head-screws",
+        "BOM:box/m5x8-button-head-screws",
+        "BOM:box/m8-8mm-not-t-nut",
+        "BOM:box/m8x12-button-head-screws",
+        "BOM:box/right-box",
+        "BOM:box/rubber-seal-for-doors",
+        "BOM:box/silicone",
+        "BOM:box/silicone-gun",
+        "BOM:box/top-side-bracing",
+        "BOM:box/top-side-powder-bracing",
+        "BOM:build-plate/build-base",
+        "BOM:build-plate/build-cylinder",
+        "BOM:build-plate/build-cylinder-clamp-ring",
+        "BOM:build-plate/ceramic-build-base-seal",
+        "BOM:build-plate/heating-element",
+        "BOM:build-plate/heating-element-plate",
+        "BOM:build-plate/motor-plate",
+        "BOM:build-plate/motor-plate-shaft",
+        "BOM:build-plate/nema-23-tr11x2-non-captive",
+        "BOM:build-plate/seal-clamp-plate",
+        "BOM:build-plate/self-centering-keyless-bushing",
+        "BOM:build-plate/stepper-driver-nema23",
+        "BOM:build-plate/thermocouple-plate",
+        "BOM:electric/12v-psu",
+        "BOM:electric/15mm-din-rail",
+        "BOM:electric/19-usb-hub",
+        "BOM:electric/2-pin-connector-female-chassis",
+        "BOM:electric/2-pin-connector-male-cable-mount",
+        "BOM:electric/230v-power-plug",
+        "BOM:electric/24vdc-psu-20a",
+        "BOM:electric/35mm-din-rail",
+        "BOM:electric/3p-n-e-female",
+        "BOM:electric/3p-n-e-male",
+        "BOM:electric/400v-power-cable",
+        "BOM:electric/40x40-cable-duct",
+        "BOM:electric/5-pin-connector-female",
+        "BOM:electric/5-pin-connector-male",
+        "BOM:electric/5v-4a-power-to-usb-hub-5-5-x2-1mm-jack",
+        "BOM:electric/5v-psu",
+        "BOM:electric/adam-dyn-info-m12-5",
+        "BOM:electric/compact-screw-terminal",
+        "BOM:electric/din-relay",
+        "BOM:electric/din-solidstate-relay",
+        "BOM:electric/e-stop",
+        "BOM:electric/electric-cabinet-fan",
+        "BOM:electric/electrical-cabinet",
+        "BOM:electric/endestops-mech-plunger",
+        "BOM:electric/eva-general-code",
+        "BOM:electric/glams",
+        "BOM:electric/heater-pid",
+        "BOM:electric/inca-1-tina-estop",
+        "BOM:electric/kabelforskruning",
+        "BOM:electric/kabelforskruning-oring",
+        "BOM:electric/klemraekker-bla",
+        "BOM:electric/klemraekker-endestop",
+        "BOM:electric/klemraekker-gra",
+        "BOM:electric/klemraekker-gul-gron",
+        "BOM:electric/klemraekker-markeringer",
+        "BOM:electric/laske-2-polet",
+        "BOM:electric/laske-3-polet",
+        "BOM:electric/m12-c61-6m-cable",
+        "BOM:electric/m12-c63-6m-cable",
+        "BOM:electric/pluto-d20-safety-plc",
+        "BOM:electric/safety-contactor",
+        "BOM:electric/self-cutting-panel-screw",
+        "BOM:electric/smile-41-ewwwp-estop-box",
+        "BOM:electric/switch-for-vfd",
+        "BOM:electric/termoelement-type-k",
+        "BOM:electric/vfd",
+        "BOM:gas-flow/blower-vibration-rubber-mount",
+        "BOM:gas-flow/cyklone",
+        "BOM:gas-flow/din-plug-solenoid",
+        "BOM:gas-flow/filter-housing-2-with-one-filter",
+        "BOM:gas-flow/g1-2-locking-nut-for-oxygen-sensor",
+        "BOM:gas-flow/gas-blower",
+        "BOM:gas-flow/gas-bottle-input",
+        "BOM:gas-flow/gas-flow-ducting-tube",
+        "BOM:gas-flow/gas-flow-end-duct",
+        "BOM:gas-flow/gas-flow-inlet-geometry",
+        "BOM:gas-flow/main-solenoid-valve",
+        "BOM:gas-flow/o6-panel-mount-manual-flow-reg",
+        "BOM:gas-flow/o6-quick-connect-bulkhead",
+        "BOM:gas-flow/o8-gas-tubing",
+        "BOM:gas-flow/o8-process-chamber-inlet",
+        "BOM:gas-flow/o8-quick-connect-tube-barb",
+        "BOM:gas-flow/oxygen-sensor",
+        "BOM:gas-flow/spare-gas-filters-polyether",
+        "BOM:gas-flow/tangential-blower",
+        "BOM:optics/collimator",
+        "BOM:optics/f-theta",
+        "BOM:optics/galve-support-bracket",
+        "BOM:optics/galvo-box-bracket",
+        "BOM:optics/laser-source",
+        "BOM:optics/silicone-gasket-f-theta-ring",
+        "BOM:optics/sunny-galvo",
+        "BOM:optics/sunny-galvo-adapter-plate",
+        "BOM:optics/water-chiller-for-collimator",
+        "BOM:powder/1-butterfly-valve-for-filling",
+        "BOM:powder/1-ferrule-tri-clamp",
+        "BOM:powder/ball-bearing-dispenser",
+        "BOM:powder/capacitive-sensor-for-powder-level",
+        "BOM:powder/digital-stepper-driver",
+        "BOM:powder/dispenser-drum-coupling",
+        "BOM:powder/powder-dispense-stepper",
+        "BOM:powder/powder-handling-mount-bracket",
+        "BOM:powder/powder-hopper",
+        "BOM:powder/powder-inlet",
+        "BOM:powder/powder-roller-ceramic-gasket",
+        "BOM:powder/powder-roller-housing",
+        "BOM:powder/powder-stepper-bracket",
+        "BOM:powder/powder-valve-fitting",
+        "BOM:powder/tri-clamp-silicone-gasket-5pcs",
+        "BOM:powder/valve-weld-adapter",
+        "BOM:raw-materials/loctite-222",
+        "BOM:raw-materials/montage-pasta",
+        "BOM:raw-materials/silicone-sheet",
+        "BOM:recoater/bearing-spacer-for-idler",
+        "BOM:recoater/linear-bushing-shaft",
+        "BOM:recoater/linear-shaft-support",
+        "BOM:recoater/pivot-pin-for-timing-idler",
+        "BOM:recoater/recoater-clamp",
+        "BOM:recoater/recoater-end-stop-bracket",
+        "BOM:recoater/recoater-head",
+        "BOM:recoater/recoater-linear-rod",
+        "BOM:recoater/recoater-stepper-nema-23",
+        "BOM:recoater/recoater-wall",
+        "BOM:recoater/stepper-driver",
+        "BOM:recoater/t5-timing-belt-300-teeth",
+        "BOM:recoater/timing-belt-clamp-plate",
+        "BOM:recoater/timing-belt-idler-o8-t5",
+        "BOM:recoater/timing-pulley-o6-35-t5",
+        "BOM:sensorgantry/2020-x-arm",
+        "BOM:sensorgantry/2040-alu-support",
+        "BOM:sensorgantry/gt2-6mm-belt",
+        "BOM:sensorgantry/sensor-bracket",
+        "BOM:sensorgantry/x-axis-bottom-bracket",
+        "BOM:sensorgantry/x-axis-idler-bracket",
+        "BOM:sensorgantry/x-axis-linear-guide",
+        "BOM:sensorgantry/x-axis-nema-11",
+        "BOM:sensorgantry/x-axis-timing-idler",
+        "BOM:sensorgantry/x-axis-timing-pulley",
+        "BOM:sensorgantry/x-axis-top-bracket",
+        "BOM:sensorgantry/y-axis-idler-plate",
+        "BOM:sensorgantry/y-axis-linear-guide",
+        "BOM:sensorgantry/y-axis-nema-14",
+        "BOM:sensorgantry/y-axis-stepper-bracket",
+        "BOM:sensorgantry/y-axis-timing-idler",
+        "BOM:sensorgantry/y-axis-timing-pulley",
+        "BOM:sensorgantry/z-axis-guide-clamp",
+        "BOM:sensorgantry/z-axis-linear-guide",
+        "BOM:sensorgantry/z-axis-linear-rod",
+        "BOM:sensorgantry/z-axis-linear-stepper",
+        "BOM:sensorgantry/z-axis-stepper-bracket",
+        "BOM:support/19-rack-plates",
+        "BOM:support/19-rack-shelves",
+        "BOM:support/4040-extrusion",
+        "BOM:support/8040-extrusion",
+        "BOM:support/automatic-fasteners",
+        "BOM:support/beslag-til-topplade",
+        "BOM:support/castors",
+        "BOM:support/cover-handles",
+        "BOM:support/cover-hinges",
+        "BOM:support/cover-latches",
+        "BOM:support/cover-plates",
+        "BOM:support/cover-plates-w-door",
+        "BOM:support/desktop",
+        "BOM:support/leveling-feet",
+        "BOM:support/multiblock",
+        "BOM:support/standard-fasteners",
+        "BOM:support/system-pc"
+      ],
+      "page_images": [
+        "images/D-001-p1.png",
+        "images/D-002-p1.png",
+        "images/D-003-p1.png",
+        "images/D-003-p2.png",
+        "images/D-003-p3.png",
+        "images/D-004-p1.png",
+        "images/D-005-p1.png",
+        "images/D-006-p1.png",
+        "images/D-007-p1.png",
+        "images/D-008-p1.png",
+        "images/D-009-p1.png",
+        "images/D-010-p1.png",
+        "images/D-011-p1.png",
+        "images/D-012-p1.png",
+        "images/D-013-p1.png",
+        "images/D-014-p1.png",
+        "images/D-015-p1.png",
+        "images/D-016-p1.png",
+        "images/D-017-p1.png",
+        "images/D-018-p1.png",
+        "images/D-019-p1.png",
+        "images/D-020-p1.png",
+        "images/D-021-p1.png",
+        "images/D-021-p2.png",
+        "images/D-022-p1.png",
+        "images/D-023-p1.png",
+        "images/D-024-p1.png",
+        "images/D-025-p1.png",
+        "images/D-026-p1.png",
+        "images/D-027-p1.png",
+        "images/D-028-p1.png",
+        "images/D-029-p1.png",
+        "images/D-030-p1.png"
+      ]
+    },
+    "model_ids_checked": [
+      "D-012",
+      "D-013",
+      "D-014",
+      "D-015",
+      "D-017",
+      "D-019",
+      "D-025",
+      "D-026",
+      "D-027"
+    ],
+    "model_inventory": {
+      "D-012": {
+        "template_sha256": "145ae791079abe6a53320360397f95092b981df4e8483a7132fae5bae6fe4b83",
+        "generator_version": "flat-part-13",
+        "source_sha256": "23ba5d97ee7a744cf12072e1338ab62fa5e49c09c5229af4f20a6ff5a455f64a",
+        "variants": {
+          "A": {
+            "template_sha256": "145ae791079abe6a53320360397f95092b981df4e8483a7132fae5bae6fe4b83",
+            "selections": {}
+          }
+        }
+      },
+      "D-013": {
+        "template_sha256": "add140b98c1b643879c308b523a8f056e09affb4ed74f0c1f4011844a2555f81",
+        "generator_version": "flat-part-13",
+        "source_sha256": "826076b03bfbaeee961dc3e57cb642c225d41f1ea9a643d0bb1ca7d296280047",
+        "variants": {
+          "A": {
+            "template_sha256": "add140b98c1b643879c308b523a8f056e09affb4ed74f0c1f4011844a2555f81",
+            "selections": {
+              "thickness": 3.0
+            }
+          },
+          "B": {
+            "template_sha256": "add140b98c1b643879c308b523a8f056e09affb4ed74f0c1f4011844a2555f81",
+            "selections": {
+              "thickness": 6.0
+            }
+          }
+        }
+      },
+      "D-014": {
+        "template_sha256": "5bb98138de769d2feeeb33cb437b8cafa06d1d261cf371e3f5e780be64c2b152",
+        "generator_version": "flat-part-13",
+        "source_sha256": "0e6fa42e39eda320d42f45576a0825c5d0c002abd6863188b3c98774d52867f6",
+        "variants": {
+          "A": {
+            "template_sha256": "5bb98138de769d2feeeb33cb437b8cafa06d1d261cf371e3f5e780be64c2b152",
+            "selections": {}
+          }
+        }
+      },
+      "D-015": {
+        "template_sha256": "ea885e419942949161abe7db4ec1f03cc16fb6586deda74009b743fb601db818",
+        "generator_version": "flat-part-13",
+        "source_sha256": "0828f6fee0d3bc087524df08c8b3fbadc5201212e5f86fcfc08b984fe9e32c60",
+        "variants": {
+          "A": {
+            "template_sha256": "ea885e419942949161abe7db4ec1f03cc16fb6586deda74009b743fb601db818",
+            "selections": {}
+          }
+        }
+      },
+      "D-017": {
+        "template_sha256": "5adb12ddd1a9befdfa5e8ac3e166e57d821439b2726b92117ef1adab372295af",
+        "generator_version": "flat-part-13",
+        "source_sha256": "a460ab37d94f2d8f4c9bac58da15ea9d1e93b4f48ee0825e51adac0ec81f37ae",
+        "variants": {
+          "A": {
+            "template_sha256": "5adb12ddd1a9befdfa5e8ac3e166e57d821439b2726b92117ef1adab372295af",
+            "selections": {}
+          }
+        }
+      },
+      "D-019": {
+        "template_sha256": "9505b251da2eeb02a660f7fc4f21f1ab1d9435d2f418fafc43b48a2a20b91541",
+        "generator_version": "flat-part-13",
+        "source_sha256": "581fbaf7562ac75008243463af6956d6f88cd6a0a858cf6c22aa62ce39041e11",
+        "variants": {
+          "A": {
+            "template_sha256": "9505b251da2eeb02a660f7fc4f21f1ab1d9435d2f418fafc43b48a2a20b91541",
+            "selections": {}
+          }
+        }
+      },
+      "D-025": {
+        "template_sha256": "9d56f1bfa1da7d10f051710c68a757659f23c5337e5de93be0ffaf9504e261d7",
+        "generator_version": "flat-part-13",
+        "source_sha256": "9b61f2c688fba1b10f502658505c78c0ff99820d3f281822eacdc7283e9b7e9c",
+        "variants": {
+          "A": {
+            "template_sha256": "9d56f1bfa1da7d10f051710c68a757659f23c5337e5de93be0ffaf9504e261d7",
+            "selections": {
+              "thickness": 2.0
+            }
+          },
+          "B": {
+            "template_sha256": "9d56f1bfa1da7d10f051710c68a757659f23c5337e5de93be0ffaf9504e261d7",
+            "selections": {
+              "thickness": 3.0
+            }
+          }
+        }
+      },
+      "D-026": {
+        "template_sha256": "cabed5b7894ca74eed8251a11071d9c1f54d4d93f1e777524ff057b841b5d905",
+        "generator_version": "flat-part-13",
+        "source_sha256": "a7ee7f4d75acaf2e8fc67ce14ca223d5cb4a2931063f37f4dfb6fadeeb70256e",
+        "variants": {
+          "A": {
+            "template_sha256": "cabed5b7894ca74eed8251a11071d9c1f54d4d93f1e777524ff057b841b5d905",
+            "selections": {
+              "thickness": 15
+            }
+          },
+          "B": {
+            "template_sha256": "cabed5b7894ca74eed8251a11071d9c1f54d4d93f1e777524ff057b841b5d905",
+            "selections": {
+              "thickness": 25
+            }
+          }
+        }
+      },
+      "D-027": {
+        "template_sha256": "b3d11b8c50e18a40978514bff2c21fee6d698910f0533c1c1d6396f7b4d24386",
+        "generator_version": "flat-part-13",
+        "source_sha256": "9a270f0ddf24b173b85b6879b4fbd1ba9cf67d71cff7b13f722699699a667bcc",
+        "variants": {
+          "A": {
+            "template_sha256": "b3d11b8c50e18a40978514bff2c21fee6d698910f0533c1c1d6396f7b4d24386",
+            "selections": {}
+          }
+        }
+      }
+    },
+    "asset_hashes_checked": 24,
+    "model_assets_sha256": {
+      "models/D-012_A.glb": "9f53bc959e8af0c61942d1a1279232e3d93c00a38e3ef53b6193f41d5694b6c1",
+      "models/D-012_A_reconstruction_from_drawing.step": "433de2664423f75c8e89f46d180f4bc8dafab1149ae62e50cd089e0522d2c8c2",
+      "models/D-013_A.glb": "eda0d853164269b1fc28d6a742edc48155d20f4791bf5f46805e42c87061140a",
+      "models/D-013_A_reconstruction_from_drawing.step": "ddea2f629c6c402cf80a1186587f6433ee8ea880036b47919929bb8cbd3ef242",
+      "models/D-013_B.glb": "8bfce74eb3cf247cf9cbc43fc4d4313fc93f0ba7f236bc9b4a9ab397fae18fdd",
+      "models/D-013_B_reconstruction_from_drawing.step": "30574cb037e35e026b5ee5e5a6e8848cb50b4d9aaaa59ab0fdd440c90571d539",
+      "models/D-014_A.glb": "614f28f44d5566303c37cbd28522cc5509e85982f9b52a34289e96e4c26e9e1c",
+      "models/D-014_A_reconstruction_from_drawing.step": "51ddc006ff466bcd2382caf0546d68ca85692af19f7b861a87910e82ab0dcc12",
+      "models/D-015_A.glb": "9e2f0925f5a64c49a915ca7b87fb424f34cd563fe14a4510a8075065fe29c167",
+      "models/D-015_A_reconstruction_from_drawing.step": "78094226143525bd2610ad3a9357577bb811b581e94fa8e7060157e5b1417d6b",
+      "models/D-017_A.glb": "41284247fd2c2ed9ec963af511099614dd2d89279b724ea3581c8c2a5db889c1",
+      "models/D-017_A_reconstruction_from_drawing.step": "579403a1d521ec1b6e3312385553a175faeb444b234f04eed2b09cf126da7516",
+      "models/D-019_A.glb": "13469b249c567ffd9d74c13ced0eddd4efb4e2c8411a25093cae6944e36acaa8",
+      "models/D-019_A_reconstruction_from_drawing.step": "02270dd1e23213a898130b9a928b5fcd2b8b13248bcdd887ab4d090e47787662",
+      "models/D-025_A.glb": "de51670805792c52a2a9402373e18ef54022f591cc6096e96954469fbe209d9d",
+      "models/D-025_A_reconstruction_from_drawing.step": "29db7b6e9bed5d2668e55bbf31e746fba629603f29e21d60c84a4da62129f0f9",
+      "models/D-025_B.glb": "28185dc6b069e466ec5aafce7c3433603366c238239ca5baeda1cb11399b6649",
+      "models/D-025_B_reconstruction_from_drawing.step": "c2d3eb3577255cb5f674c322f160a73c083d9a96c7cf336b33ab954a37cd0d27",
+      "models/D-026_A.glb": "c271955f857dea82a63d8bc0367df9084ebbbe28fae0bbb888a8a940a5966f19",
+      "models/D-026_A_reconstruction_from_drawing.step": "2f27d309de0746d48186859f74e31affc719f3a4205869478e156c73e824bae1",
+      "models/D-026_B.glb": "460e5e86ec7e9273cd23c095222075fd467edd92b5454d8eb977209299544bbe",
+      "models/D-026_B_reconstruction_from_drawing.step": "a540b814e7fb30f155bda3b05593a640c129fcd08207695e39ab9e7f7c0edae1",
+      "models/D-027_A.glb": "5de02068b766a365e762d28844ffe07d4181597edbfa64b4aedb5fb80a6988e6",
+      "models/D-027_A_reconstruction_from_drawing.step": "161e4256c694f54aa3e54930a83110b1a3fdf6664c44289d6e83a5cdae6834b1"
+    },
+    "d013_decision_replayed": true
+  },
+  "regenerated_runtime": {
+    "status": {
+      "chat_available": false,
+      "chat_model": "gpt-6-luna",
+      "debug_ui": false,
+      "revision": "05f500b3c0117561",
+      "parts": 211,
+      "drawings": 30,
+      "models": 9,
+      "reviewer_name": "Jason Peng"
+    },
+    "record_inventory": {
+      "parts": 211,
+      "drawings": 30,
+      "bom_rows": 192,
+      "part_identities": [
+        [
+          "D-001",
+          "D-001/part",
+          "D-001"
+        ],
+        [
+          "D-002",
+          "D-002/part",
+          "D-002"
+        ],
+        [
+          "D-003",
+          "D-003/part",
+          "D-003"
+        ],
+        [
+          "D-004",
+          "D-004/part",
+          "D-004"
+        ],
+        [
+          "D-005",
+          "D-005/part",
+          "D-005"
+        ],
+        [
+          "D-006",
+          "D-006/part",
+          "D-006"
+        ],
+        [
+          "D-007",
+          "D-007/part",
+          "D-007"
+        ],
+        [
+          "D-008",
+          "D-008/part",
+          "D-008"
+        ],
+        [
+          "D-009",
+          "D-009/part",
+          "D-009"
+        ],
+        [
+          "D-010",
+          "D-010/part",
+          "D-010"
+        ],
+        [
+          "D-011",
+          "D-011/part",
+          "D-011"
+        ],
+        [
+          "D-012",
+          "D-012/part",
+          "D-012"
+        ],
+        [
+          "D-013",
+          "D-013/part",
+          "D-013"
+        ],
+        [
+          "D-014",
+          "D-014/part",
+          "D-014"
+        ],
+        [
+          "D-015",
+          "D-015/part",
+          "D-015"
+        ],
+        [
+          "D-016",
+          "D-016/part",
+          "D-016"
+        ],
+        [
+          "D-017",
+          "D-017/part",
+          "D-017"
+        ],
+        [
+          "D-018",
+          "D-018/part",
+          "D-018"
+        ],
+        [
+          "D-019",
+          "D-019/part",
+          "D-019"
+        ],
+        [
+          "D-020",
+          "D-020/part",
+          "D-020"
+        ],
+        [
+          "D-021",
+          "D-021/part",
+          "D-021"
+        ],
+        [
+          "D-022",
+          "D-022/part",
+          "D-022"
+        ],
+        [
+          "D-023",
+          "D-023/part",
+          "D-023"
+        ],
+        [
+          "D-024",
+          "D-024/part",
+          "D-024"
+        ],
+        [
+          "D-025",
+          "D-025/part",
+          "D-025"
+        ],
+        [
+          "D-026",
+          "D-026/part",
+          "D-026"
+        ],
+        [
+          "D-027",
+          "D-027/part",
+          "D-027"
+        ],
+        [
+          "D-028",
+          "D-028/part",
+          "D-028"
+        ],
+        [
+          "D-029",
+          "D-029/part",
+          "D-029"
+        ],
+        [
+          "D-030",
+          "D-030/part",
+          "D-030"
+        ],
+        [
+          "bom/box/2020-angle-bracket",
+          "BOM:box/2020-angle-bracket/part",
+          null
+        ],
+        [
+          "bom/box/2020-internal-profile",
+          "BOM:box/2020-internal-profile/part",
+          null
+        ],
+        [
+          "bom/box/back-box",
+          "BOM:box/back-box/part",
+          null
+        ],
+        [
+          "bom/box/back-door",
+          "BOM:box/back-door/part",
+          null
+        ],
+        [
+          "bom/box/front-door",
+          "BOM:box/front-door/part",
+          null
+        ],
+        [
+          "bom/box/front-door-hinge",
+          "BOM:box/front-door-hinge/part",
+          null
+        ],
+        [
+          "bom/box/front-door-latch",
+          "BOM:box/front-door-latch/part",
+          null
+        ],
+        [
+          "bom/box/front-side-box",
+          "BOM:box/front-side-box/part",
+          null
+        ],
+        [
+          "bom/box/laser-safety-window",
+          "BOM:box/laser-safety-window/part",
+          null
+        ],
+        [
+          "bom/box/m4-nut-for-2020-not-5mm",
+          "BOM:box/m4-nut-for-2020-not-5mm/part",
+          null
+        ],
+        [
+          "bom/box/m5-nut-for-2020-not-5mm",
+          "BOM:box/m5-nut-for-2020-not-5mm/part",
+          null
+        ],
+        [
+          "bom/box/m5x12-button-head-screws",
+          "BOM:box/m5x12-button-head-screws/part",
+          null
+        ],
+        [
+          "bom/box/m5x8-button-head-screws",
+          "BOM:box/m5x8-button-head-screws/part",
+          null
+        ],
+        [
+          "bom/box/m8-8mm-not-t-nut",
+          "BOM:box/m8-8mm-not-t-nut/part",
+          null
+        ],
+        [
+          "bom/box/m8x12-button-head-screws",
+          "BOM:box/m8x12-button-head-screws/part",
+          null
+        ],
+        [
+          "bom/box/right-box",
+          "BOM:box/right-box/part",
+          null
+        ],
+        [
+          "bom/box/rubber-seal-for-doors",
+          "BOM:box/rubber-seal-for-doors/part",
+          null
+        ],
+        [
+          "bom/box/silicone",
+          "BOM:box/silicone/part",
+          null
+        ],
+        [
+          "bom/box/silicone-gun",
+          "BOM:box/silicone-gun/part",
+          null
+        ],
+        [
+          "bom/box/top-side-bracing",
+          "BOM:box/top-side-bracing/part",
+          null
+        ],
+        [
+          "bom/box/top-side-powder-bracing",
+          "BOM:box/top-side-powder-bracing/part",
+          null
+        ],
+        [
+          "bom/build-plate/build-base",
+          "BOM:build-plate/build-base/part",
+          null
+        ],
+        [
+          "bom/build-plate/build-cylinder",
+          "BOM:build-plate/build-cylinder/part",
+          null
+        ],
+        [
+          "bom/build-plate/build-cylinder-clamp-ring",
+          "BOM:build-plate/build-cylinder-clamp-ring/part",
+          null
+        ],
+        [
+          "bom/build-plate/ceramic-build-base-seal",
+          "BOM:build-plate/ceramic-build-base-seal/part",
+          null
+        ],
+        [
+          "bom/build-plate/heating-element",
+          "BOM:build-plate/heating-element/part",
+          null
+        ],
+        [
+          "bom/build-plate/heating-element-plate",
+          "BOM:build-plate/heating-element-plate/part",
+          null
+        ],
+        [
+          "bom/build-plate/motor-plate",
+          "BOM:build-plate/motor-plate/part",
+          null
+        ],
+        [
+          "bom/build-plate/motor-plate-shaft",
+          "BOM:build-plate/motor-plate-shaft/part",
+          null
+        ],
+        [
+          "bom/build-plate/nema-23-tr11x2-non-captive",
+          "BOM:build-plate/nema-23-tr11x2-non-captive/part",
+          null
+        ],
+        [
+          "bom/build-plate/seal-clamp-plate",
+          "BOM:build-plate/seal-clamp-plate/part",
+          null
+        ],
+        [
+          "bom/build-plate/self-centering-keyless-bushing",
+          "BOM:build-plate/self-centering-keyless-bushing/part",
+          null
+        ],
+        [
+          "bom/build-plate/stepper-driver-nema23",
+          "BOM:build-plate/stepper-driver-nema23/part",
+          null
+        ],
+        [
+          "bom/build-plate/thermocouple-plate",
+          "BOM:build-plate/thermocouple-plate/part",
+          null
+        ],
+        [
+          "bom/electric/12v-psu",
+          "BOM:electric/12v-psu/part",
+          null
+        ],
+        [
+          "bom/electric/15mm-din-rail",
+          "BOM:electric/15mm-din-rail/part",
+          null
+        ],
+        [
+          "bom/electric/19-usb-hub",
+          "BOM:electric/19-usb-hub/part",
+          null
+        ],
+        [
+          "bom/electric/2-pin-connector-female-chassis",
+          "BOM:electric/2-pin-connector-female-chassis/part",
+          null
+        ],
+        [
+          "bom/electric/2-pin-connector-male-cable-mount",
+          "BOM:electric/2-pin-connector-male-cable-mount/part",
+          null
+        ],
+        [
+          "bom/electric/230v-power-plug",
+          "BOM:electric/230v-power-plug/part",
+          null
+        ],
+        [
+          "bom/electric/24vdc-psu-20a",
+          "BOM:electric/24vdc-psu-20a/part",
+          null
+        ],
+        [
+          "bom/electric/35mm-din-rail",
+          "BOM:electric/35mm-din-rail/part",
+          null
+        ],
+        [
+          "bom/electric/3p-n-e-female",
+          "BOM:electric/3p-n-e-female/part",
+          null
+        ],
+        [
+          "bom/electric/3p-n-e-male",
+          "BOM:electric/3p-n-e-male/part",
+          null
+        ],
+        [
+          "bom/electric/400v-power-cable",
+          "BOM:electric/400v-power-cable/part",
+          null
+        ],
+        [
+          "bom/electric/40x40-cable-duct",
+          "BOM:electric/40x40-cable-duct/part",
+          null
+        ],
+        [
+          "bom/electric/5-pin-connector-female",
+          "BOM:electric/5-pin-connector-female/part",
+          null
+        ],
+        [
+          "bom/electric/5-pin-connector-male",
+          "BOM:electric/5-pin-connector-male/part",
+          null
+        ],
+        [
+          "bom/electric/5v-4a-power-to-usb-hub-5-5-x2-1mm-jack",
+          "BOM:electric/5v-4a-power-to-usb-hub-5-5-x2-1mm-jack/part",
+          null
+        ],
+        [
+          "bom/electric/5v-psu",
+          "BOM:electric/5v-psu/part",
+          null
+        ],
+        [
+          "bom/electric/adam-dyn-info-m12-5",
+          "BOM:electric/adam-dyn-info-m12-5/part",
+          null
+        ],
+        [
+          "bom/electric/compact-screw-terminal",
+          "BOM:electric/compact-screw-terminal/part",
+          null
+        ],
+        [
+          "bom/electric/din-relay",
+          "BOM:electric/din-relay/part",
+          null
+        ],
+        [
+          "bom/electric/din-solidstate-relay",
+          "BOM:electric/din-solidstate-relay/part",
+          null
+        ],
+        [
+          "bom/electric/e-stop",
+          "BOM:electric/e-stop/part",
+          null
+        ],
+        [
+          "bom/electric/electric-cabinet-fan",
+          "BOM:electric/electric-cabinet-fan/part",
+          null
+        ],
+        [
+          "bom/electric/electrical-cabinet",
+          "BOM:electric/electrical-cabinet/part",
+          null
+        ],
+        [
+          "bom/electric/endestops-mech-plunger",
+          "BOM:electric/endestops-mech-plunger/part",
+          null
+        ],
+        [
+          "bom/electric/eva-general-code",
+          "BOM:electric/eva-general-code/part",
+          null
+        ],
+        [
+          "bom/electric/glams",
+          "BOM:electric/glams/part",
+          null
+        ],
+        [
+          "bom/electric/heater-pid",
+          "BOM:electric/heater-pid/part",
+          null
+        ],
+        [
+          "bom/electric/inca-1-tina-estop",
+          "BOM:electric/inca-1-tina-estop/part",
+          null
+        ],
+        [
+          "bom/electric/kabelforskruning",
+          "BOM:electric/kabelforskruning/part",
+          null
+        ],
+        [
+          "bom/electric/kabelforskruning-oring",
+          "BOM:electric/kabelforskruning-oring/part",
+          null
+        ],
+        [
+          "bom/electric/klemraekker-bla",
+          "BOM:electric/klemraekker-bla/part",
+          null
+        ],
+        [
+          "bom/electric/klemraekker-endestop",
+          "BOM:electric/klemraekker-endestop/part",
+          null
+        ],
+        [
+          "bom/electric/klemraekker-gra",
+          "BOM:electric/klemraekker-gra/part",
+          null
+        ],
+        [
+          "bom/electric/klemraekker-gul-gron",
+          "BOM:electric/klemraekker-gul-gron/part",
+          null
+        ],
+        [
+          "bom/electric/klemraekker-markeringer",
+          "BOM:electric/klemraekker-markeringer/part",
+          null
+        ],
+        [
+          "bom/electric/laske-2-polet",
+          "BOM:electric/laske-2-polet/part",
+          null
+        ],
+        [
+          "bom/electric/laske-3-polet",
+          "BOM:electric/laske-3-polet/part",
+          null
+        ],
+        [
+          "bom/electric/m12-c61-6m-cable",
+          "BOM:electric/m12-c61-6m-cable/part",
+          null
+        ],
+        [
+          "bom/electric/m12-c63-6m-cable",
+          "BOM:electric/m12-c63-6m-cable/part",
+          null
+        ],
+        [
+          "bom/electric/pluto-d20-safety-plc",
+          "BOM:electric/pluto-d20-safety-plc/part",
+          null
+        ],
+        [
+          "bom/electric/safety-contactor",
+          "BOM:electric/safety-contactor/part",
+          null
+        ],
+        [
+          "bom/electric/self-cutting-panel-screw",
+          "BOM:electric/self-cutting-panel-screw/part",
+          null
+        ],
+        [
+          "bom/electric/smile-41-ewwwp-estop-box",
+          "BOM:electric/smile-41-ewwwp-estop-box/part",
+          null
+        ],
+        [
+          "bom/electric/switch-for-vfd",
+          "BOM:electric/switch-for-vfd/part",
+          null
+        ],
+        [
+          "bom/electric/termoelement-type-k",
+          "BOM:electric/termoelement-type-k/part",
+          null
+        ],
+        [
+          "bom/electric/vfd",
+          "BOM:electric/vfd/part",
+          null
+        ],
+        [
+          "bom/gas-flow/blower-vibration-rubber-mount",
+          "BOM:gas-flow/blower-vibration-rubber-mount/part",
+          null
+        ],
+        [
+          "bom/gas-flow/cyklone",
+          "BOM:gas-flow/cyklone/part",
+          null
+        ],
+        [
+          "bom/gas-flow/din-plug-solenoid",
+          "BOM:gas-flow/din-plug-solenoid/part",
+          null
+        ],
+        [
+          "bom/gas-flow/filter-housing-2-with-one-filter",
+          "BOM:gas-flow/filter-housing-2-with-one-filter/part",
+          null
+        ],
+        [
+          "bom/gas-flow/g1-2-locking-nut-for-oxygen-sensor",
+          "BOM:gas-flow/g1-2-locking-nut-for-oxygen-sensor/part",
+          null
+        ],
+        [
+          "bom/gas-flow/gas-blower",
+          "BOM:gas-flow/gas-blower/part",
+          null
+        ],
+        [
+          "bom/gas-flow/gas-bottle-input",
+          "BOM:gas-flow/gas-bottle-input/part",
+          null
+        ],
+        [
+          "bom/gas-flow/gas-flow-ducting-tube",
+          "BOM:gas-flow/gas-flow-ducting-tube/part",
+          null
+        ],
+        [
+          "bom/gas-flow/gas-flow-end-duct",
+          "BOM:gas-flow/gas-flow-end-duct/part",
+          null
+        ],
+        [
+          "bom/gas-flow/gas-flow-inlet-geometry",
+          "BOM:gas-flow/gas-flow-inlet-geometry/part",
+          null
+        ],
+        [
+          "bom/gas-flow/main-solenoid-valve",
+          "BOM:gas-flow/main-solenoid-valve/part",
+          null
+        ],
+        [
+          "bom/gas-flow/o6-panel-mount-manual-flow-reg",
+          "BOM:gas-flow/o6-panel-mount-manual-flow-reg/part",
+          null
+        ],
+        [
+          "bom/gas-flow/o6-quick-connect-bulkhead",
+          "BOM:gas-flow/o6-quick-connect-bulkhead/part",
+          null
+        ],
+        [
+          "bom/gas-flow/o8-gas-tubing",
+          "BOM:gas-flow/o8-gas-tubing/part",
+          null
+        ],
+        [
+          "bom/gas-flow/o8-process-chamber-inlet",
+          "BOM:gas-flow/o8-process-chamber-inlet/part",
+          null
+        ],
+        [
+          "bom/gas-flow/o8-quick-connect-tube-barb",
+          "BOM:gas-flow/o8-quick-connect-tube-barb/part",
+          null
+        ],
+        [
+          "bom/gas-flow/oxygen-sensor",
+          "BOM:gas-flow/oxygen-sensor/part",
+          null
+        ],
+        [
+          "bom/gas-flow/spare-gas-filters-polyether",
+          "BOM:gas-flow/spare-gas-filters-polyether/part",
+          null
+        ],
+        [
+          "bom/gas-flow/tangential-blower",
+          "BOM:gas-flow/tangential-blower/part",
+          null
+        ],
+        [
+          "bom/optics/collimator",
+          "BOM:optics/collimator/part",
+          null
+        ],
+        [
+          "bom/optics/f-theta",
+          "BOM:optics/f-theta/part",
+          null
+        ],
+        [
+          "bom/optics/galve-support-bracket",
+          "BOM:optics/galve-support-bracket/part",
+          null
+        ],
+        [
+          "bom/optics/galvo-box-bracket",
+          "BOM:optics/galvo-box-bracket/part",
+          null
+        ],
+        [
+          "bom/optics/laser-source",
+          "BOM:optics/laser-source/part",
+          null
+        ],
+        [
+          "bom/optics/silicone-gasket-f-theta-ring",
+          "BOM:optics/silicone-gasket-f-theta-ring/part",
+          null
+        ],
+        [
+          "bom/optics/sunny-galvo",
+          "BOM:optics/sunny-galvo/part",
+          null
+        ],
+        [
+          "bom/optics/sunny-galvo-adapter-plate",
+          "BOM:optics/sunny-galvo-adapter-plate/part",
+          null
+        ],
+        [
+          "bom/optics/water-chiller-for-collimator",
+          "BOM:optics/water-chiller-for-collimator/part",
+          null
+        ],
+        [
+          "bom/powder/1-butterfly-valve-for-filling",
+          "BOM:powder/1-butterfly-valve-for-filling/part",
+          null
+        ],
+        [
+          "bom/powder/1-ferrule-tri-clamp",
+          "BOM:powder/1-ferrule-tri-clamp/part",
+          null
+        ],
+        [
+          "bom/powder/ball-bearing-dispenser",
+          "BOM:powder/ball-bearing-dispenser/part",
+          null
+        ],
+        [
+          "bom/powder/capacitive-sensor-for-powder-level",
+          "BOM:powder/capacitive-sensor-for-powder-level/part",
+          null
+        ],
+        [
+          "bom/powder/digital-stepper-driver",
+          "BOM:powder/digital-stepper-driver/part",
+          null
+        ],
+        [
+          "bom/powder/dispenser-drum-coupling",
+          "BOM:powder/dispenser-drum-coupling/part",
+          null
+        ],
+        [
+          "bom/powder/powder-dispense-stepper",
+          "BOM:powder/powder-dispense-stepper/part",
+          null
+        ],
+        [
+          "bom/powder/powder-handling-mount-bracket",
+          "BOM:powder/powder-handling-mount-bracket/part",
+          null
+        ],
+        [
+          "bom/powder/powder-hopper",
+          "BOM:powder/powder-hopper/part",
+          null
+        ],
+        [
+          "bom/powder/powder-inlet",
+          "BOM:powder/powder-inlet/part",
+          null
+        ],
+        [
+          "bom/powder/powder-roller-ceramic-gasket",
+          "BOM:powder/powder-roller-ceramic-gasket/part",
+          null
+        ],
+        [
+          "bom/powder/powder-roller-housing",
+          "BOM:powder/powder-roller-housing/part",
+          null
+        ],
+        [
+          "bom/powder/powder-stepper-bracket",
+          "BOM:powder/powder-stepper-bracket/part",
+          null
+        ],
+        [
+          "bom/powder/powder-valve-fitting",
+          "BOM:powder/powder-valve-fitting/part",
+          null
+        ],
+        [
+          "bom/powder/tri-clamp-silicone-gasket-5pcs",
+          "BOM:powder/tri-clamp-silicone-gasket-5pcs/part",
+          null
+        ],
+        [
+          "bom/powder/valve-weld-adapter",
+          "BOM:powder/valve-weld-adapter/part",
+          null
+        ],
+        [
+          "bom/raw-materials/loctite-222",
+          "BOM:raw-materials/loctite-222/part",
+          null
+        ],
+        [
+          "bom/raw-materials/montage-pasta",
+          "BOM:raw-materials/montage-pasta/part",
+          null
+        ],
+        [
+          "bom/raw-materials/silicone-sheet",
+          "BOM:raw-materials/silicone-sheet/part",
+          null
+        ],
+        [
+          "bom/recoater/bearing-spacer-for-idler",
+          "BOM:recoater/bearing-spacer-for-idler/part",
+          null
+        ],
+        [
+          "bom/recoater/linear-bushing-shaft",
+          "BOM:recoater/linear-bushing-shaft/part",
+          null
+        ],
+        [
+          "bom/recoater/linear-shaft-support",
+          "BOM:recoater/linear-shaft-support/part",
+          null
+        ],
+        [
+          "bom/recoater/pivot-pin-for-timing-idler",
+          "BOM:recoater/pivot-pin-for-timing-idler/part",
+          null
+        ],
+        [
+          "bom/recoater/recoater-clamp",
+          "BOM:recoater/recoater-clamp/part",
+          null
+        ],
+        [
+          "bom/recoater/recoater-end-stop-bracket",
+          "BOM:recoater/recoater-end-stop-bracket/part",
+          null
+        ],
+        [
+          "bom/recoater/recoater-head",
+          "BOM:recoater/recoater-head/part",
+          null
+        ],
+        [
+          "bom/recoater/recoater-linear-rod",
+          "BOM:recoater/recoater-linear-rod/part",
+          null
+        ],
+        [
+          "bom/recoater/recoater-stepper-nema-23",
+          "BOM:recoater/recoater-stepper-nema-23/part",
+          null
+        ],
+        [
+          "bom/recoater/recoater-wall",
+          "BOM:recoater/recoater-wall/part",
+          null
+        ],
+        [
+          "bom/recoater/stepper-driver",
+          "BOM:recoater/stepper-driver/part",
+          null
+        ],
+        [
+          "bom/recoater/t5-timing-belt-300-teeth",
+          "BOM:recoater/t5-timing-belt-300-teeth/part",
+          null
+        ],
+        [
+          "bom/recoater/timing-belt-clamp-plate",
+          "BOM:recoater/timing-belt-clamp-plate/part",
+          null
+        ],
+        [
+          "bom/recoater/timing-belt-idler-o8-t5",
+          "BOM:recoater/timing-belt-idler-o8-t5/part",
+          null
+        ],
+        [
+          "bom/recoater/timing-pulley-o6-35-t5",
+          "BOM:recoater/timing-pulley-o6-35-t5/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/2020-x-arm",
+          "BOM:sensorgantry/2020-x-arm/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/2040-alu-support",
+          "BOM:sensorgantry/2040-alu-support/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/gt2-6mm-belt",
+          "BOM:sensorgantry/gt2-6mm-belt/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/sensor-bracket",
+          "BOM:sensorgantry/sensor-bracket/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/x-axis-bottom-bracket",
+          "BOM:sensorgantry/x-axis-bottom-bracket/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/x-axis-idler-bracket",
+          "BOM:sensorgantry/x-axis-idler-bracket/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/x-axis-linear-guide",
+          "BOM:sensorgantry/x-axis-linear-guide/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/x-axis-nema-11",
+          "BOM:sensorgantry/x-axis-nema-11/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/x-axis-timing-idler",
+          "BOM:sensorgantry/x-axis-timing-idler/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/x-axis-timing-pulley",
+          "BOM:sensorgantry/x-axis-timing-pulley/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/x-axis-top-bracket",
+          "BOM:sensorgantry/x-axis-top-bracket/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/y-axis-idler-plate",
+          "BOM:sensorgantry/y-axis-idler-plate/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/y-axis-linear-guide",
+          "BOM:sensorgantry/y-axis-linear-guide/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/y-axis-nema-14",
+          "BOM:sensorgantry/y-axis-nema-14/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/y-axis-stepper-bracket",
+          "BOM:sensorgantry/y-axis-stepper-bracket/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/y-axis-timing-idler",
+          "BOM:sensorgantry/y-axis-timing-idler/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/y-axis-timing-pulley",
+          "BOM:sensorgantry/y-axis-timing-pulley/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/z-axis-guide-clamp",
+          "BOM:sensorgantry/z-axis-guide-clamp/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/z-axis-linear-guide",
+          "BOM:sensorgantry/z-axis-linear-guide/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/z-axis-linear-rod",
+          "BOM:sensorgantry/z-axis-linear-rod/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/z-axis-linear-stepper",
+          "BOM:sensorgantry/z-axis-linear-stepper/part",
+          null
+        ],
+        [
+          "bom/sensorgantry/z-axis-stepper-bracket",
+          "BOM:sensorgantry/z-axis-stepper-bracket/part",
+          null
+        ],
+        [
+          "bom/support/19-rack-plates",
+          "BOM:support/19-rack-plates/part",
+          null
+        ],
+        [
+          "bom/support/19-rack-shelves",
+          "BOM:support/19-rack-shelves/part",
+          null
+        ],
+        [
+          "bom/support/4040-extrusion",
+          "BOM:support/4040-extrusion/part",
+          null
+        ],
+        [
+          "bom/support/8040-extrusion",
+          "BOM:support/8040-extrusion/part",
+          null
+        ],
+        [
+          "bom/support/automatic-fasteners",
+          "BOM:support/automatic-fasteners/part",
+          null
+        ],
+        [
+          "bom/support/beslag-til-topplade",
+          "BOM:support/beslag-til-topplade/part",
+          null
+        ],
+        [
+          "bom/support/castors",
+          "BOM:support/castors/part",
+          null
+        ],
+        [
+          "bom/support/cover-handles",
+          "BOM:support/cover-handles/part",
+          null
+        ],
+        [
+          "bom/support/cover-hinges",
+          "BOM:support/cover-hinges/part",
+          null
+        ],
+        [
+          "bom/support/cover-latches",
+          "BOM:support/cover-latches/part",
+          null
+        ],
+        [
+          "bom/support/cover-plates",
+          "BOM:support/cover-plates/part",
+          null
+        ],
+        [
+          "bom/support/cover-plates-w-door",
+          "BOM:support/cover-plates-w-door/part",
+          null
+        ],
+        [
+          "bom/support/desktop",
+          "BOM:support/desktop/part",
+          null
+        ],
+        [
+          "bom/support/leveling-feet",
+          "BOM:support/leveling-feet/part",
+          null
+        ],
+        [
+          "bom/support/multiblock",
+          "BOM:support/multiblock/part",
+          null
+        ],
+        [
+          "bom/support/standard-fasteners",
+          "BOM:support/standard-fasteners/part",
+          null
+        ],
+        [
+          "bom/support/system-pc",
+          "BOM:support/system-pc/part",
+          null
+        ]
+      ],
+      "drawing_bom_links": {
+        "D-001": [],
+        "D-002": [
+          "BOM:box/left-side-box"
+        ],
+        "D-003": [
+          "BOM:box/print-platform"
+        ],
+        "D-004": [
+          "BOM:box/top-side"
+        ],
+        "D-005": [
+          "BOM:box/window-frame"
+        ],
+        "D-006": [],
+        "D-007": [
+          "BOM:powder/powder-roller"
+        ],
+        "D-008": [],
+        "D-009": [],
+        "D-010": [],
+        "D-011": [
+          "BOM:recoater/recoater-arm"
+        ],
+        "D-012": [
+          "BOM:recoater/recoater-mount-block"
+        ],
+        "D-013": [],
+        "D-014": [
+          "BOM:recoater/recoater-stage-plate"
+        ],
+        "D-015": [
+          "BOM:recoater/recoater-blade"
+        ],
+        "D-016": [],
+        "D-017": [],
+        "D-018": [],
+        "D-019": [],
+        "D-020": [
+          "BOM:optics/f-theta-seal-ring"
+        ],
+        "D-021": [],
+        "D-022": [],
+        "D-023": [],
+        "D-024": [],
+        "D-025": [],
+        "D-026": [
+          "BOM:build-plate/build-plate"
+        ],
+        "D-027": [],
+        "D-028": [],
+        "D-029": [],
+        "D-030": []
+      },
+      "standalone_bom_rows": [
+        "BOM:box/2020-angle-bracket",
+        "BOM:box/2020-internal-profile",
+        "BOM:box/back-box",
+        "BOM:box/back-door",
+        "BOM:box/front-door",
+        "BOM:box/front-door-hinge",
+        "BOM:box/front-door-latch",
+        "BOM:box/front-side-box",
+        "BOM:box/laser-safety-window",
+        "BOM:box/m4-nut-for-2020-not-5mm",
+        "BOM:box/m5-nut-for-2020-not-5mm",
+        "BOM:box/m5x12-button-head-screws",
+        "BOM:box/m5x8-button-head-screws",
+        "BOM:box/m8-8mm-not-t-nut",
+        "BOM:box/m8x12-button-head-screws",
+        "BOM:box/right-box",
+        "BOM:box/rubber-seal-for-doors",
+        "BOM:box/silicone",
+        "BOM:box/silicone-gun",
+        "BOM:box/top-side-bracing",
+        "BOM:box/top-side-powder-bracing",
+        "BOM:build-plate/build-base",
+        "BOM:build-plate/build-cylinder",
+        "BOM:build-plate/build-cylinder-clamp-ring",
+        "BOM:build-plate/ceramic-build-base-seal",
+        "BOM:build-plate/heating-element",
+        "BOM:build-plate/heating-element-plate",
+        "BOM:build-plate/motor-plate",
+        "BOM:build-plate/motor-plate-shaft",
+        "BOM:build-plate/nema-23-tr11x2-non-captive",
+        "BOM:build-plate/seal-clamp-plate",
+        "BOM:build-plate/self-centering-keyless-bushing",
+        "BOM:build-plate/stepper-driver-nema23",
+        "BOM:build-plate/thermocouple-plate",
+        "BOM:electric/12v-psu",
+        "BOM:electric/15mm-din-rail",
+        "BOM:electric/19-usb-hub",
+        "BOM:electric/2-pin-connector-female-chassis",
+        "BOM:electric/2-pin-connector-male-cable-mount",
+        "BOM:electric/230v-power-plug",
+        "BOM:electric/24vdc-psu-20a",
+        "BOM:electric/35mm-din-rail",
+        "BOM:electric/3p-n-e-female",
+        "BOM:electric/3p-n-e-male",
+        "BOM:electric/400v-power-cable",
+        "BOM:electric/40x40-cable-duct",
+        "BOM:electric/5-pin-connector-female",
+        "BOM:electric/5-pin-connector-male",
+        "BOM:electric/5v-4a-power-to-usb-hub-5-5-x2-1mm-jack",
+        "BOM:electric/5v-psu",
+        "BOM:electric/adam-dyn-info-m12-5",
+        "BOM:electric/compact-screw-terminal",
+        "BOM:electric/din-relay",
+        "BOM:electric/din-solidstate-relay",
+        "BOM:electric/e-stop",
+        "BOM:electric/electric-cabinet-fan",
+        "BOM:electric/electrical-cabinet",
+        "BOM:electric/endestops-mech-plunger",
+        "BOM:electric/eva-general-code",
+        "BOM:electric/glams",
+        "BOM:electric/heater-pid",
+        "BOM:electric/inca-1-tina-estop",
+        "BOM:electric/kabelforskruning",
+        "BOM:electric/kabelforskruning-oring",
+        "BOM:electric/klemraekker-bla",
+        "BOM:electric/klemraekker-endestop",
+        "BOM:electric/klemraekker-gra",
+        "BOM:electric/klemraekker-gul-gron",
+        "BOM:electric/klemraekker-markeringer",
+        "BOM:electric/laske-2-polet",
+        "BOM:electric/laske-3-polet",
+        "BOM:electric/m12-c61-6m-cable",
+        "BOM:electric/m12-c63-6m-cable",
+        "BOM:electric/pluto-d20-safety-plc",
+        "BOM:electric/safety-contactor",
+        "BOM:electric/self-cutting-panel-screw",
+        "BOM:electric/smile-41-ewwwp-estop-box",
+        "BOM:electric/switch-for-vfd",
+        "BOM:electric/termoelement-type-k",
+        "BOM:electric/vfd",
+        "BOM:gas-flow/blower-vibration-rubber-mount",
+        "BOM:gas-flow/cyklone",
+        "BOM:gas-flow/din-plug-solenoid",
+        "BOM:gas-flow/filter-housing-2-with-one-filter",
+        "BOM:gas-flow/g1-2-locking-nut-for-oxygen-sensor",
+        "BOM:gas-flow/gas-blower",
+        "BOM:gas-flow/gas-bottle-input",
+        "BOM:gas-flow/gas-flow-ducting-tube",
+        "BOM:gas-flow/gas-flow-end-duct",
+        "BOM:gas-flow/gas-flow-inlet-geometry",
+        "BOM:gas-flow/main-solenoid-valve",
+        "BOM:gas-flow/o6-panel-mount-manual-flow-reg",
+        "BOM:gas-flow/o6-quick-connect-bulkhead",
+        "BOM:gas-flow/o8-gas-tubing",
+        "BOM:gas-flow/o8-process-chamber-inlet",
+        "BOM:gas-flow/o8-quick-connect-tube-barb",
+        "BOM:gas-flow/oxygen-sensor",
+        "BOM:gas-flow/spare-gas-filters-polyether",
+        "BOM:gas-flow/tangential-blower",
+        "BOM:optics/collimator",
+        "BOM:optics/f-theta",
+        "BOM:optics/galve-support-bracket",
+        "BOM:optics/galvo-box-bracket",
+        "BOM:optics/laser-source",
+        "BOM:optics/silicone-gasket-f-theta-ring",
+        "BOM:optics/sunny-galvo",
+        "BOM:optics/sunny-galvo-adapter-plate",
+        "BOM:optics/water-chiller-for-collimator",
+        "BOM:powder/1-butterfly-valve-for-filling",
+        "BOM:powder/1-ferrule-tri-clamp",
+        "BOM:powder/ball-bearing-dispenser",
+        "BOM:powder/capacitive-sensor-for-powder-level",
+        "BOM:powder/digital-stepper-driver",
+        "BOM:powder/dispenser-drum-coupling",
+        "BOM:powder/powder-dispense-stepper",
+        "BOM:powder/powder-handling-mount-bracket",
+        "BOM:powder/powder-hopper",
+        "BOM:powder/powder-inlet",
+        "BOM:powder/powder-roller-ceramic-gasket",
+        "BOM:powder/powder-roller-housing",
+        "BOM:powder/powder-stepper-bracket",
+        "BOM:powder/powder-valve-fitting",
+        "BOM:powder/tri-clamp-silicone-gasket-5pcs",
+        "BOM:powder/valve-weld-adapter",
+        "BOM:raw-materials/loctite-222",
+        "BOM:raw-materials/montage-pasta",
+        "BOM:raw-materials/silicone-sheet",
+        "BOM:recoater/bearing-spacer-for-idler",
+        "BOM:recoater/linear-bushing-shaft",
+        "BOM:recoater/linear-shaft-support",
+        "BOM:recoater/pivot-pin-for-timing-idler",
+        "BOM:recoater/recoater-clamp",
+        "BOM:recoater/recoater-end-stop-bracket",
+        "BOM:recoater/recoater-head",
+        "BOM:recoater/recoater-linear-rod",
+        "BOM:recoater/recoater-stepper-nema-23",
+        "BOM:recoater/recoater-wall",
+        "BOM:recoater/stepper-driver",
+        "BOM:recoater/t5-timing-belt-300-teeth",
+        "BOM:recoater/timing-belt-clamp-plate",
+        "BOM:recoater/timing-belt-idler-o8-t5",
+        "BOM:recoater/timing-pulley-o6-35-t5",
+        "BOM:sensorgantry/2020-x-arm",
+        "BOM:sensorgantry/2040-alu-support",
+        "BOM:sensorgantry/gt2-6mm-belt",
+        "BOM:sensorgantry/sensor-bracket",
+        "BOM:sensorgantry/x-axis-bottom-bracket",
+        "BOM:sensorgantry/x-axis-idler-bracket",
+        "BOM:sensorgantry/x-axis-linear-guide",
+        "BOM:sensorgantry/x-axis-nema-11",
+        "BOM:sensorgantry/x-axis-timing-idler",
+        "BOM:sensorgantry/x-axis-timing-pulley",
+        "BOM:sensorgantry/x-axis-top-bracket",
+        "BOM:sensorgantry/y-axis-idler-plate",
+        "BOM:sensorgantry/y-axis-linear-guide",
+        "BOM:sensorgantry/y-axis-nema-14",
+        "BOM:sensorgantry/y-axis-stepper-bracket",
+        "BOM:sensorgantry/y-axis-timing-idler",
+        "BOM:sensorgantry/y-axis-timing-pulley",
+        "BOM:sensorgantry/z-axis-guide-clamp",
+        "BOM:sensorgantry/z-axis-linear-guide",
+        "BOM:sensorgantry/z-axis-linear-rod",
+        "BOM:sensorgantry/z-axis-linear-stepper",
+        "BOM:sensorgantry/z-axis-stepper-bracket",
+        "BOM:support/19-rack-plates",
+        "BOM:support/19-rack-shelves",
+        "BOM:support/4040-extrusion",
+        "BOM:support/8040-extrusion",
+        "BOM:support/automatic-fasteners",
+        "BOM:support/beslag-til-topplade",
+        "BOM:support/castors",
+        "BOM:support/cover-handles",
+        "BOM:support/cover-hinges",
+        "BOM:support/cover-latches",
+        "BOM:support/cover-plates",
+        "BOM:support/cover-plates-w-door",
+        "BOM:support/desktop",
+        "BOM:support/leveling-feet",
+        "BOM:support/multiblock",
+        "BOM:support/standard-fasteners",
+        "BOM:support/system-pc"
+      ],
+      "page_images": [
+        "images/D-001-p1.png",
+        "images/D-002-p1.png",
+        "images/D-003-p1.png",
+        "images/D-003-p2.png",
+        "images/D-003-p3.png",
+        "images/D-004-p1.png",
+        "images/D-005-p1.png",
+        "images/D-006-p1.png",
+        "images/D-007-p1.png",
+        "images/D-008-p1.png",
+        "images/D-009-p1.png",
+        "images/D-010-p1.png",
+        "images/D-011-p1.png",
+        "images/D-012-p1.png",
+        "images/D-013-p1.png",
+        "images/D-014-p1.png",
+        "images/D-015-p1.png",
+        "images/D-016-p1.png",
+        "images/D-017-p1.png",
+        "images/D-018-p1.png",
+        "images/D-019-p1.png",
+        "images/D-020-p1.png",
+        "images/D-021-p1.png",
+        "images/D-021-p2.png",
+        "images/D-022-p1.png",
+        "images/D-023-p1.png",
+        "images/D-024-p1.png",
+        "images/D-025-p1.png",
+        "images/D-026-p1.png",
+        "images/D-027-p1.png",
+        "images/D-028-p1.png",
+        "images/D-029-p1.png",
+        "images/D-030-p1.png"
+      ]
+    },
+    "model_ids_checked": [
+      "D-012",
+      "D-013",
+      "D-014",
+      "D-015",
+      "D-017",
+      "D-019",
+      "D-025",
+      "D-026",
+      "D-027"
+    ],
+    "model_inventory": {
+      "D-012": {
+        "template_sha256": "145ae791079abe6a53320360397f95092b981df4e8483a7132fae5bae6fe4b83",
+        "generator_version": "flat-part-13",
+        "source_sha256": "23ba5d97ee7a744cf12072e1338ab62fa5e49c09c5229af4f20a6ff5a455f64a",
+        "variants": {
+          "A": {
+            "template_sha256": "145ae791079abe6a53320360397f95092b981df4e8483a7132fae5bae6fe4b83",
+            "selections": {}
+          }
+        }
+      },
+      "D-013": {
+        "template_sha256": "add140b98c1b643879c308b523a8f056e09affb4ed74f0c1f4011844a2555f81",
+        "generator_version": "flat-part-13",
+        "source_sha256": "826076b03bfbaeee961dc3e57cb642c225d41f1ea9a643d0bb1ca7d296280047",
+        "variants": {
+          "A": {
+            "template_sha256": "add140b98c1b643879c308b523a8f056e09affb4ed74f0c1f4011844a2555f81",
+            "selections": {
+              "thickness": 3.0
+            }
+          },
+          "B": {
+            "template_sha256": "add140b98c1b643879c308b523a8f056e09affb4ed74f0c1f4011844a2555f81",
+            "selections": {
+              "thickness": 6.0
+            }
+          }
+        }
+      },
+      "D-014": {
+        "template_sha256": "5bb98138de769d2feeeb33cb437b8cafa06d1d261cf371e3f5e780be64c2b152",
+        "generator_version": "flat-part-13",
+        "source_sha256": "0e6fa42e39eda320d42f45576a0825c5d0c002abd6863188b3c98774d52867f6",
+        "variants": {
+          "A": {
+            "template_sha256": "5bb98138de769d2feeeb33cb437b8cafa06d1d261cf371e3f5e780be64c2b152",
+            "selections": {}
+          }
+        }
+      },
+      "D-015": {
+        "template_sha256": "ea885e419942949161abe7db4ec1f03cc16fb6586deda74009b743fb601db818",
+        "generator_version": "flat-part-13",
+        "source_sha256": "0828f6fee0d3bc087524df08c8b3fbadc5201212e5f86fcfc08b984fe9e32c60",
+        "variants": {
+          "A": {
+            "template_sha256": "ea885e419942949161abe7db4ec1f03cc16fb6586deda74009b743fb601db818",
+            "selections": {}
+          }
+        }
+      },
+      "D-017": {
+        "template_sha256": "5adb12ddd1a9befdfa5e8ac3e166e57d821439b2726b92117ef1adab372295af",
+        "generator_version": "flat-part-13",
+        "source_sha256": "a460ab37d94f2d8f4c9bac58da15ea9d1e93b4f48ee0825e51adac0ec81f37ae",
+        "variants": {
+          "A": {
+            "template_sha256": "5adb12ddd1a9befdfa5e8ac3e166e57d821439b2726b92117ef1adab372295af",
+            "selections": {}
+          }
+        }
+      },
+      "D-019": {
+        "template_sha256": "9505b251da2eeb02a660f7fc4f21f1ab1d9435d2f418fafc43b48a2a20b91541",
+        "generator_version": "flat-part-13",
+        "source_sha256": "581fbaf7562ac75008243463af6956d6f88cd6a0a858cf6c22aa62ce39041e11",
+        "variants": {
+          "A": {
+            "template_sha256": "9505b251da2eeb02a660f7fc4f21f1ab1d9435d2f418fafc43b48a2a20b91541",
+            "selections": {}
+          }
+        }
+      },
+      "D-025": {
+        "template_sha256": "9d56f1bfa1da7d10f051710c68a757659f23c5337e5de93be0ffaf9504e261d7",
+        "generator_version": "flat-part-13",
+        "source_sha256": "9b61f2c688fba1b10f502658505c78c0ff99820d3f281822eacdc7283e9b7e9c",
+        "variants": {
+          "A": {
+            "template_sha256": "9d56f1bfa1da7d10f051710c68a757659f23c5337e5de93be0ffaf9504e261d7",
+            "selections": {
+              "thickness": 2.0
+            }
+          },
+          "B": {
+            "template_sha256": "9d56f1bfa1da7d10f051710c68a757659f23c5337e5de93be0ffaf9504e261d7",
+            "selections": {
+              "thickness": 3.0
+            }
+          }
+        }
+      },
+      "D-026": {
+        "template_sha256": "cabed5b7894ca74eed8251a11071d9c1f54d4d93f1e777524ff057b841b5d905",
+        "generator_version": "flat-part-13",
+        "source_sha256": "a7ee7f4d75acaf2e8fc67ce14ca223d5cb4a2931063f37f4dfb6fadeeb70256e",
+        "variants": {
+          "A": {
+            "template_sha256": "cabed5b7894ca74eed8251a11071d9c1f54d4d93f1e777524ff057b841b5d905",
+            "selections": {
+              "thickness": 15
+            }
+          },
+          "B": {
+            "template_sha256": "cabed5b7894ca74eed8251a11071d9c1f54d4d93f1e777524ff057b841b5d905",
+            "selections": {
+              "thickness": 25
+            }
+          }
+        }
+      },
+      "D-027": {
+        "template_sha256": "b3d11b8c50e18a40978514bff2c21fee6d698910f0533c1c1d6396f7b4d24386",
+        "generator_version": "flat-part-13",
+        "source_sha256": "9a270f0ddf24b173b85b6879b4fbd1ba9cf67d71cff7b13f722699699a667bcc",
+        "variants": {
+          "A": {
+            "template_sha256": "b3d11b8c50e18a40978514bff2c21fee6d698910f0533c1c1d6396f7b4d24386",
+            "selections": {}
+          }
+        }
+      }
+    },
+    "asset_hashes_checked": 24,
+    "model_assets_sha256": {
+      "models/D-012_A.glb": "9f53bc959e8af0c61942d1a1279232e3d93c00a38e3ef53b6193f41d5694b6c1",
+      "models/D-012_A_reconstruction_from_drawing.step": "433de2664423f75c8e89f46d180f4bc8dafab1149ae62e50cd089e0522d2c8c2",
+      "models/D-013_A.glb": "eda0d853164269b1fc28d6a742edc48155d20f4791bf5f46805e42c87061140a",
+      "models/D-013_A_reconstruction_from_drawing.step": "ddea2f629c6c402cf80a1186587f6433ee8ea880036b47919929bb8cbd3ef242",
+      "models/D-013_B.glb": "8bfce74eb3cf247cf9cbc43fc4d4313fc93f0ba7f236bc9b4a9ab397fae18fdd",
+      "models/D-013_B_reconstruction_from_drawing.step": "30574cb037e35e026b5ee5e5a6e8848cb50b4d9aaaa59ab0fdd440c90571d539",
+      "models/D-014_A.glb": "614f28f44d5566303c37cbd28522cc5509e85982f9b52a34289e96e4c26e9e1c",
+      "models/D-014_A_reconstruction_from_drawing.step": "51ddc006ff466bcd2382caf0546d68ca85692af19f7b861a87910e82ab0dcc12",
+      "models/D-015_A.glb": "9e2f0925f5a64c49a915ca7b87fb424f34cd563fe14a4510a8075065fe29c167",
+      "models/D-015_A_reconstruction_from_drawing.step": "78094226143525bd2610ad3a9357577bb811b581e94fa8e7060157e5b1417d6b",
+      "models/D-017_A.glb": "41284247fd2c2ed9ec963af511099614dd2d89279b724ea3581c8c2a5db889c1",
+      "models/D-017_A_reconstruction_from_drawing.step": "579403a1d521ec1b6e3312385553a175faeb444b234f04eed2b09cf126da7516",
+      "models/D-019_A.glb": "13469b249c567ffd9d74c13ced0eddd4efb4e2c8411a25093cae6944e36acaa8",
+      "models/D-019_A_reconstruction_from_drawing.step": "02270dd1e23213a898130b9a928b5fcd2b8b13248bcdd887ab4d090e47787662",
+      "models/D-025_A.glb": "de51670805792c52a2a9402373e18ef54022f591cc6096e96954469fbe209d9d",
+      "models/D-025_A_reconstruction_from_drawing.step": "29db7b6e9bed5d2668e55bbf31e746fba629603f29e21d60c84a4da62129f0f9",
+      "models/D-025_B.glb": "28185dc6b069e466ec5aafce7c3433603366c238239ca5baeda1cb11399b6649",
+      "models/D-025_B_reconstruction_from_drawing.step": "c2d3eb3577255cb5f674c322f160a73c083d9a96c7cf336b33ab954a37cd0d27",
+      "models/D-026_A.glb": "c271955f857dea82a63d8bc0367df9084ebbbe28fae0bbb888a8a940a5966f19",
+      "models/D-026_A_reconstruction_from_drawing.step": "2f27d309de0746d48186859f74e31affc719f3a4205869478e156c73e824bae1",
+      "models/D-026_B.glb": "460e5e86ec7e9273cd23c095222075fd467edd92b5454d8eb977209299544bbe",
+      "models/D-026_B_reconstruction_from_drawing.step": "a540b814e7fb30f155bda3b05593a640c129fcd08207695e39ab9e7f7c0edae1",
+      "models/D-027_A.glb": "5de02068b766a365e762d28844ffe07d4181597edbfa64b4aedb5fb80a6988e6",
+      "models/D-027_A_reconstruction_from_drawing.step": "161e4256c694f54aa3e54930a83110b1a3fdf6664c44289d6e83a5cdae6834b1"
+    },
+    "d013_decision_replayed": true
+  },
+  "regeneration_seconds": 9.924,
+  "correction_ui": {
+    "passed": true,
+    "reviewer": "Automated verification",
+    "production_d019_unchanged": true,
+    "browser_errors": []
+  },
+  "production_evidence_and_decisions_unchanged": true,
+  "passed": true
+}

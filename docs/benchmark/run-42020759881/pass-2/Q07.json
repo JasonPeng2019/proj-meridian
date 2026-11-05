@@ -1,0 +1,864 @@
+{
+  "pass": 2,
+  "case_id": "Q07",
+  "question": "What is the T5 timing belt made of?",
+  "server_start_status": {
+    "chat_available": true,
+    "chat_model": "gpt-6-luna",
+    "debug_ui": false,
+    "revision": "05f500b3c0117561",
+    "parts": 211,
+    "drawings": 30,
+    "models": 9,
+    "reviewer_name": "Automated verification"
+  },
+  "preconditions": [],
+  "response": {
+    "text": "Materials recorded for the T5 timing belt 300 teeth are **Steel and Elastomer**. [cite: BOM:recoater/t5-timing-belt-300-teeth/material]",
+    "facts": {
+      "BOM:recoater/t5-timing-belt-300-teeth/part": {
+        "fact": "BOM:recoater/t5-timing-belt-300-teeth/part",
+        "field": "part",
+        "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "T5 timing belt 300 teeth"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/t5-timing-belt-300-teeth/part",
+            "says": "T5 timing belt 300 teeth",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/timing-belt-idler-o8-t5/part": {
+        "fact": "BOM:recoater/timing-belt-idler-o8-t5/part",
+        "field": "part",
+        "part_key": "bom/recoater/timing-belt-idler-o8-t5",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Timing belt idler Ø8 T5"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/timing-belt-idler-o8-t5/part",
+            "says": "Timing belt idler Ø8 T5",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/timing-belt-idler-o8-t5",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/timing-belt-clamp-plate/part": {
+        "fact": "BOM:recoater/timing-belt-clamp-plate/part",
+        "field": "part",
+        "part_key": "bom/recoater/timing-belt-clamp-plate",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Timing belt clamp plate"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/timing-belt-clamp-plate/part",
+            "says": "Timing belt clamp plate",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/timing-belt-clamp-plate",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/timing-pulley-o6-35-t5/part": {
+        "fact": "BOM:recoater/timing-pulley-o6-35-t5/part",
+        "field": "part",
+        "part_key": "bom/recoater/timing-pulley-o6-35-t5",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Timing pulley Ø6.35 T5"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/timing-pulley-o6-35-t5/part",
+            "says": "Timing pulley Ø6.35 T5",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/timing-pulley-o6-35-t5",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/t5-timing-belt-300-teeth/material": {
+        "fact": "BOM:recoater/t5-timing-belt-300-teeth/material",
+        "field": "material",
+        "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Materials recorded: Steel, Elastomer"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/t5-timing-belt-300-teeth/material",
+            "says": "Steel,Elastomer",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+            "cleanup": [
+              "split_comma_list"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/t5-timing-belt-300-teeth/name": {
+        "fact": "BOM:recoater/t5-timing-belt-300-teeth/name",
+        "field": "name",
+        "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "T5 timing belt 300 teeth"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/t5-timing-belt-300-teeth/name",
+            "says": "T5 timing belt 300 teeth",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/t5-timing-belt-300-teeth/part_family": {
+        "fact": "BOM:recoater/t5-timing-belt-300-teeth/part_family",
+        "field": "part_family",
+        "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Recoater"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/t5-timing-belt-300-teeth/part_family",
+            "says": "Recoater",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/t5-timing-belt-300-teeth/type": {
+        "fact": "BOM:recoater/t5-timing-belt-300-teeth/type",
+        "field": "type",
+        "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Standard"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/t5-timing-belt-300-teeth/type",
+            "says": "Standard",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/t5-timing-belt-300-teeth/design": {
+        "fact": "BOM:recoater/t5-timing-belt-300-teeth/design",
+        "field": "design",
+        "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Done"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/t5-timing-belt-300-teeth/design",
+            "says": "Done",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/t5-timing-belt-300-teeth/order": {
+        "fact": "BOM:recoater/t5-timing-belt-300-teeth/order",
+        "field": "order",
+        "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Received"
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/t5-timing-belt-300-teeth/order",
+            "says": "Recieved",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+            "cleanup": [
+              "status_spelling_Recieved_to_Received"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/t5-timing-belt-300-teeth/validation": {
+        "fact": "BOM:recoater/t5-timing-belt-300-teeth/validation",
+        "field": "validation",
+        "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Slight modifications"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/t5-timing-belt-300-teeth/validation",
+            "says": "Slight modifications",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/t5-timing-belt-300-teeth/notes": {
+        "fact": "BOM:recoater/t5-timing-belt-300-teeth/notes",
+        "field": "notes",
+        "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Too many teeth as planned. Easy to cut to length"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/t5-timing-belt-300-teeth/notes",
+            "says": "Too many teeth as planned. Easy to cut to length",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/t5-timing-belt-300-teeth/design_intent": {
+        "fact": "BOM:recoater/t5-timing-belt-300-teeth/design_intent",
+        "field": "design_intent",
+        "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Belt for recoater - open ended. 44g/m"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/t5-timing-belt-300-teeth/design_intent",
+            "says": "Belt for recoater - open ended. 44g/m",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+            "cleanup": [],
+            "note": null,
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/t5-timing-belt-300-teeth/image": {
+        "fact": "BOM:recoater/t5-timing-belt-300-teeth/image",
+        "field": "image",
+        "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/t5-timing-belt-300-teeth/image",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/t5-timing-belt-300-teeth/product_name": {
+        "fact": "BOM:recoater/t5-timing-belt-300-teeth/product_name",
+        "field": "product_name",
+        "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "TTBO-T5200-300"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/t5-timing-belt-300-teeth/product_name",
+            "says": "TTBO-T5200-300",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+            "cleanup": [],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/t5-timing-belt-300-teeth/supplier_order": {
+        "fact": "BOM:recoater/t5-timing-belt-300-teeth/supplier_order",
+        "field": "supplier_order",
+        "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/t5-timing-belt-300-teeth/supplier_order",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/t5-timing-belt-300-teeth/interface_with": {
+        "fact": "BOM:recoater/t5-timing-belt-300-teeth/interface_with",
+        "field": "interface_with",
+        "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. "
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/t5-timing-belt-300-teeth/interface_with",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/t5-timing-belt-300-teeth/link": {
+        "fact": "BOM:recoater/t5-timing-belt-300-teeth/link",
+        "field": "link",
+        "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "https://uk.misumi-ec.com/vona2/detail/110300414430/?CategorySpec=00000005689%3a%3ab%0900000005696%3a%3ah%0900000005697%3a%3amig00000002009720"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/t5-timing-belt-300-teeth/link",
+            "says": "https://uk.misumi-ec.com/vona2/detail/110300414430/?CategorySpec=00000005689%3a%3ab%0900000005696%3a%3ah%0900000005697%3a%3amig00000002009720",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+            "cleanup": [],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/t5-timing-belt-300-teeth/supplier": {
+        "fact": "BOM:recoater/t5-timing-belt-300-teeth/supplier",
+        "field": "supplier",
+        "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": "Misumi"
+        },
+        "badge": "From parts list",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/t5-timing-belt-300-teeth/supplier",
+            "says": "Misumi",
+            "method": "parsed",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+            "cleanup": [],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/t5-timing-belt-300-teeth/datasheet": {
+        "fact": "BOM:recoater/t5-timing-belt-300-teeth/datasheet",
+        "field": "datasheet",
+        "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+        "part_keys": [],
+        "display": {
+          "state": "undetermined",
+          "message": "Not recorded. Raw source: ''. Cleanup: blank_to_null. Recorded in the snapshot, may be out of date."
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/t5-timing-belt-300-teeth/datasheet",
+            "says": "",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+            "cleanup": [
+              "blank_to_null"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/t5-timing-belt-300-teeth/amount": {
+        "fact": "BOM:recoater/t5-timing-belt-300-teeth/amount",
+        "field": "amount",
+        "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 1
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/t5-timing-belt-300-teeth/amount",
+            "says": "1",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+            "cleanup": [
+              "parse_number"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/t5-timing-belt-300-teeth/cost": {
+        "fact": "BOM:recoater/t5-timing-belt-300-teeth/cost",
+        "field": "cost",
+        "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "amount": 449.0,
+            "currency": "DKK"
+          }
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/t5-timing-belt-300-teeth/cost",
+            "says": "DKK449.00",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+            "cleanup": [
+              "parse_dkk_price"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/t5-timing-belt-300-teeth/total_cost": {
+        "fact": "BOM:recoater/t5-timing-belt-300-teeth/total_cost",
+        "field": "total_cost",
+        "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": {
+            "amount": 449.0,
+            "currency": "DKK"
+          }
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/t5-timing-belt-300-teeth/total_cost",
+            "says": "DKK449.00",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+            "cleanup": [
+              "parse_dkk_price"
+            ],
+            "note": "Recorded in the snapshot, may be out of date.",
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": true,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      },
+      "BOM:recoater/t5-timing-belt-300-teeth/interface_count": {
+        "fact": "BOM:recoater/t5-timing-belt-300-teeth/interface_count",
+        "field": "interface_count",
+        "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+        "part_keys": [],
+        "display": {
+          "state": "value",
+          "value": 0
+        },
+        "badge": "From parts list (cleaned)",
+        "review": null,
+        "sources": [
+          {
+            "name": "BOM:recoater/t5-timing-belt-300-teeth/interface_count",
+            "says": "0",
+            "method": "cleanup_rule",
+            "page": 1,
+            "box": null,
+            "part_key": "bom/recoater/t5-timing-belt-300-teeth",
+            "cleanup": [
+              "parse_number"
+            ],
+            "note": null,
+            "badge": "From parts list (cleaned)",
+            "source_path": null,
+            "source_row": null
+          }
+        ],
+        "snapshot_note": false,
+        "review_item": null,
+        "correction": null,
+        "callout": null
+      }
+    },
+    "parts_to_show": [
+      {
+        "id": "BOM:recoater/t5-timing-belt-300-teeth/part",
+        "key": "bom/recoater/t5-timing-belt-300-teeth",
+        "display_name": "T5 timing belt 300 teeth",
+        "section": "Recoater",
+        "has_drawing": false,
+        "has_3d": false,
+        "examples": [],
+        "review_status": "source_evidence",
+        "thumbnail": null,
+        "drawing_url": null,
+        "model_url": null,
+        "shown_reason": null
+      }
+    ],
+    "warnings": [],
+    "session_id": "6561b1719ede4ad29bcb5cca3d75759f",
+    "model": "gpt-6-luna",
+    "usage": {
+      "input_tokens": 10264,
+      "output_tokens": 101,
+      "total_tokens": 10365
+    },
+    "latency_ms": 3458,
+    "tool_trace": [
+      {
+        "tool": "find_part",
+        "arguments": {
+          "text": "T5 timing belt"
+        },
+        "facts_returned": [
+          "BOM:recoater/t5-timing-belt-300-teeth/part",
+          "BOM:recoater/timing-belt-idler-o8-t5/part",
+          "BOM:recoater/timing-belt-clamp-plate/part",
+          "BOM:recoater/timing-pulley-o6-35-t5/part"
+        ]
+      },
+      {
+        "tool": "get_facts",
+        "arguments": {
+          "part_id": "BOM:recoater/t5-timing-belt-300-teeth/part"
+        },
+        "facts_returned": [
+          "BOM:recoater/t5-timing-belt-300-teeth/part",
+          "BOM:recoater/timing-belt-idler-o8-t5/part",
+          "BOM:recoater/timing-belt-clamp-plate/part",
+          "BOM:recoater/timing-pulley-o6-35-t5/part",
+          "BOM:recoater/t5-timing-belt-300-teeth/material",
+          "BOM:recoater/t5-timing-belt-300-teeth/name",
+          "BOM:recoater/t5-timing-belt-300-teeth/part_family",
+          "BOM:recoater/t5-timing-belt-300-teeth/type",
+          "BOM:recoater/t5-timing-belt-300-teeth/design",
+          "BOM:recoater/t5-timing-belt-300-teeth/order",
+          "BOM:recoater/t5-timing-belt-300-teeth/validation",
+          "BOM:recoater/t5-timing-belt-300-teeth/notes",
+          "BOM:recoater/t5-timing-belt-300-teeth/design_intent",
+          "BOM:recoater/t5-timing-belt-300-teeth/image",
+          "BOM:recoater/t5-timing-belt-300-teeth/product_name",
+          "BOM:recoater/t5-timing-belt-300-teeth/supplier_order",
+          "BOM:recoater/t5-timing-belt-300-teeth/interface_with",
+          "BOM:recoater/t5-timing-belt-300-teeth/link",
+          "BOM:recoater/t5-timing-belt-300-teeth/supplier",
+          "BOM:recoater/t5-timing-belt-300-teeth/datasheet",
+          "BOM:recoater/t5-timing-belt-300-teeth/amount",
+          "BOM:recoater/t5-timing-belt-300-teeth/cost",
+          "BOM:recoater/t5-timing-belt-300-teeth/total_cost",
+          "BOM:recoater/t5-timing-belt-300-teeth/interface_count"
+        ]
+      }
+    ],
+    "revision": "05f500b3c0117561"
+  },
+  "wall_latency_ms": 3468
+}

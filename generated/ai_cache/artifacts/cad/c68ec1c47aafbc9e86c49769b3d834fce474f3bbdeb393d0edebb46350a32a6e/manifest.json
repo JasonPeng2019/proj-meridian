@@ -1,0 +1,152 @@
+{
+  "examples": [
+    "A"
+  ],
+  "models": {
+    "A": {
+      "glb": "models/D-027_A.glb",
+      "step": "models/D-027_A_reconstruction_from_drawing.step",
+      "bounds_mm": {
+        "min": [
+          -165.0,
+          -165.0,
+          0.0
+        ],
+        "max": [
+          165.0,
+          165.0,
+          15.000000000000005
+        ],
+        "size": [
+          330.0,
+          330.0,
+          15.000000000000005
+        ]
+      },
+      "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
+      "volume_mm3": 445957.87991968665,
+      "template_sha256": "b3d11b8c50e18a40978514bff2c21fee6d698910f0533c1c1d6396f7b4d24386",
+      "selections": {},
+      "labels": [
+        {
+          "name": "Feature 1 (hole)",
+          "kind": "hole",
+          "count": 6,
+          "hole_type": "plain",
+          "requested_hole_type": "plain",
+          "step_omitted": null,
+          "thread": null,
+          "thread_representation": null,
+          "fact_ids": [
+            "D-027",
+            "D-027/drawing/callout/p1-1",
+            "D-027/drawing/callout/p1-2",
+            "D-027/drawing/n/148.5@1-1",
+            "D-027/drawing/n/6.0@1-1",
+            "D-027/drawing/n/9.0@1-1",
+            "D-027/drawing/n/60.0@1-1"
+          ],
+          "method": "ai_verified",
+          "feature_index": 0
+        },
+        {
+          "name": "Feature 2 (hole)",
+          "kind": "hole",
+          "count": 3,
+          "hole_type": "countersunk",
+          "requested_hole_type": "countersunk",
+          "step_omitted": null,
+          "thread": null,
+          "thread_representation": null,
+          "fact_ids": [
+            "D-027",
+            "D-027/drawing/callout/p1-1",
+            "D-027/drawing/callout/p1-3",
+            "D-027/drawing/callout/p1-4",
+            "D-027/drawing/n/148.5@1-1",
+            "D-027/drawing/n/3.0@1-2",
+            "D-027/drawing/n/11.0@1-1",
+            "D-027/drawing/n/24.4@1-1",
+            "D-027/drawing/n/90.0@1-1",
+            "D-027/drawing/n/120.0@1-1"
+          ],
+          "method": "ai_verified",
+          "feature_index": 1
+        },
+        {
+          "name": "Feature 3 (hole)",
+          "kind": "hole",
+          "count": 3,
+          "hole_type": "counterbored",
+          "requested_hole_type": "counterbored",
+          "step_omitted": null,
+          "thread": null,
+          "thread_representation": null,
+          "fact_ids": [
+            "D-027",
+            "D-027/drawing/n/3.0@1-1",
+            "D-027/drawing/n/20.0@1-1",
+            "D-027/drawing/n/4.0@1-1",
+            "D-027/drawing/n/0.05@1-1",
+            "D-027/drawing/n/0.021@1-1",
+            "D-027/drawing/n/0.0@1-1",
+            "D-027/drawing/n/11.0@1-1",
+            "D-027/drawing/n/148.5@1-1",
+            "D-027/drawing/n/120.0@1-1"
+          ],
+          "method": "ai_verified",
+          "feature_index": 2
+        }
+      ],
+      "waiting": [
+        "features_complete"
+      ],
+      "omitted": [
+        "Undimensioned edge breaks specified by DEBURR AND BREAK SHARP EDGES.: The note supplies no edge-break size or profile. Retain the nominal ring and supported holes without inventing chamfer geometry."
+      ],
+      "features_all_determined": false,
+      "glb_units": "metres",
+      "cad_units": "mm",
+      "glb_to_mm": 1000,
+      "glb_sha256": "5de02068b766a365e762d28844ffe07d4181597edbfa64b4aedb5fb80a6988e6",
+      "step_sha256": "161e4256c694f54aa3e54930a83110b1a3fdf6664c44289d6e83a5cdae6834b1"
+    }
+  },
+  "waiting": [
+    "features_complete"
+  ],
+  "omitted": [
+    "Undimensioned edge breaks specified by DEBURR AND BREAK SHARP EDGES.: The note supplies no edge-break size or profile. Retain the nominal ring and supported holes without inventing chamfer geometry."
+  ],
+  "template_sha256": "b3d11b8c50e18a40978514bff2c21fee6d698910f0533c1c1d6396f7b4d24386",
+  "source_sha256": "9a270f0ddf24b173b85b6879b4fbd1ba9cf67d71cff7b13f722699699a667bcc",
+  "generator_version": "flat-part-13",
+  "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
+  "review": {
+    "status": "not_reviewed"
+  },
+  "label": "Partial AI reconstruction. Not reviewed by a person",
+  "units": "mm",
+  "features_status": "partial",
+  "features_all_determined": false,
+  "omitted_feature_notes": [
+    "Undimensioned edge breaks specified by DEBURR AND BREAK SHARP EDGES.: The note supplies no edge-break size or profile. Retain the nominal ring and supported holes without inventing chamfer geometry."
+  ],
+  "weight_check": {
+    "state": "FAILED",
+    "message": "FAILED weight check: needs manual approval — no trusted material with a sourced density is available",
+    "examples": {
+      "A": {
+        "attempts": [],
+        "matches": false,
+        "drawing_g": 1204.1
+      }
+    },
+    "drawing_g": 1204.1,
+    "tolerance_percent": 5,
+    "requires_approval": true,
+    "approval_note_required": true,
+    "limitation": "A matching weight does not verify feature positions. No thickness or material is selected automatically.",
+    "density_label": "Outside source, not the dataset"
+  }
+}

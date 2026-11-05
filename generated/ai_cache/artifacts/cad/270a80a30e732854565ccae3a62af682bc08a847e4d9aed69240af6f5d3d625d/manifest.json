@@ -1,0 +1,421 @@
+{
+  "examples": [
+    "A"
+  ],
+  "models": {
+    "A": {
+      "glb": "models/D-014_A.glb",
+      "step": "models/D-014_A_reconstruction_from_drawing.step",
+      "bounds_mm": {
+        "min": [
+          -48.0,
+          -83.5,
+          0.0
+        ],
+        "max": [
+          48.0,
+          83.5,
+          8.0
+        ],
+        "size": [
+          96.0,
+          167.0,
+          8.0
+        ]
+      },
+      "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
+      "volume_mm3": 122904.71579363033,
+      "template_sha256": "5bb98138de769d2feeeb33cb437b8cafa06d1d261cf371e3f5e780be64c2b152",
+      "selections": {},
+      "labels": [
+        {
+          "name": "Feature 1 (hole)",
+          "kind": "hole",
+          "count": 1,
+          "hole_type": "threaded",
+          "requested_hole_type": "threaded",
+          "step_omitted": null,
+          "thread": "M5 - 6H",
+          "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+          "fact_ids": [
+            "D-014",
+            "D-014/drawing/callout/p1-1"
+          ],
+          "method": "ai_verified",
+          "feature_index": 0
+        },
+        {
+          "name": "Feature 2 (hole)",
+          "kind": "hole",
+          "count": 1,
+          "hole_type": "threaded",
+          "requested_hole_type": "threaded",
+          "step_omitted": null,
+          "thread": "M5 - 6H",
+          "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+          "fact_ids": [
+            "D-014",
+            "D-014/drawing/callout/p1-1"
+          ],
+          "method": "ai_verified",
+          "feature_index": 1
+        },
+        {
+          "name": "Feature 3 (hole)",
+          "kind": "hole",
+          "count": 1,
+          "hole_type": "countersunk",
+          "requested_hole_type": "countersunk",
+          "step_omitted": null,
+          "thread": null,
+          "thread_representation": null,
+          "fact_ids": [
+            "D-014",
+            "D-014/drawing/callout/p1-2",
+            "D-014/drawing/callout/p1-3"
+          ],
+          "method": "ai_verified",
+          "feature_index": 2
+        },
+        {
+          "name": "Feature 4 (hole)",
+          "kind": "hole",
+          "count": 1,
+          "hole_type": "countersunk",
+          "requested_hole_type": "countersunk",
+          "step_omitted": null,
+          "thread": null,
+          "thread_representation": null,
+          "fact_ids": [
+            "D-014",
+            "D-014/drawing/callout/p1-2",
+            "D-014/drawing/callout/p1-3"
+          ],
+          "method": "ai_verified",
+          "feature_index": 3
+        },
+        {
+          "name": "Feature 5 (hole)",
+          "kind": "hole",
+          "count": 1,
+          "hole_type": "countersunk",
+          "requested_hole_type": "countersunk",
+          "step_omitted": null,
+          "thread": null,
+          "thread_representation": null,
+          "fact_ids": [
+            "D-014",
+            "D-014/drawing/callout/p1-2",
+            "D-014/drawing/callout/p1-3"
+          ],
+          "method": "ai_verified",
+          "feature_index": 4
+        },
+        {
+          "name": "Feature 6 (hole)",
+          "kind": "hole",
+          "count": 1,
+          "hole_type": "countersunk",
+          "requested_hole_type": "countersunk",
+          "step_omitted": null,
+          "thread": null,
+          "thread_representation": null,
+          "fact_ids": [
+            "D-014",
+            "D-014/drawing/callout/p1-2",
+            "D-014/drawing/callout/p1-3"
+          ],
+          "method": "ai_verified",
+          "feature_index": 5
+        },
+        {
+          "name": "Feature 7 (hole)",
+          "kind": "hole",
+          "count": 1,
+          "hole_type": "threaded",
+          "requested_hole_type": "threaded",
+          "step_omitted": null,
+          "thread": "M5 - 6H",
+          "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+          "fact_ids": [
+            "D-014",
+            "D-014/drawing/callout/p1-1"
+          ],
+          "method": "ai_verified",
+          "feature_index": 6
+        },
+        {
+          "name": "Feature 8 (hole)",
+          "kind": "hole",
+          "count": 1,
+          "hole_type": "threaded",
+          "requested_hole_type": "threaded",
+          "step_omitted": null,
+          "thread": "M5 - 6H",
+          "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+          "fact_ids": [
+            "D-014",
+            "D-014/drawing/callout/p1-1"
+          ],
+          "method": "ai_verified",
+          "feature_index": 7
+        },
+        {
+          "name": "Feature 9 (hole)",
+          "kind": "hole",
+          "count": 1,
+          "hole_type": "countersunk",
+          "requested_hole_type": "countersunk",
+          "step_omitted": null,
+          "thread": null,
+          "thread_representation": null,
+          "fact_ids": [
+            "D-014",
+            "D-014/drawing/callout/p1-4",
+            "D-014/drawing/callout/p1-5"
+          ],
+          "method": "ai_verified",
+          "feature_index": 8
+        },
+        {
+          "name": "Feature 10 (hole)",
+          "kind": "hole",
+          "count": 1,
+          "hole_type": "countersunk",
+          "requested_hole_type": "countersunk",
+          "step_omitted": null,
+          "thread": null,
+          "thread_representation": null,
+          "fact_ids": [
+            "D-014",
+            "D-014/drawing/callout/p1-4",
+            "D-014/drawing/callout/p1-5"
+          ],
+          "method": "ai_verified",
+          "feature_index": 9
+        },
+        {
+          "name": "Feature 11 (hole)",
+          "kind": "hole",
+          "count": 1,
+          "hole_type": "threaded",
+          "requested_hole_type": "threaded",
+          "step_omitted": null,
+          "thread": "M5 - 6H",
+          "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+          "fact_ids": [
+            "D-014",
+            "D-014/drawing/callout/p1-1"
+          ],
+          "method": "ai_verified",
+          "feature_index": 10
+        },
+        {
+          "name": "Feature 12 (hole)",
+          "kind": "hole",
+          "count": 1,
+          "hole_type": "threaded",
+          "requested_hole_type": "threaded",
+          "step_omitted": null,
+          "thread": "M5 - 6H",
+          "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+          "fact_ids": [
+            "D-014",
+            "D-014/drawing/callout/p1-1"
+          ],
+          "method": "ai_verified",
+          "feature_index": 11
+        },
+        {
+          "name": "Feature 13 (hole)",
+          "kind": "hole",
+          "count": 1,
+          "hole_type": "countersunk",
+          "requested_hole_type": "countersunk",
+          "step_omitted": null,
+          "thread": null,
+          "thread_representation": null,
+          "fact_ids": [
+            "D-014",
+            "D-014/drawing/callout/p1-2",
+            "D-014/drawing/callout/p1-3"
+          ],
+          "method": "ai_verified",
+          "feature_index": 12
+        },
+        {
+          "name": "Feature 14 (hole)",
+          "kind": "hole",
+          "count": 1,
+          "hole_type": "countersunk",
+          "requested_hole_type": "countersunk",
+          "step_omitted": null,
+          "thread": null,
+          "thread_representation": null,
+          "fact_ids": [
+            "D-014",
+            "D-014/drawing/callout/p1-2",
+            "D-014/drawing/callout/p1-3"
+          ],
+          "method": "ai_verified",
+          "feature_index": 13
+        },
+        {
+          "name": "Feature 15 (hole)",
+          "kind": "hole",
+          "count": 1,
+          "hole_type": "countersunk",
+          "requested_hole_type": "countersunk",
+          "step_omitted": null,
+          "thread": null,
+          "thread_representation": null,
+          "fact_ids": [
+            "D-014",
+            "D-014/drawing/callout/p1-2",
+            "D-014/drawing/callout/p1-3"
+          ],
+          "method": "ai_verified",
+          "feature_index": 14
+        },
+        {
+          "name": "Feature 16 (hole)",
+          "kind": "hole",
+          "count": 1,
+          "hole_type": "countersunk",
+          "requested_hole_type": "countersunk",
+          "step_omitted": null,
+          "thread": null,
+          "thread_representation": null,
+          "fact_ids": [
+            "D-014",
+            "D-014/drawing/callout/p1-2",
+            "D-014/drawing/callout/p1-3"
+          ],
+          "method": "ai_verified",
+          "feature_index": 15
+        },
+        {
+          "name": "Feature 17 (hole)",
+          "kind": "hole",
+          "count": 1,
+          "hole_type": "threaded",
+          "requested_hole_type": "threaded",
+          "step_omitted": null,
+          "thread": "M5 - 6H",
+          "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+          "fact_ids": [
+            "D-014",
+            "D-014/drawing/callout/p1-1"
+          ],
+          "method": "ai_verified",
+          "feature_index": 16
+        },
+        {
+          "name": "Feature 18 (hole)",
+          "kind": "hole",
+          "count": 1,
+          "hole_type": "threaded",
+          "requested_hole_type": "threaded",
+          "step_omitted": null,
+          "thread": "M5 - 6H",
+          "thread_representation": "Cosmetic thread: supplied drill diameter; no helical thread geometry",
+          "fact_ids": [
+            "D-014",
+            "D-014/drawing/callout/p1-1"
+          ],
+          "method": "ai_verified",
+          "feature_index": 17
+        }
+      ],
+      "waiting": [
+        "features_complete"
+      ],
+      "omitted": [
+        "DEBURR AND BREAK SHARP EDGES: The general note specifies edge finishing without a break size or profile. That unspecified edge-break geometry is omitted from the nominal rectangular body and supported hole cuts."
+      ],
+      "features_all_determined": false,
+      "glb_units": "metres",
+      "cad_units": "mm",
+      "glb_to_mm": 1000,
+      "glb_sha256": "614f28f44d5566303c37cbd28522cc5509e85982f9b52a34289e96e4c26e9e1c",
+      "step_sha256": "51ddc006ff466bcd2382caf0546d68ca85692af19f7b861a87910e82ab0dcc12"
+    }
+  },
+  "waiting": [
+    "features_complete"
+  ],
+  "omitted": [
+    "DEBURR AND BREAK SHARP EDGES: The general note specifies edge finishing without a break size or profile. That unspecified edge-break geometry is omitted from the nominal rectangular body and supported hole cuts."
+  ],
+  "template_sha256": "5bb98138de769d2feeeb33cb437b8cafa06d1d261cf371e3f5e780be64c2b152",
+  "source_sha256": "0e6fa42e39eda320d42f45576a0825c5d0c002abd6863188b3c98774d52867f6",
+  "generator_version": "flat-part-13",
+  "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
+  "review": {
+    "status": "not_reviewed"
+  },
+  "label": "Partial AI reconstruction. Not reviewed by a person",
+  "units": "mm",
+  "features_status": "partial",
+  "features_all_determined": false,
+  "omitted_feature_notes": [
+    "DEBURR AND BREAK SHARP EDGES: The general note specifies edge finishing without a break size or profile. That unspecified edge-break geometry is omitted from the nominal rectangular body and supported hole cuts."
+  ],
+  "weight_check": {
+    "state": "Passed",
+    "message": "Weight check passed using drawing material",
+    "examples": {
+      "A": {
+        "attempts": [
+          {
+            "material": "3.3315 (EN-AW 5005)",
+            "source": "drawing",
+            "names": [
+              "3.3315 (EN-AW 5005)",
+              "EN-AW 5005",
+              "EN AW-5005",
+              "5005",
+              "3.3315"
+            ],
+            "density_g_cm3": 2.7,
+            "source_url": "https://materialsdata.nist.gov/bitstream/handle/11115/168/Properties%20of%20Aluminum%20Mill%20Products.pdf?isAllowed=y&sequence=3",
+            "source_title": "ASM Aluminum Mill and Engineered Wrought Products, Table 6 (NIST archive)",
+            "looked_up": "2026-11-05",
+            "note": "5005 alloy density. Outside source, not the dataset.",
+            "calculated_g": 331.8427,
+            "drawing_g": 331.8,
+            "difference_percent": 0.01,
+            "matches": true,
+            "outside_source": true
+          },
+          {
+            "material": "Aluminium",
+            "source": "parts list",
+            "names": [
+              "Aluminium",
+              "Aluminum"
+            ],
+            "density_g_cm3": 2.7,
+            "source_url": "https://materialsdata.nist.gov/bitstream/handle/11115/168/Properties%20of%20Aluminum%20Mill%20Products.pdf?isAllowed=y&sequence=3",
+            "source_title": "ASM Aluminum Mill and Engineered Wrought Products (NIST archive)",
+            "looked_up": "2026-11-05",
+            "note": "Approximate family density; alloy is unspecified. Outside source, not the dataset.",
+            "calculated_g": 331.8427,
+            "drawing_g": 331.8,
+            "difference_percent": 0.01,
+            "matches": true,
+            "outside_source": true
+          }
+        ],
+        "matches": true,
+        "drawing_g": 331.8
+      }
+    },
+    "drawing_g": 331.8,
+    "tolerance_percent": 5,
+    "requires_approval": false,
+    "approval_note_required": false,
+    "limitation": "A matching weight does not verify feature positions. No thickness or material is selected automatically.",
+    "density_label": "Outside source, not the dataset"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "run_id": 42020313541,
+  "source_commit": "203e292",
+  "overall_conclusion": "failure",
+  "passed_stages": [
+    "194 tests",
+    "all9 parts/12variants CAD geometry probes"
+  ],
+  "failed_stage": "Fresh clone correctly rejected unshipped new CAD caches; verified pack installed for next run",
+  "exports_hash_checked": 24
+}

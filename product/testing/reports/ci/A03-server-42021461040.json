@@ -1,0 +1,187 @@
+{
+  "schema": "meridian-remote-verification/v1",
+  "outcome": "FAIL",
+  "module": "M03 M0 server/early history routes",
+  "candidate": "88b720bb138d6cad479104321311586e249780be",
+  "publication": "4ab374200f4058c5908b16ce984e34be142f81ec",
+  "branch": "harness-v2",
+  "run_id": 42021461040,
+  "tests": 107,
+  "passed": 106,
+  "failures": [
+    {
+      "classname": "tests.test_server",
+      "name": "test_fixture_routes_slash_ids_assets_and_unavailable_review",
+      "message": "AssertionError: {\"fixture\":true,\"synthetic\":true,\"fixture_note\":\"Invented contract fixture only; not dataset evidence, an executed AI run, or a human decision.\",\"id\":\"D-013/part\",\"display_name\":\"Synthetic training bar\",\"section\":\"Mock Section\",\"has_drawing\":true,\"has_3d\":true,\"examples\":[\"A\",\"B\"],\"d",
+      "trace_head": "settings = Settings(root=PosixPath('/home/runner/work/proj-meridian/proj-meridian/product/testing/tmp/A03-server/case-u37rsgll'),...ue, 'scan': {'measurement_status': 'pending_A05_clean_drawing_measurement', 'corner_box': None, 'field_boxes': None}}})\n\n    def test_fixture_routes_slash_ids_assets_and_unavailable_review(settings):\n        with TestClient(create_app(settings)) as client:\n            listing = client.get(\"/api/parts\")\n            assert listing.status_code == 200 and len(listing.json()) == 3\n            assert all(item[\"fixture\"] and item[\"synthetic\"] and item[\"fixture_note\"] for item in listing.json())\n            assert len(client.get(\"/api/parts?q=training%20bar\").json()) == 1\n            for item in listing.json():\n                response = client.get(c.part_api_path(item[\"id\"]))\n                assert response.status_code == 200\n                assert c.PartDetailResponse.model_validate(response.json()).id == item[\"id\"]\n>           checked_error(client.get(\"/api/parts/D-013%252Fpart\"), 404, \"not_found\")  # no second unquote\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_server.py:211: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n"
+    }
+  ],
+  "diagnosis": "Double-encoded URL expected404 returned200. Production code contains no explicit second unquote; transport/server decoding boundary needs owner diagnosis before choosing a test-only or application repair. Do not weaken once-decode identity requirement.",
+  "evidence": [
+    "testing/runs/remote-modules-42021461040/reports/ci/modules.xml",
+    "testing/runs/remote-modules-42021461040/reports/ci/modules-output.txt"
+  ],
+  "run": {
+    "conclusion": "failure",
+    "headBranch": "harness-v2",
+    "headSha": "4ab374200f4058c5908b16ce984e34be142f81ec",
+    "jobs": [
+      {
+        "completedAt": "2026-11-05T11:45:55Z",
+        "conclusion": "failure",
+        "databaseId": 127224996770,
+        "name": "requested",
+        "startedAt": "2026-11-05T11:44:57Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-11-05T11:45:00Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-11-05T11:44:58Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:45:04Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 2,
+            "startedAt": "2026-11-05T11:45:00Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:45:04Z",
+            "conclusion": "success",
+            "name": "Run mkdir -p tmp cache/uv cache/pip reports/ci",
+            "number": 3,
+            "startedAt": "2026-11-05T11:45:04Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:45:04Z",
+            "conclusion": "success",
+            "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 4,
+            "startedAt": "2026-11-05T11:45:04Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:45:10Z",
+            "conclusion": "success",
+            "name": "Install locked verification dependencies",
+            "number": 5,
+            "startedAt": "2026-11-05T11:45:04Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:45:10Z",
+            "conclusion": "skipped",
+            "name": "Raw positioned-PDF extraction and images (capability, no AI)",
+            "number": 6,
+            "startedAt": "2026-11-05T11:45:10Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:45:50Z",
+            "conclusion": "failure",
+            "name": "Focused Python module tests (no live AI or CAD)",
+            "number": 7,
+            "startedAt": "2026-11-05T11:45:10Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:45:50Z",
+            "conclusion": "skipped",
+            "name": "Extract complete deterministic inputs with the committed producers",
+            "number": 8,
+            "startedAt": "2026-11-05T11:45:50Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:45:50Z",
+            "conclusion": "skipped",
+            "name": "Run the requested implemented product checkpoint",
+            "number": 9,
+            "startedAt": "2026-11-05T11:45:50Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:45:50Z",
+            "conclusion": "skipped",
+            "name": "Optional paid Luna capability probe",
+            "number": 10,
+            "startedAt": "2026-11-05T11:45:50Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:45:53Z",
+            "conclusion": "success",
+            "name": "Save requested-stage artifacts",
+            "number": 11,
+            "startedAt": "2026-11-05T11:45:50Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:45:53Z",
+            "conclusion": "skipped",
+            "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 21,
+            "startedAt": "2026-11-05T11:45:53Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:45:53Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 22,
+            "startedAt": "2026-11-05T11:45:53Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:45:53Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 23,
+            "startedAt": "2026-11-05T11:45:53Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42021461040/job/127224996770"
+      },
+      {
+        "completedAt": "2026-11-05T11:44:55Z",
+        "conclusion": "skipped",
+        "databaseId": 127224999094,
+        "name": "history-windows",
+        "startedAt": "2026-11-05T11:44:55Z",
+        "status": "completed",
+        "steps": [],
+        "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42021461040/job/127224999094"
+      },
+      {
+        "completedAt": "2026-11-05T11:44:55Z",
+        "conclusion": "skipped",
+        "databaseId": 127224999134,
+        "name": "cad",
+        "startedAt": "2026-11-05T11:44:55Z",
+        "status": "completed",
+        "steps": [],
+        "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42021461040/job/127224999134"
+      },
+      {
+        "completedAt": "2026-11-05T11:44:55Z",
+        "conclusion": "skipped",
+        "databaseId": 127224999707,
+        "name": "browser",
+        "startedAt": "2026-11-05T11:44:55Z",
+        "status": "completed",
+        "steps": [],
+        "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42021461040/job/127224999707"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42021461040"
+  },
+  "local_tests_started": false
+}

@@ -69,6 +69,10 @@ jobs:
         run: |
           ../development/frontend/node_modules/.bin/tsc --strict --target ES2022 --module commonjs --jsx react-jsx --lib ES2022,DOM --esModuleInterop --skipLibCheck --rootDir ../development/frontend/src --outDir tmp/A17-evidence-ui/compiled ../development/frontend/src/chat/Evidence.tsx 2>&1 | tee reports/ci/evidence-typecheck.txt
           NODE_PATH="$PWD/../development/frontend/node_modules" node smoke/A17-evidence-ui/render.cjs 2>&1 | tee reports/ci/evidence-render.txt
+      - name: Check shell navigation, history transport and clean customer copy
+        run: |
+          ../development/frontend/node_modules/.bin/tsc --strict --target ES2022 --module commonjs --jsx react-jsx --lib ES2022,DOM --esModuleInterop --skipLibCheck --rootDir ../development/frontend/src --outDir tmp/A04-shell/compiled ../development/frontend/src/App.tsx 2>&1 | tee reports/ci/shell-typecheck.txt
+          NODE_PATH="$PWD/../development/frontend/node_modules" node tests/shell_m0.cjs 2>&1 | tee reports/ci/shell-render.txt
       - name: Save frontend and its provenance
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:

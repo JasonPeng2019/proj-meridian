@@ -24,6 +24,11 @@ def hashes(folder):
 
 class DelegatedStore(Store):
     context = None
+    batch_writing = False
+
+    def reload(self, *args, **kwargs):
+        if not self.batch_writing:
+            return super().reload(*args, **kwargs)
 
     def append(self, *args, **extra):
         if self.context.get('action') == 'defer_unsupported':
@@ -84,19 +89,31 @@ def run(plan_path: Path, apply=False):
         prepared.append(operation)
     saved = []
     if apply:
-        for operation in prepared:
-            store.context = operation
-            target, action = operation["target"], operation["action"]
-            note = operation["note"]
-            if action == "defer_unsupported":
-                event = store.append(target, action, note=note)
-            elif action == "accept_link":
-                event = store.append(target, "link", operation["value"], note=note)
-            elif action == "approve_mapping":
-                event = store.append(target, "name_mapping", operation["value"], note=note)
-            else:
-                event = store.append(target, action, operation.get("value"), note=note)
-            saved.append(event["decision_id"])
+        # These unique source-bound outcomes do not change their source facts.
+        # Write each receipt atomically, then replay once rather than re-reading
+        # the same immutable extraction after every individual confirmation.
+        store.batch_writing = (len({op['target'] for op in prepared}) == len(prepared) and all(
+            op['action'] in {'confirm', 'reject', 'defer_unsupported', 'approve_mapping', 'accept_link'}
+            for op in prepared))
+        try:
+            for operation in prepared:
+                store.context = operation
+                target, action = operation["target"], operation["action"]
+                note = operation["note"]
+                if action == "defer_unsupported":
+                    event = store.append(target, action, note=note)
+                elif action == "accept_link":
+                    event = store.append(target, "link", operation["value"], note=note)
+                elif action == "approve_mapping":
+                    event = store.append(target, "name_mapping", operation["value"], note=note)
+                else:
+                    event = store.append(target, action, operation.get("value"), note=note)
+                saved.append(event["decision_id"])
+                if len(saved) % 25 == 0:
+                    print(json.dumps({'saved': len(saved), 'total': len(prepared)}), flush=True)
+        finally:
+            store.batch_writing = False
+            store.reload()
     after = hashes(store.decisions_dir)
     assert all(after.get(name) == digest for name, digest in before.items()), "An existing decision changed"
     report = {"applied": apply, "actor": ACTOR, "personal_human_approval": False,
@@ -107,7 +124,9 @@ def run(plan_path: Path, apply=False):
               "cad_regeneration": "queued remotely; no local geometry generation"}
     output = inside(plan_path.parent / ("applied.json" if apply else "dry-run.json"))
     output.write_text(json.dumps(report, indent=2), encoding="utf-8")
-    print(json.dumps({k: v for k, v in report.items() if k not in {"baseline_decisions", "new_decisions"}}, indent=2))
+    summary = {k: v for k, v in report.items() if k not in {"baseline_decisions", "new_decisions", "accuracy"}}
+    summary['accuracy'] = {k: v for k, v in report['accuracy'].items() if k != 'prep'}
+    print(json.dumps(summary, indent=2))
 
 
 if __name__ == "__main__":

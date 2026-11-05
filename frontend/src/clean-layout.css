@@ -204,3 +204,7 @@ body { color: var(--ink); }
 .saved-chat-open small { display: block; color: #9aa8b2; font-size: 11px; margin-top: 6px; }
 .saved-chat-delete { color: #a2afb9; }
 .no-saved-chats { font-size: 13px; color: #8b9fac; line-height: 1.7; }
+
+.answer-debug { margin-top: 20px; font-size: 11px; color: #8398a7; border-top: 1px solid #e9eef2; padding-top: 12px; }
+.answer-debug > summary { cursor: pointer; }
+.answer-debug > .structured { margin-top: 15px; overflow-wrap: anywhere; }

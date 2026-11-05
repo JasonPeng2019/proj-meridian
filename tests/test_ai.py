@@ -266,6 +266,56 @@ def test_omission_metadata_rejects_invented_sources_and_legacy_unknown_stays_unk
     assert pipeline.resolved(legacy, "features")["value"] is None
 
 
+def test_conventional_pattern_placement_requires_explicit_basis_reason_and_sources():
+    current, _, _, hole = partial_feature_job()
+    feature = {**hole, "placement_basis": "drawing_pattern_interpretation",
+               "placement_reason": "Printed four-hole count and radius with cardinal axes establish the circle; angles are interpreted.",
+               "fact_ids": ["BOM:a/b", "BOM:a/c"],
+               "pattern": {"type": "circle", "count": {"state": "known", "value": 4, "fact_ids": ["count"]},
+                           "radius": {"state": "known", "value": 10, "fact_ids": ["BOM:a/b"]},
+                           "start_angle": {"state": "known", "value": 0, "fact_ids": ["BOM:a/b"]}}}
+    current["numbers"]["count"] = 4
+    current["sources"].append("count")
+    assert pipeline.decode_answer(output(item("features", [feature])), current)["features"]["value"] == [feature]
+    for mutation in ({"placement_basis": "guessed"}, {"placement_reason": ""}, {"fact_ids": []}, {"fact_ids": ["invented"]}):
+        assert pipeline.decode_answer(output(item("features", [{**feature, **mutation}])), current) == {}
+    ungrounded = copy.deepcopy(feature)
+    ungrounded["pattern"]["radius"]["value"] = 11
+    assert pipeline.decode_answer(output(item("features", [ungrounded])), current) == {}
+    # Existing untagged receipts and directly dimensioned placements retain their compatibility.
+    assert pipeline.decode_answer(output(item("features", [hole])), current)
+    assert pipeline.decode_answer(output(item("features", [{**hole, "placement_basis": "dimensioned"}])), current)
+
+
+def test_step_variant_fallback_is_explicit_boolean_cited_and_never_changes_depth():
+    current, _, _, hole = partial_feature_job()
+    current["numbers"].update({"step-diameter": 8, "step-depth": 15.4})
+    current["sources"] += ["step-diameter", "step-depth"]
+    feature = {**hole, "face": "bottom", "hole_type": "counterbored", "fact_ids": ["BOM:a/b", "step-depth"],
+               "counterbore_diameter": {"state": "known", "value": 8, "fact_ids": ["step-diameter"]},
+               "counterbore_depth": {"state": "known", "value": 15.4, "fact_ids": ["step-depth"]},
+               "allow_primary_hole_without_unresolved_step": True,
+               "step_conflict_reason": "Printed 15.4 counterbore depth exceeds the documented 15 thickness alternative."}
+    decoded = pipeline.decode_answer(output(item("features", [feature])), current)
+    assert decoded["features"]["value"][0]["counterbore_depth"]["value"] == 15.4
+    assert decoded["features"]["value"][0]["face"] == "bottom"
+    for mutation in ({"allow_primary_hole_without_unresolved_step": "true"}, {"step_conflict_reason": ""},
+                     {"through": False}, {"hole_type": "plain"}, {"fact_ids": []}):
+        assert pipeline.decode_answer(output(item("features", [{**feature, **mutation}])), current) == {}
+    ungrounded = copy.deepcopy(feature)
+    ungrounded["counterbore_depth"]["value"] = 15
+    assert pipeline.decode_answer(output(item("features", [ungrounded])), current) == {}
+
+
+def test_template_prompt_explains_pattern_interpretation_faces_and_variant_fallback():
+    current = pipeline.template_job({"id": "D-001", "image": "drawings/test.png"})
+    prompt = current["prompt"]
+    assert "360/count" in prompt and "drawing_pattern_interpretation" in prompt
+    assert "viewed from +Z" in prompt and "face='top' or 'bottom'" in prompt
+    assert "step_conflict_reason" in prompt and "never clamp its depth" in prompt
+    assert "Opus must verify this EXACT layout" in prompt
+
+
 @pytest.mark.parametrize("supported", [True, False])
 def test_optional_expansion_eligibility_gates_cad_and_preserves_reason(monkeypatch, supported):
     current = {**job(), "id": "template:D-001", "kind": "template", "keys": [*pipeline.TEMPLATE_KEYS, "cad_eligibility"],

@@ -97,19 +97,45 @@ inner_diameter, thickness, features, features_complete, features_omitted.
 Feature protocol: supported-feature-subset-v1. Only relevant dimensions are known; irrelevant ones are unknown.
 Stacked thickness values which are alternatives MUST be state options with a JSON array, sorted ascending.
 Do not select one thickness or invent which example is primary. The outline is centered on X=0,Y=0;
-extrusion Z=0..thickness. Ignore dimension text placement when interpreting actual geometry.
-features value is a JSON array of hole/slot objects. Each has kind, face='top', x,y,
+extrusion Z=0..thickness. Use the main face-on outline drawing view as XY, viewed from +Z toward
+the origin, with X right and Y up. top is Z=thickness, toward that viewer; bottom is Z=0, opposite.
+Keep every feature position in this same XY frame, including bottom features. Verify which face a
+countersink/counterbore opens from using the side, section, isometric, datum and projection evidence;
+do not silently force steps onto top. If the opening face genuinely cannot be established, omit that
+step with its uncertainty; retain a separately supported primary through-hole as plain only when its
+diameter and placement are independently established. Ignore dimension text placement when interpreting actual geometry.
+features value is a JSON array of hole/slot objects. Each has kind, face='top' or 'bottom', x,y,
 diameter (hole) or width,length (slot), through boolean, depth for blind holes,
 hole_type plain/threaded/countersunk/counterbored, optional thread string and required actual
 countersink_diameter/angle or counterbore_diameter/depth. Never infer a drill diameter from a thread.
 Use explicit pattern only if certain: {type:row,count,spacing,direction} (angle degrees, anchor first
 position) or {type:circle,count,radius,start_angle} (degrees, center x,y). Hole positions are center
-coordinates in the same XY frame. features is the independently supported SUBSET of cuts, not a
+coordinates in the same XY frame. Conventional drawing-pattern interpretation is allowed when a
+printed count plus printed pitch, offset, radius or pitch-circle diameter AND clear axes/layout
+establish a row, circle, or mirrored layout. A circle distributes its printed count using 360/count;
+rows and mirrored positions derive from the printed pitch/offset and count. This is an AI layout
+interpretation, not a claim that every coordinate or angle is explicitly printed or human approved.
+Tag each feature placement_basis='dimensioned' when directly dimensioned, otherwise
+placement_basis='drawing_pattern_interpretation' with nonempty placement_reason explaining the exact
+printed dimensions/count, axes/layout and derivation, plus nonempty feature fact_ids citing exact
+source IDs. Opus must verify this EXACT layout against the original views; ambiguous layouts require
+reject/needs_input and an omission, never arbitrary symmetry or an inferred bolt-circle dimension.
+features is the independently supported SUBSET of cuts, not a
 claim that every drawing feature is determined. Return features state known with all and ONLY cuts
 whose geometry, position, and operation are fully supported, even when other features are unresolved.
 Use known [] when no cuts can be supported; do not erase supported cuts because another is uncertain.
 Never fabricate a drill diameter, depth, position, or count to complete a cut. A feature missing any
 required geometry must be excluded from features and described separately in features_omitted.
+Exception for a documented counterbore-step/thickness-variant conflict: preserve the separately
+printed primary through-hole and actual counterbore dimensions in one counterbored feature using
+allow_primary_hole_without_unresolved_step=true, step_conflict_reason explaining the exact
+printed conflict, and nonempty feature fact_ids. This flag is only for a supported through-hole whose
+counterbore (or derived countersink depth) is invalid for at least one documented thickness variant.
+The step dimensions and opening face must still be established. Explain the unresolved step in
+features_omitted and set features_complete=false. CAD must skip that step per invalid variant and
+report the omission; never clamp its depth, invent a face, silently replace it, or discard the valid
+primary hole. Do not use this flag for an unsupported
+primary hole or for missing primary-hole diameter/position.
 features_omitted is a known JSON array of {description:string,reason:string,fact_ids:[IDs]}.
 Each omission must cite exact supplied evidence IDs (the drawing/source ID may ground an image-only
 feature) and explain precisely what is missing or why it cannot be modeled. Use [] only if nothing
@@ -123,7 +149,9 @@ For an arithmetically derived coordinate/radius use {state:known,value:number,fa
 expression:'n0/2-n1'}, where n0,n1 are cited drawing numbers IN ORDER. Only +,-,*,/ and constants
 0,1,2 are allowed. Do not invent absolute positions from undimensioned views. You may use literal
 0 for a geometrically established center or literal 90/180/270/360 for cardinal pattern directions.
-Do not infer numeric dimensions from pixels, scale, standard hardware, or symmetry unless dimensioned.
+Do not infer numeric dimensions from pixels, scale, standard hardware, or undimensioned symmetry.
+Conventional layout interpretation changes placement only; every numeric dimension/count and every
+derived coordinate still requires the printed evidence and permitted arithmetic above.
 Features must use same deterministic ordering: holes before slots, then x ascending, then y ascending.
 """ + "\nEvidence:\n" + runner.json_text({k: v for k, v in drawing.items() if k in
     ("id", "fields", "numbers", "callouts", "page_sizes", "section", "source_filename")})}
@@ -294,6 +322,24 @@ def validate_features(features: list, numbers: dict, allowed: set[str], refs: li
     for feature in features:
         if not isinstance(feature, dict) or feature.get("kind") not in ("hole", "slot") or feature.get("face") not in ("top", "bottom"):
             raise ValueError("Unsupported feature type or face")
+        placement = feature.get("placement_basis")
+        if placement is not None:
+            if placement not in ("dimensioned", "drawing_pattern_interpretation"):
+                raise ValueError("Unsupported feature placement basis")
+            if placement == "drawing_pattern_interpretation" and (
+                    not isinstance(feature.get("placement_reason"), str) or not feature["placement_reason"].strip() or
+                    not isinstance(feature.get("fact_ids"), list) or not feature["fact_ids"] or
+                    any(ref not in allowed for ref in feature["fact_ids"])):
+                raise ValueError("Pattern interpretation requires an evidence-grounded placement reason")
+        fallback = feature.get("allow_primary_hole_without_unresolved_step", False)
+        if type(fallback) is not bool:
+            raise ValueError("Primary-hole fallback flag must be boolean")
+        if fallback and (feature.get("kind") != "hole" or feature.get("through") is not True or
+                feature.get("hole_type") not in ("counterbored", "countersunk") or
+                not isinstance(feature.get("step_conflict_reason"), str) or not feature["step_conflict_reason"].strip() or
+                not isinstance(feature.get("fact_ids"), list) or not feature["fact_ids"] or
+                any(ref not in allowed for ref in feature["fact_ids"])):
+            raise ValueError("Primary-hole fallback requires a cited stepped-through-hole variant conflict")
         numeric(feature, "x")
         numeric(feature, "y")
         if type(feature.get("through")) is not bool: raise ValueError("Feature through state missing")
@@ -527,6 +573,13 @@ def _proposal_round(job: dict, force: bool, round_number: int = 0,
                      "For supported-feature-subset-v1, verify features as the independently grounded subset; "
                      "another omitted feature does not invalidate a supported cut. Verify features_complete "
                      "and features_omitted separately; accepting a subset never approves the full design. "
+                     "A drawing_pattern_interpretation placement may use printed count/pitch/radius/offset "
+                     "and clear original axes/layout, but verify the EXACT proposed layout and cited arithmetic; "
+                     "do not claim unprinted angles were printed. Reject or needs_input if its layout is ambiguous. "
+                     "Verify top/bottom step-opening faces against the original section/side/isometric evidence "
+                     "in the declared +Z viewing convention. A primary-hole fallback flag requires a separately "
+                     "supported through-hole, known step geometry/face, and an explicit source-backed conflict "
+                     "with a documented thickness variant; it never authorizes guessing or clamping a step. "
                      "Cite exact original source IDs, never proposal or feedback as evidence. No guessed "
                      "values, pixel measurements, assumed standard dimensions, or benchmark answers. "
                      "Do not modify files or run commands. Copy this proposal_fingerprint exactly: " + fingerprint +

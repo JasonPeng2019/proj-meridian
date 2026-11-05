@@ -31,7 +31,7 @@ The integrated implementation includes the M1–M3 features in [mvp.md](mvp.md),
 
 The M1–M3 implementation stabilized as one integrated snapshot. The `stable-m1`, `stable-m2` and `stable-m3` tags identify that same verified release; they do not represent separate historical builds.
 
-**Review state is intentionally incomplete.** Jason approved retaining both printed D-013 thicknesses, 3 mm and 6 mm, as possible readings on 2026-11-05. Neither was selected as correct. That is the only production human decision shipped. The other AI interpretations have not been human-confirmed; measured human-review accuracy is therefore **not yet available**. Eleven name mappings and 23 ambiguous drawing-to-BOM links remain pending. Uncertain hole and slot placements are omitted visibly on all three models. Whole-design approval stays disabled until the remaining inputs are resolved.
+**Review state is intentionally incomplete.** The production decision log contains Jason's actual review actions: retaining D-013's printed 3 mm and 6 mm as possible readings (neither selected as correct), and accepting the recorded 5005-to-Aluminium material mapping through the UI. Other AI interpretations, mappings and ambiguous links still need review. No automated run is counted as Jason's review. Detailed check failures, omissions and engineering review state are in Debug; the customer view uses a simple review/availability status.
 
 ## Try these questions
 

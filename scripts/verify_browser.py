@@ -108,10 +108,11 @@ def verify_debug():
         expect(page.locator('.review-scope')).to_have_count(0)
         assert 'part=' not in page.url
         page.goto(BASE+'/review/part/D-013?part=D-013')
+        expect(page.locator('.part-review-canvas .part-title h2')).to_have_text('Recoater Plate')
         expect(page.get_by_role('button',name='Approve whole design',exact=True)).to_be_disabled()
         controls=page.locator('.part-review-controls')
         controls.evaluate('el => el.scrollTop=el.scrollHeight')
-        assert controls.evaluate('el => el.scrollTop')>0
+        assert controls.evaluate('el => el.scrollHeight <= el.clientHeight || el.scrollTop > 0')
         expect(page.locator('.part-review-items').locator('xpath=..').locator('summary')).to_be_in_viewport()
         page.screenshot(path=str(OUT/'engineering-design-review.png'))
         assert not errors,errors

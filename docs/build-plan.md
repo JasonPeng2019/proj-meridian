@@ -10,7 +10,7 @@ The frontend is static HTML/JS/CSS. The coordinator downloads the matching succe
 
 ## Integration checkpoints
 
-The coordinator dispatches `Meridian integration` through `gh workflow run verify.yml --repo JasonPeng2019/proj-meridian --ref main`. One hosted runner executes full tests, PDF regeneration/cache recovery, real CadQuery generation and geometry roundtrips, then Playwright rendering/screenshots. CAD exits before the browser starts. Heavy runs queue in `meridian-heavy`, with no parallel matrix. Numerical/CAD workers are bounded for the standard hosted Linux runner.
+The working and GitHub default branch is `v1`, tracking `origin/v1`. The coordinator dispatches `Meridian integration` through `gh workflow run verify.yml --repo JasonPeng2019/proj-meridian --ref v1`. One hosted runner executes full tests, PDF regeneration/cache recovery, real CadQuery generation and geometry roundtrips, then Playwright rendering/screenshots. CAD exits before the browser starts. Heavy runs queue in `meridian-heavy`, with no parallel matrix. Numerical/CAD workers are bounded for the standard hosted Linux runner.
 
 The initial hosted Linux dependency, CAD and headless-rendering checks have already passed. Repeat them when integration changes justify it, not for every documentation edit. Artifacts provide GLB/STEP exports, built frontend, structured data, screenshots and reports for local inspection.
 

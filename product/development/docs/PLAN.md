@@ -181,17 +181,17 @@ M0 is ready when the server, shell, frozen contracts, and declared fixtures work
 15. **M15 — Produce a grounded chat response and its visual attachments.**
     - Module file: `backend/app/chat.py`
     - Deliverable: The **OpenAI Responses `gpt-6-luna`-only** tool loop with a server-only key from `.secrets`, system instructions, conversation tool-result ledger, citation/Undetermined parser, attachment selection, warning generation, and final frozen chat payload. Keep response parsing and attachment selection together because they produce one validated reply from the same tool trace.
-    - Complete when: R9/E3/E5/E7 pass, every external chat request uses `gpt-6-luna` with no model fallback, the last-10-turn policy holds, cited IDs really came from this conversation, and the attachment fallback uses the current turn's unique match only. AI-only and waiting-review wording follows resolved data, including single-model prep provenance. Capture actual provider/model, elapsed time and usage for release observations; provider errors surface plainly.
+    - Complete when: R9/E3/E5/E7 pass, every external chat request uses `gpt-6-luna` with no model fallback, the last-10-turn policy holds, cited IDs really came from this conversation, and the attachment fallback uses the current turn's unique match only. Keep customer review wording to R10's three honest labels; verification/waiting/fallback details belong in Debug. Capture actual provider/model, elapsed time and usage for release observations; provider errors surface plainly.
 
 16. **M16 — Implement the review state transitions.**
     - Module file: `backend/app/review.py`
     - Deliverable: The review-item assembler and action service for corrections, unresolved links, template answers/options, and mapping approvals. Combine evidence/check presentation data with its transitions so each action records a decision, reapplies overlays, and requests the appropriate record/model refresh.
     - Later slice: M2 adds per-item confirm/reject and whole-design approval, weight-related review items, approval notes, and tab/filter data. Whole-design approval is one part at a time, disabled for unanswered fields, and records confirmations for its covered AI items.
-    - Complete when: E8/E9 pass; string-match checks report what matched without claiming correctness; only human review actions accept values; original evidence and both AI answers remain available. A rejected AI interpretation becomes unresolved or uses an explicit human replacement.
+    - Complete when: E8/E9 pass; string-match checks report what matched without claiming correctness; only human review actions accept values; original evidence, Sol candidates and Opus verdicts remain available in Debug. A rejected AI interpretation becomes unresolved or uses an explicit human replacement.
 
 17. **M17 — Render shared evidence, method, and uncertainty widgets.**
     - Module file: `frontend/src/chat/Evidence.tsx`
-    - Deliverable: Reusable inline citation tags/hover cards, source badges, correction annotations, Undetermined explanations, warning styles, and source/review navigation callbacks used by chat, part details, and Review.
+    - Deliverable: Reusable readable citations/source navigation and the three honest customer status labels; Debug-only provenance/correction/Undetermined explanations, verification warnings and review callbacks shared across screens.
     - Later slice: M3 adds cited drawing crops inside hover cards using the same source coordinates.
     - Complete when: Raw markers are not shown; a citation can expose every source verbatim; values/options/Undetermined remain distinct from provenance badges; invalid citations explain the warning; “Waiting for review” appears only with a real destination.
 

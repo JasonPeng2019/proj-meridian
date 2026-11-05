@@ -113,10 +113,33 @@ class BOMM1Tests(unittest.TestCase):
         self.assertIsNone(left.fields["cost"].value)
         self.assertIsNone(left.fields["total_cost"].value)
         self.assertTrue(all(ref.resolved for ref in left.connections))
-        laser = next(row for row in rows if row.display_name == "Laser source")
+        # Source record ordinals exclude the header, not embedded CSV newlines.
+        with DEFAULT_BOM_PATH.open(encoding="utf-8-sig", newline="") as handle:
+            original_rows = list(csv.DictReader(handle))
+        self.assertEqual(
+            [original_rows[82][key] for key in ("Name", "Part family", "Interface with")],
+            ["Laser source", "Optics", "GLAMS"],
+        )
+        self.assertEqual(
+            [original_rows[104][key] for key in ("Name", "Part family")],
+            ["GLAMS", "Electric"],
+        )
+        self.assertEqual(
+            [index for index, raw in enumerate(original_rows, 1) if raw["Name"].strip().lower() == "glams"],
+            [105],
+        )
+        laser, target = rows[82], rows[104]
+        self.assertEqual(laser.name, "BOM:optics/laser-source")
+        self.assertEqual(target.name, "BOM:electric/glams")
+        self.assertEqual(target.display_id, "BOM-105")
         glams = next(ref for ref in laser.connections if ref.target_name == "GLAMS")
-        self.assertFalse(glams.resolved)
-        self.assertIn("unresolved", glams.note)
+        self.assertTrue(glams.resolved)
+        self.assertEqual(glams.target_row, "BOM:electric/glams")
+        self.assertEqual(glams.target_part, "BOM:electric/glams/part")
+        self.assertEqual(glams.name, "BOM:optics/laser-source/interface_with")
+        self.assertEqual(glams.original, original_rows[82]["Interface with"])
+        self.assertEqual(glams.original, laser.fields["interface_with"].original)
+        self.assertIn("Unique normalized BOM name match", glams.note)
 
     def test_core_cleanup_and_snapshot_without_m3_repairs(self):
         image = "photo.jpg (https://v5.airtableusercontent.com/expired)"

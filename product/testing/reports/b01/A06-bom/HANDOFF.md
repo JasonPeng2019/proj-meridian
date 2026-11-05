@@ -1,8 +1,10 @@
 # A06-bom / B01 / M06 handoff
 
-M1 implementation is complete; runtime validation is **pending ROOT's Actions
-dispatch**. No local product test, PDF, CAD, browser, build, reader, or provider
-execution was performed. This is not a V1 gate result.
+M1 implementation is retained unchanged. The source-backed GLAMS test repair
+is complete; its runtime validation is **NOT RUN, pending ROOT's Actions rerun**.
+ROOT reported the original remote run below as five passed and one failed.
+No local product test, PDF, CAD, browser, build, reader, or provider execution
+was performed. This is not a V1 gate result.
 
 ## Producer boundary
 
@@ -43,14 +45,41 @@ inspectable in M1.
 
 All execution used the assigned worktree's `testing/` directory.
 
+ROOT reported remote Actions run
+`42002139291` (publication `7fda222`, exact A06 candidate
+`404d19f181625c50b12258da8811cd1ae359677d`) as **five passed, one failed**.
+The failure at the original `test_bom_m1.py:118` was the incorrect expectation
+that GLAMS remained unresolved; production returned `resolved=True`. This
+remote result is reported by ROOT, not a locally executed test or a newly
+downloaded report.
+
+Independent static inspection of the unchanged original CSV confirms these
+1-based data-record ordinals (excluding the header and respecting quoted
+multiline cells):
+
+| Source row | Name | Part family | Interface with |
+| --- | --- | --- | --- |
+| 83 | Laser source | Optics | GLAMS |
+| 105 | GLAMS | Electric | blank |
+
+Row 105 is the only case-insensitive, trimmed `GLAMS` name match. The supported
+target is `BOM:electric/glams`, with part ID `BOM:electric/glams/part`. The
+corrected source test requires that exact target, `resolved=True`, the source
+fact `BOM:optics/laser-source/interface_with`, and original cell `GLAMS`.
+Production resolution logic is unchanged. All five other test methods,
+including synthetic missing/ambiguous/collision cases, remain unchanged.
+
 - `Get-FileHash ../development/inputs/project-meridian/dataset/context/openlpbf-bom.csv -Algorithm SHA256`
   (initial static inspection used the equivalent path from worktree root):
   `b9837f2249247e4465ae5f481f714912bba8ed33a7759cd773ab43092e1b6ae2`, matching
   the supplied manifest. Source remains 52,534 bytes.
 - `python -` with a bounded stdin script using only `ast`, `csv`, `hashlib`,
-  `io`, `json`, and `pathlib`: exit 0. Both authored Python files parse; the
+  `io`, `json`, `pathlib`, and `subprocess`: exit 0. Both authored Python files parse; the
   unchanged supplied CSV has 192 data rows, 20 headers and uniformly 20 cells.
-  Results: `static-check.json`. This did not import or execute the product.
+  Rows 83/105 and the unique GLAMS source name are independently confirmed;
+  static AST comparison confirms all five other test methods are unchanged.
+  Results: `static-check.json`. This did not import or execute the product or
+  tests. The updated candidate still needs the remote runtime rerun.
 - `git diff --check`: exit 0 before staging. The final result record reports
   the staged whitespace check and committed tip/clean state separately.
 
@@ -63,7 +92,7 @@ and row identity/fingerprint behavior under reordering and source changes.
 Synthetic cases live only in per-test directories beneath `testing/tmp/A06-bom`.
 No benchmark expectations enter implementation or test evidence.
 
-ROOT: dispatch this exact focused command on Actions from `product/testing/`,
+ROOT: rerun this exact focused command on Actions from `product/testing/`,
 with the candidate revision in the run metadata and the project's declared
 Python/Pydantic dependencies installed:
 
@@ -77,18 +106,17 @@ on that verification handoff, rather than labeling authored tests as executed.
 
 ## ROOT follow-up
 
-- Dispatch the focused suite above and return its exact candidate identity and
-  report. No shared code/config change is requested.
-- Proposed asynchronous USER_TODO: inspect `BOM:optics/laser-source/interface_with`
-  (original cell `GLAMS`) and identify the intended component, with supporting
-  evidence, if resolving it is needed. The supplied CSV has no matching row;
-  keep this reference unresolved until a supported human decision exists.
-  This does not block coding or prep. Do not infer a replacement from the name.
-- CWD `AGENTS.md` is absent. The explicit task card, PLAN, WORKFLOW, contracts,
-  original MVP/proposal, requirements, dataset notices, and B00 contract handoff
-  supplied the available instructions. The lane inbox contains no queue event
-  to acknowledge. No human approval was fabricated.
+- Rerun the focused suite above on the repaired committed candidate and record
+  its exact identity/report. No shared code/config change is requested.
+- The earlier GLAMS human TODO proposal is withdrawn: the source supplies the
+  unique target. No human decision is needed for this relationship. No
+  `USER_TODO.md` edit was made in this lane; ROOT owns any necessary removal
+  of that prior proposal from shared tracking.
+- The repair read the user-specified top-level `active/AGENTS.md`, `goal.md`,
+  and `HANDOFF.md`; no external file was changed. The lane inbox contains no
+  queue event to acknowledge. No human approval was fabricated.
 
-Only `development/backend/loader/bom.py`, its focused test and this lane's report
-artifacts are changed. Supplied sources, contracts, package/config, shared
-generated output, PLAN/WORKFLOW and `USER_TODO.md` are untouched.
+The repair changes only the focused test, this handoff, and `static-check.json`,
+within the previous four owned files. `development/backend/loader/bom.py` is
+unchanged. Supplied sources, contracts, package/config, shared generated output,
+PLAN/WORKFLOW and `USER_TODO.md` are untouched.

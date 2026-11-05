@@ -1,5 +1,5 @@
 {
-  "scope": "Static syntax and source integrity only; product tests not executed locally",
+  "scope": "Repair static syntax/source inspection only; no product or test imports/execution",
   "syntax": {
     "development/backend/loader/bom.py": "PASS",
     "testing/tests/test_bom_m1.py": "PASS"
@@ -9,5 +9,42 @@
   "data_rows": 192,
   "header_count": 20,
   "uniform_width": true,
-  "runtime_tests": "NOT_RUN: ROOT must dispatch focused suite on Actions"
+  "source_rows": [
+    {
+      "data_row": 83,
+      "Name": "Laser source",
+      "Part family": "Optics",
+      "Interface with": "GLAMS"
+    },
+    {
+      "data_row": 105,
+      "Name": "GLAMS",
+      "Part family": "Electric",
+      "Interface with": ""
+    }
+  ],
+  "GLAMS_name_matches": [
+    105
+  ],
+  "expected_target_row": "BOM:electric/glams",
+  "expected_target_part": "BOM:electric/glams/part",
+  "prior_remote_run": {
+    "run_id": "42002139291",
+    "publication": "7fda222",
+    "candidate": "404d19f181625c50b12258da8811cd1ae359677d",
+    "outcome": "FAIL: five passed, one failed at original test_bom_m1.py:118; mistaken unresolved GLAMS expectation",
+    "evidence_origin": "ROOT repair assignment; remote report not independently downloaded in this repair"
+  },
+  "production_and_inputs_unchanged_from": "404d19f181625c50b12258da8811cd1ae359677d",
+  "changed_test_methods": [
+    "test_supplied_zero_traps_lists_and_recorded_connections"
+  ],
+  "unchanged_test_methods": [
+    "test_supplied_rows_headers_original_cells_and_manifest_hash",
+    "test_core_cleanup_and_snapshot_without_m3_repairs",
+    "test_missing_cost_or_amount_is_unrecorded_but_explicit_zero_is_retained",
+    "test_collisions_ambiguity_forward_missing_and_directed_references",
+    "test_stable_identity_and_fingerprint_survive_reordering"
+  ],
+  "runtime_tests": "NOT RUN for repaired candidate: pending ROOT remote rerun on Actions"
 }

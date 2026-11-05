@@ -126,11 +126,31 @@ def current_inventory():
     return record_inventory(Store(CLONE).records, drawings, bom)
 
 
-def inspect(client):
+def model_inventory(manifest):
+    """Compare shipped models with the CAD-verified inventory, without STEP timestamps."""
+    result = {}
+    for did, part in sorted(manifest.items()):
+        if not part.get("models") or part.get("stale"):
+            continue
+        assert set(part["examples"]) == set(part["models"]), "Model example inventory disagrees with its exports"
+        template_hash = part["template_sha256"]
+        assert template_hash and part["generator_version"], "Missing model provenance"
+        variants = {}
+        for name, model in sorted(part["models"].items()):
+            assert model["template_sha256"] == template_hash, "Export belongs to a different template"
+            variants[name] = {"template_sha256": model["template_sha256"], "selections": model.get("selections", {})}
+        result[did] = {"template_sha256": template_hash, "generator_version": part["generator_version"],
+                       "source_sha256": part.get("source_sha256"), "variants": variants}
+    return result
+
+
+def inspect(client, expected_models):
     status = client.get("/api/status").json()
     inventory = current_inventory()
     manifest = json.loads((CLONE / "generated/models/manifest.json").read_text(encoding="utf-8"))
-    model_ids = sorted(did for did, part in manifest.items() if part.get("models") and not part.get("stale"))
+    actual_models = model_inventory(manifest)
+    assert actual_models == expected_models, "Shipped/recovered models differ from the CAD-verified model inventory"
+    model_ids = sorted(actual_models)
     assert {"D-013", "D-025", "D-026"}.issubset(model_ids)
     assert status["drawings"] == inventory["drawings"] and status["models"] == len(model_ids) and status["parts"] == inventory["parts"]
     catalog = client.get("/api/parts").json()
@@ -164,7 +184,7 @@ def inspect(client):
     assert client.get("/api/parts/D-003/image?page=3").headers["content-type"] == "image/png"
     assert client.get("/api/parts/D-013/image?thumb=1").headers["content-type"] == "image/png"
     assert client.get("/api/parts/D-013/crop", params={"fact": "D-013/drawing/material"}).headers["content-type"] == "image/png"
-    return {"status": status, "record_inventory": inventory, "model_ids_checked": model_ids,
+    return {"status": status, "record_inventory": inventory, "model_ids_checked": model_ids, "model_inventory": actual_models,
             "asset_hashes_checked": len(assets), "model_assets_sha256": assets, "d013_decision_replayed": True}
 
 
@@ -264,6 +284,9 @@ def main():
     report["source_manifest_hashes"] = {"passed": sum(matches), "total": len(matches)}
     source_before = {str(p.relative_to(corpus)): digest(p) for p in corpus.rglob("*") if p.is_file() and "__MACOSX" not in p.parts}
     decisions_before = {p.name: digest(p) for p in (ROOT / "decisions").glob("*.json")}
+    expected_models = model_inventory(json.loads((ROOT / "generated/models/manifest.json").read_text(encoding="utf-8")))
+    assert {"D-013", "D-025", "D-026"}.issubset(expected_models)
+    report["expected_model_inventory"] = expected_models
     run(["git", "-c", "core.hooksPath=.git/hooks-disabled", "clone", "--no-hardlinks", str(ROOT), str(CLONE)], ROOT, os.environ.copy())
     env = clone_environment()
     run(["uv", "sync", "--locked", "--no-dev"], CLONE, env)
@@ -274,7 +297,7 @@ def main():
     proc, log = start(env, "fresh")
     try:
         with httpx.Client(base_url=BASE, timeout=60) as client:
-            report["fresh_runtime"] = inspect(client)
+            report["fresh_runtime"] = inspect(client, expected_models)
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True)
             page = browser.new_page(viewport={"width": 1600, "height": 1000})
@@ -299,7 +322,7 @@ def main():
     proc, log = start(env, "regenerated")
     try:
         with httpx.Client(base_url=BASE, timeout=60) as client:
-            report["regenerated_runtime"] = inspect(client)
+            report["regenerated_runtime"] = inspect(client, expected_models)
         assert report["fresh_runtime"]["record_inventory"] == report["regenerated_runtime"]["record_inventory"], "Offline recovery changed the shipped part identities, drawing/BOM links or source pages"
         assert report["fresh_runtime"]["model_assets_sha256"] == report["regenerated_runtime"]["model_assets_sha256"], "Offline recovery changed or lost a shipped model export"
         report["regeneration_seconds"] = round(time.monotonic() - before, 3)

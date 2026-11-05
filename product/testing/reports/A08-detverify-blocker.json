@@ -1,0 +1,42 @@
+{
+  "schema": "meridian-runner-contract-blocker/v1",
+  "lane_id": "A08-detverify",
+  "outcome": "BLOCKED",
+  "implementation_started": false,
+  "live_readers_launched": false,
+  "tests_executed": false,
+  "source_verification_performed": false,
+  "manager_notice_id": "00d41a4d4ac94977b2a937c0549015ea",
+  "problem": "The frozen successful-attempt contract requires confirmed effective ReaderSettings, but the qualified CLIs do not expose all required effective identity/settings. Requested values must not be presented as observations.",
+  "evidence": [
+    {
+      "path": "development/backend/contracts.py",
+      "lines": "398-425",
+      "finding": "effective is documented as null when the CLI never confirmed an identity, success requires effective to be non-null, and the cache must retain effective settings when present. ReaderSettings requires model, reasoning, service_tier and read_only."
+    },
+    {
+      "path": "testing/reports/qualification/A08-runner/QUALIFICATION.md",
+      "finding": "Historical Codex JSONL did not expose effective model, reasoning effort, service tier or sandbox. Claude reported model and regular/standard processing, but not the effective named effort or fallback list. B00 is CLI capability evidence only, not determine-then-verify evidence."
+    }
+  ],
+  "requested_root_action": "Have A02 freeze a truthful representation for partially observed or unexposed effective settings, without substituting requested values as confirmed effective values, or provide a supported mechanism that confirms every currently required effective field. ROOT must select this shared contract change; A08 does not own contracts.",
+  "requested_contract_properties": [
+    "Retain requested Sol max/priority and Opus xhigh/regular settings separately from observations.",
+    "Permit effective values to remain unknown where the CLI does not expose them, while preserving actual exposed observations and rejecting reported identity mismatches.",
+    "Bind cache entries to requested settings and available observations without manufacturing a confirmed identity."
+  ],
+  "frozen_boundaries_read": [
+    "PrepRunner.__call__(PrepJobRequest) -> PrepProvenance",
+    "Determiner.__call__(DeterminationRequest) -> DeterminationAttempt",
+    "Verifier.__call__(VerificationRequest) -> VerificationAttempt",
+    "CandidateValidator.__call__(DeterminationOutput, PrepSourceIdentity) -> DeterminationOutput"
+  ],
+  "incoming_config_read_only_commit": "51202ff6b4d28ba9052d34d1a938208b5be10acc",
+  "remaining_work": [
+    "Implement development/backend/ai/runner.py after the shared contract decision.",
+    "Author scripted subprocess cases for sequencing, exact candidate/source binding, host/domain validation, one disagreement correction/reverification, unresolved results, version/role/stage/model cache invalidation, serial queue/rate limits, credential separation and honest execution-failure fallback with next-launch Opus retry.",
+    "Provide exact Actions dispatch and focused pytest commands after authored tests exist.",
+    "Leave full corpus preparation and publication to ROOT/A11; preserve all historical artifacts."
+  ],
+  "proposed_user_todo_entries": []
+}

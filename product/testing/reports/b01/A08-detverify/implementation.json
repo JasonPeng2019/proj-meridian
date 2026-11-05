@@ -1,0 +1,68 @@
+{
+  "schema": "meridian-runner-implementation-handoff/v1",
+  "lane_id": "A08-detverify",
+  "status": "IMPLEMENTED_REMOTE_CHECKS_PENDING",
+  "accepted_base": "a0c30d5",
+  "observability_dependency": "60942c9ef5b33f87a233331dabbb051dc4d400d2",
+  "config_dependency": "51202ff6b4d28ba9052d34d1a938208b5be10acc",
+  "historical_blocker": {
+    "path": "testing/reports/A08-detverify-blocker.json",
+    "state": "Resolved by accepted M02 observability dependency; historical report preserved unchanged."
+  },
+  "owned_implementation": "development/backend/ai/runner.py",
+  "behavior": [
+    "Runner implements the frozen PrepRunner __call__(PrepJobRequest)->PrepProvenance; determine and verify implement the frozen typed Determiner and Verifier callbacks.",
+    "Codex Sol max/fast determination precedes Claude Code Opus xhigh/regular verification of that exact candidate and original evidence. The CLI JSON schemas contain fields only; code assigns source, candidate and verdict digests after strict parsing and required domain validation.",
+    "Host checks exact field inventory, source ownership, candidate shape and immutable values. CandidateValidator is mandatory, receives unvalidated flags, reads admissible evidence, and may change only schema_valid/evidence_valid. Unsupported validation remains invalid_output/unresolved.",
+    "Every verifier field needs an explicit verified/disagrees/unsure verdict, nonempty reason and owned evidence references. Verified fields must be sure, schema-valid and source-valid. Claude image jobs additionally require successful Read results containing bytes matching every original image snapshot.",
+    "Only a successful explicit disagreement permits one Sol reconsideration followed by one Opus reverification. Both rounds remain in the returned provenance and per-run runtime result. A verifier alternative is feedback only. Persistent disagreement, unsure or invalid output remains unresolved.",
+    "Only actual Opus execution failure in the initial round permits valid source-backed Sol fields to continue single_model_unverified. Failure classification, troubleshooting and diagnostic hashes are retained. Invalid output, missing metadata, resource refusal, source changes, or an earlier disagreement never authorize fallback. An emitted answer before a failed exit remains unresolved and cannot be discarded to claim fallback.",
+    "Only successful stage attempts are reusable. Cache identity binds pipeline/runner/domain versions, job and round scope, role, source, field inventory, prompt, output/validation contracts, candidate, actual criticism, requested model/settings, observations, explicit settings basis and final mode. Historical blind-reader records are never imported or promoted.",
+    "After fallback, cached Sol may be reused but Opus execution failures are never cached as successes; every subsequent launch attempts Opus again. Original cached execution timestamps are retained, and out-of-order cached stages are rejected rather than assigned invented call times.",
+    "A shared file/OS lock serializes entire prep jobs across threads/processes. Each actual child launch separately requires an external shared CLI-slot reservation including owner and child under four total processes. Per-provider cooldown and a global minimum interval persist under that same queue; no automatic execution/JSON-repair retry loop exists.",
+    "Commands expand accepted qualified argv without a shell; image switches repeat for multiple images and disappear for text-only jobs. Native CLI executables avoid unreserved shell/Node wrapper processes. All runtime snapshots, CLI homes/state/temp/cache/receipts remain under the assigned workspace development/testing split.",
+    "CLI account homes are explicit workspace-local paths, provisioned privately by the launch owner. Application API-key/auth-token variables and provider redirects are removed. No application secret file is read. Receipts retain measured usage, timing, exit/PID/settings and diagnostic hashes; raw provider stderr/auth transcripts are not published."
+  ],
+  "domain_integration": {
+    "registration": "JobDefinition(job, determination_instructions, verification_instructions, value_schemas, evidence, validate_candidate, validation_version)",
+    "value_schemas": "Ordered mapping of fixed stable field names to CLI-compatible value JSON schemas; a change invalidates the output contract. Actual domain structure/admissibility must also be checked by CandidateValidator.",
+    "evidence_callback": "evidence(PrepJobRequest)->EvidenceBundle(inputs={source_input_key: EvidenceInput(path=..., image=True/False) or EvidenceInput(value=typed_json)})",
+    "source_binding": "PrepSourceIdentity.inputs must equal the supplied input keys and SHA256 of exact file bytes or canonical compact UTF-8 JSON values. source_ids maps every admissible field/row/number reference to one of those original inputs. Already extracted typed inputs and PNGs suffice; no PDF generation occurs here.",
+    "candidate_validator": "The frozen CandidateValidator(candidate, source)->DeterminationOutput; use with_field_validation(candidate, {field_name: (schema_valid, evidence_valid)}) to assign actual host checks and rehash. Never change candidate values to repair output.",
+    "request_factory": "definition.request(job_id, source_identity)->PrepJobRequest computes all prompt and output-contract digests in code.",
+    "runner_construction": "Runner(jobs={definition.job: definition}, prep_settings=settings.data['prep'], workspace_root=..., runtime_root=..., reserve_cli_slot=..., executables=optional_native_paths, cli_homes=optional_owned_homes)",
+    "root_a11_resource_boundary": "reserve_cli_slot() is a context manager backed by the actual native/shared reservation. Yield CliReservation(total_cli_processes including owner plus reserved child, owner_counted=True, child_slots=1), with total between 2 and 4. Use one shared runtime_root for all prep jobs. Runner deliberately has no fabricated/no-op resource reservation.",
+    "root_a11_auth_boundary": "Privately provision the existing CLI-account authentication into owned CLI homes before actual prep. No app-key route, credential copying, login flow or live reader is run by this coding task.",
+    "publication": "A11 remains the sole publisher of new generated prep outputs. Runner writes only explicitly selected runtime cache/receipts/results; it does not publish domain records or customer review state."
+  },
+  "authored_tests": {
+    "suite": "testing/tests/test_runner_m1.py",
+    "peers": ["testing/fixtures/runner/scripted_cli.py", "testing/fixtures/runner/queue_probe.py"],
+    "scope": "Synthetic Python subprocesses exercise ordering, actual envelopes, code-computed binding, explicit field verdicts, bounded retry, mixed counts, invalid/unsure/unsupported handling, truthful partial observations/conflicts, cache invalidation/reuse/next-launch Opus retry, process cleanup/timeouts, cooldown, credentials, image delivery, and thread/process queue serialization.",
+    "execution_status": "NOT_RUN_LOCALLY; pending ROOT Actions."
+  },
+  "actual_local_validation": {
+    "kind": "AST syntax/file inventory and Git whitespace/scope only",
+    "report": "testing/reports/b01/A08-detverify/static.json",
+    "command": "python -B testing/smoke/A08-detverify/inspect_static.py --report testing/reports/b01/A08-detverify/static.json",
+    "runtime_suite_executed": false,
+    "live_readers_launched": false,
+    "actual_source_validation_performed": false
+  },
+  "root_actions_commands": [
+    "After publishing the exact native candidate as ordinary product files on harness-v2: gh workflow run verify.yml --repo JasonPeng2019/proj-meridian --ref harness-v2 -f task=modules",
+    "Existing Actions product root: development/.venv/bin/python -B testing/ci/checks.py modules",
+    "Focused Actions step from product/testing/: ../development/.venv/bin/python -B -m pytest -q -p no:cacheprovider --basetemp=tmp/A08-detverify-pytest --junitxml=reports/ci/A08-detverify.xml tests/test_runner_m1.py",
+    "Existing Actions product root, refreshed shared contract regression: development/.venv/bin/python -B testing/smoke/A02-contracts/check_contracts.py"
+  ],
+  "remote_acceptance": "ROOT must select harness-v2 and the exact published revision when reading runs/artifacts. No remote dispatch or result is claimed by this coding lane.",
+  "live_preparation": {
+    "status": "NOT_RUN",
+    "required_next": "ROOT/A11 must redo the full corpus using fresh determine-then-verify source-bound jobs after integration and remote checks. Reserve the sequential child CLI slot first. Preserve historical artifacts; do not copy any old blind-reader outputs into new saved prep results.",
+    "historical_b00": "CLI argument/image capability findings were reused only; they are not new determination/verifier evidence.",
+    "unsupported_source_validation": "No real corpus/domain validation is claimed here. The runner requires A09/A10's actual source validators; missing/unsupported validation cannot become a usable verified or fallback field."
+  },
+  "requested_shared_file_changes": [],
+  "proposed_user_todo_entries": [],
+  "customer_ui_changes": "None; all produced diagnostics are engineering runtime evidence for optional Debug consumers."
+}

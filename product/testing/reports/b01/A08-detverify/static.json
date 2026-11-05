@@ -1,0 +1,86 @@
+{
+  "schema": "meridian-runner-static-inspection/v1",
+  "outcome": "PASS",
+  "inspected_at": "2026-11-05T11:34:47.358048+00:00",
+  "scope": "AST parsing and file inventory only; no behavioral/source/provider verification",
+  "runtime_tests_executed": false,
+  "live_readers_launched": false,
+  "actual_source_validation_performed": false,
+  "files": [
+    {
+      "path": "development/backend/ai/runner.py",
+      "sha256": "af291143b759a3dab7bcae0f93905b51d56346d31c028237fc814057706886ad",
+      "syntax": "PASS",
+      "line_count": 1251,
+      "test_functions": []
+    },
+    {
+      "path": "testing/tests/test_runner_m1.py",
+      "sha256": "1f8205fd3e037b5abc2b4d783d731b8183540747b7ba212bc95843bf4a813c18",
+      "syntax": "PASS",
+      "line_count": 693,
+      "test_functions": [
+        "test_exact_order_candidate_original_evidence_null_and_partial_observations",
+        "test_one_disagreement_correction_and_reverification_with_mixed_field_counts",
+        "test_remaining_disagreement_unsure_invalid_or_execution_failure_never_falls_back",
+        "test_invalid_or_blind_verifier_output_is_terminal_not_fallback",
+        "test_explicit_complete_cited_verdicts_required",
+        "test_only_sure_valid_source_backed_candidates_can_fall_back",
+        "test_invalid_determination_never_reaches_opus",
+        "test_validator_cannot_repair_or_replace_model_values",
+        "test_real_execution_failure_is_unverified_and_next_launch_retries_opus",
+        "test_rate_limit_sets_shared_cooldown_without_an_automatic_retry",
+        "test_determiner_execution_failure_does_not_invent_a_verifier",
+        "test_changed_source_before_job_is_unresolved_without_any_subprocess",
+        "test_changed_source_during_stage_is_not_published_or_cached",
+        "test_successful_cache_reuse_retains_original_timings_and_makes_no_calls",
+        "test_source_fingerprint_change_invalidates_both_stages",
+        "test_prompt_schema_validation_and_model_command_settings_invalidate_cache",
+        "test_stale_verifier_candidate_cache_rejected_even_with_recomputed_content_hash",
+        "test_history_blind_reader_cache_is_ignored",
+        "test_frozen_determiner_verifier_callback_signatures",
+        "test_resource_refusal_never_becomes_execution_fallback",
+        "test_two_owners_share_one_serial_prep_queue",
+        "test_timeout_kills_owned_child_and_releases_slot_with_truthful_fallback",
+        "test_both_stages_receive_all_original_image_bytes",
+        "test_image_paths_or_wrong_image_bytes_are_not_evidence_delivery",
+        "test_reported_setting_conflicts_remain_visible_and_unresolved",
+        "test_only_actual_printed_alternatives_can_be_verified",
+        "test_output_limit_is_invalid_not_fallback",
+        "test_disallowed_model_and_pipeline_settings_fail_before_launch",
+        "test_queue_serializes_separate_python_owner_processes",
+        "test_cache_identity_cannot_promote_old_roles_or_fabricated_observations",
+        "test_missing_opus_executable_records_actual_launch_failure",
+        "test_cli_homes_and_runtime_cannot_write_outside_owned_split",
+        "test_disagreement_emitted_before_failed_exit_is_retained_not_fallback",
+        "test_unsupported_domain_validation_remains_unresolved",
+        "test_diagnostics_do_not_publish_raw_provider_credentials_or_paths",
+        "test_batch_counts_keep_fallback_out_of_verified_buckets",
+        "test_standalone_verifier_revalidates_candidate_instead_of_trusting_flags",
+        "test_partial_source_support_keeps_fallback_and_unresolved_field_counts_separate",
+        "test_rendered_arguments_cannot_silently_diverge_from_declared_pins"
+      ]
+    },
+    {
+      "path": "testing/fixtures/runner/scripted_cli.py",
+      "sha256": "d2feb4ebfa5eb6a14640f30ff3ed739a83c958e4b4d40f3545320774f414230e",
+      "syntax": "PASS",
+      "line_count": 129,
+      "test_functions": []
+    },
+    {
+      "path": "testing/fixtures/runner/queue_probe.py",
+      "sha256": "f29502b4c659023aeac97d7636f339b8ecb3fd18a2de7e6082a574c31f4e560f",
+      "syntax": "PASS",
+      "line_count": 20,
+      "test_functions": []
+    },
+    {
+      "path": "testing/smoke/A08-detverify/inspect_static.py",
+      "sha256": "97bdf4dcebc61b6d39a2aabd7ef2ec990b12af80aec7b9d8558db34e0a5a9b06",
+      "syntax": "PASS",
+      "line_count": 38,
+      "test_functions": []
+    }
+  ]
+}

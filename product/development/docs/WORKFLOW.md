@@ -162,7 +162,7 @@ A02's history/observability follow-up can start from accepted M02 while A08 sett
 | Launch | Tier | Bounded assignment |
 | --- | --- | --- |
 | A02-contracts | STRONGEST | Freeze R17 list/new/read/continue, server-owned thread ledger and UI/service boundaries; correct truthful CLI metadata success/cache handling without changing the determine/verify policy. |
-| A03-server | STRONGER | M0 server/launch/status/fixture endpoints; no paid prep during ordinary launch. |
+| A03-server | STRONGER | M0 server/launch/status/fixture endpoints and, after accepted early M15, real no-key history list/create/read wiring; send remains explicitly unavailable until B06. No paid prep during ordinary launch. |
 | A04-shell | STRONGER | M0 sidebar, page shells and navigation contracts. |
 | A09-vision | STRONGEST | M1 scan/template jobs using A05/A08 interfaces. |
 | A10-matching | STRONGEST | M1 exact/AI link and post-link mapping job definitions using A05/A06/A08. |

@@ -1,0 +1,358 @@
+{
+  "schema": "meridian-remote-verification/v1",
+  "outcome": "PASS",
+  "module": "M15 early persistence Linux slice",
+  "candidate": "97664e4d5c7eac411067652ff8e77056cf990b2a",
+  "publication": "121f974e0e4685ef6331870bea494579bd78b12a",
+  "branch": "harness-v2",
+  "scope": "Actual isolated JSON stores, separate-process restart/continuation, full replies/attachments/citations/private ledgers, selected10-message context, no-key history, atomic failure, corrupt-state preservation and bounded cross-instance/process serialization. Full grounded send, API/UI, Windows branch and product gates not credited by this receipt.",
+  "candidate_blobs_sha256": {
+    "development/backend/app/chat.py": "92412bf48d5001b71beeb8072bbee63b05ea31dba693193baa20aa9f2c050191",
+    "testing/reports/b03/A15-history/2026-11-05-handoff.md": "da786cb9aaf5ed8a8febc28bc193925a797a95e775124f8f4b67ee9b141f429b",
+    "testing/reports/b03/A15-history/2026-11-05-static.json": "05d64cbf9192d591b909519835a4f385b7cda5868baf7d3ebcfd22e619d07020",
+    "testing/tests/test_chat_history.py": "262dfee6387320ea759152b6eaad2937af3d266011b8bb4e267715e0896eb956"
+  },
+  "module_test_cases": 31,
+  "history_test_cases": [
+    {
+      "classname": "tests.test_chat_history",
+      "name": "test_actual_files_full_reply_ledger_restart_and_selected_last10"
+    },
+    {
+      "classname": "tests.test_chat_history",
+      "name": "test_titles_full_text_stable_ids_and_updated_order_without_model"
+    },
+    {
+      "classname": "tests.test_chat_history",
+      "name": "test_factory_no_key_no_tool_calls_public_boundaries_and_explicit_unavailable_send"
+    },
+    {
+      "classname": "tests.test_chat_history",
+      "name": "test_corrupt_store_is_reported_without_erasing_or_skipping_it[truncated]"
+    },
+    {
+      "classname": "tests.test_chat_history",
+      "name": "test_corrupt_store_is_reported_without_erasing_or_skipping_it[wrong-owner]"
+    },
+    {
+      "classname": "tests.test_chat_history",
+      "name": "test_corrupt_store_is_reported_without_erasing_or_skipping_it[duplicate-field]"
+    },
+    {
+      "classname": "tests.test_chat_history",
+      "name": "test_atomic_failure_and_server_only_append_ownership_preserve_saved_work"
+    },
+    {
+      "classname": "tests.test_chat_history",
+      "name": "test_bounded_per_thread_lock_and_concurrent_updates_do_not_lose_messages"
+    }
+  ],
+  "runs": {
+    "modules": {
+      "conclusion": "success",
+      "headBranch": "harness-v2",
+      "headSha": "121f974e0e4685ef6331870bea494579bd78b12a",
+      "jobs": [
+        {
+          "completedAt": "2026-11-05T11:26:54Z",
+          "conclusion": "success",
+          "databaseId": 127216667974,
+          "name": "requested",
+          "startedAt": "2026-11-05T11:26:38Z",
+          "status": "completed",
+          "steps": [
+            {
+              "completedAt": "2026-11-05T11:26:40Z",
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "startedAt": "2026-11-05T11:26:39Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-05T11:26:41Z",
+              "conclusion": "success",
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "number": 2,
+              "startedAt": "2026-11-05T11:26:40Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-05T11:26:41Z",
+              "conclusion": "success",
+              "name": "Run mkdir -p tmp cache/uv cache/pip reports/ci",
+              "number": 3,
+              "startedAt": "2026-11-05T11:26:41Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-05T11:26:42Z",
+              "conclusion": "success",
+              "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+              "number": 4,
+              "startedAt": "2026-11-05T11:26:41Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-05T11:26:46Z",
+              "conclusion": "success",
+              "name": "Install locked verification dependencies",
+              "number": 5,
+              "startedAt": "2026-11-05T11:26:42Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-05T11:26:46Z",
+              "conclusion": "skipped",
+              "name": "Raw positioned-PDF extraction and images (capability, no AI)",
+              "number": 6,
+              "startedAt": "2026-11-05T11:26:46Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-05T11:26:50Z",
+              "conclusion": "success",
+              "name": "Focused Python module tests (no live AI or CAD)",
+              "number": 7,
+              "startedAt": "2026-11-05T11:26:46Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-05T11:26:50Z",
+              "conclusion": "skipped",
+              "name": "Extract complete deterministic inputs with the committed producers",
+              "number": 8,
+              "startedAt": "2026-11-05T11:26:50Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-05T11:26:50Z",
+              "conclusion": "skipped",
+              "name": "Run the requested implemented product checkpoint",
+              "number": 9,
+              "startedAt": "2026-11-05T11:26:50Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-05T11:26:50Z",
+              "conclusion": "skipped",
+              "name": "Optional paid Luna capability probe",
+              "number": 10,
+              "startedAt": "2026-11-05T11:26:50Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-05T11:26:52Z",
+              "conclusion": "success",
+              "name": "Save requested-stage artifacts",
+              "number": 11,
+              "startedAt": "2026-11-05T11:26:50Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-05T11:26:52Z",
+              "conclusion": "success",
+              "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+              "number": 21,
+              "startedAt": "2026-11-05T11:26:52Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-05T11:26:52Z",
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "number": 22,
+              "startedAt": "2026-11-05T11:26:52Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-05T11:26:52Z",
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 23,
+              "startedAt": "2026-11-05T11:26:52Z",
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42018990416/job/127216667974"
+        },
+        {
+          "completedAt": "2026-11-05T11:26:36Z",
+          "conclusion": "skipped",
+          "databaseId": 127216669995,
+          "name": "cad",
+          "startedAt": "2026-11-05T11:26:36Z",
+          "status": "completed",
+          "steps": [],
+          "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42018990416/job/127216669995"
+        },
+        {
+          "completedAt": "2026-11-05T11:26:36Z",
+          "conclusion": "skipped",
+          "databaseId": 127216670714,
+          "name": "browser",
+          "startedAt": "2026-11-05T11:26:37Z",
+          "status": "completed",
+          "steps": [],
+          "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42018990416/job/127216670714"
+        }
+      ],
+      "status": "completed",
+      "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42018990416"
+    },
+    "check": {
+      "conclusion": "success",
+      "headBranch": "harness-v2",
+      "headSha": "121f974e0e4685ef6331870bea494579bd78b12a",
+      "jobs": [
+        {
+          "completedAt": "2026-11-05T11:26:54Z",
+          "conclusion": "success",
+          "databaseId": 127216660761,
+          "name": "checks",
+          "startedAt": "2026-11-05T11:26:37Z",
+          "status": "completed",
+          "steps": [
+            {
+              "completedAt": "2026-11-05T11:26:39Z",
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "startedAt": "2026-11-05T11:26:38Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-05T11:26:40Z",
+              "conclusion": "success",
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "number": 2,
+              "startedAt": "2026-11-05T11:26:39Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-05T11:26:40Z",
+              "conclusion": "success",
+              "name": "Run mkdir -p tmp cache/uv cache/npm reports/ci",
+              "number": 3,
+              "startedAt": "2026-11-05T11:26:40Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-05T11:26:40Z",
+              "conclusion": "success",
+              "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+              "number": 4,
+              "startedAt": "2026-11-05T11:26:40Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-05T11:26:41Z",
+              "conclusion": "success",
+              "name": "Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+              "number": 5,
+              "startedAt": "2026-11-05T11:26:40Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-05T11:26:43Z",
+              "conclusion": "success",
+              "name": "Install locked Python test dependencies without CAD",
+              "number": 6,
+              "startedAt": "2026-11-05T11:26:41Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-05T11:26:45Z",
+              "conclusion": "success",
+              "name": "Lightweight foundation checks",
+              "number": 7,
+              "startedAt": "2026-11-05T11:26:43Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-05T11:26:49Z",
+              "conclusion": "success",
+              "name": "Build frontend remotely",
+              "number": 8,
+              "startedAt": "2026-11-05T11:26:45Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-05T11:26:50Z",
+              "conclusion": "success",
+              "name": "Check frozen TypeScript payloads, fixtures and Debug props",
+              "number": 9,
+              "startedAt": "2026-11-05T11:26:49Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-05T11:26:50Z",
+              "conclusion": "success",
+              "name": "Check source widgets and hidden Debug rendering",
+              "number": 10,
+              "startedAt": "2026-11-05T11:26:50Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-05T11:26:51Z",
+              "conclusion": "success",
+              "name": "Save frontend and its provenance",
+              "number": 11,
+              "startedAt": "2026-11-05T11:26:50Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-05T11:26:52Z",
+              "conclusion": "success",
+              "name": "Save check reports",
+              "number": 12,
+              "startedAt": "2026-11-05T11:26:51Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-05T11:26:52Z",
+              "conclusion": "success",
+              "name": "Post Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+              "number": 22,
+              "startedAt": "2026-11-05T11:26:52Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-05T11:26:53Z",
+              "conclusion": "success",
+              "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+              "number": 23,
+              "startedAt": "2026-11-05T11:26:52Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-05T11:26:53Z",
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "number": 24,
+              "startedAt": "2026-11-05T11:26:53Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-05T11:26:53Z",
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 25,
+              "startedAt": "2026-11-05T11:26:53Z",
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42018990128/job/127216660761"
+        }
+      ],
+      "status": "completed",
+      "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42018990128"
+    }
+  },
+  "local_build_or_test_started": false,
+  "windows_followup": {
+    "run_id": 42019459097,
+    "publication": "72baf5a1a9ba34ee82f714c4273fba587aa1d1ef",
+    "state": "pending at receipt creation"
+  }
+}

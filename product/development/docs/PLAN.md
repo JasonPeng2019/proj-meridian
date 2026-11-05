@@ -111,7 +111,7 @@ The initial scaffold is the one setup bundle: its primary file is `pyproject.tom
 
 3. **M03 — Provide the application server and endpoint wiring.**
    - Module file: `backend/app/main.py`
-   - Deliverable: A FastAPI application and local launch entry point exposing the MVP endpoint contracts and serving the built frontend. M0 serves fixtures; M1 connects the real loader, tools, chat, review, images, and GLBs and starts with shipped AI outputs without invoking paid prep. Route handlers delegate domain work rather than duplicating it.
+   - Deliverable: A FastAPI application and local launch entry point exposing the MVP endpoint contracts and serving the built frontend. M0 serves fixtures and wires real no-key history list/create/read as soon as M15's early persistence slice is accepted; sending remains explicitly unavailable until B06. M1 connects the real loader, tools, chat, review, images, and GLBs and starts with shipped AI outputs without invoking paid prep. Route handlers delegate domain work rather than duplicating it.
    - Later slices: M2 wires history/accuracy/weight data; M3 wires crop/README/STEP routes and frontend fallback for stable deep links. These are small endpoint-wiring assignments at their respective gates.
    - Complete when: The current milestone's endpoints return the frozen shapes, `/api/status` reflects real chat configuration, and API/assets are not accidentally swallowed by the frontend fallback.
 

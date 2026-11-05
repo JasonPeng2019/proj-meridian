@@ -1,0 +1,181 @@
+{
+  "schema": "meridian-remote-verification/v1",
+  "outcome": "PASS",
+  "module": "M15 early persistence Windows slice",
+  "candidate": "97664e4d5c7eac411067652ff8e77056cf990b2a",
+  "publication": "72baf5a1a9ba34ee82f714c4273fba587aa1d1ef",
+  "branch": "harness-v2",
+  "run_id": 42019459097,
+  "candidate_blobs_sha256": {
+    "development/backend/app/chat.py": "92412bf48d5001b71beeb8072bbee63b05ea31dba693193baa20aa9f2c050191",
+    "testing/reports/b03/A15-history/2026-11-05-handoff.md": "da786cb9aaf5ed8a8febc28bc193925a797a95e775124f8f4b67ee9b141f429b",
+    "testing/reports/b03/A15-history/2026-11-05-static.json": "05d64cbf9192d591b909519835a4f385b7cda5868baf7d3ebcfd22e619d07020",
+    "testing/tests/test_chat_history.py": "262dfee6387320ea759152b6eaad2937af3d266011b8bb4e267715e0896eb956"
+  },
+  "scope": "Same8actual isolated JSON persistence/history/ownership/concurrency cases on Windows2025/Python3.12, including msvcrt and cross-process locks. Complements Linux31/31 receipt. API/UI/full grounded send and complete launcher not credited.",
+  "tests": [
+    {
+      "classname": "tests.test_chat_history",
+      "name": "test_actual_files_full_reply_ledger_restart_and_selected_last10"
+    },
+    {
+      "classname": "tests.test_chat_history",
+      "name": "test_titles_full_text_stable_ids_and_updated_order_without_model"
+    },
+    {
+      "classname": "tests.test_chat_history",
+      "name": "test_factory_no_key_no_tool_calls_public_boundaries_and_explicit_unavailable_send"
+    },
+    {
+      "classname": "tests.test_chat_history",
+      "name": "test_corrupt_store_is_reported_without_erasing_or_skipping_it[truncated]"
+    },
+    {
+      "classname": "tests.test_chat_history",
+      "name": "test_corrupt_store_is_reported_without_erasing_or_skipping_it[wrong-owner]"
+    },
+    {
+      "classname": "tests.test_chat_history",
+      "name": "test_corrupt_store_is_reported_without_erasing_or_skipping_it[duplicate-field]"
+    },
+    {
+      "classname": "tests.test_chat_history",
+      "name": "test_atomic_failure_and_server_only_append_ownership_preserve_saved_work"
+    },
+    {
+      "classname": "tests.test_chat_history",
+      "name": "test_bounded_per_thread_lock_and_concurrent_updates_do_not_lose_messages"
+    }
+  ],
+  "run": {
+    "conclusion": "success",
+    "headBranch": "harness-v2",
+    "headSha": "72baf5a1a9ba34ee82f714c4273fba587aa1d1ef",
+    "jobs": [
+      {
+        "completedAt": "2026-11-05T11:30:44Z",
+        "conclusion": "success",
+        "databaseId": 127218286141,
+        "name": "history-windows",
+        "startedAt": "2026-11-05T11:30:12Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-11-05T11:30:14Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-11-05T11:30:13Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:30:23Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 2,
+            "startedAt": "2026-11-05T11:30:14Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:30:24Z",
+            "conclusion": "success",
+            "name": "Run New-Item -ItemType Directory -Force tmp,cache/pip,reports/ci | Out-Null",
+            "number": 3,
+            "startedAt": "2026-11-05T11:30:23Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:30:24Z",
+            "conclusion": "success",
+            "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 4,
+            "startedAt": "2026-11-05T11:30:24Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:30:34Z",
+            "conclusion": "success",
+            "name": "Install locked history-test dependencies",
+            "number": 5,
+            "startedAt": "2026-11-05T11:30:24Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:30:39Z",
+            "conclusion": "success",
+            "name": "Verify Windows persistence and cross-process locks",
+            "number": 6,
+            "startedAt": "2026-11-05T11:30:34Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:30:40Z",
+            "conclusion": "success",
+            "name": "Save Windows history evidence",
+            "number": 7,
+            "startedAt": "2026-11-05T11:30:39Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:30:41Z",
+            "conclusion": "success",
+            "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 13,
+            "startedAt": "2026-11-05T11:30:40Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:30:43Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 14,
+            "startedAt": "2026-11-05T11:30:41Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:30:43Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 15,
+            "startedAt": "2026-11-05T11:30:43Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42019459097/job/127218286141"
+      },
+      {
+        "completedAt": "2026-11-05T11:30:10Z",
+        "conclusion": "skipped",
+        "databaseId": 127218288080,
+        "name": "requested",
+        "startedAt": "2026-11-05T11:30:10Z",
+        "status": "completed",
+        "steps": [],
+        "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42019459097/job/127218288080"
+      },
+      {
+        "completedAt": "2026-11-05T11:30:10Z",
+        "conclusion": "skipped",
+        "databaseId": 127218288234,
+        "name": "cad",
+        "startedAt": "2026-11-05T11:30:10Z",
+        "status": "completed",
+        "steps": [],
+        "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42019459097/job/127218288234"
+      },
+      {
+        "completedAt": "2026-11-05T11:30:10Z",
+        "conclusion": "skipped",
+        "databaseId": 127218288445,
+        "name": "browser",
+        "startedAt": "2026-11-05T11:30:10Z",
+        "status": "completed",
+        "steps": [],
+        "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42019459097/job/127218288445"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42019459097"
+  },
+  "local_build_or_test_started": false
+}

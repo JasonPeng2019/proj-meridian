@@ -323,7 +323,12 @@ def verify_redesign(context, errors):
     page.get_by_label('Available views', exact=True).select_option('3d')
     assert page.locator('.part-result').count() == sum(bool(p.get('has_3d')) for p in get('/api/parts'))
     page.get_by_role('button', name='Reset', exact=True).click()
-    assert page.locator('.part-result').count() == len(get('/api/parts'))
+    assert page.locator('.part-result').count() == sum(bool(p.get('has_drawing')) for p in get('/api/parts'))
+    page.get_by_role('tab',name='Components & supplies',exact=False).click()
+    expect(page.locator('.part-result')).to_have_count(sum(not p.get('has_drawing') for p in get('/api/parts')))
+    assert 'D-013' not in page.locator('.part-results').inner_text()
+    page.get_by_role('tab',name='Designed parts',exact=False).click()
+    expect(page.locator('.part-result')).to_have_count(30)
     responsive = []
     for width, height, label in [(1600,1000,'desktop'),(1366,768,'laptop'),(390,844,'mobile')]:
         page.set_viewport_size({'width':width,'height':height})
@@ -411,7 +416,8 @@ def main():
             assert not page.evaluate('document.documentElement.scrollWidth > innerWidth'), path
             if name == 'parts-library':
                 assert not page.locator('.parts-filters').evaluate('(el) => el.open')
-                assert page.locator('.part-result').count() == len(parts)
+                expect(page.locator('.part-result')).to_have_count(30)
+                expect(page.get_by_role('tab',name='Designed parts',exact=False)).to_have_attribute('aria-selected','true')
             if name == 'model':
                 assert page.locator('.model-panels').count() == 0
                 assert page.locator('.sheet-rail').count() == 0

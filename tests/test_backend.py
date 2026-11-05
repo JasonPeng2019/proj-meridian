@@ -189,5 +189,5 @@ def test_mapping_receipt_refresh_preserves_real_decision_only_for_unchanged_sour
     records[0]['drawing']['sha256']='changed-source'
     (evidence.generated/'records.json').write_text(json.dumps(records))
     changed=Store(evidence.root)
-    assert changed.mappings[0]['review']['status']!='human_confirmed'
+    assert changed.mappings[0].get('review',{}).get('status')!='human_confirmed'
     assert changed.pending_changed()

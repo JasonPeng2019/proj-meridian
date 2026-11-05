@@ -30,7 +30,7 @@ Return the extra requested key cad_eligibility, state known, value_json an objec
 with EXACT keys: supported (boolean), constant_thickness (boolean), outline_exact
 (boolean), reason (nonempty string), essential_uncertainty (array of strings),
 omitted_minor_features (array of strings). Cite original drawing source IDs.
-supported=true only when this exact part can be represented by the supported
+supported=true only when the main body can be represented by the supported
 rectangle/circle/ring outline, a single constant thickness (or explicitly printed
 alternative constant thicknesses), plus the supported hole/slot cuts. The MAIN
 outline must match exactly: do not substitute its bounding rectangle or circle.
@@ -51,7 +51,10 @@ Uncertainty about a minor hole alone MUST NOT block the main constant-thickness
 solid. For such partials features remains known with the supported subset,
 features_complete is false, and features_omitted describes every excluded detail
 with original evidence IDs. Do not erase supported cuts because another feature
-is unresolved. The object reason must explain
+is unresolved. Minor unsupported cut orientations may be explicitly omitted, but
+unsupported essential functional features must be reported as a reason for a
+partial or blocked reconstruction. A blank body is never evidence that the
+functional part has been reconstructed accurately. The object reason must explain
 the specific eligibility decision, including the main view and thickness source.
 Do not consult prior AI records, fused application records, existing templates,
 benchmark expectations, accepted human decisions, or any other drawings.
@@ -211,6 +214,20 @@ def restore_blocked(journal_path, drawings):
         template, assessment, _ = assess(result, drawings)
         if assessment["status"] != "blocked":
             raise ValueError("Only still-blocked assessments can be reused: " + did)
+        # A previous all-or-nothing feature rule could block an otherwise
+        # supported base (e.g. D-012's perpendicular holes). Reassess these
+        # cases with the current supported-subset/explicit-omission contract.
+        main_geometry = copy.deepcopy(template)
+        main_geometry.pop("cad_eligibility", None)
+        main_geometry["cad_ready"] = True
+        main_geometry["blocking_fields"] = [key for key in template.get("blocking_fields", []) if key != "cad_eligibility"]
+        try:
+            for variant, _ in _options(main_geometry):
+                _validate_essential(variant)
+        except Unknown:
+            pass
+        else:
+            continue
         templates[did], assessments[did] = template, saved
         usage.append(copy.deepcopy(item))
     return templates, assessments, usage
@@ -278,8 +295,10 @@ def expand(force=False, pause_file=None, resume=None):
     report["wall_time_ms"] = round((time.monotonic() - started) * 1000)
     report["ready_for_cad"] = [did for did, value in report["assessments"].items() if value["status"] == "ready_for_cad"]
     report["blocked"] = [did for did, value in report["assessments"].items() if value["status"] == "blocked"]
+    report["partial_ready_for_cad"] = [did for did in report["ready_for_cad"] if report["assessments"][did].get("features_status") != "complete"]
     summary = {"run": stamp, "protocol": EXPANSION_PROTOCOL, "assessed": len(additions), "reused_blocked": reused,
                "ready_for_cad": report["ready_for_cad"], "blocked": report["blocked"],
+               "partial_ready_for_cad": report["partial_ready_for_cad"],
                "wall_time_ms": report["wall_time_ms"], "usage": report["usage"]}
     if additions:
         output.setdefault("metrics", {}).setdefault("model_expansions", []).append(summary)

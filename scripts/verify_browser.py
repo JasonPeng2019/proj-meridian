@@ -251,6 +251,56 @@ def verify_debug():
     (OUT/'debug-browser-check.json').write_text(json.dumps({'debug_launch':True,'calculations':True,'history':True,'raw_sources':True,'laptop_scrollbars':metrics,'searchable_parts':True,'global_awaiting_review_queue':len(unsettled),'human_input_and_review_separate':True,'source_drawing_region_and_pdf':True,'mapping_original_bom_row':True,'source_modal_retains_review':True,'typed_review_formats_and_validation':True,'natural_language_review_parse_preview_and_clarification':True,'review_save_uses_parser_receipt':True,'part_scoped_review_counts':True,'scope_refresh_back_navigation':True,'independent_review_scroll':True,'design_approval_controls_retained':True,'page_errors':errors},indent=2),encoding='utf-8')
 
 
+def verify_conversation_citations(context, errors):
+    """Follow-up citations retain prior source snapshots without crossing chats."""
+    page=context.new_page()
+    page.on('pageerror',lambda error:errors.append({'url':page.url,'message':str(error)}))
+    sid='e123456789abcdef0123456789abcdef'
+    part=get('/api/parts/D-013')
+    thickness=next(f for f in part['facts'] if f['field']=='thickness')
+    wiper=get('/api/parts/D-015')
+    title=next(f for f in wiper['facts'] if f['fact']=='D-015/drawing/title')
+    initial={'text':'Earlier evidence.', 'facts':{title['fact']:title,thickness['fact']:{**thickness,'display':{'state':'value','value':'EARLIER FIXTURE VALUE'}}},'parts_to_show':[]}
+    followup={'text':f"The wiper source is available. [cite: {title['fact']}] The plate thickness source is current. [cite: {thickness['fact']}]",'facts':{thickness['fact']:thickness},'parts_to_show':[]}
+    messages=[{'role':'user','content':'First question'},{'role':'assistant','content':initial['text'],'response':initial},
+              {'role':'user','content':'Follow-up'},{'role':'assistant','content':followup['text'],'response':followup}]
+    page.route('**/api/status',lambda route:route.fulfill(json={**get('/api/status'),'chat_available':True}))
+    page.route('**/api/chats/'+sid,lambda route:route.fulfill(json={'id':sid,'messages':messages}))
+    try:
+        page.goto(BASE+'/chat/'+sid)
+        latest=page.locator('.assistant-message').last
+        expect(latest.locator('.citation')).to_have_count(2)
+        expect(latest.locator('.citation.invalid')).to_have_count(0)
+        latest.locator('.citation').first.hover()
+        expect(page.locator('.earlier-answer-source')).to_have_text('Source returned in an earlier answer.')
+        page.screenshot(path=str(OUT/'chat-earlier-answer-source.png'))
+        latest.locator('.citation').first.click()
+        expect(page.locator('.part-side-panel .part-title h2')).to_have_text('Silicone Wiper')
+        page.go_back()
+        expect(page.locator('.part-side-panel')).to_have_count(0)
+        # Reopening/reloading uses the same saved response evidence, not a model call.
+        page.reload()
+        latest=page.locator('.assistant-message').last
+        expect(latest.locator('.citation.invalid')).to_have_count(0)
+        latest.locator('.citation').last.hover()
+        expect(page.locator('.citation-popover')).to_be_visible()
+        expect(page.locator('.earlier-answer-source')).to_have_count(0)
+        assert 'EARLIER FIXTURE VALUE' not in page.locator('.citation-popover').inner_text()
+        # A new chat cannot borrow facts from the previous conversation.
+        page.mouse.move(0,0)
+        page.get_by_role('button',name='New chat',exact=True).click()
+        missing=f"A new answer with an unresolved reference. [cite: {title['fact']}]"
+        page.route('**/api/chat',lambda route:route.fulfill(json={'session_id':'e223456789abcdef0123456789abcdef','text':missing,'facts':{},'parts_to_show':[]}))
+        composer=page.get_by_role('textbox',name='Message Meridian')
+        composer.fill('Start a separate conversation')
+        composer.press('Enter')
+        expect(page.locator('.assistant-message')).to_have_count(1)
+        expect(page.locator('.citation.invalid')).to_have_count(1)
+        expect(page.locator('.answer-text')).to_contain_text('A new answer with an unresolved reference.')
+    finally:
+        page.close()
+
+
 def verify_redesign(context, errors):
     """Exercise preserved client behavior without paying for or grading a model answer."""
     page = context.new_page()
@@ -532,11 +582,12 @@ def main():
             print('source_changed_reapprove_control_visible',True,flush=True)
         else:
             print('source_changed_reapprove_control','no changed-evidence items in live data; action not submitted',flush=True)
+        verify_conversation_citations(context, errors)
         verify_redesign(context, errors)
         context.close()
     result = {'page_errors':errors,'failed_responses':failures,'model_checked':model,'models_rendered':rendered_models,'bom_checked':bom,
               'default_hierarchy': {'focused_model': True, 'filters_collapsed': True, 'technical_details_collapsed': True,
-                                    'calculations_moved_to_debug': True, 'debug_hidden_on_customer_launch': True, 'saved_chats_reopen_refresh_delete': True, 'no_horizontal_overflow': True}}
+                                    'calculations_moved_to_debug': True, 'debug_hidden_on_customer_launch': True, 'saved_chats_reopen_refresh_delete': True, 'conversation_citations_reopen_and_isolate': True, 'no_horizontal_overflow': True}}
     (OUT/'browser-check.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
     print(json.dumps(result,indent=2))
     assert not errors, errors

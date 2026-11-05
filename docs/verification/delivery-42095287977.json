@@ -1,0 +1,58 @@
+{
+  "passed": true,
+  "actions_run": "42095287977",
+  "actions_url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42095287977",
+  "source_commit": "1d15e3801466760e4d9acbc18e475df8efe6b94e",
+  "archive": "meridian-v1-1d15e380.zip",
+  "archive_sha256": "8a08768a2204c961a7a032c9d713bd66702a5bf6b8e59093a6746a45e1460af6",
+  "archive_bytes": 82101346,
+  "packaged_files": 3762,
+  "uv_only": true,
+  "windows_clean_start_passed": true,
+  "linux_clean_start_passed": true,
+  "automatic_python_setup_passed": true,
+  "source_data_and_decisions_unchanged": true,
+  "report_files_preserved": {
+    "report/meridian_data_pipeline.PNG": {
+      "sha256": "fab923699a328129c5f581098680308f1f56e88a03c3f122080a3d46a89d7f03",
+      "bytes": 135545
+    },
+    "report/meridian_data_pipeline_human_input_needed.PNG": {
+      "sha256": "a11266596d2b0b80b1aff69474d1487513cb6d6e9cb0c1aa0519e93041825936",
+      "bytes": 121013
+    },
+    "report/meridian_full_chat_demo.PNG": {
+      "sha256": "d66c00fd0dee02272fc1a80bee9053b2fd25498594d87c94bb42c4084e217879",
+      "bytes": 227034
+    },
+    "report/meridian_parts_page.PNG": {
+      "sha256": "ac4bc8094116fc63fac9c90025dbcd47e1bb1cb809ffecbe3ff6d1022adf2067",
+      "bytes": 75192
+    },
+    "report/meridian_parts_page_2d.PNG": {
+      "sha256": "1b6987bfa26352f6d43f23b247b3d2fd048d4bb24a0ea05e31e0d66c0c2155c7",
+      "bytes": 120503
+    },
+    "report/meridian_parts_page_3d.PNG": {
+      "sha256": "849a63e3f4ac1fa82b85520dbe8548a95ad3d1a082c74c4cdd8d76acd49a4466",
+      "bytes": 169680
+    },
+    "report/Meridian_Take_Home_Report.pdf": {
+      "sha256": "58f976991e89f5d0f90103a58019f680c9bfadc840c345fb649e38f63427dee1",
+      "bytes": 1016858
+    }
+  },
+  "report_archive_hashes_verified": true,
+  "parts": 202,
+  "drawings": 30,
+  "modeled_parts": 9,
+  "model_variants": 12,
+  "model_exports_checked_per_platform": 24,
+  "tests": {
+    "tests": 591,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 28
+  },
+  "release_tag": "meridian-v1-2026-11-05-report"
+}

@@ -139,7 +139,9 @@ async def browser_case(report):
             process = await asyncio.create_subprocess_exec(
                 "node", str(ROOT / "testing/tests/core_ui.cjs"), url, str(case_path), str(REPORTS),
                 cwd=ROOT / "testing", stdout=output, stderr=subprocess.STDOUT)
-            assert await asyncio.wait_for(process.wait(), timeout=240) == 0, "Browser failed; see browser-output.txt"
+            if await asyncio.wait_for(process.wait(), timeout=240) != 0:
+                print((REPORTS / "browser-output.txt").read_text(encoding="utf-8", errors="replace")[-8000:], file=sys.stderr)
+                raise AssertionError("Browser failed; see browser-output.txt")
         finally:
             if process and process.returncode is None:
                 process.kill()

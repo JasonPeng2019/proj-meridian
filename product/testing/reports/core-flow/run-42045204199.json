@@ -1,0 +1,152 @@
+{
+  "schema": "meridian-core-remote-evidence/v1",
+  "run_id": 42045204199,
+  "branch": "harness-v2",
+  "published_commit": "e7871d3a2f7cb3a621323fb0c5a63c4d7deb1d3e",
+  "checkpoint_commit": "67f92c6c04d9f3d0f2255130756f075edf5b97cb",
+  "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42045204199",
+  "artifact_id": 13423039598,
+  "artifact_sha256": "c276018cfc40cd056fdea38afaebb988b96c201370a48baf497d2ece7151f12b",
+  "outcome": "FAIL",
+  "scope": "Actual corpus, scripted Responses, real API and built UI; no live Luna, CAD or V1-V5 qualification",
+  "source_validation": "Manifest/hash binding and actual image/tool values; extraction accuracy is not independently reviewed",
+  "source_sha256": {
+    "testing/ci/core_flow.py": "1de629fc8bc28b68e6ba2055e6aba6c3039997ff543f64fd6ab68b35a9cd46af",
+    "testing/tests/core_ui.cjs": "512c7918d18a04caf575238aaf68bfe9ddddbd9a66396a582d76d54cac13adb6",
+    "testing/ci/checks.py": "e72f408bf3653f48800be8586d461d6b893782f1850d004b0e46da46d034d424",
+    "development/backend/app/main.py": "5d0180336b34b4f65652a05442017a6ab590910d8acc2e97b9fda26d928a0799",
+    "development/backend/app/chat.py": "4af4d47463ac898b6df06c88f15677b2ce34658c4cbda189460f1df61e64289c",
+    "development/backend/app/tools.py": "cd229e05a00155c07b3521e57230623cfd684c3b388560199fc25cefbfe06e9f",
+    "development/backend/loader/records.py": "a1440aaca641aa9e4eebb7a244400931ff17838cad2afec500b053b234408da0",
+    "development/backend/loader/drawings.py": "901b9eddf2939279ba8c96911319a3f6d9d94c7a3838acc9028686d40876dc89",
+    "development/backend/loader/bom.py": "53f1d2b34be187333cf77fd04e394bec56a73aabe6fd3568d00642572349127e",
+    "development/backend/contracts.py": "2d613b512cd67f89e4cabadffea726239a6f77acfd8a77605753c7a821e1cb47",
+    "testing/tests/test_core_flow.py": "37eba4680d26ab5c6fb18cc3eec45e99474a93359dd790f1c9b4b6df9691ff9e",
+    "testing/tests/test_grounded_chat.py": "fdd7dd2bf9b2953b87fd815f5a3ac75a7a1c030932c2dc5d89db7294c5452347",
+    "testing/tests/test_chat_history.py": "9f8d86672bf7fb1c9aa4db6174b8d4d43b7a4410bfef791ddf1955f912f64835",
+    "testing/tests/test_source_runtime.py": "2dafa9d239a619c99b9fb9dfb9f07ad1e6fdce19194b95802c4ba42b7e9d346b",
+    "testing/tests/test_tools.py": "9735402893349b49fa00396e1678d920f1a4a8a282a6d56e3656d3e9c65c06aa"
+  },
+  "checks": [
+    {
+      "name": "extraction",
+      "command": "/home/runner/work/proj-meridian/proj-meridian/product/development/.venv/bin/python3 -B ci/checks.py extract",
+      "outcome": "PASS",
+      "evidence": "extraction-output.txt"
+    },
+    {
+      "name": "core-suites",
+      "command": "/home/runner/work/proj-meridian/proj-meridian/product/development/.venv/bin/python3 -B -m pytest -q tests/test_core_flow.py tests/test_grounded_chat.py tests/test_chat_history.py tests/test_source_runtime.py tests/test_tools.py -p no:cacheprovider --basetemp=tmp/pytest-core --junitxml=/home/runner/work/proj-meridian/proj-meridian/product/testing/reports/core-flow/core-suites.xml",
+      "outcome": "PASS",
+      "evidence": "core-suites-output.txt"
+    },
+    {
+      "name": "typecheck",
+      "command": "npm --prefix ../development/frontend run typecheck",
+      "outcome": "PASS",
+      "evidence": "typecheck-output.txt"
+    },
+    {
+      "name": "build",
+      "command": "npm --prefix ../development/frontend run build",
+      "outcome": "PASS",
+      "evidence": "build-output.txt"
+    },
+    {
+      "name": "frontend-manifest",
+      "command": "/home/runner/work/proj-meridian/proj-meridian/product/development/.venv/bin/python3 -B ci/checks.py manifest",
+      "outcome": "PASS",
+      "evidence": "frontend-manifest-output.txt"
+    },
+    {
+      "name": "browser",
+      "command": "node tests/core_ui.cjs '<owned-loopback-API>' /home/runner/work/proj-meridian/proj-meridian/product/testing/reports/core-flow/source-case.json /home/runner/work/proj-meridian/proj-meridian/product/testing/reports/core-flow",
+      "outcome": "FAIL",
+      "evidence": "failure.txt"
+    }
+  ],
+  "python_cases": 73,
+  "mandatory_case": "test_real_part_answer_drawing_and_saved_conversation_restart",
+  "browser": {
+    "commit": "e7871d3a2f7cb3a621323fb0c5a63c4d7deb1d3e",
+    "outcome": "FAIL",
+    "scope": "Real built Chat/Parts/PartPage and FastAPI; Responses scripted from source tool values",
+    "checks": [
+      {
+        "name": "built frontend and real status route",
+        "outcome": "PASS"
+      }
+    ],
+    "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ ''\n- '89504e470d0a1a0a'\n\n    at loadedImage (/home/runner/work/proj-meridian/proj-meridian/product/testing/tests/core_ui.cjs:38:12)\n    at async run (/home/runner/work/proj-meridian/proj-meridian/product/testing/tests/core_ui.cjs:104:5)",
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/assets/index-BgfdA-fJ.css",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/assets/index-BXH4QGIf.js",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/status",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/conversations",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/parts",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/parts?q=D-002%2Fpart",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/parts/D-002%2Fpart",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/parts/D-002%2Fpart/image?page=1",
+        "status": 200
+      }
+    ],
+    "image_sha256": [],
+    "browser_errors": [],
+    "completed_at": "2026-11-05T14:28:31.437Z"
+  },
+  "browser_output": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ ''\n- '89504e470d0a1a0a'\n\n    at loadedImage (/home/runner/work/proj-meridian/proj-meridian/product/testing/tests/core_ui.cjs:38:12)\n    at async run (/home/runner/work/proj-meridian/proj-meridian/product/testing/tests/core_ui.cjs:104:5) {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: '',\n  expected: '89504e470d0a1a0a',\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n",
+  "diagnosis": "Playwright response.body() returned empty. Trace records 155219 PNG bytes transferred and failure screenshot shows the actual drawing decoded. Follow-up test reads the displayed image Blob and still requires identical original-source SHA256, PNG signature, content length and natural dimensions.",
+  "unperformed_checks": [
+    {
+      "name": "part question and citation",
+      "outcome": "SKIPPED",
+      "evidence": "Browser stopped at first drawing byte-read assertion"
+    },
+    {
+      "name": "attachment click",
+      "outcome": "SKIPPED",
+      "evidence": "Browser stopped at first drawing byte-read assertion"
+    },
+    {
+      "name": "drawing zoom",
+      "outcome": "SKIPPED",
+      "evidence": "Browser stopped at first drawing byte-read assertion"
+    },
+    {
+      "name": "past-chat reload",
+      "outcome": "SKIPPED",
+      "evidence": "Browser stopped at first drawing byte-read assertion"
+    }
+  ],
+  "completed_at": "2026-11-05T14:28:31.437Z"
+}

@@ -34,15 +34,20 @@ async function run() {
     assert.equal(response.status(), 200);
     assert.match(response.headers()["content-type"], /^image\/png/);
     assert.equal(response.headers()["x-meridian-fixture"], undefined);
-    const bytes = await response.body();
-    assert.equal(bytes.subarray(0, 8).toString("hex"), "89504e470d0a1a0a");
-    const hash = createHash("sha256").update(bytes).digest("hex");
-    assert.equal(hash, source.image_sha256);
-    imageHashes.push(hash);
     await page.waitForFunction(() => {
       const image = document.querySelector(".mp-paper img");
       return image?.complete && image.naturalWidth > 0;
     });
+    // Read the actual Blob displayed by PartPage. Chromium's protocol buffer
+    // returned empty for this consumed fetch in run 42045204199, even though
+    // all 155219 bytes arrived and the screenshot showed the decoded drawing.
+    const bytes = Buffer.from(await page.locator(".mp-paper img").evaluate(async image =>
+      Array.from(new Uint8Array(await (await fetch(image.currentSrc)).arrayBuffer()))));
+    assert.equal(bytes.subarray(0, 8).toString("hex"), "89504e470d0a1a0a");
+    assert.equal(bytes.length, Number(response.headers()["content-length"]));
+    const hash = createHash("sha256").update(bytes).digest("hex");
+    assert.equal(hash, source.image_sha256);
+    imageHashes.push(hash);
     const dimensions = await page.locator(".mp-paper img").evaluate(image => [image.naturalWidth, image.naturalHeight]);
     assert.deepEqual(dimensions, [source.geometry.image_width, source.geometry.image_height]);
   }

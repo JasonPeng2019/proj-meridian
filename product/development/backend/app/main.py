@@ -61,6 +61,7 @@ def create_app(
     registry=None,
     inputs_root: Path | None = None,
     client: object | None = _DEFAULT_SERVICE,
+    decision_store=None,
 ) -> FastAPI:
     settings = settings if settings is not None else load_settings()
     fixtures = Path(fixture_dir) if fixture_dir is not None else _FIXTURES
@@ -71,18 +72,29 @@ def create_app(
         input_file = Path(input_location).resolve()
         inputs_root = input_file.parent
         prepared = settings.path("generated") / "prepared.json"
-        decisions = DecisionStore(settings.path("decisions"))
+        decision_store = DecisionStore(settings.path("decisions"))
         if prepared.is_file():
             registry = RecordRegistry.from_paths(prepared_path=prepared, inputs_path=input_file,
-                records_path=settings.path("generated") / "records.json", decisions=decisions)
+                records_path=settings.path("generated") / "records.json", decisions=decision_store)
         else:
             registry = RecordRegistry.from_inputs(input_file,
-                settings.path("dataset") / "manifest.json", decisions=decisions)
+                settings.path("dataset") / "manifest.json", decisions=decision_store)
     tools = None
+    review_service = None
+    review_error_type = None
     managed_client = None
     if registry is not None:
         from .tools import FactTools
         tools = FactTools(registry)
+        if decision_store is not None and (Path(__file__).parent / "review.py").is_file():
+            from .review import ReviewError, create_review_service
+            review_error_type = ReviewError
+            review_service = create_review_service(registry=registry, decisions=decision_store,
+                dependencies=c.ReviewDependencies(
+                    append_decision=decision_store.human_appender(settings.data["reviewer_name"]),
+                    rebuild_records=registry, resolve_facts=tools.resolve_facts,
+                    load_template=registry.load_template, rebuild_model=None))
+            tools = FactTools(registry, propose_correction=review_service.propose_correction)
         if client is _DEFAULT_SERVICE:
             try:
                 key_text = settings.chat_key_path.read_text(encoding="utf-8-sig")
@@ -110,10 +122,14 @@ def create_app(
     application.state.chat_service = service
     application.state.registry = registry
     application.state.fact_tools = tools
+    application.state.review_service = review_service
 
     @application.exception_handler(ChatServiceError)
     async def service_error(request: Request, error: ChatServiceError):
         return JSONResponse(error.response.model_dump(mode="json"), status_code=error.status_code)
+
+    if review_error_type is not None:
+        application.add_exception_handler(review_error_type, service_error)
 
     @application.exception_handler(RequestValidationError)
     async def invalid_request(request: Request, error: RequestValidationError):
@@ -283,6 +299,8 @@ def create_app(
 
     @application.get("/api/review", response_model=c.ReviewListResponse)
     def review(query: Annotated[c.ReviewListRequest, Query()]):
+        if review_service is not None:
+            return review_service.list_review(query)
         if registry is not None:
             return [item for item in registry.review_items
                     if (query.status == "all" or item.status == query.status)
@@ -294,6 +312,8 @@ def create_app(
 
     @application.post("/api/review/{item_id:path}", response_model=c.ReviewActionResponse)
     def review_action(item_id: str, body: c.ReviewActionRequest):
+        if review_service is not None:
+            return review_service.review_action(item_id, body, settings.data["reviewer_name"])
         _unavailable("Review actions are unavailable until the real review service is integrated; no decision was recorded.")
 
     @application.get("/{path:path}")

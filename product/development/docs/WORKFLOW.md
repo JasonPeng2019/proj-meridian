@@ -2,6 +2,8 @@
 
 ## Basis
 
+**Immediate core-flow batch (latest user instruction):** prioritize the real app's source-backed chat/drawing/details/persistent-history path. STRONGEST `core_chat` owns M15, STRONGEST `core_ui` owns M19/M20 plus M04 wiring, and STRONGEST `core_data_tools` owns M12/M14; ROOT owns M03 integration and actual runtime qualification. These run in parallel through in-session Sol max/priority workers because an observed eight unrelated local Codex processes already exceeds the CLI ceiling; no additional CLI providers are launched. Keep isolated worktrees and exact checkpoint commits. Native harness remains the runtime/identity authority for its own lanes; in-session checkpoints do not fabricate native RESULT, acceptance or product-gate credit. Resume the ordinary native provider route only when the shared local CLI budget allows it. The original 27 modules and full completion scope remain intact.
+
 - **Plan:** [PLAN.md](PLAN.md), including 27 modules, requirements R1-R17, expectations E1-E15 and five verification checkpoints. Module IDs M01-M27 differ from product milestones M0-M3.
 - **Assignment:** [Project Meridian requirements](../inputs/project-meridian/README.md). [mvp (1).md](<../inputs/mvp (1).md>) controls build scope; [proposal.md](../inputs/proposal.md) supplies included-feature behavior. The user's later instructions add minimal deterministic tests and selective semantic verification.
 - **Destination/application root:** This workflow is `product/development/docs/WORKFLOW.md`. Implementation paths below are relative to `Avathon/product/development/`.

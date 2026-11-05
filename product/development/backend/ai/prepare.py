@@ -99,6 +99,7 @@ class PreparedKnowledge(ContractModel):
     """M11 -> M12 handoff. No alternate layout or live-reader dependency."""
 
     pipeline_version: Literal["determine-verify/v1"] = "determine-verify/v1"
+    source_only: bool = False  # Deterministic startup before the separate AI run.
     input_sha256: str = Field(pattern=r"^[0-9a-f]{64}$")
     drawings: list[DrawingEvidence]
     bom_rows: list[BOMRow]
@@ -110,6 +111,13 @@ class PreparedKnowledge(ContractModel):
 
     @model_validator(mode="after")
     def coherent_boundary(self) -> PreparedKnowledge:
+        if self.source_only:
+            if self.batch.records or self.mappings or self.templates or self.review_items:
+                raise ValueError("Source-only knowledge cannot claim AI jobs or prepared interpretations.")
+            if any(field.provenance is not None or field.method not in {
+                    Method.PARSED, Method.CLEANUP_RULE, Method.UNRESOLVED}
+                    for drawing in self.drawings for field in drawing.fields.values()):
+                raise ValueError("Source-only knowledge must retain deterministic drawing evidence.")
         drawings = {drawing.id: drawing for drawing in self.drawings}
         if len(drawings) != len(self.drawings):
             raise ValueError("Prepared drawing IDs must be unique.")
@@ -167,6 +175,9 @@ class PreparedKnowledge(ContractModel):
                     "no_match" if accepted.accepted else "unresolved")
                 if result.state != expected or link.method != _METHODS.get(accepted.status, Method.UNRESOLVED):
                     raise ValueError("Link state must reflect its final accepted candidate.")
+            elif (self.source_only and result.state != "matched"
+                  and link.method == Method.UNRESOLVED and not link.bom_rows):
+                pass  # No AI has been attempted; keep this link unresolved.
             elif link.method != Method.EXACT_MATCH or result.state != "matched":
                 raise ValueError("Every non-exact link must retain an actual attempted job.")
         for mapping in self.mappings:
@@ -219,6 +230,52 @@ def _unknown(name: str, *, message: str, essential: bool = False,
                 review_item=_review_link(name))
 
 
+def _template_value(value: Any, name: str, option: int | None,
+                    proofs: dict[tuple[str, int | None, str], Any], *,
+                    record: PrepProvenance | None, essential: bool,
+                    path: str = "", key: str = "") -> Any:
+    """Convert one semantic value using only its own indexed scalar proofs.
+
+    Known values and each printed option take the same path. Option order and
+    proof identity stay intact; a composite need not invent a root proof.
+    Domain validation and accepted-state checks happen before this conversion.
+    """
+    child_name = name + (f"/option-{option + 1}" if option is not None else "") + path
+    if value == {"state": "unknown"}:
+        return _unknown(child_name, message="The original candidate explicitly leaves this subfield unknown.",
+                        essential=essential, record=record)
+    if isinstance(value, dict):
+        return {k: _template_value(v, name, option, proofs, record=record, essential=essential,
+                                  path=path + "/" + k, key=k) for k, v in value.items()}
+    if isinstance(value, list):
+        return [_template_value(v, name, option, proofs, record=record, essential=essential,
+                                path=path + f"/{i}", key=key) for i, v in enumerate(value)]
+    if value is not None and (key in _NUMBERS or key in {"thread_size", "angles_deg"}):
+        evidence = ValueEvidence.model_validate(proofs[(name, option, path)])
+        return dict(name=child_name, method=Method.CLEANUP_RULE, state="known", confidence="sure",
+            value=value, evidence=evidence.model_dump(mode="json"), provenance=record,
+            essential=essential, unit="count" if key == "count" else "deg" if key.endswith("_deg") else
+                None if key == "thread_size" else "mm")
+    return value
+
+
+def _template_evidence(name: str, option: int | None,
+                       proofs: dict[tuple[str, int | None, str], Any]) -> dict[str, Any]:
+    """Keep scalar proofs exact; aggregate only this composite option's leaves."""
+    if (name, option, "") in proofs:
+        return ValueEvidence.model_validate(proofs[(name, option, "")]).model_dump(mode="json")
+    entries = [ValueEvidence.model_validate(p) for (n, index, _), p in proofs.items()
+               if n == name and index == option]
+    if not entries:
+        raise EvidenceError("A known composite or option has no supporting leaf proofs.")
+    return ValueEvidence(
+        number_ids=sorted({ref for p in entries for ref in
+                           [*p.number_ids, *(p.derivation.inputs if p.derivation else [])]}),
+        source_ids=sorted({ref for p in entries for ref in
+                           [*p.source_ids, *([p.derivation.pattern_fact] if p.derivation
+                                              and p.derivation.pattern_fact else [])]})).model_dump(mode="json")
+
+
 def _template(drawing: DrawingEvidence, record: PrepProvenance) -> FlatTemplate | None:
     """Attach the validated ledger to exact semantic values, without guessing.
 
@@ -237,25 +294,6 @@ def _template(drawing: DrawingEvidence, record: PrepProvenance) -> FlatTemplate 
     proofs = {(entry["field"], entry["option"], entry["path"]): entry["evidence"]
               for entry in ledger.value["entries"]}
 
-    def evidence(name, option, path):
-        return ValueEvidence.model_validate(proofs[(name, option, path)]).model_dump(mode="json")
-
-    def nested(value, name, option, path="", key=""):
-        child_name = name + path
-        if value == {"state": "unknown"}:
-            return _unknown(child_name, message="The original candidate explicitly leaves this subfield unknown.",
-                            essential=True, record=record)
-        if isinstance(value, dict):
-            return {k: nested(v, name, option, path + "/" + k, k) for k, v in value.items()}
-        if isinstance(value, list):
-            return [nested(v, name, option, path + f"/{i}", key) for i, v in enumerate(value)]
-        if value is not None and (key in _NUMBERS or key in {"thread_size", "angles_deg"}):
-            return dict(name=child_name, method=Method.CLEANUP_RULE, state="known", confidence="sure",
-                value=value, evidence=evidence(name, option, path), provenance=record,
-                essential=True, unit="count" if key == "count" else "deg" if key.endswith("_deg") else
-                    None if key == "thread_size" else "mm")
-        return value
-
     def project(suffix, *, essential=False, unit=None):
         name = template_fact_name(drawing.id, suffix)
         field = accepted[name]
@@ -266,16 +304,11 @@ def _template(drawing: DrawingEvidence, record: PrepProvenance) -> FlatTemplate 
                     confidence="sure", provenance=record, essential=essential, review_item=_review_link(name))
         if field.state == "options":
             return dict(base, state="options", basis="printed_alternatives", unit=unit,
-                options=[dict(value=value, evidence=evidence(name, i, "")) for i, value in enumerate(field.options)])
-        value = nested(field.value, name, None) if isinstance(field.value, dict) else field.value
-        # Composite evidence is the union of its actual leaf proofs, retained
-        # separately at each numeric/text wrapper as required by FlatTemplate.
-        entries = [ValueEvidence.model_validate(p) for (n, option, _), p in proofs.items()
-                   if n == name and option is None]
-        root = evidence(name, None, "") if (name, None, "") in proofs else ValueEvidence(
-            number_ids=sorted({ref for p in entries for ref in p.number_ids}),
-            source_ids=sorted({ref for p in entries for ref in p.source_ids})).model_dump(mode="json")
-        return dict(base, state="known", value=value, evidence=root, unit=unit)
+                options=[dict(value=_template_value(value, name, i, proofs, record=record, essential=essential),
+                              evidence=_template_evidence(name, i, proofs))
+                         for i, value in enumerate(field.options)])
+        value = _template_value(field.value, name, None, proofs, record=record, essential=essential)
+        return dict(base, state="known", value=value, evidence=_template_evidence(name, None, proofs), unit=unit)
 
     features = []
     for name in record.field_names:
@@ -285,7 +318,10 @@ def _template(drawing: DrawingEvidence, record: PrepProvenance) -> FlatTemplate 
         if (field and field.value == {"kind": "absent"}
                 and record.field_results[name].status in {"first_pass_verified", "retry_verified"}):
             continue
-        features.append(project(name.rsplit("/", 1)[-1], essential=True))
+        # Unknown feature slots and their details remain listed with sources
+        # and rounds. They can be omitted as a whole minor feature; outline and
+        # thickness alone are unconditional essential geometry for this subset.
+        features.append(project(name.rsplit("/", 1)[-1]))
     return FlatTemplate(part=drawing.id, source_sha256=record.source.inputs["drawing"],
         filled_by=record.mode, provenance=record, outline=project("outline", essential=True),
         thickness=project("thickness", essential=True, unit="mm"), features=features,
@@ -326,13 +362,16 @@ def _vision_reviews(job: vision_jobs.VisionJob, drawing: DrawingEvidence,
                 message += " Final Opus output is unavailable."
         if record.mode == "single_model_unverified":
             message = "UNVERIFIED: initial Opus execution failed; retry Opus on every launch. " + message
+        actions = [ReviewAction.ACCEPT, ReviewAction.REJECT, ReviewAction.SET_VALUE]
+        if field and field.state == "options":
+            actions.append(ReviewAction.CHOOSE_OPTION)
         items.append(ReviewItem(id=_review_link(name).id,
             kind="template_field" if details is not None else "scan_reading", applies_to=name,
             part_id=drawing_part_name(drawing.id), status="pending", title="Prepared evidence review",
             message=message, current_value=field.value if field else None,
             proposed_value=candidate.value if candidate else None,
             options=field.options if field else [], sources=sources, source_hashes=record.source.inputs,
-            ai_answers=record, allowed_actions=[ReviewAction.ACCEPT, ReviewAction.REJECT, ReviewAction.SET_VALUE],
+            ai_answers=record, allowed_actions=actions,
             created_at=at, updated_at=at))
     return items
 

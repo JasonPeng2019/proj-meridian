@@ -66,6 +66,10 @@ assert.deepEqual(sourcePartRequest(bom), { part_id: "BOM:section/item/part", tab
 assert.equal(sourcePartRequest({ kind: "part", name: "unknown" }), null);
 assert.equal(sourcePartRequest({ kind: "readme", name: "README/intro/p1", part_id: "unrelated" }), null);
 
+// The default shell now imports the real shared part view; exercise its customer
+// and Debug output in the same remote compilation and invocation.
+require("./part_ui.cjs");
+
 async function transportChecks() {
   const calls = [];
   let response = { ok: true, status: 200, json: async () => ({ synthetic: true }), blob: async () => new Blob(["synthetic"]) };

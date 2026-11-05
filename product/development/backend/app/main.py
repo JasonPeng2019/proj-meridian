@@ -1,7 +1,7 @@
-"""M0 composition and real early M15 history; no prep or credential loading.
+"""Meridian composition: source-backed records, grounded chat and local history.
 
-The non-history data is explicitly synthetic M02 scaffold data. Grounded sends,
-review mutations and later milestone services remain unavailable until integrated.
+MERIDIAN_INPUTS_PATH selects the actual saved extraction. Explicit fixture mode
+remains available to isolated foundation tests; production never invents sources.
 """
 
 from __future__ import annotations
@@ -190,9 +190,8 @@ def create_app(
     def read_conversation(conversation_id: c.ConversationId):
         return history().read_conversation(c.ConversationRequest(conversation_id=conversation_id))
 
-    # Synchronous route handlers run in Starlette's worker pool. The early async
-    # send does synchronous disk reads, so run its coroutine there too. No storage
-    # call blocks the ASGI event loop. Revisit this bridge for B06 loop-bound clients.
+    # Grounded sends stay on the server's loop with their AsyncOpenAI client;
+    # M15 offloads its synchronous storage and tool operations itself.
     @application.post("/api/conversations/{conversation_id}/messages", response_model=c.ConversationSendResponse)
     async def send_conversation(conversation_id: c.ConversationId, body: c.ConversationSendRequest):
         return await history().send(c.ConversationRequest(conversation_id=conversation_id), body)
@@ -205,9 +204,10 @@ def create_app(
             raise ChatServiceError(c.ErrorCode.INVALID_REQUEST, "Message must contain non-whitespace text.") from error
         selected = body.conversation_id
         if selected is None:
-            selected = history().create_conversation(c.ConversationCreateRequest()).conversation.conversation_id
+            created = await asyncio.to_thread(history().create_conversation, c.ConversationCreateRequest())
+            selected = created.conversation.conversation_id
         else:
-            history().read_conversation(c.ConversationRequest(conversation_id=selected))
+            await asyncio.to_thread(history().read_conversation, c.ConversationRequest(conversation_id=selected))
         # Compatibility history is deliberately ignored, never forwarded or saved.
         result = await history().send(c.ConversationRequest(conversation_id=selected), message)
         return result.messages[1].response
@@ -221,7 +221,7 @@ def create_app(
             if query.q.casefold() not in f"{record.id} {record.display_name} {record.section or ''}".casefold():
                 continue
             result.append(c.PartSummary(
-                fixture=True, synthetic=True, fixture_note=record.fixture_note,
+                fixture=record.fixture, synthetic=record.synthetic, fixture_note=record.fixture_note,
                 id=record.id, display_name=record.display_name, section=record.section,
                 has_drawing=record.has_drawing, has_3d=record.has_3d, examples=record.examples,
                 thumbnail=c.image_api_path(record.id, thumb=True) if record.has_drawing else None,

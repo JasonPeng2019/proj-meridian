@@ -1,5 +1,7 @@
 # Project Meridian implementation plan
 
+**Immediate execution priority (latest user instruction):** Finish the actual app's real-part question → grounded Luna answer → drawing/details → saved-conversation reopening flow before unrelated work. M12/M14/M15/M03 and M19/M20/M04 integrate as one vertical slice; this does not narrow the original 27-module/M1–M3 completion requirements. Source-only deterministic records may power initial app use with unknown scan/AI fields left unresolved; they do not count as the required full determine/verify prep run or a passed product gate.
+
 ## Minimal working product
 
 This plan turns the supplied design into bounded coding modules. **M1 is the minimum complete submission.** M0 enables parallel development but is not submittable; M2 and M3 improve the working M1 in that order. The 12–14 hour budget and milestone times in the MVP are targets, not reasons to tag an incomplete version.

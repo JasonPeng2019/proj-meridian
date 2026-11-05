@@ -31,8 +31,9 @@ from backend.ai.runner import EvidenceError, Runner  # noqa: E402
 from backend.contracts import (  # noqa: E402
     BOMField, BOMRow, DeterminationOutput, DeterminationRequest, DeterminedField,
     DrawingEvidence, DrawingField, DrawingNumber, DrawingWord, FieldVerification,
-    PageGeometry, ReaderFailure, VerificationOutput, bom_fact_name, bom_row_name,
-    contract_digest, prep_counts, template_candidate_value,
+    Feature, OptionsField, Outline, PageGeometry, ReaderFailure, TemplateOption,
+    VerificationOutput, bom_fact_name, bom_row_name, contract_digest, prep_counts,
+    template_candidate_value,
 )
 
 
@@ -51,7 +52,7 @@ def work():
         yield Path(folder)
 
 
-def drawing(work, identity="D-001", *, scan=False):
+def drawing(work, identity="D-001", *, scan=False, alternatives=False):
     fields = {}
     for key, box in BOXES.items():
         value = None if scan else {"title": "SYNTHETIC Bracket", "material": "Alloy X"}.get(key)
@@ -65,6 +66,8 @@ def drawing(work, identity="D-001", *, scan=False):
             numbers.append(DrawingNumber(name=f"{identity}/drawing/n/{text}@1", text=text,
                 value=value, page=1, box=box))
             words.append(DrawingWord(text=text, page=1, box=box))
+        if alternatives:
+            words.append(DrawingWord(text="or", page=1, box=(182, 130, 12, 12)))
     image = Image.new("RGB", (1000, 700), "white")
     canvas = ImageDraw.Draw(image)
     for key, (x, y, w, h) in BOXES.items():
@@ -110,9 +113,19 @@ def field(value=None, refs=(), *, state=None):
                 reason=NOTE, source_ids=list(refs), schema_valid=False, evidence_valid=False)
 
 
-def proof(name, path="", *, number=None, refs=()):
-    return dict(field=name, option=None, path=path,
+def proof(name, path="", *, number=None, refs=(), option=None):
+    return dict(field=name, option=option, path=path,
         evidence=dict(number_ids=[number] if number else [], source_ids=list(refs), derivation=None))
+
+
+def feature_value(kind="hole"):
+    if kind == "slot":
+        return dict(kind="slot", face="top", position={"x": 7, "y": 7}, width=5, length=12,
+                    direction_deg=7, through=True, depth=None, pattern=None)
+    return dict(kind="hole", hole_type="plain", face="top", position={"x": 7, "y": 7},
+        diameter=5, through=True, depth=None, thread_size=None, thread_depth=None,
+        countersink_diameter=None, countersink_angle_deg=None, counterbore_diameter=None,
+        counterbore_depth=None, pattern=None)
 
 
 def template_fields(request, definition, *, feature=False):
@@ -135,17 +148,18 @@ def template_fields(request, definition, *, feature=False):
         fields[target] = field({"kind": "absent"}, [page])
         entries.append(proof(target, "/kind", refs=[page]))
         if feature:
-            value = dict(kind="hole", hole_type="plain", face="top", position={"x": 7, "y": 7},
-                diameter=5, through=True, depth=None, thread_size=None, thread_depth=None,
-                countersink_diameter=None, countersink_angle_deg=None, counterbore_diameter=None,
-                counterbore_depth=None, pattern=None)
-            fields[target] = field(value, [page, numbers["7"], numbers["5"]])
+            kind = "slot" if feature == "slot" else "hole"
+            value = feature_value(kind)
+            fields[target] = field(value, [page, numbers["7"], numbers["5"], *([numbers["12"]] if kind == "slot" else [])])
             entries.pop()
             entries.extend(proof(target, path, refs=[page])
-                           for path in ("/kind", "/hole_type", "/face", "/through"))
+                           for path in (("/kind", "/hole_type", "/face", "/through") if kind == "hole"
+                                        else ("/kind", "/face", "/through")))
             entries.extend([proof(target, "/position/x", number=numbers["7"]),
-                            proof(target, "/position/y", number=numbers["7"]),
-                            proof(target, "/diameter", number=numbers["5"])])
+                            proof(target, "/position/y", number=numbers["7"])])
+            entries.extend([proof(target, "/diameter", number=numbers["5"])] if kind == "hole" else [
+                proof(target, "/width", number=numbers["5"]), proof(target, "/length", number=numbers["12"]),
+                proof(target, "/direction_deg", number=numbers["7"])])
     fields[name("proofs")] = field({"entries": entries}, [page])
     return fields
 
@@ -191,7 +205,11 @@ class Scripted:
                 replacement = self.customize(request, definition, fields)
                 if replacement is not None:
                     return replacement
-            data = {"source_sha256": contract_digest(request.job.source), "fields": fields}
+            # Hash the actual typed representation, including its defaults.
+            # The host's candidate digest validator must remain strict.
+            data = {"source_sha256": contract_digest(request.job.source),
+                    "fields": {name: DeterminedField.model_validate(value).model_dump(mode="json")
+                               for name, value in fields.items()}}
             candidate = DeterminationOutput(**data, candidate_sha256=contract_digest(data))
             candidate = definition.validate_candidate(candidate, request.job.source)
             return self.runner._attempt(request, status="success", output=candidate)
@@ -357,6 +375,8 @@ def test_retry_bound_and_truthful_separate_counts(work, monkeypatch, failure):
     else:
         assert saved.links[0].state == "unresolved" and saved.links[0].link.bom_rows == []
         assert counts.unverified_fallback == 0
+        assert all("choose_option" not in item.allowed_actions and item.options == []
+                   for item in saved.review_items)
 
 
 def test_template_projection_keeps_proofs_unknown_slots_and_only_verified_absence(work, monkeypatch):
@@ -368,6 +388,8 @@ def test_template_projection_keeps_proofs_unknown_slots_and_only_verified_absenc
     assert template.outline.value.length.evidence.number_ids == [original.numbers[0].name]
     assert template.thickness.value == 5
     assert len(template.features) == 1 and template.features[0].state == "unknown"
+    assert template.outline.essential and template.thickness.essential
+    assert not template.features[0].essential and template.features[0].provenance == template.provenance
     assert template.material.state == "unknown" and template.weight_on_drawing.state == "unknown"
     assert template.source_sha256 == template.provenance.source.inputs["drawing"]
     assert prep.load_prepared(work / "prepared.json") == saved
@@ -537,20 +559,163 @@ def test_explicit_command_uses_host_reservation_and_saved_boundary(work, monkeyp
     assert caught.value.code == 2 and not (work / "no.json").exists()
 
 
-def test_known_feature_must_survive_frozen_contract_handoff(work, monkeypatch):
-    """Required behavior; current M09/M02 note-default mismatch is escalated.
-
-    This deliberately asserts the required end-to-end result, rather than
-    weakening the test to accept an unsupported projection. ROOT must reconcile
-    the frozen candidate/native feature interface before M11 can qualify.
-    """
+@pytest.mark.parametrize("kind", ["hole", "slot"])
+def test_known_feature_must_survive_frozen_contract_handoff(work, monkeypatch, kind):
+    """Known hole and slot values survive ROOT's null-note representation fix."""
     original = drawing(work, "D-013")
 
     def customize(request, definition, fields):
         if definition.job.startswith("vision.template.") and isinstance(request, DeterminationRequest):
-            fields.update(template_fields(request.job, definition, feature=True))
+            fields.update(template_fields(request.job, definition, feature=kind))
 
     saved = execute(work, Scripted(work, monkeypatch, customize=customize), inputs(work, [original]))
     feature = saved.templates[original.id].features[0]
-    assert feature.state == "known" and feature.value.diameter.value == 5
+    assert feature.state == "known" and feature.value.kind == kind
+    if kind == "hole":
+        assert feature.value.diameter.value == 5
+    else:
+        assert feature.value.width.value == 5 and feature.value.length.value == 12
+    assert feature.value.note is None and not feature.essential
+    candidate = feature.provenance.field_results[feature.name].accepted
+    assert "note" not in candidate.value
+    assert feature.provenance.rounds[-1].determination.output.fields[feature.name] == candidate
     assert prep.load_prepared(work / "prepared.json") == saved
+
+
+@pytest.mark.parametrize("kind", ["hole", "slot"])
+@pytest.mark.parametrize("change", ["geometry", "note"])
+def test_known_feature_rejects_changed_geometry_and_non_null_note(work, monkeypatch, kind, change):
+    original = drawing(work, "D-013")
+
+    def customize(request, definition, fields):
+        if definition.job.startswith("vision.template.") and isinstance(request, DeterminationRequest):
+            fields.update(template_fields(request.job, definition, feature=kind))
+
+    saved = execute(work, Scripted(work, monkeypatch, customize=customize), inputs(work, [original]))
+    payload = saved.model_dump(mode="json")
+    feature = payload["templates"][original.id]["features"][0]
+    if change == "geometry":
+        feature["value"]["diameter" if kind == "hole" else "width"]["value"] = 999
+    else:
+        feature["value"]["note"] = "Invented engineering note must not be normalized away"
+    path = work / "altered-feature.json"
+    path.write_text(json.dumps(payload), encoding="utf-8")
+    with pytest.raises(ValidationError, match="exact|candidate|Template"):
+        prep.load_prepared(path)
+
+
+@pytest.mark.parametrize("unknown_essential", ["outline", "thickness"])
+def test_unknown_minor_details_remain_omittable_while_main_geometry_is_essential(work, monkeypatch, unknown_essential):
+    original = drawing(work, "D-013")
+
+    def customize(request, definition, fields):
+        if definition.job.startswith("vision.template.") and isinstance(request, DeterminationRequest):
+            fields.update(template_fields(request.job, definition, feature="hole"))
+            feature = f"{original.id}/template/feature-01"
+            required = f"{original.id}/template/{unknown_essential}"
+            page = f"{original.id}/drawing/page/1"
+            fields[feature]["value"]["diameter"] = {"state": "unknown"}
+            fields[feature]["source_ids"] = [page, original.numbers[1].name]
+            fields[required] = field(refs=[page])
+            ledger = fields[f"{original.id}/template/proofs"]["value"]["entries"]
+            ledger[:] = [entry for entry in ledger if entry["field"] != required and not (
+                entry["field"] == feature and entry["path"] == "/diameter")]
+
+    saved = execute(work, Scripted(work, monkeypatch, customize=customize), inputs(work, [original]))
+    template = saved.templates[original.id]
+    major = getattr(template, unknown_essential)
+    assert major.state == "unknown" and major.essential
+    minor = template.features[0]
+    assert minor.state == "known" and not minor.essential
+    assert minor.value.diameter.state == "unknown" and not minor.value.diameter.essential
+    assert minor.provenance == template.provenance == minor.value.diameter.provenance
+    assert minor.value.diameter.provenance.source.inputs
+    assert template.features[1].state == "unknown" and not template.features[1].essential
+    assert prep.load_prepared(work / "prepared.json") == saved
+
+
+def printed_thickness_fields(request, definition):
+    fields = template_fields(request, definition)
+    bundle = definition.evidence(request)
+    drawing = bundle.inputs["drawing"].value
+    identity = drawing["id"]
+    name = f"{identity}/template/thickness"
+    group = next(iter(bundle.inputs["inventory"].value["printed_alternatives"]))
+    numbers = {n["text"]: n["name"] for n in drawing["numbers"]}
+    fields[name] = {**field(refs=[numbers["7"], numbers["5"], group]),
+                    "state": "options", "confidence": "sure", "options": [7, 5], "basis": "printed_alternatives"}
+    entries = fields[f"{identity}/template/proofs"]["value"]["entries"]
+    entries[:] = [entry for entry in entries if entry["field"] != name]
+    entries.extend([proof(name, number=numbers["7"], option=0), proof(name, number=numbers["5"], option=1)])
+    return fields
+
+
+def test_printed_numeric_options_preserve_own_proofs_order_and_choose_action(work, monkeypatch):
+    original = drawing(work, "D-013", alternatives=True)
+
+    def customize(request, definition, fields):
+        if definition.job.startswith("vision.template.") and isinstance(request, DeterminationRequest):
+            fields.update(printed_thickness_fields(request.job, definition))
+
+    saved = execute(work, Scripted(work, monkeypatch, customize=customize), inputs(work, [original]))
+    thickness = saved.templates[original.id].thickness
+    assert thickness.state == "options" and thickness.basis == "printed_alternatives"
+    assert [option.value for option in thickness.options] == [7, 5]
+    assert [option.evidence.number_ids for option in thickness.options] == [
+        [original.numbers[1].name], [original.numbers[2].name]]
+    review = next(item for item in saved.review_items if item.applies_to == thickness.name)
+    assert review.options == [7, 5] and "choose_option" in review.allowed_actions
+    assert review.status == "pending" and review.review is None
+    assert thickness.provenance.field_results[thickness.name].accepted.options == [7, 5]
+    assert all("choose_option" not in item.allowed_actions for item in saved.review_items
+               if item.applies_to != thickness.name)
+    assert prep.load_prepared(work / "prepared.json") == saved
+
+
+@pytest.mark.parametrize("kind", ["outline", "hole", "slot"])
+def test_composite_option_conversion_uses_option_leaf_proofs_without_root_proof(work, kind):
+    """Conversion fixture only: current M09/FlatTemplate allow scalar options.
+
+    Use existing generic native contracts to verify the representation without
+    fabricating a model verdict, accepted domain field, batch count or approval.
+    """
+    original = drawing(work, "D-013", alternatives=True)
+    page = f"{original.id}/drawing/page/1"
+    numbers = {n.text: n.name for n in original.numbers}
+    name = f"{original.id}/template/{'outline' if kind == 'outline' else 'feature-01'}"
+    first = {"type": "rectangle", "length": 12, "width": 7} if kind == "outline" else feature_value(kind)
+    if kind != "outline":
+        first["diameter" if kind == "hole" else "width"] = 7
+    second = deepcopy(first)
+    second["width" if kind in {"outline", "slot"} else "diameter"] = 5
+    values = [first, second]
+    proofs = {}
+
+    def leaves(value, path=""):
+        if isinstance(value, dict):
+            return [leaf for k, v in value.items() for leaf in leaves(v, path + "/" + k)]
+        return [] if value is None else [(path, value)]
+
+    for option, value in enumerate(values):
+        for path, leaf in leaves(value):
+            entry = proof(name, path, number=numbers[str(leaf)] if type(leaf) is int else None,
+                          refs=[] if type(leaf) is int else [page], option=option)
+            proofs[(name, option, path)] = entry["evidence"]
+    assert not any(path == "" for _, _, path in proofs)
+    projected = [dict(value=prep._template_value(value, name, index, proofs, record=None, essential=kind == "outline"),
+                      evidence=prep._template_evidence(name, index, proofs)) for index, value in enumerate(values)]
+    option_type = TemplateOption[Outline] if kind == "outline" else TemplateOption[Feature]
+    options = [option_type.model_validate(value) for value in projected]
+    container_type = OptionsField[Outline] if kind == "outline" else OptionsField[Feature]
+    container = container_type(name=name, method="cleanup_rule", options=options)
+    assert container.provenance is None and container.review is None
+    for index, option in enumerate(container.options):
+        result = template_candidate_value(option.value)
+        if kind != "outline":
+            assert result.pop("note") is None
+        assert result == values[index]
+        expected_refs = {numbers[str(v)] for _, v in leaves(values[index]) if type(v) is int}
+        assert set(option.evidence.number_ids) == expected_refs
+        assert option.evidence.source_ids == [page]
+    assert container.options[0].value.position.x.name != container.options[1].value.position.x.name if kind != "outline" else (
+        container.options[0].value.width.name != container.options[1].value.width.name)

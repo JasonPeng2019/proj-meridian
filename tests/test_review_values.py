@@ -75,6 +75,13 @@ def test_features_are_sourced_and_supported_slot_direction_is_preserved():
     assert validate("features_review", []) == []
 
 
+def test_known_kind_wrapper_is_normalized_for_builder():
+    result = validate("features_review", [hole(kind={"state": "known", "value": "hole"})])
+    assert result[0]["kind"] == "hole"
+    with pytest.raises(ValueError):
+        validate("features_review", [hole(kind={"state": "unknown", "value": "hole"})])
+
+
 @pytest.mark.parametrize("feature", [
     hole(face="left"), hole(kind="pocket"), hole(x=None), hole(x="1"), hole(through="true"),
     hole(diameter=-1), hole(hole_type="unknown"), hole(through=False),

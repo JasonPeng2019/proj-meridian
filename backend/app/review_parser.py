@@ -49,6 +49,11 @@ Thickness is separate and must not be included in an outline. Positive sizes onl
 Reviewed features: JSON array, only hole/slot, face top/bottom, explicit centre x/y,
 through boolean; blind cuts require depth. Holes require diameter and hole_type
 plain/threaded/counterbored/countersunk; an explicitly ordinary hole is plain.
+Exact feature field names and structure (example only, never default values):
+[{"kind":"hole","face":"top","x":0,"y":0,"diameter":4.5,"through":true,"hole_type":"plain"}]
+Use kind, not type. Put x and y directly on each feature, not in a centre object.
+Feature kind/face/hole_type are plain enum strings, dimensions are numbers,
+and through is a plain boolean. Reuse no numeric example value unless stated by the user.
 Stepped holes need their step diameter and counterbore_depth or countersink_angle.
 Slots require length>=width and direction (degrees or horizontal/vertical).
 Never silently omit an unsupported feature or call an incomplete feature list complete.
@@ -59,6 +64,41 @@ must be actual finite numbers. Array/object fields must be JSON arrays/objects.
 
 class ParserUnavailable(RuntimeError):
     pass
+
+
+def _normalize_feature_format(value):
+    """Translate unambiguous model field aliases without adding engineering data."""
+    if not isinstance(value, list):
+        return value
+
+    def plain(raw):
+        if isinstance(raw, dict) and raw.get("state") == "known" and "value" in raw:
+            return raw["value"]
+        return raw
+
+    result = copy.deepcopy(value)
+    for feature in result:
+        if not isinstance(feature, dict):
+            continue
+        if "type" in feature:
+            if "kind" in feature and plain(feature["kind"]) != plain(feature["type"]):
+                raise ValueError("The interpreted feature has conflicting kind/type descriptions. Restate the feature kind.")
+            feature.setdefault("kind", feature["type"])
+            feature.pop("type")
+        for alias in ("centre", "center"):
+            if alias not in feature:
+                continue
+            centre = plain(feature[alias])
+            if not isinstance(centre, dict) or set(centre) - {"x", "y"}:
+                raise ValueError("The interpreted feature centre must contain only its explicit x/y positions.")
+            for axis in ("x", "y"):
+                if axis not in centre:
+                    continue
+                if axis in feature and plain(feature[axis]) != plain(centre[axis]):
+                    raise ValueError(f"The interpreted feature has conflicting {axis} positions. Restate its source position.")
+                feature.setdefault(axis, centre[axis])
+            feature.pop(alias)
+    return result
 
 
 def _item(store, item_id):
@@ -148,6 +188,8 @@ class ReviewParser:
             raise ParserUnavailable("Review input parser returned an invalid response. Try again; no decision was saved.") from None
         target = item["target"]
         try:
+            if target.endswith("/features_review"):
+                parsed = _normalize_feature_format(parsed)
             value = validate_review_value(target, parsed, store.fields.get(target, {}), store.templates.get(target.split("/")[0]))
         except ValueError as exc:
             return {"status": "needs_clarification", "summary": "The interpreted input needs more detail before it can be saved.", "questions": [str(exc)]}

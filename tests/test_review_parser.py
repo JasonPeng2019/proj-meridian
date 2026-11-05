@@ -117,6 +117,34 @@ def test_semantically_invalid_parsed_value_needs_clarification(store, provider):
     assert "greater than zero" in result["questions"][0]
 
 
+def test_actual_provider_feature_aliases_are_normalized_without_human_format_repair(store, provider):
+    target = "D-TEST/template/features_review"
+    store.fields = {target: {"state": "unknown", "value": None}}
+    wrong_format = [{"type": "hole", "face": "top", "centre": {"x": 0, "y": 0}, "through": True, "diameter": 4.5, "hole_type": "plain"}]
+    provider[0].output_text = json.dumps({"status": "ready", "value_json": json.dumps(wrong_format), "summary": "One plain top through hole, 4.5 mm diameter, at (0, 0) mm.", "questions": []})
+    result = asyncio.run(ReviewParser().parse(store, target, "One plain through hole on the top face, diameter 4.5 mm, centred at x=0 mm and y=0 mm."))
+    assert result["status"] == "ready"
+    feature = result["value"][0]
+    assert feature["kind"] == "hole" and feature["x"]["value"] == 0 and feature["y"]["value"] == 0
+    assert feature["diameter"]["value"] == 4.5 and feature["through"] is True
+    assert "type" not in feature and "centre" not in feature
+    assert not store.saved
+
+
+@pytest.mark.parametrize("feature", [
+    {"kind": "hole", "type": "slot"},
+    {"kind": "hole", "x": 2, "centre": {"x": 0, "y": 0}},
+    {"kind": "hole", "centre": {"x": 0, "y": 0}, "center": {"x": 1, "y": 0}},
+])
+def test_conflicting_feature_aliases_need_clarification(store, provider, feature):
+    target = "D-TEST/template/features_review"
+    store.fields = {target: {"state": "unknown", "value": None}}
+    provider[0].output_text = json.dumps({"status": "ready", "value_json": json.dumps([feature]), "summary": "A feature.", "questions": []})
+    result = asyncio.run(ReviewParser().parse(store, target, "A hole at the source position."))
+    assert result["status"] == "needs_clarification" and "conflicting" in result["questions"][0]
+    assert "receipt" not in result and not store.saved
+
+
 def test_preview_is_bound_to_item_revision_source_and_value(store, provider):
     parser = ReviewParser()
     token = parse(parser, store)["receipt"]

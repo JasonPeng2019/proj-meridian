@@ -1,0 +1,112 @@
+{
+  "model": "gpt-6-luna",
+  "parse_only": true,
+  "saved_engineering_decisions": 0,
+  "existing_decisions_unchanged": true,
+  "results": [
+    {
+      "status": "ready",
+      "value": {
+        "state": "known",
+        "type": "rectangle",
+        "method": "human_decision",
+        "fact_ids": [
+          "D-001/drawing/source"
+        ],
+        "length": {
+          "state": "known",
+          "value": 80,
+          "method": "human_decision",
+          "fact_ids": [
+            "D-001/drawing/source"
+          ]
+        },
+        "width": {
+          "state": "known",
+          "value": 40,
+          "method": "human_decision",
+          "fact_ids": [
+            "D-001/drawing/source"
+          ]
+        }
+      },
+      "summary": "Interpreted as a rectangle 80 mm long by 40 mm wide.",
+      "questions": [],
+      "model": "gpt-6-luna",
+      "case": "rectangle",
+      "input": "A rectangle, eighty millimetres long and forty millimetres wide.",
+      "seconds": 3.38,
+      "expected_result": true
+    },
+    {
+      "status": "needs_clarification",
+      "summary": "The ring\u2019s outer diameter is 40 mm, but its inner diameter is not specified.",
+      "questions": [
+        "What is the ring\u2019s inner diameter in mm?"
+      ],
+      "case": "ambiguous_ring",
+      "input": "A ring with outer diameter 40 mm.",
+      "seconds": 2.47,
+      "expected_result": true
+    },
+    {
+      "status": "ready",
+      "value": [
+        {
+          "kind": "hole",
+          "face": "top",
+          "x": {
+            "state": "known",
+            "value": 0,
+            "method": "human_decision",
+            "fact_ids": [
+              "D-001/drawing/source"
+            ]
+          },
+          "y": {
+            "state": "known",
+            "value": 0,
+            "method": "human_decision",
+            "fact_ids": [
+              "D-001/drawing/source"
+            ]
+          },
+          "diameter": {
+            "state": "known",
+            "value": 4.5,
+            "method": "human_decision",
+            "fact_ids": [
+              "D-001/drawing/source"
+            ]
+          },
+          "through": true,
+          "hole_type": "plain",
+          "state": "known",
+          "method": "human_decision",
+          "fact_ids": [
+            "D-001/drawing/source"
+          ]
+        }
+      ],
+      "summary": "One plain through hole on the top face, diameter 4.5 mm, centred at (0, 0) mm.",
+      "questions": [],
+      "model": "gpt-6-luna",
+      "case": "hole",
+      "input": "One plain through hole on the top face, diameter 4.5 mm, centred at x = 0 mm and y = 0 mm.",
+      "seconds": 2.38,
+      "expected_result": true
+    },
+    {
+      "status": "ready",
+      "value": 3.175,
+      "summary": "Thickness: 3.175 mm (converted from 0.125 inches).",
+      "questions": [],
+      "model": "gpt-6-luna",
+      "case": "inch_thickness",
+      "input": "The thickness is 0.125 inches.",
+      "seconds": 2.98,
+      "expected_result": true
+    }
+  ],
+  "passed": true
+}

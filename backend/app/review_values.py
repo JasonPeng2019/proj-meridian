@@ -93,9 +93,12 @@ def _features(value, source, template):
         feature = copy.deepcopy(original)
         if feature.get("state", "known") != "known" or feature.get("confidence") == "unsure":
             raise ValueError(f"{name} must be known; retain unresolved features in omissions")
-        kind = feature.get("kind")
+        kind = _unwrap(feature.get("kind"), f"{name} kind")
+        if isinstance(kind, str):
+            kind = kind.strip().lower()
         if kind not in ("hole", "slot"):
             raise ValueError(f"{name}: supported kinds are hole and slot")
+        feature["kind"] = kind
         face = _unwrap(feature.get("face"), f"{name} face")
         if face not in ("top", "bottom"):
             raise ValueError(f"{name}: supported faces are top and bottom")

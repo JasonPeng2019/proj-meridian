@@ -1,0 +1,48 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-008/drawing/title",
+          "D-008/drawing/notes",
+          "BOM:powder/powder-handling-mount-bracket",
+          "BOM:powder/powder-stepper-bracket"
+        ],
+        "reason": "“Powder Bracket” in section “Powder” does not distinguish “Powder handling mount bracket” from “Powder stepper bracket”. Both rows list “Stainless steel” and lack notes or datasheets. Neither corroborates the drawing’s “2-3mm non-magnetic stainless.” or “6x M5 weld nuts” requirements, and material equivalence is not established.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 15504,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 663,
+          "reasoning_output_tokens": 493
+        }
+      }
+    ]
+  },
+  "latency_ms": 34672,
+  "cache_key": "7bcff2bff821e1bb07ab460828d1bd08056d423109de05d7bf1167939ae4564a",
+  "cache_hit": false,
+  "job": "link:D-008",
+  "error": null
+}

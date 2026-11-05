@@ -1,0 +1,48 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "known",
+        "value_json": "[\"BOM:powder/powder-roller\"]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-007",
+          "D-007/drawing/title",
+          "D-007/drawing/notes",
+          "BOM:powder/powder-roller"
+        ],
+        "reason": "Dispenser Shaft v6 is in Powder, and its notes specify Aluminium and three identical slots. Powder roller matches the section and material, and its notes specifically describe slots of the same size with rounded edges. These details support the match despite the different title.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 15506,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 748,
+          "reasoning_output_tokens": 609
+        }
+      }
+    ]
+  },
+  "latency_ms": 26547,
+  "cache_key": "61bd0b78f6e9cda8f9b9fd1d2e637cadef99cdbe1c7a05cd3c4f75a61a929a41",
+  "cache_hit": false,
+  "job": "link:D-007",
+  "error": null
+}

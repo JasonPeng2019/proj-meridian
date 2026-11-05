@@ -1,0 +1,48 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-006/drawing/notes",
+          "BOM:powder/powder-hopper",
+          "BOM:box/left-side-box",
+          "BOM:box/right-box"
+        ],
+        "reason": "The drawing specifies 'Canister Wall', 'Left and right side, one of each.' and 'Non-magnetic stainless' in section 'Powder'. 'Powder hopper' shares the section and general material but is not identified as these walls. 'Left Side Box' and 'Right Box' belong to section 'Box'. No supplied evidence establishes equivalence or supports linking both rows.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 15484,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 908,
+          "reasoning_output_tokens": 748
+        }
+      }
+    ]
+  },
+  "latency_ms": 26860,
+  "cache_key": "a52beff7ba1f0e88ccf1aea8eadc313d78020725a67381d59c6938c9d6fdb191",
+  "cache_hit": false,
+  "job": "link:D-006",
+  "error": null
+}

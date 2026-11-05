@@ -1,0 +1,81 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-025/drawing/title",
+          "D-025/drawing/material",
+          "D-025/drawing/notes",
+          "BOM:build-plate/build-base",
+          "BOM:build-plate/build-cylinder-clamp-ring",
+          "BOM:build-plate/seal-clamp-plate"
+        ],
+        "reason": "The drawing title 'Bygge Base Ring' is Danish for roughly 'Build Base Ring'. Its notes say 'Aluminium' and its material is '3.3315 (EN-AW 5005)'. Several Aluminium rows in the Build-plate section could fit. 'Build base' matches the 'Bygge Base' part of the name, but that row does not mention a ring. 'Build cylinder clamp ring' is ring-shaped but has a different name. 'Seal clamp plate' has a notes entry about its inner diameter, which suggests it may also be ring-shaped. The drawing's section is 'Z-axis', not 'Build-plate', and no BOM row lists a datasheet that matches the source file ByggeBaseRing_Version2.PDF. The evidence does not settle which row this drawing is, so the link is left unknown.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 5981,
+      "cache_read_input_tokens": 2540,
+      "output_tokens": 622,
+      "output_tokens_details": {
+        "thinking_tokens": 153
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 5981,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 622,
+        "cacheReadInputTokens": 2540,
+        "cacheCreationInputTokens": 5981,
+        "webSearchRequests": 0,
+        "costUSD": 0.060804000000000004,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 153,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 5981,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.060804000000000004,
+    "duration_ms": 6138,
+    "is_error": false
+  },
+  "latency_ms": 10203,
+  "cache_key": "f47727eb9346b25bfe8893313cc56525f394a0e10f8fac9e6119b46848d1bf8d",
+  "cache_hit": false,
+  "job": "link:D-025",
+  "error": null
+}

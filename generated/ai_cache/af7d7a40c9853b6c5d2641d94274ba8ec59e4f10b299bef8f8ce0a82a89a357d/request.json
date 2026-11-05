@@ -1,0 +1,84 @@
+{
+  "protocol": 2,
+  "reader": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "prompt": "You are an independent, read-only engineering evidence reader. Do not edit files,\nrun commands, use other agents, browse the web, or inspect any evidence beyond the supplied inputs.\nReturn the requested JSON schema. Every requested key must appear exactly once. value_json is a\nJSON-encoded value (e.g. a string as \"\\\"text\\\"\", a number as \"5\", an array as \"[3,6]\",\nunknown as \"null\"). State known means one determined value; options means genuinely documented\nalternatives; unknown means the evidence does not determine it. confidence is only sure or unsure.\nUse sure only for a reading supported by the supplied evidence. Copy original spelling and units.\nNever invent evidence IDs. fact_ids must be exact supplied source IDs supporting that item.\nReasons must explain the evidence; changed_because is empty on the independent first reading.\n\nRead ONLY the supplied cropped title block, not measurements. Copy each field character by character. Do not translate, correct spelling, or fill blanks. Unreadable or absent fields are unknown/null/unsure. Weight must be a numeric gram value only if printed unambiguously in grams; other fields are exact strings. Do not infer names from filenames. Fields: title, material, weight_g, notes, date, company, scale, drawn\n{\"drawing_id\":\"D-001\",\"field_evidence\":{\"company\":{\"box\":[968.877,653.399,102.988,59.03],\"confidence\":\"unsure\",\"fact_ids\":[],\"field_box\":[968.877,653.399,102.988,59.03],\"label_box\":null,\"method\":\"ai_unsure\",\"name\":\"D-001/drawing/company\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"readers\":{\"claude\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"unsure\",\"fact_ids\":[\"D-001/drawing/company\"],\"key\":\"company\",\"reason\":\"The logo cell reads 'DTU MPP' next to the DTU logo. The cell has no company label, and nearby there is also a person's name and email (Magnus Bolt Kjer, mbokj@mek.dtu.dk).\",\"state\":\"known\",\"value_json\":\"\\\"DTU MPP\\\"\"},\"cache_key\":\"0d2963b1ecbb416fc6dd2289237df9156824a5ec99e473b336127760835bb6b6\",\"settings\":{\"fast_mode\":false,\"mode\":\"regular\",\"model\":\"opus\",\"reader\":\"claude\"},\"valid\":true}]},\"codex\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-001/drawing/company\"],\"key\":\"company\",\"reason\":\"DTU MPP is readable in the company area.\",\"state\":\"known\",\"value_json\":\"\\\"DTU MPP\\\"\"},\"cache_key\":\"b5199e47f2864a0e286a394315b0942d77ac3ebfe245410415b98ceab6c17b96\",\"settings\":{\"model\":\"gpt-6.1-sol\",\"reader\":\"codex\",\"reasoning_effort\":\"xhigh\",\"service_tier\":\"fast\"},\"valid\":true}]}},\"review\":{\"status\":\"not_reviewed\"},\"source_quality\":\"degraded\",\"state\":\"unknown\",\"value\":null},\"date\":{\"box\":[889.887,797.486,86.99,21.007],\"confidence\":\"unsure\",\"fact_ids\":[],\"field_box\":[889.887,797.486,86.99,21.007],\"label_box\":null,\"method\":\"ai_unsure\",\"name\":\"D-001/drawing/date\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"readers\":{\"claude\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"unsure\",\"fact_ids\":[\"D-001/drawing/date\"],\"key\":\"date\",\"reason\":\"The DATE cell looks like '21/12/2023', but the small text is blurry, especially the last digit.\",\"state\":\"known\",\"value_json\":\"\\\"21/12/2023\\\"\"},\"cache_key\":\"0d2963b1ecbb416fc6dd2289237df9156824a5ec99e473b336127760835bb6b6\",\"settings\":{\"fast_mode\":false,\"mode\":\"regular\",\"model\":\"opus\",\"reader\":\"claude\"},\"valid\":true}]},\"codex\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"unsure\",\"fact_ids\":[\"D-001/drawing/date\"],\"key\":\"date\",\"reason\":\"The date is too blurry to transcribe character by character.\",\"state\":\"unknown\",\"value_json\":\"null\"},\"cache_key\":\"b5199e47f2864a0e286a394315b0942d77ac3ebfe245410415b98ceab6c17b96\",\"settings\":{\"model\":\"gpt-6.1-sol\",\"reader\":\"codex\",\"reasoning_effort\":\"xhigh\",\"service_tier\":\"fast\"},\"valid\":true}]}},\"review\":{\"status\":\"not_reviewed\"},\"source_quality\":\"degraded\",\"state\":\"unknown\",\"value\":null},\"drawn\":{\"box\":[884.888,785.479,91.99,21.007],\"confidence\":\"unsure\",\"fact_ids\":[],\"field_box\":[884.888,785.479,91.99,21.007],\"label_box\":null,\"method\":\"ai_unsure\",\"name\":\"D-001/drawing/drawn\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"readers\":{\"claude\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"unsure\",\"fact_ids\":[\"D-001/drawing/drawn\"],\"key\":\"drawn\",\"reason\":\"The DRAWN cell reads 'MBOKJ'. The text is small and slightly blurry, but it matches the 'mbokj' email shown in the header.\",\"state\":\"known\",\"value_json\":\"\\\"MBOKJ\\\"\"},\"cache_key\":\"0d2963b1ecbb416fc6dd2289237df9156824a5ec99e473b336127760835bb6b6\",\"settings\":{\"fast_mode\":false,\"mode\":\"regular\",\"model\":\"opus\",\"reader\":\"claude\"},\"valid\":true}]},\"codex\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"unsure\",\"fact_ids\":[\"D-001/drawing/drawn\"],\"key\":\"drawn\",\"reason\":\"The DRAWN value is too blurry to transcribe character by character.\",\"state\":\"unknown\",\"value_json\":\"null\"},\"cache_key\":\"b5199e47f2864a0e286a394315b0942d77ac3ebfe245410415b98ceab6c17b96\",\"settings\":{\"model\":\"gpt-6.1-sol\",\"reader\":\"codex\",\"reasoning_effort\":\"xhigh\",\"service_tier\":\"fast\"},\"valid\":true}]}},\"review\":{\"status\":\"not_reviewed\"},\"source_quality\":\"degraded\",\"state\":\"unknown\",\"value\":null},\"material\":{\"box\":[738.906,766.467,145.983,24.008],\"confidence\":\"unsure\",\"fact_ids\":[],\"field_box\":[738.906,766.467,145.983,24.008],\"label_box\":null,\"method\":\"ai_unsure\",\"name\":\"D-001/drawing/material\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"readers\":{\"claude\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"unsure\",\"fact_ids\":[\"D-001/drawing/material\"],\"key\":\"material\",\"reason\":\"The MATERIAL: field is blank. 'aluminium' appears only in the NOTE box and is not copied here.\",\"state\":\"unknown\",\"value_json\":\"null\"},\"cache_key\":\"0d2963b1ecbb416fc6dd2289237df9156824a5ec99e473b336127760835bb6b6\",\"settings\":{\"fast_mode\":false,\"mode\":\"regular\",\"model\":\"opus\",\"reader\":\"claude\"},\"valid\":true}]},\"codex\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"unsure\",\"fact_ids\":[\"D-001/drawing/material\"],\"key\":\"material\",\"reason\":\"The MATERIAL field is blank.\",\"state\":\"unknown\",\"value_json\":\"null\"},\"cache_key\":\"b5199e47f2864a0e286a394315b0942d77ac3ebfe245410415b98ceab6c17b96\",\"settings\":{\"model\":\"gpt-6.1-sol\",\"reader\":\"codex\",\"reasoning_effort\":\"xhigh\",\"service_tier\":\"fast\"},\"valid\":true}]}},\"review\":{\"status\":\"not_reviewed\"},\"source_quality\":\"degraded\",\"state\":\"unknown\",\"value\":null},\"notes\":{\"box\":[734.907,653.399,242.971,121.067],\"confidence\":\"sure\",\"fact_ids\":[\"D-001/drawing/notes\"],\"field_box\":[734.907,653.399,242.971,121.067],\"label_box\":null,\"method\":\"ai_read\",\"name\":\"D-001/drawing/notes\",\"note\":\"The NOTE box clearly shows 'Door - x2' and '3mm aluminium' on two lines.\",\"original\":null,\"page\":1,\"readers\":{\"claude\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-001/drawing/notes\"],\"key\":\"notes\",\"reason\":\"The NOTE box clearly shows 'Door - x2' and '3mm aluminium' on two lines.\",\"state\":\"known\",\"value_json\":\"\\\"Door - x2\\\\n3mm aluminium\\\"\"},\"cache_key\":\"0d2963b1ecbb416fc6dd2289237df9156824a5ec99e473b336127760835bb6b6\",\"settings\":{\"fast_mode\":false,\"mode\":\"regular\",\"model\":\"opus\",\"reader\":\"claude\"},\"valid\":true}]},\"codex\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-001/drawing/notes\"],\"key\":\"notes\",\"reason\":\"These two lines are readable in the NOTE field.\",\"state\":\"known\",\"value_json\":\"\\\"Door - x2\\\\n3mm aluminium\\\"\"},\"cache_key\":\"b5199e47f2864a0e286a394315b0942d77ac3ebfe245410415b98ceab6c17b96\",\"settings\":{\"model\":\"gpt-6.1-sol\",\"reader\":\"codex\",\"reasoning_effort\":\"xhigh\",\"service_tier\":\"fast\"},\"valid\":true}]}},\"review\":{\"status\":\"not_reviewed\"},\"source_quality\":\"degraded\",\"state\":\"known\",\"value\":\"Door - x2\\n3mm aluminium\"},\"scale\":{\"box\":[1066.865,797.486,59.994,22.007],\"confidence\":\"unsure\",\"fact_ids\":[],\"field_box\":[1066.865,797.486,59.994,22.007],\"label_box\":null,\"method\":\"ai_unsure\",\"name\":\"D-001/drawing/scale\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"readers\":{\"claude\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"unsure\",\"fact_ids\":[\"D-001/drawing/scale\"],\"key\":\"scale\",\"reason\":\"The cell reads 'SCALE:1:5'. The text is small and slightly blurry.\",\"state\":\"known\",\"value_json\":\"\\\"1:5\\\"\"},\"cache_key\":\"0d2963b1ecbb416fc6dd2289237df9156824a5ec99e473b336127760835bb6b6\",\"settings\":{\"fast_mode\":false,\"mode\":\"regular\",\"model\":\"opus\",\"reader\":\"claude\"},\"valid\":true}]},\"codex\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"unsure\",\"fact_ids\":[\"D-001/drawing/scale\"],\"key\":\"scale\",\"reason\":\"The scale value is too blurry to transcribe reliably.\",\"state\":\"unknown\",\"value_json\":\"null\"},\"cache_key\":\"b5199e47f2864a0e286a394315b0942d77ac3ebfe245410415b98ceab6c17b96\",\"settings\":{\"model\":\"gpt-6.1-sol\",\"reader\":\"codex\",\"reasoning_effort\":\"xhigh\",\"service_tier\":\"fast\"},\"valid\":true}]}},\"review\":{\"status\":\"not_reviewed\"},\"source_quality\":\"degraded\",\"state\":\"unknown\",\"value\":null},\"title\":{\"box\":[968.877,705.43,193.977,69.036],\"confidence\":\"unsure\",\"fact_ids\":[],\"field_box\":[968.877,705.43,193.977,69.036],\"label_box\":null,\"method\":\"ai_unsure\",\"name\":\"D-001/drawing/title\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"readers\":{\"claude\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"unsure\",\"fact_ids\":[\"D-001/drawing/title\"],\"key\":\"title\",\"reason\":\"The TITLE/DESCRIPTION box is blank in the crop.\",\"state\":\"unknown\",\"value_json\":\"null\"},\"cache_key\":\"0d2963b1ecbb416fc6dd2289237df9156824a5ec99e473b336127760835bb6b6\",\"settings\":{\"fast_mode\":false,\"mode\":\"regular\",\"model\":\"opus\",\"reader\":\"claude\"},\"valid\":true}]},\"codex\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"unsure\",\"fact_ids\":[\"D-001/drawing/title\"],\"key\":\"title\",\"reason\":\"The TITLE/DESCRIPTION field is blank.\",\"state\":\"unknown\",\"value_json\":\"null\"},\"cache_key\":\"b5199e47f2864a0e286a394315b0942d77ac3ebfe245410415b98ceab6c17b96\",\"settings\":{\"model\":\"gpt-6.1-sol\",\"reader\":\"codex\",\"reasoning_effort\":\"xhigh\",\"service_tier\":\"fast\"},\"valid\":true}]}},\"review\":{\"status\":\"not_reviewed\"},\"source_quality\":\"degraded\",\"state\":\"unknown\",\"value\":null},\"weight_g\":{\"box\":[874.889,766.467,102.988,24.008],\"confidence\":\"unsure\",\"fact_ids\":[],\"field_box\":[874.889,766.467,102.988,24.008],\"label_box\":null,\"method\":\"ai_unsure\",\"name\":\"D-001/drawing/weight_g\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"readers\":{\"claude\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"unsure\",\"fact_ids\":[\"D-001/drawing/weight_g\"],\"key\":\"weight_g\",\"reason\":\"The WEIGHT [g]: field is blank.\",\"state\":\"unknown\",\"value_json\":\"null\"},\"cache_key\":\"0d2963b1ecbb416fc6dd2289237df9156824a5ec99e473b336127760835bb6b6\",\"settings\":{\"fast_mode\":false,\"mode\":\"regular\",\"model\":\"opus\",\"reader\":\"claude\"},\"valid\":true}]},\"codex\":{\"rounds\":[{\"answer\":{\"changed_because\":\"\",\"confidence\":\"unsure\",\"fact_ids\":[\"D-001/drawing/weight_g\"],\"key\":\"weight_g\",\"reason\":\"The WEIGHT [g] field is blank.\",\"state\":\"unknown\",\"value_json\":\"null\"},\"cache_key\":\"b5199e47f2864a0e286a394315b0942d77ac3ebfe245410415b98ceab6c17b96\",\"settings\":{\"model\":\"gpt-6.1-sol\",\"reader\":\"codex\",\"reasoning_effort\":\"xhigh\",\"service_tier\":\"fast\"},\"valid\":true}]}},\"review\":{\"status\":\"not_reviewed\"},\"source_quality\":\"degraded\",\"state\":\"unknown\",\"value\":null}},\"source_ids\":[\"D-001\",\"D-001/drawing/company\",\"D-001/drawing/date\",\"D-001/drawing/drawn\",\"D-001/drawing/material\",\"D-001/drawing/notes\",\"D-001/drawing/scale\",\"D-001/drawing/source\",\"D-001/drawing/title\",\"D-001/drawing/weight_g\"]}",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string",
+              "enum": [
+                "title",
+                "material",
+                "weight_g",
+                "notes",
+                "date",
+                "company",
+                "scale",
+                "drawn"
+              ]
+            },
+            "state": {
+              "type": "string",
+              "enum": [
+                "known",
+                "options",
+                "unknown"
+              ]
+            },
+            "value_json": {
+              "type": "string"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "sure",
+                "unsure"
+              ]
+            },
+            "fact_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "reason": {
+              "type": "string"
+            },
+            "changed_because": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "key",
+            "state",
+            "value_json",
+            "confidence",
+            "fact_ids",
+            "reason",
+            "changed_because"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "items"
+    ],
+    "additionalProperties": false
+  },
+  "images": [
+    "745443a519aef393218b9f4ef24d703ea80dd80b7c6227182bc1c18a7510e67b"
+  ],
+  "job": "scan:D-001"
+}

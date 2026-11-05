@@ -1,0 +1,49 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-003",
+          "D-003/drawing/title",
+          "D-003/drawing/material",
+          "D-003/drawing/notes",
+          "BOM:box/print-platform"
+        ],
+        "reason": "Section \"Box\" agrees, but \"MainPlatform_Loop2.PDF\" does not establish that the drawing represents \"Print Platform\". The drawing's title, material and notes are null; the BOM row specifies \"Aluminium\" and has no datasheet to confirm the match.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 15458,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 610,
+          "reasoning_output_tokens": 472
+        }
+      }
+    ]
+  },
+  "latency_ms": 15297,
+  "cache_key": "838f84b0a50382198565eadcaba94bcd02b061ce2273857da30fdbcf22b5f57e",
+  "cache_hit": false,
+  "job": "link:D-003",
+  "error": null
+}

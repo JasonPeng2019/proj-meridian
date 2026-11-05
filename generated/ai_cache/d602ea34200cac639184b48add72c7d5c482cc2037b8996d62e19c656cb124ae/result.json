@@ -1,0 +1,122 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "title",
+        "state": "known",
+        "value_json": "\"ByggeCylinder\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-023/drawing/title"
+        ],
+        "reason": "Printed in the TITLE/DESCRIPTION field.",
+        "changed_because": ""
+      },
+      {
+        "key": "material",
+        "state": "known",
+        "value_json": "\"EN AW-6082\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-023/drawing/material"
+        ],
+        "reason": "Printed beside MATERIAL.",
+        "changed_because": ""
+      },
+      {
+        "key": "weight_g",
+        "state": "known",
+        "value_json": "3195.5",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-023/drawing/weight_g"
+        ],
+        "reason": "Printed as 3195.5 beside WEIGHT (g).",
+        "changed_because": ""
+      },
+      {
+        "key": "notes",
+        "state": "known",
+        "value_json": "\"Baseret på Ø280mm, t=15mm\\nEN AW-6082 T6 rør fra Alumeco.\\nIndre flade [B] skal slutte tæt med\\nen dynamisk keramisk pakning.\\n\\n55 mm længere ift. version 1\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-023/drawing/notes"
+        ],
+        "reason": "Text printed in the NOTE field, preserving spelling and line breaks.",
+        "changed_because": ""
+      },
+      {
+        "key": "date",
+        "state": "known",
+        "value_json": "\"15/09/2023\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-023/drawing/date"
+        ],
+        "reason": "Printed beside DATE.",
+        "changed_because": ""
+      },
+      {
+        "key": "company",
+        "state": "known",
+        "value_json": "\"DTU MPP\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-023/drawing/company"
+        ],
+        "reason": "Printed in the COMPANY field.",
+        "changed_because": ""
+      },
+      {
+        "key": "scale",
+        "state": "known",
+        "value_json": "\"1:3\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-023/drawing/scale"
+        ],
+        "reason": "Printed beside SCALE.",
+        "changed_because": ""
+      },
+      {
+        "key": "drawn",
+        "state": "known",
+        "value_json": "\"MBOKJ\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-023/drawing/drawn"
+        ],
+        "reason": "Printed beside DRAWN.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 14582,
+          "cached_input_tokens": 12288,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1381,
+          "reasoning_output_tokens": 913
+        }
+      }
+    ]
+  },
+  "latency_ms": 33281,
+  "cache_key": "d602ea34200cac639184b48add72c7d5c482cc2037b8996d62e19c656cb124ae",
+  "cache_hit": false,
+  "job": "scan:D-023",
+  "error": null
+}

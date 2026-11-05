@@ -1,0 +1,45 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "scale",
+        "state": "known",
+        "value_json": "\"1:5\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-009/drawing/scale"
+        ],
+        "reason": "D-009/drawing/scale reads 'SCALE:1:5'.",
+        "changed_because": "The final digit was previously misread as 3; the supplied crop shows 5."
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 14756,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 674,
+          "reasoning_output_tokens": 582
+        }
+      }
+    ]
+  },
+  "latency_ms": 19469,
+  "cache_key": "90e2c14c69fbf49969d6c0ba0040c34da64b417b90930f0631d97993942d0302",
+  "cache_hit": false,
+  "job": "scan:D-009:retry",
+  "error": null
+}

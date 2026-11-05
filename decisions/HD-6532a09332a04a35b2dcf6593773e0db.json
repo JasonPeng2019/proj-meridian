@@ -1,0 +1,24 @@
+{
+  "decision_id": "HD-6532a09332a04a35b2dcf6593773e0db",
+  "applies_to": "D-013/template/thickness",
+  "type": "set_value",
+  "value": {
+    "state": "options",
+    "value": null,
+    "options": [
+      3.0,
+      6.0
+    ],
+    "fact_ids": [
+      "D-013/drawing/n/3.0@1-1",
+      "D-013/drawing/n/6.0@1-1"
+    ]
+  },
+  "status": "accepted",
+  "note": "Jason explicitly approved keeping both printed thicknesses as possible readings in the implementation conversation on 2026-11-05. Neither is selected as correct; weight mismatch remains visible.",
+  "by": "Jason Peng",
+  "at": "2026-11-05T07:23:35.117084+00:00",
+  "based_on": {
+    "sha256": "826076b03bfbaeee961dc3e57cb642c225d41f1ea9a643d0bb1ca7d296280047"
+  }
+}

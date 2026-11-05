@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "visible_text": {
+      "type": "string"
+    },
+    "image_seen": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "visible_text",
+    "image_seen"
+  ],
+  "additionalProperties": false
+}

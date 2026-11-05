@@ -1,0 +1,104 @@
+{
+  "rows": 192,
+  "rules_changed": {
+    "status_spelling_Recieved_to_Received": 138,
+    "blank_to_null": 1401,
+    "parse_number": 374,
+    "parse_dkk_price": 309,
+    "split_comma_list": 78,
+    "trim_whitespace": 12,
+    "zero_total_with_blank_cost_or_amount_to_not_recorded": 76,
+    "split_filename_link": 44
+  },
+  "flagged": [
+    {
+      "flag": "near_duplicate_name",
+      "rows": [
+        "BOM:box/m5-nut-for-2020-not-5mm",
+        "BOM:box/m4-nut-for-2020-not-5mm"
+      ]
+    },
+    {
+      "flag": "near_duplicate_name",
+      "rows": [
+        "BOM:box/m8x12-button-head-screws",
+        "BOM:box/m5x12-button-head-screws"
+      ]
+    },
+    {
+      "flag": "near_duplicate_name",
+      "rows": [
+        "BOM:box/m5x8-button-head-screws",
+        "BOM:box/m5x12-button-head-screws"
+      ]
+    },
+    {
+      "flag": "near_duplicate_name",
+      "rows": [
+        "BOM:electric/5-pin-connector-male",
+        "BOM:electric/5-pin-connector-female"
+      ]
+    },
+    {
+      "flag": "near_duplicate_name",
+      "rows": [
+        "BOM:electric/m12-c61-6m-cable",
+        "BOM:electric/m12-c63-6m-cable"
+      ]
+    },
+    {
+      "flag": "near_duplicate_name",
+      "rows": [
+        "BOM:sensorgantry/y-axis-stepper-bracket",
+        "BOM:sensorgantry/z-axis-stepper-bracket"
+      ]
+    },
+    {
+      "flag": "near_duplicate_name",
+      "rows": [
+        "BOM:sensorgantry/y-axis-linear-guide",
+        "BOM:sensorgantry/x-axis-linear-guide"
+      ]
+    },
+    {
+      "flag": "near_duplicate_name",
+      "rows": [
+        "BOM:sensorgantry/y-axis-linear-guide",
+        "BOM:sensorgantry/z-axis-linear-guide"
+      ]
+    },
+    {
+      "flag": "near_duplicate_name",
+      "rows": [
+        "BOM:sensorgantry/y-axis-timing-pulley",
+        "BOM:sensorgantry/x-axis-timing-pulley"
+      ]
+    },
+    {
+      "flag": "near_duplicate_name",
+      "rows": [
+        "BOM:sensorgantry/y-axis-timing-idler",
+        "BOM:sensorgantry/x-axis-timing-idler"
+      ]
+    },
+    {
+      "flag": "near_duplicate_name",
+      "rows": [
+        "BOM:sensorgantry/x-axis-linear-guide",
+        "BOM:sensorgantry/z-axis-linear-guide"
+      ]
+    },
+    {
+      "flag": "near_duplicate_name",
+      "rows": [
+        "BOM:support/4040-extrusion",
+        "BOM:support/8040-extrusion"
+      ]
+    }
+  ],
+  "source_sha256": "b9837f2249247e4465ae5f481f714912bba8ed33a7759cd773ab43092e1b6ae2",
+  "missing_cost_rows": 75,
+  "interface_rows": 9,
+  "recorded_total_dkk": 168591.52,
+  "warning": "Sum covers recorded prices only; missing costs are unknown, not free. All procurement fields are snapshot evidence."
+}

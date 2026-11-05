@@ -1,0 +1,74 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "relationship",
+        "state": "known",
+        "value_json": "\"no_equivalent\"",
+        "confidence": "sure",
+        "fact_ids": [],
+        "reason": "Left is empty (null), so no drawing section is represented. The instructions say an empty left must map to no_equivalent. There are no established links that tie SensorGantry to any drawing section (Box, Gas Flow, Optical, Powder, Recoater, Z-axis).",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 1399,
+      "cache_read_input_tokens": 2542,
+      "output_tokens": 198,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 1399,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 198,
+        "cacheReadInputTokens": 2542,
+        "cacheCreationInputTokens": 1399,
+        "webSearchRequests": 0,
+        "costUSD": 0.0156684,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 1399,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.0156684,
+    "duration_ms": 2368,
+    "is_error": false
+  },
+  "latency_ms": 8265,
+  "cache_key": "9268e37082c662697006e948c4c58c9e00f17951120d9f90b982179e89ab3240",
+  "cache_hit": false,
+  "job": "mapping:names/section/ -> sensorgantry",
+  "error": null
+}

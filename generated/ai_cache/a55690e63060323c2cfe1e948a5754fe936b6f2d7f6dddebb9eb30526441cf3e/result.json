@@ -1,0 +1,50 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-025",
+          "D-025/drawing/title",
+          "D-025/drawing/material",
+          "D-025/drawing/notes",
+          "BOM:build-plate/build-base",
+          "BOM:build-plate/build-cylinder-clamp-ring"
+        ],
+        "reason": "'Bygge Base Ring' does not uniquely identify 'Build base' or 'Build cylinder clamp ring'. Both BOM rows specify Aluminium, but neither supplies a linking datasheet. The drawing section 'Z-axis' differs from 'Build-plate', with no supplied evidence establishing equivalence.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 15475,
+          "cached_input_tokens": 15232,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 639,
+          "reasoning_output_tokens": 489
+        }
+      }
+    ]
+  },
+  "latency_ms": 20578,
+  "cache_key": "a55690e63060323c2cfe1e948a5754fe936b6f2d7f6dddebb9eb30526441cf3e",
+  "cache_hit": false,
+  "job": "link:D-025",
+  "error": null
+}

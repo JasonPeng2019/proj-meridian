@@ -1,0 +1,81 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "known",
+        "value_json": "[\"BOM:optics/galvo-box-bracket\"]",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-018/drawing/title",
+          "D-018/drawing/material",
+          "D-018/drawing/notes",
+          "BOM:optics/galvo-box-bracket",
+          "BOM:optics/sunny-galvo-adapter-plate",
+          "BOM:optics/galve-support-bracket"
+        ],
+        "reason": "The drawing is titled 'Galvo Mount Side x2', its notes say '2 stk. Alu.', and its material is '7075-T6, Plate (SS)'. It belongs to section 'Optical'. The closest BOM row is BOM:optics/galvo-box-bracket in section 'Optics'. That row is Aluminium, and its notes say 'Changed galvo mount completely to allow for adjustments', which directly mentions the galvo mount. BOM:optics/galve-support-bracket is less likely because it is Stainless steel/Steel, while the drawing notes say Alu. Ambiguity remains for three reasons. First, no BOM row is named 'Galvo Mount Side'. Second, BOM:optics/sunny-galvo-adapter-plate is also an Aluminium galvo mounting part in Optics. Third, the 'Plate (SS)' in the drawing's material field is unclear. The section names 'Optical' and 'Optics' also differ and are not confirmed as the same. The drawing may show only a side piece of the galvo box bracket assembly.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 5982,
+      "cache_read_input_tokens": 2540,
+      "output_tokens": 976,
+      "output_tokens_details": {
+        "thinking_tokens": 411
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 5982,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 976,
+        "cacheReadInputTokens": 2540,
+        "cacheCreationInputTokens": 5982,
+        "webSearchRequests": 0,
+        "costUSD": 0.06789200000000001,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 411,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 5982,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.06789200000000001,
+    "duration_ms": 8919,
+    "is_error": false
+  },
+  "latency_ms": 21094,
+  "cache_key": "cee738d169e1373bc7de866eb50ae6028a5a36ee1786fda6488cbc1eecafea26",
+  "cache_hit": false,
+  "job": "link:D-018",
+  "error": null
+}

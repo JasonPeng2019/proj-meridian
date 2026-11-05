@@ -1,0 +1,83 @@
+{
+  "protocol": 2,
+  "reader": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "prompt": "You are an independent, read-only engineering evidence reader. Do not edit files,\nrun commands, use other agents, browse the web, or inspect any evidence beyond the supplied inputs.\nReturn the requested JSON schema. Every requested key must appear exactly once. value_json is a\nJSON-encoded value (e.g. a string as \"\\\"text\\\"\", a number as \"5\", an array as \"[3,6]\",\nunknown as \"null\"). State known means one determined value; options means genuinely documented\nalternatives; unknown means the evidence does not determine it. confidence is only sure or unsure.\nUse sure only for a reading supported by the supplied evidence. Copy original spelling and units.\nNever invent evidence IDs. fact_ids must be exact supplied source IDs supporting that item.\nReasons must explain the evidence; changed_because is empty on the independent first reading.\n\nFill a flat-part template from this drawing, in millimetres.\nRead the attached full drawing. The main material field and weight are supplied separately.\nRequested keys: outline_type (rectangle/circle/ring), length (X), width (Y), outer_diameter,\ninner_diameter, thickness, features. Only relevant dimensions are known; irrelevant ones are unknown.\nStacked thickness values which are alternatives MUST be state options with a JSON array, sorted ascending.\nDo not select one thickness or invent which example is primary. The outline is centered on X=0,Y=0;\nextrusion Z=0..thickness. Ignore dimension text placement when interpreting actual geometry.\nfeatures value is a JSON array of hole/slot objects. Each has kind, face='top', x,y,\ndiameter (hole) or width,length (slot), through boolean, depth for blind holes,\nhole_type plain/threaded/countersunk/counterbored, optional thread string and required actual\ncountersink_diameter/angle or counterbore_diameter/depth. Never infer a drill diameter from a thread.\nUse explicit pattern only if certain: {type:row,count,spacing,direction} (angle degrees, anchor first\nposition) or {type:circle,count,radius,start_angle} (degrees, center x,y). Hole positions are center\ncoordinates in the same XY frame. A feature with missing dimensions or positions is unknown and\nmust be omitted, with reason describing the omission. The features state is unknown if you cannot\ndetermine all features; return only the certain features in its array and explain missing information.\nAll numeric scalar fields within a feature must be {state:known,value:number,fact_ids:[IDs]}.\nA feature may carry parent fact_ids. Every numeric value must match its cited drawing number.\nFor an arithmetically derived coordinate/radius use {state:known,value:number,fact_ids:[IDs],\nexpression:'n0/2-n1'}, where n0,n1 are cited drawing numbers IN ORDER. Only +,-,*,/ and constants\n0,1,2 are allowed. Do not invent absolute positions from undimensioned views. You may use literal\n0 for a geometrically established center or literal 90/180/270/360 for cardinal pattern directions.\nDo not infer numeric dimensions from pixels, scale, standard hardware, or symmetry unless dimensioned.\nFeatures must use same deterministic ordering: holes before slots, then x ascending, then y ascending.\n\nEvidence:\n{\"callouts\":[{\"box\":[464.368,520.694,82.691,18.083],\"confidence\":\"sure\",\"feature\":\"unclassified_callout\",\"method\":\"parsed\",\"name\":\"D-013/drawing/callout/p1-1\",\"original\":\"4,2 THRU ALL\",\"page\":1,\"text\":\"4,2 THRU ALL\",\"through\":true,\"value\":\"4,2 THRU ALL\"},{\"box\":[428.392,520.694,118.667,33.984],\"confidence\":\"sure\",\"count\":2,\"feature\":\"threaded_hole\",\"method\":\"parsed\",\"name\":\"D-013/drawing/callout/p1-2\",\"original\":\"2 x 4,2 THRU ALL M5 - 6H THRU ALL\",\"page\":1,\"text\":\"2 x 4,2 THRU ALL M5 - 6H THRU ALL\",\"thread\":\"M5\",\"thread_class\":\"6H\",\"through\":true,\"value\":\"2 x 4,2 THRU ALL M5 - 6H THRU ALL\"},{\"box\":[345.045,564.288,82.691,18.083],\"confidence\":\"sure\",\"feature\":\"unclassified_callout\",\"method\":\"parsed\",\"name\":\"D-013/drawing/callout/p1-3\",\"original\":\"2,5 THRU ALL\",\"page\":1,\"text\":\"2,5 THRU ALL\",\"through\":true,\"value\":\"2,5 THRU ALL\"},{\"box\":[309.068,564.281,118.668,33.991],\"confidence\":\"sure\",\"count\":8,\"feature\":\"threaded_hole\",\"method\":\"parsed\",\"name\":\"D-013/drawing/callout/p1-4\",\"original\":\"8 x 2,5 THRU ALL M3 - 6H THRU ALL\",\"page\":1,\"text\":\"8 x 2,5 THRU ALL M3 - 6H THRU ALL\",\"thread\":\"M3\",\"thread_class\":\"6H\",\"through\":true,\"value\":\"8 x 2,5 THRU ALL M3 - 6H THRU ALL\"},{\"box\":[760.055,350.781,141.088,18.083],\"confidence\":\"sure\",\"count\":4,\"feature\":\"slot\",\"length_mm\":10.0,\"method\":\"parsed\",\"name\":\"D-013/drawing/callout/p1-5\",\"original\":\"4 x 5,5 X 10,0 THRU ALL\",\"page\":1,\"text\":\"4 x 5,5 X 10,0 THRU ALL\",\"through\":true,\"value\":\"4 x 5,5 X 10,0 THRU ALL\",\"width_mm\":5.5}],\"fields\":{\"company\":{\"box\":[975.328,658.942,91.0,48.0],\"confidence\":\"sure\",\"field_box\":[975.328,666.942,91.0,40.0],\"label_box\":[975.328,658.942,30.758,7.75],\"method\":\"parsed\",\"name\":\"D-013/drawing/company\",\"original\":\"DTU MPP\",\"page\":1,\"value\":\"DTU MPP\"},\"date\":{\"box\":[897.013,802.562,76.0,11.0],\"confidence\":\"sure\",\"field_box\":[914.013,802.562,59.0,11.0],\"label_box\":[897.013,803.562,13.623,7.75],\"method\":\"parsed\",\"name\":\"D-013/drawing/date\",\"original\":\"24/11/2021\",\"page\":1,\"value\":\"24/11/2021\"},\"drawn\":{\"box\":[893.294,790.235,78.0,11.0],\"confidence\":\"sure\",\"field_box\":[917.294,790.235,54.0,11.0],\"label_box\":[893.294,791.235,21.062,7.75],\"method\":\"parsed\",\"name\":\"D-013/drawing/drawn\",\"original\":\"MBOKJ\",\"page\":1,\"value\":\"MBOKJ\"},\"material\":{\"box\":[745.28,771.048,135.0,14.0],\"confidence\":\"sure\",\"field_box\":[784.28,771.048,96.0,14.0],\"label_box\":[745.28,772.048,38.539,10.936],\"method\":\"parsed\",\"name\":\"D-013/drawing/material\",\"original\":\"3.3315 (EN-AW 5005)\",\"page\":1,\"value\":\"3.3315 (EN-AW 5005)\"},\"notes\":{\"box\":[741.526,658.942,231.0,111.0],\"confidence\":\"sure\",\"field_box\":[741.526,666.942,231.0,103.0],\"label_box\":[741.526,658.942,15.72,7.75],\"method\":\"parsed\",\"name\":\"D-013/drawing/notes\",\"original\":\"Alu.\\nJusteringsplade til recoater.\",\"page\":1,\"value\":\"Alu.\\nJusteringsplade til recoater.\"},\"scale\":{\"box\":[1082.688,803.564,25.623,7.75],\"confidence\":\"sure\",\"field_box\":[1082.688,803.564,25.623,7.75],\"label_box\":[1082.688,803.564,25.623,7.75],\"method\":\"parsed\",\"name\":\"D-013/drawing/scale\",\"original\":\"1:1\",\"page\":1,\"value\":\"1:1\"},\"title\":{\"box\":[975.328,710.355,181.0,66.0],\"confidence\":\"sure\",\"field_box\":[975.328,718.355,181.0,58.0],\"label_box\":[975.328,710.355,49.95,7.75],\"method\":\"parsed\",\"name\":\"D-013/drawing/title\",\"original\":\"Recoater Plate\",\"page\":1,\"value\":\"Recoater Plate\"},\"weight_g\":{\"box\":[880.717,771.048,93.0,14.0],\"confidence\":\"sure\",\"field_box\":[924.717,771.048,49.0,14.0],\"label_box\":[880.717,772.048,28.747,10.936],\"method\":\"parsed\",\"name\":\"D-013/drawing/weight_g\",\"original\":\"87.5\",\"page\":1,\"value\":87.5}},\"id\":\"D-013\",\"numbers\":[{\"box\":[601.611,308.89,32.988,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/270.0@1-1\",\"original\":\"270,0\",\"page\":1,\"text\":\"270,0\",\"value\":270.0},{\"box\":[1080.266,408.25,18.083,25.657],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/25.0@1-1\",\"original\":\"25,0\",\"page\":1,\"text\":\"25,0\",\"value\":25.0},{\"box\":[428.392,520.694,7.331,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/2.0@1-1\",\"original\":\"2\",\"page\":1,\"text\":\"2\",\"value\":2.0},{\"box\":[468.032,520.694,18.321,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/4.2@1-1\",\"original\":\"4,2\",\"page\":1,\"text\":\"4,2\",\"value\":4.2},{\"box\":[309.068,564.281,7.331,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/8.0@1-1\",\"original\":\"8\",\"page\":1,\"text\":\"8\",\"value\":8.0},{\"box\":[348.709,564.288,18.321,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/2.5@1-1\",\"original\":\"2,5\",\"page\":1,\"text\":\"2,5\",\"value\":2.5},{\"box\":[715.676,504.483,25.657,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/35.7@1-1\",\"original\":\"35,7\",\"page\":1,\"text\":\"35,7\",\"value\":35.7},{\"box\":[630.579,487.472,25.657,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/17.9@1-1\",\"original\":\"17,9\",\"page\":1,\"text\":\"17,9\",\"value\":17.9},{\"box\":[1046.25,394.664,18.083,18.327],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/7.5@1-1\",\"original\":\"7,5\",\"page\":1,\"text\":\"7,5\",\"value\":7.5},{\"box\":[489.056,342.906,25.657,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/82.0@1-1\",\"original\":\"82,0\",\"page\":1,\"text\":\"82,0\",\"value\":82.0},{\"box\":[190.187,370.831,18.083,18.327],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/4.5@1-1\",\"original\":\"4,5\",\"page\":1,\"text\":\"4,5\",\"value\":4.5},{\"box\":[760.055,350.781,7.33,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/4.0@1-1\",\"original\":\"4\",\"page\":1,\"text\":\"4\",\"value\":4.0},{\"box\":[781.065,350.781,18.324,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/5.5@1-1\",\"original\":\"5,5\",\"page\":1,\"text\":\"5,5\",\"value\":5.5},{\"box\":[814.776,350.781,25.654,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/10.0@1-1\",\"original\":\"10,0\",\"page\":1,\"text\":\"10,0\",\"value\":10.0},{\"box\":[663.384,342.91,25.657,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/41.0@1-1\",\"original\":\"41,0\",\"page\":1,\"text\":\"41,0\",\"value\":41.0},{\"box\":[837.72,325.898,25.657,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/82.0@1-2\",\"original\":\"82,0\",\"page\":1,\"text\":\"82,0\",\"value\":82.0},{\"box\":[1012.235,394.664,18.083,18.327],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/2.3@1-1\",\"original\":\"2,3\",\"page\":1,\"text\":\"2,3\",\"value\":2.3},{\"box\":[151.657,330.081,18.327,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/6.0@1-1\",\"original\":\"6,0\",\"page\":1,\"text\":\"6,0\",\"value\":6.0},{\"box\":[151.657,342.913,18.327,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-013/drawing/n/3.0@1-1\",\"original\":\"3,0\",\"page\":1,\"text\":\"3,0\",\"value\":3.0}],\"page_sizes\":[[1190.550048828125,841.8900146484375]],\"section\":\"Recoater\",\"source_filename\":\"RecoaterPlate.pdf\"}",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string",
+              "enum": [
+                "outline_type",
+                "length",
+                "width",
+                "outer_diameter",
+                "inner_diameter",
+                "thickness",
+                "features"
+              ]
+            },
+            "state": {
+              "type": "string",
+              "enum": [
+                "known",
+                "options",
+                "unknown"
+              ]
+            },
+            "value_json": {
+              "type": "string"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "sure",
+                "unsure"
+              ]
+            },
+            "fact_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "reason": {
+              "type": "string"
+            },
+            "changed_because": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "key",
+            "state",
+            "value_json",
+            "confidence",
+            "fact_ids",
+            "reason",
+            "changed_because"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "items"
+    ],
+    "additionalProperties": false
+  },
+  "images": [
+    "30afbd63188f29b0d47eb96b09de668226fca19f2910fc06c38ea0a98ef5e726"
+  ],
+  "job": "template:D-013"
+}

@@ -1,0 +1,43 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "relationship",
+        "state": "known",
+        "value_json": "\"no_equivalent\"",
+        "confidence": "sure",
+        "fact_ids": [],
+        "reason": "LEFT is null, meaning no represented drawing section; the supplied rule requires no_equivalent. This suggestion requires actual human approval before use.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 12782,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 219,
+          "reasoning_output_tokens": 142
+        }
+      }
+    ]
+  },
+  "latency_ms": 23156,
+  "cache_key": "1d0629f81f025001fa85570e67353b1154d1acccfaeea09becef6798d05a893d",
+  "cache_hit": false,
+  "job": "mapping:names/section/ -> gas-flow",
+  "error": null
+}

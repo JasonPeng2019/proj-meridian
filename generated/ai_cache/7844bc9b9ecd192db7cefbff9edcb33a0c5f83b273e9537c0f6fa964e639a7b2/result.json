@@ -1,0 +1,77 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "known",
+        "value_json": "[\"BOM:box/left-side-box\"]",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-002/drawing/notes",
+          "BOM:box/left-side-box"
+        ],
+        "reason": "The drawing (LeftWall.pdf, section Box) has the note \"Left Wall\" and \"2mm non-magnetic stainless\". BOM:box/left-side-box (\"Left Side Box\") is the only Box row that refers to the left side. It is listed as Stainless steel and in the same section. Its note mentions holes along the top bend, which fits the flange and weld-nut features on the drawing. This is still uncertain for three reasons: the drawing says \"Left Wall\" while the BOM says \"Left Side Box\", the drawing's material and title fields are null, and \"non-magnetic stainless\" is more specific than \"Stainless steel\". Nothing in the evidence explicitly confirms that these names refer to the same part.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 8510,
+      "cache_read_input_tokens": 0,
+      "output_tokens": 601,
+      "output_tokens_details": {
+        "thinking_tokens": 215
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 8510,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 601,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 8510,
+        "webSearchRequests": 0,
+        "costUSD": 0.080108,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 215,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 8510,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.080108,
+    "duration_ms": 6089,
+    "is_error": false
+  },
+  "latency_ms": 7578,
+  "cache_key": "7844bc9b9ecd192db7cefbff9edcb33a0c5f83b273e9537c0f6fa964e639a7b2",
+  "cache_hit": false,
+  "job": "link:D-002",
+  "error": null
+}

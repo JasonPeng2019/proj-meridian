@@ -1,0 +1,74 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "relationship",
+        "state": "known",
+        "value_json": "\"no_equivalent\"",
+        "confidence": "sure",
+        "fact_ids": [],
+        "reason": "Left is empty (null), which means no drawing section is represented. The instructions say to use no_equivalent in that case. None of the drawing sections (Box, Gas Flow, Optical, Powder, Recoater, Z-axis) has an established link to 'Support', and no established links were supplied.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 1395,
+      "cache_read_input_tokens": 2542,
+      "output_tokens": 204,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 1395,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 204,
+        "cacheReadInputTokens": 2542,
+        "cacheCreationInputTokens": 1395,
+        "webSearchRequests": 0,
+        "costUSD": 0.0157564,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 1395,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.0157564,
+    "duration_ms": 2386,
+    "is_error": false
+  },
+  "latency_ms": 6828,
+  "cache_key": "1649a83d61e97c9a7b38914ea2d4a9620d89115fb32524b82d2721b5b06d854e",
+  "cache_hit": false,
+  "job": "mapping:names/section/ -> support",
+  "error": null
+}

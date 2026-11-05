@@ -1,0 +1,80 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-013/drawing/title",
+          "D-013/drawing/notes",
+          "D-013/drawing/material",
+          "BOM:recoater/recoater-head",
+          "BOM:recoater/recoater-stage-plate"
+        ],
+        "reason": "The drawing's file, RecoaterPlate.pdf (section Recoater), is listed as the datasheet for two BOM rows: BOM:recoater/recoater-head ('Recoater head') and BOM:recoater/recoater-stage-plate ('Recoater stage plate'). Both rows are Aluminium. The drawing's notes say 'Alu.', and its material is 3.3315 (EN-AW 5005), which is consistent with Aluminium but not approved as equivalent. The title 'Recoater Plate' and the note 'Justeringsplade til recoater' (adjustment plate for the recoater) could describe either row. Nothing says this one drawing represents both rows, so neither a single-row nor a two-row link can be determined.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 5985,
+      "cache_read_input_tokens": 2540,
+      "output_tokens": 973,
+      "output_tokens_details": {
+        "thinking_tokens": 339
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 5985,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 973,
+        "cacheReadInputTokens": 2540,
+        "cacheCreationInputTokens": 5985,
+        "webSearchRequests": 0,
+        "costUSD": 0.067856,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 339,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 5985,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.067856,
+    "duration_ms": 9156,
+    "is_error": false
+  },
+  "latency_ms": 26250,
+  "cache_key": "89afe71b4e19c55b60a6d71c9d6e11ca88a5187cb3a9ba3b089bf4420e759056",
+  "cache_hit": false,
+  "job": "link:D-013",
+  "error": null
+}

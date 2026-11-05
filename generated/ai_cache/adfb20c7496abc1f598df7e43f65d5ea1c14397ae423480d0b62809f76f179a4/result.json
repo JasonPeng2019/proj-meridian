@@ -1,0 +1,48 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-009/drawing/notes",
+          "D-009/drawing/title",
+          "D-009/drawing/material",
+          "BOM:powder/powder-hopper"
+        ],
+        "reason": "The notes describe a 'Powder canister' with 'Non-magnetic stainless.' The Powder hopper row is plausible given its Powder section and Stainless steel material, but no datasheet or note establishes the correspondence. The degraded title and material fields are null, so the link remains undetermined.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 15481,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1172,
+          "reasoning_output_tokens": 1034
+        }
+      }
+    ]
+  },
+  "latency_ms": 33594,
+  "cache_key": "adfb20c7496abc1f598df7e43f65d5ea1c14397ae423480d0b62809f76f179a4",
+  "cache_hit": false,
+  "job": "link:D-009",
+  "error": null
+}

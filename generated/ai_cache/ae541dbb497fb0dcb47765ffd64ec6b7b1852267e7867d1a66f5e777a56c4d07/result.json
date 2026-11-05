@@ -1,0 +1,79 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-003/drawing/title",
+          "D-003/drawing/material",
+          "D-003/drawing/notes",
+          "BOM:box/print-platform"
+        ],
+        "reason": "The drawing is marked degraded, and its title, material and notes fields (D-003/drawing/title, /material, /notes) are all null, so the only usable evidence is the source filename 'MainPlatform_Loop2.PDF' and the section 'Box'. No Box row has a datasheet to match against. The closest Box row by name is 'Print Platform' (BOM:box/print-platform, Aluminium), but 'MainPlatform' is not the same name as 'Print Platform', and no title or material field confirms they are the same part. Other Box rows such as Top Side or Back Box don't match by name either. Without a title, material or datasheet to confirm it, the link can't be decided. Print Platform is a likely candidate that hasn't been verified.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 5940,
+      "cache_read_input_tokens": 2540,
+      "output_tokens": 595,
+      "output_tokens_details": {
+        "thinking_tokens": 208
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 5940,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 595,
+        "cacheReadInputTokens": 2540,
+        "cacheCreationInputTokens": 5940,
+        "webSearchRequests": 0,
+        "costUSD": 0.059936,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 208,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 5940,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.059936,
+    "duration_ms": 6033,
+    "is_error": false
+  },
+  "latency_ms": 22594,
+  "cache_key": "ae541dbb497fb0dcb47765ffd64ec6b7b1852267e7867d1a66f5e777a56c4d07",
+  "cache_hit": false,
+  "job": "link:D-003",
+  "error": null
+}

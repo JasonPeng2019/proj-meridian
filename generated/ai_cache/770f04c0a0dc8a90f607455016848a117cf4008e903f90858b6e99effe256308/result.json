@@ -1,0 +1,74 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "relationship",
+        "state": "known",
+        "value_json": "\"kind_of\"",
+        "confidence": "unsure",
+        "fact_ids": [],
+        "reason": "Based on general engineering knowledge, not the dataset: 6061 is a specific wrought aluminium alloy (Al-Mg-Si series), so LEFT '6061 Alloy' is a more specific form of RIGHT 'Aluminium'. The supplied established links (D-005/drawing/source, BOM:box/window-frame, D-020/drawing/source, BOM:optics/f-theta-seal-ring) concern drawing sections and BOM items and do not address this material name, so no fact IDs support it directly. This is only a suggestion and needs human approval before use.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 3995,
+      "cache_read_input_tokens": 0,
+      "output_tokens": 448,
+      "output_tokens_details": {
+        "thinking_tokens": 149
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 3995,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 448,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 3995,
+        "webSearchRequests": 0,
+        "costUSD": 0.040928,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 149,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 3995,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.040928,
+    "duration_ms": 4611,
+    "is_error": false
+  },
+  "latency_ms": 6359,
+  "cache_key": "770f04c0a0dc8a90f607455016848a117cf4008e903f90858b6e99effe256308",
+  "cache_hit": false,
+  "job": "mapping:names/material/6061-alloy -> aluminium",
+  "error": null
+}

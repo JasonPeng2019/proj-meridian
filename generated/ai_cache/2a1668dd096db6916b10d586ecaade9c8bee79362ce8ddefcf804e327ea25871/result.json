@@ -1,0 +1,43 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "relationship",
+        "state": "known",
+        "value_json": "\"kind_of\"",
+        "confidence": "unsure",
+        "fact_ids": [],
+        "reason": "7075-T6 identifies a specific aluminium alloy and temper, based on general engineering knowledge, not the dataset. This supports kind_of relative to Aluminium, but '(SS)' is unexplained. Actual human approval is required before use.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 12808,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 965,
+          "reasoning_output_tokens": 869
+        }
+      }
+    ]
+  },
+  "latency_ms": 32640,
+  "cache_key": "2a1668dd096db6916b10d586ecaade9c8bee79362ce8ddefcf804e327ea25871",
+  "cache_hit": false,
+  "job": "mapping:names/material/7075-t6-plate-ss -> aluminium",
+  "error": null
+}

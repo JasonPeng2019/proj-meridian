@@ -1,0 +1,49 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-018/drawing/title",
+          "D-018/drawing/material",
+          "D-018/drawing/notes",
+          "BOM:optics/galvo-box-bracket",
+          "BOM:optics/galve-support-bracket"
+        ],
+        "reason": "“Galvo Mount Side x2” does not uniquely identify either bracket. “Galvo box bracket” lists Aluminium, consistent with “Alu.”, but has a different name. “Galve support bracket” lists Stainless steel and Steel, which are not established as equivalent to “7075-T6, Plate (SS)”. The drawing section “Optical” also differs from “Optics”; no approved equivalence or linking datasheet is supplied.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 15477,
+          "cached_input_tokens": 15232,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 522,
+          "reasoning_output_tokens": 337
+        }
+      }
+    ]
+  },
+  "latency_ms": 24563,
+  "cache_key": "2348b1013ce7915ec09db6737b3941d5c9106042ff466264b6345d9853bfb3ed",
+  "cache_hit": false,
+  "job": "link:D-018",
+  "error": null
+}

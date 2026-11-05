@@ -1,0 +1,79 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "known",
+        "value_json": "[\"BOM:build-plate/build-cylinder\"]",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-023/drawing/title",
+          "D-023/drawing/notes",
+          "D-023/drawing/material",
+          "BOM:build-plate/build-cylinder"
+        ],
+        "reason": "The drawing title 'ByggeCylinder' is Danish for 'build cylinder', and the source filename is BuildCylinder_v2.pdf. Both match the BOM row 'Build cylinder' (BOM:build-plate/build-cylinder), and no other BOM row has a similar name. The notes describe an Ø280mm, t=15mm EN AW-6082 T6 tube whose inner face must seal tightly against a dynamic ceramic gasket. That fits a build cylinder used with the 'Ceramic build base seal' row. EN AW-6082 is an aluminium alloy, which matches the row's 'Aluminium' material, but the material names are written differently. Confidence is unsure for three reasons: the drawing's section is 'Z-axis' while the BOM row's section is 'Build-plate', and that equivalence has not been approved; the BOM row has no datasheet to confirm the drawing; and the drawing record is marked degraded.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 6055,
+      "cache_read_input_tokens": 2540,
+      "output_tokens": 760,
+      "output_tokens_details": {
+        "thinking_tokens": 278
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 6055,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 760,
+        "cacheReadInputTokens": 2540,
+        "cacheCreationInputTokens": 6055,
+        "webSearchRequests": 0,
+        "costUSD": 0.06415599999999999,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 278,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 6055,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.06415599999999999,
+    "duration_ms": 6878,
+    "is_error": false
+  },
+  "latency_ms": 24750,
+  "cache_key": "e7693eaa3b14db63e190fd8876797a0fe7147c898107c9c16de42193b7e2065c",
+  "cache_hit": false,
+  "job": "link:D-023",
+  "error": null
+}

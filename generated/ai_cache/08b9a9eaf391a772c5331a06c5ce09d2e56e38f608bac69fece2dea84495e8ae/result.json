@@ -1,0 +1,80 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-001/drawing/notes",
+          "D-001/drawing/title",
+          "D-001/drawing/material",
+          "BOM:box/front-door",
+          "BOM:box/back-door"
+        ],
+        "reason": "The drawing is degraded. Its title and material fields are null. The notes say \"Door - x2\\n3mm aluminium\", the source file is Door_x2.PDF, and the section is Box. Two Box rows fit: BOM:box/front-door and BOM:box/back-door. Both are Aluminium, and both have the same note: \"Holes were without threads. Drawings are correct. Could be stiffer\". The 'x2' suggests one drawing used for two identical doors, which could mean it covers both front and back. But 'x2' could also just be a quantity for one row, and the drawing never says front or back. Because the evidence doesn't clearly support either one row or both rows, the link is left unknown.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 5948,
+      "cache_read_input_tokens": 2540,
+      "output_tokens": 625,
+      "output_tokens_details": {
+        "thinking_tokens": 243
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 5948,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 625,
+        "cacheReadInputTokens": 2540,
+        "cacheCreationInputTokens": 5948,
+        "webSearchRequests": 0,
+        "costUSD": 0.0606,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 243,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 5948,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.0606,
+    "duration_ms": 6800,
+    "is_error": false
+  },
+  "latency_ms": 15469,
+  "cache_key": "08b9a9eaf391a772c5331a06c5ce09d2e56e38f608bac69fece2dea84495e8ae",
+  "cache_hit": false,
+  "job": "link:D-001",
+  "error": null
+}

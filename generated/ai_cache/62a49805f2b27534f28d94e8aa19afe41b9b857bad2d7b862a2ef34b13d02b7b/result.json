@@ -1,0 +1,56 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "date",
+        "state": "known",
+        "value_json": "\"13/09/2023\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-023/drawing/date"
+        ],
+        "reason": "D-023/drawing/date shows '13/09/2023' beside DATE, with slash separators.",
+        "changed_because": "The earlier reading misidentified the second day digit as 5; it is 3."
+      },
+      {
+        "key": "scale",
+        "state": "known",
+        "value_json": "\"1:3\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-023/drawing/scale"
+        ],
+        "reason": "D-023/drawing/scale shows 'SCALE:1:3'; the final digit is 3.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 14864,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1143,
+          "reasoning_output_tokens": 980
+        }
+      }
+    ]
+  },
+  "latency_ms": 26937,
+  "cache_key": "62a49805f2b27534f28d94e8aa19afe41b9b857bad2d7b862a2ef34b13d02b7b",
+  "cache_hit": false,
+  "job": "scan:D-023:retry",
+  "error": null
+}

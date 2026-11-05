@@ -1,0 +1,43 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "relationship",
+        "state": "known",
+        "value_json": "\"no_equivalent\"",
+        "confidence": "sure",
+        "fact_ids": [],
+        "reason": "The left value is null, meaning no represented drawing section; therefore use no_equivalent. This suggestion requires actual human approval before use.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 12782,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 224,
+          "reasoning_output_tokens": 147
+        }
+      }
+    ]
+  },
+  "latency_ms": 16656,
+  "cache_key": "d1282f411e3b5de0445292c09c5a1775b3195586dc72a3ccf4f6de6d36fe0bee",
+  "cache_hit": false,
+  "job": "mapping:names/section/ -> raw-materials",
+  "error": null
+}

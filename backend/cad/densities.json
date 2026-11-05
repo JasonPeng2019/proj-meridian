@@ -1,0 +1,42 @@
+[
+  {
+    "names": ["3.3315 (EN-AW 5005)", "EN-AW 5005", "EN AW-5005", "5005", "3.3315"],
+    "density_g_cm3": 2.7,
+    "source_url": "https://materialsdata.nist.gov/bitstream/handle/11115/168/Properties%20of%20Aluminum%20Mill%20Products.pdf?isAllowed=y&sequence=3",
+    "source_title": "ASM Aluminum Mill and Engineered Wrought Products, Table 6 (NIST archive)",
+    "looked_up": "2026-11-05",
+    "note": "5005 alloy density. Outside source, not the dataset."
+  },
+  {
+    "names": ["Aluminium", "Aluminum"],
+    "density_g_cm3": 2.7,
+    "source_url": "https://materialsdata.nist.gov/bitstream/handle/11115/168/Properties%20of%20Aluminum%20Mill%20Products.pdf?isAllowed=y&sequence=3",
+    "source_title": "ASM Aluminum Mill and Engineered Wrought Products (NIST archive)",
+    "looked_up": "2026-11-05",
+    "note": "Approximate family density; alloy is unspecified. Outside source, not the dataset."
+  },
+  {
+    "names": ["Stainless steel", "304", "1.4301", "X5CrNi18-10"],
+    "density_g_cm3": 7.9,
+    "source_url": "https://www.outokumpu.com/en/products/product-ranges/-/media/files/products/core/outokumpu-core-range-datasheet.pdf?modified=20251117111909&revision=025e9931-a1d5-4c8f-8ff5-f881d38916da",
+    "source_title": "Outokumpu Core range datasheet, physical properties, Core 304/4301",
+    "looked_up": "2026-11-05",
+    "note": "304 density used as approximate stainless family density when grade is unspecified. Outside source, not the dataset."
+  },
+  {
+    "names": ["Steel", "Carbon steel", "Structural steel"],
+    "density_g_cm3": 7.85,
+    "source_url": "https://www.ssab.com/-/media/files/en/support/certificates/885en-epd-hot-rolled-steel-plates.pdf?m=20200406080301",
+    "source_title": "SSAB Environmental Product Declaration, Hot Rolled Steel Plates",
+    "looked_up": "2026-11-05",
+    "note": "Approximate structural steel family density. Outside source, not the dataset."
+  },
+  {
+    "names": ["AISI 316 Stainless Steel Sheet (SS)", "AISI 316", "316", "1.4401", "Supra 316/4401"],
+    "density_g_cm3": 8.0,
+    "source_url": "https://www.outokumpu.com/-/media/files/products/supra/outokumpu-supra-range-datasheet.pdf?modified=20251117111951&revision=7a909396-d1f3-4d36-9c1c-99606be41fd2",
+    "source_title": "Outokumpu Supra range datasheet, physical properties, Supra 316/4401",
+    "looked_up": "2026-11-05",
+    "note": "316 alloy density. Outside source, not the dataset."
+  }
+]

@@ -1,0 +1,67 @@
+{
+  "items": [
+    {
+      "key": "outline_type",
+      "state": "known",
+      "value_json": "\"ring\"",
+      "confidence": "sure",
+      "fact_ids": ["D-025", "D-025/drawing/title"],
+      "reason": "The drawing shows a circular ring with a concentric central opening.",
+      "changed_because": ""
+    },
+    {
+      "key": "length",
+      "state": "unknown",
+      "value_json": "null",
+      "confidence": "sure",
+      "fact_ids": ["D-025"],
+      "reason": "Length is irrelevant to the ring outline; outer_diameter defines its overall size.",
+      "changed_because": ""
+    },
+    {
+      "key": "width",
+      "state": "unknown",
+      "value_json": "null",
+      "confidence": "sure",
+      "fact_ids": ["D-025"],
+      "reason": "Width is irrelevant to the ring outline; outer_diameter defines its overall size.",
+      "changed_because": ""
+    },
+    {
+      "key": "outer_diameter",
+      "state": "known",
+      "value_json": "250",
+      "confidence": "sure",
+      "fact_ids": ["D-025/drawing/n/250.0@1-1"],
+      "reason": "The outer diameter is dimensioned Ø250,0 ±0,2 in millimetres.",
+      "changed_because": ""
+    },
+    {
+      "key": "inner_diameter",
+      "state": "known",
+      "value_json": "224",
+      "confidence": "sure",
+      "fact_ids": ["D-025/drawing/n/224.0@1-1", "D-025/drawing/n/0.3@1-1", "D-025/drawing/n/0.0@1-1"],
+      "reason": "The central opening is dimensioned Ø224,0 with +0,3/0,0 tolerance in millimetres.",
+      "changed_because": ""
+    },
+    {
+      "key": "thickness",
+      "state": "options",
+      "value_json": "[2,3]",
+      "confidence": "sure",
+      "fact_ids": ["D-025/drawing/n/2.0@1-1", "D-025/drawing/n/3.0@1-1"],
+      "reason": "The side view gives stacked thickness alternatives 3,0 and 2,0 in millimetres.",
+      "changed_because": ""
+    },
+    {
+      "key": "features",
+      "state": "unknown",
+      "value_json": "[{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-115.5,\"fact_ids\":[\"D-025/drawing/n/115.5@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-025\"]},\"diameter\":{\"state\":\"known\",\"value\":3.4,\"fact_ids\":[\"D-025/drawing/n/3.4@1-1\"]},\"through\":true,\"hole_type\":\"countersunk\",\"countersink_diameter\":{\"state\":\"known\",\"value\":6.9,\"fact_ids\":[\"D-025/drawing/n/6.9@1-1\"]},\"countersink_angle\":{\"state\":\"known\",\"value\":90,\"fact_ids\":[\"D-025/drawing/n/90.0@1-1\"]}},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-025\"]},\"y\":{\"state\":\"known\",\"value\":-115.5,\"fact_ids\":[\"D-025/drawing/n/115.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":3.4,\"fact_ids\":[\"D-025/drawing/n/3.4@1-1\"]},\"through\":true,\"hole_type\":\"countersunk\",\"countersink_diameter\":{\"state\":\"known\",\"value\":6.9,\"fact_ids\":[\"D-025/drawing/n/6.9@1-1\"]},\"countersink_angle\":{\"state\":\"known\",\"value\":90,\"fact_ids\":[\"D-025/drawing/n/90.0@1-1\"]}},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-025\"]},\"y\":{\"state\":\"known\",\"value\":115.5,\"fact_ids\":[\"D-025/drawing/n/115.5@1-1\"]},\"diameter\":{\"state\":\"known\",\"value\":3.4,\"fact_ids\":[\"D-025/drawing/n/3.4@1-1\"]},\"through\":true,\"hole_type\":\"countersunk\",\"countersink_diameter\":{\"state\":\"known\",\"value\":6.9,\"fact_ids\":[\"D-025/drawing/n/6.9@1-1\"]},\"countersink_angle\":{\"state\":\"known\",\"value\":90,\"fact_ids\":[\"D-025/drawing/n/90.0@1-1\"]}},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":115.5,\"fact_ids\":[\"D-025/drawing/n/115.5@1-1\"]},\"y\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-025\"]},\"diameter\":{\"state\":\"known\",\"value\":3.4,\"fact_ids\":[\"D-025/drawing/n/3.4@1-1\"]},\"through\":true,\"hole_type\":\"countersunk\",\"countersink_diameter\":{\"state\":\"known\",\"value\":6.9,\"fact_ids\":[\"D-025/drawing/n/6.9@1-1\"]},\"countersink_angle\":{\"state\":\"known\",\"value\":90,\"fact_ids\":[\"D-025/drawing/n/90.0@1-1\"]}}]",
+      "confidence": "unsure",
+      "fact_ids": ["D-025", "D-025/drawing/n/8.0@1-1", "D-025/drawing/callout/p1-1", "D-025/drawing/n/3.4@1-1", "D-025/drawing/n/6.9@1-1", "D-025/drawing/n/90.0@1-1", "D-025/drawing/n/115.5@1-1"],
+      "reason": "The drawing specifies 8 × Ø3,4 THRU ALL with Ø6,9 × 90° countersinks on the R115,5 pitch circle. Four hole centers are established at the pitch-circle intersections with the horizontal and vertical centerlines and are included. The four intermediate holes lack dimensioned angular positions and are omitted; equal angular spacing cannot be assumed from visual symmetry.",
+      "changed_because": ""
+    }
+  ]
+}

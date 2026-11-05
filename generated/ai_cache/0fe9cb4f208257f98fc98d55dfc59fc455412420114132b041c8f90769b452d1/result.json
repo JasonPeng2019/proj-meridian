@@ -1,0 +1,82 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-006/drawing/notes",
+          "D-006/drawing/title",
+          "D-006/drawing/material",
+          "BOM:powder/powder-hopper",
+          "BOM:recoater/recoater-wall",
+          "BOM:box/left-side-box",
+          "BOM:box/right-box"
+        ],
+        "reason": "The drawing (CanisterWall_LeftAndRight.PDF, section Powder) notes say 'Canister Wall / Left and right side, one of each / Non-magnetic stainless / 3mm (or thicker)'. The title and material fields are null. No BOM row is named 'Canister Wall', and no row lists this file as its datasheet. The closest candidate is BOM:powder/powder-hopper: it is in the same Powder section and its material is Stainless steel, and a canister could be part of a welded hopper (its notes mention welds). However, the evidence never says that the canister walls make up the hopper, and the name doesn't match. BOM:recoater/recoater-wall is also a stainless 'Wall', but it is in the Recoater section and has its own datasheets (RecoaterWall.pdf, RecoaterWallSvejse.pdf). Left Side Box and Right Box are stainless side parts too, but they are in the Box section and their names don't match. The evidence doesn't settle whether this drawing belongs to the Powder hopper or has no matching BOM row, so the link is unknown.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 5986,
+      "cache_read_input_tokens": 2540,
+      "output_tokens": 911,
+      "output_tokens_details": {
+        "thinking_tokens": 365
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 5986,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 911,
+        "cacheReadInputTokens": 2540,
+        "cacheCreationInputTokens": 5986,
+        "webSearchRequests": 0,
+        "costUSD": 0.066624,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 365,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 5986,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.066624,
+    "duration_ms": 8857,
+    "is_error": false
+  },
+  "latency_ms": 17016,
+  "cache_key": "0fe9cb4f208257f98fc98d55dfc59fc455412420114132b041c8f90769b452d1",
+  "cache_hit": false,
+  "job": "link:D-006",
+  "error": null
+}

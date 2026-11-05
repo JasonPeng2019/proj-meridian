@@ -1,0 +1,153 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "title",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-009/drawing/title"
+        ],
+        "reason": "The TITLE/DESCRIPTION box has its label but no text in it.",
+        "changed_because": ""
+      },
+      {
+        "key": "material",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-009/drawing/material"
+        ],
+        "reason": "The MATERIAL: field is blank. 'Non-magnetic stainless' is printed only in the NOTE box, so it was not used here.",
+        "changed_because": ""
+      },
+      {
+        "key": "weight_g",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-009/drawing/weight_g"
+        ],
+        "reason": "The WEIGHT [g]: label has no value next to it.",
+        "changed_because": ""
+      },
+      {
+        "key": "notes",
+        "state": "known",
+        "value_json": "\"Powder canister.\\nNon-magnetic stainless.\\n\\nWall thickness as thin as possible.\\nMust be powder tight.\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-009/drawing/notes"
+        ],
+        "reason": "The NOTE: box clearly reads 'Powder canister.' / 'Non-magnetic stainless.' / blank line / 'Wall thickness as thin as possible.' / 'Must be powder tight.'",
+        "changed_because": ""
+      },
+      {
+        "key": "date",
+        "state": "known",
+        "value_json": "\"20/12/2023\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-009/drawing/date"
+        ],
+        "reason": "The DATE cell is small but readable as '20/12/2023'. All characters can be made out.",
+        "changed_because": ""
+      },
+      {
+        "key": "company",
+        "state": "known",
+        "value_json": "\"DTU MPP\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-009/drawing/company"
+        ],
+        "reason": "The company box reads 'DTU MPP' next to the DTU logo. The person's name and email are in a separate box.",
+        "changed_because": ""
+      },
+      {
+        "key": "scale",
+        "state": "known",
+        "value_json": "\"1:5\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-009/drawing/scale"
+        ],
+        "reason": "The cell between 'DO NOT SCALE DRAWING' and 'SHEET 1 OF 1' reads 'SCALE:1:5'. The last digit has the flat top of a 5.",
+        "changed_because": ""
+      },
+      {
+        "key": "drawn",
+        "state": "known",
+        "value_json": "\"MBOKJ\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-009/drawing/drawn"
+        ],
+        "reason": "The DRAWN cell reads 'MBOKJ'.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 9710,
+      "cache_read_input_tokens": 13730,
+      "output_tokens": 1148,
+      "output_tokens_details": {
+        "thinking_tokens": 80
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 9710,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 1148,
+        "cacheReadInputTokens": 13730,
+        "cacheCreationInputTokens": 9710,
+        "webSearchRequests": 0,
+        "costUSD": 0.103402,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 80,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 9710,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.103402,
+    "duration_ms": 10096,
+    "is_error": false
+  },
+  "latency_ms": 34625,
+  "cache_key": "89976a9c95127e25ed9ec0893421fa7ada07039844bcea420cb89574eff90c8b",
+  "cache_hit": false,
+  "job": "scan:D-009",
+  "error": null
+}

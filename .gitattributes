@@ -1,0 +1,3 @@
+# Preserve supplied evidence and hash-bound cache/model artifacts byte for byte.
+# In particular, Windows autocrlf must not change the pinned CSV or manifest.
+* -text

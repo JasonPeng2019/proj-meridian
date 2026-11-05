@@ -1,0 +1,122 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "title",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-009/drawing/title"
+        ],
+        "reason": "The TITLE/DESCRIPTION field is blank.",
+        "changed_because": ""
+      },
+      {
+        "key": "material",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-009/drawing/material"
+        ],
+        "reason": "The MATERIAL field is blank.",
+        "changed_because": ""
+      },
+      {
+        "key": "weight_g",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-009/drawing/weight_g"
+        ],
+        "reason": "The WEIGHT (g) field has no printed value.",
+        "changed_because": ""
+      },
+      {
+        "key": "notes",
+        "state": "known",
+        "value_json": "\"Powder canister.\\nNon-magnetic stainless.\\n\\nWall thickness as thin as possible.\\nMust be powder tight.\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-009/drawing/notes"
+        ],
+        "reason": "The NOTE box contains the transcribed text with the displayed line breaks.",
+        "changed_because": ""
+      },
+      {
+        "key": "date",
+        "state": "known",
+        "value_json": "\"20/12/2023\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-009/drawing/date"
+        ],
+        "reason": "The DATE cell reads '20/12/2023'.",
+        "changed_because": ""
+      },
+      {
+        "key": "company",
+        "state": "known",
+        "value_json": "\"DTU MPP\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-009/drawing/company"
+        ],
+        "reason": "The company box reads 'DTU MPP' beside the DTU logo.",
+        "changed_because": ""
+      },
+      {
+        "key": "scale",
+        "state": "known",
+        "value_json": "\"1:5\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-009/drawing/scale"
+        ],
+        "reason": "The SCALE cell reads '1:5'.",
+        "changed_because": ""
+      },
+      {
+        "key": "drawn",
+        "state": "known",
+        "value_json": "\"MBOKJ\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-009/drawing/drawn"
+        ],
+        "reason": "The DRAWN cell reads 'MBOKJ'.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 18648,
+          "cached_input_tokens": 10112,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1181,
+          "reasoning_output_tokens": 725
+        }
+      }
+    ]
+  },
+  "latency_ms": 23296,
+  "cache_key": "dbd270c77db3a5df1cf6e41e589fecee5a14ddc59c4fbf35f5c1fa8b1ea54a1c",
+  "cache_hit": false,
+  "job": "scan:D-009",
+  "error": null
+}

@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a1aa92-8ea3-7c40-8c83-aa07b1738242"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"items\":[{\"key\":\"link\",\"state\":\"known\",\"value_json\":\"[\\\"BOM:box/top-side\\\"]\",\"confidence\":\"sure\",\"fact_ids\":[\"D-004/drawing/notes\",\"BOM:box/top-side\"],\"reason\":\"“Top Plate” identifies the top panel in section “Box”, matching “Top Side”. The note specifies “3 mm non-magnetic stainless”, consistent with the row’s “Stainless steel”.\",\"changed_because\":\"\"}]}"}}
+{"type":"turn.completed","usage":{"input_tokens":15472,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":1064,"reasoning_output_tokens":955}}

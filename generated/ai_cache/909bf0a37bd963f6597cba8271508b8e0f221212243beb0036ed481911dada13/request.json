@@ -1,0 +1,29 @@
+{
+  "reader": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "prompt": "Preflight. Read the image and return a short exact visible text label. Set image_seen true only if saw image content.",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "visible_text": {
+        "type": "string"
+      },
+      "image_seen": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "visible_text",
+      "image_seen"
+    ],
+    "additionalProperties": false
+  },
+  "images": [
+    "cdaffdb229774ab013e4a29c16b3ef6ac1fd5bf7d6d94cb18cfe40328378e7a0"
+  ],
+  "job": "preflight"
+}

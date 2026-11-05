@@ -1,0 +1,1008 @@
+{
+  "text": "D-025 is the **Bygge Base Ring**, a Z-axis part; its record says a drawing and 3D reconstruction are present. [cite: D-025/part]\n\n**Drawing and reconstruction:** I can identify those assets as present, but they are not supplied here as viewable images or files. [cite: D-025/part]\n\nThe drawing records material **3.3315 (EN-AW 5005)**, weight **77.3 g**, and the callouts **8 × 3.4 THRU ALL**, **6.9 × 90°**, and **R115.5**. [cite: D-025/drawing/material, D-025/drawing/weight_g, D-025/drawing/callout/p1-1, D-025/drawing/callout/p1-2, D-025/drawing/callout/p1-3] The reconstructed outline is **Ø250 mm outer** and **Ø224 mm inner**; both are AI-sourced only, not yet reviewed, and may contain errors. [cite: D-025/template/outline/outer_diameter, D-025/template/outline/inner_diameter] Thickness has possible readings of **2.0 mm** or **3.0 mm**; this AI interpretation is not reviewed, and the A/B viewer is needed to distinguish them. [cite: D-025/template/thickness] The overall outline interpretation is **[undetermined: D-025/template/outline]** because it was not reliably determined from the evidence; features are **[undetermined: D-025/template/features_review]** and waiting for review.",
+  "facts": {
+    "D-025/part": {
+      "fact": "D-025/part",
+      "field": "part",
+      "part_key": "D-025",
+      "display": {
+        "state": "value",
+        "value": "Bygge Base Ring"
+      },
+      "badge": "From PDF",
+      "review": null,
+      "sources": [
+        {
+          "name": "D-025/part",
+          "says": "Bygge Base Ring",
+          "method": "parsed",
+          "page": 1,
+          "box": null,
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": null,
+          "badge": "From PDF"
+        }
+      ],
+      "snapshot_note": false,
+      "review_item": null,
+      "correction": null
+    },
+    "D-025/drawing/material": {
+      "fact": "D-025/drawing/material",
+      "field": "material",
+      "part_key": "D-025",
+      "display": {
+        "state": "value",
+        "value": "3.3315 (EN-AW 5005)"
+      },
+      "badge": "From PDF",
+      "review": null,
+      "sources": [
+        {
+          "name": "D-025/drawing/material",
+          "says": "3.3315 (EN-AW 5005)",
+          "method": "parsed",
+          "page": 1,
+          "box": [
+            745.28,
+            771.048,
+            135.0,
+            14.0
+          ],
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": null,
+          "badge": "From PDF"
+        }
+      ],
+      "snapshot_note": false,
+      "review_item": null,
+      "correction": null
+    },
+    "D-025/drawing/title": {
+      "fact": "D-025/drawing/title",
+      "field": "title",
+      "part_key": "D-025",
+      "display": {
+        "state": "value",
+        "value": "Bygge Base Ring"
+      },
+      "badge": "From PDF",
+      "review": null,
+      "sources": [
+        {
+          "name": "D-025/drawing/title",
+          "says": "Bygge Base Ring",
+          "method": "parsed",
+          "page": 1,
+          "box": [
+            975.328,
+            710.355,
+            181.0,
+            66.0
+          ],
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": null,
+          "badge": "From PDF"
+        }
+      ],
+      "snapshot_note": false,
+      "review_item": null,
+      "correction": null
+    },
+    "D-025/drawing/notes": {
+      "fact": "D-025/drawing/notes",
+      "field": "notes",
+      "part_key": "D-025",
+      "display": {
+        "state": "value",
+        "value": "Aluminium"
+      },
+      "badge": "From PDF",
+      "review": null,
+      "sources": [
+        {
+          "name": "D-025/drawing/notes",
+          "says": "Aluminium",
+          "method": "parsed",
+          "page": 1,
+          "box": [
+            741.526,
+            658.942,
+            231.0,
+            111.0
+          ],
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": null,
+          "badge": "From PDF"
+        }
+      ],
+      "snapshot_note": false,
+      "review_item": null,
+      "correction": null
+    },
+    "D-025/drawing/company": {
+      "fact": "D-025/drawing/company",
+      "field": "company",
+      "part_key": "D-025",
+      "display": {
+        "state": "value",
+        "value": "DTU MPP"
+      },
+      "badge": "From PDF",
+      "review": null,
+      "sources": [
+        {
+          "name": "D-025/drawing/company",
+          "says": "DTU MPP",
+          "method": "parsed",
+          "page": 1,
+          "box": [
+            975.328,
+            658.942,
+            91.0,
+            48.0
+          ],
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": null,
+          "badge": "From PDF"
+        }
+      ],
+      "snapshot_note": false,
+      "review_item": null,
+      "correction": null
+    },
+    "D-025/drawing/weight_g": {
+      "fact": "D-025/drawing/weight_g",
+      "field": "weight_g",
+      "part_key": "D-025",
+      "display": {
+        "state": "value",
+        "value": 77.3
+      },
+      "badge": "From PDF",
+      "review": null,
+      "sources": [
+        {
+          "name": "D-025/drawing/weight_g",
+          "says": "77.3",
+          "method": "parsed",
+          "page": 1,
+          "box": [
+            880.717,
+            771.048,
+            93.0,
+            14.0
+          ],
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": null,
+          "badge": "From PDF"
+        }
+      ],
+      "snapshot_note": false,
+      "review_item": null,
+      "correction": null
+    },
+    "D-025/drawing/drawn": {
+      "fact": "D-025/drawing/drawn",
+      "field": "drawn",
+      "part_key": "D-025",
+      "display": {
+        "state": "value",
+        "value": "MBOKJ"
+      },
+      "badge": "From PDF",
+      "review": null,
+      "sources": [
+        {
+          "name": "D-025/drawing/drawn",
+          "says": "MBOKJ",
+          "method": "parsed",
+          "page": 1,
+          "box": [
+            893.294,
+            790.235,
+            78.0,
+            11.0
+          ],
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": null,
+          "badge": "From PDF"
+        }
+      ],
+      "snapshot_note": false,
+      "review_item": null,
+      "correction": null
+    },
+    "D-025/drawing/date": {
+      "fact": "D-025/drawing/date",
+      "field": "date",
+      "part_key": "D-025",
+      "display": {
+        "state": "value",
+        "value": "22/02/2022"
+      },
+      "badge": "From PDF",
+      "review": null,
+      "sources": [
+        {
+          "name": "D-025/drawing/date",
+          "says": "22/02/2022",
+          "method": "parsed",
+          "page": 1,
+          "box": [
+            897.013,
+            802.562,
+            76.0,
+            11.0
+          ],
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": null,
+          "badge": "From PDF"
+        }
+      ],
+      "snapshot_note": false,
+      "review_item": null,
+      "correction": null
+    },
+    "D-025/drawing/scale": {
+      "fact": "D-025/drawing/scale",
+      "field": "scale",
+      "part_key": "D-025",
+      "display": {
+        "state": "value",
+        "value": "1:2"
+      },
+      "badge": "From PDF",
+      "review": null,
+      "sources": [
+        {
+          "name": "D-025/drawing/scale",
+          "says": "1:2",
+          "method": "parsed",
+          "page": 1,
+          "box": [
+            1082.688,
+            803.564,
+            25.837,
+            7.75
+          ],
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": null,
+          "badge": "From PDF"
+        }
+      ],
+      "snapshot_note": false,
+      "review_item": null,
+      "correction": null
+    },
+    "D-025/drawing/callout/p1-1": {
+      "fact": "D-025/drawing/callout/p1-1",
+      "field": "p1-1",
+      "part_key": "D-025",
+      "display": {
+        "state": "value",
+        "value": "8 x 3,4 THRU ALL"
+      },
+      "badge": "From PDF",
+      "review": null,
+      "sources": [
+        {
+          "name": "D-025/drawing/callout/p1-1",
+          "says": "8 x 3,4 THRU ALL",
+          "method": "parsed",
+          "page": 1,
+          "box": [
+            519.104,
+            627.625,
+            118.667,
+            18.083
+          ],
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": null,
+          "badge": "From PDF"
+        }
+      ],
+      "snapshot_note": false,
+      "review_item": null,
+      "correction": null
+    },
+    "D-025/drawing/callout/p1-2": {
+      "fact": "D-025/drawing/callout/p1-2",
+      "field": "p1-2",
+      "part_key": "D-025",
+      "display": {
+        "state": "value",
+        "value": "6,9 X 90°"
+      },
+      "badge": "From PDF",
+      "review": null,
+      "sources": [
+        {
+          "name": "D-025/drawing/callout/p1-2",
+          "says": "6,9 X 90°",
+          "method": "parsed",
+          "page": 1,
+          "box": [
+            570.638,
+            643.527,
+            57.336,
+            18.083
+          ],
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": null,
+          "badge": "From PDF"
+        }
+      ],
+      "snapshot_note": false,
+      "review_item": null,
+      "correction": null
+    },
+    "D-025/drawing/callout/p1-3": {
+      "fact": "D-025/drawing/callout/p1-3",
+      "field": "p1-3",
+      "part_key": "D-025",
+      "display": {
+        "state": "value",
+        "value": "R115,5"
+      },
+      "badge": "From PDF",
+      "review": null,
+      "sources": [
+        {
+          "name": "D-025/drawing/callout/p1-3",
+          "says": "R115,5",
+          "method": "parsed",
+          "page": 1,
+          "box": [
+            593.65,
+            423.501,
+            46.848,
+            47.104
+          ],
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": null,
+          "badge": "From PDF"
+        }
+      ],
+      "snapshot_note": false,
+      "review_item": null,
+      "correction": null
+    },
+    "D-025/drawing/general/units": {
+      "fact": "D-025/drawing/general/units",
+      "field": "units",
+      "part_key": "D-025",
+      "display": {
+        "state": "value",
+        "value": "DIMENSIONS ARE IN MILLIMETERS"
+      },
+      "badge": "From PDF",
+      "review": null,
+      "sources": [
+        {
+          "name": "D-025/drawing/general/units",
+          "says": "DIMENSIONS ARE IN MILLIMETERS",
+          "method": "parsed",
+          "page": 1,
+          "box": [
+            978.968,
+            784.149,
+            85.555,
+            7.75
+          ],
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": null,
+          "badge": "From PDF"
+        }
+      ],
+      "snapshot_note": false,
+      "review_item": null,
+      "correction": null
+    },
+    "D-025/drawing/general/general_tolerance": {
+      "fact": "D-025/drawing/general/general_tolerance",
+      "field": "general_tolerance",
+      "part_key": "D-025",
+      "display": {
+        "state": "value",
+        "value": "DIN ISO 2768-1 m"
+      },
+      "badge": "From PDF",
+      "review": null,
+      "sources": [
+        {
+          "name": "D-025/drawing/general/general_tolerance",
+          "says": "DIN ISO 2768-1 m",
+          "method": "parsed",
+          "page": 1,
+          "box": [
+            1016.541,
+            790.957,
+            47.749,
+            8.202
+          ],
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": null,
+          "badge": "From PDF"
+        }
+      ],
+      "snapshot_note": false,
+      "review_item": null,
+      "correction": null
+    },
+    "D-025/drawing/general/edge_finish": {
+      "fact": "D-025/drawing/general/edge_finish",
+      "field": "edge_finish",
+      "part_key": "D-025",
+      "display": {
+        "state": "value",
+        "value": "DEBURR AND BREAK SHARP EDGES"
+      },
+      "badge": "From PDF",
+      "review": null,
+      "sources": [
+        {
+          "name": "D-025/drawing/general/edge_finish",
+          "says": "DEBURR AND BREAK SHARP EDGES",
+          "method": "parsed",
+          "page": 1,
+          "box": [
+            1078.776,
+            781.582,
+            52.887,
+            14.837
+          ],
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": null,
+          "badge": "From PDF"
+        }
+      ],
+      "snapshot_note": false,
+      "review_item": null,
+      "correction": null
+    },
+    "D-025/template/outline": {
+      "fact": "D-025/template/outline",
+      "field": "outline",
+      "part_key": "D-025",
+      "display": {
+        "state": "undetermined",
+        "message": "Not recorded or not reliably determined from the evidence."
+      },
+      "badge": "From PDF",
+      "review": null,
+      "sources": [
+        {
+          "name": "D-025/template/outline",
+          "says": null,
+          "method": "parsed",
+          "page": 1,
+          "box": null,
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": null,
+          "badge": "From PDF"
+        }
+      ],
+      "snapshot_note": false,
+      "review_item": null,
+      "correction": null
+    },
+    "D-025/template/outline/outer_diameter": {
+      "fact": "D-025/template/outline/outer_diameter",
+      "field": "outer_diameter",
+      "part_key": "D-025",
+      "display": {
+        "state": "value",
+        "value": 250.0
+      },
+      "badge": "AI interpretation, not reviewed",
+      "review": {
+        "status": "not_reviewed"
+      },
+      "sources": [
+        {
+          "name": "D-025/template/outline/outer_diameter",
+          "says": 250.0,
+          "method": "ai_agreed",
+          "page": 1,
+          "box": null,
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": "The outer circle is dimensioned Ã˜250,0 Â±0,2.",
+          "badge": "AI interpretation, not reviewed"
+        },
+        {
+          "name": "D-025/drawing/n/250.0@1-1",
+          "says": "250,0",
+          "method": "parsed",
+          "page": 1,
+          "box": [
+            506.746,
+            170.624,
+            36.112,
+            36.112
+          ],
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": null,
+          "badge": "From PDF"
+        }
+      ],
+      "snapshot_note": false,
+      "review_item": null,
+      "correction": null
+    },
+    "D-025/drawing/n/250.0@1-1": {
+      "fact": "D-025/drawing/n/250.0@1-1",
+      "field": "outer_diameter",
+      "part_key": "D-025",
+      "display": {
+        "state": "value",
+        "value": 250.0
+      },
+      "badge": "AI interpretation, not reviewed",
+      "review": {
+        "status": "not_reviewed"
+      },
+      "sources": [
+        {
+          "name": "D-025/template/outline/outer_diameter",
+          "says": 250.0,
+          "method": "ai_agreed",
+          "page": 1,
+          "box": null,
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": "The outer circle is dimensioned Ã˜250,0 Â±0,2.",
+          "badge": "AI interpretation, not reviewed"
+        },
+        {
+          "name": "D-025/drawing/n/250.0@1-1",
+          "says": "250,0",
+          "method": "parsed",
+          "page": 1,
+          "box": [
+            506.746,
+            170.624,
+            36.112,
+            36.112
+          ],
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": null,
+          "badge": "From PDF"
+        }
+      ],
+      "snapshot_note": false,
+      "review_item": null,
+      "correction": null
+    },
+    "D-025/template/outline/inner_diameter": {
+      "fact": "D-025/template/outline/inner_diameter",
+      "field": "inner_diameter",
+      "part_key": "D-025",
+      "display": {
+        "state": "value",
+        "value": 224.0
+      },
+      "badge": "AI interpretation, not reviewed",
+      "review": {
+        "status": "not_reviewed"
+      },
+      "sources": [
+        {
+          "name": "D-025/template/outline/inner_diameter",
+          "says": 224.0,
+          "method": "ai_agreed",
+          "page": 1,
+          "box": null,
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": "The inner circle is dimensioned Ã˜224,0 with tolerance +0,3/0,0. The 0,3 and 0,0 values are tolerances, not geometry.",
+          "badge": "AI interpretation, not reviewed"
+        },
+        {
+          "name": "D-025/drawing/n/224.0@1-1",
+          "says": "224,0",
+          "method": "parsed",
+          "page": 1,
+          "box": [
+            465.666,
+            198.967,
+            37.413,
+            33.658
+          ],
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": null,
+          "badge": "From PDF"
+        }
+      ],
+      "snapshot_note": false,
+      "review_item": null,
+      "correction": null
+    },
+    "D-025/drawing/n/224.0@1-1": {
+      "fact": "D-025/drawing/n/224.0@1-1",
+      "field": "inner_diameter",
+      "part_key": "D-025",
+      "display": {
+        "state": "value",
+        "value": 224.0
+      },
+      "badge": "AI interpretation, not reviewed",
+      "review": {
+        "status": "not_reviewed"
+      },
+      "sources": [
+        {
+          "name": "D-025/template/outline/inner_diameter",
+          "says": 224.0,
+          "method": "ai_agreed",
+          "page": 1,
+          "box": null,
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": "The inner circle is dimensioned Ã˜224,0 with tolerance +0,3/0,0. The 0,3 and 0,0 values are tolerances, not geometry.",
+          "badge": "AI interpretation, not reviewed"
+        },
+        {
+          "name": "D-025/drawing/n/224.0@1-1",
+          "says": "224,0",
+          "method": "parsed",
+          "page": 1,
+          "box": [
+            465.666,
+            198.967,
+            37.413,
+            33.658
+          ],
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": null,
+          "badge": "From PDF"
+        }
+      ],
+      "snapshot_note": false,
+      "review_item": null,
+      "correction": null
+    },
+    "D-025/template/thickness": {
+      "fact": "D-025/template/thickness",
+      "field": "thickness",
+      "part_key": "D-025",
+      "display": {
+        "state": "options",
+        "values": [
+          2.0,
+          3.0
+        ]
+      },
+      "badge": "AI interpretation, not reviewed",
+      "review": {
+        "status": "not_reviewed"
+      },
+      "sources": [
+        {
+          "name": "D-025/template/thickness",
+          "says": null,
+          "method": "ai_agreed",
+          "page": 1,
+          "box": null,
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": "The side view's thickness dimension shows 3,0 stacked over 2,0. These are alternative thickness values, so both are listed in ascending order.",
+          "badge": "AI interpretation, not reviewed"
+        },
+        {
+          "name": "D-025/drawing/n/2.0@1-1",
+          "says": "2,0",
+          "method": "parsed",
+          "page": 1,
+          "box": [
+            332.788,
+            152.336,
+            18.327,
+            18.083
+          ],
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": null,
+          "badge": "From PDF"
+        },
+        {
+          "name": "D-025/drawing/n/3.0@1-1",
+          "says": "3,0",
+          "method": "parsed",
+          "page": 1,
+          "box": [
+            332.788,
+            139.504,
+            18.327,
+            18.083
+          ],
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": null,
+          "badge": "From PDF"
+        }
+      ],
+      "snapshot_note": false,
+      "review_item": null,
+      "correction": null
+    },
+    "D-025/drawing/n/2.0@1-1": {
+      "fact": "D-025/drawing/n/2.0@1-1",
+      "field": "thickness",
+      "part_key": "D-025",
+      "display": {
+        "state": "options",
+        "values": [
+          2.0,
+          3.0
+        ]
+      },
+      "badge": "AI interpretation, not reviewed",
+      "review": {
+        "status": "not_reviewed"
+      },
+      "sources": [
+        {
+          "name": "D-025/template/thickness",
+          "says": null,
+          "method": "ai_agreed",
+          "page": 1,
+          "box": null,
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": "The side view's thickness dimension shows 3,0 stacked over 2,0. These are alternative thickness values, so both are listed in ascending order.",
+          "badge": "AI interpretation, not reviewed"
+        },
+        {
+          "name": "D-025/drawing/n/2.0@1-1",
+          "says": "2,0",
+          "method": "parsed",
+          "page": 1,
+          "box": [
+            332.788,
+            152.336,
+            18.327,
+            18.083
+          ],
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": null,
+          "badge": "From PDF"
+        },
+        {
+          "name": "D-025/drawing/n/3.0@1-1",
+          "says": "3,0",
+          "method": "parsed",
+          "page": 1,
+          "box": [
+            332.788,
+            139.504,
+            18.327,
+            18.083
+          ],
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": null,
+          "badge": "From PDF"
+        }
+      ],
+      "snapshot_note": false,
+      "review_item": null,
+      "correction": null
+    },
+    "D-025/drawing/n/3.0@1-1": {
+      "fact": "D-025/drawing/n/3.0@1-1",
+      "field": "thickness",
+      "part_key": "D-025",
+      "display": {
+        "state": "options",
+        "values": [
+          2.0,
+          3.0
+        ]
+      },
+      "badge": "AI interpretation, not reviewed",
+      "review": {
+        "status": "not_reviewed"
+      },
+      "sources": [
+        {
+          "name": "D-025/template/thickness",
+          "says": null,
+          "method": "ai_agreed",
+          "page": 1,
+          "box": null,
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": "The side view's thickness dimension shows 3,0 stacked over 2,0. These are alternative thickness values, so both are listed in ascending order.",
+          "badge": "AI interpretation, not reviewed"
+        },
+        {
+          "name": "D-025/drawing/n/2.0@1-1",
+          "says": "2,0",
+          "method": "parsed",
+          "page": 1,
+          "box": [
+            332.788,
+            152.336,
+            18.327,
+            18.083
+          ],
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": null,
+          "badge": "From PDF"
+        },
+        {
+          "name": "D-025/drawing/n/3.0@1-1",
+          "says": "3,0",
+          "method": "parsed",
+          "page": 1,
+          "box": [
+            332.788,
+            139.504,
+            18.327,
+            18.083
+          ],
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": null,
+          "badge": "From PDF"
+        }
+      ],
+      "snapshot_note": false,
+      "review_item": null,
+      "correction": null
+    },
+    "D-025/template/features_review": {
+      "fact": "D-025/template/features_review",
+      "field": "features_review",
+      "part_key": "D-025",
+      "display": {
+        "state": "undetermined",
+        "message": "Waiting for review: unsure"
+      },
+      "badge": "From PDF",
+      "review": {
+        "status": "not_reviewed"
+      },
+      "sources": [
+        {
+          "name": "D-025/template/features_review",
+          "says": null,
+          "method": "ai_unsure",
+          "page": 1,
+          "box": null,
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": "Waiting for review: unsure",
+          "badge": "From PDF"
+        }
+      ],
+      "snapshot_note": false,
+      "review_item": "D-025/template/features_review",
+      "correction": null
+    },
+    "D-025/link": {
+      "fact": "D-025/link",
+      "field": "link",
+      "part_key": "D-025",
+      "display": {
+        "state": "undetermined",
+        "message": "No unique exact match; waiting for AI matching or human review."
+      },
+      "badge": "From PDF",
+      "review": null,
+      "sources": [
+        {
+          "name": "D-025/link",
+          "says": [],
+          "method": "unresolved",
+          "page": 1,
+          "box": null,
+          "part_key": "D-025",
+          "cleanup": [],
+          "note": null,
+          "badge": "From PDF"
+        }
+      ],
+      "snapshot_note": true,
+      "review_item": "D-025/link",
+      "correction": null
+    }
+  },
+  "parts_to_show": [
+    {
+      "id": "D-025/part",
+      "key": "D-025",
+      "display_name": "Bygge Base Ring",
+      "section": "Z-axis",
+      "has_drawing": true,
+      "has_3d": true,
+      "examples": [
+        "A",
+        "B"
+      ],
+      "review_status": "not_reviewed",
+      "thumbnail": "/api/parts/D-025/image?page=1&thumb=1",
+      "drawing_url": "/part/D-025/2d",
+      "model_url": "/part/D-025/3d",
+      "shown_reason": null
+    }
+  ],
+  "warnings": [],
+  "session_id": "9c6fb49d629843cc8448d7c5852bc410",
+  "model": "gpt-6-luna",
+  "usage": {
+    "input_tokens": 7131,
+    "output_tokens": 390,
+    "total_tokens": 7521
+  },
+  "latency_ms": 8983,
+  "tool_trace": [
+    {
+      "tool": "find_part",
+      "arguments": {
+        "text": "D-025"
+      },
+      "facts_returned": [
+        "D-025/part"
+      ]
+    },
+    {
+      "tool": "get_facts",
+      "arguments": {
+        "part_id": "D-025/part"
+      },
+      "facts_returned": [
+        "D-025/part",
+        "D-025/drawing/material",
+        "D-025/drawing/title",
+        "D-025/drawing/notes",
+        "D-025/drawing/company",
+        "D-025/drawing/weight_g",
+        "D-025/drawing/drawn",
+        "D-025/drawing/date",
+        "D-025/drawing/scale",
+        "D-025/drawing/callout/p1-1",
+        "D-025/drawing/callout/p1-2",
+        "D-025/drawing/callout/p1-3",
+        "D-025/drawing/general/units",
+        "D-025/drawing/general/general_tolerance",
+        "D-025/drawing/general/edge_finish",
+        "D-025/template/outline",
+        "D-025/template/outline/outer_diameter",
+        "D-025/drawing/n/250.0@1-1",
+        "D-025/template/outline/inner_diameter",
+        "D-025/drawing/n/224.0@1-1",
+        "D-025/template/thickness",
+        "D-025/drawing/n/2.0@1-1",
+        "D-025/drawing/n/3.0@1-1",
+        "D-025/template/features_review",
+        "D-025/link"
+      ]
+    }
+  ],
+  "revision": "4f53cda18c2baa0c"
+}

@@ -1,0 +1,56 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "notes",
+        "state": "known",
+        "value_json": "\"Note: All threaded holes are blind.\\n20mm thick aluminium plate.\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-003/drawing/notes"
+        ],
+        "reason": "D-003/drawing/notes shows these two sentences on separate lines.",
+        "changed_because": ""
+      },
+      {
+        "key": "date",
+        "state": "known",
+        "value_json": "\"26/10/2023\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-003/drawing/date"
+        ],
+        "reason": "The DATE cell in D-003/drawing/date reads 26/10/2023; the second day digit is 6.",
+        "changed_because": "The earlier answer misread the second day digit as 4."
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 14881,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1201,
+          "reasoning_output_tokens": 1034
+        }
+      }
+    ]
+  },
+  "latency_ms": 29719,
+  "cache_key": "511bfdb4c7238a3d3039b179e9882aba0a4e13282bd10b5ed6459a0e16cee897",
+  "cache_hit": false,
+  "job": "scan:D-003:retry",
+  "error": null
+}

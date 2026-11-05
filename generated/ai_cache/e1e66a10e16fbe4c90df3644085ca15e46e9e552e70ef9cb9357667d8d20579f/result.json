@@ -1,0 +1,49 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-027",
+          "D-027/drawing/title",
+          "D-027/drawing/material",
+          "D-027/drawing/notes",
+          "BOM:build-plate/build-cylinder-clamp-ring"
+        ],
+        "reason": "\"Cylinder Spænd Ring\" suggests \"Build cylinder clamp ring\", and the drawing notes specify aluminium. However, the drawing section is \"Z-axis\" versus \"Build-plate\", and material is \"6063-T6\" versus \"Aluminium\". No supplied evidence establishes these differing designations as approved equivalents, so the candidate link remains uncertain.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 15483,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 791,
+          "reasoning_output_tokens": 636
+        }
+      }
+    ]
+  },
+  "latency_ms": 26610,
+  "cache_key": "e1e66a10e16fbe4c90df3644085ca15e46e9e552e70ef9cb9357667d8d20579f",
+  "cache_hit": false,
+  "job": "link:D-027",
+  "error": null
+}

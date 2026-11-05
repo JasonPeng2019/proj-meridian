@@ -1,0 +1,122 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "title",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-003/drawing/title"
+        ],
+        "reason": "The TITLE/DESCRIPTION field is blank.",
+        "changed_because": ""
+      },
+      {
+        "key": "material",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-003/drawing/material"
+        ],
+        "reason": "The MATERIAL field is blank.",
+        "changed_because": ""
+      },
+      {
+        "key": "weight_g",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-003/drawing/weight_g"
+        ],
+        "reason": "The WEIGHT (g) field contains no printed value.",
+        "changed_because": ""
+      },
+      {
+        "key": "notes",
+        "state": "known",
+        "value_json": "\"Note: All threaded holes are blind.\\n20mm thick aluminium plate.\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-003/drawing/notes"
+        ],
+        "reason": "Both sentences are legible in the notes box.",
+        "changed_because": ""
+      },
+      {
+        "key": "date",
+        "state": "known",
+        "value_json": "\"24/10/2023\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-003/drawing/date"
+        ],
+        "reason": "The DATE row reads 24/10/2023.",
+        "changed_because": ""
+      },
+      {
+        "key": "company",
+        "state": "known",
+        "value_json": "\"DTU MPP\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-003/drawing/company"
+        ],
+        "reason": "DTU MPP is printed beside the DTU logo.",
+        "changed_because": ""
+      },
+      {
+        "key": "scale",
+        "state": "known",
+        "value_json": "\"1:10\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-003/drawing/scale"
+        ],
+        "reason": "The SCALE field reads 1:10.",
+        "changed_because": ""
+      },
+      {
+        "key": "drawn",
+        "state": "known",
+        "value_json": "\"MBOKJ\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-003/drawing/drawn"
+        ],
+        "reason": "The DRAWN row reads MBOKJ.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 14565,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1790,
+          "reasoning_output_tokens": 1360
+        }
+      }
+    ]
+  },
+  "latency_ms": 73188,
+  "cache_key": "e99f28db360d7cb42b2e5aad6041c75973548b6b9f251e41fec26e7014a680b1",
+  "cache_hit": false,
+  "job": "scan:D-003",
+  "error": null
+}

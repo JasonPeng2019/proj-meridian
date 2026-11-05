@@ -1,0 +1,20 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": null,
+  "valid": false,
+  "returncode": -1,
+  "metadata": {
+    "error": "Malformed AI output; no repair attempted"
+  },
+  "latency_ms": 0,
+  "cache_key": "de2211bb9629d9b9bcf1107c1eda8ec83e7edcedba32fad961b6aa56ac5cdcda",
+  "cache_hit": false,
+  "job": "link:D-003",
+  "error": "Malformed AI output; no repair attempted"
+}

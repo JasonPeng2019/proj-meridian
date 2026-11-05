@@ -1,0 +1,80 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-008/drawing/title",
+          "D-008/drawing/notes",
+          "D-008/drawing/material",
+          "BOM:powder/powder-handling-mount-bracket",
+          "BOM:powder/powder-stepper-bracket"
+        ],
+        "reason": "The drawing is titled 'Powder Bracket'. It is in the Powder section, and its notes describe '2-3mm non-magnetic stainless' with 6x M5 weld nuts. The structured material field is null. Two Powder-section BOM rows are stainless-steel brackets: 'Powder handling mount bracket' and 'Powder stepper bracket'. Neither row has notes or a datasheet (such as PowderBracket.pdf) to tell them apart, and the drawing notes don't mention a stepper or a handling mount. The generic title fits either row, so the match can't be determined. The handling mount bracket is a plausible lean, but nothing in the evidence confirms it.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 6024,
+      "cache_read_input_tokens": 2540,
+      "output_tokens": 620,
+      "output_tokens_details": {
+        "thinking_tokens": 223
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 6024,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 620,
+        "cacheReadInputTokens": 2540,
+        "cacheCreationInputTokens": 6024,
+        "webSearchRequests": 0,
+        "costUSD": 0.061107999999999996,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 223,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 6024,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.061107999999999996,
+    "duration_ms": 6241,
+    "is_error": false
+  },
+  "latency_ms": 27406,
+  "cache_key": "dce28512a4d92fa5fa44968c55d216753d6c0717d08df9c54e6c8c108248f79c",
+  "cache_hit": false,
+  "job": "link:D-008",
+  "error": null
+}

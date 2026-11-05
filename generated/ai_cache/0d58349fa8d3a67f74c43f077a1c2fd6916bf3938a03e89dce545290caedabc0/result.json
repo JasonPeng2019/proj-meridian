@@ -1,0 +1,43 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "relationship",
+        "state": "known",
+        "value_json": "\"no_equivalent\"",
+        "confidence": "sure",
+        "fact_ids": [],
+        "reason": "LEFT is null, so no drawing section is represented. The instructions require no_equivalent for an empty left. This suggestion requires human approval before use.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 12781,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 225,
+          "reasoning_output_tokens": 145
+        }
+      }
+    ]
+  },
+  "latency_ms": 12328,
+  "cache_key": "0d58349fa8d3a67f74c43f077a1c2fd6916bf3938a03e89dce545290caedabc0",
+  "cache_hit": false,
+  "job": "mapping:names/section/ -> support",
+  "error": null
+}

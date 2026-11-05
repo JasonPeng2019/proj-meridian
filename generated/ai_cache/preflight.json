@@ -1,0 +1,101 @@
+{
+  "claude": {
+    "reader": "claude",
+    "settings": {
+      "model": "opus",
+      "fast_mode": false,
+      "mode": "regular",
+      "reader": "claude"
+    },
+    "answer": {
+      "visible_text": "Feedstock inlet",
+      "image_seen": true
+    },
+    "valid": true,
+    "returncode": 0,
+    "metadata": {
+      "usage": {
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 2972,
+        "cache_read_input_tokens": 5718,
+        "output_tokens": 254,
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 2972,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "modelUsage": {
+        "claude-opus-5-5": {
+          "inputTokens": 4,
+          "outputTokens": 254,
+          "cacheReadInputTokens": 5718,
+          "cacheCreationInputTokens": 2972,
+          "webSearchRequests": 0,
+          "costUSD": 0.030015600000000003,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 0,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 2972,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      },
+      "total_cost_usd": 0.030015600000000003,
+      "duration_ms": 4070,
+      "is_error": false
+    },
+    "latency_ms": 5265,
+    "cache_key": "ca65c2ea25dbcda153aa6163b28736b7e0bcf170a6443eb6141ff67bc260ff7d",
+    "cache_hit": false,
+    "job": "preflight",
+    "error": null
+  },
+  "codex": {
+    "reader": "codex",
+    "settings": {
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "xhigh",
+      "service_tier": "fast",
+      "reader": "codex"
+    },
+    "answer": {
+      "visible_text": "Geared stepper actuator",
+      "image_seen": true
+    },
+    "valid": true,
+    "returncode": 0,
+    "metadata": {
+      "events": [
+        {
+          "type": "turn.completed",
+          "usage": {
+            "input_tokens": 14179,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 99,
+            "reasoning_output_tokens": 72
+          }
+        }
+      ]
+    },
+    "latency_ms": 5812,
+    "cache_key": "ca02fffe0c0cb75ededd15bcb6e006666db4c10f68f3921622f25560065e9e23",
+    "cache_hit": false,
+    "job": "preflight",
+    "error": null
+  }
+}

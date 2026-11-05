@@ -1,0 +1,122 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "title",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-001/drawing/title"
+        ],
+        "reason": "The TITLE/DESCRIPTION field is blank.",
+        "changed_because": ""
+      },
+      {
+        "key": "material",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-001/drawing/material"
+        ],
+        "reason": "The MATERIAL field is blank.",
+        "changed_because": ""
+      },
+      {
+        "key": "weight_g",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-001/drawing/weight_g"
+        ],
+        "reason": "The WEIGHT [g] field is blank.",
+        "changed_because": ""
+      },
+      {
+        "key": "notes",
+        "state": "known",
+        "value_json": "\"Door - x2\\n3mm aluminium\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-001/drawing/notes"
+        ],
+        "reason": "The NOTE field contains these two readable lines.",
+        "changed_because": ""
+      },
+      {
+        "key": "date",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-001/drawing/date"
+        ],
+        "reason": "The date is too blurred to copy character by character.",
+        "changed_because": ""
+      },
+      {
+        "key": "company",
+        "state": "known",
+        "value_json": "\"DTU MPP\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-001/drawing/company"
+        ],
+        "reason": "DTU MPP is readable beside the DTU logo.",
+        "changed_because": ""
+      },
+      {
+        "key": "scale",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-001/drawing/scale"
+        ],
+        "reason": "The scale value is too blurred to copy character by character.",
+        "changed_because": ""
+      },
+      {
+        "key": "drawn",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-001/drawing/drawn"
+        ],
+        "reason": "The DRAWN value is too blurred to copy character by character.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 16983,
+          "cached_input_tokens": 10112,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1006,
+          "reasoning_output_tokens": 591
+        }
+      }
+    ]
+  },
+  "latency_ms": 29812,
+  "cache_key": "191e2ed4394216ce88c6a3fe83401f2494a475a06023f51963998b53da284568",
+  "cache_hit": false,
+  "job": "scan:D-001",
+  "error": null
+}

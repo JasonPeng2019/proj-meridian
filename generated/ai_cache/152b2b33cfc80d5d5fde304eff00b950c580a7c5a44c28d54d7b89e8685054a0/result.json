@@ -1,0 +1,76 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "relationship",
+        "state": "known",
+        "value_json": "\"different\"",
+        "confidence": "unsure",
+        "fact_ids": [
+          "BOM:build-plate/build-plate"
+        ],
+        "reason": "The established links do not connect the Z-axis drawing section to the Build-plate section. 'BOM:build-plate/build-plate' maps the BOM build-plate only to itself, and 'D-026/drawing/source' does not mention Z-axis or build-plate. In powder-bed machines a build plate usually sits on the Z-axis platform, which would be a part-of relationship, not kind_of or same. The supplied links do not confirm that. Of the drawing sections listed, Z-axis is the closest match, but nothing grounds an equivalence, so the best suggestion is 'different'. This needs human review and approval.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 1426,
+      "cache_read_input_tokens": 2542,
+      "output_tokens": 587,
+      "output_tokens_details": {
+        "thinking_tokens": 266
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 1426,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 587,
+        "cacheReadInputTokens": 2542,
+        "cacheCreationInputTokens": 1426,
+        "webSearchRequests": 0,
+        "costUSD": 0.023664399999999995,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 266,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 1426,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.023664399999999995,
+    "duration_ms": 6026,
+    "is_error": false
+  },
+  "latency_ms": 8687,
+  "cache_key": "152b2b33cfc80d5d5fde304eff00b950c580a7c5a44c28d54d7b89e8685054a0",
+  "cache_hit": false,
+  "job": "mapping:names/section/z-axis -> build-plate",
+  "error": null
+}

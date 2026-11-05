@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a1aa92-5303-7903-8f63-366dd09ca2ec"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"items\":[{\"key\":\"link\",\"state\":\"known\",\"value_json\":\"[\\\"BOM:box/left-side-box\\\"]\",\"confidence\":\"sure\",\"fact_ids\":[\"D-002/drawing/notes\",\"BOM:box/left-side-box\"],\"reason\":\"\\\"Left Wall\\\" identifies the \\\"Left Side Box\\\" component in the matching \\\"Box\\\" section. The drawing specifies \\\"2mm non-magnetic stainless\\\", consistent with the row's \\\"Stainless steel\\\" material. No competing left-side Box row is supplied.\",\"changed_because\":\"\"}]}"}}
+{"type":"turn.completed","usage":{"input_tokens":15472,"cached_input_tokens":15232,"cache_write_input_tokens":0,"output_tokens":611,"reasoning_output_tokens":486}}

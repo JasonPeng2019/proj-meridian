@@ -1,0 +1,161 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "title",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-022/drawing/title",
+          "D-022/drawing/source"
+        ],
+        "reason": "The TITLE/DESCRIPTION box in the cropped title block has nothing written in it. 'Inlet Box' appears only in the NOTE box, so it is not copied here as the title.",
+        "changed_because": ""
+      },
+      {
+        "key": "material",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-022/drawing/material",
+          "D-022/drawing/source"
+        ],
+        "reason": "The MATERIAL: field is blank. 'Stainless' appears only in the notes, and the material field is not filled from it.",
+        "changed_because": ""
+      },
+      {
+        "key": "weight_g",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-022/drawing/weight_g",
+          "D-022/drawing/source"
+        ],
+        "reason": "The WEIGHT [g]: field is blank. No gram value is printed.",
+        "changed_because": ""
+      },
+      {
+        "key": "notes",
+        "state": "known",
+        "value_json": "\"Inlet Box\\nFour corner joints should be\\nwelded.\\nStainless\\nFree choice of thickness\\n(as thin as possible)\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-022/drawing/notes",
+          "D-022/drawing/source"
+        ],
+        "reason": "The NOTE: box is clearly readable. It has six lines of text, copied here with the original line breaks.",
+        "changed_because": ""
+      },
+      {
+        "key": "date",
+        "state": "known",
+        "value_json": "\"20/12/2023\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-022/drawing/date",
+          "D-022/drawing/source"
+        ],
+        "reason": "The DATE cell clearly reads 20/12/2023.",
+        "changed_because": ""
+      },
+      {
+        "key": "company",
+        "state": "known",
+        "value_json": "\"DTU MPP\"",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-022/drawing/company",
+          "D-022/drawing/source"
+        ],
+        "reason": "The company/logo box at the supplied field_box location reads 'DTU MPP' next to the DTU logo. It has no label, so I'm not certain this is the intended company field.",
+        "changed_because": ""
+      },
+      {
+        "key": "scale",
+        "state": "known",
+        "value_json": "\"1:2\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-022/drawing/scale",
+          "D-022/drawing/source"
+        ],
+        "reason": "The scale cell reads 'SCALE:1:2'. The value is 1:2.",
+        "changed_because": ""
+      },
+      {
+        "key": "drawn",
+        "state": "known",
+        "value_json": "\"MBOKJ\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-022/drawing/drawn",
+          "D-022/drawing/source"
+        ],
+        "reason": "The DRAWN cell clearly reads MBOKJ.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 3542,
+      "cache_read_input_tokens": 7623,
+      "output_tokens": 1245,
+      "output_tokens_details": {
+        "thinking_tokens": 162
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 3542,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 1245,
+        "cacheReadInputTokens": 7623,
+        "cacheCreationInputTokens": 3542,
+        "webSearchRequests": 0,
+        "costUSD": 0.0547766,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 162,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 3542,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.0547766,
+    "duration_ms": 11182,
+    "is_error": false
+  },
+  "latency_ms": 41422,
+  "cache_key": "423104e5a604aa2599e6b754bf070679bd53d687377922e9824a5ba686d41ced",
+  "cache_hit": false,
+  "job": "scan:D-022",
+  "error": null
+}

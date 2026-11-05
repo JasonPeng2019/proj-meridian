@@ -1,0 +1,80 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-021/drawing/notes",
+          "D-021/drawing/material",
+          "D-021/drawing/title",
+          "BOM:gas-flow/gas-flow-end-duct",
+          "BOM:gas-flow/gas-flow-inlet-geometry"
+        ],
+        "reason": "The drawing (BlowerOutlet.pdf, section 'Gas Flow') notes 'Blower Outlet' and 'Non-magnetic stainless'. Its title and material fields are empty. Two BOM rows are in the Gas flow section. 'Gas flow end duct' is listed as Polymer, which conflicts with the stainless note, and nothing in the evidence connects its name to a blower outlet. 'Gas flow inlet geometry' has no material listed. A blower outlet could plausibly be the gas inlet into the chamber, but nothing says so explicitly, and the names differ. Neither row has a datasheet that would confirm a match. The evidence does not settle which row, if any, this drawing represents.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 5996,
+      "cache_read_input_tokens": 2540,
+      "output_tokens": 561,
+      "output_tokens_details": {
+        "thinking_tokens": 145
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 5996,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 561,
+        "cacheReadInputTokens": 2540,
+        "cacheCreationInputTokens": 5996,
+        "webSearchRequests": 0,
+        "costUSD": 0.05970399999999999,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 145,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 5996,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.05970399999999999,
+    "duration_ms": 5441,
+    "is_error": false
+  },
+  "latency_ms": 9125,
+  "cache_key": "c85fb92068c988a981e8324bd65922a853c76c62e7248010db44913948405777",
+  "cache_hit": false,
+  "job": "link:D-021",
+  "error": null
+}

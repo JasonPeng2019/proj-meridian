@@ -1,0 +1,74 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "relationship",
+        "state": "known",
+        "value_json": "\"kind_of\"",
+        "confidence": "unsure",
+        "fact_ids": [],
+        "reason": "Based on general engineering knowledge, not the dataset: 7075-T6 is a specific wrought aluminium alloy (Al-Zn-Mg-Cu, 7xxx series) in the T6 temper, so LEFT is a more specific form of RIGHT 'Aluminium'. The '(SS)' suffix is not explained in the supplied evidence. If it meant stainless steel, it would conflict with the 7075-T6 designation, so confidence is unsure. The supplied established links (D-011/drawing/source, BOM:recoater/recoater-arm) give section context only and do not support the material classification, so no fact IDs are cited. A human must approve this before it is used.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 1435,
+      "cache_read_input_tokens": 2542,
+      "output_tokens": 606,
+      "output_tokens_details": {
+        "thinking_tokens": 273
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 1435,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 606,
+        "cacheReadInputTokens": 2542,
+        "cacheCreationInputTokens": 1435,
+        "webSearchRequests": 0,
+        "costUSD": 0.0241164,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 273,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 1435,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.0241164,
+    "duration_ms": 6147,
+    "is_error": false
+  },
+  "latency_ms": 18312,
+  "cache_key": "0baeb06951e6cbb511697154e736f94717c77959232a53690d4470aadfdc5e72",
+  "cache_hit": false,
+  "job": "mapping:names/material/7075-t6-plate-ss -> aluminium",
+  "error": null
+}

@@ -1,0 +1,35 @@
+﻿.cad-viewer{color:#334155;min-width:0;background:#f4f7fb;border:1px solid #dbe2eb;border-radius:10px;overflow:hidden}
+.cad-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px;flex-wrap:wrap;background:#f4f7fb}
+.cad-examples,.cad-actions{display:flex;gap:6px;flex-wrap:wrap}
+.cad-viewer button{border:1px solid #ced8e5;border-radius:6px;background:#fff;color:#40536b;padding:7px 10px;font:inherit;font-size:12px;cursor:pointer}
+.cad-viewer button[aria-pressed=true]{background:#e4efff;border-color:#8db4ec;color:#234f91}
+.cad-viewer button:hover{border-color:#78a1d5}
+.cad-options{display:flex;gap:12px;flex-wrap:wrap;padding:0 14px 12px;font-size:12px;color:#5f7187}
+.cad-weight{margin:0 12px 10px;padding:10px 12px;border-radius:6px;font-size:12px;line-height:1.5;background:#e9edf2;color:#526174}
+.cad-weight-passed{background:#e6f3ec;color:#276344;border:1px solid #c9e4d5}
+.cad-weight-flagged{background:#fff4d9;color:#805b16;border:1px solid #efdaad}
+.cad-weight-failed{background:#fff0f0;color:#a12e3b;border:1px solid #edb9bf}
+.cad-weight-failed>strong{font-size:15px}
+.cad-weight summary{cursor:pointer;margin-top:4px}
+.cad-viewer a{color:#2865a5;text-decoration:underline;text-underline-offset:3px}
+.cad-canvas{height:420px;min-height:260px;position:relative;background:#edf2f7;border-top:1px solid #e0e7ef;border-bottom:1px solid #e0e7ef}
+.cad-canvas canvas{display:block}
+.cad-size{position:absolute;bottom:34px;left:16px;font-size:14px;font-variant-numeric:tabular-nums;color:#334b66;pointer-events:none;background:#edf2f7df;border-radius:4px;padding:2px 5px}
+.cad-size small{font-size:10px;color:#677d94;margin-left:5px}
+.cad-help{position:absolute;bottom:12px;left:20px;font-size:11px;color:#63768d;pointer-events:none}
+.cad-section{display:flex;align-items:center;gap:12px;padding:8px 14px;background:#e6edf5;font-size:12px;color:#40556e}
+.cad-section input{flex:1;accent-color:#457ab6}
+.cad-section span{font-size:11px}
+.cad-disclosure{padding:12px 14px;color:#61738a;font-size:12px;border-top:1px solid #dbe2eb;line-height:1.5}
+.cad-disclosure p{margin:3px 0 0}
+.cad-disclosure strong{color:#805f28;font-weight:500}
+.cad-provenance{padding:12px 14px;border-top:1px solid #dbe2eb;font-size:12px;color:#566b84;line-height:1.6}
+.cad-provenance summary{color:#344e6e;cursor:pointer}
+.cad-provenance code{font-size:10px;overflow-wrap:anywhere}
+.cad-provenance ul,.cad-warning ul{padding-left:20px}
+.cad-warning{margin:8px 12px;padding:10px 12px;background:#fff4df;color:#805b22;font-size:12px;border:1px solid #eedbb7;border-radius:6px;line-height:1.5}
+.cad-empty{padding:50px 24px;text-align:center;color:#60758e;font-size:14px}
+.cad-viewer:fullscreen{padding:20px;overflow:auto}
+.cad-viewer:fullscreen .cad-canvas{height:70vh}
+.cad-download{display:inline-block;margin:8px 0}
+.cad-provenance li{margin:5px 0}

@@ -1,0 +1,14 @@
+{
+  "reference_size": [1190.55, 841.89],
+  "corner": [730, 645, 440, 185],
+  "fields": {
+    "title": {"label": "TITLE/DESCRIPTION:", "offset": [0, 8, 181, 58], "fallback": [974, 710, 184, 59]},
+    "notes": {"label": "NOTE:", "offset": [0, 8, 231, 103], "fallback": [740, 658, 233, 111]},
+    "company": {"label": "COMPANY:", "offset": [0, 8, 91, 40], "fallback": [974, 658, 93, 49]},
+    "material": {"label": "MATERIAL:", "offset": [39, -1, 96, 14], "fallback": [744, 771, 136, 14]},
+    "weight_g": {"label": "WEIGHT", "offset": [44, -1, 49, 14], "fallback": [880, 771, 93, 14]},
+    "drawn": {"label": "DRAWN", "offset": [24, -1, 54, 11], "fallback": [890, 790, 82, 11]},
+    "date": {"label": "DATE", "offset": [17, -1, 59, 11], "fallback": [895, 802, 77, 11]},
+    "scale": {"label": "SCALE:", "inline": true, "fallback": [1072, 802, 50, 12]}
+  }
+}

@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a1aa96-3856-79b2-ac8d-ed04d23c81e8"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"items\":[{\"key\":\"notes\",\"state\":\"known\",\"value_json\":\"\\\"Note: All threaded holes are blind.\\\\n20mm thick aluminium plate.\\\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-003/drawing/notes\"],\"reason\":\"D-003/drawing/notes shows these two sentences on separate lines.\",\"changed_because\":\"\"},{\"key\":\"date\",\"state\":\"known\",\"value_json\":\"\\\"26/10/2023\\\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-003/drawing/date\"],\"reason\":\"The DATE cell in D-003/drawing/date reads 26/10/2023; the second day digit is 6.\",\"changed_because\":\"The earlier answer misread the second day digit as 4.\"}]}"}}
+{"type":"turn.completed","usage":{"input_tokens":14881,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":1201,"reasoning_output_tokens":1034}}

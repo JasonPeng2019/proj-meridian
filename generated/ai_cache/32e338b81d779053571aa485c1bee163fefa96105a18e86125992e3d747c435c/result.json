@@ -1,0 +1,47 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "known",
+        "value_json": "[]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-021/drawing/notes",
+          "BOM:gas-flow/gas-flow-end-duct",
+          "BOM:gas-flow/gas-flow-inlet-geometry"
+        ],
+        "reason": "The drawing identifies 'Blower Outlet' with 'Non-magnetic stainless'. 'Gas flow end duct' specifies 'Polymer'; 'Gas flow inlet geometry' has no material or datasheet establishing an outlet match. No supplied BOM row supports a match without assuming equivalence.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 15480,
+          "cached_input_tokens": 10112,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 971,
+          "reasoning_output_tokens": 837
+        }
+      }
+    ]
+  },
+  "latency_ms": 28812,
+  "cache_key": "32e338b81d779053571aa485c1bee163fefa96105a18e86125992e3d747c435c",
+  "cache_hit": false,
+  "job": "link:D-021",
+  "error": null
+}

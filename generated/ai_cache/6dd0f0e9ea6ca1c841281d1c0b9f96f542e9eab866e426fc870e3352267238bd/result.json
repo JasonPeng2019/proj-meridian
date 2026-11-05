@@ -1,0 +1,77 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "known",
+        "value_json": "[\"BOM:build-plate/motor-plate\"]",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-030/drawing/notes",
+          "BOM:build-plate/motor-plate"
+        ],
+        "reason": "The drawing notes say \"Z-axis MotorPlate\" and \"Aluminium\", and the filename is Z-axis_MotorPlate.pdf. Only one BOM row is a motor plate: BOM:build-plate/motor-plate (\"Motor plate\", Aluminium), so the name and material match. Confidence is unsure for three reasons. First, the drawing's section is \"Z-axis\" but the BOM row's section is \"Build-plate\", and the evidence doesn't say these are the same. Second, the drawing is degraded, and its title and material fields are empty. Third, the BOM row has no datasheet to confirm the link. The other Z-axis row, BOM:sensorgantry/z-axis-stepper-bracket, is a stepper bracket in the SensorGantry section with no material listed. It is not called a motor plate, so it is the weaker candidate.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 5968,
+      "cache_read_input_tokens": 2540,
+      "output_tokens": 689,
+      "output_tokens_details": {
+        "thinking_tokens": 251
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 5968,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 689,
+        "cacheReadInputTokens": 2540,
+        "cacheCreationInputTokens": 5968,
+        "webSearchRequests": 0,
+        "costUSD": 0.06204,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 251,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 5968,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.06204,
+    "duration_ms": 6263,
+    "is_error": false
+  },
+  "latency_ms": 16531,
+  "cache_key": "6dd0f0e9ea6ca1c841281d1c0b9f96f542e9eab866e426fc870e3352267238bd",
+  "cache_hit": false,
+  "job": "link:D-030",
+  "error": null
+}

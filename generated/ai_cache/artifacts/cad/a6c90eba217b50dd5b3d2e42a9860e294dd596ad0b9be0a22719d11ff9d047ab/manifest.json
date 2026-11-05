@@ -1,0 +1,107 @@
+{
+  "examples": [
+    "A",
+    "B"
+  ],
+  "models": {
+    "A": {
+      "glb": "models/D-026_A.glb",
+      "step": "models/D-026_A_reconstruction_from_drawing.step",
+      "bounds_mm": {
+        "min": [
+          -125.00000010000004,
+          -125.04195879084628,
+          -0.05594606456211135
+        ],
+        "max": [
+          125.05594606456211,
+          125.04195879084628,
+          15.05594606456211
+        ],
+        "size": [
+          250.05594616456216,
+          250.08391758169256,
+          15.111892129124222
+        ]
+      },
+      "volume_mm3": 736310.7781851079,
+      "template_sha256": "a993a95291b7b94d52f323a310e3911e9e2486ca35d472c9ded79407ba29e55e",
+      "selections": {
+        "thickness": 15
+      },
+      "labels": [],
+      "glb_units": "metres",
+      "cad_units": "mm",
+      "glb_to_mm": 1000,
+      "glb_sha256": "4c212d70b9aaa288db8942c00ea9e150d96fbf7faa6bded40e649da117a41b6a",
+      "step_sha256": "822d2eb54912906614ea52426683bc1c6f921b22e3109d3da32941f6b832f12d"
+    },
+    "B": {
+      "glb": "models/D-026_B.glb",
+      "step": "models/D-026_B_reconstruction_from_drawing.step",
+      "bounds_mm": {
+        "min": [
+          -125.00000010000004,
+          -125.04195879084628,
+          -0.05594606456211135
+        ],
+        "max": [
+          125.05594606456211,
+          125.04195879084628,
+          25.05594606456211
+        ],
+        "size": [
+          250.05594616456216,
+          250.08391758169256,
+          25.11189212912422
+        ]
+      },
+      "volume_mm3": 1227184.630308513,
+      "template_sha256": "a993a95291b7b94d52f323a310e3911e9e2486ca35d472c9ded79407ba29e55e",
+      "selections": {
+        "thickness": 25
+      },
+      "labels": [],
+      "glb_units": "metres",
+      "cad_units": "mm",
+      "glb_to_mm": 1000,
+      "glb_sha256": "0b04017340dbc48c89a1bb58676fd1a2310f0b6ba4549ff0379f111309293347",
+      "step_sha256": "44878b03c3b0ca8ba37cd6509ef7509629037dddb7315d9b77c3cc34bdd81716"
+    }
+  },
+  "waiting": [
+    "features_review"
+  ],
+  "omitted": [
+    "Hole and slot details: Waiting for review: unsure"
+  ],
+  "template_sha256": "a993a95291b7b94d52f323a310e3911e9e2486ca35d472c9ded79407ba29e55e",
+  "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
+  "review": {
+    "status": "not_reviewed"
+  },
+  "label": "AI reconstruction. Not reviewed by a person",
+  "units": "mm",
+  "weight_check": {
+    "state": "FAILED",
+    "message": "FAILED weight check: needs manual approval",
+    "examples": {
+      "A": {
+        "attempts": [],
+        "matches": false,
+        "drawing_g": 7822.5
+      },
+      "B": {
+        "attempts": [],
+        "matches": false,
+        "drawing_g": 7822.5
+      }
+    },
+    "drawing_g": 7822.5,
+    "tolerance_percent": 5,
+    "requires_approval": true,
+    "approval_note_required": true,
+    "limitation": "A matching weight does not verify feature positions. No thickness or material is selected automatically.",
+    "density_label": "Outside source, not the dataset"
+  }
+}

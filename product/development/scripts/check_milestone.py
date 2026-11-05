@@ -40,7 +40,7 @@ CHECKS = (
     Check("knowledge", "V1", tuple("testing/tests/" + name + ".py" for name in (
         "test_drawings", "test_bom_m1", "test_decisions_m1", "test_runner_m1",
         "test_vision_jobs_m1", "test_matching_m1", "test_prepare_m1",
-        "test_source_runtime", "test_server", "test_knowledge"))),
+        "test_source_runtime", "test_source_assets", "test_server", "test_knowledge"))),
     Check("core", "V2", tuple("testing/tests/" + name + ".py" for name in (
         "test_tools", "test_chat_history", "test_grounded_chat", "test_review_m1", "test_core"))),
     Check("geometry", "V2", ("testing/tests/test_cad_build.py",), remote_only=True),

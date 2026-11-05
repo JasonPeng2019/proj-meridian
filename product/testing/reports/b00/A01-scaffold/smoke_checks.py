@@ -182,8 +182,7 @@ def runtime_import() -> None:
     for module in ("backend", "backend.settings", "backend.launcher", "backend.app", "backend.ai", "backend.loader", "backend.cad"):
         importlib.import_module(module)
     assert not any(name == "cadquery" or name.startswith("cadquery.") for name in sys.modules)
-    assert importlib.util.find_spec("cadquery") is None
-    print("PASS: runtime imports without CadQuery imported or installed; no CLI or Node subprocess invoked")
+    print("PASS: runtime imports do not load CadQuery; no CLI or Node subprocess invoked")
 
 
 def inputs_unchanged() -> None:

@@ -6,6 +6,7 @@ No providers, tools, prep, engineering source validation or real user histories.
 
 import asyncio
 from copy import deepcopy
+from functools import partial
 import json
 from pathlib import Path
 import subprocess
@@ -25,11 +26,14 @@ sys.path.insert(0, str(ROOT / "development"))
 
 from backend import contracts as c  # noqa: E402
 from backend.app.chat import ChatService  # noqa: E402
-from backend.app.main import create_app  # noqa: E402
+from backend.app.main import create_app as app_factory  # noqa: E402
 from backend.settings import Settings, load_settings  # noqa: E402
 
 
 FIXTURES = ROOT / "testing/fixtures/contracts"
+# These are explicitly M0 fixture-route tests. Production startup must not
+# silently load their synthetic records when packaged source data is missing.
+create_app = partial(app_factory, fixture_dir=FIXTURES)
 
 
 @pytest.fixture
@@ -122,7 +126,7 @@ from fastapi.testclient import TestClient
 from backend.app.main import create_app
 from backend.settings import Settings
 settings = Settings(root=Path(sys.argv[2]), data=json.loads(sys.argv[3]))
-with TestClient(create_app(settings)) as client:
+with TestClient(create_app(settings, fixture_dir=Path(sys.argv[1]).parent / 'testing/fixtures/contracts')) as client:
     response = client.get('/api/conversations/' + sys.argv[4])
     assert response.status_code == 200, response.text
     print(response.text)

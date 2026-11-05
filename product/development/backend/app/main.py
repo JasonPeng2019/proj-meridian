@@ -25,7 +25,6 @@ from .chat import ChatService, ChatServiceError, create_chat_service
 
 
 _DEFAULT_SERVICE = object()
-_FIXTURES = Path(__file__).resolve().parents[3] / "testing/fixtures/contracts"
 _NOTE = "M0 uses invented M02 fixtures, not dataset evidence, executed AI or human review."
 
 
@@ -64,7 +63,7 @@ def create_app(
     decision_store=None,
 ) -> FastAPI:
     settings = settings if settings is not None else load_settings()
-    fixtures = Path(fixture_dir) if fixture_dir is not None else _FIXTURES
+    fixtures = Path(fixture_dir) if fixture_dir is not None else None
     input_location = os.environ.get("MERIDIAN_INPUTS_PATH")
     if not input_location and fixture_dir is None:
         packaged_inputs = settings.path("generated") / "inputs" / "inputs.json"
@@ -73,17 +72,20 @@ def create_app(
     if registry is None and input_location and fixture_dir is None:
         from ..loader.records import RecordRegistry
         from ..loader.decisions import DecisionStore
-        input_file = Path(input_location).resolve()
+        input_file = (settings.root / input_location).resolve()
         inputs_root = input_file.parent
         prepared = settings.path("generated") / "prepared.json"
         decision_store = DecisionStore(settings.path("decisions"))
         if prepared.is_file():
             registry = RecordRegistry.from_paths(prepared_path=prepared, inputs_path=input_file,
                 records_path=settings.path("generated") / "records.json", decisions=decision_store,
-                manifest_path=settings.path("dataset") / "manifest.json")
+                manifest_path=settings.path("dataset") / "manifest.json", asset_root=settings.root)
         else:
             registry = RecordRegistry.from_inputs(input_file,
-                settings.path("dataset") / "manifest.json", decisions=decision_store)
+                settings.path("dataset") / "manifest.json", decisions=decision_store,
+                records_path=settings.path("generated") / "records.json", asset_root=settings.root)
+        if registry.document.prepared.batch.synthetic or registry.document.prepared.batch.fixture:
+            raise ValueError("Production startup refuses synthetic saved source packages.")
     tools = None
     review_service = None
     review_error_type = None
@@ -156,6 +158,8 @@ def create_app(
         return service
 
     def fixture(name: str, model):
+        if fixtures is None:
+            raise ChatServiceError(c.ErrorCode.NOT_FOUND, "The packaged source data is unavailable.")
         path = _within(fixtures, name)
         if path is None:
             raise ChatServiceError(c.ErrorCode.NOT_FOUND, "Required M0 fixture bundle or asset is missing.")
@@ -170,13 +174,15 @@ def create_app(
     def records() -> list[c.PartRecord]:
         if registry is not None:
             return registry.records
+        if fixtures is None:
+            return []
         return [fixture(name, c.PartRecord) for name in ("D-013.json", "D-025.json", "bom-only.json")]
 
     def part(part_id: str) -> c.PartRecord:
         for record in records():
             if record.id == part_id:
                 return record
-        raise ChatServiceError(c.ErrorCode.NOT_FOUND, "Part not found in the declared M0 fixtures.")
+        raise ChatServiceError(c.ErrorCode.NOT_FOUND, "Part not found in the loaded source records.")
 
     @application.get("/api/status", response_model=c.StatusResponse)
     def status(query: Annotated[c.StatusRequest, Query()]):
@@ -188,6 +194,10 @@ def create_app(
                     else "Chat unavailable: configure the server's OpenAI key. Parts and past conversations remain available.",
                 debug_enabled=settings.debug_enabled,
                 cad_available=any(record.has_3d for record in records()))
+        if fixtures is None:
+            return c.StatusResponse(chat_available=False, chat_state="missing_key",
+                message="Packaged source data is missing. Install the saved inputs and source assets to use grounded chat and parts.",
+                debug_enabled=settings.debug_enabled, cad_available=False)
         try:
             configured = settings.chat_key_present
         except OSError:
@@ -264,11 +274,13 @@ def create_app(
                 _unavailable("Drawing image root is not configured.")
             image_name = Path(record.drawing.image)
             if query.page != 1:
-                image_name = image_name.with_name(f"{record.drawing.id}-p{query.page}.png")
+                from ..loader.drawings import page_image_path
+                image_name = Path(page_image_path(record.drawing.id, query.page))
             path = _within(inputs_root, image_name.as_posix())
-            if path is None:
+            if path is None or not path.read_bytes().startswith(b"\x89PNG\r\n\x1a\n"):
                 raise ChatServiceError(c.ErrorCode.NOT_FOUND, "Source drawing image is unavailable.")
-            return FileResponse(path, media_type="image/png")
+            return FileResponse(path, media_type="image/png",
+                headers={"X-Meridian-Fixture": "synthetic"} if record.synthetic else None)
         path = _within(fixtures, record.drawing.image) if query.page == 1 else None
         if path is None:
             raise ChatServiceError(c.ErrorCode.NOT_FOUND, "Synthetic drawing image is absent from the M0 fixture bundle.")
@@ -291,16 +303,29 @@ def create_app(
         if query.example not in record.examples:
             raise ChatServiceError(c.ErrorCode.NOT_FOUND, "Model example is unavailable.")
         if registry is not None:
-            asset = next(item for item in record.model.examples if item.id == query.example)
-            path = _within(settings.root, asset.glb)
+            path = registry.model_asset(record.id, query.example, "glb")
             if path is None:
                 raise ChatServiceError(c.ErrorCode.NOT_FOUND, "Reconstruction asset is unavailable.")
-            return FileResponse(path, media_type="model/gltf-binary")
+            return FileResponse(path, media_type="model/gltf-binary",
+                headers={"X-Meridian-Fixture": "synthetic"} if record.synthetic else None)
         metadata = fixture("sample-glb.json" if example == "A" else "sample-B-glb.json", _FixtureAsset)
         path = _within(fixtures, metadata.file)
         if path is None:
             raise ChatServiceError(c.ErrorCode.NOT_FOUND, "Synthetic model asset is missing.")
         return FileResponse(path, media_type="model/gltf-binary", headers={"X-Meridian-Fixture": "synthetic"})
+
+    @application.get("/api/models/{drawing_id}_{example}.step")
+    def step(drawing_id: str, example: str):
+        try:
+            query = c.ModelRequest(drawing_id=drawing_id, example=example)
+        except ValidationError as error:
+            raise ChatServiceError(c.ErrorCode.INVALID_REQUEST, "Invalid model identity.") from error
+        record = part(c.drawing_part_name(query.drawing_id))
+        path = registry.model_asset(record.id, query.example, "step") if registry is not None else None
+        if path is None:
+            raise ChatServiceError(c.ErrorCode.NOT_FOUND, "Reconstruction STEP asset is unavailable.")
+        return FileResponse(path, media_type="application/step", filename=f"{drawing_id}_{example}.step",
+            headers={"X-Meridian-Fixture": "synthetic"} if record.synthetic else None)
 
     @application.get("/api/review", response_model=c.ReviewListResponse)
     def review(query: Annotated[c.ReviewListRequest, Query()]):
@@ -310,6 +335,8 @@ def create_app(
             return [item for item in registry.review_items
                     if (query.status == "all" or item.status == query.status)
                     and (query.part_id is None or item.part_id == query.part_id)]
+        if fixtures is None:
+            return []
         if any(value is not None for key, value in query.model_dump().items() if key not in {"status", "part_id"}):
             _unavailable("Later review filters are unavailable in M0.")
         item = fixture("review-item.json", c.ReviewItem)

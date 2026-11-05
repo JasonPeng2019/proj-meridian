@@ -27,3 +27,6 @@ No dataset decisions have been generated yet. Do not prefill engineering answers
 ## Completed
 
 None yet.
+
+
+- [ ] **AUTH-OPUS-20261105 ? Refresh Claude Code CLI-account login asynchronously.** The real D001 run40a435fd26894f6cab5612c36e0e028e completed valid Sol determination, then Opus exited with a confirmed OAuth error before inference (3.438sec). Evidence: testing/runs/prep-detail-v2/runs/40a435fd26894f6cab5612c36e0e028e/round-1/verification/receipt.json. Existing global and copied account credentials show an expired09:00UTC access token; the CLI failed authentication and cleared its owned private OAuth state. No keys/tokens were printed or committed, and external credential files were not changed. Reauthenticate the CLI account when convenient. Coding and data preparation continue now with valid Sol-only output explicitly UNVERIFIED when Opus execution fails; every new job still tries Opus first. This TODO does not block any coding or preparation.

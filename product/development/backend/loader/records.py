@@ -3,7 +3,7 @@
 Runtime composition::
 
     registry = RecordRegistry.from_paths(
-        prepared_path=generated / "prepared.json", inputs_path=generated / "inputs.json",
+        prepared_path=generated / "prepared.json", inputs_path=generated / "inputs/inputs.json",
         records_path=generated / "records.json", decisions=DecisionStore(decisions_dir),
     )
     records = registry()  # frozen RecordsRebuilder; rereads saved prep/decisions
@@ -65,6 +65,7 @@ import json
 import math
 import os
 from pathlib import Path
+import struct
 import tempfile
 from typing import Literal
 
@@ -298,6 +299,7 @@ class RecordRegistry:
         self._source_checks: dict[Path, str] = {}
         self._manifest_sections: dict[str, str] = {}
         self._manifest_sha256: str | None = None
+        self._asset_root: Path | None = None
         self._previous = [_validated(record) for record in previous_records]
         self._check_output_path()
         self._document = self._assemble(self._prepared, self._previous, previous_templates or {})
@@ -306,11 +308,14 @@ class RecordRegistry:
     @classmethod
     def from_paths(cls, *, prepared_path: str | Path, inputs_path: str | Path,
                    records_path: str | Path, decisions: DecisionStore | None = None,
-                   manifest_path: str | Path | None = None) -> RecordRegistry:
+                   manifest_path: str | Path | None = None,
+                   asset_root: str | Path | None = None) -> RecordRegistry:
         """CLI-free saved prep loading, bound to exact deterministic input bytes.
 
         No alternate prep JSON layout is accepted. Existing records contribute
         only model metadata and declared later-loader additions, never sources.
+        asset_root resolves portable development-relative CAD paths; production
+        restores only artifacts whose existing builder manifest and hashes pass.
         """
         prep_path, input_path, output_path = map(_runtime_path, (prepared_path, inputs_path, records_path))
         if output_path in {prep_path, input_path}:
@@ -329,6 +334,11 @@ class RecordRegistry:
         if (set(original_by_id) != {drawing.id for drawing in prepared.drawings} or any(
                 drawing.source_sha256 != original_by_id[drawing.id].source_sha256
                 or drawing.source_path != original_by_id[drawing.id].source_path
+                or drawing.image != original_by_id[drawing.id].image
+                or drawing.pages != original_by_id[drawing.id].pages
+                or drawing.source_quality != original_by_id[drawing.id].source_quality
+                or drawing.degraded != original_by_id[drawing.id].degraded
+                or drawing.words != original_by_id[drawing.id].words
                 or drawing.numbers != original_by_id[drawing.id].numbers
                 or drawing.page_geometry != original_by_id[drawing.id].page_geometry for drawing in prepared.drawings)
                 or [BOMRow.model_validate(value) for value in inputs["bom"]] != prepared.bom_rows):
@@ -354,13 +364,15 @@ class RecordRegistry:
                     if expected:
                         registry._source_checks[_runtime_path(input_path.parent / page_image_path(drawing.id, page.page))] = expected
         registry._check_source_files()
+        registry._restore_models(asset_root)
         registry._index()
         return registry
 
     @classmethod
     def from_inputs(cls, inputs_path: str | Path, manifest_path: str | Path,
                     decisions: DecisionStore | None = None,
-                    records_path: str | Path | None = None) -> RecordRegistry:
+                    records_path: str | Path | None = None,
+                    asset_root: str | Path | None = None) -> RecordRegistry:
         """Load original extracted evidence without executing any AI preparation.
 
         This is the normal source-only startup when no prepared.json exists.
@@ -415,6 +427,10 @@ class RecordRegistry:
         if {asset.get("id") for asset in drawing_assets} != {drawing.id for drawing in drawings}:
             raise RecordsError("Deterministic drawing inventory differs from the original manifest.")
         for drawing in drawings:
+            matching = [asset for asset in drawing_assets if asset.get("id") == drawing.id]
+            if (len(matching) != 1 or matching[0].get("path") != drawing.source_path
+                    or matching[0].get("sha256") != drawing.source_sha256):
+                raise RecordsError("Drawing identity differs from its original manifest entry.")
             path = (source_root / drawing.source_path).resolve()
             if not path.is_relative_to(source_root) or hashlib.sha256(path.read_bytes()).hexdigest() != drawing.source_sha256:
                 raise RecordsError("An original drawing no longer matches its extracted source hash.")
@@ -448,6 +464,7 @@ class RecordRegistry:
         registry._inputs_path, registry._source_checks = input_path, checks
         registry._manifest_sections = {asset["id"]: asset["subsystem"] for asset in drawing_assets}
         registry._manifest_sha256 = manifest_digest
+        registry._restore_models(asset_root)
         registry._index()
         registry._check_source_files()
         return registry
@@ -509,6 +526,7 @@ class RecordRegistry:
         staged._original_drawings = self._original_drawings
         staged._manifest_sections = self._manifest_sections
         staged._manifest_sha256 = self._manifest_sha256
+        staged._asset_root = self._asset_root
         candidate = staged._assemble(prepared, self._document.records, self._document.templates)
         staged._document = candidate
         staged._index()
@@ -639,6 +657,7 @@ class RecordRegistry:
         staged._original_drawings = self._original_drawings
         staged._manifest_sections, staged._manifest_sha256 = self._manifest_sections, self._manifest_sha256
         staged._preview_decisions = [decision.model_copy(deep=True)]
+        staged._asset_root = self._asset_root
         staged._assemble(self._prepared, self._document.records, self._document.templates)
         issues = [issue for issue in staged._issues if issue.decision_id == decision.decision_id]
         if decision.status == "rejected" and not (decision.proposal_id or "").startswith("prepared-"):
@@ -659,6 +678,8 @@ class RecordRegistry:
         if status.state == "available" and (current is None or status.built_template_sha256 != current):
             raise RecordsError("A rebuilt model must identify its actual effective template digest.")
         status.current_template_sha256 = current
+        if self._asset_root is not None and status.examples:
+            self._verified_model(record, status)
         record.model, record.has_3d = status, status.state in {"available", "stale"}
         record.examples = [example.id for example in status.examples]
         candidate = self._document.model_copy(deep=True)
@@ -1124,8 +1145,7 @@ class RecordRegistry:
                 result.review = _review(latest, False)
         return result
 
-    @staticmethod
-    def _model(previous: PartRecord | None, template: FlatTemplate | None) -> ModelStatus:
+    def _model(self, previous: PartRecord | None, template: FlatTemplate | None) -> ModelStatus:
         digest = contract_digest(template) if template else None
         model = previous.model.model_copy(deep=True) if previous else ModelStatus(
             state="missing", message="No saved reconstruction is available.")
@@ -1134,7 +1154,99 @@ class RecordRegistry:
             model.state = "stale"
             model.stale_reason = ("No effective saved template is available." if digest is None else
                                   "The saved reconstruction does not match the effective template.")
+        if previous and model.examples and self._asset_root is not None:
+            try:
+                self._verified_model(previous, model)
+            except (OSError, ValueError, KeyError, TypeError, struct.error):
+                model.state, model.examples, model.selected_example = "missing", [], None
+                model.message = "Saved reconstruction files or their source-bound manifest are missing or invalid."
         return _validated(model)
+
+    def _asset_path(self, value: str, *, synthetic: bool) -> Path:
+        root = self._asset_root or WORKSPACE / "development"
+        path = (root / value).resolve()
+        allowed = [root / "generated"]
+        if synthetic:
+            allowed += [WORKSPACE / "testing/tmp", WORKSPACE / "testing/runs"]
+        if not any(path.is_relative_to(base) for base in allowed) or not path.is_file():
+            raise RecordsError("Model artifact is missing or outside its permitted asset root.")
+        return path
+
+    def _verified_model(self, record: PartRecord, model: ModelStatus) -> dict[str, Path]:
+        """Check the existing CAD manifest and bytes without loading a CAD engine.
+
+        The manifest owns built metadata; records own the selected example and
+        current/stale projection. A stale template may retain only geometry
+        bound to the same original drawing. Hashes are integrity, not a fidelity
+        review or evidence of an executed AI/human review.
+        """
+        first = self._asset_path(model.examples[0].glb, synthetic=record.synthetic)
+        manifest = (first.parent / "manifest.json").resolve()
+        if manifest.parent != first.parent:
+            raise RecordsError("Model manifest escapes its artifact directory.")
+        data = json.loads(manifest.read_bytes())
+        built = FlatTemplate.model_validate(data["template"])
+        saved = ModelStatus.model_validate(data["status"])
+        digest = contract_digest(built)
+        if (data["schema"] != "flat-cad/v1" or data["template_sha256"] != digest
+                or data["source_sha256"] != built.source_sha256
+                or model.built_template_sha256 != digest or saved.built_template_sha256 != digest
+                or saved.current_template_sha256 != digest or saved.state != "available"
+                or saved.built_at is None or saved.examples != model.examples
+                or model.built_at != saved.built_at or model.provenance != saved.provenance
+                or model.overall_size_mm != saved.overall_size_mm or model.omitted_details != saved.omitted_details
+                or saved.review != built.review or saved.provenance != built.provenance
+                or built.fixture != record.fixture or built.synthetic != record.synthetic
+                or record.drawing is None):
+            raise RecordsError("Model manifest differs from its saved source/template/asset identity.")
+        self._validate_template(built, record.drawing, self._original_drawings.get(record.drawing.id))
+        for example in saved.examples:
+            if (Path(example.glb).name != f"{built.part}_{example.id}.glb"
+                    or example.step and Path(example.step).name != f"{built.part}_{example.id}.step"):
+                raise RecordsError("Model artifact filenames differ from their drawing/example identity.")
+        expected = {value for example in saved.examples for value in (example.glb, example.step) if value}
+        if set(data["artifacts"]) != expected:
+            raise RecordsError("Model manifest artifact inventory differs from its examples.")
+        paths = {}
+        for value in expected:
+            path = self._asset_path(value, synthetic=record.synthetic)
+            identity = data["artifacts"][value]
+            raw = path.read_bytes()
+            if (path.parent != first.parent or not raw or len(raw) != identity["bytes"]
+                    or hashlib.sha256(raw).hexdigest() != identity["sha256"]):
+                raise RecordsError("Model artifact bytes differ from their saved manifest identity.")
+            if path.suffix == ".glb" and (len(raw) < 20 or struct.unpack_from("<4sII", raw) != (b"glTF", 2, len(raw))):
+                raise RecordsError("Saved model is not a binary glTF 2 artifact.")
+            if path.suffix == ".step" and not raw.startswith(b"ISO-10303-21;"):
+                raise RecordsError("Saved model is not a STEP artifact.")
+            paths[value] = path
+        return paths
+
+    def _restore_models(self, asset_root: str | Path | None) -> None:
+        # Legacy, explicitly synthetic metadata-only unit fixtures remain an
+        # isolated seam. Production and callers supplying an asset root always
+        # verify files; model_asset never serves an unverified fixture path.
+        if self._prepared.batch.synthetic and asset_root is None:
+            return
+        self._asset_root = _runtime_path(asset_root or WORKSPACE / "development")
+        for record in self._document.records:
+            template = self._document.templates.get(record.drawing.id) if record.drawing else None
+            record.model = self._model(record, template)
+            record.has_3d = record.model.state in {"available", "stale"}
+            record.examples = [example.id for example in record.model.examples]
+
+    def model_asset(self, part_id: str, example: str, kind: Literal["glb", "step"]) -> Path | None:
+        """Return only a registered, intact reconstruction asset for the routes."""
+        record = self.part_for(part_id)
+        if record is None or not record.has_3d:
+            return None
+        asset = next((item for item in record.model.examples if item.id == example), None)
+        if asset is None:
+            return None
+        try:
+            return self._verified_model(record, record.model).get(getattr(asset, kind))
+        except (OSError, ValueError, KeyError, TypeError, struct.error):
+            return None
 
     @staticmethod
     def _template_candidates(prepared: PreparedKnowledge, originals: Mapping[str, DrawingEvidence]) -> dict[str, FlatTemplate]:

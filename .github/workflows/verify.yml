@@ -6,7 +6,7 @@ on:
       task:
         description: Agent-triggered verification stage
         type: choice
-        options: [capability, pdf, extract, modules, history-windows, gate, live]
+        options: [capability, pdf, extract, modules, history-windows, history-ui, gate, live]
         default: capability
       gate:
         description: Product checkpoint (requires its implemented suite)
@@ -48,6 +48,39 @@ env:
   NODE_OPTIONS: --max-old-space-size=1536
 
 jobs:
+  history-ui:
+    if: inputs.task == 'history-ui'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with: {persist-credentials: false}
+      - run: mkdir -p tmp/A18-history-ui cache/npm cache/playwright reports/ci ../development/.runtime/ci-browser
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with: {node-version: '24'}
+      - name: Install existing locked frontend and browser dependencies
+        run: |
+          npm --prefix ../development/frontend ci --ignore-scripts --no-audit --no-fund
+          cp ci/package*.json ../development/.runtime/ci-browser/
+          npm --prefix ../development/.runtime/ci-browser ci --ignore-scripts --no-audit --no-fund
+          ../development/.runtime/ci-browser/node_modules/.bin/playwright install --with-deps chromium
+      - name: Typecheck and build the history screen remotely
+        run: |
+          npm --prefix ../development/frontend run typecheck
+          npm --prefix ../development/frontend run build -- --outDir ../../testing/tmp/A18-history-ui/frontend-dist
+      - name: Exercise actual Chat component with deterministic API boundary
+        run: NODE_PATH="$PWD/../development/.runtime/ci-browser/node_modules" timeout 240s node tests/chat_history_ui.cjs 2>&1 | tee reports/ci/history-ui.txt
+      - name: Save history UI evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: harness-v2-history-ui-${{ github.run_id }}
+          retention-days: 7
+          path: |
+            product/testing/reports/ci/history-ui.txt
+            product/testing/tmp/A18-history-ui/result.json
+            product/testing/tmp/A18-history-ui/frontend-dist/
+
   history-windows:
     if: inputs.task == 'history-windows'
     runs-on: windows-2025
@@ -141,7 +174,7 @@ jobs:
           path: product/testing/runs/capability/
 
   requested:
-    if: inputs.task != 'capability' && inputs.task != 'history-windows'
+    if: inputs.task != 'capability' && inputs.task != 'history-windows' && inputs.task != 'history-ui'
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:

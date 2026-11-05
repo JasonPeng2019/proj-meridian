@@ -7,6 +7,7 @@ import {
   type ReviewProps, type ShellProps, type SourceTarget, type StatusResponse,
 } from "./contracts";
 import { ReviewStatus } from "./chat/Evidence";
+import Chat from "./chat/Chat";
 
 // M1 import points (producer-owned files do not exist in M0):
 // Chat: ./chat/Chat; PartPage: ./part/PartPage; Parts: ./part/Parts;
@@ -36,7 +37,7 @@ function EmptyPart({ initial_tab }: PartPageProps) {
 function EmptyReview() {
   return <Empty title="Review unavailable" text="The engineering review screen is not connected." />;
 }
-const emptyScreens: ShellScreens = { Chat: EmptyChat, Parts: EmptyParts, PartPage: EmptyPart, Review: EmptyReview };
+const emptyScreens: ShellScreens = { Chat, Parts: EmptyParts, PartPage: EmptyPart, Review: EmptyReview };
 
 // Frozen transport only: no storage, context slicing, citation ledger or provider behavior.
 export function createApiClient(fetcher: typeof fetch = (...args) => fetch(...args)): ApiClient {

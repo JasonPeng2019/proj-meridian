@@ -27,7 +27,7 @@
         },
         "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
         "volume_mm3": 19555.321493945325,
-        "template_sha256": "3a31294ccbf43e76433e51b0ec2a5b245e78a2d567415ee605581dbee327ba67",
+        "template_sha256": "0b4cfc83281874c71c4a9369aa3c3737e32f49cc3af0f3052ce4bdf5be2c7f75",
         "selections": {
           "thickness": 3.0
         },
@@ -129,7 +129,7 @@
         "cad_units": "mm",
         "glb_to_mm": 1000,
         "glb_sha256": "b98a9481e8e258cdd257e1f0182e7b107e1c4c64f349ebc5aafc00672be29a7e",
-        "step_sha256": "d7ff48d086e690f8eb093ab3edda2e96d7c660439133c0d7a0c0ffe12f9080a3"
+        "step_sha256": "fde984ad2fbc766fccb4b1e7961e254ab895dd179557d6fd73e0011701916412"
       },
       "B": {
         "glb": "models/D-013_B.glb",
@@ -153,7 +153,7 @@
         },
         "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
         "volume_mm3": 39110.64298789065,
-        "template_sha256": "3a31294ccbf43e76433e51b0ec2a5b245e78a2d567415ee605581dbee327ba67",
+        "template_sha256": "0b4cfc83281874c71c4a9369aa3c3737e32f49cc3af0f3052ce4bdf5be2c7f75",
         "selections": {
           "thickness": 6.0
         },
@@ -255,7 +255,7 @@
         "cad_units": "mm",
         "glb_to_mm": 1000,
         "glb_sha256": "45b289a1880e026ad16908dab051e5f4a97f51391e416ac804dfd9674af99240",
-        "step_sha256": "5c112921b02687a2486ded7c4f47fd38d50f28d7200d5d8ecc227c6a34899d1c"
+        "step_sha256": "ae9890bde04982c1f93f34f7efc776fed551f3a64f3644398df6c02511fbed77"
       }
     },
     "waiting": [
@@ -266,7 +266,7 @@
       "DEBURR AND BREAK SHARP EDGES.: The general manufacturing note supplies no edge-break size, angle or radius. It does not determine an additional modeled bevel or rounding.",
       "Six remaining holes from the 8 x 2,5 THRU ALL M3 - 6H THRU ALL callout: the four holes left of the central vertical axis and the two farther-right holes beyond the directly dimensioned pair.: The printed 17,9 centerline offset and following 35,7 adjacent-hole dimension establish only the first two holes right of center. The other six X positions are not individually dimensioned, and the view does not resolve the conflict between extending a uniform 35,7 pitch across all eight holes and mirroring the visible layout about X=0: twice 17,9 is 35,8, not 35,7. Their drill diameter, thread, through operation and lower-row Y axis are established, but their complete placements are not. No guessed row or mirrored coordinates are emitted."
     ],
-    "template_sha256": "3a31294ccbf43e76433e51b0ec2a5b245e78a2d567415ee605581dbee327ba67",
+    "template_sha256": "0b4cfc83281874c71c4a9369aa3c3737e32f49cc3af0f3052ce4bdf5be2c7f75",
     "source_sha256": "826076b03bfbaeee961dc3e57cb642c225d41f1ea9a643d0bb1ca7d296280047",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -413,7 +413,7 @@
         },
         "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
         "volume_mm3": 19037.480758088677,
-        "template_sha256": "b1817e365c691a278d39517311c367195a91de87976c4d3e2eb8d5348d6b4637",
+        "template_sha256": "00256e300bc6f6350b1f483cd038c3f83459cc0371d6e7d640f9c457ee52d491",
         "selections": {
           "thickness": 2.0
         },
@@ -450,7 +450,7 @@
         "cad_units": "mm",
         "glb_to_mm": 1000,
         "glb_sha256": "de51670805792c52a2a9402373e18ef54022f591cc6096e96954469fbe209d9d",
-        "step_sha256": "9d3b452e392c895962a837006d3f3deca93289f16b93b984f270f31132a9b425"
+        "step_sha256": "2cd48f7006321e76cc1b6dc02058d2a24d6cf016bbd5996e6f6bd691c0537569"
       },
       "B": {
         "glb": "models/D-025_B.glb",
@@ -474,7 +474,7 @@
         },
         "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
         "volume_mm3": 28644.094101647897,
-        "template_sha256": "b1817e365c691a278d39517311c367195a91de87976c4d3e2eb8d5348d6b4637",
+        "template_sha256": "00256e300bc6f6350b1f483cd038c3f83459cc0371d6e7d640f9c457ee52d491",
         "selections": {
           "thickness": 3.0
         },
@@ -511,7 +511,7 @@
         "cad_units": "mm",
         "glb_to_mm": 1000,
         "glb_sha256": "28185dc6b069e466ec5aafce7c3433603366c238239ca5baeda1cb11399b6649",
-        "step_sha256": "10c215bc33797f188557c371be1dd217d56f31a535cda691128bceb37a8bd72f"
+        "step_sha256": "cb8748f9bdb29edec6e1f0a3b1408539aa0a6914cc7e90b93994ff4b44091516"
       }
     },
     "waiting": [
@@ -520,7 +520,7 @@
     "omitted": [
       "DEBURR AND BREAK SHARP EDGES: The general note specifies edge treatment without a dimensioned size or profile. No arbitrary chamfer or rounding can be modeled from this note."
     ],
-    "template_sha256": "b1817e365c691a278d39517311c367195a91de87976c4d3e2eb8d5348d6b4637",
+    "template_sha256": "00256e300bc6f6350b1f483cd038c3f83459cc0371d6e7d640f9c457ee52d491",
     "source_sha256": "9b61f2c688fba1b10f502658505c78c0ff99820d3f281822eacdc7283e9b7e9c",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -629,7 +629,7 @@
         },
         "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
         "volume_mm3": 735317.9956366653,
-        "template_sha256": "7182d588e6b48a0dd56a6639697461089ddf9ecb449fa59350358faa6f895be6",
+        "template_sha256": "733c696e46156be80d6d7d00401d8ac2e90b0c2dd2f4b204dde8bbb9749e2924",
         "selections": {
           "thickness": 15
         },
@@ -673,7 +673,7 @@
         "cad_units": "mm",
         "glb_to_mm": 1000,
         "glb_sha256": "c271955f857dea82a63d8bc0367df9084ebbbe28fae0bbb888a8a940a5966f19",
-        "step_sha256": "60c806a3cf83bf802fd1d43641665e442b17229ae24efdd74051e62a58a16d8c"
+        "step_sha256": "e058a8f363f2fdc5be888c03fd7536d2e269b7abb447659f8d92b1c1be632b8d"
       },
       "B": {
         "glb": "models/D-026_B.glb",
@@ -697,7 +697,7 @@
         },
         "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
         "volume_mm3": 1222920.7099626139,
-        "template_sha256": "7182d588e6b48a0dd56a6639697461089ddf9ecb449fa59350358faa6f895be6",
+        "template_sha256": "733c696e46156be80d6d7d00401d8ac2e90b0c2dd2f4b204dde8bbb9749e2924",
         "selections": {
           "thickness": 25
         },
@@ -739,7 +739,7 @@
         "cad_units": "mm",
         "glb_to_mm": 1000,
         "glb_sha256": "5c56c9eed4a4dffc2b69c3bbbd55f746373cbca5c6d5757180d306b2979ac68b",
-        "step_sha256": "b6cf2db9225322ffb3bf439edd202aa42e0c92284a045f2998b24618ed65d7a8"
+        "step_sha256": "85c51a82153e0d9ec32275c41a01f6402ac8ebfbcd97956f4a3babfae5cdecf3"
       }
     },
     "waiting": [
@@ -751,7 +751,7 @@
       "Deburring and sharp-edge breaks.: The note DEBURR AND BREAK SHARP EDGES gives no size or profile. No chamfer or rounding geometry can be assigned from this note.",
       "Feature 1 (hole): counterbore step omitted for 15 mm thickness: documented depth 15.4 mm exceeds primary-hole depth 15 mm. Known 5.3 mm primary hole retained; step depth was not clamped. The printed counterbore depth 15,4 mm exceeds the possible 15,0 mm plate thickness, although it fits the possible 25,0 mm thickness. Preserve all three independently dimensioned Ø5,3 THRU ALL holes; omit the counterbore step for the 15,0 mm reading without clamping its depth."
     ],
-    "template_sha256": "7182d588e6b48a0dd56a6639697461089ddf9ecb449fa59350358faa6f895be6",
+    "template_sha256": "733c696e46156be80d6d7d00401d8ac2e90b0c2dd2f4b204dde8bbb9749e2924",
     "source_sha256": "a7ee7f4d75acaf2e8fc67ce14ca223d5cb4a2931063f37f4dfb6fadeeb70256e",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -876,7 +876,7 @@
       "Essential geometry unresolved: Main outline or constant thickness is unsupported by the drawing"
     ],
     "omitted": [],
-    "template_sha256": "a7aa6251a5c66d42b5079960c3e82f59921458335f88315ecafaa8a398e7c350",
+    "template_sha256": "2d845d844ecf7742a2210aabc4aaea4d3c59fba972b2871d0661f381ee86cfb9",
     "source_sha256": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -908,7 +908,7 @@
       "Essential geometry unresolved: Main outline or constant thickness is unsupported by the drawing"
     ],
     "omitted": [],
-    "template_sha256": "316ae89c8a3117e43d2fe840c04716377d82aadaaec5f1e2492386c0ea9d59ac",
+    "template_sha256": "3e87c9aad2c84d5dc893d362e8d18af5f0ff0a2972a3d7897bfa7116be578b76",
     "source_sha256": "6822d609aa047ddbcb9446e1215f697ec12f5764ba9aa5ef3906543b9a1887bc",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -943,7 +943,7 @@
       "Essential geometry unresolved: Main outline or constant thickness is unsupported by the drawing"
     ],
     "omitted": [],
-    "template_sha256": "cf395013d541283f17e112e9fe65441e4be4c720c283136832cdf9897d72c414",
+    "template_sha256": "b39384eeadabc391b74db14ad552487e0ca35a98953a3b641c02c865b93b3e94",
     "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -980,7 +980,7 @@
       "Essential geometry unresolved: cad_eligibility"
     ],
     "omitted": [],
-    "template_sha256": "369d9a802319cff088ba7c6c08ff3989d8ac242226980b6c2c255959e5bfe2c0",
+    "template_sha256": "544b088a16f1ea43f2a34d73ba0ebf30ea7c02309608360d5e68c988c18d78a3",
     "source_sha256": "947fee0986f4799388d5bd41411b2abedcee5d6a644e909238f005fb4802f64b",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -1018,7 +1018,7 @@
       "Essential geometry unresolved: outline_type, cad_eligibility"
     ],
     "omitted": [],
-    "template_sha256": "516d790990d755bd990f6a85b537f72ed6ef3b0a3a492bc84ff54dc42ac4843d",
+    "template_sha256": "294f6066da27e791a874363a163e1236b5efbf99e1adf3aebd2ee6a268239524",
     "source_sha256": "6f49feb435d02be842ac6933d726b6785cf9cb7cef70e8193976dc4ab265cf26",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -1052,7 +1052,7 @@
       "Essential geometry unresolved: outline_type, cad_eligibility"
     ],
     "omitted": [],
-    "template_sha256": "d840bffbc83368ed98d9af9e20959a6c5b54dd3cc52f25afd0ce6c3d35fc408d",
+    "template_sha256": "4421c0f5ffb235c7521805a61dd52baf155713bd4ad382cf9d423941b1609aa9",
     "source_sha256": "b9bd89aa9449889adb5335b1f4f3550be072a37447b1c134fb703435f04fbaad",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -1077,7 +1077,7 @@
       "Essential geometry unresolved: outline_type, thickness, cad_eligibility"
     ],
     "omitted": [],
-    "template_sha256": "51d550ef31d5911149e66624ef8eb9d24d4cd5e3b614826af763678908a8216c",
+    "template_sha256": "e6c06507f1c7b2e62919ae3510b95ea8c78e814dcaab6764e15e49f3e3b82771",
     "source_sha256": "e5d57d66cae6ca7bbb2956249e89c11db91d4ea3e258f48658af191e926870c9",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -1102,7 +1102,7 @@
       "Essential geometry unresolved: Main outline or constant thickness is unsupported by the drawing"
     ],
     "omitted": [],
-    "template_sha256": "d9615ddce36d30fafb0d58fda6e8992a4344c6c9c2cbe6ea48d06965ee040525",
+    "template_sha256": "3b5fc5bc13c4aaa87fd129325c594ddd139516c77cb1be421c4d84cc9f4a1b89",
     "source_sha256": "2642be4f1d3471cc440aa7830166adfa298a8e1a31cef90911662bb2b4a26448",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -1127,7 +1127,7 @@
       "Essential geometry unresolved: outline_type, thickness, cad_eligibility"
     ],
     "omitted": [],
-    "template_sha256": "4a6d3502e052b449f609aee320f9ff9762268ddfecb7cfa5a6a1f5de0ab7dd9e",
+    "template_sha256": "d4f26239a24b602b2477b595921f680daf2e43738771f316bd4aa8bb525a5acb",
     "source_sha256": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -1152,7 +1152,7 @@
       "Essential geometry unresolved: Main outline or constant thickness is unsupported by the drawing"
     ],
     "omitted": [],
-    "template_sha256": "95e289be58ac7fb8fb1dc45eb5df843e22e59cc2cfea36f176f16323c0c2acd4",
+    "template_sha256": "560794bd4af4b6da5c8270837a2e8945d5f98560472bbec75d2aba2a19a97d31",
     "source_sha256": "700cc64cb7e7c31d1d7a6d6f506bac453cdcb3c7daf76dc2272ffebfe5e2d911",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -1177,7 +1177,7 @@
       "Essential geometry unresolved: outline_type, thickness, cad_eligibility"
     ],
     "omitted": [],
-    "template_sha256": "677fc931cec6de4056833428cf64375496e7fe9bdcc7c33cd2cf4dc3cb343511",
+    "template_sha256": "54fa9450ad9e316121dc07418e9234ea87c82f364c13c9aa4ced0e549d9eb3e9",
     "source_sha256": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -1222,7 +1222,7 @@
         },
         "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
         "volume_mm3": 43429.203673205106,
-        "template_sha256": "cbd01268c8d55e2443e4a06e8fb44185433cfb977a231053a3314a798c100502",
+        "template_sha256": "ce3bd32518367e15521dad46edf2fe69af7e6a1214f29c7a022ded310e592274",
         "selections": {},
         "labels": [
           {
@@ -1316,7 +1316,7 @@
         "cad_units": "mm",
         "glb_to_mm": 1000,
         "glb_sha256": "f2b5cfb9da4f619dc7e5275bd810c96e51fe3677c3307c4636e137ad7d6a87b2",
-        "step_sha256": "5e10eca1a520132c85f08a11f42c86290d195969cf7280c9f441851407e70833"
+        "step_sha256": "5560429939bcbaf120f74bf53dd40e37373c3a14a0efd9b33c571e19375431d4"
       }
     },
     "waiting": [
@@ -1325,7 +1325,7 @@
     "omitted": [
       "DEBURR AND BREAK SHARP EDGES: The general finishing note specifies no setback, angle or radius. Its edge-break geometry cannot be modeled without inventing dimensions."
     ],
-    "template_sha256": "cbd01268c8d55e2443e4a06e8fb44185433cfb977a231053a3314a798c100502",
+    "template_sha256": "ce3bd32518367e15521dad46edf2fe69af7e6a1214f29c7a022ded310e592274",
     "source_sha256": "23ba5d97ee7a744cf12072e1338ab62fa5e49c09c5229af4f20a6ff5a455f64a",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -1424,7 +1424,7 @@
         },
         "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
         "volume_mm3": 122904.71579363033,
-        "template_sha256": "abfdff56432c347be0ad8c48195e99ac4c51847c0c995aea91d3e522ac61c75a",
+        "template_sha256": "f8aa1ee1d7660b19cebf5cb8d222497b0008c6a7885bf75664db204444ea7cfe",
         "selections": {},
         "labels": [
           {
@@ -1739,7 +1739,7 @@
         "cad_units": "mm",
         "glb_to_mm": 1000,
         "glb_sha256": "614f28f44d5566303c37cbd28522cc5509e85982f9b52a34289e96e4c26e9e1c",
-        "step_sha256": "47f755f0c9b5b5cf295ec3d82fe68377757fb100e0d42038dc62380c403b1b07"
+        "step_sha256": "ef7585614fadc97d3ca7250dc3843163449c85bb52cb9c9fc427acb3aa6cf64d"
       }
     },
     "waiting": [
@@ -1748,7 +1748,7 @@
     "omitted": [
       "DEBURR AND BREAK SHARP EDGES: The general finishing note supplies no edge-break size, angle or profile. An arbitrary chamfer or radius cannot be added; this minor finishing detail is omitted."
     ],
-    "template_sha256": "abfdff56432c347be0ad8c48195e99ac4c51847c0c995aea91d3e522ac61c75a",
+    "template_sha256": "f8aa1ee1d7660b19cebf5cb8d222497b0008c6a7885bf75664db204444ea7cfe",
     "source_sha256": "0e6fa42e39eda320d42f45576a0825c5d0c002abd6863188b3c98774d52867f6",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -1847,7 +1847,7 @@
         },
         "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
         "volume_mm3": 3780.0,
-        "template_sha256": "87d28fa475685100e5adc9de700eb259c2e80604a85f7d839bc99cdc13a03805",
+        "template_sha256": "728e50fdef6cd58d5b9daaaa69b1f55bfd1b89aacb9e9266fc45c435d7b7e316",
         "selections": {},
         "labels": [],
         "waiting": [
@@ -1862,7 +1862,7 @@
         "cad_units": "mm",
         "glb_to_mm": 1000,
         "glb_sha256": "9e2f0925f5a64c49a915ca7b87fb424f34cd563fe14a4510a8075065fe29c167",
-        "step_sha256": "1d44fcf876781e1d5623472f1a7f4ea06e76fc140af0542b030b556e768f5057"
+        "step_sha256": "d678fa49b04c2bdfcb0a907ba00eec2c5d04c7602e83ae98614a0b98acca66e5"
       }
     },
     "waiting": [
@@ -1872,7 +1872,7 @@
       "8 x Ø 3,4 THRU ALL holes: The printed callout establishes eight through-holes of diameter 3,4 mm. Neither hole pitch, end offsets nor transverse center locations are dimensioned. The visible row alone cannot establish numeric placement, equal spacing or centering; no hole coordinates can be emitted.",
       "DEBURR AND BREAK SHARP EDGES: The general finishing instruction supplies no edge-break size, angle or specific geometry. An arbitrary chamfer cannot be modeled."
     ],
-    "template_sha256": "87d28fa475685100e5adc9de700eb259c2e80604a85f7d839bc99cdc13a03805",
+    "template_sha256": "728e50fdef6cd58d5b9daaaa69b1f55bfd1b89aacb9e9266fc45c435d7b7e316",
     "source_sha256": "0828f6fee0d3bc087524df08c8b3fbadc5201212e5f86fcfc08b984fe9e32c60",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -1912,7 +1912,7 @@
       "Essential geometry unresolved: outline_type, cad_eligibility"
     ],
     "omitted": [],
-    "template_sha256": "c0b9836401ac77484b78d25e166bbe2f76b9f67b306a1753e8180159a6119a3c",
+    "template_sha256": "a716b1409e246f27fb53101ee84458378d46d09a3325a39f4038ddb2ec9e3648",
     "source_sha256": "4f9799f28352975cd39a5c52daf0e1dcb036d379fb58ecf6413f0befc67525f3",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -1963,7 +1963,7 @@
         },
         "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
         "volume_mm3": 184125.576397669,
-        "template_sha256": "cbd63ce79da69710f6cb1dabae09e7b87c416e9b6975174451c0c956b03f7bb6",
+        "template_sha256": "7dfb34d0dfff7e08de953062f6c2626279283c6579a9f377f090835eccfdc8fc",
         "selections": {},
         "labels": [
           {
@@ -2019,7 +2019,7 @@
         "cad_units": "mm",
         "glb_to_mm": 1000,
         "glb_sha256": "37741a2984645de03cf98445928e23beded271868c4dcb99158bef57d1a96f61",
-        "step_sha256": "8d45f46775cd86670919cad57d00936010f45c0b36cc4686318426c101748c6b"
+        "step_sha256": "beccdd1e571d6a6679b0d5841a9ee1d4952f054b32b753e00b00dad3ce69a169"
       }
     },
     "waiting": [
@@ -2031,7 +2031,7 @@
       "Two ⌀6,0 H7 holes on the horizontal line through the large bore.: Both diameters are specified and the common Y level is established, but their X coordinates or horizontal spacing are not dimensioned. Alignment with other undimensioned holes does not establish numeric X positions.",
       "Concentric edge detail at the ⌀42 opening and unspecified sharp-edge breaks.: The large opening has an additional concentric edge line, but no separate rim/step diameter, depth or bore-edge chamfer dimensions are supplied. DEBURR AND BREAK SHARP EDGES also supplies no numeric edge-break geometry. No additional bevel or stepped cut can be assigned from these indications."
     ],
-    "template_sha256": "cbd63ce79da69710f6cb1dabae09e7b87c416e9b6975174451c0c956b03f7bb6",
+    "template_sha256": "7dfb34d0dfff7e08de953062f6c2626279283c6579a9f377f090835eccfdc8fc",
     "source_sha256": "a460ab37d94f2d8f4c9bac58da15ea9d1e93b4f48ee0825e51adac0ec81f37ae",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -2049,19 +2049,38 @@
       "Concentric edge detail at the ⌀42 opening and unspecified sharp-edge breaks.: The large opening has an additional concentric edge line, but no separate rim/step diameter, depth or bore-edge chamfer dimensions are supplied. DEBURR AND BREAK SHARP EDGES also supplies no numeric edge-break geometry. No additional bevel or stepped cut can be assigned from these indications."
     ],
     "weight_check": {
-      "state": "FAILED",
-      "message": "FAILED weight check: needs manual approval — no trusted material with a sourced density is available",
+      "state": "Flagged",
+      "message": "Weight check flagged: only matches using the parts list's material. The drawing's material, or the model's size, may be wrong.",
       "examples": {
         "A": {
-          "attempts": [],
-          "matches": false,
+          "attempts": [
+            {
+              "material": "Aluminium",
+              "source": "parts list",
+              "names": [
+                "Aluminium",
+                "Aluminum"
+              ],
+              "density_g_cm3": 2.7,
+              "source_url": "https://materialsdata.nist.gov/bitstream/handle/11115/168/Properties%20of%20Aluminum%20Mill%20Products.pdf?isAllowed=y&sequence=3",
+              "source_title": "ASM Aluminum Mill and Engineered Wrought Products (NIST archive)",
+              "looked_up": "2026-11-05",
+              "note": "Approximate family density; alloy is unspecified. Outside source, not the dataset.",
+              "calculated_g": 497.1391,
+              "drawing_g": 508.9,
+              "difference_percent": 2.31,
+              "matches": true,
+              "outside_source": true
+            }
+          ],
+          "matches": true,
           "drawing_g": 508.9
         }
       },
       "drawing_g": 508.9,
       "tolerance_percent": 5,
       "requires_approval": true,
-      "approval_note_required": true,
+      "approval_note_required": false,
       "limitation": "A matching weight does not verify feature positions. No thickness or material is selected automatically.",
       "density_label": "Outside source, not the dataset"
     }
@@ -2073,7 +2092,7 @@
       "Essential geometry unresolved: outline_type, cad_eligibility"
     ],
     "omitted": [],
-    "template_sha256": "99bd9d5d2f0ed4791367e3baea12f92115f28798968c36bb72d6900430128b10",
+    "template_sha256": "206b7452ad6fb90460d0b4c319f1f4c48535eafb716564a26a7efa3cd8234095",
     "source_sha256": "816b582d82ed383ad0ff5452afde74e98b74981a6e9afb3c8d1ff6dbd6fa50a0",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -2121,7 +2140,7 @@
         },
         "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
         "volume_mm3": 4678.6168593586,
-        "template_sha256": "1d064d1425f6bd9685c1cd72a09d704e607090bdcc9cfd1d5a8789a5e673d2b9",
+        "template_sha256": "591d9913bd83e864c426f487e99d8ca538d24aa7fdebce1cb64a3e7033fc1941",
         "selections": {},
         "labels": [],
         "waiting": [
@@ -2136,7 +2155,7 @@
         "cad_units": "mm",
         "glb_to_mm": 1000,
         "glb_sha256": "13469b249c567ffd9d74c13ced0eddd4efb4e2c8411a25093cae6944e36acaa8",
-        "step_sha256": "2ba0f43a0fc905b0607aa769ee72ef01ab648fc1481bbf678e8d1887be8c8721"
+        "step_sha256": "fe67a89f9962e6da0920f2f59397e78da4cc8c8d232c8de03bcd5b6814f36798"
       }
     },
     "waiting": [
@@ -2146,7 +2165,7 @@
       "6 x Ø4,5 THRU ALL holes: The count, diameter and through operation are established. The face-on view shows centers on a circular construction line, but no pitch-circle diameter, radius or complete center coordinates are supplied. Ø118,0 and Ø141,0 dimension the inner and outer body boundaries, not the hole pattern. Hole positions therefore cannot be modeled without guessing.",
       "DEBURR AND BREAK SHARP EDGES: The general finish note supplies no edge-break size or profile; no specific chamfer or rounding can be modeled."
     ],
-    "template_sha256": "1d064d1425f6bd9685c1cd72a09d704e607090bdcc9cfd1d5a8789a5e673d2b9",
+    "template_sha256": "591d9913bd83e864c426f487e99d8ca538d24aa7fdebce1cb64a3e7033fc1941",
     "source_sha256": "581fbaf7562ac75008243463af6956d6f88cd6a0a858cf6c22aa62ce39041e11",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -2186,7 +2205,7 @@
       "Essential geometry unresolved: Main outline or constant thickness is unsupported by the drawing"
     ],
     "omitted": [],
-    "template_sha256": "ddf836b83377a7b42ea9cefa138f2d73611eb0fe12aebc86001af3b60cecd55f",
+    "template_sha256": "05e2e23a977fa34606fada64e64a57c4314db968438a16b4dd72af5b9e052688",
     "source_sha256": "06242966c0f3c15c3031982fa56585859ff1d64e52f6215a30fcf0e912225fa6",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -2214,7 +2233,7 @@
       "Essential geometry unresolved: Main outline or constant thickness is unsupported by the drawing"
     ],
     "omitted": [],
-    "template_sha256": "217edf4e3828b2b0938f9609da30df7e319a607f5856c4a7df93c0f5368d176a",
+    "template_sha256": "7accc58f1fcf8312f1ab140e696eafd509c2e8de7e00ef64cc6dfcf28aeb8b1d",
     "source_sha256": "c8b07157f3b40ef8d2dc18ae915d4f7244479ea6219d4fe3e8bb6ef1fedea1bc",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -2246,7 +2265,7 @@
       "Essential geometry unresolved: outline_type, thickness, cad_eligibility"
     ],
     "omitted": [],
-    "template_sha256": "984f969d94434873eb7a61a4057f919435982b6a25c9892d2c69fc24202d996c",
+    "template_sha256": "57cf3a0fb2c3f17bfa75742af209c1b08a36e07ad9a83fd527c1655b10054eee",
     "source_sha256": "7f3f8efc002bc2545386c1a355341ca61ebd984084b21cb07575331c4c1cc9ee",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -2275,7 +2294,7 @@
       "Essential geometry unresolved: outer_diameter, inner_diameter, thickness, cad_eligibility"
     ],
     "omitted": [],
-    "template_sha256": "57b5d3f02df1bfcf94d0f881c7e11847ed4bc28aeb42e2d60da690cf8548de67",
+    "template_sha256": "d7ff18d4aba46ddb4767321b272b795a9cbdf4ff595d2fd3437c8a3265fe4f41",
     "source_sha256": "5d838d31ad5e803b6c421bc6867447f73756d51509259385e07caf81e453c36d",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -2304,7 +2323,7 @@
       "Essential geometry unresolved: cad_eligibility"
     ],
     "omitted": [],
-    "template_sha256": "6207f3c7825c982452922a6d367a1000300cc66879467bb26b9628788e054e01",
+    "template_sha256": "c5e6028fa8c3b5d73e3a57bb1cbd2710f2d2365af722be4297a711cde68bfb2c",
     "source_sha256": "f6da4da2e0c21231939c15f13535cf068d1c1f778774816f3cb65ddf30f96e3d",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -2358,7 +2377,7 @@
         },
         "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
         "volume_mm3": 445957.87991968665,
-        "template_sha256": "9d0c47ea17b7a2a99614de6a6ae9efe9871f8805fc36344b04cc87acc68bc36c",
+        "template_sha256": "46911725da5166e569b02dca2065e3fec28371301c38b6112d2b8c5f3e098d6d",
         "selections": {},
         "labels": [
           {
@@ -2432,7 +2451,7 @@
         "cad_units": "mm",
         "glb_to_mm": 1000,
         "glb_sha256": "5de02068b766a365e762d28844ffe07d4181597edbfa64b4aedb5fb80a6988e6",
-        "step_sha256": "fb5b122ab09210472356292b53b7ee56b4ee1c82ec4c2a82dbc2a4a962367bc7"
+        "step_sha256": "f37eb3d8e9f4a09634474345fe04b423c5c321beb88a4d87d42cfb930d3dcb6f"
       }
     },
     "waiting": [
@@ -2441,7 +2460,7 @@
     "omitted": [
       "Edge breaks required by DEBURR AND BREAK SHARP EDGES.: The drawing supplies no edge-break size, angle or radius. Deburring is a finishing instruction; no arbitrary chamfer or rounding is added."
     ],
-    "template_sha256": "9d0c47ea17b7a2a99614de6a6ae9efe9871f8805fc36344b04cc87acc68bc36c",
+    "template_sha256": "46911725da5166e569b02dca2065e3fec28371301c38b6112d2b8c5f3e098d6d",
     "source_sha256": "9a270f0ddf24b173b85b6879b4fbd1ba9cf67d71cff7b13f722699699a667bcc",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -2499,7 +2518,7 @@
       "Essential geometry unresolved: outline_type, cad_eligibility"
     ],
     "omitted": [],
-    "template_sha256": "d0c1983061eea152f01bae8ab8b06ae23f55e2891c443607cb17f8f67629492c",
+    "template_sha256": "7198743442f24672f77c52347494464e1a5ea541d4f8217ac1af361c6c1cf9ce",
     "source_sha256": "30fb8b6088f535c51107389aa8eb4c7420841cd0f4c6175d3deb90a154e9881f",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -2526,7 +2545,7 @@
       "Essential geometry unresolved: outline_type, cad_eligibility"
     ],
     "omitted": [],
-    "template_sha256": "f9c302deafaca78fa2e98c009e11e7507b6b4248a08555e9577653faea0817ff",
+    "template_sha256": "6ba51a0fd293dd0c49d60be7854bc11f317940ec6168858764e63c3079d10596",
     "source_sha256": "066ed91474bb74b652451a34c6b9f5b719d23dba56043b8ba6aa8f5b7479cf15",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
@@ -2559,7 +2578,7 @@
       "Essential geometry unresolved: Main outline or constant thickness is unsupported by the drawing"
     ],
     "omitted": [],
-    "template_sha256": "524b47d10032a7f0516a2f457a7603dcc4a522cee95d9ab0ee08737eaeb6a428",
+    "template_sha256": "d55fe9a9290e9754509a850347d2d2840d1f87f5169b8220760b1b9776119c97",
     "source_sha256": "849100de6d2abbbcca5c6e39cd4a1778918b17818cc88c91340612981d9220ee",
     "generator_version": "flat-part-14",
     "notice": "Reconstruction from 2D drawing. Not the original CAD model.",

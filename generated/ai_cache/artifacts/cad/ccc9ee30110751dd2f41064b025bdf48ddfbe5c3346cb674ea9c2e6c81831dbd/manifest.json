@@ -1,0 +1,149 @@
+{
+  "examples": [
+    "A"
+  ],
+  "models": {
+    "A": {
+      "glb": "models/D-017_A.glb",
+      "step": "models/D-017_A_reconstruction_from_drawing.step",
+      "bounds_mm": {
+        "min": [
+          -90.0,
+          -55.0,
+          0.0
+        ],
+        "max": [
+          90.0,
+          55.0,
+          10.0
+        ],
+        "size": [
+          180.0,
+          110.0,
+          10.0
+        ]
+      },
+      "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
+      "volume_mm3": 184125.576397669,
+      "template_sha256": "7dfb34d0dfff7e08de953062f6c2626279283c6579a9f377f090835eccfdc8fc",
+      "selections": {},
+      "labels": [
+        {
+          "name": "Feature 1 (hole)",
+          "kind": "hole",
+          "count": 1,
+          "hole_type": "plain",
+          "requested_hole_type": "plain",
+          "step_omitted": null,
+          "thread": null,
+          "thread_representation": null,
+          "fact_ids": [
+            "D-017",
+            "D-017/drawing/n/28.2@1-1",
+            "D-017/drawing/n/4.1@1-1",
+            "D-017/drawing/visual-n/p1-246cec9cf78ff967",
+            "D-017/drawing/n/50.9@1-1",
+            "D-017/drawing/visual-n/p1-25144134d8176dbc",
+            "D-017/drawing/n/110.0@1-1",
+            "D-017/drawing/n/42.0@1-1",
+            "D-017/drawing/visual-n/p1-e0c6a61ca00ca1ad",
+            "D-017/drawing/visual-n/p1-dd32ce1b8eb10c54"
+          ],
+          "method": "ai_verified",
+          "feature_index": 0
+        },
+        {
+          "name": "Feature 2 (corner_chamfer)",
+          "kind": "corner_chamfer",
+          "count": 4,
+          "fact_ids": [
+            "D-017",
+            "D-017/drawing/visual-n/p1-d0fe5c50afad87b3",
+            "D-017/drawing/visual-n/p1-ee618980ae103848",
+            "D-017/drawing/visual-n/p1-ecee833e5bb88bde",
+            "D-017/drawing/n/45.0@1-1"
+          ],
+          "method": "ai_verified",
+          "feature_index": 1
+        }
+      ],
+      "waiting": [
+        "features_complete"
+      ],
+      "omitted": [
+        "Four countersunk holes: 4x ⌀5,5 THRU with ⌀10,8 X 90° countersinks.: The primary diameters, through operation, countersink dimensions and four-hole inventory are supplied, but the hole-center X/Y coordinates or dimensioned pitches are absent. The visible rectangular arrangement cannot supply numeric positions, so neither the primary holes nor their countersinks can be emitted.",
+        "Eight M5 threaded holes.: The 8x M5 callout establishes count and nominal thread designation, but complete center coordinates/pitches, an independently specified drill diameter and a definite through operation or blind depth are not supplied. M5 must not be converted into an invented drill diameter.",
+        "Two ⌀6,0 H7 holes on the horizontal line through the large bore.: Both diameters are specified and the common Y level is established, but their X coordinates or horizontal spacing are not dimensioned. Alignment with other undimensioned holes does not establish numeric X positions.",
+        "Concentric edge detail at the ⌀42 opening and unspecified sharp-edge breaks.: The large opening has an additional concentric edge line, but no separate rim/step diameter, depth or bore-edge chamfer dimensions are supplied. DEBURR AND BREAK SHARP EDGES also supplies no numeric edge-break geometry. No additional bevel or stepped cut can be assigned from these indications."
+      ],
+      "features_all_determined": false,
+      "glb_units": "metres",
+      "cad_units": "mm",
+      "glb_to_mm": 1000,
+      "glb_sha256": "37741a2984645de03cf98445928e23beded271868c4dcb99158bef57d1a96f61",
+      "step_sha256": "beccdd1e571d6a6679b0d5841a9ee1d4952f054b32b753e00b00dad3ce69a169"
+    }
+  },
+  "waiting": [
+    "features_complete"
+  ],
+  "omitted": [
+    "Four countersunk holes: 4x ⌀5,5 THRU with ⌀10,8 X 90° countersinks.: The primary diameters, through operation, countersink dimensions and four-hole inventory are supplied, but the hole-center X/Y coordinates or dimensioned pitches are absent. The visible rectangular arrangement cannot supply numeric positions, so neither the primary holes nor their countersinks can be emitted.",
+    "Eight M5 threaded holes.: The 8x M5 callout establishes count and nominal thread designation, but complete center coordinates/pitches, an independently specified drill diameter and a definite through operation or blind depth are not supplied. M5 must not be converted into an invented drill diameter.",
+    "Two ⌀6,0 H7 holes on the horizontal line through the large bore.: Both diameters are specified and the common Y level is established, but their X coordinates or horizontal spacing are not dimensioned. Alignment with other undimensioned holes does not establish numeric X positions.",
+    "Concentric edge detail at the ⌀42 opening and unspecified sharp-edge breaks.: The large opening has an additional concentric edge line, but no separate rim/step diameter, depth or bore-edge chamfer dimensions are supplied. DEBURR AND BREAK SHARP EDGES also supplies no numeric edge-break geometry. No additional bevel or stepped cut can be assigned from these indications."
+  ],
+  "template_sha256": "7dfb34d0dfff7e08de953062f6c2626279283c6579a9f377f090835eccfdc8fc",
+  "source_sha256": "a460ab37d94f2d8f4c9bac58da15ea9d1e93b4f48ee0825e51adac0ec81f37ae",
+  "generator_version": "flat-part-14",
+  "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
+  "review": {
+    "status": "not_reviewed"
+  },
+  "label": "Partial AI reconstruction. Not reviewed by a person",
+  "units": "mm",
+  "features_status": "partial",
+  "features_all_determined": false,
+  "omitted_feature_notes": [
+    "Four countersunk holes: 4x ⌀5,5 THRU with ⌀10,8 X 90° countersinks.: The primary diameters, through operation, countersink dimensions and four-hole inventory are supplied, but the hole-center X/Y coordinates or dimensioned pitches are absent. The visible rectangular arrangement cannot supply numeric positions, so neither the primary holes nor their countersinks can be emitted.",
+    "Eight M5 threaded holes.: The 8x M5 callout establishes count and nominal thread designation, but complete center coordinates/pitches, an independently specified drill diameter and a definite through operation or blind depth are not supplied. M5 must not be converted into an invented drill diameter.",
+    "Two ⌀6,0 H7 holes on the horizontal line through the large bore.: Both diameters are specified and the common Y level is established, but their X coordinates or horizontal spacing are not dimensioned. Alignment with other undimensioned holes does not establish numeric X positions.",
+    "Concentric edge detail at the ⌀42 opening and unspecified sharp-edge breaks.: The large opening has an additional concentric edge line, but no separate rim/step diameter, depth or bore-edge chamfer dimensions are supplied. DEBURR AND BREAK SHARP EDGES also supplies no numeric edge-break geometry. No additional bevel or stepped cut can be assigned from these indications."
+  ],
+  "weight_check": {
+    "state": "Flagged",
+    "message": "Weight check flagged: only matches using the parts list's material. The drawing's material, or the model's size, may be wrong.",
+    "examples": {
+      "A": {
+        "attempts": [
+          {
+            "material": "Aluminium",
+            "source": "parts list",
+            "names": [
+              "Aluminium",
+              "Aluminum"
+            ],
+            "density_g_cm3": 2.7,
+            "source_url": "https://materialsdata.nist.gov/bitstream/handle/11115/168/Properties%20of%20Aluminum%20Mill%20Products.pdf?isAllowed=y&sequence=3",
+            "source_title": "ASM Aluminum Mill and Engineered Wrought Products (NIST archive)",
+            "looked_up": "2026-11-05",
+            "note": "Approximate family density; alloy is unspecified. Outside source, not the dataset.",
+            "calculated_g": 497.1391,
+            "drawing_g": 508.9,
+            "difference_percent": 2.31,
+            "matches": true,
+            "outside_source": true
+          }
+        ],
+        "matches": true,
+        "drawing_g": 508.9
+      }
+    },
+    "drawing_g": 508.9,
+    "tolerance_percent": 5,
+    "requires_approval": true,
+    "approval_note_required": false,
+    "limitation": "A matching weight does not verify feature positions. No thickness or material is selected automatically.",
+    "density_label": "Outside source, not the dataset"
+  }
+}

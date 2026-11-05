@@ -94,7 +94,7 @@ def verify_debug():
         expect(accuracy_panel.get_by_role('table',name='Reviewed original AI proposals')).to_be_visible()
         expect(accuracy_panel).to_contain_text(f"{get('/api/accuracy')['reviewed']} reviewed AI proposals")
         assert abs(page.locator('.review-page > .workspace-header').evaluate('el => el.getBoundingClientRect().height')-header_height)<2
-        assert accuracy_panel.bounding_box()['y']+accuracy_panel.bounding_box()['height']<=1000
+        assert accuracy_panel.bounding_box()['y']+accuracy_panel.bounding_box()['height']<=page.viewport_size['height']
         page.screenshot(path=str(OUT/'human-review-accuracy.png'))
         accuracy_summary.press('Enter')
         expect(accuracy_panel).not_to_be_visible()

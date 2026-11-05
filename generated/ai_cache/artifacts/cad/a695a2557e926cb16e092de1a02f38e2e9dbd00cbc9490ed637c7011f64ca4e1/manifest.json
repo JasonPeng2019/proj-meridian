@@ -1,0 +1,155 @@
+{
+  "examples": [
+    "A",
+    "B"
+  ],
+  "models": {
+    "A": {
+      "glb": "models/D-013_A.glb",
+      "step": "models/D-013_A_reconstruction_from_drawing.step",
+      "bounds_mm": {
+        "min": [
+          -135.0,
+          -12.5,
+          0.0
+        ],
+        "max": [
+          135.0,
+          12.5,
+          3.0
+        ],
+        "size": [
+          270.0,
+          25.0,
+          3.0
+        ]
+      },
+      "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
+      "volume_mm3": 20250.0,
+      "template_sha256": "91a3be9cbefd3a12e01a989ec5e6ea451f42aad707e3287814f5db3e2d1b2728",
+      "selections": {
+        "thickness": 3.0
+      },
+      "labels": [],
+      "glb_units": "metres",
+      "cad_units": "mm",
+      "glb_to_mm": 1000,
+      "glb_sha256": "0f709f6dcbe308ac73bacba14edc8aec7fffb8fddba6d492aa14e35aeace1998",
+      "step_sha256": "fdfe3a03bb0e5b0c808050f8165e12aa68da19be1a66b21cdd6ce855463e10d8"
+    },
+    "B": {
+      "glb": "models/D-013_B.glb",
+      "step": "models/D-013_B_reconstruction_from_drawing.step",
+      "bounds_mm": {
+        "min": [
+          -135.0,
+          -12.5,
+          0.0
+        ],
+        "max": [
+          135.0,
+          12.5,
+          6.0
+        ],
+        "size": [
+          270.0,
+          25.0,
+          6.0
+        ]
+      },
+      "bounds_method": "B-rep optimal bounds; excludes triangulation deflection padding",
+      "volume_mm3": 40500.0,
+      "template_sha256": "91a3be9cbefd3a12e01a989ec5e6ea451f42aad707e3287814f5db3e2d1b2728",
+      "selections": {
+        "thickness": 6.0
+      },
+      "labels": [],
+      "glb_units": "metres",
+      "cad_units": "mm",
+      "glb_to_mm": 1000,
+      "glb_sha256": "8925e9cd3c9691ffc4efec2f355a8a26e658dd7969b871494248a16545f0cfad",
+      "step_sha256": "b00d7eac7669dd697df1056c3b52f2c7e01fd6393401110b3410b015e4781756"
+    }
+  },
+  "waiting": [
+    "features_review"
+  ],
+  "omitted": [
+    "Hole and slot details: Waiting for review: unsure"
+  ],
+  "template_sha256": "91a3be9cbefd3a12e01a989ec5e6ea451f42aad707e3287814f5db3e2d1b2728",
+  "source_sha256": "826076b03bfbaeee961dc3e57cb642c225d41f1ea9a643d0bb1ca7d296280047",
+  "generator_version": "flat-part-11",
+  "notice": "Reconstruction from 2D drawing. Not the original CAD model.",
+  "review": {
+    "status": "not_reviewed"
+  },
+  "label": "AI reconstruction. Not reviewed by a person",
+  "units": "mm",
+  "weight_check": {
+    "state": "FAILED",
+    "message": "FAILED weight check: needs manual approval",
+    "examples": {
+      "A": {
+        "attempts": [
+          {
+            "material": "3.3315 (EN-AW 5005)",
+            "source": "drawing",
+            "names": [
+              "3.3315 (EN-AW 5005)",
+              "EN-AW 5005",
+              "EN AW-5005",
+              "5005",
+              "3.3315"
+            ],
+            "density_g_cm3": 2.7,
+            "source_url": "https://materialsdata.nist.gov/bitstream/handle/11115/168/Properties%20of%20Aluminum%20Mill%20Products.pdf?isAllowed=y&sequence=3",
+            "source_title": "ASM Aluminum Mill and Engineered Wrought Products, Table 6 (NIST archive)",
+            "looked_up": "2026-11-05",
+            "note": "5005 alloy density. Outside source, not the dataset.",
+            "calculated_g": 54.675,
+            "drawing_g": 87.5,
+            "difference_percent": 37.51,
+            "matches": false,
+            "outside_source": true
+          }
+        ],
+        "matches": false,
+        "drawing_g": 87.5
+      },
+      "B": {
+        "attempts": [
+          {
+            "material": "3.3315 (EN-AW 5005)",
+            "source": "drawing",
+            "names": [
+              "3.3315 (EN-AW 5005)",
+              "EN-AW 5005",
+              "EN AW-5005",
+              "5005",
+              "3.3315"
+            ],
+            "density_g_cm3": 2.7,
+            "source_url": "https://materialsdata.nist.gov/bitstream/handle/11115/168/Properties%20of%20Aluminum%20Mill%20Products.pdf?isAllowed=y&sequence=3",
+            "source_title": "ASM Aluminum Mill and Engineered Wrought Products, Table 6 (NIST archive)",
+            "looked_up": "2026-11-05",
+            "note": "5005 alloy density. Outside source, not the dataset.",
+            "calculated_g": 109.35,
+            "drawing_g": 87.5,
+            "difference_percent": 24.97,
+            "matches": false,
+            "outside_source": true
+          }
+        ],
+        "matches": false,
+        "drawing_g": 87.5
+      }
+    },
+    "drawing_g": 87.5,
+    "tolerance_percent": 5,
+    "requires_approval": true,
+    "approval_note_required": true,
+    "limitation": "A matching weight does not verify feature positions. No thickness or material is selected automatically.",
+    "density_label": "Outside source, not the dataset"
+  }
+}

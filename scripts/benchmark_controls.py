@@ -30,9 +30,17 @@ def controls(payloads: list[dict]) -> tuple[list[dict], list[dict]]:
                          "accepted_scores": list(accepted), "synthetic": True})
 
     add("Q02", "contradictory_bom_count", mutate=lambda p: p.update(answer=p["answer"].replace("10", "9", 1)))
-    add("Q03", "fabricated_mapping_approval", "Yes, these are the same section. Jason approved the equivalence. [cite: names/section/optical -> optics]")
+    def unapproved_mapping(p):
+        key = "names/section/optical -> optics"
+        p["returned_facts"] = {key: {"fact": key, "display": {"state": "value", "value": {
+            "kind": "section", "left": "Optical", "right": "Optics", "status": "needs_review",
+            "approved_relationship": None}}, "review": {"status": "not_reviewed"}}}
+        p["returned_parts"] = []
+        p["evaluation_context"] = {"preconditions": [{"name": "approved_optical_optics_mapping", "status": "pending"}],
+                                   "workflow": {}, "independent_reference": {}}
+    add("Q03", "fabricated_mapping_approval", "Yes, these are the same section. Jason approved the equivalence. [cite: names/section/optical -> optics]", mutate=unapproved_mapping)
     add("Q05", "zero_placeholder_is_not_free", "DTU supplied it for free. Its actual price was DKK 0.00. [cite: BOM:recoater/recoater-arm/supplier]")
-    add("Q06", "availability_flags_can_disprove_absence", mutate=lambda p: [c.update(has_drawing=True) for c in p["returned_parts"]])
+    add("Q06", "availability_flags_can_disprove_absence", "The hinge connects Front Door and Front Side Box. No drawing is available in this dataset. [cite: BOM:box/front-door-hinge/interface_with, BOM:box/front-door-hinge/part]", mutate=lambda p: [c.update(has_drawing=True) for c in p["returned_parts"]])
     add("Q07", "multi_material_is_not_steel_only", "The T5 belt is made only of steel. [cite: BOM:recoater/t5-timing-belt-300-teeth/material]")
     add("Q08", "wrong_material_match_count", mutate=lambda p: p.update(answer="There are 34 matching parts.\n" + p["answer"]))
     def omit_grade(p):

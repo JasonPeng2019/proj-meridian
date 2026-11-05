@@ -157,7 +157,7 @@ def matching_counts(text: str, expected_parts: list[dict]) -> list[dict]:
             listed = set().union(*groups) if groups else set()
             remainder = "".join(lines)
             explicit_remainder = bool(re.search(r"\b(?:more|additional|remaining|other)\b", MARKER.sub("", remainder), re.I))
-            total_claim = bool(re.search(r"\b(?:total|altogether|in all)\b", heading, re.I))
+            total_claim = bool(re.search(r"\b(?:total|altogether|overall|all)\b", heading, re.I))
             if (not total_claim and count == len(listed)
                     and groups and all(groups)
                     and explicit_remainder and expected - listed

@@ -1,0 +1,69 @@
+{
+  "ast_outcome": "PASS",
+  "at": "2026-11-05T13:07:55.455072+00:00",
+  "branch": "lane/01044dfacea84d41a122b6c913e71475/A11-preparation/work",
+  "files": [
+    {
+      "ast": "PASS",
+      "path": "development/backend/ai/prepare.py",
+      "sha256": "c625dfaa021541c068c44c4721a2ea96568d6d7143596ff6d4c19c6e57090e8d",
+      "test_functions": []
+    },
+    {
+      "ast": "PASS",
+      "path": "testing/tests/test_prepare_m1.py",
+      "sha256": "b21c929f88c1b220937e668d9ca9fd32eb9ff105892e39ad8c5f58135b13649a",
+      "test_functions": [
+        "test_exact_boundary_atomic_save_and_cli_free_reload",
+        "test_final_scan_correction_precedes_registry_and_uses_actual_corner_crops",
+        "test_every_non_exact_link_attempt_finishes_before_mapping_including_unresolved",
+        "test_link_correction_changes_mapping_context_and_never_approves_proposal",
+        "test_retry_bound_and_truthful_separate_counts",
+        "test_template_projection_keeps_proofs_unknown_slots_and_only_verified_absence",
+        "test_unverified_absence_is_retained_unknown_and_not_counted_verified",
+        "test_no_accepted_geometry_does_not_invent_template",
+        "test_domain_invalid_verdict_quarantines_raw_rounds_and_preserves_previous_publication",
+        "test_source_change_aborts_publication_without_fallback",
+        "test_changed_source_rebuilds_registry_and_mapping_identity_each_launch",
+        "test_saved_boundary_rejects_incoherent_or_fabricated_values",
+        "test_initial_manifest_hash_mismatch_never_runs_model",
+        "test_atomic_replace_failure_keeps_old_file_and_cleans_temporary",
+        "test_explicit_command_uses_host_reservation_and_saved_boundary",
+        "test_known_feature_must_survive_frozen_contract_handoff"
+      ]
+    }
+  ],
+  "frozen_feature_handoff": {
+    "contracts_sha256": "b3945738d0c995792a8c59f4042e7ed5aa5ff45d34330d3a010cb750f58508ef",
+    "native_defaults": [
+      {
+        "line": 1166,
+        "model": "HoleFeature",
+        "note_default_is_null": true
+      },
+      {
+        "line": 1190,
+        "model": "SlotFeature",
+        "note_default_is_null": true
+      }
+    ],
+    "outcome": "BLOCKED",
+    "reason": "M09 semantic feature schemas omit note; native HoleFeature/SlotFeature serialize note:null; exact candidate equality includes that default.",
+    "required_regression": "test_known_feature_must_survive_frozen_contract_handoff",
+    "runtime_reproduction": "SKIPPED; static finding only, no product imports or tests executed locally.",
+    "vision_schema_has_note": false,
+    "vision_schema_line": 299,
+    "vision_sha256": "f60ee2a9205fffb9fe201aa2218ec86731939b87f9a1647d3e59e7ce01791bec"
+  },
+  "generated_prep_publications": 0,
+  "git_staged_whitespace": {
+    "command": "git diff --cached --check",
+    "exit_code": 0,
+    "outcome": "PASS",
+    "output": ""
+  },
+  "inspected_base_commit": "2ec6249aaffa50e4cfdfdd09c335ff6dbb96b600",
+  "local_tests_builds_pdf_cad_browser_live_readers": "SKIPPED",
+  "product_imports": false,
+  "schema": "meridian-preparation-static/v1"
+}

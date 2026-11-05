@@ -996,6 +996,20 @@ def template_candidate_value(value: JsonValue | BaseModel) -> JsonValue:
     return value
 
 
+def _canonical_feature_notes(value: JsonValue) -> JsonValue:
+    """Treat an absent optional feature note like its native null default.
+
+    Retain every geometry value and every non-null note. This affects only
+    representation equality; the original candidate and its digest are kept.
+    """
+    if isinstance(value, list):
+        return [_canonical_feature_notes(item) for item in value]
+    if isinstance(value, dict):
+        return {key: _canonical_feature_notes(item) for key, item in value.items()
+                if not (key == "note" and item is None and value.get("kind") in {"hole", "slot"})}
+    return value
+
+
 class TemplateFieldBase(ContractModel):
     name: NonEmpty
     method: Method
@@ -1011,8 +1025,9 @@ class TemplateFieldBase(ContractModel):
         if field:
             value = self.model_dump(mode="json")
             options = [o["value"] for o in value.get("options", [])]
-            if (field.state != value.get("state") or field.value != template_candidate_value(value.get("value"))
-                    or field.options != [template_candidate_value(option) for option in options]):
+            if (field.state != value.get("state")
+                    or _canonical_feature_notes(field.value) != _canonical_feature_notes(template_candidate_value(value.get("value")))
+                    or _canonical_feature_notes(field.options) != _canonical_feature_notes([template_candidate_value(option) for option in options])):
                 raise ValueError("Template value/state/options must come from the accepted Sol candidate")
         return self
 

@@ -1,0 +1,128 @@
+{
+  "accepted_dependencies": {
+    "M08": "ac85d79",
+    "M09": "c0a92fd",
+    "M10": "51ecde1"
+  },
+  "actual_corpus": {
+    "input_metadata_inspected_read_only": "C:/Users/Jason/Documents/Jason/Take-Home-Assignments/active/Avathon/product/testing/runs/deterministic-inputs-42004415297/harness-v2-extract-42004415297/runs/deterministic-inputs/inputs.json",
+    "live_cli_calls": 0,
+    "mandatory_separate_run": true,
+    "outcome": "SKIPPED",
+    "publications": 0,
+    "reason": "Coding-only invocation explicitly forbids actual prep. ROOT must first qualify code and separately assign reserved actual sequential owner/child execution.",
+    "source_accuracy_claimed": false
+  },
+  "api": {
+    "PreparedKnowledge": "Exact agreed ContractModel fields: pipeline_version=determine-verify/v1, input_sha256 of exact deterministic inputs JSON bytes, drawings, bom_rows, links, mappings, templates keyed by drawing ID, review_items, batch. Nested types are existing contracts and matching.LinkResolution.",
+    "load_prepared": "(path: Path) -> PreparedKnowledge; strict JSON plus typed/cross-record validation; no inputs, images, settings, runner construction, CLI or Pillow needed.",
+    "main": "(argv: list[str] | None = None, *, reserve_cli_slot: Callable[[], AbstractContextManager[CliReservation]] | None = None) -> int; python -m backend.ai.prepare. Callback can also be supplied as --reservation module:attribute; no no-op reservation or replacement controller.",
+    "preparation_summary": "(prepared) -> dict; batch field buckets plus orthogonal review-item/unapproved-mapping/exact-link/template counts. single_model_unverified equals unverified_fallback, never adds to verified.",
+    "prepare": "(inputs: Path, *, manifest: Path, output: Path, runner: Runner, image_root: Path | None = None, crop_dir: Path | None = None, feature_slots: int = 12) -> PreparedKnowledge",
+    "runtime": "One injected M08 Runner/runtime root. Register each domain definition and call its exact request serially. Existing private CLI homes are explicit and workspace-owned; no account provisioning or application key access."
+  },
+  "at": "2026-11-05T13:07:37.966061+00:00",
+  "authored_fixtures": {
+    "coverage": [
+      "Exact saved boundary/CLI-free reload without original inputs",
+      "Final scan correction precedes rebuilt matching, exact crop evidence, no unresolved scan review task",
+      "All non-exact links attempted before mapping, including unresolved",
+      "Final corrected link rows/rounds bound into mapping context",
+      "One retry only, persistent disagreement/unsure, initial execution-failure-only fallback, next-launch verifier attempt, truthful field/review counts",
+      "Typed proof ledger and native template projection, preserved unknown slots, verified-only absence, no invented missing template",
+      "Required domain verdict rejection retains raw rounds with zero verified/fallback publication counts",
+      "Input/manifest/PNG source invalidation, rebuilt source/registry/mapping identities",
+      "Corrupt saved versions/counts/rows/approvals/geometry/duplicate jobs rejected",
+      "Atomic replace failure preserves previous artifact and removes temp",
+      "Explicit command resource callback and no unreserved launch",
+      "Required known feature round-trip currently blocked by upstream note/default interface"
+    ],
+    "function_count": 16,
+    "outcome": "SKIPPED",
+    "path": "testing/tests/test_prepare_m1.py",
+    "transport": "Actual shared M08 job/correction loop with synthetic in-memory stage results; actual M09/M10/domain/snapshot/publication code. No live or synthetic subprocess reader launched locally."
+  },
+  "batch": "B03",
+  "behavior": [
+    "Validate original deterministic schema, manifest exact byte hash, original typed evidence, drawing identities and complete original PNG inventory before jobs.",
+    "Finish every scan including the M08 disagreement correction/reverification; preserve original DrawingField.original, box/page/geometry/numbers/words and overlay only validated final values.",
+    "Pass actual M09 corner crop paths/hashes to the freshly instantiated MatchingRegistry. Full pages are never substituted for crop-bound scan evidence.",
+    "Run clean supported template jobs against original deterministic drawings, attaching validated ValueEvidence ledger entries to exact semantic scalar/nested values. Partial unknown slots remain unknown. Omit absence only after explicit verified/retry-verified evidence. Do not invent a template without accepted native geometry and an accepted proof ledger.",
+    "Nested numeric/text wrappers use cleanup_rule for deterministic representation conversion; the enclosing exact AI candidate/provenance binds their semantic geometry. Template source_sha256 is the canonical original typed drawing input hash in M09 provenance, not an unattached PDF hash.",
+    "Attempt every non-exact link before mapping_jobs, including failed/unresolved jobs; build mapping source identities only from complete final current links. Never approve a proposal or import previous generated/blind-reader outputs.",
+    "Required validate_vision_result runs before every vision consumption/count and immediately before atomic publication. M10 resolve_link/resolve_mapping/review_item and mapping_jobs revalidate current identities.",
+    "Recheck exact inputs/manifest/PNG bytes plus all current domain records before fsync/atomic os.replace. An aborted transaction preserves older publication and full raw rounds in runtime/publication-rejected with all quarantined field counts unresolved, zero verified/fallback publication credit.",
+    "Keep all actual rounds, requested pins and nullable/partial actual observations unchanged. Failed scans remain null/unsure without automatically creating human review tasks. Template/relationship Debug Review retains real sources and full provenance."
+  ],
+  "blocking_interface_mismatch": {
+    "evidence": [
+      "development/backend/ai/vision_jobs.py:_FEATURE and _shape",
+      "development/backend/contracts.py:template_candidate_value and TemplateFieldBase.exact_candidate_field",
+      "development/backend/contracts.py:HoleFeature.note and SlotFeature.note",
+      "testing/reports/b03/A11-preparation/static.json"
+    ],
+    "finding": "M09 _FEATURE hole/slot schemas omit note and require exactly their property inventory. M02 HoleFeature and SlotFeature add note=None; TemplateFieldBase.exact_candidate_field serializes defaults and compares template_candidate_value with the exact accepted Sol object. Thus any known hole/slot gains an extra note:null and fails candidate equality.",
+    "not_a_runtime_claim": "Static source finding only; required end-to-end test authored with correct expected success, not executed locally or weakened/xfail.",
+    "outcome": "BLOCKED",
+    "required_regression": "testing/tests/test_prepare_m1.py::test_known_feature_must_survive_frozen_contract_handoff",
+    "root_action": "Have the owning M09/M02 lane reconcile candidate/native feature serialization, preserving exact candidate binding, then remote-qualify the focused M11 fixture suite and resume M11 for the compatible delta if needed. A11 cannot edit shared contracts or vision_jobs.",
+    "safe_behavior": "Current command rejects this unsupported known-feature projection, keeps raw provenance/diagnostics, and does not publish partial/corrupted saved knowledge."
+  },
+  "checks": [
+    {
+      "command": "python -B testing/reports/b03/A11-preparation/inspect_static.py",
+      "evidence": "testing/reports/b03/A11-preparation/static.json; AST/static inspection only, no product imports",
+      "name": "Local AST/Git inspection",
+      "outcome": "PASS"
+    },
+    {
+      "command": "Static inspect M09 _FEATURE and M02 HoleFeature/SlotFeature/template_candidate_value/exact_candidate_field",
+      "evidence": "static.json: frozen_feature_handoff; no runtime reproduction claimed",
+      "name": "Frozen feature saved handoff",
+      "outcome": "BLOCKED"
+    },
+    {
+      "command": "../development/.venv/bin/python -B -m pytest -q -p no:cacheprovider --basetemp=tmp/A11-pytest --junitxml=reports/ci/A11-preparation.xml tests/test_prepare_m1.py",
+      "evidence": "Run from product/testing on Actions after exact harness-v2 publication and shared feature mismatch repair; local tests prohibited.",
+      "name": "Focused remote fixtures",
+      "outcome": "SKIPPED"
+    },
+    {
+      "command": "development/.venv/bin/python -B testing/ci/checks.py modules",
+      "evidence": "ROOT remote qualification only.",
+      "name": "Remote available modules",
+      "outcome": "SKIPPED"
+    },
+    {
+      "command": "gh workflow run verify.yml --repo JasonPeng2019/proj-meridian --ref harness-v2 -f task=modules",
+      "evidence": "ROOT dispatch after exact publication; no remote action taken by this lane.",
+      "name": "ROOT remote dispatch",
+      "outcome": "SKIPPED"
+    }
+  ],
+  "historical_artifacts_changed": [],
+  "inspected_base_commit": "2ec6249aaffa50e4cfdfdd09c335ff6dbb96b600",
+  "instructions": [
+    "No AGENTS.md exists at actual worktree root; read applicable ancestor active/AGENTS.md",
+    "Current development/docs/PLAN.md and WORKFLOW.md, goal.md and HANDOFF.md read-only",
+    "Native binding/inbox and current assignment/template inspected"
+  ],
+  "lane_id": "A11-preparation",
+  "outcome": "BLOCKED",
+  "owned_files": [
+    "development/backend/ai/prepare.py",
+    "testing/tests/test_prepare_m1.py",
+    "testing/reports/b03/A11-preparation/inspect_static.py",
+    "testing/reports/b03/A11-preparation/implementation.json",
+    "testing/reports/b03/A11-preparation/static.json"
+  ],
+  "proposed_user_todo_entries": [],
+  "schema": "meridian-preparation-implementation/v1",
+  "scope": "Command, exact saved boundary and synthetic fixtures authored; shared known-feature serialization mismatch prevents complete qualification. No live execution or product tests run.",
+  "shared_files_changed": [],
+  "source_sha256": {
+    "development/backend/ai/prepare.py": "c625dfaa021541c068c44c4721a2ea96568d6d7143596ff6d4c19c6e57090e8d",
+    "testing/reports/b03/A11-preparation/inspect_static.py": "fc227828cea3599dc97e00d0039acef4679930983bc8e1d65d49ae84363af2f7",
+    "testing/tests/test_prepare_m1.py": "b21c929f88c1b220937e668d9ca9fd32eb9ff105892e39ad8c5f58135b13649a"
+  }
+}

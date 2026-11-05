@@ -67,6 +67,34 @@ Original pages in image order, with PDF sizes in points:
                          "page_sizes": sizes, "source_ids": [source]})}
 
 
+def jobs(drawing: dict) -> list[dict]:
+    """Bound multi-page transcription size without renumbering original pages.
+
+    Single-page requests intentionally retain the exact existing job and cache
+    identity. Multi-page requests keep the full original PDF page-size table.
+    """
+    original = job(drawing)
+    if len(original["keys"]) == 1:
+        return [original]
+    result = []
+    for page, image in enumerate(original["images"], start=1):
+        current = copy.deepcopy(original)
+        key = f"page_{page}"
+        current.update(id=f"{original['id']}:{key}", keys=[key], images=[image], image_original_pages=[page])
+        current["prompt"] = original["prompt"].replace(
+            "Original pages in image order, with PDF sizes in points:",
+            "Original PDF page sizes in points, indexed by ORIGINAL one-based page number:")
+        current["prompt"] += (
+            "\nSINGLE ORIGINAL PAGE REQUEST. Only ONE image is supplied. Its original PDF page "
+            f"number is {page}; return ONLY key {key}. Do not relabel this image page_1. "
+            f"Use page_sizes[{page - 1}] for its original PDF-point coordinates. Other original "
+            "pages are not supplied and must not be read, reconstructed or returned. "
+            "The image_original_pages array maps supplied images to original PDF page numbers:\n" +
+            runner.json_text({"image_original_pages": [page], "requested_keys": [key]}))
+        result.append(current)
+    return result
+
+
 def validate(value, current: dict, key: str, refs: list[str]) -> None:
     """Validate a transcription's structure; Opus checks its visual truth."""
     if not isinstance(value, list) or refs != [f"{current['drawing']}/drawing/source"]:
@@ -118,6 +146,24 @@ def assemble(result: dict) -> dict:
     return {"protocol": PROTOCOL, "source_sha256": current["source_sha256"],
             "fields": sorted(fields, key=lambda field: (field["page"], field["box"][1], field["box"][0], field["token"])),
             "pages": pages}
+
+
+def merge(previous: dict | None, incoming: dict) -> dict:
+    """Combine page receipts only for the same original PDF and protocol."""
+    if previous is None:
+        return copy.deepcopy(incoming)
+    if (previous.get("source_sha256") != incoming.get("source_sha256") or
+            previous.get("protocol") != PROTOCOL or incoming.get("protocol") != PROTOCOL):
+        raise ValueError("Cannot merge printed image evidence from different original drawings or protocols")
+    updated_pages = set(incoming["pages"])
+    # A repeated page replaces its old index together with its receipt, so stale
+    # numbers cannot survive a later unsuccessful reading of that same page.
+    fields = [field for field in previous["fields"] if f"page_{field['page']}" not in updated_pages]
+    fields.extend(incoming["fields"])
+    return {"protocol": PROTOCOL, "source_sha256": incoming["source_sha256"],
+            "pages": copy.deepcopy({**previous["pages"], **incoming["pages"]}),
+            "fields": copy.deepcopy(sorted(fields, key=lambda field: (
+                field["page"], field["box"][1], field["box"][0], field["token"])))}
 
 
 def attach(drawing: dict, evidence: dict | None) -> dict:

@@ -94,7 +94,8 @@ def main():
     save()
     with sequential_readers():
         for did in image_ids:
-            run(dimensions.job(drawings[did]))
+            for job in dimensions.jobs(drawings[did]):
+                run(job)
         index = pipeline.assemble(results, drawings, {}).get("dimension_evidence", {})
         augmented = {did: dimensions.attach(drawing, index.get(did)) for did, drawing in drawings.items()}
         assessments = {}

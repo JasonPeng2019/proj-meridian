@@ -20,6 +20,14 @@ chamfer cuts and retained feature counts. Missing drawing dimensions remain
 unresolved; no pixel measurements or inferred standard hardware sizes may fill
 them. Inspect the verified exports and source comparison before resuming reviews.
 
+The Parts library defaults to **Designed parts**: exactly the 30 records backed
+by the supplied engineering drawings. **Components & supplies** separately holds
+unlinked BOM components, accessories and materials. Search and filters operate
+within the selected collection; original evidence and linked BOM rows remain
+available. Engineering mode shows a red completeness flag above the part tabs
+for incomplete, stale or unavailable reconstructions, with expandable reasons.
+Customer mode does not render this flag.
+
 The formatted local app at http://127.0.0.1:8001 is primary. Port 8000 is closed
 and retired locally; isolated remote verification may use its own port 8000.
 

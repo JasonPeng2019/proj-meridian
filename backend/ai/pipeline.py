@@ -779,7 +779,9 @@ def assemble(results: list[dict], drawings: dict, exact: dict) -> dict:
                 elif job["kind"] != "mapping": actual_review += 1
         if job["kind"] == "image_dimensions":
             from . import dimensions
-            output["dimension_evidence"][job["drawing"]] = dimensions.assemble(result)
+            did = job["drawing"]
+            output["dimension_evidence"][did] = dimensions.merge(
+                output["dimension_evidence"].get(did), dimensions.assemble(result))
         elif job["kind"] == "scan":
             did = job["drawing"]
             fields = {}

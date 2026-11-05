@@ -141,6 +141,53 @@ def test_image_dimensions_reject_duplicate_tokens_and_wrong_source():
     assert pipeline.decode_answer(output(item("page_1", [number], refs=["D-020/drawing/source"])), current) == {}
 
 
+def test_single_page_dimension_jobs_preserve_exact_existing_job_and_cache_identity():
+    drawing, _ = image_dimension_fixture()
+    assert dimensions.jobs(drawing) == [dimensions.job(drawing)]
+
+
+def test_multi_page_dimension_jobs_preserve_original_pages_images_and_merge_all_fields(monkeypatch):
+    drawing, _ = image_dimension_fixture()
+    drawing.update(page_sizes=[[100, 200], [200, 300], [300, 400]],
+                   images=[f"images/D-011-p{page}.png" for page in (1, 2, 3)])
+    original = copy.deepcopy(drawing)
+    current_jobs = dimensions.jobs(drawing)
+    base = dimensions.job(drawing)
+    proposals, verifications = [], []
+    for page, current in enumerate(current_jobs, start=1):
+        key = f"page_{page}"
+        assert current["id"] == base["id"] + ":" + key
+        assert current["keys"] == [key] and current["images"] == [base["images"][page - 1]]
+        assert current["page_sizes"] == drawing["page_sizes"]
+        assert current["image_original_pages"] == [page]
+        assert json.loads(current["prompt"].rsplit("\n", 1)[1])["image_original_pages"] == [page]
+        assert f"return ONLY key {key}" in current["prompt"]
+        # These page-2/page-3 boxes exceed page 1's dimensions. Validation must
+        # index the ORIGINAL page-size table, never the single supplied image.
+        number = {"text": str(page * 10), "token": str(page * 10), "value": page * 10,
+                  "unit": "mm", "box": [page * 100 - 50, page * 100 + 50, 20, 8]}
+        proposals.append(output(item(key, [number], refs=current["sources"])))
+        verifications.append(output(verdict(key, refs=current["sources"])))
+    calls = mock_readers(monkeypatch, proposals, verifications)
+    results = [pipeline.execute(current) for current in current_jobs]
+    assert all(list(result["states"].values()) == ["verified"] for result in results)
+    evidence = pipeline.assemble(list(reversed(results)), {drawing["id"]: drawing}, {})["dimension_evidence"][drawing["id"]]
+    assert set(evidence["pages"]) == {"page_1", "page_2", "page_3"}
+    assert [field["page"] for field in evidence["fields"]] == [1, 2, 3]
+    assert [field["value"] for field in evidence["fields"]] == [10, 20, 30]
+    for page, field in enumerate(evidence["fields"], start=1):
+        assert field["name"].startswith(f"D-011/drawing/visual-n/p{page}-")
+        assert field["box"] == [page * 100 - 50, page * 100 + 50, 20, 8]
+        assert calls[(page - 1) * 2]["images"] == calls[(page - 1) * 2 + 1]["images"] == current_jobs[page - 1]["images"]
+    assert len(dimensions.attach(drawing, evidence)["numbers"]) == 3 and drawing == original
+    duplicate = pipeline.assemble([*results, results[1]], {drawing["id"]: drawing}, {})["dimension_evidence"][drawing["id"]]
+    assert duplicate == evidence
+    stale = copy.deepcopy(results[1])
+    stale["job"]["source_sha256"] = "b" * 64
+    with pytest.raises(ValueError, match="different original drawings"):
+        pipeline.assemble([results[0], stale], {drawing["id"]: drawing}, {})
+
+
 def test_dimensioned_corner_clips_require_explicit_corners_and_sourced_setbacks():
     current = {**job(), "kind": "template", "keys": ["features"], "numbers": {"BOM:a/b": 1}}
     scalar = {"state": "known", "value": 1, "fact_ids": ["BOM:a/b"]}

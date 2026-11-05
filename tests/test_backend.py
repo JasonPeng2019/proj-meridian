@@ -25,6 +25,8 @@ def test_review_queues_separate_verified_mapping_from_ambiguous_geometry(evidenc
 
 def test_unsupported_disposition_preserves_unknown_geometry_and_delegated_accuracy(evidence):
     target = "D-019/template/thickness"
+    evidence.fields[target].update(state="unknown", value=None)
+    evidence.fields[target].pop("options", None)
     before = copy.deepcopy(evidence.fields[target])
     event = {"applies_to": target, "type": "defer_unsupported", "status": "accepted",
              "by": "Meridian delegated reviewer", "review_kind": "delegated",

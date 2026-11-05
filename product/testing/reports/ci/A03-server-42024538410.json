@@ -1,0 +1,219 @@
+{
+  "schema": "meridian-remote-module-receipt/v1",
+  "module": "M03 real early history API and M0 server slice",
+  "candidate": "16023431085d7f2dfc406aeb08dc8908631ea5c4",
+  "run": {
+    "conclusion": "success",
+    "databaseId": 42024538410,
+    "headBranch": "harness-v2",
+    "headSha": "b02e5d919265c19da1f1221d7653d8962c5b1314",
+    "jobs": [
+      {
+        "completedAt": "2026-11-05T12:08:49Z",
+        "conclusion": "success",
+        "databaseId": 127235335207,
+        "name": "requested",
+        "startedAt": "2026-11-05T12:07:56Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-11-05T12:07:59Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-11-05T12:07:57Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:08:00Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 2,
+            "startedAt": "2026-11-05T12:07:59Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:08:01Z",
+            "conclusion": "success",
+            "name": "Run mkdir -p tmp cache/uv cache/pip reports/ci",
+            "number": 3,
+            "startedAt": "2026-11-05T12:08:00Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:08:01Z",
+            "conclusion": "success",
+            "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 4,
+            "startedAt": "2026-11-05T12:08:01Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:08:05Z",
+            "conclusion": "success",
+            "name": "Install locked verification dependencies",
+            "number": 5,
+            "startedAt": "2026-11-05T12:08:01Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:08:05Z",
+            "conclusion": "skipped",
+            "name": "Raw positioned-PDF extraction and images (capability, no AI)",
+            "number": 6,
+            "startedAt": "2026-11-05T12:08:05Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:08:44Z",
+            "conclusion": "success",
+            "name": "Focused Python module tests (no live AI or CAD)",
+            "number": 7,
+            "startedAt": "2026-11-05T12:08:05Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:08:44Z",
+            "conclusion": "skipped",
+            "name": "Extract complete deterministic inputs with the committed producers",
+            "number": 8,
+            "startedAt": "2026-11-05T12:08:44Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:08:44Z",
+            "conclusion": "skipped",
+            "name": "Run the requested implemented product checkpoint",
+            "number": 9,
+            "startedAt": "2026-11-05T12:08:44Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:08:44Z",
+            "conclusion": "skipped",
+            "name": "Optional paid Luna capability probe",
+            "number": 10,
+            "startedAt": "2026-11-05T12:08:44Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:08:47Z",
+            "conclusion": "success",
+            "name": "Save requested-stage artifacts",
+            "number": 11,
+            "startedAt": "2026-11-05T12:08:44Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:08:47Z",
+            "conclusion": "success",
+            "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 21,
+            "startedAt": "2026-11-05T12:08:47Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:08:47Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 22,
+            "startedAt": "2026-11-05T12:08:47Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:08:47Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 23,
+            "startedAt": "2026-11-05T12:08:47Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42024538410/job/127235335207"
+      },
+      {
+        "completedAt": "2026-11-05T12:07:54Z",
+        "conclusion": "skipped",
+        "databaseId": 127235337291,
+        "name": "browser",
+        "startedAt": "2026-11-05T12:07:54Z",
+        "status": "completed",
+        "steps": [],
+        "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42024538410/job/127235337291"
+      },
+      {
+        "completedAt": "2026-11-05T12:07:54Z",
+        "conclusion": "skipped",
+        "databaseId": 127235337334,
+        "name": "cad",
+        "startedAt": "2026-11-05T12:07:54Z",
+        "status": "completed",
+        "steps": [],
+        "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42024538410/job/127235337334"
+      },
+      {
+        "completedAt": "2026-11-05T12:07:54Z",
+        "conclusion": "skipped",
+        "databaseId": 127235337543,
+        "name": "history-windows",
+        "startedAt": "2026-11-05T12:07:54Z",
+        "status": "completed",
+        "steps": [],
+        "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42024538410/job/127235337543"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42024538410"
+  },
+  "cases": {
+    "total": 107,
+    "passed": 107,
+    "failed": 0,
+    "server": 7
+  },
+  "blob_proof": [
+    {
+      "path": "development/backend/app/main.py",
+      "sha256": "954033c3cf9ad2875cd88b39642582ac49a363cb552014cc43b0b831f9618558",
+      "exact_match": true
+    },
+    {
+      "path": "testing/tests/test_server.py",
+      "sha256": "33443e1cae31c9eca3d963adf42cf453b2a760624ebe3217eedb563a6bbd0c54",
+      "exact_match": true
+    },
+    {
+      "path": "testing/reports/b03/A03-server/2026-11-05-handoff.md",
+      "sha256": "0519fa368425d6d9f87089d79aae14ca7f8348be131d1c0d1244699aba87df62",
+      "exact_match": true
+    },
+    {
+      "path": "testing/reports/b03/A03-server/2026-11-05-static.json",
+      "sha256": "ad10718b185572cf137281a731e6cad74a1a784b22c52dd35963c56e63e8a3db",
+      "exact_match": true
+    },
+    {
+      "path": "testing/reports/b03/A03-server/2026-11-05-repair.md",
+      "sha256": "4d1152a4331162c19c040a25c8c3c02305a22181c650eaa40f8035b8e0a890c6",
+      "exact_match": true
+    },
+    {
+      "path": "testing/reports/b03/A03-server/2026-11-05-repair-static.json",
+      "sha256": "4175ae4419c73bb7722cbd967c9921dc009fd9c98b7ed4d0065415cd5aa13835",
+      "exact_match": true
+    }
+  ],
+  "previous_failure": {
+    "run_id": 42021461040,
+    "passed": 106,
+    "failed": 1,
+    "preserved": true
+  },
+  "repair": "Locked legacy Starlette TestClient decoded HTTPX URL.path twice. Correct ASGITransport boundary retains and checks singly encoded200/twice encoded404; production main.py unchanged.",
+  "evidence": "testing/runs/remote-modules-42024538410/",
+  "limitations": [
+    "M0 fixtures remain synthetic; absent drawingPNG is explicit404.",
+    "Real no-key list/create/read history persists; send explicitly501 until B06.",
+    "No full product gate, browser, liveprovider/prep or source-engineering accuracy credited. No local runtime/tests executed."
+  ]
+}

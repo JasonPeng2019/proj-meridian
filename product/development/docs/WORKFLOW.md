@@ -5,7 +5,7 @@
 - **Plan:** [PLAN.md](PLAN.md), including 27 modules, requirements R1-R17, expectations E1-E15 and five verification checkpoints. Module IDs M01-M27 differ from product milestones M0-M3.
 - **Assignment:** [Project Meridian requirements](../inputs/project-meridian/README.md). [mvp (1).md](<../inputs/mvp (1).md>) controls build scope; [proposal.md](../inputs/proposal.md) supplies included-feature behavior. The user's later instructions add minimal deterministic tests and selective semantic verification.
 - **Destination/application root:** This workflow is `product/development/docs/WORKFLOW.md`. Implementation paths below are relative to `Avathon/product/development/`.
-- **Status:** B00 M01/M02 and the bounded prep/CAD qualification slices were accepted and integrated locally. Product V1?V5 and the final benchmark remain unverified; HANDOFF records exact evidence and current execution state.
+- **Status:** Foundations, history contracts/store, source widgets, ordered prep runner and M0 shell have accepted slices; source prep, grounded send and complete screen integration remain in progress. Product V1?V5 and the final benchmark remain unverified; HANDOFF records exact evidence and current execution state.
 - **Concurrency:** At most four local CLI agents total, including coding, test, semantic and prep subprocesses. ROOT is this conversation. Lower the count under CPU/RAM pressure. One prep job runs determination then verification sequentially; reserve a child CLI slot while counting the prep owner. Queue other prep jobs. CAD, regeneration, builds and browser verification run remotely and sequentially. See PLAN's resource update and CWD AGENTS.md.
 - **Tier mapping:** Use the explicit model bindings below for every coding, coordination, test, and semantic assignment. Application chat and data preparation have their own bindings; an agent's tier does not select the application's model.
 - **Human inputs:** Use existing CLI-account authentication and the chat key under CWD `.secrets`. Queue mapping/evidence decisions for Jason in `development/USER_TODO.md`; coding and prep continue while he reviews later. Synthetic test decisions never enter his actual decision journal.
@@ -167,6 +167,7 @@ A02's history/observability follow-up can start from accepted M02 while A08 sett
 | A09-vision | STRONGEST | M1 scan/template jobs using A05/A08 interfaces. |
 | A10-matching | STRONGEST | M1 exact/AI link and post-link mapping job definitions using A05/A06/A08. |
 | A15-chat | STRONGEST | Optional early R17 local JSON history/list/create/read/context slice after accepted history contracts; full grounded send loop remains B06, and unavailable capability is explicit. |
+| A18-chat-ui | STRONGER | Optional early R17 history list/New chat/read/full saved-message slice after accepted M02/M04/M15; use frozen screen props and preserve no-key reads. Grounded send/visual integration remains B05/B06 and V2/V3. |
 | A24-submission | STRONGER | Optional early setup/architecture draft from accepted M01 evidence while producer contracts settle; no claims of unfinished chat, prep, UI or gates. |
 
 **Completion:** ROOT runs the basic M0 launch smoke check immediately. It is not a sixth formal checkpoint. A09/A10 job interfaces can be orchestrated and both shells compile against fixtures.

@@ -204,6 +204,7 @@ M0 is ready when the server, shell, frozen contracts, and declared fixtures work
 18. **M18 — Build the complete Chat screen.**
     - Module file: `frontend/src/chat/Chat.tsx`
     - Deliverable: A clean conversation list with New chat, selecting/reopening/continuing past chats, full saved-message display, composer/request/error state, grounded answer/attachment rendering and shared part-panel navigation. Use the server's history contracts and preserve selection across reload; changing conversations cannot mix messages or stale part context. Engineering details stay in Debug.
+    - Execution slices: After accepted M02 history contracts, M04 shell selection and M15 persistence, implement the independent R17 history list/New chat/read/full saved-message UI against frozen props. Keep no-key history usable and unavailable sends explicit; full grounded send and visual integration stay in B05/B06 and V2/V3. This early slice does not claim a complete Chat screen or bypass a product gate.
     - Complete when: E3/E7 work through the UI, drawing/3D buttons expose the right available tab, a part remains accessible on an abstaining answer, chat remains visible beside the panel, and no-key state gives the required message.
 
 19. **M19 — Build the reusable part page with 2D and Detail views.**

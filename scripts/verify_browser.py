@@ -87,7 +87,9 @@ def main():
             if name == 'bom-detail':
                 assert page.locator('.detail-section[open]').count() == 0
                 assert page.locator('.summary-box').count() <= 4
-                assert page.locator('.notes-box').count() == 1
+                assert page.locator('.notes-box').count() <= 1
+                assert page.locator('#dimensions-heading').count() == 0
+                assert '"currency"' not in page.locator('.standard-details').inner_text()
                 assert page.locator('.fact-grid').count() == 0
             page.screenshot(path=str(OUT / (name+'.png')))
             print(name, 'body_chars', len(page.locator('body').inner_text()), 'horizontal_overflow', page.evaluate('document.documentElement.scrollWidth > innerWidth'), flush=True)

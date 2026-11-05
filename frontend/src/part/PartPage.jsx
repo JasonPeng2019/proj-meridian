@@ -66,6 +66,11 @@ function BOMRows({part, navigate}) {
 }
 
 function DisplayValue({fact}) {
+  const value=fact?.display?.value;
+  if(fact?.display?.state==='value'&&value&&typeof value==='object'){
+    if(Array.isArray(value))return <>{value.map(v=>englishText(textValue(v))).join(', ')}</>;
+    if(typeof value.amount==='number'&&value.currency)return <>{value.amount.toLocaleString('en-US',{maximumFractionDigits:2})} {value.currency}</>;
+  }
   if(fact?.display?.state==='value'&&typeof fact.display.value==='string')return <>{englishText(fact.display.value)}</>;
   return <Value fact={fact}/>;
 }
@@ -81,8 +86,8 @@ function FactDetails({part, openFact, navigate}) {
   const notes=noteFields.filter((f,i)=>noteFields.findIndex(n=>n.display.value.trim()===f.display.value.trim())===i);
   return <div className="detail-view standard-details"><div className="detail-summary-grid">
     <section className="summary-box" aria-labelledby="overview-heading"><h3 id="overview-heading">Overview</h3>{rows([...(find('title')?[['Drawing title','title']]:[]),['Material','material'],...(part.bom?.length?[['Quantity','amount']]:[])])}<p className="summary-hint">{englishText(part.section)}{part.has_drawing?` · Drawing ${part.drawing.id}`:' · Parts list record'}</p></section>
-    <section className="summary-box" aria-labelledby="dimensions-heading"><h3 id="dimensions-heading">Dimensions</h3>{rows([...dimensions,['Thickness','thickness','mm'],['Drawing weight','weight_g','g']])}</section>
-    <section className="summary-box notes-box" aria-labelledby="notes-heading"><h3 id="notes-heading">Notes</h3>{notes.length?<div className="design-notes">{notes.map(f=><div className="design-note" key={f.fact}><p>{englishText(f.display.value)}</p><button className="fact-source-action" title="View original note and source" onClick={()=>openFact(f)}><FileText size={13}/></button></div>)}</div>:<p className="summary-empty">No readable design notes recorded.</p>}{notes.some(f=>translated(f.display.value))&&<p className="summary-hint">English display translations. Original wording is available from the source icon.</p>}</section>
+    {part.has_drawing&&<section className="summary-box" aria-labelledby="dimensions-heading"><h3 id="dimensions-heading">Dimensions</h3>{rows([...dimensions,['Thickness','thickness','mm'],['Drawing weight','weight_g','g']])}</section>}
+    {(part.has_drawing||notes.length>0)&&<section className="summary-box notes-box" aria-labelledby="notes-heading"><h3 id="notes-heading">Notes</h3>{notes.length?<div className="design-notes">{notes.map(f=><div className="design-note" key={f.fact}><p>{englishText(f.display.value)}</p><button className="fact-source-action" title="View original note and source" onClick={()=>openFact(f)}><FileText size={13}/></button></div>)}</div>:<p className="summary-empty">No readable design notes recorded.</p>}{notes.some(f=>translated(f.display.value))&&<p className="summary-hint">English display translations. Original wording is available from the source icon.</p>}</section>}
     {part.bom?.length>0&&<section className="summary-box supply-box" aria-labelledby="supply-heading"><h3 id="supply-heading">Supply & cost</h3>{rows([['Supplier','supplier'],['Unit cost','cost'],['Recorded total','total_cost'],['Order status','order']])}<p className="summary-hint">Snapshot records; prices and supplier details may be out of date.</p></section>}
   </div>{debug&&<button className="detail-evidence-link" onClick={()=>navigate(partURL(part.key,'debug'))}>Open Debug <ArrowUpRight size={13}/></button>}</div>;
 }

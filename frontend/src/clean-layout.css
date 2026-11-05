@@ -184,3 +184,5 @@ body { color: var(--ink); }
 .source-modal-content small { font-size: 10px; color: #91a1ae; }
 .compact .detail-summary-grid { grid-template-columns: 1fr; }
 @media (max-width: 850px) { .detail-summary-grid { grid-template-columns: 1fr; } .standard-details { padding: 20px; } }
+
+.detail-summary-grid:has(.supply-box):has(#dimensions-heading) .notes-box { grid-column: auto; }

@@ -134,6 +134,7 @@ def correction_demo(env, report):
     env = env.copy()
     env.pop("MERIDIAN_NO_KEY", None)
     env["OPENAI_API_KEY"] = keys[0]
+    env["MERIDIAN_DEBUG_UI"] = "1"  # Isolated engineering history demonstration.
     proc, log = start(env, "correction-demo")
     saved = {"purpose": "Automated workflow verification in an isolated clone; not a human approval", "reviewer": "Automated verification"}
     question = "What is the title recorded for D-019? Show the original title and explain any uncertainty."

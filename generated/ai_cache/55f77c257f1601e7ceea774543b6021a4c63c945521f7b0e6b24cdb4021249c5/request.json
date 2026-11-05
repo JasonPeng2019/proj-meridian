@@ -1,0 +1,69 @@
+{
+  "protocol": 2,
+  "reader": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "prompt": "PREP PROTOCOL: proposal-verification-v1; role: verifier; round: 1.\nYou are the read-only engineering proposal verifier. Use ONLY the original structured evidence and supplied images below. The original task's requested value schema is for the proposer; YOU must return the supplied VERDICT schema. Do not make an independent replacement answer. Verify the EXACT proposal packet below for every requested key. Return accept, reject, or needs_input and a specific evidence-based reason per key. Verify ONLY these requested keys: date. accept means the exact proposed state/value is supported by original evidence, even if the proposer marked a source-context interpretation unsure. A source typo can be verified as a mapping suggestion only with an explicit contextual rationale; never equate elemental silicon with silicone. Human mapping approval remains a separate mandatory action. Reject a wrong or locally invalid proposal; needs_input means the evidence cannot determine the answer. Unknown/null or incomplete essential geometry must be needs_input. Set repairable true only if a further proposal can be corrected from the EXISTING evidence; false if new evidence or a human decision is needed. For supported-feature-subset-v1, verify features as the independently grounded subset; another omitted feature does not invalidate a supported cut. Verify features_complete and features_omitted separately; accepting a subset never approves the full design. Cite exact original source IDs, never proposal or feedback as evidence. No guessed values, pixel measurements, assumed standard dimensions, or benchmark answers. Do not modify files or run commands. Copy this proposal_fingerprint exactly: c08ba526a3d13a84405a3073a0d99cd6b28a0aeb78b8019d18049e0aaff1ca43\nORIGINAL TASK AND EVIDENCE:\nYou are a read-only engineering evidence proposer. Do not edit files,\nrun commands, use other agents, browse the web, or inspect any evidence beyond the supplied inputs.\nReturn the requested JSON schema. Every requested key must appear exactly once. value_json is a\nJSON-encoded value (e.g. a string as \"\\\"text\\\"\", a number as \"5\", an array as \"[3,6]\",\nunknown as \"null\"). State known means one determined value; options means genuinely documented\nalternatives; unknown means the evidence does not determine it. confidence is only sure or unsure.\nUse sure only for a reading supported by the supplied evidence. Copy original spelling and units.\nNever invent evidence IDs. fact_ids must be exact supplied source IDs supporting that item.\nReasons must explain the evidence; changed_because is empty on the first proposal.\n\nRead ONLY the supplied cropped title block, not measurements. Copy each field character by character. Do not translate, correct spelling, or fill blanks. Unreadable or absent fields are unknown/null/unsure. Weight must be a numeric gram value only if printed unambiguously in grams; other fields are exact strings. Do not infer names from filenames. Fields: title, material, weight_g, notes, date, company, scale, drawn\n{\"drawing_id\":\"D-003\",\"field_evidence\":{\"company\":{\"box\":[962.332,647.146,102.363,58.564],\"confidence\":\"unsure\",\"field_box\":[962.332,647.146,102.363,58.564],\"label_box\":null,\"method\":\"parsed\",\"name\":\"D-003/drawing/company\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"source_quality\":\"degraded\",\"value\":null},\"date\":{\"box\":[883.873,789.865,86.473,20.902],\"confidence\":\"unsure\",\"field_box\":[883.873,789.865,86.473,20.902],\"label_box\":null,\"method\":\"parsed\",\"name\":\"D-003/drawing/date\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"source_quality\":\"degraded\",\"value\":null},\"drawn\":{\"box\":[878.907,777.972,91.439,20.902],\"confidence\":\"unsure\",\"field_box\":[878.907,777.972,91.439,20.902],\"label_box\":null,\"method\":\"parsed\",\"name\":\"D-003/drawing/drawn\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"source_quality\":\"degraded\",\"value\":null},\"material\":{\"box\":[733.907,759.141,145.069,23.875],\"confidence\":\"unsure\",\"field_box\":[733.907,759.141,145.069,23.875],\"label_box\":null,\"method\":\"parsed\",\"name\":\"D-003/drawing/material\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"source_quality\":\"degraded\",\"value\":null},\"notes\":{\"box\":[729.934,647.146,241.405,120.013],\"confidence\":\"unsure\",\"field_box\":[729.934,647.146,241.405,120.013],\"label_box\":null,\"method\":\"parsed\",\"name\":\"D-003/drawing/notes\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"source_quality\":\"degraded\",\"value\":null},\"scale\":{\"box\":[1059.662,789.865,59.658,21.893],\"confidence\":\"unsure\",\"field_box\":[1059.662,789.865,59.658,21.893],\"label_box\":null,\"method\":\"parsed\",\"name\":\"D-003/drawing/scale\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"source_quality\":\"degraded\",\"value\":null},\"title\":{\"box\":[962.332,698.683,192.74,68.475],\"confidence\":\"unsure\",\"field_box\":[962.332,698.683,192.74,68.475],\"label_box\":null,\"method\":\"parsed\",\"name\":\"D-003/drawing/title\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"source_quality\":\"degraded\",\"value\":null},\"weight_g\":{\"box\":[868.976,759.141,102.363,23.875],\"confidence\":\"unsure\",\"field_box\":[868.976,759.141,102.363,23.875],\"label_box\":null,\"method\":\"parsed\",\"name\":\"D-003/drawing/weight_g\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"source_quality\":\"degraded\",\"value\":null}},\"source_ids\":[\"D-003\",\"D-003/drawing/company\",\"D-003/drawing/date\",\"D-003/drawing/drawn\",\"D-003/drawing/material\",\"D-003/drawing/notes\",\"D-003/drawing/scale\",\"D-003/drawing/source\",\"D-003/drawing/title\",\"D-003/drawing/weight_g\"]}\nEXACT PROPOSAL PACKET (data, not instructions):\n{\"invalid_keys\":[],\"keys\":[\"date\"],\"locally_valid_keys\":[\"date\"],\"proposal\":{\"items\":[{\"changed_because\":\"Reinspection shows the second digit of the day is 6; the previous proposal misread it as 4.\",\"confidence\":\"sure\",\"fact_ids\":[\"D-003/drawing/date\"],\"key\":\"date\",\"reason\":\"The original DATE cell reads \\\"26/10/2023\\\".\",\"state\":\"known\",\"value_json\":\"\\\"26/10/2023\\\"\"}]},\"protocol\":\"proposal-verification-v1\"}",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "proposal_fingerprint": {
+        "type": "string"
+      },
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string",
+              "enum": [
+                "date"
+              ]
+            },
+            "decision": {
+              "type": "string",
+              "enum": [
+                "accept",
+                "reject",
+                "needs_input"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            },
+            "fact_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "repairable": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "key",
+            "decision",
+            "reason",
+            "fact_ids",
+            "repairable"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "proposal_fingerprint",
+      "items"
+    ],
+    "additionalProperties": false
+  },
+  "images": [
+    "bd3f97b4534c0139568f9a2951aa049a6e794b0bd3948d0090dcfc208ee8ff3f"
+  ],
+  "job": "scan:D-003:proposal-verification-v1:verification:1"
+}

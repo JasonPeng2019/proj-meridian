@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a1ab2e-ee5b-70f1-9404-038256b3bbcf"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"items\":[{\"key\":\"link\",\"state\":\"unknown\",\"value_json\":\"null\",\"confidence\":\"unsure\",\"fact_ids\":[\"D-006/drawing/notes\",\"BOM:powder/powder-hopper\"],\"reason\":\"The drawing specifies “Canister Wall”, “Left and right side, one of each.” and “Non-magnetic stainless”. “Powder hopper” has the same section, “Powder”, and material “Stainless steel”, but its name, notes and empty datasheet list do not establish that these walls represent that BOM row. The link remains ambiguous.\",\"changed_because\":\"\"}]}"}}
+{"type":"turn.completed","usage":{"input_tokens":16138,"cached_input_tokens":10112,"cache_write_input_tokens":0,"output_tokens":953,"reasoning_output_tokens":815}}

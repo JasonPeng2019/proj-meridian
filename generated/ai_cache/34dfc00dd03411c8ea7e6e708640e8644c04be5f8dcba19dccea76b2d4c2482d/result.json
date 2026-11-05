@@ -1,0 +1,79 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "66cc3bc9be87fe95457a2d1a2dadae70a2f38d384664bfedcec0f3991e46af36",
+    "items": [
+      {
+        "key": "link",
+        "decision": "accept",
+        "reason": "D-029/drawing/notes reads 'Z-axis BottomPlate\\nAluminium'. The drawing's section is 'Z-axis', and its title and material fields are null. No BOM row is named a Z-axis bottom plate, and no row has a 'Z-axis' section. The closest Z-axis rows, BOM:sensorgantry/z-axis-stepper-bracket and BOM:sensorgantry/z-axis-linear-rod, are a bracket and a rod in section 'SensorGantry'. Both have a null material, and neither has notes or a datasheet linking it to a bottom plate. BOM:sensorgantry/x-axis-bottom-bracket is for the X axis, not the Z axis. Aluminium plates such as BOM:build-plate/motor-plate are in section 'Build-plate', and none of their notes or datasheets refers to the Z axis or 'BottomPlate'. Matching any of these would mean treating different names or sections as equivalent, which the task forbids. The evidence therefore supports [] (no match).",
+        "fact_ids": [
+          "D-029/drawing/notes",
+          "BOM:sensorgantry/z-axis-stepper-bracket",
+          "BOM:sensorgantry/z-axis-linear-rod",
+          "BOM:sensorgantry/x-axis-bottom-bracket",
+          "BOM:build-plate/motor-plate"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 8079,
+      "cache_read_input_tokens": 2523,
+      "output_tokens": 793,
+      "output_tokens_details": {
+        "thinking_tokens": 193
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 8079,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 793,
+        "cacheReadInputTokens": 2523,
+        "cacheCreationInputTokens": 8079,
+        "webSearchRequests": 0,
+        "costUSD": 0.0810046,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 193,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 8079,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.0810046,
+    "duration_ms": 7582,
+    "is_error": false
+  },
+  "latency_ms": 8750,
+  "cache_key": "34dfc00dd03411c8ea7e6e708640e8644c04be5f8dcba19dccea76b2d4c2482d",
+  "cache_hit": false,
+  "job": "link:D-029:proposal-verification-v1:verification:0",
+  "error": null
+}

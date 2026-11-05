@@ -21,6 +21,7 @@ def configure_environment() -> None:
         "UV_PYTHON_INSTALL_DIR": ".runtime/python",
         "npm_config_cache": ".cache/npm", "PLAYWRIGHT_BROWSERS_PATH": ".cache/playwright",
         "CODEX_HOME": ".runtime/codex", "CLAUDE_CONFIG_DIR": ".runtime/claude",
+        "GH_CONFIG_DIR": ".runtime/gh",
     }
     for key, relative in paths.items():
         target = inside(relative)

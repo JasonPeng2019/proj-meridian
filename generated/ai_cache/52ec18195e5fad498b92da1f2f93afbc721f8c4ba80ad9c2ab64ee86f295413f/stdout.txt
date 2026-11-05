@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a1ab2c-8575-7003-931c-3d2538d2f4c9"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"items\":[{\"key\":\"link\",\"state\":\"unknown\",\"value_json\":\"null\",\"confidence\":\"unsure\",\"fact_ids\":[\"D-001/drawing/notes\",\"D-001/drawing/title\",\"BOM:box/front-door\",\"BOM:box/back-door\"],\"reason\":\"The notes \\\"Door - x2\\\\n3mm aluminium\\\" fit both Front Door and Back Door, each listed as Aluminium in Box. The title is unavailable and neither row lists a datasheet. The quantity x2 does not establish that this drawing represents both rows.\",\"changed_because\":\"\"}]}"}}
+{"type":"turn.completed","usage":{"input_tokens":16117,"cached_input_tokens":10112,"cache_write_input_tokens":0,"output_tokens":487,"reasoning_output_tokens":357}}

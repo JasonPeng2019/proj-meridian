@@ -1,0 +1,43 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "relationship",
+        "state": "known",
+        "value_json": "\"no_equivalent\"",
+        "confidence": "sure",
+        "fact_ids": [],
+        "reason": "LEFT is null, meaning no represented drawing section; the supplied rule specifies no_equivalent. This suggestion requires actual human approval before use.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 13488,
+          "cached_input_tokens": 10112,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 214,
+          "reasoning_output_tokens": 137
+        }
+      }
+    ]
+  },
+  "latency_ms": 10031,
+  "cache_key": "3b4d8fba7c0744ab9f81a4b2f6a316111b07b770e64174c1a8c8d64c338cc33c",
+  "cache_hit": false,
+  "job": "mapping:names/section/ -> support:proposal-verification-v1:proposal:0",
+  "error": null
+}

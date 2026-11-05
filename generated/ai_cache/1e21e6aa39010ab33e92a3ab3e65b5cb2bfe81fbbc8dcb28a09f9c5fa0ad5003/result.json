@@ -1,0 +1,45 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "date",
+        "state": "known",
+        "value_json": "\"13-09-2023\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-023/drawing/date"
+        ],
+        "reason": "The DATE field reads “13-09-2023”.",
+        "changed_because": "Reinspection of the original image shows day 13 and hyphen separators; the previous proposal misread both."
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 15517,
+          "cached_input_tokens": 10112,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 421,
+          "reasoning_output_tokens": 327
+        }
+      }
+    ]
+  },
+  "latency_ms": 21579,
+  "cache_key": "1e21e6aa39010ab33e92a3ab3e65b5cb2bfe81fbbc8dcb28a09f9c5fa0ad5003",
+  "cache_hit": false,
+  "job": "scan:D-023:proposal-verification-v1:proposal:1",
+  "error": null
+}

@@ -1,0 +1,79 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "7956859308df92074cb3be39b58020c8289f8e17a96ba097aae2dfd85a2b7323",
+    "items": [
+      {
+        "key": "link",
+        "decision": "needs_input",
+        "reason": "The drawing note D-030/drawing/notes says \"Z-axis MotorPlate\\nAluminium\". That points to only one BOM row: BOM:build-plate/motor-plate (display_name \"Motor plate\", material [\"Aluminium\"]). No other row is named as a motor plate. But the drawing D-030 is in section \"Z-axis\", while that BOM row is in section \"Build-plate\". The task says not to assume that different section names are already approved as equivalent. Nothing else settles the link: D-030/drawing/title and D-030/drawing/material are null, and the row has no datasheet that could tie it to Z-axis_MotorPlate.pdf. So the proposal's unknown/null value is a fair reading, but the existing evidence can't settle the link. A person needs to decide whether the Z-axis section maps to Build-plate.",
+        "fact_ids": [
+          "D-030/drawing/notes",
+          "D-030/drawing/title",
+          "D-030/drawing/material",
+          "D-030",
+          "BOM:build-plate/motor-plate"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 8051,
+      "cache_read_input_tokens": 2523,
+      "output_tokens": 939,
+      "output_tokens_details": {
+        "thinking_tokens": 451
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 8051,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 939,
+        "cacheReadInputTokens": 2523,
+        "cacheCreationInputTokens": 8051,
+        "webSearchRequests": 0,
+        "costUSD": 0.08370060000000001,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 451,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 8051,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.08370060000000001,
+    "duration_ms": 9100,
+    "is_error": false
+  },
+  "latency_ms": 10265,
+  "cache_key": "9cc78ca2c107ea8bd0773636bb9aca84d0591cb3188a552c547f42a2b781cd01",
+  "cache_hit": false,
+  "job": "link:D-030:proposal-verification-v1:verification:0",
+  "error": null
+}

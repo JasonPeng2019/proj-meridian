@@ -1,0 +1,122 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "title",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-022/drawing/title"
+        ],
+        "reason": "The TITLE/DESCRIPTION field is blank.",
+        "changed_because": ""
+      },
+      {
+        "key": "material",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-022/drawing/material"
+        ],
+        "reason": "The MATERIAL field is blank.",
+        "changed_because": ""
+      },
+      {
+        "key": "weight_g",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-022/drawing/weight_g"
+        ],
+        "reason": "The WEIGHT [g] field is blank.",
+        "changed_because": ""
+      },
+      {
+        "key": "notes",
+        "state": "known",
+        "value_json": "\"Inlet Box\\nFour corner joints should be\\nwelded.\\nStainless\\nFree choice of thickness\\n(as thin as possible)\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-022/drawing/notes"
+        ],
+        "reason": "The NOTE box contains this text with the displayed line breaks.",
+        "changed_because": ""
+      },
+      {
+        "key": "date",
+        "state": "known",
+        "value_json": "\"20/12/2023\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-022/drawing/date"
+        ],
+        "reason": "The DATE row reads 20/12/2023.",
+        "changed_because": ""
+      },
+      {
+        "key": "company",
+        "state": "known",
+        "value_json": "\"DTU MPP\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-022/drawing/company"
+        ],
+        "reason": "DTU MPP is printed beside the DTU logo.",
+        "changed_because": ""
+      },
+      {
+        "key": "scale",
+        "state": "known",
+        "value_json": "\"1:2\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-022/drawing/scale"
+        ],
+        "reason": "The SCALE field reads 1:2.",
+        "changed_because": ""
+      },
+      {
+        "key": "drawn",
+        "state": "known",
+        "value_json": "\"MBOKJ\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-022/drawing/drawn"
+        ],
+        "reason": "The DRAWN row reads MBOKJ.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 15220,
+          "cached_input_tokens": 10112,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1279,
+          "reasoning_output_tokens": 832
+        }
+      }
+    ]
+  },
+  "latency_ms": 30204,
+  "cache_key": "f1ed99cfb9b3aa3c3f594567317d7c94153c9ee4765c274a488c422c4142d79c",
+  "cache_hit": false,
+  "job": "scan:D-022:proposal-verification-v1:proposal:0",
+  "error": null
+}

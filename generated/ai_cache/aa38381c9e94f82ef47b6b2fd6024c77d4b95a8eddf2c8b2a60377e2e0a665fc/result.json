@@ -1,0 +1,79 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "9bd41323cd922eb9ed56b5da267ecef2fb4a77d64e04785d342e3d02fba7a4e6",
+    "items": [
+      {
+        "key": "link",
+        "decision": "accept",
+        "reason": "The proposal correctly returns unknown/null. D-028/drawing/title, 'Varmeelement Plade', reads in Danish as 'heating element plate'. That matches the display name of BOM:build-plate/heating-element-plate. D-028/drawing/notes ('Aluminium.') also matches that row's material, 'Aluminium'. D-028/drawing/material gives '3.3315 (EN-AW 5005)', an aluminium alloy, so it is consistent with the row. However, drawing D-028 lists its section as 'Z-axis', while the BOM row's section is 'Build-plate'. No supplied source shows these sections are equivalent, and the task says not to assume differing section names have already been approved as equivalent. The BOM row also has no datasheet, so nothing links it to VarmeElementPlade.pdf. Translating the title into the BOM name is a reasonable mapping suggestion, but human mapping approval is still required. The section conflict makes this ambiguous, and the task requires unknown/unsure for ambiguity, so the proposal follows the instructions.",
+        "fact_ids": [
+          "D-028",
+          "D-028/drawing/title",
+          "D-028/drawing/notes",
+          "D-028/drawing/material",
+          "BOM:build-plate/heating-element-plate"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 8099,
+      "cache_read_input_tokens": 2523,
+      "output_tokens": 861,
+      "output_tokens_details": {
+        "thinking_tokens": 295
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 8099,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 861,
+        "cacheReadInputTokens": 2523,
+        "cacheCreationInputTokens": 8099,
+        "webSearchRequests": 0,
+        "costUSD": 0.0825246,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 295,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 8099,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.0825246,
+    "duration_ms": 8442,
+    "is_error": false
+  },
+  "latency_ms": 9640,
+  "cache_key": "aa38381c9e94f82ef47b6b2fd6024c77d4b95a8eddf2c8b2a60377e2e0a665fc",
+  "cache_hit": false,
+  "job": "link:D-028:proposal-verification-v1:verification:0",
+  "error": null
+}

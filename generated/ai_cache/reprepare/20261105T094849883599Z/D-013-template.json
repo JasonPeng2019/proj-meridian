@@ -1,0 +1,969 @@
+{
+  "part": "D-013",
+  "template": "flat_part",
+  "outline": {
+    "state": "known",
+    "type": "rectangle",
+    "length": {
+      "state": "known",
+      "value": 270.0,
+      "confidence": "sure",
+      "method": "ai_verified",
+      "fact_ids": [
+        "D-013/drawing/n/270.0@1-1",
+        "D-013/drawing/general/units"
+      ],
+      "readers": {
+        "claude": {
+          "role": "verifier",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "length",
+                "decision": "accept",
+                "reason": "The overall horizontal dimension 270,0 spans the full plate in X. The drawing states that dimensions are in millimetres.",
+                "fact_ids": [
+                  "D-013/drawing/n/270.0@1-1",
+                  "D-013/drawing/general/units"
+                ],
+                "repairable": false
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "c68d30e7641daebd45ebf44629c27557796a62c8b7125084ed5a8d3976c7ce1e",
+              "response_proposal_fingerprint": "c68d30e7641daebd45ebf44629c27557796a62c8b7125084ed5a8d3976c7ce1e",
+              "feedback": [],
+              "settings": {
+                "model": "opus",
+                "fast_mode": false,
+                "mode": "regular",
+                "reader": "claude"
+              },
+              "cache_key": "5683c38ca26a5f72519bc71c68cc03f373876900a284da0087006996fd47ad18"
+            }
+          ]
+        },
+        "codex": {
+          "role": "proposer",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "length",
+                "state": "known",
+                "value_json": "270.0",
+                "confidence": "sure",
+                "fact_ids": [
+                  "D-013/drawing/n/270.0@1-1",
+                  "D-013/drawing/general/units"
+                ],
+                "reason": "Overall X dimension is 270,0 mm.",
+                "changed_because": ""
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "c68d30e7641daebd45ebf44629c27557796a62c8b7125084ed5a8d3976c7ce1e",
+              "response_proposal_fingerprint": null,
+              "feedback": [],
+              "settings": {
+                "model": "gpt-6.1-sol",
+                "reasoning_effort": "xhigh",
+                "service_tier": "fast",
+                "reader": "codex"
+              },
+              "cache_key": "6f7799c58fe0cc8c12af84b6e389be31e92abab4ab07ce0ad72c728db62a76c7"
+            }
+          ]
+        }
+      },
+      "review": {
+        "status": "not_reviewed"
+      },
+      "note": "Overall X dimension is 270,0 mm. Verification: The overall horizontal dimension 270,0 spans the full plate in X. The drawing states that dimensions are in millimetres."
+    },
+    "width": {
+      "state": "known",
+      "value": 25.0,
+      "confidence": "sure",
+      "method": "ai_verified",
+      "fact_ids": [
+        "D-013/drawing/n/25.0@1-1",
+        "D-013/drawing/general/units"
+      ],
+      "readers": {
+        "claude": {
+          "role": "verifier",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "width",
+                "decision": "accept",
+                "reason": "The overall vertical dimension 25,0 on the right spans the plate from top edge to bottom edge in Y. Units are millimetres.",
+                "fact_ids": [
+                  "D-013/drawing/n/25.0@1-1",
+                  "D-013/drawing/general/units"
+                ],
+                "repairable": false
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "c68d30e7641daebd45ebf44629c27557796a62c8b7125084ed5a8d3976c7ce1e",
+              "response_proposal_fingerprint": "c68d30e7641daebd45ebf44629c27557796a62c8b7125084ed5a8d3976c7ce1e",
+              "feedback": [],
+              "settings": {
+                "model": "opus",
+                "fast_mode": false,
+                "mode": "regular",
+                "reader": "claude"
+              },
+              "cache_key": "5683c38ca26a5f72519bc71c68cc03f373876900a284da0087006996fd47ad18"
+            }
+          ]
+        },
+        "codex": {
+          "role": "proposer",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "width",
+                "state": "known",
+                "value_json": "25.0",
+                "confidence": "sure",
+                "fact_ids": [
+                  "D-013/drawing/n/25.0@1-1",
+                  "D-013/drawing/general/units"
+                ],
+                "reason": "Overall Y dimension is 25,0 mm.",
+                "changed_because": ""
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "c68d30e7641daebd45ebf44629c27557796a62c8b7125084ed5a8d3976c7ce1e",
+              "response_proposal_fingerprint": null,
+              "feedback": [],
+              "settings": {
+                "model": "gpt-6.1-sol",
+                "reasoning_effort": "xhigh",
+                "service_tier": "fast",
+                "reader": "codex"
+              },
+              "cache_key": "6f7799c58fe0cc8c12af84b6e389be31e92abab4ab07ce0ad72c728db62a76c7"
+            }
+          ]
+        }
+      },
+      "review": {
+        "status": "not_reviewed"
+      },
+      "note": "Overall Y dimension is 25,0 mm. Verification: The overall vertical dimension 25,0 on the right spans the plate from top edge to bottom edge in Y. Units are millimetres."
+    }
+  },
+  "thickness": {
+    "state": "options",
+    "options": [
+      3.0,
+      6.0
+    ],
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-013/drawing/n/3.0@1-1",
+      "D-013/drawing/n/6.0@1-1"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "thickness",
+              "decision": "accept",
+              "reason": "The side view has one thickness dimension line carrying two stacked values, 6,0 and 3,0. Under the protocol, these are alternatives and must be given as options sorted ascending, [3.0, 6.0].",
+              "fact_ids": [
+                "D-013/drawing/n/6.0@1-1",
+                "D-013/drawing/n/3.0@1-1"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "c68d30e7641daebd45ebf44629c27557796a62c8b7125084ed5a8d3976c7ce1e",
+            "response_proposal_fingerprint": "c68d30e7641daebd45ebf44629c27557796a62c8b7125084ed5a8d3976c7ce1e",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "5683c38ca26a5f72519bc71c68cc03f373876900a284da0087006996fd47ad18"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "thickness",
+              "state": "options",
+              "value_json": "[3.0,6.0]",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-013/drawing/n/3.0@1-1",
+                "D-013/drawing/n/6.0@1-1"
+              ],
+              "reason": "The side view supplies stacked alternatives 6,0 and 3,0 mm; neither is selected as primary.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "c68d30e7641daebd45ebf44629c27557796a62c8b7125084ed5a8d3976c7ce1e",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "6f7799c58fe0cc8c12af84b6e389be31e92abab4ab07ce0ad72c728db62a76c7"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The side view supplies stacked alternatives 6,0 and 3,0 mm; neither is selected as primary. Verification: The side view has one thickness dimension line carrying two stacked values, 6,0 and 3,0. Under the protocol, these are alternatives and must be given as options sorted ascending, [3.0, 6.0]."
+  },
+  "features": [
+    {
+      "kind": "hole",
+      "face": "top",
+      "x": {
+        "state": "known",
+        "value": -82.0,
+        "fact_ids": [
+          "D-013/drawing/n/82.0@1-1"
+        ],
+        "expression": "0-n0"
+      },
+      "y": {
+        "state": "known",
+        "value": 4.5,
+        "fact_ids": [
+          "D-013/drawing/n/4.5@1-1"
+        ]
+      },
+      "diameter": {
+        "state": "known",
+        "value": 4.2,
+        "fact_ids": [
+          "D-013/drawing/n/4.2@1-1"
+        ]
+      },
+      "through": true,
+      "hole_type": "threaded",
+      "thread": "M5 - 6H",
+      "fact_ids": [
+        "D-013",
+        "D-013/drawing/callout/p1-1"
+      ]
+    },
+    {
+      "kind": "hole",
+      "face": "top",
+      "x": {
+        "state": "known",
+        "value": 17.9,
+        "fact_ids": [
+          "D-013/drawing/n/17.9@1-1"
+        ]
+      },
+      "y": {
+        "state": "known",
+        "value": -7.5,
+        "fact_ids": [
+          "D-013/drawing/n/7.5@1-1"
+        ],
+        "expression": "0-n0"
+      },
+      "diameter": {
+        "state": "known",
+        "value": 2.5,
+        "fact_ids": [
+          "D-013/drawing/n/2.5@1-1"
+        ]
+      },
+      "through": true,
+      "hole_type": "threaded",
+      "thread": "M3 - 6H",
+      "fact_ids": [
+        "D-013",
+        "D-013/drawing/callout/p1-2"
+      ]
+    },
+    {
+      "kind": "hole",
+      "face": "top",
+      "x": {
+        "state": "known",
+        "value": 53.6,
+        "fact_ids": [
+          "D-013/drawing/n/17.9@1-1",
+          "D-013/drawing/n/35.7@1-1"
+        ],
+        "expression": "n0+n1"
+      },
+      "y": {
+        "state": "known",
+        "value": -7.5,
+        "fact_ids": [
+          "D-013/drawing/n/7.5@1-1"
+        ],
+        "expression": "0-n0"
+      },
+      "diameter": {
+        "state": "known",
+        "value": 2.5,
+        "fact_ids": [
+          "D-013/drawing/n/2.5@1-1"
+        ]
+      },
+      "through": true,
+      "hole_type": "threaded",
+      "thread": "M3 - 6H",
+      "fact_ids": [
+        "D-013",
+        "D-013/drawing/callout/p1-2"
+      ]
+    },
+    {
+      "kind": "slot",
+      "face": "top",
+      "x": {
+        "state": "known",
+        "value": 123.0,
+        "fact_ids": [
+          "D-013/drawing/n/41.0@1-1",
+          "D-013/drawing/n/82.0@1-2"
+        ],
+        "expression": "n0+n1"
+      },
+      "y": {
+        "state": "known",
+        "value": 4.55,
+        "fact_ids": [
+          "D-013/drawing/n/2.3@1-1",
+          "D-013/drawing/n/10.0@1-1",
+          "D-013/drawing/n/5.5@1-1"
+        ],
+        "expression": "n0+(n1-n2)/2"
+      },
+      "width": {
+        "state": "known",
+        "value": 5.5,
+        "fact_ids": [
+          "D-013/drawing/n/5.5@1-1"
+        ]
+      },
+      "length": {
+        "state": "known",
+        "value": 10.0,
+        "fact_ids": [
+          "D-013/drawing/n/10.0@1-1"
+        ]
+      },
+      "orientation": "vertical",
+      "through": true,
+      "hole_type": "plain",
+      "fact_ids": [
+        "D-013",
+        "D-013/drawing/callout/p1-3"
+      ]
+    }
+  ],
+  "features_review": {
+    "state": "known",
+    "value": [
+      {
+        "kind": "hole",
+        "face": "top",
+        "x": {
+          "state": "known",
+          "value": -82.0,
+          "fact_ids": [
+            "D-013/drawing/n/82.0@1-1"
+          ],
+          "expression": "0-n0"
+        },
+        "y": {
+          "state": "known",
+          "value": 4.5,
+          "fact_ids": [
+            "D-013/drawing/n/4.5@1-1"
+          ]
+        },
+        "diameter": {
+          "state": "known",
+          "value": 4.2,
+          "fact_ids": [
+            "D-013/drawing/n/4.2@1-1"
+          ]
+        },
+        "through": true,
+        "hole_type": "threaded",
+        "thread": "M5 - 6H",
+        "fact_ids": [
+          "D-013",
+          "D-013/drawing/callout/p1-1"
+        ]
+      },
+      {
+        "kind": "hole",
+        "face": "top",
+        "x": {
+          "state": "known",
+          "value": 17.9,
+          "fact_ids": [
+            "D-013/drawing/n/17.9@1-1"
+          ]
+        },
+        "y": {
+          "state": "known",
+          "value": -7.5,
+          "fact_ids": [
+            "D-013/drawing/n/7.5@1-1"
+          ],
+          "expression": "0-n0"
+        },
+        "diameter": {
+          "state": "known",
+          "value": 2.5,
+          "fact_ids": [
+            "D-013/drawing/n/2.5@1-1"
+          ]
+        },
+        "through": true,
+        "hole_type": "threaded",
+        "thread": "M3 - 6H",
+        "fact_ids": [
+          "D-013",
+          "D-013/drawing/callout/p1-2"
+        ]
+      },
+      {
+        "kind": "hole",
+        "face": "top",
+        "x": {
+          "state": "known",
+          "value": 53.6,
+          "fact_ids": [
+            "D-013/drawing/n/17.9@1-1",
+            "D-013/drawing/n/35.7@1-1"
+          ],
+          "expression": "n0+n1"
+        },
+        "y": {
+          "state": "known",
+          "value": -7.5,
+          "fact_ids": [
+            "D-013/drawing/n/7.5@1-1"
+          ],
+          "expression": "0-n0"
+        },
+        "diameter": {
+          "state": "known",
+          "value": 2.5,
+          "fact_ids": [
+            "D-013/drawing/n/2.5@1-1"
+          ]
+        },
+        "through": true,
+        "hole_type": "threaded",
+        "thread": "M3 - 6H",
+        "fact_ids": [
+          "D-013",
+          "D-013/drawing/callout/p1-2"
+        ]
+      },
+      {
+        "kind": "slot",
+        "face": "top",
+        "x": {
+          "state": "known",
+          "value": 123.0,
+          "fact_ids": [
+            "D-013/drawing/n/41.0@1-1",
+            "D-013/drawing/n/82.0@1-2"
+          ],
+          "expression": "n0+n1"
+        },
+        "y": {
+          "state": "known",
+          "value": 4.55,
+          "fact_ids": [
+            "D-013/drawing/n/2.3@1-1",
+            "D-013/drawing/n/10.0@1-1",
+            "D-013/drawing/n/5.5@1-1"
+          ],
+          "expression": "n0+(n1-n2)/2"
+        },
+        "width": {
+          "state": "known",
+          "value": 5.5,
+          "fact_ids": [
+            "D-013/drawing/n/5.5@1-1"
+          ]
+        },
+        "length": {
+          "state": "known",
+          "value": 10.0,
+          "fact_ids": [
+            "D-013/drawing/n/10.0@1-1"
+          ]
+        },
+        "orientation": "vertical",
+        "through": true,
+        "hole_type": "plain",
+        "fact_ids": [
+          "D-013",
+          "D-013/drawing/callout/p1-3"
+        ]
+      }
+    ],
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-013",
+      "D-013/drawing/callout/p1-1",
+      "D-013/drawing/callout/p1-2",
+      "D-013/drawing/callout/p1-3",
+      "D-013/drawing/n/82.0@1-1",
+      "D-013/drawing/n/4.5@1-1",
+      "D-013/drawing/n/17.9@1-1",
+      "D-013/drawing/n/35.7@1-1",
+      "D-013/drawing/n/7.5@1-1",
+      "D-013/drawing/n/41.0@1-1",
+      "D-013/drawing/n/82.0@1-2",
+      "D-013/drawing/n/2.3@1-1",
+      "D-013/drawing/n/10.0@1-1",
+      "D-013/drawing/n/5.5@1-1"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features",
+              "decision": "accept",
+              "reason": "Each included cut is supported. X=0 is the drawn vertical centreline and Y=0 is the horizontal centreline. Left M5 hole: the 82,0 dimension runs from the centreline to the hole, so X=-82. The 4,5 dimension runs from the centreline to the hole row, so Y=+4.5. The callout gives drill 4,2, M5 - 6H, THRU ALL. M3 holes: the 7,5 dimension puts the lower row at Y=-7.5. The 17,9 dimension from the centreline gives X=17.9, and the chained 35,7 gives X=53.6. The callout gives drill 2,5, M3 - 6H, THRU. Rightmost slot: 41,0 from the centreline plus the chained 82,0 gives X=123. The 2,3 dimension runs from the centreline to the slot's lower arc-centre mark. Adding (10,0-5,5)/2 gives a slot midpoint of Y=4.55. The callout gives 5,5 x 10,0 THRU ALL, and the slot runs vertically. Ordering and expressions are valid.",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/callout/p1-1",
+                "D-013/drawing/callout/p1-2",
+                "D-013/drawing/callout/p1-3",
+                "D-013/drawing/n/82.0@1-1",
+                "D-013/drawing/n/4.5@1-1",
+                "D-013/drawing/n/4.2@1-1",
+                "D-013/drawing/n/17.9@1-1",
+                "D-013/drawing/n/35.7@1-1",
+                "D-013/drawing/n/7.5@1-1",
+                "D-013/drawing/n/2.5@1-1",
+                "D-013/drawing/n/41.0@1-1",
+                "D-013/drawing/n/82.0@1-2",
+                "D-013/drawing/n/2.3@1-1",
+                "D-013/drawing/n/10.0@1-1",
+                "D-013/drawing/n/5.5@1-1"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "c68d30e7641daebd45ebf44629c27557796a62c8b7125084ed5a8d3976c7ce1e",
+            "response_proposal_fingerprint": "c68d30e7641daebd45ebf44629c27557796a62c8b7125084ed5a8d3976c7ce1e",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "5683c38ca26a5f72519bc71c68cc03f373876900a284da0087006996fd47ad18"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features",
+              "state": "known",
+              "value_json": "[{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-82.0,\"fact_ids\":[\"D-013/drawing/n/82.0@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":4.5,\"fact_ids\":[\"D-013/drawing/n/4.5@1-1\"]},\"diameter\":{\"state\":\"known\",\"value\":4.2,\"fact_ids\":[\"D-013/drawing/n/4.2@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M5 - 6H\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-1\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":17.9,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\"]},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":53.6,\"fact_ids\":[\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"],\"expression\":\"n0+n1\"},\"y\":{\"state\":\"known\",\"value\":-7.5,\"fact_ids\":[\"D-013/drawing/n/7.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":2.5,\"fact_ids\":[\"D-013/drawing/n/2.5@1-1\"]},\"through\":true,\"hole_type\":\"threaded\",\"thread\":\"M3 - 6H\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\"]},{\"kind\":\"slot\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":123.0,\"fact_ids\":[\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\"],\"expression\":\"n0+n1\"},\"y\":{\"state\":\"known\",\"value\":4.55,\"fact_ids\":[\"D-013/drawing/n/2.3@1-1\",\"D-013/drawing/n/10.0@1-1\",\"D-013/drawing/n/5.5@1-1\"],\"expression\":\"n0+(n1-n2)/2\"},\"width\":{\"state\":\"known\",\"value\":5.5,\"fact_ids\":[\"D-013/drawing/n/5.5@1-1\"]},\"length\":{\"state\":\"known\",\"value\":10.0,\"fact_ids\":[\"D-013/drawing/n/10.0@1-1\"]},\"orientation\":\"vertical\",\"through\":true,\"hole_type\":\"plain\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-3\"]}]",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/callout/p1-1",
+                "D-013/drawing/callout/p1-2",
+                "D-013/drawing/callout/p1-3",
+                "D-013/drawing/n/82.0@1-1",
+                "D-013/drawing/n/4.5@1-1",
+                "D-013/drawing/n/17.9@1-1",
+                "D-013/drawing/n/35.7@1-1",
+                "D-013/drawing/n/7.5@1-1",
+                "D-013/drawing/n/41.0@1-1",
+                "D-013/drawing/n/82.0@1-2",
+                "D-013/drawing/n/2.3@1-1",
+                "D-013/drawing/n/10.0@1-1",
+                "D-013/drawing/n/5.5@1-1"
+              ],
+              "reason": "Includes the located left M5 hole, two located M3 holes, and rightmost slot. The 2,3 dimension locates the slot's lower arc center above Y=0; its overall length and width determine its midpoint. Drill diameters come from explicit callouts.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "c68d30e7641daebd45ebf44629c27557796a62c8b7125084ed5a8d3976c7ce1e",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "6f7799c58fe0cc8c12af84b6e389be31e92abab4ab07ce0ad72c728db62a76c7"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "Includes the located left M5 hole, two located M3 holes, and rightmost slot. The 2,3 dimension locates the slot's lower arc center above Y=0; its overall length and width determine its midpoint. Drill diameters come from explicit callouts. Verification: Each included cut is supported. X=0 is the drawn vertical centreline and Y=0 is the horizontal centreline. Left M5 hole: the 82,0 dimension runs from the centreline to the hole, so X=-82. The 4,5 dimension runs from the centreline to the hole row, so Y=+4.5. The callout gives drill 4,2, M5 - 6H, THRU ALL. M3 holes: the 7,5 dimension puts the lower row at Y=-7.5. The 17,9 dimension from the centreline gives X=17.9, and the chained 35,7 gives X=53.6. The callout gives drill 2,5, M3 - 6H, THRU. Rightmost slot: 41,0 from the centreline plus the chained 82,0 gives X=123. The 2,3 dimension runs from the centreline to the slot's lower arc-centre mark. Adding (10,0-5,5)/2 gives a slot midpoint of Y=4.55. The callout gives 5,5 x 10,0 THRU ALL, and the slot runs vertically. Ordering and expressions are valid."
+  },
+  "material": {
+    "name": "D-013/drawing/material",
+    "original": "3.3315 (EN-AW 5005)",
+    "value": "3.3315 (EN-AW 5005)",
+    "confidence": "sure",
+    "method": "parsed",
+    "page": 1,
+    "box": [
+      745.28,
+      771.048,
+      135.0,
+      14.0
+    ],
+    "field_box": [
+      784.28,
+      771.048,
+      96.0,
+      14.0
+    ],
+    "label_box": [
+      745.28,
+      772.048,
+      38.539,
+      10.936
+    ]
+  },
+  "weight_on_drawing": {
+    "name": "D-013/drawing/weight_g",
+    "original": "87.5",
+    "value": 87.5,
+    "confidence": "sure",
+    "method": "parsed",
+    "page": 1,
+    "box": [
+      880.717,
+      771.048,
+      93.0,
+      14.0
+    ],
+    "field_box": [
+      924.717,
+      771.048,
+      49.0,
+      14.0
+    ],
+    "label_box": [
+      880.717,
+      772.048,
+      28.747,
+      10.936
+    ]
+  },
+  "cad_ready": true,
+  "blocking_fields": [],
+  "feature_protocol": "supported-feature-subset-v1",
+  "features_complete": {
+    "state": "known",
+    "value": false,
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-013",
+      "D-013/drawing/callout/p1-1",
+      "D-013/drawing/callout/p1-2",
+      "D-013/drawing/callout/p1-3",
+      "D-013/drawing/general/edge_finish"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_complete",
+              "decision": "accept",
+              "reason": "The drawing shows 2 M5 holes, 8 M3 holes, 4 slots and corner clips, but only 1 M5 hole, 2 M3 holes and 1 slot are fully located. Since features are omitted, false is correct.",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/callout/p1-1",
+                "D-013/drawing/callout/p1-2",
+                "D-013/drawing/callout/p1-3"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "c68d30e7641daebd45ebf44629c27557796a62c8b7125084ed5a8d3976c7ce1e",
+            "response_proposal_fingerprint": "c68d30e7641daebd45ebf44629c27557796a62c8b7125084ed5a8d3976c7ce1e",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "5683c38ca26a5f72519bc71c68cc03f373876900a284da0087006996fd47ad18"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_complete",
+              "state": "known",
+              "value_json": "false",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/callout/p1-1",
+                "D-013/drawing/callout/p1-2",
+                "D-013/drawing/callout/p1-3",
+                "D-013/drawing/general/edge_finish"
+              ],
+              "reason": "Additional holes, slots, corner clips and edge-break details remain unsupported.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "c68d30e7641daebd45ebf44629c27557796a62c8b7125084ed5a8d3976c7ce1e",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "6f7799c58fe0cc8c12af84b6e389be31e92abab4ab07ce0ad72c728db62a76c7"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "Additional holes, slots, corner clips and edge-break details remain unsupported. Verification: The drawing shows 2 M5 holes, 8 M3 holes, 4 slots and corner clips, but only 1 M5 hole, 2 M3 holes and 1 slot are fully located. Since features are omitted, false is correct."
+  },
+  "features_omitted": {
+    "state": "known",
+    "value": [
+      {
+        "description": "Remaining M5 - 6H through hole",
+        "reason": "The right-hand hole has an explicit diameter and thread but no independently dimensioned X position. Mirroring the left hole would require an unsupported symmetry assumption.",
+        "fact_ids": [
+          "D-013",
+          "D-013/drawing/callout/p1-1",
+          "D-013/drawing/n/82.0@1-1"
+        ]
+      },
+      {
+        "description": "Six remaining M3 - 6H through holes",
+        "reason": "The callout establishes eight holes. The 17,9 offset and adjacent 35,7 spacing locate only the two included holes; no explicit full-row spacing or symmetry dimension establishes the other six X positions.",
+        "fact_ids": [
+          "D-013",
+          "D-013/drawing/callout/p1-2",
+          "D-013/drawing/n/17.9@1-1",
+          "D-013/drawing/n/35.7@1-1"
+        ]
+      },
+      {
+        "description": "Three remaining 5,5 X 10,0 through slots",
+        "reason": "The two left-hand slots lack explicit X positions. The slot at X=41,0 lacks an independently dimensioned Y position or an explicit dimensioned alignment connecting it to the rightmost slot.",
+        "fact_ids": [
+          "D-013",
+          "D-013/drawing/callout/p1-3",
+          "D-013/drawing/n/41.0@1-1",
+          "D-013/drawing/n/82.0@1-2",
+          "D-013/drawing/n/2.3@1-1"
+        ]
+      },
+      {
+        "description": "Four visible corner clips",
+        "reason": "Their cut lengths and angles are not dimensioned, so the rectangular envelope cannot be trimmed exactly.",
+        "fact_ids": [
+          "D-013"
+        ]
+      },
+      {
+        "description": "DEBURR AND BREAK SHARP EDGES",
+        "reason": "The note supplies no edge-break size or profile for geometric modeling.",
+        "fact_ids": [
+          "D-013/drawing/general/edge_finish"
+        ]
+      }
+    ],
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-013",
+      "D-013/drawing/callout/p1-1",
+      "D-013/drawing/callout/p1-2",
+      "D-013/drawing/callout/p1-3",
+      "D-013/drawing/general/edge_finish"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_omitted",
+              "decision": "accept",
+              "reason": "Each omission matches the drawing. The right M5 hole has no X dimension. The six remaining M3 holes have no spacing or pattern dimension; only 17,9 and 35,7 are given. Three slots are unlocated: the two left slots have no X position, and the slot at X=41,0 has no Y dimension. The corner clips are undimensioned. The deburr note gives no break size. All cited IDs are original source IDs.",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/callout/p1-1",
+                "D-013/drawing/callout/p1-2",
+                "D-013/drawing/callout/p1-3",
+                "D-013/drawing/n/82.0@1-1",
+                "D-013/drawing/n/17.9@1-1",
+                "D-013/drawing/n/35.7@1-1",
+                "D-013/drawing/n/41.0@1-1",
+                "D-013/drawing/n/2.3@1-1",
+                "D-013/drawing/general/edge_finish"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "c68d30e7641daebd45ebf44629c27557796a62c8b7125084ed5a8d3976c7ce1e",
+            "response_proposal_fingerprint": "c68d30e7641daebd45ebf44629c27557796a62c8b7125084ed5a8d3976c7ce1e",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "5683c38ca26a5f72519bc71c68cc03f373876900a284da0087006996fd47ad18"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_omitted",
+              "state": "known",
+              "value_json": "[{\"description\":\"Remaining M5 - 6H through hole\",\"reason\":\"The right-hand hole has an explicit diameter and thread but no independently dimensioned X position. Mirroring the left hole would require an unsupported symmetry assumption.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-1\",\"D-013/drawing/n/82.0@1-1\"]},{\"description\":\"Six remaining M3 - 6H through holes\",\"reason\":\"The callout establishes eight holes. The 17,9 offset and adjacent 35,7 spacing locate only the two included holes; no explicit full-row spacing or symmetry dimension establishes the other six X positions.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-2\",\"D-013/drawing/n/17.9@1-1\",\"D-013/drawing/n/35.7@1-1\"]},{\"description\":\"Three remaining 5,5 X 10,0 through slots\",\"reason\":\"The two left-hand slots lack explicit X positions. The slot at X=41,0 lacks an independently dimensioned Y position or an explicit dimensioned alignment connecting it to the rightmost slot.\",\"fact_ids\":[\"D-013\",\"D-013/drawing/callout/p1-3\",\"D-013/drawing/n/41.0@1-1\",\"D-013/drawing/n/82.0@1-2\",\"D-013/drawing/n/2.3@1-1\"]},{\"description\":\"Four visible corner clips\",\"reason\":\"Their cut lengths and angles are not dimensioned, so the rectangular envelope cannot be trimmed exactly.\",\"fact_ids\":[\"D-013\"]},{\"description\":\"DEBURR AND BREAK SHARP EDGES\",\"reason\":\"The note supplies no edge-break size or profile for geometric modeling.\",\"fact_ids\":[\"D-013/drawing/general/edge_finish\"]}]",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-013",
+                "D-013/drawing/callout/p1-1",
+                "D-013/drawing/callout/p1-2",
+                "D-013/drawing/callout/p1-3",
+                "D-013/drawing/general/edge_finish"
+              ],
+              "reason": "Omissions identify missing positioning dimensions and unspecified edge geometry without completing them from visual alignment or symmetry.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "c68d30e7641daebd45ebf44629c27557796a62c8b7125084ed5a8d3976c7ce1e",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "6f7799c58fe0cc8c12af84b6e389be31e92abab4ab07ce0ad72c728db62a76c7"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "Omissions identify missing positioning dimensions and unspecified edge geometry without completing them from visual alignment or symmetry. Verification: Each omission matches the drawing. The right M5 hole has no X dimension. The six remaining M3 holes have no spacing or pattern dimension; only 17,9 and 35,7 are given. Three slots are unlocated: the two left slots have no X position, and the slot at X=41,0 has no Y dimension. The corner clips are undimensioned. The deburr note gives no break size. All cited IDs are original source IDs."
+  },
+  "features_all_determined": false,
+  "features_status": "partial",
+  "omitted_feature_notes": [
+    "Remaining M5 - 6H through hole: The right-hand hole has an explicit diameter and thread but no independently dimensioned X position. Mirroring the left hole would require an unsupported symmetry assumption.",
+    "Six remaining M3 - 6H through holes: The callout establishes eight holes. The 17,9 offset and adjacent 35,7 spacing locate only the two included holes; no explicit full-row spacing or symmetry dimension establishes the other six X positions.",
+    "Three remaining 5,5 X 10,0 through slots: The two left-hand slots lack explicit X positions. The slot at X=41,0 lacks an independently dimensioned Y position or an explicit dimensioned alignment connecting it to the rightmost slot.",
+    "Four visible corner clips: Their cut lengths and angles are not dimensioned, so the rectangular envelope cannot be trimmed exactly.",
+    "DEBURR AND BREAK SHARP EDGES: The note supplies no edge-break size or profile for geometric modeling."
+  ],
+  "review": {
+    "status": "not_reviewed"
+  },
+  "source_sha256": "826076b03bfbaeee961dc3e57cb642c225d41f1ea9a643d0bb1ca7d296280047"
+}

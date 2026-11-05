@@ -1,0 +1,48 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "relationship",
+        "state": "known",
+        "value_json": "\"kind_of\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-012/drawing/material",
+          "D-014/drawing/material",
+          "BOM:recoater/recoater-mount-block",
+          "BOM:recoater/recoater-stage-plate"
+        ],
+        "reason": "The drawings specify \"3.3315 (EN-AW 5005)\" and their linked BOM entries specify \"Aluminium\". Classifying this grade as a specific aluminium alloy is based on general engineering knowledge, not the dataset. This suggestion requires actual human approval before use.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 15271,
+          "cached_input_tokens": 10112,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 496,
+          "reasoning_output_tokens": 350
+        }
+      }
+    ]
+  },
+  "latency_ms": 22000,
+  "cache_key": "d0565df8b61beeb4609b0d27d8d1f698d1e2fde55c6c7df6cfe00a3f0cca6ba5",
+  "cache_hit": false,
+  "job": "mapping:names/material/3-3315-en-aw-5005 -> aluminium:proposal-verification-v1:proposal:0",
+  "error": null
+}

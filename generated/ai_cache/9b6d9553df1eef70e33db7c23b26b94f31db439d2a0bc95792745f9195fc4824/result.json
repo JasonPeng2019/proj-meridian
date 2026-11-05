@@ -1,0 +1,111 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "71885843868322f5b8b328deeb3e7b745ebb77bfda558d79f48ee1e91491ab30",
+    "items": [
+      {
+        "key": "features",
+        "decision": "accept",
+        "reason": "Callout D-026/drawing/callout/p1-2 specifies 3 x Ø5,3 THRU ALL with a Ø10,0 counterbore (D-026/drawing/n/10.0@1-1) of depth 15,4 (D-026/drawing/n/15.4@1-1). The thickness is stacked as alternatives 25,0 (D-026/drawing/n/25.0@1-1) and 15,0 (D-026/drawing/n/15.0@1-1). A 15,4 counterbore is deeper than the 15,0 plate, so the operation is not consistently valid for both alternatives. That leaves the left hole at R105,0 on the -X centerline without a fully supported operation. Drawing D-026 gives no angular positions for the other two holes. No cut is fully supported, so known [] is the correct supported subset.",
+        "fact_ids": [
+          "D-026",
+          "D-026/drawing/callout/p1-2",
+          "D-026/drawing/n/10.0@1-1",
+          "D-026/drawing/n/15.4@1-1",
+          "D-026/drawing/n/15.0@1-1",
+          "D-026/drawing/n/25.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_complete",
+        "decision": "accept",
+        "reason": "Drawing D-026 shows three counterbored holes from D-026/drawing/callout/p1-2, and none of them is included in features. The DEBURR AND BREAK SHARP EDGES note (D-026/drawing/general/edge_finish) has no size. Because features_omitted is not empty, false is the correct value.",
+        "fact_ids": [
+          "D-026",
+          "D-026/drawing/callout/p1-2",
+          "D-026/drawing/n/15.4@1-1",
+          "D-026/drawing/n/15.0@1-1",
+          "D-026/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_omitted",
+        "decision": "accept",
+        "reason": "The drawing image shows all three entries. (1) The left hole sits on the horizontal centerline at R105,0 (D-026/drawing/callout/p1-1, D-026/drawing/n/105.0@1-1). Its hole data is Ø5,3 THRU, Ø10,0 counterbore, depth 15,4 (D-026/drawing/n/5.3@1-1, D-026/drawing/n/10.0@1-1, D-026/drawing/n/15.4@1-1). The depth conflict with the 15,0 alternative (D-026/drawing/n/15.0@1-1) is described accurately. (2) The other two holes lie on the R105,0 circle, but the drawing gives no angle for them, and they have the same depth conflict. (3) The edge-break note (D-026/drawing/general/edge_finish) gives no size. Every cited ID exists in the original evidence, and the reasons say exactly what is missing.",
+        "fact_ids": [
+          "D-026",
+          "D-026/drawing/callout/p1-1",
+          "D-026/drawing/callout/p1-2",
+          "D-026/drawing/n/105.0@1-1",
+          "D-026/drawing/n/5.3@1-1",
+          "D-026/drawing/n/10.0@1-1",
+          "D-026/drawing/n/15.4@1-1",
+          "D-026/drawing/n/15.0@1-1",
+          "D-026/drawing/n/25.0@1-1",
+          "D-026/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 14475,
+      "cache_read_input_tokens": 10936,
+      "output_tokens": 1974,
+      "output_tokens_details": {
+        "thinking_tokens": 594
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 14475,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 1974,
+        "cacheReadInputTokens": 10936,
+        "cacheCreationInputTokens": 14475,
+        "webSearchRequests": 0,
+        "costUSD": 0.1574832,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 594,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 14475,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.1574832,
+    "duration_ms": 18644,
+    "is_error": false
+  },
+  "latency_ms": 19844,
+  "cache_key": "9b6d9553df1eef70e33db7c23b26b94f31db439d2a0bc95792745f9195fc4824",
+  "cache_hit": false,
+  "job": "template:D-026:proposal-verification-v1:verification:1",
+  "error": null
+}

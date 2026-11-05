@@ -1,0 +1,138 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "19a0cde5653790bb0f8df0c177de461261354351d889d2778435a2a6252e1236",
+    "items": [
+      {
+        "key": "title",
+        "decision": "accept",
+        "reason": "The TITLE/DESCRIPTION field in the supplied title-block image reads \"ByggeCylinder\", which matches the proposal exactly.",
+        "fact_ids": [
+          "D-023/drawing/title"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "material",
+        "decision": "accept",
+        "reason": "The MATERIAL field reads \"EN AW-6082\", which matches the proposal exactly.",
+        "fact_ids": [
+          "D-023/drawing/material"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "weight_g",
+        "decision": "accept",
+        "reason": "The field labelled WEIGHT [g] prints 3195.5. The unit is given explicitly in grams, so the numeric value 3195.5 is supported.",
+        "fact_ids": [
+          "D-023/drawing/weight_g"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "notes",
+        "decision": "accept",
+        "reason": "The NOTE field reads, line by line: \"Baseret på Ø280mm, t=15mm\" / \"EN AW-6082 T6 rør fra Alumeco.\" / \"Indre flade [B] skal slutte tæt med\" / \"en dynamisk keramisk pakning.\" / a blank line / \"55 mm længere ift. version 1\". The proposed string matches this character for character.",
+        "fact_ids": [
+          "D-023/drawing/notes"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "date",
+        "decision": "reject",
+        "reason": "The DATE field in the image reads \"13-09-2023\". The proposal gives \"15/09/2023\", which has the wrong day (15 instead of 13) and the wrong separators (slashes instead of hyphens). This can be corrected from the existing image.",
+        "fact_ids": [
+          "D-023/drawing/date"
+        ],
+        "repairable": true
+      },
+      {
+        "key": "company",
+        "decision": "accept",
+        "reason": "The COMPANY field reads \"DTU MPP\", which matches the proposal exactly.",
+        "fact_ids": [
+          "D-023/drawing/company"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "scale",
+        "decision": "accept",
+        "reason": "The scale cell is printed as \"SCALE:1:5\", so the field value is \"1:5\". This matches the proposal.",
+        "fact_ids": [
+          "D-023/drawing/scale"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "drawn",
+        "decision": "accept",
+        "reason": "The DRAWN field reads \"MBOKJ\", which matches the proposal exactly. The proposal does not substitute the person's name from the adjacent contact block.",
+        "fact_ids": [
+          "D-023/drawing/drawn"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 6396,
+      "cache_read_input_tokens": 10379,
+      "output_tokens": 1165,
+      "output_tokens_details": {
+        "thinking_tokens": 68
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 6396,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 1165,
+        "cacheReadInputTokens": 10379,
+        "cacheCreationInputTokens": 6396,
+        "webSearchRequests": 0,
+        "costUSD": 0.0765598,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 68,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 6396,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.0765598,
+    "duration_ms": 10464,
+    "is_error": false
+  },
+  "latency_ms": 11672,
+  "cache_key": "09cbc6ef773756d245c08022b4ba0aed9e8200477cb53c682aa0a7e355cccabb",
+  "cache_hit": false,
+  "job": "scan:D-023:proposal-verification-v1:verification:0",
+  "error": null
+}

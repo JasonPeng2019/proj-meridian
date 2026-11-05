@@ -1,0 +1,77 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "72281dd50bc4ad09795d8d7f998c06bc1913a63bc129df16d195c97357d402a9",
+    "items": [
+      {
+        "key": "relationship",
+        "decision": "accept",
+        "reason": "D-011/drawing/material reads '7075-T6, Plate (SS)', and D-011/drawing/notes includes 'Alu.'. The established link connects D-011 to BOM:recoater/recoater-arm, whose material is 'Aluminium'. Based on general engineering knowledge, not the dataset, 7075-T6 is a specific aluminium alloy and temper. That makes LEFT more specific than RIGHT, so 'kind_of' is supported. The 'Alu.' note backs reading the material as aluminium rather than taking '(SS)' as stainless steel. However, '(SS)' is still unexpanded in the source, and the proposal says so correctly. Human mapping approval is still required.",
+        "fact_ids": [
+          "D-011/drawing/material",
+          "D-011/drawing/notes",
+          "BOM:recoater/recoater-arm"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 11132,
+      "cache_read_input_tokens": 2525,
+      "output_tokens": 598,
+      "output_tokens_details": {
+        "thinking_tokens": 172
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 11132,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 598,
+        "cacheReadInputTokens": 2525,
+        "cacheCreationInputTokens": 11132,
+        "webSearchRequests": 0,
+        "costUSD": 0.101529,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 172,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 11132,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.101529,
+    "duration_ms": 6032,
+    "is_error": false
+  },
+  "latency_ms": 7187,
+  "cache_key": "4df1f08ea1c6885fecc4578d2c16c9662dc5b8eae4908c6632fac0c4ddf8363d",
+  "cache_hit": false,
+  "job": "mapping:names/material/7075-t6-plate-ss -> aluminium:proposal-verification-v1:verification:0",
+  "error": null
+}

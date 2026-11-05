@@ -1,0 +1,78 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "69be2d8bb9d36d6655ece01814addee3e25e1a6edd4bdec0e86f806ab3627e4c",
+    "items": [
+      {
+        "key": "link",
+        "decision": "accept",
+        "reason": "The proposal's state is unknown/null, and the evidence supports that. D-009/drawing/notes (sure) names the part only as \"Powder canister.\" with \"Non-magnetic stainless.\" D-009/drawing/title and D-009/drawing/material are both null and unsure. No BOM row is named canister. The closest row in the Powder section is BOM:powder/powder-hopper (display name \"Powder hopper\", material \"Stainless steel\", no datasheet). However, \"canister\" vs \"hopper\" and \"Non-magnetic stainless\" vs \"Stainless steel\" are differing names that the task says not to treat as already approved equivalents. No datasheet links this drawing to that row. Because the evidence points to a possible match but can't confirm it, neither a definite match nor [] is supported, so unknown/unsure is the right answer. Resolving the link needs a human mapping decision or new evidence such as a title or datasheet.",
+        "fact_ids": [
+          "D-009/drawing/notes",
+          "D-009/drawing/title",
+          "D-009/drawing/material",
+          "BOM:powder/powder-hopper"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 8109,
+      "cache_read_input_tokens": 2523,
+      "output_tokens": 697,
+      "output_tokens_details": {
+        "thinking_tokens": 178
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 8109,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 697,
+        "cacheReadInputTokens": 2523,
+        "cacheCreationInputTokens": 8109,
+        "webSearchRequests": 0,
+        "costUSD": 0.0793246,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 178,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 8109,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.0793246,
+    "duration_ms": 6661,
+    "is_error": false
+  },
+  "latency_ms": 7813,
+  "cache_key": "c6c9bdbc44bcd143540f3efa0344c847784492482f9128f57140c75a94a9bc6b",
+  "cache_hit": false,
+  "job": "link:D-009:proposal-verification-v1:verification:0",
+  "error": null
+}

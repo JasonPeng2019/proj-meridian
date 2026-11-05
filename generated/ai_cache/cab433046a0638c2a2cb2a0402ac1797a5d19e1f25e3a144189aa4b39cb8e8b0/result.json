@@ -1,0 +1,45 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "scale",
+        "state": "known",
+        "value_json": "\"1:5\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-001/drawing/scale"
+        ],
+        "reason": "The SCALE field in the original crop reads 1:5.",
+        "changed_because": "Reinspection shows the final digit is 5; the previous reading of 3 was incorrect."
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 15530,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 497,
+          "reasoning_output_tokens": 408
+        }
+      }
+    ]
+  },
+  "latency_ms": 15922,
+  "cache_key": "cab433046a0638c2a2cb2a0402ac1797a5d19e1f25e3a144189aa4b39cb8e8b0",
+  "cache_hit": false,
+  "job": "scan:D-001:proposal-verification-v1:proposal:1",
+  "error": null
+}

@@ -1,0 +1,122 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "title",
+        "state": "known",
+        "value_json": "\"Recoater Arm\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-011/drawing/title"
+        ],
+        "reason": "The title field reads “Recoater Arm”.",
+        "changed_because": ""
+      },
+      {
+        "key": "material",
+        "state": "known",
+        "value_json": "\"7075-T6, Plate (SS)\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-011/drawing/material"
+        ],
+        "reason": "The MATERIAL field reads “7075-T6, Plate (SS)”.",
+        "changed_because": ""
+      },
+      {
+        "key": "weight_g",
+        "state": "known",
+        "value_json": "415.3",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-011/drawing/weight_g"
+        ],
+        "reason": "The WEIGHT [g] field prints 415.3.",
+        "changed_because": ""
+      },
+      {
+        "key": "notes",
+        "state": "known",
+        "value_json": "\"Alu.\\nArm til linær føring\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-011/drawing/notes"
+        ],
+        "reason": "The note lines read “Alu.” and “Arm til linær føring”.",
+        "changed_because": ""
+      },
+      {
+        "key": "date",
+        "state": "known",
+        "value_json": "\"24/11/2021\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-011/drawing/date"
+        ],
+        "reason": "The DATE field reads “24/11/2021”.",
+        "changed_because": ""
+      },
+      {
+        "key": "company",
+        "state": "known",
+        "value_json": "\"DTU MPP\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-011/drawing/company"
+        ],
+        "reason": "The COMPANY field reads “DTU MPP”.",
+        "changed_because": ""
+      },
+      {
+        "key": "scale",
+        "state": "known",
+        "value_json": "\"1:2\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-011/drawing/scale"
+        ],
+        "reason": "The SCALE field reads “1:2”.",
+        "changed_because": ""
+      },
+      {
+        "key": "drawn",
+        "state": "known",
+        "value_json": "\"MBOKJ\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-011/drawing/drawn"
+        ],
+        "reason": "The DRAWN field reads “MBOKJ”.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 15244,
+          "cached_input_tokens": 10112,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1977,
+          "reasoning_output_tokens": 1515
+        }
+      }
+    ]
+  },
+  "latency_ms": 46000,
+  "cache_key": "ea0a9a5617c9f9efe1969e4a274e22d8e3533996363ed63ba8e52a12e8268fdf",
+  "cache_hit": false,
+  "job": "scan:D-011:proposal-verification-v1:proposal:0",
+  "error": null
+}

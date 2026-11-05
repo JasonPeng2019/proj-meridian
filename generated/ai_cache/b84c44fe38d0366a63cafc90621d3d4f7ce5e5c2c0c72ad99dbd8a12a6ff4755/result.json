@@ -1,0 +1,75 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "7261f9751b88919be260e97ec81634f397c4d1400ee1da5f68a216b1e67d5218",
+    "items": [
+      {
+        "key": "scale",
+        "decision": "needs_input",
+        "reason": "Source D-001/drawing/scale is marked source_quality 'degraded', value null, with the note 'Too blurry to read on the scan.' In the supplied crop, the SCALE cell (lower right, next to 'SHEET 1 OF 1') has very small, blurred text. It looks like 'SCALE:1:5', but at this resolution the final digit could be a 5 or a 3. The proposer read it as 3 earlier and now reads it as 5, which shows the same ambiguity. The existing evidence doesn't settle the digit with certainty, so the 'known'/'sure' value '1:5' can't be verified. A higher-resolution scan or a human reading is needed.",
+        "fact_ids": [
+          "D-001/drawing/scale"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 8201,
+      "cache_read_input_tokens": 7075,
+      "output_tokens": 855,
+      "output_tokens_details": {
+        "thinking_tokens": 319
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 8201,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 855,
+        "cacheReadInputTokens": 7075,
+        "cacheCreationInputTokens": 8201,
+        "webSearchRequests": 0,
+        "costUSD": 0.08413899999999999,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 319,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 8201,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.08413899999999999,
+    "duration_ms": 10074,
+    "is_error": false
+  },
+  "latency_ms": 11266,
+  "cache_key": "b84c44fe38d0366a63cafc90621d3d4f7ce5e5c2c0c72ad99dbd8a12a6ff4755",
+  "cache_hit": false,
+  "job": "scan:D-001:proposal-verification-v1:verification:1",
+  "error": null
+}

@@ -1,0 +1,49 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-017/drawing/title",
+          "D-017/drawing/notes",
+          "D-017/drawing/material",
+          "BOM:optics/sunny-galvo-adapter-plate",
+          "BOM:optics/galvo-box-bracket"
+        ],
+        "reason": "“Galvo Montage Plade” and “Galvo Collimator Plade” do not uniquely identify “Sunny Galvo Adapter Plate” or “Galvo box bracket”. Section “Optical” differs from “Optics”, and material “7075-T6, Plate (SS)” with note “Alu” is not an explicitly approved equivalent of “Aluminium”. Neither BOM row supplies a datasheet linking it to GalvoMountPlate.pdf.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 16130,
+          "cached_input_tokens": 10112,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 688,
+          "reasoning_output_tokens": 502
+        }
+      }
+    ]
+  },
+  "latency_ms": 19250,
+  "cache_key": "142593526bc59ead47634f397e87d63b74f34b3a272925f1b00b6de087ef3387",
+  "cache_hit": false,
+  "job": "link:D-017:proposal-verification-v1:proposal:0",
+  "error": null
+}

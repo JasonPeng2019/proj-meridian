@@ -1,0 +1,138 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "5cadfad274cd34bf9b23b3ac43a09f4e209dd82196eb36e4f4a35fd9add24f3d",
+    "items": [
+      {
+        "key": "title",
+        "decision": "accept",
+        "reason": "In the supplied title-block image, the TITLE/DESCRIPTION area (D-030/drawing/title box) shows only the label and no text. Unknown/null is the correct state; the NOTE text is not copied into the title.",
+        "fact_ids": [
+          "D-030/drawing/title"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "material",
+        "decision": "accept",
+        "reason": "The MATERIAL: cell (D-030/drawing/material) is empty in the image. 'Aluminium' appears only in the NOTE field, so leaving material as unknown/null is correct and doesn't guess.",
+        "fact_ids": [
+          "D-030/drawing/material"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "weight_g",
+        "decision": "accept",
+        "reason": "The WEIGHT [g]: cell (D-030/drawing/weight_g) has no printed value in the image, so unknown/null is correct.",
+        "fact_ids": [
+          "D-030/drawing/weight_g"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "notes",
+        "decision": "accept",
+        "reason": "The NOTE: field (D-030/drawing/notes) clearly shows two lines, 'Z-axis MotorPlate' and 'Aluminium'. The proposed value matches them character for character, including the line break.",
+        "fact_ids": [
+          "D-030/drawing/notes"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "date",
+        "decision": "accept",
+        "reason": "The DATE cell (D-030/drawing/date) reads '24-01-2024' in the image, which matches the proposal exactly.",
+        "fact_ids": [
+          "D-030/drawing/date"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "company",
+        "decision": "accept",
+        "reason": "The company cell (D-030/drawing/company) shows 'DTU MPP' printed next to the DTU logo, which matches the proposal exactly. The personal name and email in the next cell are not part of this value.",
+        "fact_ids": [
+          "D-030/drawing/company"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "scale",
+        "decision": "accept",
+        "reason": "The scale cell (D-030/drawing/scale) reads 'SCALE:1:3', so the value after the label is '1:3', which matches the proposal.",
+        "fact_ids": [
+          "D-030/drawing/scale"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "drawn",
+        "decision": "accept",
+        "reason": "The DRAWN cell (D-030/drawing/drawn) reads 'MBOKJ', which matches the proposal exactly. This is consistent with the 'mbokj@' email shown in the title block.",
+        "fact_ids": [
+          "D-030/drawing/drawn"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 6292,
+      "cache_read_input_tokens": 10275,
+      "output_tokens": 1294,
+      "output_tokens_details": {
+        "thinking_tokens": 181
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 6292,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 1294,
+        "cacheReadInputTokens": 10275,
+        "cacheCreationInputTokens": 6292,
+        "webSearchRequests": 0,
+        "costUSD": 0.078287,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 181,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 6292,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.078287,
+    "duration_ms": 12907,
+    "is_error": false
+  },
+  "latency_ms": 14109,
+  "cache_key": "670869f7bc0d2893c841fa806e1dff4636ca6ce9b36e054f6381ec3c660d0201",
+  "cache_hit": false,
+  "job": "scan:D-030:proposal-verification-v1:verification:0",
+  "error": null
+}

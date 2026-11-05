@@ -1,0 +1,138 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "46255164f4bb410dc3f4ac4422675b82bf692cb30680ab6b7fb9553b6bedaca3",
+    "items": [
+      {
+        "key": "title",
+        "decision": "accept",
+        "reason": "The supplied title-block image shows 'Recoater Arm' under TITLE/DESCRIPTION, which matches the proposal exactly.",
+        "fact_ids": [
+          "D-011/drawing/title"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "material",
+        "decision": "accept",
+        "reason": "The image shows 'MATERIAL: 7075-T6, Plate (SS)', which matches the proposed string.",
+        "fact_ids": [
+          "D-011/drawing/material"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "weight_g",
+        "decision": "accept",
+        "reason": "The image clearly prints 'WEIGHT [g]: 415.3', so the unit is grams and the value is 415.3.",
+        "fact_ids": [
+          "D-011/drawing/weight_g"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "notes",
+        "decision": "accept",
+        "reason": "The NOTE box has two lines, 'Alu.' and 'Arm til linær føring'. The image shows the æ ligature, which matches the proposed newline-separated string.",
+        "fact_ids": [
+          "D-011/drawing/notes"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "date",
+        "decision": "accept",
+        "reason": "The DATE cell reads '24/11/2021', which matches the proposal.",
+        "fact_ids": [
+          "D-011/drawing/date"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "company",
+        "decision": "accept",
+        "reason": "The COMPANY cell reads 'DTU MPP'. The contact details in the next cell are separate and not part of the company field.",
+        "fact_ids": [
+          "D-011/drawing/company"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "scale",
+        "decision": "accept",
+        "reason": "The image reads 'SCALE:1:2', so the scale value is '1:2'.",
+        "fact_ids": [
+          "D-011/drawing/scale"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "drawn",
+        "decision": "accept",
+        "reason": "The DRAWN cell reads 'MBOKJ', which matches the proposal.",
+        "fact_ids": [
+          "D-011/drawing/drawn"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 6296,
+      "cache_read_input_tokens": 10281,
+      "output_tokens": 1035,
+      "output_tokens_details": {
+        "thinking_tokens": 110
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 6296,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 1035,
+        "cacheReadInputTokens": 10281,
+        "cacheCreationInputTokens": 6296,
+        "webSearchRequests": 0,
+        "costUSD": 0.0731402,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 110,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 6296,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.0731402,
+    "duration_ms": 10262,
+    "is_error": false
+  },
+  "latency_ms": 11453,
+  "cache_key": "0c414dda468a04c07c7e29ac164449a4e7bac543c2ea6af132d256338fbbb275",
+  "cache_hit": false,
+  "job": "scan:D-011:proposal-verification-v1:verification:0",
+  "error": null
+}

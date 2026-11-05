@@ -1,0 +1,46 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-006/drawing/notes",
+          "BOM:powder/powder-hopper"
+        ],
+        "reason": "The drawing specifies “Canister Wall”, “Left and right side, one of each.” and “Non-magnetic stainless”. “Powder hopper” has the same section, “Powder”, and material “Stainless steel”, but its name, notes and empty datasheet list do not establish that these walls represent that BOM row. The link remains ambiguous.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 16138,
+          "cached_input_tokens": 10112,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 953,
+          "reasoning_output_tokens": 815
+        }
+      }
+    ]
+  },
+  "latency_ms": 26797,
+  "cache_key": "947860ee28d00fea80a1e9b8521f47d95d1e500951481663b19b9afd8332dcb2",
+  "cache_hit": false,
+  "job": "link:D-006:proposal-verification-v1:proposal:0",
+  "error": null
+}

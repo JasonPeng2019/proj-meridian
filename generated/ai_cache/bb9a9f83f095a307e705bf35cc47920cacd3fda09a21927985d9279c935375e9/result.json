@@ -1,0 +1,45 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "date",
+        "state": "known",
+        "value_json": "\"26/10/2023\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-003/drawing/date"
+        ],
+        "reason": "The original DATE cell reads \"26/10/2023\".",
+        "changed_because": "Reinspection shows the second digit of the day is 6; the previous proposal misread it as 4."
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 15454,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 463,
+          "reasoning_output_tokens": 367
+        }
+      }
+    ]
+  },
+  "latency_ms": 15203,
+  "cache_key": "bb9a9f83f095a307e705bf35cc47920cacd3fda09a21927985d9279c935375e9",
+  "cache_hit": false,
+  "job": "scan:D-003:proposal-verification-v1:proposal:1",
+  "error": null
+}

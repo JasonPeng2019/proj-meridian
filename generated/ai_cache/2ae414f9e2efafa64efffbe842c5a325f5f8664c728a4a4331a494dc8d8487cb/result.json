@@ -1,0 +1,138 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "bd2098fa3e77812d45b4a844a62d54430be4fad14fcf89661afe493cf7ae6088",
+    "items": [
+      {
+        "key": "title",
+        "decision": "needs_input",
+        "reason": "The TITLE/DESCRIPTION box in the supplied title-block image has only its label and nothing written in it. The proposed unknown/null matches what is visible, but the protocol says a null value must be needs_input. A title would have to come from new evidence or a person.",
+        "fact_ids": [
+          "D-009/drawing/title"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "material",
+        "decision": "needs_input",
+        "reason": "The MATERIAL: field in the image is empty. The NOTE says 'Non-magnetic stainless.', but the material field itself has no entry and the instructions forbid filling blanks. The proposed null is consistent with the image, but per the protocol a null value is needs_input.",
+        "fact_ids": [
+          "D-009/drawing/material"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "weight_g",
+        "decision": "needs_input",
+        "reason": "The WEIGHT [g]: field in the image has no number after the label. The proposed null is consistent with the image, but per the protocol a null value is needs_input.",
+        "fact_ids": [
+          "D-009/drawing/weight_g"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "notes",
+        "decision": "accept",
+        "reason": "The NOTE: box reads 'Powder canister.' / 'Non-magnetic stainless.' / (blank line) / 'Wall thickness as thin as possible.' / 'Must be powder tight.'. This matches the proposed string exactly, including the blank line.",
+        "fact_ids": [
+          "D-009/drawing/notes"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "date",
+        "decision": "accept",
+        "reason": "The DATE cell in the title block reads '20/12/2023', which matches the proposal exactly.",
+        "fact_ids": [
+          "D-009/drawing/date"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "company",
+        "decision": "accept",
+        "reason": "The company area reads 'DTU MPP' beside the DTU logo, which matches the proposed string exactly.",
+        "fact_ids": [
+          "D-009/drawing/company"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "scale",
+        "decision": "accept",
+        "reason": "The title block reads 'SCALE:1:5', so the scale value is '1:5', which matches the proposal.",
+        "fact_ids": [
+          "D-009/drawing/scale"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "drawn",
+        "decision": "accept",
+        "reason": "The DRAWN cell reads 'MBOKJ', which matches the proposal exactly.",
+        "fact_ids": [
+          "D-009/drawing/drawn"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 6310,
+      "cache_read_input_tokens": 10292,
+      "output_tokens": 1541,
+      "output_tokens_details": {
+        "thinking_tokens": 413
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 6310,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 1541,
+        "cacheReadInputTokens": 10292,
+        "cacheCreationInputTokens": 6310,
+        "webSearchRequests": 0,
+        "costUSD": 0.0833744,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 413,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 6310,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.0833744,
+    "duration_ms": 15456,
+    "is_error": false
+  },
+  "latency_ms": 16625,
+  "cache_key": "2ae414f9e2efafa64efffbe842c5a325f5f8664c728a4a4331a494dc8d8487cb",
+  "cache_hit": false,
+  "job": "scan:D-009:proposal-verification-v1:verification:0",
+  "error": null
+}

@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a1ab25-58f9-7b12-9720-e934cfbab1ba"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"items\":[{\"key\":\"scale\",\"state\":\"known\",\"value_json\":\"\\\"1:5\\\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-001/drawing/scale\"],\"reason\":\"The SCALE field in the original crop reads 1:5.\",\"changed_because\":\"Reinspection shows the final digit is 5; the previous reading of 3 was incorrect.\"}]}"}}
+{"type":"turn.completed","usage":{"input_tokens":15530,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":497,"reasoning_output_tokens":408}}

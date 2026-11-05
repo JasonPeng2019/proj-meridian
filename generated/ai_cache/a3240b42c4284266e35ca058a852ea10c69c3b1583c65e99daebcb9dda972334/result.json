@@ -1,0 +1,80 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "76132969b6de2f89ffb59b476ad9601427eae93bf580c0b0bf7b8c6f0c3e8112",
+    "items": [
+      {
+        "key": "link",
+        "decision": "accept",
+        "reason": "Drawing D-003 is in section 'Box' and has the source filename 'MainPlatform_Loop2.PDF'. Its note D-003/drawing/notes says '20mm thick aluminium plate.' Four Box rows use 'Aluminium': Front Door, Print Platform, Window Frame and Back Door. BOM:box/print-platform is the only one of these, and the only row in the whole BOM, whose name contains 'Platform'. That matches the 'MainPlatform' part of the filename. A thick aluminium plate also fits a print platform better than a door or a window frame. The title and material fields are null, and the filename says 'MainPlatform' rather than 'Print Platform', so the name is not an exact match. Even so, the section, material note and filename together point to exactly one row, and no other row competes. The single-row link [\"BOM:box/print-platform\"] is supported.",
+        "fact_ids": [
+          "D-003",
+          "D-003/drawing/notes",
+          "BOM:box/print-platform",
+          "BOM:box/front-door",
+          "BOM:box/back-door",
+          "BOM:box/window-frame"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 8037,
+      "cache_read_input_tokens": 2523,
+      "output_tokens": 849,
+      "output_tokens_details": {
+        "thinking_tokens": 344
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 8037,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 849,
+        "cacheReadInputTokens": 2523,
+        "cacheCreationInputTokens": 8037,
+        "webSearchRequests": 0,
+        "costUSD": 0.08178860000000002,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 344,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 8037,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.08178860000000002,
+    "duration_ms": 8800,
+    "is_error": false
+  },
+  "latency_ms": 9969,
+  "cache_key": "a3240b42c4284266e35ca058a852ea10c69c3b1583c65e99daebcb9dda972334",
+  "cache_hit": false,
+  "job": "link:D-003:proposal-verification-v1:verification:0",
+  "error": null
+}

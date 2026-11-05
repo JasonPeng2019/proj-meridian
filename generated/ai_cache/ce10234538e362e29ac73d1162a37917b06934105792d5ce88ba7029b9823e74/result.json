@@ -1,0 +1,73 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "49a4265acaff48e18b9ef6adbcdcec6b1398331179dc4848794c540c9fa03cbe",
+    "items": [
+      {
+        "key": "relationship",
+        "decision": "accept",
+        "reason": "The original task input has left=null. This means no drawing section is represented. The task instruction says: 'Empty left means no represented drawing section; use no_equivalent.' The drawing sections listed in all_drawing_sections are Box, Gas Flow, Optical, Powder, Recoater and Z-axis. None of them is SensorGantry, and established_links is empty, so no link supports any other relationship. The proposed value \"no_equivalent\" matches the evidence. No source IDs were supplied (bom_evidence and drawing_evidence are empty), so the empty fact_ids is correct. This is only a suggestion, and a person must still approve the mapping before it is used.",
+        "fact_ids": [],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 3517,
+      "cache_read_input_tokens": 2525,
+      "output_tokens": 374,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 3517,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 374,
+        "cacheReadInputTokens": 2525,
+        "cacheCreationInputTokens": 3517,
+        "webSearchRequests": 0,
+        "costUSD": 0.036129,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 3517,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.036129,
+    "duration_ms": 3945,
+    "is_error": false
+  },
+  "latency_ms": 5110,
+  "cache_key": "ce10234538e362e29ac73d1162a37917b06934105792d5ce88ba7029b9823e74",
+  "cache_hit": false,
+  "job": "mapping:names/section/ -> sensorgantry:proposal-verification-v1:verification:0",
+  "error": null
+}

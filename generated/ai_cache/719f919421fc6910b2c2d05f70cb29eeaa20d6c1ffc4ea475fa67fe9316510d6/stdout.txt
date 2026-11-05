@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a1ab30-262c-7261-bf1d-8798bba82c8d"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"items\":[{\"key\":\"link\",\"state\":\"unknown\",\"value_json\":\"null\",\"confidence\":\"unsure\",\"fact_ids\":[\"D-008/drawing/title\",\"D-008/drawing/notes\",\"BOM:powder/powder-handling-mount-bracket\",\"BOM:powder/powder-stepper-bracket\"],\"reason\":\"The title \\\"Powder Bracket\\\", section \\\"Powder\\\", and note \\\"2-3mm non-magnetic stainless.\\\" are consistent with both Powder handling mount bracket and Powder stepper bracket. Neither BOM row has notes or datasheets distinguishing them, and the drawing's weld-nut and alignment notes do not identify which row applies.\",\"changed_because\":\"\"}]}"}}
+{"type":"turn.completed","usage":{"input_tokens":16158,"cached_input_tokens":10112,"cache_write_input_tokens":0,"output_tokens":485,"reasoning_output_tokens":328}}

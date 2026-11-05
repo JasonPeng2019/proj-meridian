@@ -1,0 +1,73 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "bfed5776b8448872ceb431824c1614da16daf3405e31f9271508d9cc83f2f387",
+    "items": [
+      {
+        "key": "relationship",
+        "decision": "accept",
+        "reason": "In the original task, left is null. The task rule says: 'Empty left means no represented drawing section; use no_equivalent.' The value \"no_equivalent\" follows that rule. Support doesn't appear in all_drawing_sections (Box, Gas Flow, Optical, Powder, Recoater, Z-axis), and established_links, bom_evidence and drawing_evidence are all empty, so nothing points to a different answer. No source fact IDs exist to cite, so an empty fact_ids list is correct. A human still has to approve this mapping before it's used.",
+        "fact_ids": [],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 3510,
+      "cache_read_input_tokens": 2525,
+      "output_tokens": 336,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 3510,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 336,
+        "cacheReadInputTokens": 2525,
+        "cacheCreationInputTokens": 3510,
+        "webSearchRequests": 0,
+        "costUSD": 0.035313,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 3510,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.035313,
+    "duration_ms": 3510,
+    "is_error": false
+  },
+  "latency_ms": 4641,
+  "cache_key": "e729a2f8e8cbbe498659c1cb39aef975a14b7b7d38f77d1bf1fad5920b1cac3e",
+  "cache_hit": false,
+  "job": "mapping:names/section/ -> support:proposal-verification-v1:verification:0",
+  "error": null
+}

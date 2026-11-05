@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a1ab2f-83f5-7f20-9052-6473281dc83a"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"items\":[{\"key\":\"link\",\"state\":\"known\",\"value_json\":\"[\\\"BOM:powder/powder-roller\\\"]\",\"confidence\":\"sure\",\"fact_ids\":[\"D-007/drawing/title\",\"D-007/drawing/notes\",\"BOM:powder/powder-roller\"],\"reason\":\"Dispenser Shaft v6 is in Powder, and its notes specify Aluminium and three identical slots with \\\"120 grader\\\" between them. Powder roller is in Powder, specifies Aluminium, and uniquely has notes describing equal-sized slots and their edge finishing. These details support the match despite the different title.\",\"changed_because\":\"\"}]}"}}
+{"type":"turn.completed","usage":{"input_tokens":16160,"cached_input_tokens":10112,"cache_write_input_tokens":0,"output_tokens":920,"reasoning_output_tokens":778}}

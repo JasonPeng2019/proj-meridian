@@ -1,0 +1,48 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-009/drawing/notes",
+          "D-009/drawing/title",
+          "D-009/drawing/material",
+          "BOM:powder/powder-hopper"
+        ],
+        "reason": "The notes specify \"Powder canister.\" and \"Non-magnetic stainless.\". \"Powder hopper\" is a possible candidate in section \"Powder\", but lists \"Stainless steel\" and no datasheet. The supplied evidence does not establish the differing names or material descriptions as equivalent. The drawing title and material fields are null, so a unique match is not determined.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 16135,
+          "cached_input_tokens": 10112,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 826,
+          "reasoning_output_tokens": 670
+        }
+      }
+    ]
+  },
+  "latency_ms": 21766,
+  "cache_key": "3b862c3daf8c03da3ce358bb5a4eaf59cc2f10abebf6a855fe5d341122cd596b",
+  "cache_hit": false,
+  "job": "link:D-009:proposal-verification-v1:proposal:0",
+  "error": null
+}

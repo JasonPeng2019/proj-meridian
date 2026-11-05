@@ -1,0 +1,79 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "13df5e2e993bcbd671ed8019e160147bba58652804f07e9052e03eca714f1f56",
+    "items": [
+      {
+        "key": "link",
+        "decision": "accept",
+        "reason": "The evidence supports unknown/null. Drawing D-013 has source_filename RecoaterPlate.pdf and section Recoater. Two BOM rows match it equally: BOM:recoater/recoater-head (Recoater head) and BOM:recoater/recoater-stage-plate (Recoater stage plate). Both list datasheet RecoaterPlate.pdf, section Recoater and material Aluminium. The drawing title is 'Recoater Plate' (D-013/drawing/title). The notes say 'Alu.\\nJusteringsplade til recoater.' (D-013/drawing/notes), which is Danish for 'adjustment plate for recoater'. Neither field picks one row over the other, and nothing shows that the drawing stands for both. The drawing material, '3.3315 (EN-AW 5005)' (D-013/drawing/material), does not tell the rows apart either, and no equivalence to 'Aluminium' has been approved. Because the match is ambiguous, unknown/unsure is the right state.",
+        "fact_ids": [
+          "D-013/drawing/title",
+          "D-013/drawing/notes",
+          "D-013/drawing/material",
+          "BOM:recoater/recoater-head",
+          "BOM:recoater/recoater-stage-plate"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 8142,
+      "cache_read_input_tokens": 2523,
+      "output_tokens": 672,
+      "output_tokens_details": {
+        "thinking_tokens": 118
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 8142,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 672,
+        "cacheReadInputTokens": 2523,
+        "cacheCreationInputTokens": 8142,
+        "webSearchRequests": 0,
+        "costUSD": 0.0790886,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 118,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 8142,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.0790886,
+    "duration_ms": 6202,
+    "is_error": false
+  },
+  "latency_ms": 7375,
+  "cache_key": "7ab7943e0a446214a4539421100f8ebef1a5243992a967de6d80b17e7ab958fa",
+  "cache_hit": false,
+  "job": "link:D-013:proposal-verification-v1:verification:0",
+  "error": null
+}

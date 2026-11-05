@@ -1,0 +1,73 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "50514bfba9af8b671523ccdfd92a6cd55e77799b561979ba600e9503a4d54caf",
+    "items": [
+      {
+        "key": "relationship",
+        "decision": "accept",
+        "reason": "The original evidence has left=null, which means no drawing section is represented. The task instruction says that an empty left value must use no_equivalent. Also, no drawing section in all_drawing_sections (Box, Gas Flow, Optical, Powder, Recoater, Z-axis) is linked to 'Raw Materials', and established_links, bom_evidence and drawing_evidence are all empty. The proposed value \"no_equivalent\" is supported. A human still has to approve the mapping.",
+        "fact_ids": [],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 3527,
+      "cache_read_input_tokens": 2525,
+      "output_tokens": 313,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 3527,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 313,
+        "cacheReadInputTokens": 2525,
+        "cacheCreationInputTokens": 3527,
+        "webSearchRequests": 0,
+        "costUSD": 0.034989,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 3527,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.034989,
+    "duration_ms": 3584,
+    "is_error": false
+  },
+  "latency_ms": 4703,
+  "cache_key": "965d6c31f7f5910a3870a7082087417ad6a07d0625d1f5219de2548ff59697ee",
+  "cache_hit": false,
+  "job": "mapping:names/section/ -> raw-materials:proposal-verification-v1:verification:0",
+  "error": null
+}

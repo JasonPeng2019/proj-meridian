@@ -1,0 +1,80 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "604348405d40060d0e8b08de070d6b875082fa12c0e75276c6d1b0148021a44d",
+    "items": [
+      {
+        "key": "link",
+        "decision": "accept",
+        "reason": "The unknown/null state is supported. The drawing title D-016/drawing/title \"Galvo Bundplade\" (D-016 source_filename \"GalvoBottomPlate.pdf\") does not match any BOM display name exactly. No BOM row is called a galvo bottom plate. Two Optics rows are plausible matches, and both list material \"Aluminium\" with no datasheet: BOM:optics/sunny-galvo-adapter-plate (\"Sunny Galvo Adapter Plate\") and BOM:optics/galvo-box-bracket (\"Galvo box bracket\"). Nothing in the evidence separates them. The drawing material D-016/drawing/material \"7075-T6, Plate (SS)\" and note D-016/drawing/notes \"Aluminium\" fit both rows equally. The \"(SS)\" in the material field adds ambiguity rather than resolving it. The drawing section \"Optical\" is written differently from the BOM section \"Optics\", and the evidence does not approve them as equivalent. Choosing one row, or claiming both, would be a guess. The cited fact IDs are exact supplied source IDs.",
+        "fact_ids": [
+          "D-016",
+          "D-016/drawing/title",
+          "D-016/drawing/material",
+          "D-016/drawing/notes",
+          "BOM:optics/sunny-galvo-adapter-plate",
+          "BOM:optics/galvo-box-bracket"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 8162,
+      "cache_read_input_tokens": 2523,
+      "output_tokens": 1042,
+      "output_tokens_details": {
+        "thinking_tokens": 372
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 8162,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 1042,
+        "cacheReadInputTokens": 2523,
+        "cacheCreationInputTokens": 8162,
+        "webSearchRequests": 0,
+        "costUSD": 0.0866486,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 372,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 8162,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.0866486,
+    "duration_ms": 10127,
+    "is_error": false
+  },
+  "latency_ms": 11265,
+  "cache_key": "07dfa23666ed38bad2b207f4317c5d6167913d363254ffaaf26f758e41f38a8e",
+  "cache_hit": false,
+  "job": "link:D-016:proposal-verification-v1:verification:0",
+  "error": null
+}

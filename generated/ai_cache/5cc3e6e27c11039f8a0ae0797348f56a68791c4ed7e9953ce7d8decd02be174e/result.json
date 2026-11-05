@@ -1,0 +1,46 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "known",
+        "value_json": "[\"BOM:box/top-side\"]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-004/drawing/notes",
+          "BOM:box/top-side"
+        ],
+        "reason": "“Top Plate” identifies the top panel in section “Box”, matching “Top Side”. “3 mm non-magnetic stainless” supports its “Stainless steel” material. The drawing does not identify a bracing component.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 16126,
+          "cached_input_tokens": 10112,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 711,
+          "reasoning_output_tokens": 597
+        }
+      }
+    ]
+  },
+  "latency_ms": 22047,
+  "cache_key": "5cc3e6e27c11039f8a0ae0797348f56a68791c4ed7e9953ce7d8decd02be174e",
+  "cache_hit": false,
+  "job": "link:D-004:proposal-verification-v1:proposal:0",
+  "error": null
+}

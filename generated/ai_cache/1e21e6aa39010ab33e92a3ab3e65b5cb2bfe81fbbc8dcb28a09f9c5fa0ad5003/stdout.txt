@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a1ab2b-1b46-7cc3-b5fb-cf0ba96d08e9"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"items\":[{\"key\":\"date\",\"state\":\"known\",\"value_json\":\"\\\"13-09-2023\\\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-023/drawing/date\"],\"reason\":\"The DATE field reads “13-09-2023”.\",\"changed_because\":\"Reinspection of the original image shows day 13 and hyphen separators; the previous proposal misread both.\"}]}"}}
+{"type":"turn.completed","usage":{"input_tokens":15517,"cached_input_tokens":10112,"cache_write_input_tokens":0,"output_tokens":421,"reasoning_output_tokens":327}}

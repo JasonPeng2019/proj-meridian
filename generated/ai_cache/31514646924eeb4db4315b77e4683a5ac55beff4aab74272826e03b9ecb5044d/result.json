@@ -1,0 +1,75 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "d09265e782b2051180aac06e0029beba2d6c9d4bb8cd473badd60e962625354a",
+    "items": [
+      {
+        "key": "date",
+        "decision": "accept",
+        "reason": "In the supplied title block crop, the DATE cell sits below DRAWN (MBOKJ), to the left of 'DO NOT SCALE DRAWING', and reads '13-09-2023': day 13, month 09, year 2023, with hyphens between them. The text is small but readable, and every character matches the proposed value '13-09-2023'. The parsed field D-023/drawing/date had no value and was marked degraded, but the image itself supports this reading.",
+        "fact_ids": [
+          "D-023/drawing/date"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 5652,
+      "cache_read_input_tokens": 9582,
+      "output_tokens": 479,
+      "output_tokens_details": {
+        "thinking_tokens": 31
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 5652,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 479,
+        "cacheReadInputTokens": 9582,
+        "cacheCreationInputTokens": 5652,
+        "webSearchRequests": 0,
+        "costUSD": 0.056728400000000005,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 31,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 5652,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.056728400000000005,
+    "duration_ms": 6987,
+    "is_error": false
+  },
+  "latency_ms": 8204,
+  "cache_key": "31514646924eeb4db4315b77e4683a5ac55beff4aab74272826e03b9ecb5044d",
+  "cache_hit": false,
+  "job": "scan:D-023:proposal-verification-v1:verification:1",
+  "error": null
+}

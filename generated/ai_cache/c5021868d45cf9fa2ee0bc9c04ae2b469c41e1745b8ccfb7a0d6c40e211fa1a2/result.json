@@ -1,0 +1,79 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "e7d22f97646c4a0a74b8b2411514b544686e3ba9443e9b0ce03791a3bb02b157",
+    "items": [
+      {
+        "key": "link",
+        "decision": "accept",
+        "reason": "The proposal's unknown/null is supported by the evidence. D-021/drawing/notes reads \"Blower Outlet\" and \"Non-magnetic stainless\". D-021/drawing/title and D-021/drawing/material are null. The drawing's Gas Flow section has two candidate BOM rows. BOM:gas-flow/gas-flow-end-duct lists material \"Polymer\", which conflicts with the drawing's stainless, and has no notes or datasheet tying it to a blower outlet. BOM:gas-flow/gas-flow-inlet-geometry is named as an inlet and has no material, notes or datasheet showing it stands for this outlet. A blower outlet could plausibly feed the gas-flow inlet, so [] is not established either. The link cannot be determined, and marking it unsure is appropriate.",
+        "fact_ids": [
+          "D-021/drawing/notes",
+          "D-021/drawing/title",
+          "D-021/drawing/material",
+          "BOM:gas-flow/gas-flow-end-duct",
+          "BOM:gas-flow/gas-flow-inlet-geometry"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 8136,
+      "cache_read_input_tokens": 2523,
+      "output_tokens": 791,
+      "output_tokens_details": {
+        "thinking_tokens": 282
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 8136,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 791,
+        "cacheReadInputTokens": 2523,
+        "cacheCreationInputTokens": 8136,
+        "webSearchRequests": 0,
+        "costUSD": 0.0814206,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 282,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 8136,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.0814206,
+    "duration_ms": 7398,
+    "is_error": false
+  },
+  "latency_ms": 8546,
+  "cache_key": "c5021868d45cf9fa2ee0bc9c04ae2b469c41e1745b8ccfb7a0d6c40e211fa1a2",
+  "cache_hit": false,
+  "job": "link:D-021:proposal-verification-v1:verification:0",
+  "error": null
+}

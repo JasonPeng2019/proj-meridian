@@ -1,0 +1,79 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "fa058c5e348c97ffeea9d4fa118754e1b0acc362ba038b82ef58bd171332980d",
+    "items": [
+      {
+        "key": "link",
+        "decision": "accept",
+        "reason": "The original evidence supports unknown/null with 'unsure'. The drawing title is \"Galvo Mount Side x2\" (D-018/drawing/title). No BOM row has that name or a matching datasheet; the drawing's source file, GalvoMountSide_x2.PDF, appears in no BOM datasheet list. BOM:optics/galvo-box-bracket is a plausible candidate: it is listed as \"Aluminium\", which fits \"Alu.\" in D-018/drawing/notes and \"7075-T6\" in D-018/drawing/material, and its notes mention \"Changed galvo mount completely\". But nothing ties a two-piece \"Mount Side\" part to that bracket row. BOM:optics/galve-support-bracket is listed as \"Stainless steel\"/\"Steel\", which conflicts with \"Alu.\" and 7075-T6. The \"(SS)\" in the material field is unexplained, and nothing establishes that the drawing section \"Optical\" is the same as the BOM section \"Optics\". The task says ambiguity means unknown/unsure, so declining to pick a row is correct.",
+        "fact_ids": [
+          "D-018/drawing/title",
+          "D-018/drawing/material",
+          "D-018/drawing/notes",
+          "BOM:optics/galvo-box-bracket",
+          "BOM:optics/galve-support-bracket"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 8157,
+      "cache_read_input_tokens": 2523,
+      "output_tokens": 744,
+      "output_tokens_details": {
+        "thinking_tokens": 145
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 8157,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 744,
+        "cacheReadInputTokens": 2523,
+        "cacheCreationInputTokens": 8157,
+        "webSearchRequests": 0,
+        "costUSD": 0.08064859999999999,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 145,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 8157,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.08064859999999999,
+    "duration_ms": 7315,
+    "is_error": false
+  },
+  "latency_ms": 8438,
+  "cache_key": "c47cd235101096d4a69aa583e8edd606b41e7f5db6c5685371673d6a509b9d76",
+  "cache_hit": false,
+  "job": "link:D-018:proposal-verification-v1:verification:0",
+  "error": null
+}

@@ -1,0 +1,84 @@
+{
+  "protocol": 2,
+  "reader": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "prompt": "PREP PROTOCOL: proposal-verification-v1; role: proposer; round: 0.\nYou are a read-only engineering evidence proposer. Do not edit files,\nrun commands, use other agents, browse the web, or inspect any evidence beyond the supplied inputs.\nReturn the requested JSON schema. Every requested key must appear exactly once. value_json is a\nJSON-encoded value (e.g. a string as \"\\\"text\\\"\", a number as \"5\", an array as \"[3,6]\",\nunknown as \"null\"). State known means one determined value; options means genuinely documented\nalternatives; unknown means the evidence does not determine it. confidence is only sure or unsure.\nUse sure only for a reading supported by the supplied evidence. Copy original spelling and units.\nNever invent evidence IDs. fact_ids must be exact supplied source IDs supporting that item.\nReasons must explain the evidence; changed_because is empty on the first proposal.\n\nRead ONLY the supplied cropped title block, not measurements. Copy each field character by character. Do not translate, correct spelling, or fill blanks. Unreadable or absent fields are unknown/null/unsure. Weight must be a numeric gram value only if printed unambiguously in grams; other fields are exact strings. Do not infer names from filenames. Fields: title, material, weight_g, notes, date, company, scale, drawn\n{\"drawing_id\":\"D-023\",\"field_evidence\":{\"company\":{\"box\":[968.877,653.399,102.988,59.03],\"confidence\":\"unsure\",\"field_box\":[968.877,653.399,102.988,59.03],\"label_box\":null,\"method\":\"parsed\",\"name\":\"D-023/drawing/company\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"source_quality\":\"degraded\",\"value\":null},\"date\":{\"box\":[889.887,797.486,86.99,21.007],\"confidence\":\"unsure\",\"field_box\":[889.887,797.486,86.99,21.007],\"label_box\":null,\"method\":\"parsed\",\"name\":\"D-023/drawing/date\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"source_quality\":\"degraded\",\"value\":null},\"drawn\":{\"box\":[884.888,785.479,91.99,21.007],\"confidence\":\"unsure\",\"field_box\":[884.888,785.479,91.99,21.007],\"label_box\":null,\"method\":\"parsed\",\"name\":\"D-023/drawing/drawn\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"source_quality\":\"degraded\",\"value\":null},\"material\":{\"box\":[738.906,766.467,145.983,24.008],\"confidence\":\"unsure\",\"field_box\":[738.906,766.467,145.983,24.008],\"label_box\":null,\"method\":\"parsed\",\"name\":\"D-023/drawing/material\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"source_quality\":\"degraded\",\"value\":null},\"notes\":{\"box\":[734.907,653.399,242.971,121.067],\"confidence\":\"unsure\",\"field_box\":[734.907,653.399,242.971,121.067],\"label_box\":null,\"method\":\"parsed\",\"name\":\"D-023/drawing/notes\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"source_quality\":\"degraded\",\"value\":null},\"scale\":{\"box\":[1066.865,797.486,59.994,22.007],\"confidence\":\"unsure\",\"field_box\":[1066.865,797.486,59.994,22.007],\"label_box\":null,\"method\":\"parsed\",\"name\":\"D-023/drawing/scale\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"source_quality\":\"degraded\",\"value\":null},\"title\":{\"box\":[968.877,705.43,193.977,69.036],\"confidence\":\"unsure\",\"field_box\":[968.877,705.43,193.977,69.036],\"label_box\":null,\"method\":\"parsed\",\"name\":\"D-023/drawing/title\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"source_quality\":\"degraded\",\"value\":null},\"weight_g\":{\"box\":[874.889,766.467,102.988,24.008],\"confidence\":\"unsure\",\"field_box\":[874.889,766.467,102.988,24.008],\"label_box\":null,\"method\":\"parsed\",\"name\":\"D-023/drawing/weight_g\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"source_quality\":\"degraded\",\"value\":null}},\"source_ids\":[\"D-023\",\"D-023/drawing/company\",\"D-023/drawing/date\",\"D-023/drawing/drawn\",\"D-023/drawing/material\",\"D-023/drawing/notes\",\"D-023/drawing/scale\",\"D-023/drawing/source\",\"D-023/drawing/title\",\"D-023/drawing/weight_g\"]}",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string",
+              "enum": [
+                "title",
+                "material",
+                "weight_g",
+                "notes",
+                "date",
+                "company",
+                "scale",
+                "drawn"
+              ]
+            },
+            "state": {
+              "type": "string",
+              "enum": [
+                "known",
+                "options",
+                "unknown"
+              ]
+            },
+            "value_json": {
+              "type": "string"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "sure",
+                "unsure"
+              ]
+            },
+            "fact_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "reason": {
+              "type": "string"
+            },
+            "changed_because": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "key",
+            "state",
+            "value_json",
+            "confidence",
+            "fact_ids",
+            "reason",
+            "changed_because"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "items"
+    ],
+    "additionalProperties": false
+  },
+  "images": [
+    "f614f95495e3cf0e0bf31a1a2faf083de31825316e0f5ad3d68c209d5a3d7024"
+  ],
+  "job": "scan:D-023:proposal-verification-v1:proposal:0"
+}

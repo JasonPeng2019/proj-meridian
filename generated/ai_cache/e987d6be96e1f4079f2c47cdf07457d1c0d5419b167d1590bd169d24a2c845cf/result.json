@@ -1,0 +1,77 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "78d46c5b91486c716722d43b2eb5bfc24b97c4a792ba85026dbabbf9b58fc58b",
+    "items": [
+      {
+        "key": "relationship",
+        "decision": "needs_input",
+        "reason": "There is only one established link, D-026/drawing/source ↔ BOM:build-plate/build-plate. It ties one drawing to one BOM item: the drawing D-026, titled \"Build Plate\" (D-026/drawing/title), in drawing section Z-axis, and the BOM item \"Build Plate\" in BOM section Build-plate. That shows the two sections share one item, but it does not show they cover the same scope. The section names suggest Z-axis could be broader than Build-plate (for example, it might include Z-stage parts besides the plate), but the supplied evidence includes no other Z-axis drawings or Build-plate BOM items to confirm or rule that out. The proposal's own reason says one linked item \"does not establish identical section scope\", which contradicts its known value of \"same\". The evidence cannot decide between same, different, or another relationship, so a human must decide the section mapping.",
+        "fact_ids": [
+          "D-026/drawing/source",
+          "D-026/drawing/title",
+          "BOM:build-plate/build-plate"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 4808,
+      "cache_read_input_tokens": 2525,
+      "output_tokens": 1055,
+      "output_tokens_details": {
+        "thinking_tokens": 566
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 4808,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 1055,
+        "cacheReadInputTokens": 2525,
+        "cacheCreationInputTokens": 4808,
+        "webSearchRequests": 0,
+        "costUSD": 0.060077,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 566,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 4808,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.060077,
+    "duration_ms": 10684,
+    "is_error": false
+  },
+  "latency_ms": 11907,
+  "cache_key": "e987d6be96e1f4079f2c47cdf07457d1c0d5419b167d1590bd169d24a2c845cf",
+  "cache_hit": false,
+  "job": "mapping:names/section/z-axis -> build-plate:proposal-verification-v1:verification:0",
+  "error": null
+}

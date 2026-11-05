@@ -1,0 +1,80 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "3e61294ec26222587bb6576dba0e374656dea905e1434563b2b85edddd8333a9",
+    "items": [
+      {
+        "key": "link",
+        "decision": "needs_input",
+        "reason": "The proposal is unknown/null, and under the protocol an unknown/null value must be needs_input. The evidence points toward one candidate: source_filename 'SiliconePakningfTheta.pdf' on D-019 and D-019/drawing/notes '1mm silicone pakning' match BOM:optics/silicone-gasket-f-theta-ring ('Silicone gasket f-theta ring'). No other BOM row combines silicone, gasket and f-theta. The recoater blade is silicone but has its own datasheet, 'Silicone270mm_1mm_x2.pdf'. Two names still differ and have not been approved as equivalent. The drawing section is 'Optical' but the BOM section is 'Optics'. D-019/drawing/material reads 'Silicon Rubber' but the BOM material is 'Silicone'. 'Silicon' could be a typo for silicone, but elemental silicon must not be treated as silicone without approval. D-019/drawing/title is null, and the candidate BOM row lists no datasheet that would confirm the match. The task forbids assuming these differing section and material names are equivalent, so resolving this needs a human mapping decision rather than another proposal from the existing evidence.",
+        "fact_ids": [
+          "D-019",
+          "D-019/drawing/material",
+          "D-019/drawing/notes",
+          "D-019/drawing/title",
+          "BOM:optics/silicone-gasket-f-theta-ring",
+          "BOM:recoater/recoater-blade"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 8101,
+      "cache_read_input_tokens": 2523,
+      "output_tokens": 1080,
+      "output_tokens_details": {
+        "thinking_tokens": 455
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 8101,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 1080,
+        "cacheReadInputTokens": 2523,
+        "cacheCreationInputTokens": 8101,
+        "webSearchRequests": 0,
+        "costUSD": 0.08692060000000001,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 455,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 8101,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.08692060000000001,
+    "duration_ms": 10134,
+    "is_error": false
+  },
+  "latency_ms": 11250,
+  "cache_key": "b15dbefb8c6f149196df3ae0c286204820af49cc92cc59f243d4707ba21e97f8",
+  "cache_hit": false,
+  "job": "link:D-019:proposal-verification-v1:verification:0",
+  "error": null
+}

@@ -1,0 +1,81 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "0a916acca9de5e96749df9357a1c8925feb48a538160dcb7154b22cc1a6c5678",
+    "items": [
+      {
+        "key": "link",
+        "decision": "needs_input",
+        "reason": "The proposal's value is unknown/null, and the protocol requires needs_input for that. The original evidence also leaves the match open. The drawing's title (D-025/drawing/title) is \"Bygge Base Ring\" and its section is \"Z-axis\". No BOM row uses that exact name, and no row is in a \"Z-axis\" section. The material is \"3.3315 (EN-AW 5005)\" (D-025/drawing/material) and the notes say \"Aluminium\" (D-025/drawing/notes). Several rows list Aluminium and have a similar name: BOM:build-plate/build-base (\"Build base\"), BOM:build-plate/build-cylinder-clamp-ring (\"Build cylinder clamp ring\") and BOM:build-plate/seal-clamp-plate. All of these are in the \"Build-plate\" section and have no datasheet that links to ByggeBaseRing_Version2.PDF. Choosing between them would mean reading 'Bygge' as 'build' and treating the different names and sections as equivalent. The task says not to assume that. The proposal's unknown state and its explanation of the ambiguity are consistent with the evidence. The cited fact IDs exist in the original evidence. Resolving the link needs a human mapping decision or new evidence, such as a datasheet link or a confirmed section mapping.",
+        "fact_ids": [
+          "D-025",
+          "D-025/drawing/title",
+          "D-025/drawing/material",
+          "D-025/drawing/notes",
+          "BOM:build-plate/build-base",
+          "BOM:build-plate/build-cylinder-clamp-ring",
+          "BOM:build-plate/seal-clamp-plate"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 8159,
+      "cache_read_input_tokens": 2523,
+      "output_tokens": 973,
+      "output_tokens_details": {
+        "thinking_tokens": 279
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 8159,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 973,
+        "cacheReadInputTokens": 2523,
+        "cacheCreationInputTokens": 8159,
+        "webSearchRequests": 0,
+        "costUSD": 0.0852446,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 279,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 8159,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.0852446,
+    "duration_ms": 8908,
+    "is_error": false
+  },
+  "latency_ms": 10031,
+  "cache_key": "b0b0ece0671c886bfb70fd4b93c474c546dc29d6fc62e8d60b011bc688359815",
+  "cache_hit": false,
+  "job": "link:D-025:proposal-verification-v1:verification:0",
+  "error": null
+}

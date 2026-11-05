@@ -1,0 +1,78 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "092e66985b18178f8cd139daa804e689636faaea414ade19fa9d510f99303bca",
+    "items": [
+      {
+        "key": "link",
+        "decision": "needs_input",
+        "reason": "The proposal is state unknown with value null, and the verifier protocol says an unknown or null proposal must be returned as needs_input. The evidence does point to one row. The drawing title D-023/drawing/title is 'ByggeCylinder', and the source file is BuildCylinder_v2.pdf. The only BOM row with a matching name is BOM:build-plate/build-cylinder ('Build cylinder'). The other fields do not match as written, though. The drawing section is 'Z-axis' while the BOM row's section is 'Build-plate'. The drawing material D-023/drawing/material is 'EN AW-6082' while the BOM row's material is 'Aluminium'. The note D-023/drawing/notes mentions an 'EN AW-6082 T6 rør', but no supplied source approves EN AW-6082 as equivalent to Aluminium, or Z-axis as equivalent to Build-plate. The task says not to assume such equivalence. So the evidence alone cannot confirm the link, and a person must approve the section and material mapping.",
+        "fact_ids": [
+          "D-023/drawing/title",
+          "D-023/drawing/material",
+          "D-023/drawing/notes",
+          "BOM:build-plate/build-cylinder"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 8184,
+      "cache_read_input_tokens": 2523,
+      "output_tokens": 825,
+      "output_tokens_details": {
+        "thinking_tokens": 284
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 8184,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 825,
+        "cacheReadInputTokens": 2523,
+        "cacheCreationInputTokens": 8184,
+        "webSearchRequests": 0,
+        "costUSD": 0.0824846,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 284,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 8184,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.0824846,
+    "duration_ms": 8298,
+    "is_error": false
+  },
+  "latency_ms": 9422,
+  "cache_key": "7473842be4d07f90a146b2b26267d185f9d1e33192a94b957166d291202e4c52",
+  "cache_hit": false,
+  "job": "link:D-023:proposal-verification-v1:verification:0",
+  "error": null
+}

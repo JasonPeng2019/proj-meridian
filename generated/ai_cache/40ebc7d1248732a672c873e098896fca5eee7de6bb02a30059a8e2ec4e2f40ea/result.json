@@ -1,0 +1,79 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "503663b5fe5399cd8526f25f537f12957ef06d02796e110c3b5af71840c2b6b7",
+    "items": [
+      {
+        "key": "link",
+        "decision": "needs_input",
+        "reason": "The proposal is unknown/null, and the protocol requires needs_input for unknown/null values. The evidence cannot settle the link. D-022/drawing/notes names the part \"Inlet Box\" and gives the material as \"Stainless\". D-022/drawing/title and D-022/drawing/material are null on a degraded drawing. No BOM row is named \"Inlet Box\". The closest candidate is BOM:gas-flow/gas-flow-inlet-geometry (\"Gas flow inlet geometry\"). Its name is different, its material is null, it has no datasheet and its notes are null, so nothing confirms that it is the inlet box. The only other Gas flow row is BOM:gas-flow/gas-flow-end-duct, which is \"Polymer\", not \"Stainless\". The drawing's section \"Gas Flow\" and the BOM's section \"Gas flow\" differ in capitalization only, but section alone cannot pick a row. Settling this needs a human mapping decision or new evidence, such as a BOM datasheet that references InletBox.pdf.",
+        "fact_ids": [
+          "D-022/drawing/notes",
+          "D-022/drawing/title",
+          "D-022/drawing/material",
+          "BOM:gas-flow/gas-flow-inlet-geometry",
+          "BOM:gas-flow/gas-flow-end-duct"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 8197,
+      "cache_read_input_tokens": 2523,
+      "output_tokens": 798,
+      "output_tokens_details": {
+        "thinking_tokens": 208
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 8197,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 798,
+        "cacheReadInputTokens": 2523,
+        "cacheCreationInputTokens": 8197,
+        "webSearchRequests": 0,
+        "costUSD": 0.0820486,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 208,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 8197,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.0820486,
+    "duration_ms": 7593,
+    "is_error": false
+  },
+  "latency_ms": 8719,
+  "cache_key": "40ebc7d1248732a672c873e098896fca5eee7de6bb02a30059a8e2ec4e2f40ea",
+  "cache_hit": false,
+  "job": "link:D-022:proposal-verification-v1:verification:0",
+  "error": null
+}

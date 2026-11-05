@@ -1,0 +1,79 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "df48cf93dd35763f4f0d26e9113a8c9f9dc1f1c016778a85a080669d6a015a41",
+    "items": [
+      {
+        "key": "link",
+        "decision": "accept",
+        "reason": "The evidence supports the proposed unknown/null state. D-001/drawing/notes says \"Door - x2\\n3mm aluminium\", and the drawing is in section Box. Two BOM rows fit equally well: BOM:box/front-door and BOM:box/back-door are both in section Box, both list material Aluminium, have no datasheet, and have identical notes (\"Holes were without threads. Drawings are correct. Could be stiffer\"). The title (D-001/drawing/title) and material (D-001/drawing/material) fields are null, so nothing separates Front from Back. \"x2\" could be a quantity for one door; it does not explicitly say the drawing covers both rows, so linking to both would not be justified. A single-row link would be a guess. Choosing between the rows needs new evidence, such as a readable title, or a human decision.",
+        "fact_ids": [
+          "D-001/drawing/notes",
+          "D-001/drawing/title",
+          "D-001/drawing/material",
+          "BOM:box/front-door",
+          "BOM:box/back-door"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 10535,
+      "cache_read_input_tokens": 0,
+      "output_tokens": 724,
+      "output_tokens_details": {
+        "thinking_tokens": 240
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 10535,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 724,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 10535,
+        "webSearchRequests": 0,
+        "costUSD": 0.098768,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 240,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 10535,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.098768,
+    "duration_ms": 7165,
+    "is_error": false
+  },
+  "latency_ms": 8360,
+  "cache_key": "32fab70706a1da61ebe088836c330e1845d3d8a11e8042d797264ae2ed2e9610",
+  "cache_hit": false,
+  "job": "link:D-001:proposal-verification-v1:verification:0",
+  "error": null
+}

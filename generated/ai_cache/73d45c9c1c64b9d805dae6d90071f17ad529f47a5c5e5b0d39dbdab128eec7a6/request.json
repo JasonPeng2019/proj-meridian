@@ -1,0 +1,85 @@
+{
+  "protocol": 2,
+  "reader": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "prompt": "PREP PROTOCOL: proposal-verification-v1; role: proposer; round: 0.\nYou are a read-only engineering evidence proposer. Do not edit files,\nrun commands, use other agents, browse the web, or inspect any evidence beyond the supplied inputs.\nReturn the requested JSON schema. Every requested key must appear exactly once. value_json is a\nJSON-encoded value (e.g. a string as \"\\\"text\\\"\", a number as \"5\", an array as \"[3,6]\",\nunknown as \"null\"). State known means one determined value; options means genuinely documented\nalternatives; unknown means the evidence does not determine it. confidence is only sure or unsure.\nUse sure only for a reading supported by the supplied evidence. Copy original spelling and units.\nNever invent evidence IDs. fact_ids must be exact supplied source IDs supporting that item.\nReasons must explain the evidence; changed_because is empty on the first proposal.\n\nFill a flat-part template from this drawing, in millimetres.\nRead the attached full drawing. The main material field and weight are supplied separately.\nRequested keys: outline_type (rectangle/circle/ring), length (X), width (Y), outer_diameter,\ninner_diameter, thickness, features, features_complete, features_omitted.\nFeature protocol: supported-feature-subset-v1. Only relevant dimensions are known; irrelevant ones are unknown.\nStacked thickness values which are alternatives MUST be state options with a JSON array, sorted ascending.\nDo not select one thickness or invent which example is primary. The outline is centered on X=0,Y=0;\nextrusion Z=0..thickness. Ignore dimension text placement when interpreting actual geometry.\nfeatures value is a JSON array of hole/slot objects. Each has kind, face='top', x,y,\ndiameter (hole) or width,length (slot), through boolean, depth for blind holes,\nhole_type plain/threaded/countersunk/counterbored, optional thread string and required actual\ncountersink_diameter/angle or counterbore_diameter/depth. Never infer a drill diameter from a thread.\nUse explicit pattern only if certain: {type:row,count,spacing,direction} (angle degrees, anchor first\nposition) or {type:circle,count,radius,start_angle} (degrees, center x,y). Hole positions are center\ncoordinates in the same XY frame. features is the independently supported SUBSET of cuts, not a\nclaim that every drawing feature is determined. Return features state known with all and ONLY cuts\nwhose geometry, position, and operation are fully supported, even when other features are unresolved.\nUse known [] when no cuts can be supported; do not erase supported cuts because another is uncertain.\nNever fabricate a drill diameter, depth, position, or count to complete a cut. A feature missing any\nrequired geometry must be excluded from features and described separately in features_omitted.\nfeatures_omitted is a known JSON array of {description:string,reason:string,fact_ids:[IDs]}.\nEach omission must cite exact supplied evidence IDs (the drawing/source ID may ground an image-only\nfeature) and explain precisely what is missing or why it cannot be modeled. Use [] only if nothing\nis omitted. features_complete is a known JSON boolean: true ONLY when the entire visible feature\ninventory is supported and features_omitted is []; false when any feature/detail is omitted. If the\ninventory cannot be established, set features_complete unknown/null and explain the uncertainty in\nfeatures_omitted. Missing features never justify guessing or claiming the full design is verified.\nAll numeric scalar fields within a feature must be {state:known,value:number,fact_ids:[IDs]}.\nA feature may carry parent fact_ids. Every numeric value must match its cited drawing number.\nFor an arithmetically derived coordinate/radius use {state:known,value:number,fact_ids:[IDs],\nexpression:'n0/2-n1'}, where n0,n1 are cited drawing numbers IN ORDER. Only +,-,*,/ and constants\n0,1,2 are allowed. Do not invent absolute positions from undimensioned views. You may use literal\n0 for a geometrically established center or literal 90/180/270/360 for cardinal pattern directions.\nDo not infer numeric dimensions from pixels, scale, standard hardware, or symmetry unless dimensioned.\nFeatures must use same deterministic ordering: holes before slots, then x ascending, then y ascending.\n\nEvidence:\n{\"callouts\":[{\"box\":[519.104,627.625,118.667,18.083],\"confidence\":\"sure\",\"count\":8,\"feature\":\"unclassified_callout\",\"method\":\"parsed\",\"name\":\"D-025/drawing/callout/p1-1\",\"original\":\"8 x 3,4 THRU ALL\",\"page\":1,\"text\":\"8 x 3,4 THRU ALL\",\"through\":true,\"value\":\"8 x 3,4 THRU ALL\"},{\"box\":[570.638,643.527,57.336,18.083],\"confidence\":\"sure\",\"feature\":\"unclassified_callout\",\"method\":\"parsed\",\"name\":\"D-025/drawing/callout/p1-2\",\"original\":\"6,9 X 90°\",\"page\":1,\"text\":\"6,9 X 90°\",\"value\":\"6,9 X 90°\"},{\"box\":[593.65,423.501,46.848,47.104],\"confidence\":\"sure\",\"feature\":\"radius\",\"method\":\"parsed\",\"name\":\"D-025/drawing/callout/p1-3\",\"original\":\"R115,5\",\"page\":1,\"radius_mm\":115.5,\"text\":\"R115,5\",\"value\":\"R115,5\"},{\"box\":[978.968,784.149,85.555,7.75],\"confidence\":\"sure\",\"feature\":\"general_note\",\"method\":\"parsed\",\"name\":\"D-025/drawing/general/units\",\"original\":\"DIMENSIONS ARE IN MILLIMETERS\",\"page\":1,\"text\":\"DIMENSIONS ARE IN MILLIMETERS\",\"value\":\"DIMENSIONS ARE IN MILLIMETERS\"},{\"box\":[1016.541,790.957,47.749,8.202],\"confidence\":\"sure\",\"feature\":\"general_note\",\"method\":\"parsed\",\"name\":\"D-025/drawing/general/general_tolerance\",\"original\":\"DIN ISO 2768-1 m\",\"page\":1,\"text\":\"DIN ISO 2768-1 m\",\"value\":\"DIN ISO 2768-1 m\"},{\"box\":[1078.776,781.582,52.887,14.837],\"confidence\":\"sure\",\"feature\":\"general_note\",\"method\":\"parsed\",\"name\":\"D-025/drawing/general/edge_finish\",\"original\":\"DEBURR AND BREAK SHARP EDGES\",\"page\":1,\"text\":\"DEBURR AND BREAK SHARP EDGES\",\"value\":\"DEBURR AND BREAK SHARP EDGES\"}],\"fields\":{\"company\":{\"box\":[975.328,658.942,91.0,48.0],\"confidence\":\"sure\",\"field_box\":[975.328,666.942,91.0,40.0],\"label_box\":[975.328,658.942,30.758,7.75],\"method\":\"parsed\",\"name\":\"D-025/drawing/company\",\"original\":\"DTU MPP\",\"page\":1,\"value\":\"DTU MPP\"},\"date\":{\"box\":[897.013,802.562,76.0,11.0],\"confidence\":\"sure\",\"field_box\":[914.013,802.562,59.0,11.0],\"label_box\":[897.013,803.562,13.623,7.75],\"method\":\"parsed\",\"name\":\"D-025/drawing/date\",\"original\":\"22/02/2022\",\"page\":1,\"value\":\"22/02/2022\"},\"drawn\":{\"box\":[893.294,790.235,78.0,11.0],\"confidence\":\"sure\",\"field_box\":[917.294,790.235,54.0,11.0],\"label_box\":[893.294,791.235,21.062,7.75],\"method\":\"parsed\",\"name\":\"D-025/drawing/drawn\",\"original\":\"MBOKJ\",\"page\":1,\"value\":\"MBOKJ\"},\"material\":{\"box\":[745.28,771.048,135.0,14.0],\"confidence\":\"sure\",\"field_box\":[784.28,771.048,96.0,14.0],\"label_box\":[745.28,772.048,38.539,10.936],\"method\":\"parsed\",\"name\":\"D-025/drawing/material\",\"original\":\"3.3315 (EN-AW 5005)\",\"page\":1,\"value\":\"3.3315 (EN-AW 5005)\"},\"notes\":{\"box\":[741.526,658.942,231.0,111.0],\"confidence\":\"sure\",\"field_box\":[741.526,666.942,231.0,103.0],\"label_box\":[741.526,658.942,15.72,7.75],\"method\":\"parsed\",\"name\":\"D-025/drawing/notes\",\"original\":\"Aluminium\",\"page\":1,\"value\":\"Aluminium\"},\"scale\":{\"box\":[1082.688,803.564,25.837,7.75],\"confidence\":\"sure\",\"field_box\":[1082.688,803.564,25.837,7.75],\"label_box\":[1082.688,803.564,25.837,7.75],\"method\":\"parsed\",\"name\":\"D-025/drawing/scale\",\"original\":\"1:2\",\"page\":1,\"value\":\"1:2\"},\"title\":{\"box\":[975.328,710.355,181.0,66.0],\"confidence\":\"sure\",\"field_box\":[975.328,718.355,181.0,58.0],\"label_box\":[975.328,710.355,49.95,7.75],\"method\":\"parsed\",\"name\":\"D-025/drawing/title\",\"original\":\"Bygge Base Ring\",\"page\":1,\"value\":\"Bygge Base Ring\"},\"weight_g\":{\"box\":[880.717,771.048,93.0,14.0],\"confidence\":\"sure\",\"field_box\":[924.717,771.048,49.0,14.0],\"label_box\":[880.717,772.048,28.747,10.936],\"method\":\"parsed\",\"name\":\"D-025/drawing/weight_g\",\"original\":\"77.3\",\"page\":1,\"value\":77.3}},\"id\":\"D-025\",\"numbers\":[{\"box\":[519.104,627.625,7.331,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-025/drawing/n/8.0@1-1\",\"original\":\"8\",\"page\":1,\"text\":\"8\",\"value\":8.0},{\"box\":[558.745,627.625,18.321,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-025/drawing/n/3.4@1-1\",\"original\":\"3,4\",\"page\":1,\"text\":\"3,4\",\"value\":3.4},{\"box\":[574.303,643.527,18.327,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-025/drawing/n/6.9@1-1\",\"original\":\"6,9\",\"page\":1,\"text\":\"6,9\",\"value\":6.9},{\"box\":[608.02,643.527,19.955,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-025/drawing/n/90.0@1-1\",\"original\":\"90°\",\"page\":1,\"text\":\"90°\",\"value\":90.0},{\"box\":[506.746,170.624,36.112,36.112],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-025/drawing/n/250.0@1-1\",\"original\":\"250,0\",\"page\":1,\"text\":\"250,0\",\"value\":250.0},{\"box\":[465.666,198.967,37.413,33.658],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-025/drawing/n/224.0@1-1\",\"original\":\"224,0\",\"page\":1,\"text\":\"224,0\",\"value\":224.0},{\"box\":[509.608,214.017,25.365,25.303],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-025/drawing/n/0.3@1-1\",\"original\":\"0,3\",\"page\":1,\"text\":\"0,3\",\"value\":0.3},{\"box\":[502.296,224.561,25.365,25.303],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-025/drawing/n/0.0@1-1\",\"original\":\"0,0\",\"page\":1,\"text\":\"0,0\",\"value\":0.0},{\"box\":[596.226,426.108,41.696,41.89],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-025/drawing/n/115.5@1-1\",\"original\":\"R115,5\",\"page\":1,\"text\":\"R115,5\",\"value\":115.5},{\"box\":[332.788,139.504,18.327,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-025/drawing/n/3.0@1-1\",\"original\":\"3,0\",\"page\":1,\"text\":\"3,0\",\"value\":3.0},{\"box\":[332.788,152.336,18.327,18.083],\"confidence\":\"sure\",\"label\":null,\"method\":\"parsed\",\"name\":\"D-025/drawing/n/2.0@1-1\",\"original\":\"2,0\",\"page\":1,\"text\":\"2,0\",\"value\":2.0}],\"page_sizes\":[[1190.550048828125,841.8900146484375]],\"section\":\"Z-axis\",\"source_filename\":\"ByggeBaseRing_Version2.PDF\"}",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string",
+              "enum": [
+                "outline_type",
+                "length",
+                "width",
+                "outer_diameter",
+                "inner_diameter",
+                "thickness",
+                "features",
+                "features_complete",
+                "features_omitted"
+              ]
+            },
+            "state": {
+              "type": "string",
+              "enum": [
+                "known",
+                "options",
+                "unknown"
+              ]
+            },
+            "value_json": {
+              "type": "string"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "sure",
+                "unsure"
+              ]
+            },
+            "fact_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "reason": {
+              "type": "string"
+            },
+            "changed_because": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "key",
+            "state",
+            "value_json",
+            "confidence",
+            "fact_ids",
+            "reason",
+            "changed_because"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "items"
+    ],
+    "additionalProperties": false
+  },
+  "images": [
+    "edae594f5e5fc3be24f7811101b71dd4166c3346197ecf942ffe3e37165ea814"
+  ],
+  "job": "template:D-025:proposal-verification-v1:proposal:0"
+}

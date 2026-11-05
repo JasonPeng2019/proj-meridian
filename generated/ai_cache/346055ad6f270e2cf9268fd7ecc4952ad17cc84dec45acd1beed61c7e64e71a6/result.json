@@ -1,0 +1,78 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "6abf3d47ac77a2d54acfbcfea2d7426b535225592019f43cd3da75c3ffb9113c",
+    "items": [
+      {
+        "key": "link",
+        "decision": "accept",
+        "reason": "D-004/drawing/notes names the part \"Top Plate\" and gives \"3 mm non-magnetic stainless\" and \"M5 weld nuts on inside of flanges\". The drawing is in section \"Box\", which matches the section of BOM:box/top-side (\"Top Side\", material \"Stainless steel\"). The other Box rows that mention \"top\" are BOM:box/top-side-bracing and BOM:box/top-side-powder-bracing. Both are named as bracing, and nothing on the drawing describes a bracing part. Of the remaining Box rows, only Top Side is a top panel. \"Non-magnetic stainless\" is a more specific description that fits the row's \"Stainless steel\", but treating the two names as the same material is still only a mapping suggestion. A human must approve it separately. D-004/drawing/title and D-004/drawing/material are null, so they add no evidence. Linking the drawing to the single row [\"BOM:box/top-side\"] is supported.",
+        "fact_ids": [
+          "D-004/drawing/notes",
+          "BOM:box/top-side",
+          "BOM:box/top-side-bracing",
+          "BOM:box/top-side-powder-bracing"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 8030,
+      "cache_read_input_tokens": 2523,
+      "output_tokens": 974,
+      "output_tokens_details": {
+        "thinking_tokens": 432
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 8030,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 974,
+        "cacheReadInputTokens": 2523,
+        "cacheCreationInputTokens": 8030,
+        "webSearchRequests": 0,
+        "costUSD": 0.0842326,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 432,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 8030,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.0842326,
+    "duration_ms": 9451,
+    "is_error": false
+  },
+  "latency_ms": 10594,
+  "cache_key": "346055ad6f270e2cf9268fd7ecc4952ad17cc84dec45acd1beed61c7e64e71a6",
+  "cache_hit": false,
+  "job": "link:D-004:proposal-verification-v1:verification:0",
+  "error": null
+}

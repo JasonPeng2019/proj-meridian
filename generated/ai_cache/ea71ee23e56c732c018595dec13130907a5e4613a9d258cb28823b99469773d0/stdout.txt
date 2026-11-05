@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a1ab33-f07c-73b0-bfc7-390520dca01d"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"items\":[{\"key\":\"link\",\"state\":\"unknown\",\"value_json\":\"null\",\"confidence\":\"unsure\",\"fact_ids\":[\"D-021/drawing/notes\",\"BOM:gas-flow/gas-flow-end-duct\",\"BOM:gas-flow/gas-flow-inlet-geometry\"],\"reason\":\"The drawing notes specify \\\"Blower Outlet\\\" and \\\"Non-magnetic stainless\\\". \\\"Gas flow end duct\\\" specifies \\\"Polymer\\\", with no documented material equivalence. \\\"Gas flow inlet geometry\\\" names an inlet and supplies no material, notes or datasheet establishing that it represents this outlet. The evidence does not determine a BOM link.\",\"changed_because\":\"\"}]}"}}
+{"type":"turn.completed","usage":{"input_tokens":16134,"cached_input_tokens":10112,"cache_write_input_tokens":0,"output_tokens":1099,"reasoning_output_tokens":950}}

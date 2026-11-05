@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a1ab2c-eb82-7482-89dd-368ffb7bbdc8"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"items\":[{\"key\":\"link\",\"state\":\"known\",\"value_json\":\"[\\\"BOM:box/left-side-box\\\"]\",\"confidence\":\"sure\",\"fact_ids\":[\"D-002/drawing/notes\",\"BOM:box/left-side-box\"],\"reason\":\"The drawing identifies 'Left Wall' in section 'Box', matching the unique 'Left Side Box' row in 'Box'. The note '2mm non-magnetic stainless' is consistent with its listed 'Stainless steel' material. No datasheet is listed for this row.\",\"changed_because\":\"\"}]}"}}
+{"type":"turn.completed","usage":{"input_tokens":16126,"cached_input_tokens":10112,"cache_write_input_tokens":0,"output_tokens":1021,"reasoning_output_tokens":892}}

@@ -1,0 +1,43 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "relationship",
+        "state": "known",
+        "value_json": "\"no_equivalent\"",
+        "confidence": "sure",
+        "fact_ids": [],
+        "reason": "The left value is null, meaning no drawing section is represented. The protocol specifies no_equivalent for an empty left. This suggestion requires actual human approval before use.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 13488,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 272,
+          "reasoning_output_tokens": 189
+        }
+      }
+    ]
+  },
+  "latency_ms": 8782,
+  "cache_key": "4c3cf5dbe846cfd0ccba66e0d88b43bf708b34194b1916aa424dba3be3318da6",
+  "cache_hit": false,
+  "job": "mapping:names/section/ -> electric:proposal-verification-v1:proposal:0",
+  "error": null
+}

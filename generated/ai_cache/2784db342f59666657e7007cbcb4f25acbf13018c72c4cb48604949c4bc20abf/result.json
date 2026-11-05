@@ -1,0 +1,47 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "known",
+        "value_json": "[]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-029/drawing/notes",
+          "BOM:sensorgantry/z-axis-stepper-bracket",
+          "BOM:sensorgantry/x-axis-bottom-bracket"
+        ],
+        "reason": "The drawing identifies 'Z-axis BottomPlate' and 'Aluminium' in section 'Z-axis'. No BOM row matches. 'Z axis stepper bracket' and 'X axis bottom bracket' are different names in 'SensorGantry', with no notes or datasheets establishing equivalence.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 16118,
+          "cached_input_tokens": 10112,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 890,
+          "reasoning_output_tokens": 753
+        }
+      }
+    ]
+  },
+  "latency_ms": 24781,
+  "cache_key": "2784db342f59666657e7007cbcb4f25acbf13018c72c4cb48604949c4bc20abf",
+  "cache_hit": false,
+  "job": "link:D-029:proposal-verification-v1:proposal:0",
+  "error": null
+}

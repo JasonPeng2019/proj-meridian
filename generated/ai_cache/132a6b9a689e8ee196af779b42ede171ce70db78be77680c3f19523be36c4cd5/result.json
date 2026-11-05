@@ -1,0 +1,47 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "relationship",
+        "state": "known",
+        "value_json": "\"kind_of\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-011/drawing/material",
+          "D-011/drawing/notes",
+          "BOM:recoater/recoater-arm"
+        ],
+        "reason": "The drawing specifies “7075-T6, Plate (SS)” and notes “Alu.”; the linked BOM lists “Aluminium”. 7075-T6 is a specific aluminium alloy and temper, based on general engineering knowledge, not the dataset. The parenthetical “(SS)” is not expanded. This suggestion requires actual human approval before use.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 18490,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 538,
+          "reasoning_output_tokens": 392
+        }
+      }
+    ]
+  },
+  "latency_ms": 13625,
+  "cache_key": "132a6b9a689e8ee196af779b42ede171ce70db78be77680c3f19523be36c4cd5",
+  "cache_hit": false,
+  "job": "mapping:names/material/7075-t6-plate-ss -> aluminium:proposal-verification-v1:proposal:0",
+  "error": null
+}

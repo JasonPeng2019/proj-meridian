@@ -1,0 +1,47 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-030/drawing/notes",
+          "D-030",
+          "BOM:build-plate/motor-plate"
+        ],
+        "reason": "The notes \"Z-axis MotorPlate\" and \"Aluminium\" suggest \"Motor plate\" in \"Build-plate\", whose material is \"Aluminium\". However, the drawing section is \"Z-axis\"; no supplied evidence establishes equivalence with \"Build-plate\", so the match remains unresolved.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 16118,
+          "cached_input_tokens": 10112,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 621,
+          "reasoning_output_tokens": 490
+        }
+      }
+    ]
+  },
+  "latency_ms": 22188,
+  "cache_key": "6843c530659bc78a4437c2a870f34207dc58cc1ac9a9683d120023d45a3172d8",
+  "cache_hit": false,
+  "job": "link:D-030:proposal-verification-v1:proposal:0",
+  "error": null
+}

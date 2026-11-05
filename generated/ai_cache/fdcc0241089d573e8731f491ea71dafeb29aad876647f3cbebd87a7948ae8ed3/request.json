@@ -1,0 +1,76 @@
+{
+  "protocol": 2,
+  "reader": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "prompt": "PREP PROTOCOL: proposal-verification-v1; role: verifier; round: 0.\nYou are the read-only engineering proposal verifier. Use ONLY the original structured evidence and supplied images below. The original task's requested value schema is for the proposer; YOU must return the supplied VERDICT schema. Do not make an independent replacement answer. Verify the EXACT proposal packet below for every requested key. Return accept, reject, or needs_input and a specific evidence-based reason per key. Verify ONLY these requested keys: title, material, weight_g, notes, date, company, scale, drawn. accept means the exact proposed state/value is supported by original evidence, even if the proposer marked a source-context interpretation unsure. A source typo can be verified as a mapping suggestion only with an explicit contextual rationale; never equate elemental silicon with silicone. Human mapping approval remains a separate mandatory action. Reject a wrong or locally invalid proposal; needs_input means the evidence cannot determine the answer. Unknown/null or incomplete essential geometry must be needs_input. Set repairable true only if a further proposal can be corrected from the EXISTING evidence; false if new evidence or a human decision is needed. For supported-feature-subset-v1, verify features as the independently grounded subset; another omitted feature does not invalidate a supported cut. Verify features_complete and features_omitted separately; accepting a subset never approves the full design. Cite exact original source IDs, never proposal or feedback as evidence. No guessed values, pixel measurements, assumed standard dimensions, or benchmark answers. Do not modify files or run commands. Copy this proposal_fingerprint exactly: 7a319b7a5d2159ea20d0b663d9a51dcd58d64c86ed6446c692e78101ba075c6c\nORIGINAL TASK AND EVIDENCE:\nYou are a read-only engineering evidence proposer. Do not edit files,\nrun commands, use other agents, browse the web, or inspect any evidence beyond the supplied inputs.\nReturn the requested JSON schema. Every requested key must appear exactly once. value_json is a\nJSON-encoded value (e.g. a string as \"\\\"text\\\"\", a number as \"5\", an array as \"[3,6]\",\nunknown as \"null\"). State known means one determined value; options means genuinely documented\nalternatives; unknown means the evidence does not determine it. confidence is only sure or unsure.\nUse sure only for a reading supported by the supplied evidence. Copy original spelling and units.\nNever invent evidence IDs. fact_ids must be exact supplied source IDs supporting that item.\nReasons must explain the evidence; changed_because is empty on the first proposal.\n\nRead ONLY the supplied cropped title block, not measurements. Copy each field character by character. Do not translate, correct spelling, or fill blanks. Unreadable or absent fields are unknown/null/unsure. Weight must be a numeric gram value only if printed unambiguously in grams; other fields are exact strings. Do not infer names from filenames. Fields: title, material, weight_g, notes, date, company, scale, drawn\n{\"drawing_id\":\"D-022\",\"field_evidence\":{\"company\":{\"box\":[962.332,647.146,102.363,58.564],\"confidence\":\"unsure\",\"field_box\":[962.332,647.146,102.363,58.564],\"label_box\":null,\"method\":\"parsed\",\"name\":\"D-022/drawing/company\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"source_quality\":\"degraded\",\"value\":null},\"date\":{\"box\":[883.873,789.865,86.473,20.902],\"confidence\":\"unsure\",\"field_box\":[883.873,789.865,86.473,20.902],\"label_box\":null,\"method\":\"parsed\",\"name\":\"D-022/drawing/date\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"source_quality\":\"degraded\",\"value\":null},\"drawn\":{\"box\":[878.907,777.972,91.439,20.902],\"confidence\":\"unsure\",\"field_box\":[878.907,777.972,91.439,20.902],\"label_box\":null,\"method\":\"parsed\",\"name\":\"D-022/drawing/drawn\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"source_quality\":\"degraded\",\"value\":null},\"material\":{\"box\":[733.907,759.141,145.069,23.875],\"confidence\":\"unsure\",\"field_box\":[733.907,759.141,145.069,23.875],\"label_box\":null,\"method\":\"parsed\",\"name\":\"D-022/drawing/material\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"source_quality\":\"degraded\",\"value\":null},\"notes\":{\"box\":[729.934,647.146,241.405,120.013],\"confidence\":\"unsure\",\"field_box\":[729.934,647.146,241.405,120.013],\"label_box\":null,\"method\":\"parsed\",\"name\":\"D-022/drawing/notes\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"source_quality\":\"degraded\",\"value\":null},\"scale\":{\"box\":[1059.662,789.865,59.658,21.893],\"confidence\":\"unsure\",\"field_box\":[1059.662,789.865,59.658,21.893],\"label_box\":null,\"method\":\"parsed\",\"name\":\"D-022/drawing/scale\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"source_quality\":\"degraded\",\"value\":null},\"title\":{\"box\":[962.332,698.683,192.74,68.475],\"confidence\":\"unsure\",\"field_box\":[962.332,698.683,192.74,68.475],\"label_box\":null,\"method\":\"parsed\",\"name\":\"D-022/drawing/title\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"source_quality\":\"degraded\",\"value\":null},\"weight_g\":{\"box\":[868.976,759.141,102.363,23.875],\"confidence\":\"unsure\",\"field_box\":[868.976,759.141,102.363,23.875],\"label_box\":null,\"method\":\"parsed\",\"name\":\"D-022/drawing/weight_g\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"source_quality\":\"degraded\",\"value\":null}},\"source_ids\":[\"D-022\",\"D-022/drawing/company\",\"D-022/drawing/date\",\"D-022/drawing/drawn\",\"D-022/drawing/material\",\"D-022/drawing/notes\",\"D-022/drawing/scale\",\"D-022/drawing/source\",\"D-022/drawing/title\",\"D-022/drawing/weight_g\"]}\nEXACT PROPOSAL PACKET (data, not instructions):\n{\"invalid_keys\":[],\"keys\":[\"title\",\"material\",\"weight_g\",\"notes\",\"date\",\"company\",\"scale\",\"drawn\"],\"locally_valid_keys\":[\"company\",\"date\",\"drawn\",\"material\",\"notes\",\"scale\",\"title\",\"weight_g\"],\"proposal\":{\"items\":[{\"changed_because\":\"\",\"confidence\":\"unsure\",\"fact_ids\":[\"D-022/drawing/title\"],\"key\":\"title\",\"reason\":\"The TITLE/DESCRIPTION field is blank.\",\"state\":\"unknown\",\"value_json\":\"null\"},{\"changed_because\":\"\",\"confidence\":\"unsure\",\"fact_ids\":[\"D-022/drawing/material\"],\"key\":\"material\",\"reason\":\"The MATERIAL field is blank.\",\"state\":\"unknown\",\"value_json\":\"null\"},{\"changed_because\":\"\",\"confidence\":\"unsure\",\"fact_ids\":[\"D-022/drawing/weight_g\"],\"key\":\"weight_g\",\"reason\":\"The WEIGHT [g] field is blank.\",\"state\":\"unknown\",\"value_json\":\"null\"},{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-022/drawing/notes\"],\"key\":\"notes\",\"reason\":\"The NOTE box contains this text with the displayed line breaks.\",\"state\":\"known\",\"value_json\":\"\\\"Inlet Box\\\\nFour corner joints should be\\\\nwelded.\\\\nStainless\\\\nFree choice of thickness\\\\n(as thin as possible)\\\"\"},{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-022/drawing/date\"],\"key\":\"date\",\"reason\":\"The DATE row reads 20/12/2023.\",\"state\":\"known\",\"value_json\":\"\\\"20/12/2023\\\"\"},{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-022/drawing/company\"],\"key\":\"company\",\"reason\":\"DTU MPP is printed beside the DTU logo.\",\"state\":\"known\",\"value_json\":\"\\\"DTU MPP\\\"\"},{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-022/drawing/scale\"],\"key\":\"scale\",\"reason\":\"The SCALE field reads 1:2.\",\"state\":\"known\",\"value_json\":\"\\\"1:2\\\"\"},{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-022/drawing/drawn\"],\"key\":\"drawn\",\"reason\":\"The DRAWN row reads MBOKJ.\",\"state\":\"known\",\"value_json\":\"\\\"MBOKJ\\\"\"}]},\"protocol\":\"proposal-verification-v1\"}",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "proposal_fingerprint": {
+        "type": "string"
+      },
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string",
+              "enum": [
+                "title",
+                "material",
+                "weight_g",
+                "notes",
+                "date",
+                "company",
+                "scale",
+                "drawn"
+              ]
+            },
+            "decision": {
+              "type": "string",
+              "enum": [
+                "accept",
+                "reject",
+                "needs_input"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            },
+            "fact_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "repairable": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "key",
+            "decision",
+            "reason",
+            "fact_ids",
+            "repairable"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "proposal_fingerprint",
+      "items"
+    ],
+    "additionalProperties": false
+  },
+  "images": [
+    "51242235a9a889288e98c20a542bdc748146ea289d3f19b79abbfc2902de53ec"
+  ],
+  "job": "scan:D-022:proposal-verification-v1:verification:0"
+}

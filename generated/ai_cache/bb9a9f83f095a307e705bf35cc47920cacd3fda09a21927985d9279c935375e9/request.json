@@ -1,0 +1,77 @@
+{
+  "protocol": 2,
+  "reader": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "prompt": "PREP PROTOCOL: proposal-verification-v1; role: proposer; round: 1.\nYou are a read-only engineering evidence proposer. Do not edit files,\nrun commands, use other agents, browse the web, or inspect any evidence beyond the supplied inputs.\nReturn the requested JSON schema. Every requested key must appear exactly once. value_json is a\nJSON-encoded value (e.g. a string as \"\\\"text\\\"\", a number as \"5\", an array as \"[3,6]\",\nunknown as \"null\"). State known means one determined value; options means genuinely documented\nalternatives; unknown means the evidence does not determine it. confidence is only sure or unsure.\nUse sure only for a reading supported by the supplied evidence. Copy original spelling and units.\nNever invent evidence IDs. fact_ids must be exact supplied source IDs supporting that item.\nReasons must explain the evidence; changed_because is empty on the first proposal.\n\nRead ONLY the supplied cropped title block, not measurements. Copy each field character by character. Do not translate, correct spelling, or fill blanks. Unreadable or absent fields are unknown/null/unsure. Weight must be a numeric gram value only if printed unambiguously in grams; other fields are exact strings. Do not infer names from filenames. Fields: title, material, weight_g, notes, date, company, scale, drawn\n{\"drawing_id\":\"D-003\",\"field_evidence\":{\"company\":{\"box\":[962.332,647.146,102.363,58.564],\"confidence\":\"unsure\",\"field_box\":[962.332,647.146,102.363,58.564],\"label_box\":null,\"method\":\"parsed\",\"name\":\"D-003/drawing/company\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"source_quality\":\"degraded\",\"value\":null},\"date\":{\"box\":[883.873,789.865,86.473,20.902],\"confidence\":\"unsure\",\"field_box\":[883.873,789.865,86.473,20.902],\"label_box\":null,\"method\":\"parsed\",\"name\":\"D-003/drawing/date\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"source_quality\":\"degraded\",\"value\":null},\"drawn\":{\"box\":[878.907,777.972,91.439,20.902],\"confidence\":\"unsure\",\"field_box\":[878.907,777.972,91.439,20.902],\"label_box\":null,\"method\":\"parsed\",\"name\":\"D-003/drawing/drawn\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"source_quality\":\"degraded\",\"value\":null},\"material\":{\"box\":[733.907,759.141,145.069,23.875],\"confidence\":\"unsure\",\"field_box\":[733.907,759.141,145.069,23.875],\"label_box\":null,\"method\":\"parsed\",\"name\":\"D-003/drawing/material\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"source_quality\":\"degraded\",\"value\":null},\"notes\":{\"box\":[729.934,647.146,241.405,120.013],\"confidence\":\"unsure\",\"field_box\":[729.934,647.146,241.405,120.013],\"label_box\":null,\"method\":\"parsed\",\"name\":\"D-003/drawing/notes\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"source_quality\":\"degraded\",\"value\":null},\"scale\":{\"box\":[1059.662,789.865,59.658,21.893],\"confidence\":\"unsure\",\"field_box\":[1059.662,789.865,59.658,21.893],\"label_box\":null,\"method\":\"parsed\",\"name\":\"D-003/drawing/scale\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"source_quality\":\"degraded\",\"value\":null},\"title\":{\"box\":[962.332,698.683,192.74,68.475],\"confidence\":\"unsure\",\"field_box\":[962.332,698.683,192.74,68.475],\"label_box\":null,\"method\":\"parsed\",\"name\":\"D-003/drawing/title\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"source_quality\":\"degraded\",\"value\":null},\"weight_g\":{\"box\":[868.976,759.141,102.363,23.875],\"confidence\":\"unsure\",\"field_box\":[868.976,759.141,102.363,23.875],\"label_box\":null,\"method\":\"parsed\",\"name\":\"D-003/drawing/weight_g\",\"note\":\"Too blurry to read on the scan.\",\"original\":null,\"page\":1,\"source_quality\":\"degraded\",\"value\":null}},\"source_ids\":[\"D-003\",\"D-003/drawing/company\",\"D-003/drawing/date\",\"D-003/drawing/drawn\",\"D-003/drawing/material\",\"D-003/drawing/notes\",\"D-003/drawing/scale\",\"D-003/drawing/source\",\"D-003/drawing/title\",\"D-003/drawing/weight_g\"]}\nONE BOUNDED FEEDBACK REPAIR. Return ONLY these keys: date. Reinspect the ORIGINAL evidence and images. Feedback is a critique, not source evidence. Do not invent missing values or copy a suggested correction without evidence. Explain every changed proposal in changed_because. If evidence is insufficient, return unknown.\n{\"feedback\":[{\"key\":\"date\",\"local_validation\":\"valid\",\"previous_proposal\":{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-003/drawing/date\"],\"key\":\"date\",\"reason\":\"The DATE field reads 24/10/2023.\",\"state\":\"known\",\"value_json\":\"\\\"24/10/2023\\\"\"},\"state\":\"rejected\",\"verification\":{\"decision\":\"reject\",\"fact_ids\":[\"D-003/drawing/date\"],\"key\":\"date\",\"reason\":\"The DATE cell reads '26/10/2023', not the proposed '24/10/2023'. The day is wrong.\",\"repairable\":true}}],\"previous_proposals\":{\"date\":{\"changed_because\":\"\",\"confidence\":\"sure\",\"fact_ids\":[\"D-003/drawing/date\"],\"key\":\"date\",\"reason\":\"The DATE field reads 24/10/2023.\",\"state\":\"known\",\"value\":\"24/10/2023\"}}}",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string",
+              "enum": [
+                "date"
+              ]
+            },
+            "state": {
+              "type": "string",
+              "enum": [
+                "known",
+                "options",
+                "unknown"
+              ]
+            },
+            "value_json": {
+              "type": "string"
+            },
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "sure",
+                "unsure"
+              ]
+            },
+            "fact_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "reason": {
+              "type": "string"
+            },
+            "changed_because": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "key",
+            "state",
+            "value_json",
+            "confidence",
+            "fact_ids",
+            "reason",
+            "changed_because"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "items"
+    ],
+    "additionalProperties": false
+  },
+  "images": [
+    "bd3f97b4534c0139568f9a2951aa049a6e794b0bd3948d0090dcfc208ee8ff3f"
+  ],
+  "job": "scan:D-003:proposal-verification-v1:proposal:1"
+}

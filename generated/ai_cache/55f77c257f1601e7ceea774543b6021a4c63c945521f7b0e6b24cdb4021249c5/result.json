@@ -1,0 +1,75 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "c08ba526a3d13a84405a3073a0d99cd6b28a0aeb78b8019d18049e0aaff1ca43",
+    "items": [
+      {
+        "key": "date",
+        "decision": "accept",
+        "reason": "In the supplied title-block image, the DATE cell (D-003/drawing/date, below DRAWN 'MBOKJ') reads '26/10/2023'. The second day digit has the closed lower loop of a 6, not a 4. The parsed field marked the scan as degraded, but the crop is clear enough to support the exact string '26/10/2023'.",
+        "fact_ids": [
+          "D-003/drawing/date"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 8164,
+      "cache_read_input_tokens": 7066,
+      "output_tokens": 482,
+      "output_tokens_details": {
+        "thinking_tokens": 58
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 8164,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 482,
+        "cacheReadInputTokens": 7066,
+        "cacheCreationInputTokens": 8164,
+        "webSearchRequests": 0,
+        "costUSD": 0.07638120000000001,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 58,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 8164,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.07638120000000001,
+    "duration_ms": 6834,
+    "is_error": false
+  },
+  "latency_ms": 8016,
+  "cache_key": "55f77c257f1601e7ceea774543b6021a4c63c945521f7b0e6b24cdb4021249c5",
+  "cache_hit": false,
+  "job": "scan:D-003:proposal-verification-v1:verification:1",
+  "error": null
+}

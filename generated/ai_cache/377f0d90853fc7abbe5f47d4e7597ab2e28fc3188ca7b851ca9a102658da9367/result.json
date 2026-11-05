@@ -1,0 +1,78 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "1484e9bc43dcebf5a322181553065aa6f7a1bde6f9dceee07151f4eb54d5d7d6",
+    "items": [
+      {
+        "key": "relationship",
+        "decision": "accept",
+        "reason": "D-012/drawing/material and D-014/drawing/material both read \"3.3315 (EN-AW 5005)\". The established links tie D-012/drawing/source to BOM:recoater/recoater-mount-block and D-014/drawing/source to BOM:recoater/recoater-stage-plate, and both BOM entries list material \"Aluminium\". Based on general engineering knowledge, not the dataset, 3.3315 / EN-AW 5005 is a specific wrought aluminium-magnesium alloy grade. That makes LEFT more specific than RIGHT, so \"kind_of\" is correct. The proposal's reason includes the required general-knowledge disclaimer and says human approval is required. It is a suggestion only, and a human still has to approve the mapping.",
+        "fact_ids": [
+          "D-012/drawing/material",
+          "D-014/drawing/material",
+          "BOM:recoater/recoater-mount-block",
+          "BOM:recoater/recoater-stage-plate"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 5994,
+      "cache_read_input_tokens": 2525,
+      "output_tokens": 557,
+      "output_tokens_details": {
+        "thinking_tokens": 84
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 5994,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 557,
+        "cacheReadInputTokens": 2525,
+        "cacheCreationInputTokens": 5994,
+        "webSearchRequests": 0,
+        "costUSD": 0.059605000000000005,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 84,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 5994,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.059605000000000005,
+    "duration_ms": 4919,
+    "is_error": false
+  },
+  "latency_ms": 6094,
+  "cache_key": "377f0d90853fc7abbe5f47d4e7597ab2e28fc3188ca7b851ca9a102658da9367",
+  "cache_hit": false,
+  "job": "mapping:names/material/3-3315-en-aw-5005 -> aluminium:proposal-verification-v1:verification:0",
+  "error": null
+}

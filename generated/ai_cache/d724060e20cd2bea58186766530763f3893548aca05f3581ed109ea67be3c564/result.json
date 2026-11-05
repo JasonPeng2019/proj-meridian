@@ -1,0 +1,166 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "40c4d45efb9b8a4aa8504a2390599c4cf478180591f498726c5f69a38d8b5502",
+    "items": [
+      {
+        "key": "outline_type",
+        "decision": "accept",
+        "reason": "The drawing D-025 shows a concentric outer Ø250,0 and inner Ø224,0 boundary in a part titled 'Bygge Base Ring', which is a ring outline.",
+        "fact_ids": [
+          "D-025",
+          "D-025/drawing/n/250.0@1-1",
+          "D-025/drawing/n/224.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "length",
+        "decision": "accept",
+        "reason": "For a ring outline, length (X) is not a relevant rectangle dimension. The protocol treats irrelevant dimensions as unknown, so unknown/null is correct.",
+        "fact_ids": [
+          "D-025"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "width",
+        "decision": "accept",
+        "reason": "For a ring outline, width (Y) is not a relevant rectangle dimension. The protocol treats irrelevant dimensions as unknown, so unknown/null is correct.",
+        "fact_ids": [
+          "D-025"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "outer_diameter",
+        "decision": "accept",
+        "reason": "The outer boundary is dimensioned Ø250,0 ±0,2, and the drawing note states that dimensions are in millimetres. The proposed value of 250 matches.",
+        "fact_ids": [
+          "D-025/drawing/n/250.0@1-1",
+          "D-025/drawing/general/units"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "inner_diameter",
+        "decision": "accept",
+        "reason": "The inner boundary is dimensioned Ø224,0 with tolerance +0,3/0,0. The proposed nominal value of 224 matches.",
+        "fact_ids": [
+          "D-025/drawing/n/224.0@1-1",
+          "D-025/drawing/n/0.3@1-1",
+          "D-025/drawing/n/0.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "thickness",
+        "decision": "accept",
+        "reason": "The side view shows the stacked thickness values 3,0 and 2,0 on a single dimension. Per the protocol these are alternatives, given as options sorted ascending: [2,3]. Neither is selected as primary.",
+        "fact_ids": [
+          "D-025/drawing/n/3.0@1-1",
+          "D-025/drawing/n/2.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features",
+        "decision": "accept",
+        "reason": "Four holes sit on the drawn horizontal and vertical center axes at the R115,5 pitch radius. That gives coordinates (±115.5,0) and (0,±115.5); the negative values use the allowed expression 0-n0. The callout '8 x Ø3,4 THRU ALL' gives the through-bore diameter 3.4, and the countersink symbol with 'Ø6,9 X 90°' gives a countersink diameter of 6.9 at 90°. The holes are ordered correctly by x, then y. The subset excludes the four diagonal holes, whose angular positions are not dimensioned.",
+        "fact_ids": [
+          "D-025",
+          "D-025/drawing/callout/p1-1",
+          "D-025/drawing/callout/p1-2",
+          "D-025/drawing/callout/p1-3",
+          "D-025/drawing/n/115.5@1-1",
+          "D-025/drawing/n/3.4@1-1",
+          "D-025/drawing/n/6.9@1-1",
+          "D-025/drawing/n/90.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_complete",
+        "decision": "accept",
+        "reason": "The callout specifies 8 holes, but only 4 are modeled. The other 4 have no dimensioned angular positions, so the inventory is not fully supported and false is correct.",
+        "fact_ids": [
+          "D-025",
+          "D-025/drawing/callout/p1-1",
+          "D-025/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_omitted",
+        "decision": "accept",
+        "reason": "The four diagonal countersunk holes are correctly omitted: their bore, countersink and pitch radius are given, but their angular position is not dimensioned, and positions may not be inferred from visual symmetry. The general note 'DEBURR AND BREAK SHARP EDGES' gives no size and is correctly listed as unmodelable. Each omission cites exact source IDs.",
+        "fact_ids": [
+          "D-025",
+          "D-025/drawing/callout/p1-1",
+          "D-025/drawing/callout/p1-2",
+          "D-025/drawing/callout/p1-3",
+          "D-025/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 13888,
+      "cache_read_input_tokens": 15493,
+      "output_tokens": 2116,
+      "output_tokens_details": {
+        "thinking_tokens": 413
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 13888,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 2116,
+        "cacheReadInputTokens": 15493,
+        "cacheCreationInputTokens": 13888,
+        "webSearchRequests": 0,
+        "costUSD": 0.1565386,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 413,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 13888,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.1565386,
+    "duration_ms": 18138,
+    "is_error": false
+  },
+  "latency_ms": 19359,
+  "cache_key": "d724060e20cd2bea58186766530763f3893548aca05f3581ed109ea67be3c564",
+  "cache_hit": false,
+  "job": "template:D-025:proposal-verification-v1:verification:0",
+  "error": null
+}

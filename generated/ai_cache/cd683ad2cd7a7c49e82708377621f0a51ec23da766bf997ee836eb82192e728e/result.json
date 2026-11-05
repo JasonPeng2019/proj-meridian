@@ -1,0 +1,73 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "c989c4749837e7db39329420c86fc0c8265c06b2094a3a947f1c08b4317b243d",
+    "items": [
+      {
+        "key": "relationship",
+        "decision": "accept",
+        "reason": "In the original task evidence, left is null and right is \"Electric\". The task says an empty left means no drawing section is represented, so the relationship should be no_equivalent. None of the drawing sections (Box, Gas Flow, Optical, Powder, Recoater, Z-axis) is Electric, and established_links, bom_evidence and drawing_evidence are all empty. The task supplies no source IDs, so an empty fact_ids list is correct. This is only a suggestion and still needs human mapping approval.",
+        "fact_ids": [],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 3515,
+      "cache_read_input_tokens": 2525,
+      "output_tokens": 318,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 3515,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 318,
+        "cacheReadInputTokens": 2525,
+        "cacheCreationInputTokens": 3515,
+        "webSearchRequests": 0,
+        "costUSD": 0.034992999999999996,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 3515,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.034992999999999996,
+    "duration_ms": 3345,
+    "is_error": false
+  },
+  "latency_ms": 4469,
+  "cache_key": "cd683ad2cd7a7c49e82708377621f0a51ec23da766bf997ee836eb82192e728e",
+  "cache_hit": false,
+  "job": "mapping:names/section/ -> electric:proposal-verification-v1:verification:0",
+  "error": null
+}

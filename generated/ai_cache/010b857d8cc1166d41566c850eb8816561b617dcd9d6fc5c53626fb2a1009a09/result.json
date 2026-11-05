@@ -1,0 +1,79 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "ea8cf4569a5aa190bfccc2e55bfaf460b470a84b7073288cd85b3f5b3e9d1e55",
+    "items": [
+      {
+        "key": "link",
+        "decision": "accept",
+        "reason": "The 'unknown' / null proposal is supported. D-008/drawing/title is 'Powder Bracket', the drawing section is Powder, and D-008/drawing/notes says 'Powder bracket. 2-3mm non-magnetic stainless.' D-008/drawing/material is null. Two BOM rows fit this equally well. BOM:powder/powder-handling-mount-bracket and BOM:powder/powder-stepper-bracket are both in the Powder section, both list Stainless steel, and both have empty datasheets and null notes. The drawing never mentions a stepper, a motor, or powder handling. Its notes about 6x M5 weld nuts and surfaces [A]/[B] don't match either row's metadata. Neither display name matches the title exactly, so the evidence can't pick one row, and nothing supports linking both. The evidence doesn't decide the link, so null with 'unsure' is correct.",
+        "fact_ids": [
+          "D-008/drawing/title",
+          "D-008/drawing/notes",
+          "D-008/drawing/material",
+          "BOM:powder/powder-handling-mount-bracket",
+          "BOM:powder/powder-stepper-bracket"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 8142,
+      "cache_read_input_tokens": 2523,
+      "output_tokens": 723,
+      "output_tokens_details": {
+        "thinking_tokens": 191
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 8142,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 723,
+        "cacheReadInputTokens": 2523,
+        "cacheCreationInputTokens": 8142,
+        "webSearchRequests": 0,
+        "costUSD": 0.0801086,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 191,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 8142,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.0801086,
+    "duration_ms": 7559,
+    "is_error": false
+  },
+  "latency_ms": 8704,
+  "cache_key": "010b857d8cc1166d41566c850eb8816561b617dcd9d6fc5c53626fb2a1009a09",
+  "cache_hit": false,
+  "job": "link:D-008:proposal-verification-v1:verification:0",
+  "error": null
+}

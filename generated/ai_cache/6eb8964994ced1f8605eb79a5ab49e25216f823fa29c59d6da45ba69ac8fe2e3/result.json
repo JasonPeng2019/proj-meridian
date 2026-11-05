@@ -1,0 +1,43 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "relationship",
+        "state": "known",
+        "value_json": "\"no_equivalent\"",
+        "confidence": "sure",
+        "fact_ids": [],
+        "reason": "The left side is empty, so no drawing section is represented for Raw Materials. The protocol specifies no_equivalent for an empty left side. This suggestion requires actual human approval before use.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 13489,
+          "cached_input_tokens": 13312,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 196,
+          "reasoning_output_tokens": 109
+        }
+      }
+    ]
+  },
+  "latency_ms": 8312,
+  "cache_key": "6eb8964994ced1f8605eb79a5ab49e25216f823fa29c59d6da45ba69ac8fe2e3",
+  "cache_hit": false,
+  "job": "mapping:names/section/ -> raw-materials:proposal-verification-v1:proposal:0",
+  "error": null
+}

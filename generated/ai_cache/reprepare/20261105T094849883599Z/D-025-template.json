@@ -1,0 +1,1006 @@
+{
+  "part": "D-025",
+  "template": "flat_part",
+  "outline": {
+    "state": "known",
+    "type": "ring",
+    "outer_diameter": {
+      "state": "known",
+      "value": 250,
+      "confidence": "sure",
+      "method": "ai_verified",
+      "fact_ids": [
+        "D-025",
+        "D-025/drawing/n/250.0@1-1"
+      ],
+      "readers": {
+        "claude": {
+          "role": "verifier",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "outer_diameter",
+                "decision": "accept",
+                "reason": "The outer boundary is dimensioned Ø250,0 ±0,2, and the drawing note states that dimensions are in millimetres. The proposed value of 250 matches.",
+                "fact_ids": [
+                  "D-025/drawing/n/250.0@1-1",
+                  "D-025/drawing/general/units"
+                ],
+                "repairable": false
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "40c4d45efb9b8a4aa8504a2390599c4cf478180591f498726c5f69a38d8b5502",
+              "response_proposal_fingerprint": "40c4d45efb9b8a4aa8504a2390599c4cf478180591f498726c5f69a38d8b5502",
+              "feedback": [],
+              "settings": {
+                "model": "opus",
+                "fast_mode": false,
+                "mode": "regular",
+                "reader": "claude"
+              },
+              "cache_key": "d724060e20cd2bea58186766530763f3893548aca05f3581ed109ea67be3c564"
+            }
+          ]
+        },
+        "codex": {
+          "role": "proposer",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "outer_diameter",
+                "state": "known",
+                "value_json": "250",
+                "confidence": "sure",
+                "fact_ids": [
+                  "D-025",
+                  "D-025/drawing/n/250.0@1-1"
+                ],
+                "reason": "The outer boundary is dimensioned Ø250,0 ±0,2; dimensions are in millimetres.",
+                "changed_because": ""
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "40c4d45efb9b8a4aa8504a2390599c4cf478180591f498726c5f69a38d8b5502",
+              "response_proposal_fingerprint": null,
+              "feedback": [],
+              "settings": {
+                "model": "gpt-6.1-sol",
+                "reasoning_effort": "xhigh",
+                "service_tier": "fast",
+                "reader": "codex"
+              },
+              "cache_key": "73d45c9c1c64b9d805dae6d90071f17ad529f47a5c5e5b0d39dbdab128eec7a6"
+            }
+          ]
+        }
+      },
+      "review": {
+        "status": "not_reviewed"
+      },
+      "note": "The outer boundary is dimensioned Ø250,0 ±0,2; dimensions are in millimetres. Verification: The outer boundary is dimensioned Ø250,0 ±0,2, and the drawing note states that dimensions are in millimetres. The proposed value of 250 matches."
+    },
+    "inner_diameter": {
+      "state": "known",
+      "value": 224,
+      "confidence": "sure",
+      "method": "ai_verified",
+      "fact_ids": [
+        "D-025",
+        "D-025/drawing/n/224.0@1-1",
+        "D-025/drawing/n/0.3@1-1",
+        "D-025/drawing/n/0.0@1-1"
+      ],
+      "readers": {
+        "claude": {
+          "role": "verifier",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "inner_diameter",
+                "decision": "accept",
+                "reason": "The inner boundary is dimensioned Ø224,0 with tolerance +0,3/0,0. The proposed nominal value of 224 matches.",
+                "fact_ids": [
+                  "D-025/drawing/n/224.0@1-1",
+                  "D-025/drawing/n/0.3@1-1",
+                  "D-025/drawing/n/0.0@1-1"
+                ],
+                "repairable": false
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "40c4d45efb9b8a4aa8504a2390599c4cf478180591f498726c5f69a38d8b5502",
+              "response_proposal_fingerprint": "40c4d45efb9b8a4aa8504a2390599c4cf478180591f498726c5f69a38d8b5502",
+              "feedback": [],
+              "settings": {
+                "model": "opus",
+                "fast_mode": false,
+                "mode": "regular",
+                "reader": "claude"
+              },
+              "cache_key": "d724060e20cd2bea58186766530763f3893548aca05f3581ed109ea67be3c564"
+            }
+          ]
+        },
+        "codex": {
+          "role": "proposer",
+          "protocol": "proposal-verification-v1",
+          "rounds": [
+            {
+              "answer": {
+                "key": "inner_diameter",
+                "state": "known",
+                "value_json": "224",
+                "confidence": "sure",
+                "fact_ids": [
+                  "D-025",
+                  "D-025/drawing/n/224.0@1-1",
+                  "D-025/drawing/n/0.3@1-1",
+                  "D-025/drawing/n/0.0@1-1"
+                ],
+                "reason": "The inner boundary is dimensioned Ø224,0 with upper deviation +0,3 and lower deviation 0,0.",
+                "changed_because": ""
+              },
+              "valid": true,
+              "validation_passed": true,
+              "contract_error": null,
+              "requested": true,
+              "proposal_fingerprint": "40c4d45efb9b8a4aa8504a2390599c4cf478180591f498726c5f69a38d8b5502",
+              "response_proposal_fingerprint": null,
+              "feedback": [],
+              "settings": {
+                "model": "gpt-6.1-sol",
+                "reasoning_effort": "xhigh",
+                "service_tier": "fast",
+                "reader": "codex"
+              },
+              "cache_key": "73d45c9c1c64b9d805dae6d90071f17ad529f47a5c5e5b0d39dbdab128eec7a6"
+            }
+          ]
+        }
+      },
+      "review": {
+        "status": "not_reviewed"
+      },
+      "note": "The inner boundary is dimensioned Ø224,0 with upper deviation +0,3 and lower deviation 0,0. Verification: The inner boundary is dimensioned Ø224,0 with tolerance +0,3/0,0. The proposed nominal value of 224 matches."
+    }
+  },
+  "thickness": {
+    "state": "options",
+    "options": [
+      2,
+      3
+    ],
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-025",
+      "D-025/drawing/n/2.0@1-1",
+      "D-025/drawing/n/3.0@1-1"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "thickness",
+              "decision": "accept",
+              "reason": "The side view shows the stacked thickness values 3,0 and 2,0 on a single dimension. Per the protocol these are alternatives, given as options sorted ascending: [2,3]. Neither is selected as primary.",
+              "fact_ids": [
+                "D-025/drawing/n/3.0@1-1",
+                "D-025/drawing/n/2.0@1-1"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "40c4d45efb9b8a4aa8504a2390599c4cf478180591f498726c5f69a38d8b5502",
+            "response_proposal_fingerprint": "40c4d45efb9b8a4aa8504a2390599c4cf478180591f498726c5f69a38d8b5502",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "d724060e20cd2bea58186766530763f3893548aca05f3581ed109ea67be3c564"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "thickness",
+              "state": "options",
+              "value_json": "[2,3]",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-025",
+                "D-025/drawing/n/2.0@1-1",
+                "D-025/drawing/n/3.0@1-1"
+              ],
+              "reason": "The side view gives stacked thickness alternatives 3,0 and 2,0. Neither is selected as primary.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "40c4d45efb9b8a4aa8504a2390599c4cf478180591f498726c5f69a38d8b5502",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "73d45c9c1c64b9d805dae6d90071f17ad529f47a5c5e5b0d39dbdab128eec7a6"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The side view gives stacked thickness alternatives 3,0 and 2,0. Neither is selected as primary. Verification: The side view shows the stacked thickness values 3,0 and 2,0 on a single dimension. Per the protocol these are alternatives, given as options sorted ascending: [2,3]. Neither is selected as primary."
+  },
+  "features": [
+    {
+      "kind": "hole",
+      "face": "top",
+      "x": {
+        "state": "known",
+        "value": -115.5,
+        "fact_ids": [
+          "D-025/drawing/n/115.5@1-1"
+        ],
+        "expression": "0-n0"
+      },
+      "y": {
+        "state": "known",
+        "value": 0,
+        "fact_ids": [
+          "D-025"
+        ]
+      },
+      "diameter": {
+        "state": "known",
+        "value": 3.4,
+        "fact_ids": [
+          "D-025/drawing/n/3.4@1-1"
+        ]
+      },
+      "through": true,
+      "hole_type": "countersunk",
+      "countersink_diameter": {
+        "state": "known",
+        "value": 6.9,
+        "fact_ids": [
+          "D-025/drawing/n/6.9@1-1"
+        ]
+      },
+      "countersink_angle": {
+        "state": "known",
+        "value": 90,
+        "fact_ids": [
+          "D-025/drawing/n/90.0@1-1"
+        ]
+      },
+      "fact_ids": [
+        "D-025",
+        "D-025/drawing/callout/p1-1",
+        "D-025/drawing/callout/p1-2",
+        "D-025/drawing/callout/p1-3"
+      ]
+    },
+    {
+      "kind": "hole",
+      "face": "top",
+      "x": {
+        "state": "known",
+        "value": 0,
+        "fact_ids": [
+          "D-025"
+        ]
+      },
+      "y": {
+        "state": "known",
+        "value": -115.5,
+        "fact_ids": [
+          "D-025/drawing/n/115.5@1-1"
+        ],
+        "expression": "0-n0"
+      },
+      "diameter": {
+        "state": "known",
+        "value": 3.4,
+        "fact_ids": [
+          "D-025/drawing/n/3.4@1-1"
+        ]
+      },
+      "through": true,
+      "hole_type": "countersunk",
+      "countersink_diameter": {
+        "state": "known",
+        "value": 6.9,
+        "fact_ids": [
+          "D-025/drawing/n/6.9@1-1"
+        ]
+      },
+      "countersink_angle": {
+        "state": "known",
+        "value": 90,
+        "fact_ids": [
+          "D-025/drawing/n/90.0@1-1"
+        ]
+      },
+      "fact_ids": [
+        "D-025",
+        "D-025/drawing/callout/p1-1",
+        "D-025/drawing/callout/p1-2",
+        "D-025/drawing/callout/p1-3"
+      ]
+    },
+    {
+      "kind": "hole",
+      "face": "top",
+      "x": {
+        "state": "known",
+        "value": 0,
+        "fact_ids": [
+          "D-025"
+        ]
+      },
+      "y": {
+        "state": "known",
+        "value": 115.5,
+        "fact_ids": [
+          "D-025/drawing/n/115.5@1-1"
+        ]
+      },
+      "diameter": {
+        "state": "known",
+        "value": 3.4,
+        "fact_ids": [
+          "D-025/drawing/n/3.4@1-1"
+        ]
+      },
+      "through": true,
+      "hole_type": "countersunk",
+      "countersink_diameter": {
+        "state": "known",
+        "value": 6.9,
+        "fact_ids": [
+          "D-025/drawing/n/6.9@1-1"
+        ]
+      },
+      "countersink_angle": {
+        "state": "known",
+        "value": 90,
+        "fact_ids": [
+          "D-025/drawing/n/90.0@1-1"
+        ]
+      },
+      "fact_ids": [
+        "D-025",
+        "D-025/drawing/callout/p1-1",
+        "D-025/drawing/callout/p1-2",
+        "D-025/drawing/callout/p1-3"
+      ]
+    },
+    {
+      "kind": "hole",
+      "face": "top",
+      "x": {
+        "state": "known",
+        "value": 115.5,
+        "fact_ids": [
+          "D-025/drawing/n/115.5@1-1"
+        ]
+      },
+      "y": {
+        "state": "known",
+        "value": 0,
+        "fact_ids": [
+          "D-025"
+        ]
+      },
+      "diameter": {
+        "state": "known",
+        "value": 3.4,
+        "fact_ids": [
+          "D-025/drawing/n/3.4@1-1"
+        ]
+      },
+      "through": true,
+      "hole_type": "countersunk",
+      "countersink_diameter": {
+        "state": "known",
+        "value": 6.9,
+        "fact_ids": [
+          "D-025/drawing/n/6.9@1-1"
+        ]
+      },
+      "countersink_angle": {
+        "state": "known",
+        "value": 90,
+        "fact_ids": [
+          "D-025/drawing/n/90.0@1-1"
+        ]
+      },
+      "fact_ids": [
+        "D-025",
+        "D-025/drawing/callout/p1-1",
+        "D-025/drawing/callout/p1-2",
+        "D-025/drawing/callout/p1-3"
+      ]
+    }
+  ],
+  "features_review": {
+    "state": "known",
+    "value": [
+      {
+        "kind": "hole",
+        "face": "top",
+        "x": {
+          "state": "known",
+          "value": -115.5,
+          "fact_ids": [
+            "D-025/drawing/n/115.5@1-1"
+          ],
+          "expression": "0-n0"
+        },
+        "y": {
+          "state": "known",
+          "value": 0,
+          "fact_ids": [
+            "D-025"
+          ]
+        },
+        "diameter": {
+          "state": "known",
+          "value": 3.4,
+          "fact_ids": [
+            "D-025/drawing/n/3.4@1-1"
+          ]
+        },
+        "through": true,
+        "hole_type": "countersunk",
+        "countersink_diameter": {
+          "state": "known",
+          "value": 6.9,
+          "fact_ids": [
+            "D-025/drawing/n/6.9@1-1"
+          ]
+        },
+        "countersink_angle": {
+          "state": "known",
+          "value": 90,
+          "fact_ids": [
+            "D-025/drawing/n/90.0@1-1"
+          ]
+        },
+        "fact_ids": [
+          "D-025",
+          "D-025/drawing/callout/p1-1",
+          "D-025/drawing/callout/p1-2",
+          "D-025/drawing/callout/p1-3"
+        ]
+      },
+      {
+        "kind": "hole",
+        "face": "top",
+        "x": {
+          "state": "known",
+          "value": 0,
+          "fact_ids": [
+            "D-025"
+          ]
+        },
+        "y": {
+          "state": "known",
+          "value": -115.5,
+          "fact_ids": [
+            "D-025/drawing/n/115.5@1-1"
+          ],
+          "expression": "0-n0"
+        },
+        "diameter": {
+          "state": "known",
+          "value": 3.4,
+          "fact_ids": [
+            "D-025/drawing/n/3.4@1-1"
+          ]
+        },
+        "through": true,
+        "hole_type": "countersunk",
+        "countersink_diameter": {
+          "state": "known",
+          "value": 6.9,
+          "fact_ids": [
+            "D-025/drawing/n/6.9@1-1"
+          ]
+        },
+        "countersink_angle": {
+          "state": "known",
+          "value": 90,
+          "fact_ids": [
+            "D-025/drawing/n/90.0@1-1"
+          ]
+        },
+        "fact_ids": [
+          "D-025",
+          "D-025/drawing/callout/p1-1",
+          "D-025/drawing/callout/p1-2",
+          "D-025/drawing/callout/p1-3"
+        ]
+      },
+      {
+        "kind": "hole",
+        "face": "top",
+        "x": {
+          "state": "known",
+          "value": 0,
+          "fact_ids": [
+            "D-025"
+          ]
+        },
+        "y": {
+          "state": "known",
+          "value": 115.5,
+          "fact_ids": [
+            "D-025/drawing/n/115.5@1-1"
+          ]
+        },
+        "diameter": {
+          "state": "known",
+          "value": 3.4,
+          "fact_ids": [
+            "D-025/drawing/n/3.4@1-1"
+          ]
+        },
+        "through": true,
+        "hole_type": "countersunk",
+        "countersink_diameter": {
+          "state": "known",
+          "value": 6.9,
+          "fact_ids": [
+            "D-025/drawing/n/6.9@1-1"
+          ]
+        },
+        "countersink_angle": {
+          "state": "known",
+          "value": 90,
+          "fact_ids": [
+            "D-025/drawing/n/90.0@1-1"
+          ]
+        },
+        "fact_ids": [
+          "D-025",
+          "D-025/drawing/callout/p1-1",
+          "D-025/drawing/callout/p1-2",
+          "D-025/drawing/callout/p1-3"
+        ]
+      },
+      {
+        "kind": "hole",
+        "face": "top",
+        "x": {
+          "state": "known",
+          "value": 115.5,
+          "fact_ids": [
+            "D-025/drawing/n/115.5@1-1"
+          ]
+        },
+        "y": {
+          "state": "known",
+          "value": 0,
+          "fact_ids": [
+            "D-025"
+          ]
+        },
+        "diameter": {
+          "state": "known",
+          "value": 3.4,
+          "fact_ids": [
+            "D-025/drawing/n/3.4@1-1"
+          ]
+        },
+        "through": true,
+        "hole_type": "countersunk",
+        "countersink_diameter": {
+          "state": "known",
+          "value": 6.9,
+          "fact_ids": [
+            "D-025/drawing/n/6.9@1-1"
+          ]
+        },
+        "countersink_angle": {
+          "state": "known",
+          "value": 90,
+          "fact_ids": [
+            "D-025/drawing/n/90.0@1-1"
+          ]
+        },
+        "fact_ids": [
+          "D-025",
+          "D-025/drawing/callout/p1-1",
+          "D-025/drawing/callout/p1-2",
+          "D-025/drawing/callout/p1-3"
+        ]
+      }
+    ],
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-025",
+      "D-025/drawing/callout/p1-1",
+      "D-025/drawing/callout/p1-2",
+      "D-025/drawing/callout/p1-3",
+      "D-025/drawing/n/115.5@1-1",
+      "D-025/drawing/n/3.4@1-1",
+      "D-025/drawing/n/6.9@1-1",
+      "D-025/drawing/n/90.0@1-1"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features",
+              "decision": "accept",
+              "reason": "Four holes sit on the drawn horizontal and vertical center axes at the R115,5 pitch radius. That gives coordinates (±115.5,0) and (0,±115.5); the negative values use the allowed expression 0-n0. The callout '8 x Ø3,4 THRU ALL' gives the through-bore diameter 3.4, and the countersink symbol with 'Ø6,9 X 90°' gives a countersink diameter of 6.9 at 90°. The holes are ordered correctly by x, then y. The subset excludes the four diagonal holes, whose angular positions are not dimensioned.",
+              "fact_ids": [
+                "D-025",
+                "D-025/drawing/callout/p1-1",
+                "D-025/drawing/callout/p1-2",
+                "D-025/drawing/callout/p1-3",
+                "D-025/drawing/n/115.5@1-1",
+                "D-025/drawing/n/3.4@1-1",
+                "D-025/drawing/n/6.9@1-1",
+                "D-025/drawing/n/90.0@1-1"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "40c4d45efb9b8a4aa8504a2390599c4cf478180591f498726c5f69a38d8b5502",
+            "response_proposal_fingerprint": "40c4d45efb9b8a4aa8504a2390599c4cf478180591f498726c5f69a38d8b5502",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "d724060e20cd2bea58186766530763f3893548aca05f3581ed109ea67be3c564"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features",
+              "state": "known",
+              "value_json": "[{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":-115.5,\"fact_ids\":[\"D-025/drawing/n/115.5@1-1\"],\"expression\":\"0-n0\"},\"y\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-025\"]},\"diameter\":{\"state\":\"known\",\"value\":3.4,\"fact_ids\":[\"D-025/drawing/n/3.4@1-1\"]},\"through\":true,\"hole_type\":\"countersunk\",\"countersink_diameter\":{\"state\":\"known\",\"value\":6.9,\"fact_ids\":[\"D-025/drawing/n/6.9@1-1\"]},\"countersink_angle\":{\"state\":\"known\",\"value\":90,\"fact_ids\":[\"D-025/drawing/n/90.0@1-1\"]},\"fact_ids\":[\"D-025\",\"D-025/drawing/callout/p1-1\",\"D-025/drawing/callout/p1-2\",\"D-025/drawing/callout/p1-3\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-025\"]},\"y\":{\"state\":\"known\",\"value\":-115.5,\"fact_ids\":[\"D-025/drawing/n/115.5@1-1\"],\"expression\":\"0-n0\"},\"diameter\":{\"state\":\"known\",\"value\":3.4,\"fact_ids\":[\"D-025/drawing/n/3.4@1-1\"]},\"through\":true,\"hole_type\":\"countersunk\",\"countersink_diameter\":{\"state\":\"known\",\"value\":6.9,\"fact_ids\":[\"D-025/drawing/n/6.9@1-1\"]},\"countersink_angle\":{\"state\":\"known\",\"value\":90,\"fact_ids\":[\"D-025/drawing/n/90.0@1-1\"]},\"fact_ids\":[\"D-025\",\"D-025/drawing/callout/p1-1\",\"D-025/drawing/callout/p1-2\",\"D-025/drawing/callout/p1-3\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-025\"]},\"y\":{\"state\":\"known\",\"value\":115.5,\"fact_ids\":[\"D-025/drawing/n/115.5@1-1\"]},\"diameter\":{\"state\":\"known\",\"value\":3.4,\"fact_ids\":[\"D-025/drawing/n/3.4@1-1\"]},\"through\":true,\"hole_type\":\"countersunk\",\"countersink_diameter\":{\"state\":\"known\",\"value\":6.9,\"fact_ids\":[\"D-025/drawing/n/6.9@1-1\"]},\"countersink_angle\":{\"state\":\"known\",\"value\":90,\"fact_ids\":[\"D-025/drawing/n/90.0@1-1\"]},\"fact_ids\":[\"D-025\",\"D-025/drawing/callout/p1-1\",\"D-025/drawing/callout/p1-2\",\"D-025/drawing/callout/p1-3\"]},{\"kind\":\"hole\",\"face\":\"top\",\"x\":{\"state\":\"known\",\"value\":115.5,\"fact_ids\":[\"D-025/drawing/n/115.5@1-1\"]},\"y\":{\"state\":\"known\",\"value\":0,\"fact_ids\":[\"D-025\"]},\"diameter\":{\"state\":\"known\",\"value\":3.4,\"fact_ids\":[\"D-025/drawing/n/3.4@1-1\"]},\"through\":true,\"hole_type\":\"countersunk\",\"countersink_diameter\":{\"state\":\"known\",\"value\":6.9,\"fact_ids\":[\"D-025/drawing/n/6.9@1-1\"]},\"countersink_angle\":{\"state\":\"known\",\"value\":90,\"fact_ids\":[\"D-025/drawing/n/90.0@1-1\"]},\"fact_ids\":[\"D-025\",\"D-025/drawing/callout/p1-1\",\"D-025/drawing/callout/p1-2\",\"D-025/drawing/callout/p1-3\"]}]",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-025",
+                "D-025/drawing/callout/p1-1",
+                "D-025/drawing/callout/p1-2",
+                "D-025/drawing/callout/p1-3",
+                "D-025/drawing/n/115.5@1-1",
+                "D-025/drawing/n/3.4@1-1",
+                "D-025/drawing/n/6.9@1-1",
+                "D-025/drawing/n/90.0@1-1"
+              ],
+              "reason": "Four hole centers lie at the intersections of the drawn center axes and the R115,5 pitch circle. The common callout specifies 8 x Ø3,4 THRU ALL with Ø6,9 X 90° countersinks. Only the four axis-located holes have supported coordinates without assuming angular spacing.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "40c4d45efb9b8a4aa8504a2390599c4cf478180591f498726c5f69a38d8b5502",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "73d45c9c1c64b9d805dae6d90071f17ad529f47a5c5e5b0d39dbdab128eec7a6"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "Four hole centers lie at the intersections of the drawn center axes and the R115,5 pitch circle. The common callout specifies 8 x Ø3,4 THRU ALL with Ø6,9 X 90° countersinks. Only the four axis-located holes have supported coordinates without assuming angular spacing. Verification: Four holes sit on the drawn horizontal and vertical center axes at the R115,5 pitch radius. That gives coordinates (±115.5,0) and (0,±115.5); the negative values use the allowed expression 0-n0. The callout '8 x Ø3,4 THRU ALL' gives the through-bore diameter 3.4, and the countersink symbol with 'Ø6,9 X 90°' gives a countersink diameter of 6.9 at 90°. The holes are ordered correctly by x, then y. The subset excludes the four diagonal holes, whose angular positions are not dimensioned."
+  },
+  "material": {
+    "name": "D-025/drawing/material",
+    "original": "3.3315 (EN-AW 5005)",
+    "value": "3.3315 (EN-AW 5005)",
+    "confidence": "sure",
+    "method": "parsed",
+    "page": 1,
+    "box": [
+      745.28,
+      771.048,
+      135.0,
+      14.0
+    ],
+    "field_box": [
+      784.28,
+      771.048,
+      96.0,
+      14.0
+    ],
+    "label_box": [
+      745.28,
+      772.048,
+      38.539,
+      10.936
+    ]
+  },
+  "weight_on_drawing": {
+    "name": "D-025/drawing/weight_g",
+    "original": "77.3",
+    "value": 77.3,
+    "confidence": "sure",
+    "method": "parsed",
+    "page": 1,
+    "box": [
+      880.717,
+      771.048,
+      93.0,
+      14.0
+    ],
+    "field_box": [
+      924.717,
+      771.048,
+      49.0,
+      14.0
+    ],
+    "label_box": [
+      880.717,
+      772.048,
+      28.747,
+      10.936
+    ]
+  },
+  "cad_ready": true,
+  "blocking_fields": [],
+  "feature_protocol": "supported-feature-subset-v1",
+  "features_complete": {
+    "state": "known",
+    "value": false,
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-025",
+      "D-025/drawing/callout/p1-1",
+      "D-025/drawing/general/edge_finish"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_complete",
+              "decision": "accept",
+              "reason": "The callout specifies 8 holes, but only 4 are modeled. The other 4 have no dimensioned angular positions, so the inventory is not fully supported and false is correct.",
+              "fact_ids": [
+                "D-025",
+                "D-025/drawing/callout/p1-1",
+                "D-025/drawing/general/edge_finish"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "40c4d45efb9b8a4aa8504a2390599c4cf478180591f498726c5f69a38d8b5502",
+            "response_proposal_fingerprint": "40c4d45efb9b8a4aa8504a2390599c4cf478180591f498726c5f69a38d8b5502",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "d724060e20cd2bea58186766530763f3893548aca05f3581ed109ea67be3c564"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_complete",
+              "state": "known",
+              "value_json": "false",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-025",
+                "D-025/drawing/callout/p1-1",
+                "D-025/drawing/general/edge_finish"
+              ],
+              "reason": "The inventory includes eight countersunk holes, but four lack dimensioned angular positions. The edge-break detail also lacks dimensions.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "40c4d45efb9b8a4aa8504a2390599c4cf478180591f498726c5f69a38d8b5502",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "73d45c9c1c64b9d805dae6d90071f17ad529f47a5c5e5b0d39dbdab128eec7a6"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The inventory includes eight countersunk holes, but four lack dimensioned angular positions. The edge-break detail also lacks dimensions. Verification: The callout specifies 8 holes, but only 4 are modeled. The other 4 have no dimensioned angular positions, so the inventory is not fully supported and false is correct."
+  },
+  "features_omitted": {
+    "state": "known",
+    "value": [
+      {
+        "description": "Four countersunk through holes between the center axes",
+        "reason": "Their Ø3,4 through bores, Ø6,9 X 90° countersinks and R115,5 pitch circle are supported, but their angular positions are not dimensioned. Equal angular spacing cannot be inferred from visual symmetry.",
+        "fact_ids": [
+          "D-025",
+          "D-025/drawing/callout/p1-1",
+          "D-025/drawing/callout/p1-2",
+          "D-025/drawing/callout/p1-3"
+        ]
+      },
+      {
+        "description": "DEBURR AND BREAK SHARP EDGES",
+        "reason": "No edge-break size or profile is specified, so this treatment cannot be represented as a fully defined cut.",
+        "fact_ids": [
+          "D-025/drawing/general/edge_finish"
+        ]
+      }
+    ],
+    "confidence": "sure",
+    "method": "ai_verified",
+    "fact_ids": [
+      "D-025",
+      "D-025/drawing/callout/p1-1",
+      "D-025/drawing/callout/p1-2",
+      "D-025/drawing/callout/p1-3",
+      "D-025/drawing/general/edge_finish"
+    ],
+    "readers": {
+      "claude": {
+        "role": "verifier",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_omitted",
+              "decision": "accept",
+              "reason": "The four diagonal countersunk holes are correctly omitted: their bore, countersink and pitch radius are given, but their angular position is not dimensioned, and positions may not be inferred from visual symmetry. The general note 'DEBURR AND BREAK SHARP EDGES' gives no size and is correctly listed as unmodelable. Each omission cites exact source IDs.",
+              "fact_ids": [
+                "D-025",
+                "D-025/drawing/callout/p1-1",
+                "D-025/drawing/callout/p1-2",
+                "D-025/drawing/callout/p1-3",
+                "D-025/drawing/general/edge_finish"
+              ],
+              "repairable": false
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "40c4d45efb9b8a4aa8504a2390599c4cf478180591f498726c5f69a38d8b5502",
+            "response_proposal_fingerprint": "40c4d45efb9b8a4aa8504a2390599c4cf478180591f498726c5f69a38d8b5502",
+            "feedback": [],
+            "settings": {
+              "model": "opus",
+              "fast_mode": false,
+              "mode": "regular",
+              "reader": "claude"
+            },
+            "cache_key": "d724060e20cd2bea58186766530763f3893548aca05f3581ed109ea67be3c564"
+          }
+        ]
+      },
+      "codex": {
+        "role": "proposer",
+        "protocol": "proposal-verification-v1",
+        "rounds": [
+          {
+            "answer": {
+              "key": "features_omitted",
+              "state": "known",
+              "value_json": "[{\"description\":\"Four countersunk through holes between the center axes\",\"reason\":\"Their Ø3,4 through bores, Ø6,9 X 90° countersinks and R115,5 pitch circle are supported, but their angular positions are not dimensioned. Equal angular spacing cannot be inferred from visual symmetry.\",\"fact_ids\":[\"D-025\",\"D-025/drawing/callout/p1-1\",\"D-025/drawing/callout/p1-2\",\"D-025/drawing/callout/p1-3\"]},{\"description\":\"DEBURR AND BREAK SHARP EDGES\",\"reason\":\"No edge-break size or profile is specified, so this treatment cannot be represented as a fully defined cut.\",\"fact_ids\":[\"D-025/drawing/general/edge_finish\"]}]",
+              "confidence": "sure",
+              "fact_ids": [
+                "D-025",
+                "D-025/drawing/callout/p1-1",
+                "D-025/drawing/callout/p1-2",
+                "D-025/drawing/callout/p1-3",
+                "D-025/drawing/general/edge_finish"
+              ],
+              "reason": "The omitted cuts and edge treatment lack the positional or geometric dimensions required for modeling.",
+              "changed_because": ""
+            },
+            "valid": true,
+            "validation_passed": true,
+            "contract_error": null,
+            "requested": true,
+            "proposal_fingerprint": "40c4d45efb9b8a4aa8504a2390599c4cf478180591f498726c5f69a38d8b5502",
+            "response_proposal_fingerprint": null,
+            "feedback": [],
+            "settings": {
+              "model": "gpt-6.1-sol",
+              "reasoning_effort": "xhigh",
+              "service_tier": "fast",
+              "reader": "codex"
+            },
+            "cache_key": "73d45c9c1c64b9d805dae6d90071f17ad529f47a5c5e5b0d39dbdab128eec7a6"
+          }
+        ]
+      }
+    },
+    "review": {
+      "status": "not_reviewed"
+    },
+    "note": "The omitted cuts and edge treatment lack the positional or geometric dimensions required for modeling. Verification: The four diagonal countersunk holes are correctly omitted: their bore, countersink and pitch radius are given, but their angular position is not dimensioned, and positions may not be inferred from visual symmetry. The general note 'DEBURR AND BREAK SHARP EDGES' gives no size and is correctly listed as unmodelable. Each omission cites exact source IDs."
+  },
+  "features_all_determined": false,
+  "features_status": "partial",
+  "omitted_feature_notes": [
+    "Four countersunk through holes between the center axes: Their Ø3,4 through bores, Ø6,9 X 90° countersinks and R115,5 pitch circle are supported, but their angular positions are not dimensioned. Equal angular spacing cannot be inferred from visual symmetry.",
+    "DEBURR AND BREAK SHARP EDGES: No edge-break size or profile is specified, so this treatment cannot be represented as a fully defined cut."
+  ],
+  "review": {
+    "status": "not_reviewed"
+  },
+  "source_sha256": "9b61f2c688fba1b10f502658505c78c0ff99820d3f281822eacdc7283e9b7e9c"
+}

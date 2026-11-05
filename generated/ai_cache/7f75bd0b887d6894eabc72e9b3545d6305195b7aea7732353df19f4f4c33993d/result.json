@@ -1,0 +1,84 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "features",
+        "state": "known",
+        "value_json": "[]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-026",
+          "D-026/drawing/callout/p1-2",
+          "D-026/drawing/n/15.4@1-1",
+          "D-026/drawing/n/15.0@1-1",
+          "D-026/drawing/n/25.0@1-1"
+        ],
+        "reason": "The specified counterbore depth 15,4 exceeds the 15,0 thickness alternative. No complete hole operation is supported consistently across both thickness alternatives; the other two holes also lack dimensioned angular positions.",
+        "changed_because": "Removed the previously included left counterbored hole after checking the original depth and thickness dimensions: retaining it would require resolving the conflict or selecting the 25,0 thickness alternative."
+      },
+      {
+        "key": "features_complete",
+        "state": "known",
+        "value_json": "false",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-026",
+          "D-026/drawing/callout/p1-2",
+          "D-026/drawing/n/15.4@1-1",
+          "D-026/drawing/n/15.0@1-1",
+          "D-026/drawing/general/edge_finish"
+        ],
+        "reason": "All three counterbored holes are omitted because of the depth-versus-thickness conflict. Two additionally lack dimensioned angular positions. The edge-break geometry is unspecified.",
+        "changed_because": "The value remains false; the explanation now accounts for the omitted left hole and the depth conflict affecting all three holes."
+      },
+      {
+        "key": "features_omitted",
+        "state": "known",
+        "value_json": "[{\"description\":\"Left hole on the negative-X horizontal centerline at R105,0: Ø5,3 THRU ALL with Ø10,0 counterbore depth 15,4.\",\"reason\":\"Its position and hole dimensions are established, but counterbore depth 15,4 exceeds the 15,0 thickness alternative. With thickness alternatives 15,0 and 25,0, the specified counterbored operation cannot be supported consistently for both without resolving the conflict.\",\"fact_ids\":[\"D-026\",\"D-026/drawing/callout/p1-1\",\"D-026/drawing/callout/p1-2\",\"D-026/drawing/n/105.0@1-1\",\"D-026/drawing/n/5.3@1-1\",\"D-026/drawing/n/10.0@1-1\",\"D-026/drawing/n/15.4@1-1\",\"D-026/drawing/n/15.0@1-1\",\"D-026/drawing/n/25.0@1-1\"]},{\"description\":\"The other two holes in the 3 x Ø5,3 THRU ALL callout, each with Ø10,0 counterbore depth 15,4.\",\"reason\":\"R105,0 establishes their radial distance, but their angular positions are not dimensioned; equal spacing cannot be inferred from appearance. Their counterbore depth 15,4 also exceeds the 15,0 thickness alternative, so the specified operation is unresolved across the thickness alternatives.\",\"fact_ids\":[\"D-026\",\"D-026/drawing/callout/p1-1\",\"D-026/drawing/callout/p1-2\",\"D-026/drawing/n/5.3@1-1\",\"D-026/drawing/n/10.0@1-1\",\"D-026/drawing/n/15.4@1-1\",\"D-026/drawing/n/15.0@1-1\",\"D-026/drawing/n/25.0@1-1\"]},{\"description\":\"DEBURR AND BREAK SHARP EDGES\",\"reason\":\"No edge-break size or profile is specified, so a definite chamfer or radius cannot be modeled.\",\"fact_ids\":[\"D-026/drawing/general/edge_finish\"]}]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-026",
+          "D-026/drawing/callout/p1-1",
+          "D-026/drawing/callout/p1-2",
+          "D-026/drawing/n/105.0@1-1",
+          "D-026/drawing/n/5.3@1-1",
+          "D-026/drawing/n/10.0@1-1",
+          "D-026/drawing/n/15.4@1-1",
+          "D-026/drawing/n/15.0@1-1",
+          "D-026/drawing/n/25.0@1-1",
+          "D-026/drawing/general/edge_finish"
+        ],
+        "reason": "The omissions document the counterbore-depth conflict affecting all three holes, the missing angular positions of two holes, and the unspecified edge breaks.",
+        "changed_because": "Added the left hole to the omissions and added the original depth-versus-thickness conflict to the other two holes. Retained the evidence-supported angular-position and edge-break omissions."
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 21301,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1882,
+          "reasoning_output_tokens": 842
+        }
+      }
+    ]
+  },
+  "latency_ms": 39265,
+  "cache_key": "7f75bd0b887d6894eabc72e9b3545d6305195b7aea7732353df19f4f4c33993d",
+  "cache_hit": false,
+  "job": "template:D-026:proposal-verification-v1:proposal:1",
+  "error": null
+}

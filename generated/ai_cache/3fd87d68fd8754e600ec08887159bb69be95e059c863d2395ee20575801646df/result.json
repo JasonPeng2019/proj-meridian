@@ -1,0 +1,78 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "685595bd1d2373987dd1f73994882b63fa28e3b9d4f8a6f90de7c1bc7ccebe16",
+    "items": [
+      {
+        "key": "link",
+        "decision": "accept",
+        "reason": "D-002/drawing/notes reads 'Left Wall', and drawing D-002 is in section 'Box' with source file LeftWall.pdf. In the 'Box' section, BOM:box/left-side-box ('Left Side Box') is the only row about the left side. The other Box rows are Right Box, Front Side Box, Back Box, Top Side and the doors and bracing, which are different parts. The only other 'Wall' row, BOM:recoater/recoater-wall, is in the 'Recoater' section and has its own datasheets (RecoaterWall.pdf, RecoaterWallSvejse.pdf), so it does not apply here. The link rests on the name and the exactly matching section, not on material: the drawing's material field (D-002/drawing/material) is empty, and the note's '2mm non-magnetic stainless' only fits the row's 'Stainless steel'. It is not treated as an approved material match. The row's note about 'Holes along top bend' also fits a bent wall with flanges as described in D-002/drawing/notes. A single-row link to BOM:box/left-side-box is supported. Human mapping approval is still a separate step.",
+        "fact_ids": [
+          "D-002/drawing/notes",
+          "D-002/drawing/material",
+          "BOM:box/left-side-box",
+          "BOM:recoater/recoater-wall"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 8027,
+      "cache_read_input_tokens": 2523,
+      "output_tokens": 1005,
+      "output_tokens_details": {
+        "thinking_tokens": 421
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 8027,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 1005,
+        "cacheReadInputTokens": 2523,
+        "cacheCreationInputTokens": 8027,
+        "webSearchRequests": 0,
+        "costUSD": 0.0848286,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 421,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 8027,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.0848286,
+    "duration_ms": 9656,
+    "is_error": false
+  },
+  "latency_ms": 10891,
+  "cache_key": "3fd87d68fd8754e600ec08887159bb69be95e059c863d2395ee20575801646df",
+  "cache_hit": false,
+  "job": "link:D-002:proposal-verification-v1:verification:0",
+  "error": null
+}

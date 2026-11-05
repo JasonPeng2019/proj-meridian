@@ -1,0 +1,46 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "relationship",
+        "state": "known",
+        "value_json": "\"same\"",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-020/drawing/source",
+          "BOM:optics/f-theta-seal-ring"
+        ],
+        "reason": "The supplied established links connect D-020 in “Optical” to the BOM entry in “Optics”, supporting the same section under these two names. This suggestion requires actual human approval before use.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 18711,
+          "cached_input_tokens": 10112,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 307,
+          "reasoning_output_tokens": 200
+        }
+      }
+    ]
+  },
+  "latency_ms": 12640,
+  "cache_key": "d81286136e8bc4a39e4f24181303d8754476f7ad6674d3068c6e95776dd6269b",
+  "cache_hit": false,
+  "job": "mapping:names/section/optical -> optics:proposal-verification-v1:proposal:0",
+  "error": null
+}

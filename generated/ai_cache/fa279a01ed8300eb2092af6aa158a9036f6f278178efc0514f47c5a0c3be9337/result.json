@@ -1,0 +1,47 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "known",
+        "value_json": "[\"BOM:box/print-platform\"]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-003",
+          "D-003/drawing/notes",
+          "BOM:box/print-platform"
+        ],
+        "reason": "'MainPlatform_Loop2.PDF' names a platform in section 'Box'. The note '20mm thick aluminium plate.' agrees with the 'Print Platform' row's material 'Aluminium'; it is the only platform row in 'Box'.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 16126,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1475,
+          "reasoning_output_tokens": 1350
+        }
+      }
+    ]
+  },
+  "latency_ms": 42719,
+  "cache_key": "fa279a01ed8300eb2092af6aa158a9036f6f278178efc0514f47c5a0c3be9337",
+  "cache_hit": false,
+  "job": "link:D-003:proposal-verification-v1:proposal:0",
+  "error": null
+}

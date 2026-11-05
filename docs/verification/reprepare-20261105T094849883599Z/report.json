@@ -1,0 +1,79 @@
+{
+  "protocol": "proposal-verification-v1",
+  "complete": true,
+  "metrics": {
+    "agreed": 0,
+    "agreed_after_retry": 0,
+    "verified": 74,
+    "verified_after_retry": 5,
+    "sent_to_review": 18,
+    "scan_undetermined": 20,
+    "mapping_approvals_required": 11,
+    "mapping_suggestions_unsure": 1,
+    "status_counts": {
+      "verified": 74,
+      "verified_after_retry": 5,
+      "needs_input": 39
+    },
+    "by_job": {
+      "template": {
+        "verified": 17,
+        "verified_after_retry": 3
+      },
+      "scan": {
+        "needs_input": 20,
+        "verified": 42,
+        "verified_after_retry": 2
+      },
+      "link": {
+        "needs_input": 18,
+        "verified": 5
+      },
+      "mapping": {
+        "verified": 10,
+        "needs_input": 1
+      }
+    },
+    "jobs": 45,
+    "exact_links": 7,
+    "reader_calls": 98,
+    "cache_hits": 1,
+    "provider_calls": 97,
+    "latency_ms_total": 2048588,
+    "proposer_calls": 49,
+    "verifier_calls": 49,
+    "feedback_rounds": 4,
+    "feedback_keys": 6,
+    "protocols": [
+      "proposal-verification-v1"
+    ],
+    "configured_readers": {
+      "claude": {
+        "model": "opus",
+        "fast_mode": false,
+        "mode": "regular",
+        "reader": "claude"
+      },
+      "codex": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "service_tier": "fast",
+        "reader": "codex"
+      }
+    },
+    "roles": {
+      "codex": "proposer",
+      "claude": "verifier"
+    },
+    "wall_time_ms": 2112921
+  },
+  "actual_human_decisions_preserved": true,
+  "mapping_review_lineage_applied": true,
+  "production_geometry_regenerated": false,
+  "next_stage": "primary template refinement, expansion, remote geometry and full release verification",
+  "staged_secret_audit": {
+    "files_scanned": 573,
+    "actual_credential_value_matches": [],
+    "credential_pattern_matches": []
+  }
+}

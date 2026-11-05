@@ -1,0 +1,79 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "f44e1dabffa996d5ea8a5e5fb1214eb23d732f53a8a5e1ae692d6d2dc9838c98",
+    "items": [
+      {
+        "key": "link",
+        "decision": "needs_input",
+        "reason": "The evidence points toward BOM:build-plate/build-base but does not settle the link. For it: the title D-024/drawing/title is \"ByggeBase\", which reads as Build base. D-024/drawing/notes says \"Aluminium.\", and D-024/drawing/material says \"3.3315 (EN-AW 5005)\", an aluminium grade; both are consistent with the BOM:build-plate/build-base material [\"Aluminium\"]. Against it: the drawing section is \"Z-axis\" and the BOM row section is \"Build-plate\". The task says not to assume differing section names are already approved as equivalent. The drawing has no datasheet link to the BOM (the row's datasheet is []). The drawing also notes \"Hul til varmeelement\" (hole for heating element). That could relate to the separate Aluminium row BOM:build-plate/heating-element-plate. The row BOM:build-plate/build-base mentions only a thermocouple hole, so it does not confirm the link. The proposed unknown/null is consistent with this ambiguity. Fixing the link needs a human to decide whether Z-axis and Build-plate are equivalent sections, or new evidence such as a datasheet reference. A new proposal from the existing evidence cannot do it.",
+        "fact_ids": [
+          "D-024/drawing/title",
+          "D-024/drawing/material",
+          "D-024/drawing/notes",
+          "BOM:build-plate/build-base",
+          "BOM:build-plate/heating-element-plate"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 8099,
+      "cache_read_input_tokens": 2523,
+      "output_tokens": 1173,
+      "output_tokens_details": {
+        "thinking_tokens": 528
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 8099,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 1173,
+        "cacheReadInputTokens": 2523,
+        "cacheCreationInputTokens": 8099,
+        "webSearchRequests": 0,
+        "costUSD": 0.0887646,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 528,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 8099,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.0887646,
+    "duration_ms": 10765,
+    "is_error": false
+  },
+  "latency_ms": 11922,
+  "cache_key": "2f8b37b2a29b73b5336af0d27cb4145e1cb95aedf8863cd6193d2a6935192f1e",
+  "cache_hit": false,
+  "job": "link:D-024:proposal-verification-v1:verification:0",
+  "error": null
+}

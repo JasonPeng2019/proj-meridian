@@ -1,0 +1,46 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "relationship",
+        "state": "known",
+        "value_json": "\"kind_of\"",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-026/drawing/material",
+          "BOM:build-plate/build-plate"
+        ],
+        "reason": "AISI 316 Stainless Steel Sheet (SS) is more specific than Stainless steel and Steel, based on general engineering knowledge, not the dataset. The drawing material reading is marked unsure because it overlaps the WEIGHT label. This suggestion requires actual human approval before use.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 14397,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 598,
+          "reasoning_output_tokens": 478
+        }
+      }
+    ]
+  },
+  "latency_ms": 16000,
+  "cache_key": "dadd1a53e0d36607550aa0312dd17108d4da25b800067fcb56bd6da26813c7f2",
+  "cache_hit": false,
+  "job": "mapping:names/material/aisi-316-stainless-steel-sheet-ss -> stainless-steel-steel:proposal-verification-v1:proposal:0",
+  "error": null
+}

@@ -1,0 +1,179 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "c68d30e7641daebd45ebf44629c27557796a62c8b7125084ed5a8d3976c7ce1e",
+    "items": [
+      {
+        "key": "outline_type",
+        "decision": "accept",
+        "reason": "The drawing D-013 front view shows a rectangular plate 270,0 x 25,0. The small corner clips have no dimensions and are listed separately as omissions, so the rectangular envelope is supported.",
+        "fact_ids": [
+          "D-013",
+          "D-013/drawing/n/270.0@1-1",
+          "D-013/drawing/n/25.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "length",
+        "decision": "accept",
+        "reason": "The overall horizontal dimension 270,0 spans the full plate in X. The drawing states that dimensions are in millimetres.",
+        "fact_ids": [
+          "D-013/drawing/n/270.0@1-1",
+          "D-013/drawing/general/units"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "width",
+        "decision": "accept",
+        "reason": "The overall vertical dimension 25,0 on the right spans the plate from top edge to bottom edge in Y. Units are millimetres.",
+        "fact_ids": [
+          "D-013/drawing/n/25.0@1-1",
+          "D-013/drawing/general/units"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "outer_diameter",
+        "decision": "accept",
+        "reason": "The part is a rectangular plate, so outer diameter does not apply. Unknown/null is correct for an irrelevant key.",
+        "fact_ids": [
+          "D-013"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "inner_diameter",
+        "decision": "accept",
+        "reason": "The part is a rectangular plate, so inner diameter does not apply. Unknown/null is correct for an irrelevant key.",
+        "fact_ids": [
+          "D-013"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "thickness",
+        "decision": "accept",
+        "reason": "The side view has one thickness dimension line carrying two stacked values, 6,0 and 3,0. Under the protocol, these are alternatives and must be given as options sorted ascending, [3.0, 6.0].",
+        "fact_ids": [
+          "D-013/drawing/n/6.0@1-1",
+          "D-013/drawing/n/3.0@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features",
+        "decision": "accept",
+        "reason": "Each included cut is supported. X=0 is the drawn vertical centreline and Y=0 is the horizontal centreline. Left M5 hole: the 82,0 dimension runs from the centreline to the hole, so X=-82. The 4,5 dimension runs from the centreline to the hole row, so Y=+4.5. The callout gives drill 4,2, M5 - 6H, THRU ALL. M3 holes: the 7,5 dimension puts the lower row at Y=-7.5. The 17,9 dimension from the centreline gives X=17.9, and the chained 35,7 gives X=53.6. The callout gives drill 2,5, M3 - 6H, THRU. Rightmost slot: 41,0 from the centreline plus the chained 82,0 gives X=123. The 2,3 dimension runs from the centreline to the slot's lower arc-centre mark. Adding (10,0-5,5)/2 gives a slot midpoint of Y=4.55. The callout gives 5,5 x 10,0 THRU ALL, and the slot runs vertically. Ordering and expressions are valid.",
+        "fact_ids": [
+          "D-013",
+          "D-013/drawing/callout/p1-1",
+          "D-013/drawing/callout/p1-2",
+          "D-013/drawing/callout/p1-3",
+          "D-013/drawing/n/82.0@1-1",
+          "D-013/drawing/n/4.5@1-1",
+          "D-013/drawing/n/4.2@1-1",
+          "D-013/drawing/n/17.9@1-1",
+          "D-013/drawing/n/35.7@1-1",
+          "D-013/drawing/n/7.5@1-1",
+          "D-013/drawing/n/2.5@1-1",
+          "D-013/drawing/n/41.0@1-1",
+          "D-013/drawing/n/82.0@1-2",
+          "D-013/drawing/n/2.3@1-1",
+          "D-013/drawing/n/10.0@1-1",
+          "D-013/drawing/n/5.5@1-1"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_complete",
+        "decision": "accept",
+        "reason": "The drawing shows 2 M5 holes, 8 M3 holes, 4 slots and corner clips, but only 1 M5 hole, 2 M3 holes and 1 slot are fully located. Since features are omitted, false is correct.",
+        "fact_ids": [
+          "D-013",
+          "D-013/drawing/callout/p1-1",
+          "D-013/drawing/callout/p1-2",
+          "D-013/drawing/callout/p1-3"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "features_omitted",
+        "decision": "accept",
+        "reason": "Each omission matches the drawing. The right M5 hole has no X dimension. The six remaining M3 holes have no spacing or pattern dimension; only 17,9 and 35,7 are given. Three slots are unlocated: the two left slots have no X position, and the slot at X=41,0 has no Y dimension. The corner clips are undimensioned. The deburr note gives no break size. All cited IDs are original source IDs.",
+        "fact_ids": [
+          "D-013",
+          "D-013/drawing/callout/p1-1",
+          "D-013/drawing/callout/p1-2",
+          "D-013/drawing/callout/p1-3",
+          "D-013/drawing/n/82.0@1-1",
+          "D-013/drawing/n/17.9@1-1",
+          "D-013/drawing/n/35.7@1-1",
+          "D-013/drawing/n/41.0@1-1",
+          "D-013/drawing/n/2.3@1-1",
+          "D-013/drawing/general/edge_finish"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 17560,
+      "cache_read_input_tokens": 14025,
+      "output_tokens": 4738,
+      "output_tokens_details": {
+        "thinking_tokens": 2647
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 17560,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 4738,
+        "cacheReadInputTokens": 14025,
+        "cacheCreationInputTokens": 17560,
+        "webSearchRequests": 0,
+        "costUSD": 0.238061,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 2647,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 17560,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.238061,
+    "duration_ms": 45284,
+    "is_error": false
+  },
+  "latency_ms": 46485,
+  "cache_key": "5683c38ca26a5f72519bc71c68cc03f373876900a284da0087006996fd47ad18",
+  "cache_hit": false,
+  "job": "template:D-013:proposal-verification-v1:verification:0",
+  "error": null
+}

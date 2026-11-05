@@ -1,0 +1,48 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-008/drawing/title",
+          "D-008/drawing/notes",
+          "BOM:powder/powder-handling-mount-bracket",
+          "BOM:powder/powder-stepper-bracket"
+        ],
+        "reason": "The title \"Powder Bracket\", section \"Powder\", and note \"2-3mm non-magnetic stainless.\" are consistent with both Powder handling mount bracket and Powder stepper bracket. Neither BOM row has notes or datasheets distinguishing them, and the drawing's weld-nut and alignment notes do not identify which row applies.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 16158,
+          "cached_input_tokens": 10112,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 485,
+          "reasoning_output_tokens": 328
+        }
+      }
+    ]
+  },
+  "latency_ms": 13875,
+  "cache_key": "719f919421fc6910b2c2d05f70cb29eeaa20d6c1ffc4ea475fa67fe9316510d6",
+  "cache_hit": false,
+  "job": "link:D-008:proposal-verification-v1:proposal:0",
+  "error": null
+}

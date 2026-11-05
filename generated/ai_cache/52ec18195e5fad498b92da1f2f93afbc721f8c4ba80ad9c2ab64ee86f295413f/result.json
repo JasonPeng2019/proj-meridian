@@ -1,0 +1,48 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-001/drawing/notes",
+          "D-001/drawing/title",
+          "BOM:box/front-door",
+          "BOM:box/back-door"
+        ],
+        "reason": "The notes \"Door - x2\\n3mm aluminium\" fit both Front Door and Back Door, each listed as Aluminium in Box. The title is unavailable and neither row lists a datasheet. The quantity x2 does not establish that this drawing represents both rows.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 16117,
+          "cached_input_tokens": 10112,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 487,
+          "reasoning_output_tokens": 357
+        }
+      }
+    ]
+  },
+  "latency_ms": 15656,
+  "cache_key": "52ec18195e5fad498b92da1f2f93afbc721f8c4ba80ad9c2ab64ee86f295413f",
+  "cache_hit": false,
+  "job": "link:D-001:proposal-verification-v1:proposal:0",
+  "error": null
+}

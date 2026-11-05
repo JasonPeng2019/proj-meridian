@@ -1,0 +1,46 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "known",
+        "value_json": "[\"BOM:box/left-side-box\"]",
+        "confidence": "sure",
+        "fact_ids": [
+          "D-002/drawing/notes",
+          "BOM:box/left-side-box"
+        ],
+        "reason": "The drawing identifies 'Left Wall' in section 'Box', matching the unique 'Left Side Box' row in 'Box'. The note '2mm non-magnetic stainless' is consistent with its listed 'Stainless steel' material. No datasheet is listed for this row.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 16126,
+          "cached_input_tokens": 10112,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1021,
+          "reasoning_output_tokens": 892
+        }
+      }
+    ]
+  },
+  "latency_ms": 29297,
+  "cache_key": "c862941b4346896bfa88ccdeb0da203140f804f5664d95d9cee4966b624a9002",
+  "cache_hit": false,
+  "job": "link:D-002:proposal-verification-v1:proposal:0",
+  "error": null
+}

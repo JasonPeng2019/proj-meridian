@@ -1,0 +1,49 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-022/drawing/notes",
+          "D-022/drawing/title",
+          "D-022/drawing/material",
+          "BOM:gas-flow/gas-flow-inlet-geometry",
+          "BOM:gas-flow/gas-flow-end-duct"
+        ],
+        "reason": "The notes identify \"Inlet Box\" and \"Stainless\". \"Gas flow inlet geometry\" is a possible match, but its name differs and it has no material or datasheet confirming the relationship. Drawing section \"Gas Flow\" and BOM section \"Gas flow\" are not explicitly established as equivalent. \"Gas flow end duct\" specifies \"Polymer\", which does not establish a match to \"Stainless\". The degraded drawing's title and material fields are null, leaving the link undetermined.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 16137,
+          "cached_input_tokens": 10112,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 594,
+          "reasoning_output_tokens": 399
+        }
+      }
+    ]
+  },
+  "latency_ms": 14500,
+  "cache_key": "47b2f2eefc851abc9b54f3c89e39056817fd4fa7d34dde165f59a7686c49c642",
+  "cache_hit": false,
+  "job": "link:D-022:proposal-verification-v1:proposal:0",
+  "error": null
+}

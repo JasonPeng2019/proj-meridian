@@ -1,0 +1,49 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-019",
+          "D-019/drawing/material",
+          "D-019/drawing/notes",
+          "D-019/drawing/title",
+          "BOM:optics/silicone-gasket-f-theta-ring"
+        ],
+        "reason": "SiliconePakningfTheta.pdf and '1mm silicone pakning' suggest 'Silicone gasket f-theta ring'. However, drawing section 'Optical' differs from BOM section 'Optics', and material 'Silicon Rubber' differs from 'Silicone'. No supplied equivalence, drawing title, or BOM datasheet confirms this candidate.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 16119,
+          "cached_input_tokens": 10112,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 849,
+          "reasoning_output_tokens": 691
+        }
+      }
+    ]
+  },
+  "latency_ms": 21688,
+  "cache_key": "8c125ca48a4e16eafabdc3885921ac18107c59f1167ad05db0ff1f7121b906ac",
+  "cache_hit": false,
+  "job": "link:D-019:proposal-verification-v1:proposal:0",
+  "error": null
+}

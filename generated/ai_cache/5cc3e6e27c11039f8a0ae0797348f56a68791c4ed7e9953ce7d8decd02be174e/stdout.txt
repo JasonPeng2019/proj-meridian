@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a1ab2e-66a4-78a3-aee1-df67913b8fe0"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"items\":[{\"key\":\"link\",\"state\":\"known\",\"value_json\":\"[\\\"BOM:box/top-side\\\"]\",\"confidence\":\"sure\",\"fact_ids\":[\"D-004/drawing/notes\",\"BOM:box/top-side\"],\"reason\":\"“Top Plate” identifies the top panel in section “Box”, matching “Top Side”. “3 mm non-magnetic stainless” supports its “Stainless steel” material. The drawing does not identify a bracing component.\",\"changed_because\":\"\"}]}"}}
+{"type":"turn.completed","usage":{"input_tokens":16126,"cached_input_tokens":10112,"cache_write_input_tokens":0,"output_tokens":711,"reasoning_output_tokens":597}}

@@ -1,0 +1,79 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "d00f0f2b56192d1c08839ac5dd6beb1e486078ecdc795c8adc2a083c112f2e61",
+    "items": [
+      {
+        "key": "relationship",
+        "decision": "accept",
+        "reason": "The proposed value kind_of is supported by the evidence as a suggestion only. D-015/drawing/material reads 'Silicon Rubber'. In the same drawing, D-015/drawing/title reads 'Silikone Wiper' and D-015/drawing/notes reads 'Silikone Wiper af 1mm' and 'silikone plade', which is Danish for silicone sheet. That context supports reading the material as silicone rubber rather than elemental silicon. The established link connects D-015/drawing/source to BOM:recoater/recoater-blade, the Recoater Blade in the Recoater section, whose material is 'Silicone' and whose datasheet is Silicone270mm_1mm_x2.pdf, the same file as the drawing. Based on general engineering knowledge, not the dataset, silicone rubber is a more specific form of silicone, so LEFT kind_of RIGHT holds. The proposal does not equate elemental silicon with silicone, does not silently correct the source, keeps the spelling and formulation uncertainty, and states that a human must approve the mapping before use.",
+        "fact_ids": [
+          "D-015/drawing/material",
+          "D-015/drawing/title",
+          "D-015/drawing/notes",
+          "D-015/drawing/source",
+          "BOM:recoater/recoater-blade"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 4904,
+      "cache_read_input_tokens": 2525,
+      "output_tokens": 735,
+      "output_tokens_details": {
+        "thinking_tokens": 160
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 4904,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 735,
+        "cacheReadInputTokens": 2525,
+        "cacheCreationInputTokens": 4904,
+        "webSearchRequests": 0,
+        "costUSD": 0.054445,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 160,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 4904,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.054445,
+    "duration_ms": 7354,
+    "is_error": false
+  },
+  "latency_ms": 8469,
+  "cache_key": "decdccaa3d2fe4fd453b16362207fcc7e0ba482ec5bfa16b43dddc713af20941",
+  "cache_hit": false,
+  "job": "mapping:names/material/silicon-rubber -> silicone:proposal-verification-v1:verification:0",
+  "error": null
+}

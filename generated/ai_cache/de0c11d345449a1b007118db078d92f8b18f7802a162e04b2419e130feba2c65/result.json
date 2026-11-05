@@ -1,0 +1,43 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "relationship",
+        "state": "known",
+        "value_json": "\"no_equivalent\"",
+        "confidence": "sure",
+        "fact_ids": [],
+        "reason": "LEFT is null, meaning no represented drawing section; the protocol specifies no_equivalent. This suggestion requires actual human approval before use.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 13490,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 272,
+          "reasoning_output_tokens": 196
+        }
+      }
+    ]
+  },
+  "latency_ms": 9719,
+  "cache_key": "de0c11d345449a1b007118db078d92f8b18f7802a162e04b2419e130feba2c65",
+  "cache_hit": false,
+  "job": "mapping:names/section/ -> sensorgantry:proposal-verification-v1:proposal:0",
+  "error": null
+}

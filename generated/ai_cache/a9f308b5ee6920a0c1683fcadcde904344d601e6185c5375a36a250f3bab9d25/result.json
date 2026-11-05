@@ -1,0 +1,138 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "b145a99851510e08b7b249e580efd17743f9f7fd0aed5c99f89c66adafe350e0",
+    "items": [
+      {
+        "key": "title",
+        "decision": "needs_input",
+        "reason": "The TITLE/DESCRIPTION region (D-001/drawing/title) has a label but no value in the supplied crop. The source marks this field as degraded and null. The proposal's unknown/null is consistent with that, but under the protocol a null value needs human input.",
+        "fact_ids": [
+          "D-001/drawing/title"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "material",
+        "decision": "needs_input",
+        "reason": "The MATERIAL: field (D-001/drawing/material) is blank in the crop and null in the source. The note's '3mm aluminium' sits in a different field, so it cannot be copied into material. The value cannot be determined, so it needs human input.",
+        "fact_ids": [
+          "D-001/drawing/material"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "weight_g",
+        "decision": "needs_input",
+        "reason": "The WEIGHT [g]: field (D-001/drawing/weight_g) has no printed number in the crop, and the source value is null. No gram value can be determined.",
+        "fact_ids": [
+          "D-001/drawing/weight_g"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "notes",
+        "decision": "accept",
+        "reason": "The NOTE: field (D-001/drawing/notes) clearly shows two lines, 'Door - x2' and '3mm aluminium'. They match the proposed string character for character, including the spelling 'aluminium'.",
+        "fact_ids": [
+          "D-001/drawing/notes"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "date",
+        "decision": "needs_input",
+        "reason": "The DATE cell (D-001/drawing/date) is marked degraded and null in the source. In the crop it looks like it may read 21/12/2023, but it is blurry, so not every character can be confirmed. The proposal is unknown, so a human needs to confirm the exact date.",
+        "fact_ids": [
+          "D-001/drawing/date"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "company",
+        "decision": "accept",
+        "reason": "The company block (D-001/drawing/company) clearly reads 'DTU MPP' next to the DTU logo. This matches the proposed value exactly.",
+        "fact_ids": [
+          "D-001/drawing/company"
+        ],
+        "repairable": false
+      },
+      {
+        "key": "scale",
+        "decision": "reject",
+        "reason": "The SCALE cell (D-001/drawing/scale) reads 'SCALE:1:5' in the crop, not '1:3'. The final digit has the flat top and open lower bowl of a 5. The proposed '1:3' is not supported. A corrected proposal can come from the existing image, either '1:5' or unknown if the proposer judges the scan too degraded.",
+        "fact_ids": [
+          "D-001/drawing/scale"
+        ],
+        "repairable": true
+      },
+      {
+        "key": "drawn",
+        "decision": "needs_input",
+        "reason": "The DRAWN cell (D-001/drawing/drawn) is marked degraded and null in the source. In the crop it looks like it may read MBOKJ, but it is blurry, so not every character can be confirmed. The proposal is unknown, so a human needs to confirm it.",
+        "fact_ids": [
+          "D-001/drawing/drawn"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 8828,
+      "cache_read_input_tokens": 7710,
+      "output_tokens": 1892,
+      "output_tokens_details": {
+        "thinking_tokens": 624
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 8828,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 1892,
+        "cacheReadInputTokens": 7710,
+        "cacheCreationInputTokens": 8828,
+        "webSearchRequests": 0,
+        "costUSD": 0.11002200000000001,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 624,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 8828,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.11002200000000001,
+    "duration_ms": 17190,
+    "is_error": false
+  },
+  "latency_ms": 18359,
+  "cache_key": "a9f308b5ee6920a0c1683fcadcde904344d601e6185c5375a36a250f3bab9d25",
+  "cache_hit": false,
+  "job": "scan:D-001:proposal-verification-v1:verification:0",
+  "error": null
+}

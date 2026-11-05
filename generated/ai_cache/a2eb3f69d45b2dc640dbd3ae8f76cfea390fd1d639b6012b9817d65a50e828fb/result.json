@@ -1,0 +1,78 @@
+{
+  "reader": "claude",
+  "settings": {
+    "model": "opus",
+    "fast_mode": false,
+    "mode": "regular",
+    "reader": "claude"
+  },
+  "answer": {
+    "proposal_fingerprint": "8ee2e313a9ab34a2a7d8bf1d29793138d326011f3f6b25f44ab6af3300d7563a",
+    "items": [
+      {
+        "key": "link",
+        "decision": "needs_input",
+        "reason": "The proposal returns unknown/null. Under the verification rules, an unknown/null answer has to be marked needs_input. The evidence does point to one candidate. The drawing title D-027/drawing/title \"Cylinder Spænd Ring\" (Danish for cylinder clamp ring) corresponds to BOM row BOM:build-plate/build-cylinder-clamp-ring \"Build cylinder clamp ring\". No other BOM row has a comparable name. However, two things don't match as written. First, the drawing section is \"Z-axis\" while the BOM row's section is \"Build-plate\". Second, D-027/drawing/material says \"6063-T6\" and D-027/drawing/notes allows EN AW-6000/2000/7000 series aluminium, while the BOM row lists only \"Aluminium\". The task says not to treat differing section or material names as already approved equivalents. The BOM row has no datasheet that could link it to CylinderSpændRing.PDF, and nothing in the evidence explicitly reconciles the section or the material. So the evidence cannot confirm the link to BOM:build-plate/build-cylinder-clamp-ring, and it cannot rule it out either. Resolving it needs a human to decide on the Danish/English name, the section and the material equivalence, or new evidence that ties the drawing to the BOM row.",
+        "fact_ids": [
+          "D-027/drawing/title",
+          "D-027/drawing/material",
+          "D-027/drawing/notes",
+          "BOM:build-plate/build-cylinder-clamp-ring"
+        ],
+        "repairable": false
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 8147,
+      "cache_read_input_tokens": 2523,
+      "output_tokens": 960,
+      "output_tokens_details": {
+        "thinking_tokens": 299
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 8147,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 960,
+        "cacheReadInputTokens": 2523,
+        "cacheCreationInputTokens": 8147,
+        "webSearchRequests": 0,
+        "costUSD": 0.08488860000000001,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 299,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 8147,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "total_cost_usd": 0.08488860000000001,
+    "duration_ms": 8868,
+    "is_error": false
+  },
+  "latency_ms": 9953,
+  "cache_key": "a2eb3f69d45b2dc640dbd3ae8f76cfea390fd1d639b6012b9817d65a50e828fb",
+  "cache_hit": false,
+  "job": "link:D-027:proposal-verification-v1:verification:0",
+  "error": null
+}

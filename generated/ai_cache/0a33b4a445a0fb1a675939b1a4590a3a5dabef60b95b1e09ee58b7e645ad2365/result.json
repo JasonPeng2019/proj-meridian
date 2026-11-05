@@ -1,0 +1,49 @@
+{
+  "reader": "codex",
+  "settings": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "service_tier": "fast",
+    "reader": "codex"
+  },
+  "answer": {
+    "items": [
+      {
+        "key": "link",
+        "state": "unknown",
+        "value_json": "null",
+        "confidence": "unsure",
+        "fact_ids": [
+          "D-013/drawing/title",
+          "D-013/drawing/notes",
+          "D-013/drawing/material",
+          "BOM:recoater/recoater-head",
+          "BOM:recoater/recoater-stage-plate"
+        ],
+        "reason": "Both Recoater head and Recoater stage plate list RecoaterPlate.pdf in section Recoater. The title 'Recoater Plate' and notes 'Alu.\\nJusteringsplade til recoater.' do not uniquely distinguish them or establish that the drawing represents both. No approved equivalence between '3.3315 (EN-AW 5005)' and 'Aluminium' is supplied.",
+        "changed_because": ""
+      }
+    ]
+  },
+  "valid": true,
+  "returncode": 0,
+  "metadata": {
+    "events": [
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 16133,
+          "cached_input_tokens": 10112,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 553,
+          "reasoning_output_tokens": 374
+        }
+      }
+    ]
+  },
+  "latency_ms": 23813,
+  "cache_key": "0a33b4a445a0fb1a675939b1a4590a3a5dabef60b95b1e09ee58b7e645ad2365",
+  "cache_hit": false,
+  "job": "link:D-013:proposal-verification-v1:proposal:0",
+  "error": null
+}

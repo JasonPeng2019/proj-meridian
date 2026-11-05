@@ -1,6 +1,6 @@
 # Corrected benchmark evaluation, version 2
 
-The same 42 saved chat answers now score **40/42 (95.2%)**, compared with the original **22/42**. All 21 cases remain. Eighteen previously failing or pending results now pass. The two actual count errors still fail.
+The same 42 saved chat answers now score **40/42 (95.2%)**, compared with the original **22/42**. All 21 cases remain. Eighteen previously failing or pending results now pass. Both remaining failures are model answer errors. Retrieval supplied the information needed to answer both questions correctly.
 
 This regrade uses the answers captured in [run-42020759881](../run-42020759881/README.md). It measures the effect of repairing the evaluation. The chat answers, original questions, original scores and original evidence remain unchanged. It does not measure a newly improved chat model.
 
@@ -36,6 +36,19 @@ The [case audit](../rubric-v2-audit.md) examines every previously failing or pen
 **Pass 1, Q08: aluminium parts.** The answer says 29 parts, while its positive list contains 30 entries and the current exact/approved-mapping search has 33 matching records. It also places three linked parts under Undetermined without preserving their known BOM Aluminium entries clearly enough. Their combined drawing material can remain unresolved while the BOM evidence remains known.
 
 The 33 search records are 29 distinct matching BOM rows plus four unlinked drawings covered by the approved 5005 mapping. They do not establish an exact count of distinct physical parts. Pending alloy-family mappings are not used to require additional matches.
+
+## Failure attribution: retrieval was sufficient
+
+For both remaining failures, the saved tool trace and every returned fact's display value are identical between the failing first pass and the passing second pass. The model received the necessary evidence in both runs and produced different answers.
+
+| Case | Evidence retrieved in both passes | Model error in pass 1 | Pass 2 |
+|---|---|---|---|
+| Q02, Optics | `parts_in_section(section="Optics")` returned all ten canonical BOM row names, including F-theta seal ring. Ten part cards were attached. | The answer first says nine items, then says ten. | Correct answer; passes. |
+| Q08, aluminium | `parts_with_material(material="aluminium")` returned all 33 matching records. It also returned the known Aluminium BOM fields and the unresolved combined-material fields for the three disputed parts. | The answer miscounts and lets uncertainty about an alloy-name mapping obscure known BOM evidence. | Correctly lists the 33 matching records and explains the source uncertainty; passes. |
+
+These are model counting and evidence-interpretation errors during answer generation. Neither remaining failure was caused by missing retrieval. In Q08, the unresolved mapping does not erase the explicit Aluminium value in the BOM. A clearer tool response could help the model keep those two facts separate, but that is a possible improvement rather than evidence that retrieval missed the records.
+
+The supporting captures are [Q02 pass 1](../run-42020759881/pass-1/Q02.json), [Q02 pass 2](../run-42020759881/pass-2/Q02.json), [Q08 pass 1](../run-42020759881/pass-1/Q08.json) and [Q08 pass 2](../run-42020759881/pass-2/Q08.json). [failure-analysis.json](failure-analysis.json) records the source hashes, matching trace/fact-value fingerprints and failure classifications. This conclusion covers the two remaining errors in this captured benchmark.
 
 ## Checks on the repaired evaluation
 

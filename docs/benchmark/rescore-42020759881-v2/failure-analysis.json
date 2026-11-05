@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "scope": "The two remaining failures in the corrected evaluation of the 42 saved answers from run-42020759881.",
+  "chat_model": "gpt-6-luna",
+  "classification": "Both remaining failures are model answer errors; retrieval supplied sufficient evidence for both questions.",
+  "source_hashes": {
+    "docs/benchmark/run-42020759881/executions.jsonl": "f03fb00e4b29e956a4f33d00a55f8fe75330532f4b8fb099cbb4168092b134c6",
+    "docs/benchmark/rescore-42020759881-v2/report.json": "40dee41b87e4fd68c4b860c6cb2782a5c5b1a83343102aae616cfef5cc73700d"
+  },
+  "model_answer_errors": 2,
+  "retrieval_failures_among_remaining_errors": 0,
+  "cases": [
+    {
+      "case_id": "Q02",
+      "failing_pass": 1,
+      "passing_pass": 2,
+      "failure_stage": "model_answer_generation",
+      "retrieval_sufficient": true,
+      "tool": "parts_in_section",
+      "arguments": {
+        "section": "Optics"
+      },
+      "attached_part_count_each_pass": 10,
+      "same_tool_trace_between_passes": true,
+      "tool_trace_sha256_each_pass": [
+        "88263415277073009555ac1f2759867d5018e8f63e55001e59e467ac7db7ce2d",
+        "88263415277073009555ac1f2759867d5018e8f63e55001e59e467ac7db7ce2d"
+      ],
+      "same_fact_display_values_between_passes": true,
+      "fact_display_values_sha256_each_pass": [
+        "0b3feb04b0616f9854b7a63d0fffd98a32a74cf8ecbfb22ef7813783f4f511a6",
+        "0b3feb04b0616f9854b7a63d0fffd98a32a74cf8ecbfb22ef7813783f4f511a6"
+      ],
+      "error": "Contradictory opening count of nine followed by ten.",
+      "captures": [
+        "docs/benchmark/run-42020759881/pass-1/Q02.json",
+        "docs/benchmark/run-42020759881/pass-2/Q02.json"
+      ]
+    },
+    {
+      "case_id": "Q08",
+      "failing_pass": 1,
+      "passing_pass": 2,
+      "failure_stage": "model_answer_generation",
+      "retrieval_sufficient": true,
+      "tool": "parts_with_material",
+      "arguments": {
+        "material": "aluminium"
+      },
+      "attached_part_count_each_pass": 33,
+      "same_tool_trace_between_passes": true,
+      "tool_trace_sha256_each_pass": [
+        "f8c26a11a3625dbd2e856eb21a17fbb82c29f2dad8303a05ac0514fb805a3784",
+        "f8c26a11a3625dbd2e856eb21a17fbb82c29f2dad8303a05ac0514fb805a3784"
+      ],
+      "same_fact_display_values_between_passes": true,
+      "fact_display_values_sha256_each_pass": [
+        "c80d02ff12829dc2914ebff59d817cd2f9ba180f8245bc33983809fd3652695f",
+        "c80d02ff12829dc2914ebff59d817cd2f9ba180f8245bc33983809fd3652695f"
+      ],
+      "error": "Wrong count and uncertainty about combined material obscuring known Aluminium BOM entries.",
+      "captures": [
+        "docs/benchmark/run-42020759881/pass-1/Q08.json",
+        "docs/benchmark/run-42020759881/pass-2/Q08.json"
+      ]
+    }
+  ],
+  "note": "This records coordinator analysis of saved evidence. It does not alter scores, source evidence, human approvals or the human judge spot-check count."
+}

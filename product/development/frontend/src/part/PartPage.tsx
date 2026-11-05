@@ -6,6 +6,7 @@ import {
   type PartViewTab, type SourceTarget,
 } from "../contracts";
 import { MethodBadge, SourceTag, Undetermined } from "../chat/Evidence";
+import { Viewer3D, availableModelExamples } from "../viewer3d/Viewer3D";
 
 // Source text is shown as text, with the same private-data redaction as citation widgets.
 function publicText(value: string): string {
@@ -94,7 +95,7 @@ function Drawing({ api, part_id, drawing, highlights = [] }: {
   </section>;
 }
 
-export function PartPage({ api, part_id, record, initial_tab = "detail", highlights = [], debug, embedded,
+export function PartPage({ api, part_id, record, initial_tab = "detail", highlights = [], example, debug, embedded,
   on_open_source }: PartPageProps) {
   const [part, setPart] = useState<PartDetailResponse | null>(record?.id === part_id ? record : null);
   const [loading, setLoading] = useState(!part);
@@ -122,7 +123,8 @@ export function PartPage({ api, part_id, record, initial_tab = "detail", highlig
 
   const current = part?.id === part_id ? part : null;
   const hasDrawing = Boolean(current?.has_drawing && current.drawing);
-  const visibleTab = tab === "drawing" && hasDrawing ? "drawing" : "detail";
+  const hasModel = Boolean(current && availableModelExamples(current).length);
+  const visibleTab = tab === "model" && hasModel ? "model" : tab === "drawing" && hasDrawing ? "drawing" : "detail";
   const facts = Object.values(current?.facts ?? {});
   const sourceSelected = (fact: FactResult) => highlights.some(target => target.name === fact.fact ||
     fact.sources.some(source => source.name === target.name || (target.row_name && source.target.row_name === target.row_name)));
@@ -135,15 +137,18 @@ export function PartPage({ api, part_id, record, initial_tab = "detail", highlig
     {!loading && !failed && current && <>
       <header className="mp-heading"><h2>{publicText(current.display_name || current.id)}</h2>
         <p className="mp-muted">{publicText(current.id)}{current.section ? ` · ${publicText(current.section)}` : ""}</p></header>
-      {tab === "model" && <div className="mp-model-unavailable"><p>3D view: Unavailable</p><p className="mp-muted">{RECONSTRUCTION_LABEL}</p></div>}
+      {tab === "model" && !hasModel && <div className="mp-model-unavailable"><p>3D view: Unavailable</p><p className="mp-muted">{RECONSTRUCTION_LABEL}</p></div>}
       <div className="mp-tabs" role="tablist" aria-label="Part views">
         <button id={`${tabId}-detail`} role="tab" type="button" aria-selected={visibleTab === "detail"}
           aria-controls={`${tabId}-content`} onClick={() => setTab("detail")}>Details</button>
         {hasDrawing && <button id={`${tabId}-drawing`} role="tab" type="button" aria-selected={visibleTab === "drawing"}
           aria-controls={`${tabId}-content`} onClick={() => setTab("drawing")}>Drawing</button>}
+        {hasModel && <button id={`${tabId}-model`} role="tab" type="button" aria-selected={visibleTab === "model"}
+          aria-controls={`${tabId}-content`} onClick={() => setTab("model")}>3D</button>}
       </div>
       <div id={`${tabId}-content`} role="tabpanel" aria-labelledby={`${tabId}-${visibleTab}`}>
-        {visibleTab === "drawing" && current.drawing ? <Drawing key={`${part_id}:${JSON.stringify(highlights)}`}
+        {visibleTab === "model" ? <Viewer3D key={current.id} part={current} example={example}
+          on_open_source={on_open_source} debug={debug} /> : visibleTab === "drawing" && current.drawing ? <Drawing key={`${part_id}:${JSON.stringify(highlights)}`}
           api={api} part_id={part_id} drawing={current.drawing} highlights={highlights} /> : <>
           <section className="mp-section"><h3>Part facts</h3>
             {facts.length === 0 ? <p className="mp-muted">Values unavailable.</p> : <div className="mp-table-wrap"><table className="mp-facts"><thead><tr><th>Property</th><th>Value</th><th>Source</th></tr></thead>

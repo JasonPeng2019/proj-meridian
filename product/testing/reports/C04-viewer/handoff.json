@@ -1,0 +1,58 @@
+{
+  "scope": "M21 implementation handoff only; runtime and source fidelity have not been validated",
+  "lane_id": "C04-viewer",
+  "run_id": "59e8b827384a4d2c87f7ab49431fba3d",
+  "worker_invocation_id": "59e8b827384a4d2c87f7ab49431fba3d",
+  "interface": {
+    "module": "development/frontend/src/viewer3d/Viewer3D.tsx",
+    "exports": ["Viewer3D", "default Viewer3D", "availableModelExamples", "defaultModelExample"],
+    "props": "Frozen Viewer3DProps retained without contract edits: part, example, on_select_example, on_open_source, debug, show_section",
+    "composition": "PartPage owns 3D tab visibility, forwards the optional requested example, and shares the same viewer in embedded and standalone panels. Viewer keeps user example selection locally and invokes on_select_example when provided.",
+    "asset_boundary": "Only available/stale ModelExample entries with GLB metadata; canonical same-origin /api/models/D-NNN_A.glb through D.glb. Fetches bytes without browser cache, aborts cancelled work, validates self-contained GLB 2 headers and refuses external model resources. No invented geometry or fallback solids.",
+    "defaults": "An explicit example is honored, including honest Unavailable when absent. A current evidence-bound human-confirmed model.selected_example is the next choice, followed by first saved printed example in A/B/C/D order. Changing the viewing choice writes no review decision.",
+    "review": "Customer labels use the frozen customer_review_status helper with independently present source hashes. Current template disagreement, stale state, missing review, incomplete AI provenance or unverified fallback cannot confer review. A human choice of B does not label A human reviewed. Engineering messages and weight details stay in optional Debug.",
+    "rendering": "Actual Three GLTFLoader, WebGLRenderer and OrbitControls, neutral grey materials, actual transformed bounds Fit, orbit/pinch/wheel and explicit zoom buttons; on-demand rendering without an idle loop.",
+    "lifecycle": "Each model/retry/part change and unmount aborts fetch, cancels pending animation/timer, disconnects resize observation, removes listeners/controls, disposes scenes/geometries/materials/textures/bitmaps/skeletons/render lists/renderer and releases the context and URLs. Late parsing results are disposed. Neutral-material parser hook suppresses image/texture requests before loading. Network, malformed/empty GLB, graphics startup and context loss have clean Unavailable/retry states.",
+    "m3": "Overall size is displayed only from valid model.overall_size_mm metadata, clipping only when section_view_available and show_section permit it, and canonical STEP reconstruction download only when selected asset metadata declares STEP. Clipping adds no cap or fabricated solid."
+  },
+  "dependencies": {
+    "three": "0.187.0",
+    "@types/three": "0.187.0",
+    "metadata_only_command": "npm install --package-lock-only --ignore-scripts --no-audit --no-fund --fetch-retries=0 --fetch-timeout=30000",
+    "cwd": "development/frontend",
+    "outcome": "PASS",
+    "evidence": ["testing/reports/C04-viewer/lockfile.log", "testing/reports/C04-viewer/lockfile-process.json"],
+    "limits": "Windows Job: 12 processes / 2048 MiB committed memory / 10 percent CPU, kill on close. Existing harness helper used; no harness edits.",
+    "launch_diagnostics": "Two wrapper-only launch failures were resolved before npm ran: DEVNULL integer lacked fileno; suspended job-list CreateProcessW returned WinError 87. Exact diagnostics retained in lockfile-process.json. The unchanged metadata-only npm command then exited 0; no package installation, version substitution or local build."
+  },
+  "remote_checks": [
+    {
+      "name": "Frontend typecheck",
+      "command": "npm --prefix development/frontend run typecheck",
+      "outcome": "SKIPPED",
+      "reason": "Local execution prohibited. ROOT owns queued remote CI wiring."
+    },
+    {
+      "name": "Frontend production build",
+      "command": "npm --prefix development/frontend run build",
+      "outcome": "SKIPPED",
+      "reason": "Local execution prohibited. ROOT owns queued remote CI wiring."
+    },
+    {
+      "name": "Focused synthetic WebGL browser test",
+      "command": "node testing/ci/viewer3d.mjs",
+      "outcome": "SKIPPED",
+      "reason": "Authored, unrun locally; requires Actions harness-v2, existing frontend dependencies, existing development/.runtime/ci-browser Playwright and Chromium. Starts one remote Vite harness and browser, never the unrelated port 8000 app.",
+      "fixture": "testing/fixtures/viewer3d/harness.tsx plus in-memory hand-encoded SYNTHETIC tetrahedron GLBs in viewer3d.mjs. All review and source identities are explicitly SYNTHETIC; no actual source validation credit.",
+      "coverage": "Actual WebGL pixels and neutral materials, independent off-origin analytic bounds, orbit camera/pixel changes, zoom/Fit, A/B binary paths, reviewer B default, source and STEP link, metadata size and clipping, mobile resize, cleanup on switch/tab/part/unmount, changed review hashes and fallback, stale Debug-only warnings, bad GLB, HTTP failure, real context loss/retry and delayed fetch cancellation.",
+      "artifacts": ["testing/runs/C04-viewer/report.json", "testing/runs/C04-viewer/synthetic-render.png", "testing/runs/C04-viewer/synthetic-final.png", "testing/runs/C04-viewer/synthetic-failure.png (only on failure)"]
+    },
+    {
+      "name": "Real source reconstruction fidelity",
+      "command": "ROOT must validate available real GLBs against their drawing and accepted template evidence in the source-derived reconstruction lane",
+      "outcome": "SKIPPED",
+      "reason": "Unsupported in this viewer-only lane. Synthetic fixtures prove no actual CAD fidelity, AI accuracy, human approval or three-real-model release requirement."
+    }
+  ],
+  "root_followup": "Integrate this committed viewer/PartPage/dependency/test slice, then queue the listed typecheck/build/browser commands on harness-v2 with exact publication revision. App.tsx, backend, contracts and CI workflows were not edited."
+}

@@ -1,0 +1,18 @@
+{
+  "command": "npm install --package-lock-only --ignore-scripts --no-audit --no-fund --fetch-retries=0 --fetch-timeout=30000",
+  "cwd": "development/frontend",
+  "limits": {
+    "processes": 12,
+    "memory_mib": 2048,
+    "cpu_percent": 10
+  },
+  "containment": "existing harness Job helper, wrapper joins before npm spawn; npm inherits kernel limits and kill-on-close",
+  "started_at": "2026-11-05T15:04:57.932460+00:00",
+  "launch_diagnostics": [
+    "Initial native launch rejected subprocess.DEVNULL integer: AttributeError int object has no attribute fileno; no npm process created.",
+    "Native suspended job-list launch with open null stream failed CreateProcessW WinError 87 The parameter is incorrect; no npm process created. Wrapper joins existing bounded Job helper before ordinary inherited npm spawn."
+  ],
+  "pid": 1368,
+  "exit_code": 0,
+  "completed_at": "2026-11-05T15:05:14.833420+00:00"
+}

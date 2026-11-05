@@ -1,0 +1,18 @@
+{
+  "run_id": 42054456921,
+  "commit": "16e3965557fc7d9737d4c9a101f620979f6b3159",
+  "branch": "harness-v2",
+  "outcome": "PASS",
+  "tests": 414,
+  "passed": 365,
+  "skipped": 49,
+  "failures": 0,
+  "errors": 0,
+  "normalized_lf_sha256": {
+    "development/backend/ai/vision_jobs.py": "5a2e39f490543c59c8b026b35dfbcdfe3a179ee17908efddeea71f4438029314",
+    "development/backend/ai/prepare.py": "3e5d8b5fccfa63823481909971517795110c0d7f818106208fbf06b3512ca515",
+    "testing/tests/test_vision_jobs_m1.py": "ccae01a66dfc97591a2deaf98d1e28fbe1c1232c990d6977de8672ce65de199e",
+    "testing/tests/test_prepare_m1.py": "9908097dc3a156b581d716fafd6fd517936a1a8e7976a3826be95e0f9186e2d3"
+  },
+  "scope": "Cumulative lightweight modules, including mandatory detail coverage and M11 projection. CAD cases skipped here are qualified separately by 42053440670; source-dependent core fixture is qualified separately by 42046317058. No real image accuracy, actual preparation or final gate credit."
+}

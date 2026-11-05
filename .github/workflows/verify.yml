@@ -6,7 +6,7 @@ on:
       task:
         description: Agent-triggered verification stage
         type: choice
-        options: [capability, cad-build, pdf, extract, modules, history-windows, history-ui, core, gate, live]
+        options: [capability, cad-build, viewer3d, pdf, extract, modules, history-windows, history-ui, core, gate, live]
         default: capability
       gate:
         description: Product checkpoint (requires its implemented suite)
@@ -48,6 +48,43 @@ env:
   NODE_OPTIONS: --max-old-space-size=1536
 
 jobs:
+  viewer3d:
+    if: inputs.task == 'viewer3d' && github.ref == 'refs/heads/harness-v2'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with: {persist-credentials: false}
+      - run: mkdir -p tmp cache/npm cache/playwright reports/ci runs/C04-viewer ../development/.runtime/ci-browser
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with: {node-version: '24'}
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with: {python-version: '3.12'}
+      - name: Install locked viewer and browser dependencies in the queued remote slot
+        run: |
+          npm --prefix ../development/frontend ci --ignore-scripts --no-audit --no-fund
+          cp ci/package*.json ../development/.runtime/ci-browser/
+          npm --prefix ../development/.runtime/ci-browser ci --ignore-scripts --no-audit --no-fund
+          ../development/.runtime/ci-browser/node_modules/.bin/playwright install --with-deps chromium
+      - name: Typecheck and build the integrated frontend
+        run: |
+          npm --prefix ../development/frontend run typecheck
+          npm --prefix ../development/frontend run build
+          python -B ci/checks.py manifest
+      - name: Exercise actual Three viewer through headless WebGL
+        run: timeout 240s node ci/viewer3d.mjs
+      - name: Save viewer evidence and downloadable built frontend
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: harness-v2-viewer3d-${{ github.sha }}-${{ github.run_id }}
+          retention-days: 7
+          if-no-files-found: error
+          path: |
+            product/testing/runs/C04-viewer/
+            product/testing/reports/ci/frontend-build.json
+            product/development/frontend/dist/
+
   cad-build:
     if: inputs.task == 'cad-build' && github.ref == 'refs/heads/harness-v2'
     runs-on: ubuntu-24.04
@@ -246,7 +283,7 @@ jobs:
           path: product/testing/runs/capability/
 
   requested:
-    if: inputs.task != 'capability' && inputs.task != 'cad-build' && inputs.task != 'history-windows' && inputs.task != 'history-ui' && inputs.task != 'core'
+    if: inputs.task != 'capability' && inputs.task != 'cad-build' && inputs.task != 'viewer3d' && inputs.task != 'history-windows' && inputs.task != 'history-ui' && inputs.task != 'core'
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:

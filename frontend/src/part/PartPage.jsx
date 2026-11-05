@@ -16,7 +16,7 @@ function evidenceFact(part,id) {
   const field=fields.find(f=>f.name===id);
   if(!field)return null;
   const known=field.value!=null&&field.confidence!=='unsure'&&field.state!=='unknown';
-  return {fact:id,field:id.includes('/drawing/n/')?'Unlabeled drawing number':id.split('/').at(-1),display:known?{state:'value',value:field.value}:{state:'undetermined',message:field.note||'Not reliably determined from the evidence'},badge:field.method?.startsWith('ai')?'AI interpretation, not reviewed':'From PDF',sources:[{name:id,says:field.original??field.value,page:field.page,box:field.box,part_key:partKey(part)}]};
+  return {fact:id,field:(id.includes('/drawing/n/')||id.includes('/drawing/visual-n/'))?'Unlabeled drawing number':id.split('/').at(-1),display:known?{state:'value',value:field.value}:{state:'undetermined',message:field.note||'Not reliably determined from the evidence'},badge:field.method?.startsWith('ai')?'AI interpretation, not reviewed':'From PDF',sources:[{name:id,says:field.original??field.value,page:field.page,box:field.box,part_key:partKey(part)}]};
 }
 
 function rawField(part,id) {
@@ -33,7 +33,7 @@ function HistoryEntry({entry:e,part,onSource}) {
 
 function DrawingSources({part,fact,navigate,openFact,compact}) {
   const debug=useDebug();
-  const relevant=fact?[fact]:(part.facts||[]).filter(f=>f.fact?.includes('/drawing/')&&!f.fact?.includes('/n/'));
+  const relevant=fact?[fact]:(part.facts||[]).filter(f=>f.fact?.includes('/drawing/')&&!f.fact?.includes('/n/')&&!f.fact?.includes('/visual-n/'));
   return <aside className="drawing-sources"><div className="eyebrow">{part.drawing?.degraded?'DEGRADED SCAN READINGS':'CITED EVIDENCE'}</div>{part.drawing?.degraded&&<p className="muted source-explainer">AI readings are shown beside the original scan. Uncertain fields stay Undetermined.</p>}{relevant.map(f=>{const raw=Object.values(part.drawing?.fields||{}).find(v=>v.name===f.fact);return <section key={f.fact}><h4>{titleCase(f.field)}</h4><div className="fact-value"><Value fact={f}/></div>{f.display?.message&&<p className="muted">{f.display.message}</p>}<FactBadge fact={f} onClick={()=>openFact(f)}/>{f.sources?.map((s,i)=><div className="panel-source" key={i}><small>{s.name}</small><p className="source-verbatim">{s.says==null?'No extracted source text. See the original drawing.':englishText(textValue(s.says))}</p>{translated(textValue(s.says))&&<details><summary>Original wording</summary><p className="source-verbatim">{textValue(s.says)}</p></details>}{s.box&&<button className="text-button" onClick={()=>navigate(partURL(partKey(part),'2d',{fact:s.name}),{keepPanel:compact,replace:true})}>Highlight on drawing <ArrowUpRight size={11}/></button>}</div>)}{debug&&raw?.readers&&<details className="source-readers"><summary>AI proposal, verification & legacy readings</summary><ReaderAnswers readers={raw.readers}/></details>}</section>})}</aside>;
 }
 

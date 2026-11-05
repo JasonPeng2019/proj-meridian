@@ -256,7 +256,7 @@ class KnowledgeTools:
         for name, field in self.store.fields.items():
             if self.store.owners.get(name) is not part or name in seen:
                 continue
-            if "/drawing/n/" in name or name.endswith("/material"):
+            if "/drawing/n/" in name or "/drawing/visual-n/" in name or name.endswith("/material"):
                 continue
             # Include interpreted fields and self-describing callouts, not raw page text.
             facts.append(self.display(name, field))
@@ -305,7 +305,7 @@ class KnowledgeTools:
             return {"part": self.summary(part), "facts": [fact, *callouts]}
         matches = [self.display(name, value) for name, value in self.store.fields.items()
                    if self.store.owners.get(name) is part and normalized(name.split("/")[-1]) == key
-                   and "/drawing/n/" not in name and "/features/" not in name]
+                   and "/drawing/n/" not in name and "/drawing/visual-n/" not in name and "/features/" not in name]
         if matches:
             return {"part": self.summary(part), "facts": matches}
         sources = [part["id"]]

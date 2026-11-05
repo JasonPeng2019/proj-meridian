@@ -46,6 +46,19 @@ def test_possible_reading_is_one_review_question_without_duplicate_ai_item(evide
     assert len(items) == 1 and items[0]["type"] == "possible_reading"
 
 
+def test_image_read_numbers_remain_citable_without_flooding_part_details(evidence):
+    part = evidence.part("D-019")
+    name = "D-019/drawing/visual-n/p1-test"
+    evidence.fields[name] = {"name": name, "value": 42, "original": "42,0", "method": "ai_verified",
+                             "confidence": "sure", "page": 1, "box": [10, 20, 30, 10]}
+    evidence.owners[name] = part
+    tools = KnowledgeTools(evidence)
+    assert name not in {fact["fact"] for fact in tools.get_facts("D-019")["facts"]}
+    cited = tools.display(name)
+    assert cited["display"]["value"] == 42 and cited["sources"][0]["box"] == [10, 20, 30, 10]
+    assert cited["badge"].startswith("AI proposal verified")
+
+
 def test_live_store_reloads_the_same_append_only_decision_files(evidence, monkeypatch):
     from backend.app import main
     monkeypatch.setattr(main, "_store", evidence)

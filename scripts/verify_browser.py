@@ -200,7 +200,7 @@ def verify_debug():
         expect(save).to_be_disabled()
         page.goto(BASE+'/review/needs-input/D-001/template/features_review?part=D-001')
         page.get_by_role('button',name='Guided fields',exact=True).click()
-        features=page.get_by_role('textbox',name='Reviewed holes and slots (JSON array)',exact=True)
+        features=page.get_by_role('textbox',name='Reviewed geometry features (JSON array)',exact=True)
         features.fill('{}')
         expect(save).to_be_disabled()
         features.fill('[]')

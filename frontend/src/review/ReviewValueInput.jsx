@@ -118,20 +118,22 @@ export default function ReviewValueInput({item, onChange, disabled = false}) {
     const features = tail === 'features_review';
     const example = features ? featureExample : item.value && typeof item.value === 'object' ? item.value : kind === 'array' ? ['source value'] : {field: 'source value'};
     control = <>
-      <label className="review-value-label" htmlFor={id}>{features ? 'Reviewed holes and slots' : fieldLabel} (JSON {kind})</label>
-      <p id={hintId} className="review-value-hint">{features ? 'Enter an array of supported holes or slots on top/bottom faces. Dimensions and centre positions x/y are in mm; positions must be established by the source. Use true/false for through; blind cuts also require depth. Slots require length, width and direction (degrees).' : `Enter a JSON ${kind}, using double quotes and no trailing commas. Preserve the field names and value types shown in the example; keep units consistent with the source.`}</p>
+      <label className="review-value-label" htmlFor={id}>{features ? 'Reviewed geometry features' : fieldLabel} (JSON {kind})</label>
+      <p id={hintId} className="review-value-hint">{features ? 'Enter an array of source-dimensioned holes, slots or corner clips. All sizes and positions use mm. Top/bottom holes use x/y; side holes also require z and an entry on the named rectangle face. Use true/false for through; blind cuts require depth. Corner clips use the fields listed below.' : `Enter a JSON ${kind}, using double quotes and no trailing commas. Preserve the field names and value types shown in the example; keep units consistent with the source.`}</p>
       <textarea {...shared} id={id} className="review-value-json" rows={6} value={raw} onChange={update} spellCheck={false} placeholder={kind === 'array' ? '[ ... ]' : '{ ... }'}/>
       {features && <details className="review-feature-format">
         <summary>Allowed feature fields</summary>
         <dl className="review-format-fields">
-          <dt>kind</dt><dd>"hole" or "slot"</dd>
-          <dt>face</dt><dd>"top" or "bottom"</dd>
+          <dt>kind</dt><dd>"hole", "slot" or "corner_chamfer"</dd>
+          <dt>face</dt><dd>"top" or "bottom"; plain/threaded side holes can use "x_min", "x_max", "y_min" or "y_max".</dd>
           <dt>x, y</dt><dd>Centre coordinates in mm in the template coordinate system; signed decimal numbers.</dd>
           <dt>through</dt><dd>true or false. For false, add depth in mm.</dd>
           <dt>Hole</dt><dd>diameter in mm; hole_type is "plain", "threaded", "counterbored" or "countersunk". Threads use the supplied drill diameter with a cosmetic thread label.</dd>
           <dt>Counterbore</dt><dd>Add counterbore_diameter and counterbore_depth in mm.</dd>
           <dt>Countersink</dt><dd>Add countersink_diameter in mm and countersink_angle in degrees.</dd>
           <dt>Slot</dt><dd>length and width in mm, with length at least width; direction in degrees.</dd>
+          <dt>Side hole</dt><dd>Add z in mm, strictly inside the plate thickness. Global x/y must locate the entry on the named side face. Blind depth is measured into that side. Supply each position separately.</dd>
+          <dt>Corner clip</dt><dd>Use corners: an array chosen from "x_min_y_min", "x_min_y_max", "x_max_y_min", "x_max_y_max"; add positive x_setback and y_setback in mm. These cut through the entire thickness; omit face/x/y/through.</dd>
         </dl>
         <p className="review-value-hint">An empty array [] records no supported cuts; it does not confirm the full feature inventory. Missing or unsupported features still need a separate disposition.</p>
       </details>}

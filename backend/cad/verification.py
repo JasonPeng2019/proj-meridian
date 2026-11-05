@@ -73,17 +73,50 @@ def expanded_cuts(template, thickness):
     for index, feature in enumerate(template.get("features", [])):
         if feature.get("state") == "unknown":
             raise ValueError("Unresolved feature leaked into supported cuts")
+        if feature["kind"] == "corner_chamfer":
+            outline = template["outline"]
+            if value(outline["type"]) != "rectangle":
+                raise ValueError("Corner clips require a rectangle")
+            sx, sy = number(feature["x_setback"]), number(feature["y_setback"])
+            length, width = number(outline["length"]), number(outline["width"])
+            corners = value(feature["corners"])
+            signs = {"x_min_y_min": (-1, -1), "x_min_y_max": (-1, 1),
+                     "x_max_y_min": (1, -1), "x_max_y_max": (1, 1)}
+            if (not 0 < sx < length / 2 or not 0 < sy < width / 2 or not isinstance(corners, list) or
+                    not corners or any(not isinstance(c, str) or c not in signs for c in corners) or len(set(corners)) != len(corners)):
+                raise ValueError("Invalid rectangle corner clips")
+            for corner in corners:
+                a, b = signs[corner]
+                cuts.append({"index": index, "kind": "corner_chamfer", "face": "outline", "through": True,
+                             "depth": thickness, "x": a * length / 2, "y": b * width / 2,
+                             "sign_x": a, "sign_y": b, "x_setback": sx, "y_setback": sy,
+                             "corner": corner, "fact_ids": feature.get("fact_ids", []),
+                             "coordinate_evidence": {key: copy.deepcopy(feature[key]) for key in ("corners", "x_setback", "y_setback")}})
+            continue
         kind, face, through = feature["kind"], value(feature["face"]), value(feature["through"])
-        if kind not in ("hole", "slot") or face not in ("top", "bottom") or type(through) is not bool:
+        side = face in ("x_min", "x_max", "y_min", "y_max")
+        if kind not in ("hole", "slot") or (face not in ("top", "bottom") and not side) or type(through) is not bool:
             raise ValueError("Unsupported verification cut")
-        depth = thickness if through else number(feature["depth"])
+        span = thickness
+        if side:
+            if value(template["outline"]["type"]) != "rectangle" or kind != "hole" or value(feature["hole_type"]) not in ("plain", "threaded"):
+                raise ValueError("Unsupported side-face cut")
+            span = number(template["outline"]["length" if face.startswith("x_") else "width"])
+        depth = span if through else number(feature["depth"])
+        if not 0 < depth <= span:
+            raise ValueError("Invalid cut depth")
         allow_primary = feature.get("allow_primary_hole_without_unresolved_step", False)
         if type(allow_primary) is not bool or (allow_primary and (kind != "hole" or through is not True or
                 not feature.get("fact_ids") or not isinstance(feature.get("step_conflict_reason"), str) or not feature["step_conflict_reason"].strip())):
             raise ValueError("Invalid primary-hole fallback authorization")
         shared = {"index": index, "kind": kind, "face": face, "through": through, "depth": depth,
                   "fact_ids": feature.get("fact_ids", []), "name": feature.get("name", f"Feature {index + 1}"),
-                  "coordinate_evidence": {key: copy.deepcopy(feature[key]) for key in ("x", "y", "pattern") if key in feature}}
+                  "span": span,
+                  "coordinate_evidence": {key: copy.deepcopy(feature[key]) for key in ("x", "y", "z", "pattern") if key in feature}}
+        if side:
+            shared["z"] = number(feature["z"])
+            if not 0 < shared["z"] < thickness:
+                raise ValueError("Invalid side-hole z")
         if kind == "slot":
             shared.update(width=number(feature["width"]), length=number(feature["length"]),
                           direction=angle(feature.get("direction", feature.get("angle"))))
@@ -117,6 +150,13 @@ def expanded_cuts(template, thickness):
                     for key in ("outer", "step_depth", "sink_angle"):
                         shared.pop(key, None)
         for x, y in positions(feature):
+            if side:
+                entry = x if face.startswith("x_") else y
+                boundary = -span / 2 if face.endswith("min") else span / 2
+                cross = y if face.startswith("x_") else x
+                cross_span = number(template["outline"]["width" if face.startswith("x_") else "length"])
+                if abs(entry - boundary) > 1e-6 or not -cross_span / 2 < cross < cross_span / 2:
+                    raise ValueError("Side-hole entry is not on its declared face")
             cuts.append({**shared, "x": x, "y": y})
     return cuts
 
@@ -131,10 +171,22 @@ def in_outline(outline, x, y, margin=0):
 
 
 def in_cut(cut, x, y, z, thickness):
-    entry_depth = thickness - z if cut["face"] == "top" else z
+    if cut["kind"] == "corner_chamfer":
+        u = (cut["x"] - x) * cut["sign_x"] / cut["x_setback"]
+        v = (cut["y"] - y) * cut["sign_y"] / cut["y_setback"]
+        return 0 < z < thickness and u >= 0 and v >= 0 and u + v < 1
+    face = cut["face"]
+    if face.startswith("x_"):
+        entry_depth = (x - cut["x"]) * (1 if face == "x_min" else -1)
+        dx, dy = y - cut["y"], z - cut["z"]
+    elif face.startswith("y_"):
+        entry_depth = (y - cut["y"]) * (1 if face == "y_min" else -1)
+        dx, dy = x - cut["x"], z - cut["z"]
+    else:
+        entry_depth = thickness - z if face == "top" else z
+        dx, dy = x - cut["x"], y - cut["y"]
     if not 0 < entry_depth < cut["depth"]:
         return False
-    dx, dy = x - cut["x"], y - cut["y"]
     if cut["kind"] == "slot":
         direction = math.radians(cut["direction"])
         along = dx * math.cos(direction) + dy * math.sin(direction)
@@ -179,12 +231,22 @@ class TriangleProbe:
 def cut_probes(cut, thickness):
     """Core, diameter/width rims, face/depth and stepped-radius probes."""
     x, y, depth = cut["x"], cut["y"], cut["depth"]
+    if cut["kind"] == "corner_chamfer":
+        return [("corner clip setback/profile", (x - cut["sign_x"] * cut["x_setback"] * a,
+                  y - cut["sign_y"] * cut["y_setback"] * b, thickness * q))
+                for a, b in ((.2, .2), (.49, .49), (.51, .51), (.8, .1), (.1, .8), (.9, .2), (.2, .9))
+                for q in (.15, .5, .85)]
     def point(dx=0, dy=0, entry=None):
         q = depth / 2 if entry is None else entry
+        if cut["face"].startswith("x_"):
+            return (x + (q if cut["face"] == "x_min" else -q), y + dx, cut["z"] + dy)
+        if cut["face"].startswith("y_"):
+            return (x + dx, y + (q if cut["face"] == "y_min" else -q), cut["z"] + dy)
         return (x + dx, y + dy, thickness - q if cut["face"] == "top" else q)
     probes = [("core", point(entry=depth * q)) for q in (.15, .5, .85)]
-    if depth < thickness - 1e-6:
-        probes.append(("blind floor", point(entry=(depth + thickness) / 2)))
+    span = cut.get("span", thickness)
+    if depth < span - 1e-6:
+        probes.append(("blind floor", point(entry=(depth + span) / 2)))
     if cut["kind"] == "hole":
         radius = cut["diameter"] / 2
         # Use a cylindrical layer below any counterbore/countersink step.
@@ -222,6 +284,8 @@ def cut_probes(cut, thickness):
 
 def analytic_volume(template, cuts, thickness):
     outline = template["outline"]
+    if any(cut["kind"] == "corner_chamfer" or cut["face"] not in ("top", "bottom") for cut in cuts):
+        return None
     # Disjoint, fully contained cuts have a closed-form volume independent of
     # both the generator's Booleans and the exported B-rep measurements.
     if any(not in_outline(outline, cut["x"], cut["y"], cut["radius"] + 1e-6) for cut in cuts):
@@ -343,6 +407,10 @@ def primary_bore_identity(cut):
     x, y = round(cut["x"], 7), round(cut["y"], 7)
     if cut["kind"] == "hole":
         diameter = round(cut["diameter"], 7)
+        if cut["face"].startswith(("x_", "y_")):
+            axis = cut["face"][0]
+            cross = y if axis == "x" else x
+            return (cross, round(cut["z"], 7), diameter, "through_" + axis if cut["through"] else cut["face"], 0.0 if cut["through"] else (x if axis == "x" else y))
         if cut["through"] is True:
             return (x, y, diameter, "through", 0.0)
         return (x, y, diameter, cut["face"], 0.0)
@@ -443,7 +511,7 @@ def verify_features(template, model, step_shape, mesh, drawing):
                            "step_material": actual_step, "glb_material": actual_mesh})
         assert any(not item["expected_material"] and in_outline(selected["outline"], *item["point_mm"][:2]) for item in probes), "Feature has no verified removal inside the base outline"
         report.append({"feature_index": cut["index"], "kind": cut["kind"], "hole_type": cut.get("hole_type"),
-                       "center_mm": [cut["x"], cut["y"]], "face": cut["face"], "depth_mm": cut["depth"],
+                       "center_mm": [cut["x"], cut["y"]] + ([cut["z"]] if "z" in cut else []), "face": cut["face"], "depth_mm": cut["depth"],
                        "coordinate_evidence": cut["coordinate_evidence"],
                        "probe_count": len(probes), "probes": probes})
     expected_volume = analytic_volume(selected, cuts, thickness)

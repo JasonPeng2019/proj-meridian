@@ -177,3 +177,28 @@ def test_holes_slots_patterns_and_weight_states():
     assert builder.weight_check(template,models)["state"] == "Skipped"
     parsed_weight = {"weight_on_drawing":{"name":"D-999/drawing/weight_g","value":2.7,"method":"parsed","confidence":"sure"},"material":known("Aluminium")}
     assert builder.weight_check(parsed_weight,models)["state"] == "Passed"
+
+
+def test_sourced_full_thickness_corner_clips_preserve_exact_setbacks():
+    pytest.importorskip("cadquery")
+    template = cube()
+    template["features"] = [{"kind": "corner_chamfer", "corners": ["x_min_y_min", "x_min_y_max", "x_max_y_min", "x_max_y_max"],
+                             "x_setback": known(1), "y_setback": known(2), "fact_ids": ["smoke/corners"]}]
+    shape, waiting, omitted, labels = builder.build_shape(template)
+    assert not waiting and not omitted
+    assert labels[0]["count"] == 4
+    assert shape.val().Volume() == pytest.approx(1000 - 4 * 1 * 2 / 2 * 10)
+    assert builder.shape_bounds_mm(shape)["size"] == pytest.approx([10, 10, 10])
+
+
+@pytest.mark.parametrize("field,bad", [("z", None), ("x", known(0)), ("z", known(0)), ("hole_type", "counterbored")])
+def test_side_holes_never_infer_missing_z_or_change_axis(field, bad):
+    pytest.importorskip("cadquery")
+    template = cube()
+    feature = {"kind": "hole", "face": "x_min", "x": known(-5), "y": known(0), "z": known(5),
+               "diameter": known(2), "hole_type": "threaded", "thread": "M3", "through": True, "fact_ids": ["smoke/side"]}
+    feature[field] = bad
+    template["features"] = [feature]
+    shape, waiting, omitted, labels = builder.build_shape(template)
+    assert shape.val().Volume() == pytest.approx(1000)
+    assert waiting == ["features.0"] and len(omitted) == 1 and labels == []

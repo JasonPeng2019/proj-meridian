@@ -13,7 +13,7 @@ from pathlib import Path
 
 from backend.paths import GENERATED, ROOT, inside
 
-VERSION = "flat-part-13"
+VERSION = "flat-part-14"
 NOTICE = "Reconstruction from 2D drawing. Not the original CAD model."
 
 
@@ -184,6 +184,57 @@ def feature_inventory(template):
             "all_determined": all_determined, "notes": notes}
 
 
+def _corner_clips(feature, outline):
+    """Exact full-thickness corner clips; never infer setbacks from a picture."""
+    evidence = feature.get("fact_ids") or feature.get("fact_id")
+    if _value(outline.get("type"), "outline.type") != "rectangle":
+        raise Unknown("corner_chamfer requires a rectangular outline")
+    corners = _value(feature.get("corners"), "corners", evidence)
+    allowed = {"x_min_y_min": (-1, -1), "x_min_y_max": (-1, 1),
+               "x_max_y_min": (1, -1), "x_max_y_max": (1, 1)}
+    if not isinstance(corners, list) or not corners or any(not isinstance(c, str) or c not in allowed for c in corners) or len(set(corners)) != len(corners):
+        raise Unknown("corners must be a nonempty unique list of rectangle corners")
+    oe = outline.get("fact_ids") or outline.get("fact_id")
+    length, width = (_num(outline.get(key), "outline." + key, oe, True) for key in ("length", "width"))
+    sx, sy = (_num(feature.get(key), key, evidence, True) for key in ("x_setback", "y_setback"))
+    if sx >= length / 2 or sy >= width / 2:
+        raise Unknown("corner setbacks must be smaller than the rectangle half-dimensions")
+    return [[(a * length / 2, b * width / 2),
+             (a * (length / 2 - sx), b * width / 2),
+             (a * length / 2, b * (width / 2 - sy))] for a, b in (allowed[c] for c in corners)]
+
+
+def _side_hole(cq, feature, outline, thickness, x, y, through):
+    """Side bores use global XY and an explicit evidenced Z center."""
+    evidence = feature.get("fact_ids") or feature.get("fact_id")
+    if _value(outline.get("type"), "outline.type") != "rectangle":
+        raise Unknown("side holes require a rectangular outline")
+    if feature.get("kind") != "hole" or _value(feature.get("hole_type"), "hole_type", evidence) not in ("plain", "threaded"):
+        raise Unknown("side faces support plain or cosmetic-threaded holes")
+    oe = outline.get("fact_ids") or outline.get("fact_id")
+    length, width = (_num(outline.get(key), "outline." + key, oe, True) for key in ("length", "width"))
+    face = _value(feature.get("face"), "face", evidence)
+    z = _num(feature.get("z"), "z", evidence)
+    diameter = _num(feature.get("diameter"), "diameter", evidence, True)
+    if not 0 < z < thickness:
+        raise Unknown("side-hole z must be inside the plate thickness")
+    if face.startswith("x_"):
+        boundary, span = (-length / 2 if face == "x_min" else length / 2), length
+        if abs(x - boundary) > 1e-6 or not -width / 2 < y < width / 2:
+            raise Unknown("side-hole entry is not on the specified rectangle face")
+        normal, xdir = ((1, 0, 0) if face == "x_min" else (-1, 0, 0)), (0, 1, 0)
+    else:
+        boundary, span = (-width / 2 if face == "y_min" else width / 2), width
+        if abs(y - boundary) > 1e-6 or not -length / 2 < x < length / 2:
+            raise Unknown("side-hole entry is not on the specified rectangle face")
+        normal, xdir = ((0, 1, 0) if face == "y_min" else (0, -1, 0)), (1, 0, 0)
+    depth = span if through else _num(feature.get("depth"), "depth", evidence, True)
+    if depth > span:
+        raise Unknown("side-hole depth exceeds the body span")
+    origin = tuple(v - .001 * n for v, n in zip((x, y, z), normal)) if through else (x, y, z)
+    return cq.Workplane(cq.Plane(origin=origin, xDir=xdir, normal=normal)).circle(diameter / 2).extrude(depth + (.002 if through else 0))
+
+
 def build_shape(template):
     """Return (CadQuery solid, waiting names, omitted details, feature labels)."""
     _validate_essential(template)
@@ -226,8 +277,21 @@ def build_shape(template):
             if feature.get("state") == "unknown":
                 raise Unknown("feature is unknown")
             evidence = feature.get("fact_ids") or feature.get("fact_id")
+            if feature.get("kind") == "corner_chamfer":
+                clips = _corner_clips(feature, outline)
+                candidate = shape
+                for points in clips:
+                    candidate = candidate.cut(cq.Workplane("XY", origin=(0, 0, -.001)).polyline(points).close().extrude(t + .002))
+                if not candidate.val().isValid() or candidate.val().Volume() <= 0 or shape.val().Volume() - candidate.val().Volume() < 1e-7:
+                    raise Unknown("corner clip produced invalid or empty removal")
+                shape = candidate
+                setback = feature.get("x_setback")
+                labels.append({"name": name, "kind": "corner_chamfer", "count": len(clips), "fact_ids": evidence or [],
+                               "method": feature.get("method") or (setback.get("method", "derived") if isinstance(setback, dict) else "derived"), "feature_index": index})
+                continue
             face = _value(feature.get("face"), "face", evidence)
-            if face not in ("top", "bottom"):
+            side_face = face in ("x_min", "x_max", "y_min", "y_max")
+            if face not in ("top", "bottom") and not side_face:
                 raise Unknown("unsupported face " + str(face))
             positions = _positions(feature)
             through = _value(feature.get("through"), "through", evidence)
@@ -240,7 +304,7 @@ def build_shape(template):
                     not feature.get("fact_ids") or not isinstance(feature.get("step_conflict_reason"), str) or not feature["step_conflict_reason"].strip()):
                 raise Unknown("primary-hole fallback requires a sourced step-conflict reason and a known through hole")
             depth = t if through else _num(feature.get("depth"), "depth", evidence, True)
-            if depth > t + 1e-6:
+            if not side_face and depth > t + 1e-6:
                 raise Unknown("depth exceeds plate thickness")
             z = 0 if face == "bottom" else t-depth
             # Slight overrun only on through cuts prevents coincident-face artifacts.
@@ -249,6 +313,10 @@ def build_shape(template):
             step_omission = None
             modeled_hole_type = None
             for x, y in positions:
+                if side_face:
+                    cutters.append(_side_hole(cq, feature, outline, t, x, y, through))
+                    modeled_hole_type = _value(feature.get("hole_type"), "hole_type", evidence)
+                    continue
                 plane = cq.Workplane("XY", origin=(x, y, cut_z))
                 if feature.get("kind") == "slot":
                     width = _num(feature.get("width"), "width", evidence, True)

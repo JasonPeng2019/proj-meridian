@@ -43,6 +43,75 @@ def exported(shape, tmp_path):
     return cq.importers.importStep(str(path)).val(), mesh
 
 
+def detailed_template(kind, face="x_min", through=True):
+    template = {"outline": {"type": "rectangle", "length": known(40), "width": known(30)},
+                "thickness": known(8), "features_complete": known(True), "features_omitted": known([])}
+    if kind == "corner_chamfer":
+        feature = {"kind": kind, "corners": ["x_min_y_min", "x_min_y_max", "x_max_y_min", "x_max_y_max"],
+                   "x_setback": known(1), "y_setback": known(2), "fact_ids": ["D-999/drawing/source"]}
+    else:
+        x = -20 if face == "x_min" else 20 if face == "x_max" else 0
+        y = -15 if face == "y_min" else 15 if face == "y_max" else 0
+        feature = {"kind": "hole", "face": face, "x": known(x), "y": known(y), "z": known(4),
+                   "diameter": known(4), "hole_type": "threaded", "thread": "M5", "through": through,
+                   "fact_ids": ["D-999/drawing/source"]}
+        if not through:
+            feature["depth"] = known(5)
+    template["features"] = [feature]
+    return template
+
+
+@pytest.mark.parametrize("face", ["x_min", "x_max", "y_min", "y_max"])
+@pytest.mark.parametrize("through", [True, False])
+def test_side_holes_have_correct_axis_depth_and_exported_geometry(face, through, tmp_path):
+    pytest.importorskip("cadquery")
+    template = detailed_template("hole", face, through)
+    shape, waiting, omitted, labels = builder.build_shape(template)
+    assert not waiting and not omitted and len(labels) == 1
+    span = 40 if face.startswith("x_") else 30
+    assert shape.val().Volume() == pytest.approx(40 * 30 * 8 - math.pi * 2 ** 2 * (span if through else 5))
+    step, mesh = exported(shape, tmp_path)
+    report = verification.verify_features(template, {}, step, mesh, {"id": "D-999", "callouts": []})
+    assert report["cut_instances_checked"] == 1
+    assert report["cuts"][0]["center_mm"][2] == 4
+    assert report["cuts"][0]["depth_mm"] == (span if through else 5)
+
+
+def test_corner_clips_have_exact_setbacks_in_step_and_glb(tmp_path):
+    pytest.importorskip("cadquery")
+    template = detailed_template("corner_chamfer")
+    shape, waiting, omitted, labels = builder.build_shape(template)
+    assert not waiting and not omitted and labels[0]["count"] == 4
+    assert shape.val().Volume() == pytest.approx(40 * 30 * 8 - 4 * 1 * 2 / 2 * 8)
+    step, mesh = exported(shape, tmp_path)
+    report = verification.verify_features(template, {}, step, mesh, {"id": "D-999", "callouts": []})
+    assert report["cut_instances_checked"] == 4 and report["probe_count"] == 84
+
+
+@pytest.mark.parametrize("kind", ["hole", "corner_chamfer"])
+@pytest.mark.parametrize("bad_export", ["step", "glb"])
+def test_detail_probes_reject_omitted_side_bores_and_corner_clips(kind, bad_export, tmp_path):
+    cq = pytest.importorskip("cadquery")
+    template = detailed_template(kind)
+    correct, waiting, omitted, _ = builder.build_shape(template)
+    assert not waiting and not omitted
+    correct_step, correct_mesh = exported(correct, tmp_path)
+    wrong_step, wrong_mesh = exported(cq.Workplane("XY").rect(40, 30).extrude(8), tmp_path)
+    with pytest.raises(AssertionError, match=("STEP" if bad_export == "step" else "GLB") + " feature"):
+        verification.verify_features(template, {}, wrong_step if bad_export == "step" else correct_step,
+                                     wrong_mesh if bad_export == "glb" else correct_mesh, {"id": "D-999", "callouts": []})
+
+
+def test_side_bore_identity_includes_axis_z_and_normalizes_opposite_entries():
+    template = detailed_template("hole")
+    left = verification.expanded_cuts(template, 8)[0]
+    right = verification.expanded_cuts(detailed_template("hole", "x_max"), 8)[0]
+    vertical = verification.expanded_cuts(detailed_template("hole", "y_min"), 8)[0]
+    assert verification.primary_bore_identity(left) == verification.primary_bore_identity(right)
+    assert verification.primary_bore_identity(left) != verification.primary_bore_identity(vertical)
+    assert verification.primary_bore_identity(left) != verification.primary_bore_identity({**left, "z": 5})
+
+
 @pytest.mark.parametrize("profile", ["plain", "counterbored", "countersunk", "slot"])
 def test_independent_export_probes_and_volume(profile, tmp_path):
     cq = pytest.importorskip("cadquery")

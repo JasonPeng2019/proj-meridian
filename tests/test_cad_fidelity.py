@@ -143,6 +143,79 @@ def test_countersinks_at_other_bores_cannot_satisfy_the_source_group():
         verification.callout_coverage(drawing, template, cuts)
 
 
+def equal_diameter_source_groups():
+    drawing = {"id": "D-999", "callouts": [
+        {"name": "thread", "text": "8 x 4,2 THRU ALL M5 - 6H", "count": 8, "through": True, "thread": "M5", "page": 1, "box": [500, 0, 100, 18]},
+        {"name": "bores-a", "text": "8 x 6,6 THRU ALL", "count": 8, "through": True, "page": 1, "box": [0, 0, 100, 18]},
+        {"name": "sinks-a", "text": "13,4 X 90°", "page": 1, "box": [30, 16, 60, 18]},
+        {"name": "bores-b", "text": "2 x 6,6 THRU ALL", "count": 2, "through": True, "page": 1, "box": [200, 0, 100, 18]},
+        {"name": "sinks-b", "text": "14,4 X 90°", "page": 1, "box": [230, 16, 60, 18]}]}
+    cuts = []
+    for count, diameter, outer, face, refs, thread in (
+            (8, 4.2, None, "top", ["thread"], "M5 - 6H"),
+            (8, 6.6, 13.4, "top", ["bores-a", "sinks-a"], None),
+            (2, 6.6, 14.4, "bottom", ["bores-b", "sinks-b"], None)):
+        for _ in range(count):
+            cut = {"index": len(cuts), "kind": "hole", "face": face, "through": True,
+                   "diameter": diameter, "x": len(cuts) * 20, "y": 0, "fact_ids": list(refs),
+                   "coordinate_evidence": {}, "thread": thread, "hole_type": "threaded" if thread else "countersunk"}
+            if outer:
+                cut.update(outer=outer / 2, sink_angle=90)
+            cuts.append(cut)
+    return drawing, {"features_complete": known(True), "features_omitted": known([])}, cuts
+
+
+@pytest.mark.parametrize("step_ids_only", [False, True])
+def test_equal_diameter_groups_use_exact_or_attached_source_ids(step_ids_only):
+    drawing, template, cuts = equal_diameter_source_groups()
+    if step_ids_only:
+        for cut in cuts:
+            cut["fact_ids"] = [ref for ref in cut["fact_ids"] if not ref.startswith("bores-")]
+    rows = verification.callout_coverage(drawing, template, cuts)
+    assert [row["built_count"] for row in rows] == [8, 8, 8, 2, 2]
+    assert all(row["status"] == "covered" for row in rows)
+    assert rows[2]["parent_source"] == "bores-a" and rows[4]["parent_source"] == "bores-b"
+
+
+@pytest.mark.parametrize("defect", ["missing", "wrong_group", "ambiguous", "conflicting", "wrong_step"])
+def test_equal_diameter_source_groups_reject_missing_wrong_or_ambiguous_assignment(defect):
+    drawing, template, cuts = equal_diameter_source_groups()
+    if defect == "missing":
+        cuts.pop()
+    elif defect == "wrong_group":
+        for cut in cuts:
+            if cut["diameter"] == 6.6:
+                cut["fact_ids"] = ["bores-b", "sinks-b"] if cut["face"] == "top" else ["bores-a", "sinks-a"]
+    elif defect == "ambiguous":
+        for cut in cuts:
+            if cut["diameter"] == 6.6:
+                cut["fact_ids"] = ["D-999/drawing/source"]
+    elif defect == "conflicting":
+        cuts[8]["fact_ids"] = ["bores-a", "bores-b"]
+    else:
+        cuts[8]["outer"] = 14.4 / 2
+    with pytest.raises(AssertionError):
+        verification.callout_coverage(drawing, template, cuts)
+
+
+def test_explicitly_counted_countersinks_bind_their_own_source_counts():
+    drawing = {"id": "D-999", "callouts": [
+        {"name": "step-a", "text": "2 x 8,0 X 90°", "count": 2},
+        {"name": "step-b", "text": "3 x 10,0 X 90°", "count": 3}]}
+    template = {"features_complete": known(True), "features_omitted": known([])}
+    cuts = [{"index": i, "kind": "hole", "face": "top", "through": True, "diameter": 4,
+             "hole_type": "countersunk", "outer": 4 if i < 2 else 5, "sink_angle": 90,
+             "x": i * 20, "y": 0, "fact_ids": ["step-a" if i < 2 else "step-b"], "coordinate_evidence": {}} for i in range(5)]
+    rows = verification.callout_coverage(drawing, template, cuts)
+    assert [row["expected_count"] for row in rows] == [2, 3]
+    assert all(row["count_scope"] == "explicit_step_count" for row in rows)
+    assert [row["parent_source"] for row in rows] == ["step-a", "step-b"]
+    with pytest.raises(AssertionError):
+        verification.callout_coverage(drawing, template, cuts[1:])
+    with pytest.raises(ValueError, match="disagrees"):
+        verification.countersink_spec({"text": "2 x 8,0 X 90°", "count": 3})
+
+
 def test_feature_option_selection_is_not_overwritten_by_review_array():
     feature = {"diameter": {"state": "options", "options": [4, 5]}}
     template = {"features": [], "features_review": {"state": "known", "value": [feature]}}

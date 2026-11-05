@@ -249,31 +249,75 @@ def analytic_volume(template, cuts, thickness):
     return volume
 
 
-def counted_callout_cuts(callout, cuts):
+def countersink_spec(callout):
+    match = re.match(r"\s*(?:(\d+)\s*[xX×]\s*)?(\d+(?:[.,]\d+)?)\s*[xX×]\s*(\d+(?:[.,]\d+)?)\s*°", callout.get("text", ""))
+    if not match:
+        return None
+    count, outer, sink_angle = match.groups()
+    if count and type(callout.get("count")) is int and int(count) != callout["count"]:
+        raise ValueError("Countersink source count disagrees with its original text")
+    explicit = callout.get("count") if type(callout.get("count")) is int else int(count) if count else None
+    return {"count": explicit, "outer": float(outer.replace(",", ".")), "angle": float(sink_angle.replace(",", "."))}
+
+
+def callout_matches_cut(callout, cut):
+    sink = countersink_spec(callout)
+    if sink:
+        step = cut if cut.get("hole_type") == "countersunk" else cut.get("requested_step", {})
+        return (step.get("hole_type") == "countersunk" and abs(step["outer"] * 2 - sink["outer"]) < 1e-6 and
+                abs(step["sink_angle"] - sink["angle"]) < 1e-6)
     kind = "slot" if callout.get("feature") == "slot" else "hole"
     match = re.match(r"\s*\d+\s*[xX×]\s*(\d+(?:[.,]\d+)?)", callout.get("text", ""))
     diameter = float(match.group(1).replace(",", ".")) if match else None
+    if cut["kind"] != kind or (callout.get("through") is True and not cut["through"]):
+        return False
+    if kind == "slot":
+        if any(abs(cut[key] - callout[source]) > 1e-6 for key, source in (("width", "width_mm"), ("length", "length_mm")) if source in callout):
+            return False
+    elif diameter is not None and abs(cut["diameter"] - diameter) > 1e-6:
+        return False
+    if callout.get("thread"):
+        thread = re.match(r"M\d+(?:[.,]\d+)?", str(cut.get("thread") or "").strip(), re.I)
+        if not thread or thread.group().replace(",", ".").upper() != callout["thread"].replace(",", ".").upper():
+            return False
+    return True
+
+
+def counted_callout_cuts(callout, cuts, callouts=None):
+    """Partition compatible cuts using original source-group IDs, never counts."""
+    if callouts is None:
+        return [cut for cut in cuts if callout_matches_cut(callout, cut)]
+    is_step = countersink_spec(callout) is not None
+    groups = [item for item in callouts if (type(item.get("count")) is int or
+              (countersink_spec(item) or {}).get("count") is not None) and
+              item.get("feature") != "general_note" and (countersink_spec(item) is not None) == is_step]
+    sources = {group["name"]: {group["name"]} for group in groups}
+    if not is_step:
+        for step in callouts:
+            if countersink_spec(step):
+                parent = countersink_parent(step, callouts)
+                if parent and parent["name"] in sources:
+                    sources[parent["name"]].add(step["name"])
     candidates = []
     for cut in cuts:
-        if cut["kind"] != kind or (callout.get("through") is True and not cut["through"]):
+        if not callout_matches_cut(callout, cut):
             continue
-        if kind == "slot":
-            if any(abs(cut[key] - callout[source]) > 1e-6 for key, source in (("width", "width_mm"), ("length", "length_mm")) if source in callout):
-                continue
-        elif diameter is not None and abs(cut["diameter"] - diameter) > 1e-6:
-            continue
-        if callout.get("thread"):
-            thread = re.match(r"M\d+(?:[.,]\d+)?", str(cut.get("thread") or "").strip(), re.I)
-            if not thread or thread.group().replace(",", ".").upper() != callout["thread"].replace(",", ".").upper():
-                continue
-        candidates.append(cut)
+        compatible = [group for group in groups if callout_matches_cut(group, cut)]
+        cited = [group for group in compatible if sources[group["name"]].intersection(cut.get("fact_ids", []))]
+        if len(cited) == 1:
+            if cited[0]["name"] == callout["name"]:
+                candidates.append(cut)
+        elif not cited and len(compatible) == 1 and compatible[0]["name"] == callout["name"]:
+            candidates.append(cut)
     return candidates
 
 
 def countersink_parent(callout, callouts):
     """Associate an uncounted step line with its counted source hole group."""
+    if (countersink_spec(callout) or {}).get("count") is not None:
+        return callout
     groups = [item for item in callouts if type(item.get("count")) is int and
-              item.get("feature") not in ("slot", "general_note") and
+              item.get("feature") not in ("slot", "general_note") and not countersink_spec(item) and
               (callout.get("page") is None or item.get("page") == callout.get("page"))]
     if len(groups) == 1:
         return groups[0]
@@ -299,17 +343,17 @@ def callout_coverage(drawing, template, cuts):
     rows = []
     for callout in drawing.get("callouts", []):
         count = callout.get("count")
-        sink = re.match(r"\s*(\d+(?:[.,]\d+)?)\s*[xX×]\s*(\d+(?:[.,]\d+)?)\s*°", callout.get("text", ""))
-        if type(count) is not int and sink:
-            outer, sink_angle = (float(part.replace(",", ".")) for part in sink.groups())
+        sink = countersink_spec(callout)
+        if sink:
+            outer, sink_angle = sink["outer"], sink["angle"]
             matching = [cut for cut in cuts if cut.get("hole_type") == "countersunk" and
                         abs(cut["outer"] * 2 - outer) < 1e-6 and abs(cut["sink_angle"] - sink_angle) < 1e-6]
             variant_cuts = [cut for cut in cuts if (cut.get("requested_step") or {}).get("hole_type") == "countersunk" and
                             abs(cut["requested_step"]["outer"] * 2 - outer) < 1e-6 and abs(cut["requested_step"]["sink_angle"] - sink_angle) < 1e-6]
             parent = countersink_parent(callout, drawing.get("callouts", []))
-            expected_count = parent["count"] if parent else None
+            expected_count = sink["count"] if sink["count"] is not None else parent["count"] if parent else None
             position = lambda cut: (round(cut["x"], 7), round(cut["y"], 7), cut["face"])
-            parent_cuts = counted_callout_cuts(parent, cuts) if parent else cuts
+            parent_cuts = counted_callout_cuts(parent, cuts, drawing.get("callouts", [])) if parent else cuts
             matching = [cut for cut in matching if cut in parent_cuts]
             variant_cuts = [cut for cut in variant_cuts if cut in parent_cuts]
             built_positions = {position(cut) for cut in matching}
@@ -324,13 +368,13 @@ def callout_coverage(drawing, template, cuts):
             status = "covered" if covered else "documented_variant_omission" if variant_omissions and variant_covered else "documented_omission" if omitted and not complete else "unexplained_gap"
             rows.append({"source": callout["name"], "text": callout.get("text"), "kind": "countersink",
                          "parent_source": parent.get("name") if parent else None, "expected_count": expected_count,
-                         "count_scope": "associated_counted_hole_group" if parent else "uncounted_step_existence_only",
+                         "count_scope": "explicit_step_count" if sink["count"] is not None else "associated_counted_hole_group" if parent else "uncounted_step_existence_only",
                          "built_count": len(built_positions), "status": status, "omissions": omitted, "variant_step_omissions": variant_omissions})
             assert status != "unexplained_gap", f"{drawing['id']}: countersink callout omitted without explanation: {rows[-1]}"
             continue
         if type(count) is not int or callout.get("feature") == "general_note":
             continue
-        candidates = counted_callout_cuts(callout, cuts)
+        candidates = counted_callout_cuts(callout, cuts, drawing.get("callouts", []))
         unique = {(round(cut["x"], 7), round(cut["y"], 7), cut["face"]) for cut in candidates}
         omitted = [item for item in omissions if callout["name"] in item.get("fact_ids", []) or
                    drawing["id"] + "/drawing/source" in item.get("fact_ids", []) or drawing["id"] in item.get("fact_ids", [])]

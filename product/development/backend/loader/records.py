@@ -305,7 +305,8 @@ class RecordRegistry:
 
     @classmethod
     def from_paths(cls, *, prepared_path: str | Path, inputs_path: str | Path,
-                   records_path: str | Path, decisions: DecisionStore | None = None) -> RecordRegistry:
+                   records_path: str | Path, decisions: DecisionStore | None = None,
+                   manifest_path: str | Path | None = None) -> RecordRegistry:
         """CLI-free saved prep loading, bound to exact deterministic input bytes.
 
         No alternate prep JSON layout is accepted. Existing records contribute
@@ -314,6 +315,10 @@ class RecordRegistry:
         prep_path, input_path, output_path = map(_runtime_path, (prepared_path, inputs_path, records_path))
         if output_path in {prep_path, input_path}:
             raise RecordsError("Records output must not overwrite prepared or deterministic inputs.")
+        # Saved preparation must retain the same original corpus checks and
+        # citable subsystem context as source-only startup. This validates source
+        # bytes without rendering PDFs or executing any reader/preparation job.
+        source_registry = cls.from_inputs(input_path, manifest_path) if manifest_path is not None else None
         prepared = load_prepared(prep_path)
         cls._check_input(prepared, input_path)
         inputs = json.loads(input_path.read_bytes())
@@ -333,6 +338,10 @@ class RecordRegistry:
                        previous_records=previous.records if previous else [],
                        previous_templates=previous.templates if previous else {}, original_drawings=originals)
         registry._prepared_path, registry._inputs_path = prep_path, input_path
+        if source_registry is not None:
+            registry._source_checks.update(source_registry._source_checks)
+            registry._manifest_sections = dict(source_registry._manifest_sections)
+            registry._manifest_sha256 = source_registry._manifest_sha256
         for drawing in prepared.drawings:
             original = input_path.parent / drawing.source_path
             if original.is_file():
@@ -345,6 +354,7 @@ class RecordRegistry:
                     if expected:
                         registry._source_checks[_runtime_path(input_path.parent / page_image_path(drawing.id, page.page))] = expected
         registry._check_source_files()
+        registry._index()
         return registry
 
     @classmethod

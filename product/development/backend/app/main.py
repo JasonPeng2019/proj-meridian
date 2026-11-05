@@ -75,7 +75,8 @@ def create_app(
         decision_store = DecisionStore(settings.path("decisions"))
         if prepared.is_file():
             registry = RecordRegistry.from_paths(prepared_path=prepared, inputs_path=input_file,
-                records_path=settings.path("generated") / "records.json", decisions=decision_store)
+                records_path=settings.path("generated") / "records.json", decisions=decision_store,
+                manifest_path=settings.path("dataset") / "manifest.json")
         else:
             registry = RecordRegistry.from_inputs(input_file,
                 settings.path("dataset") / "manifest.json", decisions=decision_store)

@@ -163,3 +163,46 @@ def test_source_only_boundary_does_not_accept_fabricated_preparation(workspace):
         PreparedKnowledge.model_validate(payload)
     payload["source_only"] = True
     assert PreparedKnowledge.model_validate(payload).batch.counts.total_fields == 0
+
+
+def saved_exact_preparation(workspace):
+    """A synthetic clean exact-link corpus needs no invented AI attempts."""
+    inputs, manifest = source_bundle(workspace)
+    original = RecordRegistry.from_inputs(inputs, manifest)
+    payload = original.document.prepared.model_dump(mode="json")
+    payload["source_only"] = False
+    prepared = PreparedKnowledge.model_validate(payload)
+    prepared_path = workspace / "prepared.json"
+    prepared_path.write_text(prepared.model_dump_json(), encoding="utf-8")
+    return inputs, manifest, prepared_path
+
+
+def test_saved_preparation_retains_citable_manifest_context_without_readers(workspace, monkeypatch):
+    inputs, manifest, prepared = saved_exact_preparation(workspace)
+    def forbidden(*args, **kwargs):
+        raise AssertionError("Saved startup cannot execute paid preparation.")
+    monkeypatch.setattr("backend.ai.runner.Runner.__call__", forbidden)
+    registry = RecordRegistry.from_paths(prepared_path=prepared, inputs_path=inputs,
+        records_path=workspace / "records.json", manifest_path=manifest)
+    assert registry.drawing_sections == {"D-001": "Synthetic Cell"}
+    assert registry.sources_for("D-001/manifest/section")[0].says == "Synthetic Cell"
+    assert registry.document.prepared.batch.counts.total_fields == 0
+    registry.save()
+    assert read_records(workspace / "records.json").prepared == registry.document.prepared
+
+
+@pytest.mark.parametrize("changed", ["drawing", "bom", "manifest"])
+def test_saved_preparation_refuses_changed_original_corpus(workspace, changed):
+    inputs, manifest, prepared = saved_exact_preparation(workspace)
+    output = workspace / "records.json"
+    registry = RecordRegistry.from_paths(prepared_path=prepared, inputs_path=inputs,
+        records_path=output, manifest_path=manifest)
+    registry.save()
+    before = output.read_bytes()
+    path = {"drawing": manifest.parent / "drawings/D-001.pdf",
+            "bom": manifest.parent / "context/openlpbf-bom.csv", "manifest": manifest}[changed]
+    path.write_bytes(path.read_bytes() + b" changed synthetic source")
+    with pytest.raises((RecordsError, ValueError)):
+        RecordRegistry.from_paths(prepared_path=prepared, inputs_path=inputs,
+            records_path=output, manifest_path=manifest)
+    assert output.read_bytes() == before

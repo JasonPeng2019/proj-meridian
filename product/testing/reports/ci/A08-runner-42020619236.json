@@ -1,0 +1,462 @@
+{
+  "schema": "meridian-remote-verification/v1",
+  "outcome": "PASS",
+  "module": "M08 full runner scripted-subprocess slice",
+  "candidate": "b1f6639f852b0064ee64aea7febef814b89a9b7e",
+  "publication": "eca603031a73a4c968bd79fbbba4a17a93f9a4b9",
+  "branch": "harness-v2",
+  "run_id": 42020619236,
+  "scope": "Actual runner with synthetic CLI subprocesses: determination/verification ordering, candidate/source/verdict binding, one revision/reverification, invalid/unsure outcomes, honest fallback and next-launch retry, observed-metadata/cache/rate/queue/credential/image delivery controls. Does not establish actual CLI providers/domain source accuracy/full corpus prep or V1. Native old handoff invalid NOT_RUN enum, no acceptance credited.",
+  "candidate_blobs_sha256": {
+    "development/backend/ai/runner.py": "af291143b759a3dab7bcae0f93905b51d56346d31c028237fc814057706886ad",
+    "testing/fixtures/runner/queue_probe.py": "f29502b4c659023aeac97d7636f339b8ecb3fd18a2de7e6082a574c31f4e560f",
+    "testing/fixtures/runner/scripted_cli.py": "d2feb4ebfa5eb6a14640f30ff3ed739a83c958e4b4d40f3545320774f414230e",
+    "testing/reports/A08-detverify-blocker.json": "3513143040546ee2d66bb02b4109929c387a1539f6c4ff752311d3dfd0e7106d",
+    "testing/reports/b01/A08-detverify/implementation.json": "c7a90e438a1040871fcb9215059e0ca9dd6f9fa5051bdbade3bddfc96b474dbf",
+    "testing/reports/b01/A08-detverify/static.json": "4d3adc1b00dd272ef86674820fef00e70d3542091cb4e82650c6d341e29b4087",
+    "testing/smoke/A08-detverify/inspect_static.py": "97bdf4dcebc61b6d39a2aabd7ef2ec990b12af80aec7b9d8558db34e0a5a9b06",
+    "testing/tests/test_runner_m1.py": "1f8205fd3e037b5abc2b4d783d731b8183540747b7ba212bc95843bf4a813c18"
+  },
+  "module_test_cases": 100,
+  "runner_test_cases": [
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_exact_order_candidate_original_evidence_null_and_partial_observations"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_one_disagreement_correction_and_reverification_with_mixed_field_counts"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_remaining_disagreement_unsure_invalid_or_execution_failure_never_falls_back[last_step0]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_remaining_disagreement_unsure_invalid_or_execution_failure_never_falls_back[last_step1]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_remaining_disagreement_unsure_invalid_or_execution_failure_never_falls_back[last_step2]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_remaining_disagreement_unsure_invalid_or_execution_failure_never_falls_back[last_step3]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_invalid_or_blind_verifier_output_is_terminal_not_fallback[malformed]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_invalid_or_blind_verifier_output_is_terminal_not_fallback[blind_guess]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_invalid_or_blind_verifier_output_is_terminal_not_fallback[exit_after_answer]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_explicit_complete_cited_verdicts_required[missing]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_explicit_complete_cited_verdicts_required[extra]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_explicit_complete_cited_verdicts_required[foreign_ref]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_explicit_complete_cited_verdicts_required[empty_reason]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_explicit_complete_cited_verdicts_required[echoed_hash]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_only_sure_valid_source_backed_candidates_can_fall_back[unknown]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_only_sure_valid_source_backed_candidates_can_fall_back[unsure]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_only_sure_valid_source_backed_candidates_can_fall_back[unsupported]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_invalid_determination_never_reaches_opus[host_flags]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_invalid_determination_never_reaches_opus[foreign_ref]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_invalid_determination_never_reaches_opus[manufactured_options]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_validator_cannot_repair_or_replace_model_values"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_real_execution_failure_is_unverified_and_next_launch_retries_opus"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_rate_limit_sets_shared_cooldown_without_an_automatic_retry"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_determiner_execution_failure_does_not_invent_a_verifier"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_changed_source_before_job_is_unresolved_without_any_subprocess"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_changed_source_during_stage_is_not_published_or_cached"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_successful_cache_reuse_retains_original_timings_and_makes_no_calls"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_source_fingerprint_change_invalidates_both_stages"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_prompt_schema_validation_and_model_command_settings_invalidate_cache[prompt]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_prompt_schema_validation_and_model_command_settings_invalidate_cache[validation_version]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_prompt_schema_validation_and_model_command_settings_invalidate_cache[value_schema]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_prompt_schema_validation_and_model_command_settings_invalidate_cache[command_settings]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_stale_verifier_candidate_cache_rejected_even_with_recomputed_content_hash"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_history_blind_reader_cache_is_ignored"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_frozen_determiner_verifier_callback_signatures"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_resource_refusal_never_becomes_execution_fallback[lease0]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_resource_refusal_never_becomes_execution_fallback[lease1]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_resource_refusal_never_becomes_execution_fallback[lease2]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_two_owners_share_one_serial_prep_queue"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_timeout_kills_owned_child_and_releases_slot_with_truthful_fallback"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_both_stages_receive_all_original_image_bytes[1]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_both_stages_receive_all_original_image_bytes[2]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_image_paths_or_wrong_image_bytes_are_not_evidence_delivery[skip_image_read]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_image_paths_or_wrong_image_bytes_are_not_evidence_delivery[wrong_image]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_reported_setting_conflicts_remain_visible_and_unresolved[determination-observed0]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_reported_setting_conflicts_remain_visible_and_unresolved[determination-observed1]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_reported_setting_conflicts_remain_visible_and_unresolved[determination-observed2]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_reported_setting_conflicts_remain_visible_and_unresolved[verification-observed3]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_reported_setting_conflicts_remain_visible_and_unresolved[verification-observed4]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_reported_setting_conflicts_remain_visible_and_unresolved[verification-observed5]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_only_actual_printed_alternatives_can_be_verified"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_output_limit_is_invalid_not_fallback"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_disallowed_model_and_pipeline_settings_fail_before_launch"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_queue_serializes_separate_python_owner_processes"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_cache_identity_cannot_promote_old_roles_or_fabricated_observations[pipeline]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_cache_identity_cannot_promote_old_roles_or_fabricated_observations[role]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_cache_identity_cannot_promote_old_roles_or_fabricated_observations[settings_basis]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_cache_identity_cannot_promote_old_roles_or_fabricated_observations[effective_sha256]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_cache_identity_cannot_promote_old_roles_or_fabricated_observations[requested]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_cache_identity_cannot_promote_old_roles_or_fabricated_observations[source]"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_missing_opus_executable_records_actual_launch_failure"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_cli_homes_and_runtime_cannot_write_outside_owned_split"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_disagreement_emitted_before_failed_exit_is_retained_not_fallback"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_unsupported_domain_validation_remains_unresolved"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_diagnostics_do_not_publish_raw_provider_credentials_or_paths"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_batch_counts_keep_fallback_out_of_verified_buckets"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_standalone_verifier_revalidates_candidate_instead_of_trusting_flags"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_partial_source_support_keeps_fallback_and_unresolved_field_counts_separate"
+    },
+    {
+      "classname": "tests.test_runner_m1",
+      "name": "test_rendered_arguments_cannot_silently_diverge_from_declared_pins"
+    }
+  ],
+  "run": {
+    "conclusion": "success",
+    "headBranch": "harness-v2",
+    "headSha": "eca603031a73a4c968bd79fbbba4a17a93f9a4b9",
+    "jobs": [
+      {
+        "completedAt": "2026-11-05T11:39:18Z",
+        "conclusion": "success",
+        "databaseId": 127222169724,
+        "name": "requested",
+        "startedAt": "2026-11-05T11:38:40Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-11-05T11:38:42Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-11-05T11:38:40Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:38:43Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 2,
+            "startedAt": "2026-11-05T11:38:42Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:38:43Z",
+            "conclusion": "success",
+            "name": "Run mkdir -p tmp cache/uv cache/pip reports/ci",
+            "number": 3,
+            "startedAt": "2026-11-05T11:38:43Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:38:44Z",
+            "conclusion": "success",
+            "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 4,
+            "startedAt": "2026-11-05T11:38:43Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:38:47Z",
+            "conclusion": "success",
+            "name": "Install locked verification dependencies",
+            "number": 5,
+            "startedAt": "2026-11-05T11:38:44Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:38:47Z",
+            "conclusion": "skipped",
+            "name": "Raw positioned-PDF extraction and images (capability, no AI)",
+            "number": 6,
+            "startedAt": "2026-11-05T11:38:47Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:39:14Z",
+            "conclusion": "success",
+            "name": "Focused Python module tests (no live AI or CAD)",
+            "number": 7,
+            "startedAt": "2026-11-05T11:38:47Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:39:14Z",
+            "conclusion": "skipped",
+            "name": "Extract complete deterministic inputs with the committed producers",
+            "number": 8,
+            "startedAt": "2026-11-05T11:39:14Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:39:14Z",
+            "conclusion": "skipped",
+            "name": "Run the requested implemented product checkpoint",
+            "number": 9,
+            "startedAt": "2026-11-05T11:39:14Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:39:14Z",
+            "conclusion": "skipped",
+            "name": "Optional paid Luna capability probe",
+            "number": 10,
+            "startedAt": "2026-11-05T11:39:14Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:39:16Z",
+            "conclusion": "success",
+            "name": "Save requested-stage artifacts",
+            "number": 11,
+            "startedAt": "2026-11-05T11:39:14Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:39:16Z",
+            "conclusion": "success",
+            "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 21,
+            "startedAt": "2026-11-05T11:39:16Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:39:16Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 22,
+            "startedAt": "2026-11-05T11:39:16Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T11:39:16Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 23,
+            "startedAt": "2026-11-05T11:39:16Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42020619236/job/127222169724"
+      },
+      {
+        "completedAt": "2026-11-05T11:38:37Z",
+        "conclusion": "skipped",
+        "databaseId": 127222171214,
+        "name": "cad",
+        "startedAt": "2026-11-05T11:38:38Z",
+        "status": "completed",
+        "steps": [],
+        "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42020619236/job/127222171214"
+      },
+      {
+        "completedAt": "2026-11-05T11:38:37Z",
+        "conclusion": "skipped",
+        "databaseId": 127222171244,
+        "name": "history-windows",
+        "startedAt": "2026-11-05T11:38:38Z",
+        "status": "completed",
+        "steps": [],
+        "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42020619236/job/127222171244"
+      },
+      {
+        "completedAt": "2026-11-05T11:38:38Z",
+        "conclusion": "skipped",
+        "databaseId": 127222171729,
+        "name": "browser",
+        "startedAt": "2026-11-05T11:38:38Z",
+        "status": "completed",
+        "steps": [],
+        "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42020619236/job/127222171729"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42020619236"
+  },
+  "local_build_or_test_started": false
+}

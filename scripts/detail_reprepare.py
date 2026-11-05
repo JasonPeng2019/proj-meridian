@@ -43,7 +43,10 @@ def main():
     args = parser.parse_args()
     require_settings()
     drawings = raw_drawings()
-    image_ids = [did for did, drawing in sorted(drawings.items()) if drawing.get("degraded")]
+    # D-017's fused 4x1,0 corner note is visible but absent from the
+    # deterministic numeric index. It needs the same verified image pass.
+    image_ids = [did for did, drawing in sorted(drawings.items())
+                 if drawing.get("degraded") or did == "D-017"]
     if not args.execute:
         print(json.dumps({"protocol": DETAIL_PROTOCOL, "image_dimension_jobs": image_ids,
                           "template_jobs": sorted(drawings), "reader_concurrency": 1,

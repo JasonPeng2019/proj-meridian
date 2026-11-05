@@ -189,3 +189,7 @@
 .reconstruction-flag details { margin-top: 5px; }
 .reconstruction-flag summary { cursor: pointer; }
 .reconstruction-flag ul { margin: 7px 0; padding-left: 18px; max-height: 180px; overflow-y: auto; }
+.review-part-focus .part-header { min-height: 68px; padding-top: 8px; padding-bottom: 8px; }
+.review-part-focus .reconstruction-flag { padding: 7px 18px; }
+.review-part-focus .reconstruction-flag p { display: none; }
+.review-part-focus .reconstruction-flag details { margin-top: 0; }

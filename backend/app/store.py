@@ -17,6 +17,7 @@ from backend.paths import ROOT, inside
 from backend.app.review_queue import classify_review
 from backend.app.review_sources import review_sources
 from backend.app.review_values import validate_review_value
+from backend.app.review_identity import presented_review
 
 AI_METHODS = {"ai_read", "ai_agreed", "ai_agreed_after_retry", "ai_verified", "ai_verified_after_retry"}
 
@@ -356,6 +357,7 @@ class Store:
             items.append(item(event["applies_to"], "source_changed", {}, id="changed:" + event["decision_id"], value=event.get("value"), reason="Source changed since approval", previous_decision=event))
         for entry in items:
             entry["review_queue"], entry["queue_reason"] = classify_review(entry)
+            entry["review_label"] = "Human reviewed" if entry["review_queue"] == "resolved" else "Needs human input" if entry["review_queue"] == "human_input" else "Needs human review"
             entry["source_refs"] = review_sources(self, entry)
         return items
 
@@ -467,12 +469,13 @@ class Store:
         part = self.part(key)
         originals = [{"type": "extraction", "applies_to": n, "value": f.get("original", f.get("value")), "method": f.get("method"), "source": self.evidence_for(n)} for n, f in self.raw_fields.items() if self.owners.get(n) is part and (not fact or n == fact)]
         events = [e for e in self.events if self.owners.get(e.get("applies_to")) is part and (not fact or e["applies_to"] == fact)]
-        return originals + events + [{"type": "source_changed", "applies_to": e["applies_to"], "at": e.get("at"), "message": "Source changed since approval"} for e in self.changed if self.owners.get(e.get("applies_to")) is part and (not fact or e["applies_to"] == fact)]
+        return originals + [presented_review(event) for event in events] + [{"type": "source_changed", "applies_to": e["applies_to"], "at": e.get("at"), "message": "Source changed since approval"} for e in self.changed if self.owners.get(e.get("applies_to")) is part and (not fact or e["applies_to"] == fact)]
 
     def accuracy(self) -> dict:
         latest = {}
         for event in self.events:
-            if event.get("type") in {"confirm", "reject"} and event.get("review_kind") != "delegated" and "automated" not in event.get("by", "").lower():
+            authorized_delegate = event.get("review_kind") == "delegated" and event.get("delegated_by") == settings().get("reviewer_name", "Jason Peng")
+            if event.get("type") in {"confirm", "reject"} and (authorized_delegate or event.get("review_kind") != "delegated" and "automated" not in event.get("by", "").lower()):
                 key = (event["applies_to"], event.get("based_on", {}).get("sha256"))
                 latest[key] = event
         jobs = {job: {"confirmed": 0, "rejected": 0} for job in ("scans", "matching", "templates")}
@@ -484,4 +487,4 @@ class Store:
             job = "templates" if "/template/" in name else "matching" if name.endswith("/link") else "scans"
             jobs[job]["confirmed" if event["type"] == "confirm" else "rejected"] += 1
         total = sum(sum(v.values()) for v in jobs.values())
-        return {"jobs": jobs, "reviewed": total, "accuracy": sum(v["confirmed"] for v in jobs.values()) / total if total else None, "note": "Human review accuracy is not measured until a person checks AI items." if not total else "Counts refer to original AI predictions, not corrected replacements.", "prep": self.ai.get("metrics", {})}
+        return {"jobs": jobs, "reviewed": total, "accuracy": sum(v["confirmed"] for v in jobs.values()) / total if total else None, "note": "Human review accuracy is not measured until a person checks AI items." if not total else "Counts refer to original AI predictions reviewed under the configured reviewer authority, including authorized reviews on their behalf; corrected replacements are excluded.", "prep": self.ai.get("metrics", {})}

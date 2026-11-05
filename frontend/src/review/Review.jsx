@@ -14,7 +14,7 @@ function category(item) { if(item.type==='correction')return 'corrections';if(it
 const itemPartKey=item=>item.part_key||item.evidence?.part_key;
 const settled=item=>['accepted','rejected','human_confirmed','human_rejected','approved','reviewed','deferred'].includes(item.status);
 function matchesTab(item,id) {if(id==='awaiting-review')return !settled(item);if(id==='needs-input')return item.review_queue==='human_input'&&!settled(item);if(id==='ai')return item.review_queue==='human_review'&&!settled(item);return category(item)===id;}
-const queueLabel=item=>item.review_queue==='human_input'?'Needs human input':item.review_queue==='human_review'?'Needs human review':'Human decision recorded';
+const queueLabel=item=>item.review_label||(item.review_queue==='human_input'?'Needs human input':item.review_queue==='human_review'?'Needs human review':'Human reviewed');
 function scopedURL(url,key) {const [path,query='']=url.split('?');const params=new URLSearchParams(query);if(key)params.set('part',key);else params.delete('part');return path+(params.size?`?${params}`:'');}
 function SourceMaterial({item,navigate}) {
   const [reference,setReference]=useState(null),refs=item.source_refs||[];

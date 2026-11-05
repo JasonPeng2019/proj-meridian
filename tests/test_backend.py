@@ -241,3 +241,37 @@ def test_mapping_receipt_refresh_preserves_real_decision_only_for_unchanged_sour
     changed=Store(evidence.root)
     assert changed.mappings[0].get('review',{}).get('status')!='human_confirmed'
     assert changed.pending_changed()
+
+
+def test_delegated_dispositions_and_confirmations_have_human_review_labels(evidence):
+    from backend.app.tools import badge
+    target = "D-019/template/thickness"
+    for kind in ("confirm", "defer_unsupported"):
+        evidence._apply({"applies_to": target, "type": kind, "status": "accepted",
+                         "by": "Automated delegated label fixture", "review_kind": "delegated",
+                         "delegated_by": "Jason Peng", "at": "2000-01-02T00:00:00Z"})
+        field = evidence.fields[target]
+        assert badge(field).startswith("Human reviewed by Jason Peng on ")
+        entry = next(i for i in evidence.review_items() if i["target"] == target)
+        assert entry["review_label"] == "Human reviewed"
+        assert entry["review_queue"] == "resolved"
+    assert not evidence.part("D-019").get("design_review")
+
+
+def test_authorized_review_uses_jason_identity_without_rewriting_event(evidence):
+    from backend.app.review_identity import presented_review
+    target = "D-019/template/thickness"
+    event = {"applies_to": target, "type": "confirm", "status": "accepted",
+             "by": "Meridian delegated reviewer", "review_kind": "delegated",
+             "delegated_by": "Jason Peng", "at": "2000-01-02T00:00:00Z"}
+    original = copy.deepcopy(event)
+    evidence._apply(event)
+    evidence.events.append(event)
+    displayed = presented_review(event)
+    assert displayed["by"] == "Jason Peng" and event == original
+    fact = KnowledgeTools(evidence).display(target)
+    assert fact["review"]["by"] == "Jason Peng"
+    assert " - delegated review" not in fact["badge"]
+    assert evidence.history("D-019", target)[-1]["by"] == "Jason Peng"
+    assert evidence.accuracy()["reviewed"] == 1
+    assert not evidence.part("D-019").get("design_review")

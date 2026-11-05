@@ -9,6 +9,7 @@ from decimal import Decimal, InvalidOperation
 from typing import Any
 
 from backend.app.store import AI_METHODS, Store, normalized, read_json
+from backend.app.review_identity import presented_review
 
 SNAPSHOT_FIELDS = {"supplier", "supplier_order", "cost", "total_cost", "link", "datasheet", "image", "design", "order", "v_v", "vv"}
 
@@ -16,7 +17,11 @@ def trusted(field: dict | None) -> bool:
     return bool(field) and field.get("value") is not None and field.get("confidence", "sure") == "sure" and field.get("review", {}).get("status") != "human_rejected" and field.get("state") != "unknown"
 
 def badge(field: dict) -> str:
-    method, review = field.get("method", "parsed"), field.get("review", {})
+    method, review = field.get("method", "parsed"), presented_review(field.get("review", {}))
+    if review.get("status") in {"human_confirmed", "deferred"}:
+        reviewer = review.get("display_by", review.get("by", "reviewer"))
+        disposition = "; reconstruction unavailable" if review.get("status") == "deferred" else ""
+        return f"Human reviewed by {reviewer} on {review.get('at', '')[:10]}{disposition}"
     if method == "computed_summary":
         return "Computed from recorded source facts"
     if method == "source_inventory":
@@ -26,7 +31,7 @@ def badge(field: dict) -> str:
     if method == "unrecorded_field":
         return "Not determined from the evidence"
     if method == "human_decision":
-        correction = field.get("correction", {})
+        correction = presented_review(field.get("correction", {}))
         return f"Entered by {correction.get('display_by', correction.get('by', 'reviewer'))} on {correction.get('at', '')[:10]}"
     if method in AI_METHODS or method.startswith("ai_"):
         label = {"ai_read": "AI reading of a blurry scan", "ai_agreed_after_retry": "AI interpretation (agreed after a second look)",
@@ -121,9 +126,9 @@ class KnowledgeTools:
             linked += [p["key"] for p in self.linked_parts(row_id)] if row_id else []
         return {"fact": target, "field": target.split("/")[-1], "part_key": part.get("key") if part else None,
                 "part_keys": linked,
-                "display": display, "badge": badge(field), "review": field.get("review"), "sources": sources,
+                "display": display, "badge": badge(field), "review": presented_review(field.get("review")), "sources": sources,
                 "snapshot_note": bool(field.get("snapshot_note")) or target.split("/")[-1] in SNAPSHOT_FIELDS,
-                "review_item": review_item, "correction": field.get("correction"),
+                "review_item": review_item, "correction": presented_review(field.get("correction")),
                 "callout": ({k: field[k] for k in ("feature", "count", "thread", "thread_class", "through", "width_mm", "length_mm", "radius_mm") if k in field} or None) if trusted(field) and not field.get("correction") else None}
 
     def relationship(self, left: Any, right: Any, kind: str = "material") -> tuple[str | None, dict | None]:

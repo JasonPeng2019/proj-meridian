@@ -6,7 +6,7 @@ on:
       task:
         description: Agent-triggered verification stage
         type: choice
-        options: [capability, pdf, extract, modules, history-windows, history-ui, core, gate, live]
+        options: [capability, cad-build, pdf, extract, modules, history-windows, history-ui, core, gate, live]
         default: capability
       gate:
         description: Product checkpoint (requires its implemented suite)
@@ -48,6 +48,35 @@ env:
   NODE_OPTIONS: --max-old-space-size=1536
 
 jobs:
+  cad-build:
+    if: inputs.task == 'cad-build' && github.ref == 'refs/heads/harness-v2'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      MERIDIAN_REQUIRE_CAD: '1'
+      QT_QPA_PLATFORM: offscreen
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with: {persist-credentials: false}
+      - run: mkdir -p tmp cache/uv cache/pip reports/cad-build
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with: {python-version: '3.12'}
+      - name: Install locked geometry test dependencies in serial remote slot
+        run: |
+          python -m pip install uv==0.11.19 --cache-dir cache/pip
+          uv sync --project ../development --locked --extra cad --extra test
+      - name: Check real cuts, blind depths, recesses, patterns, exports and cache integrity
+        run: uv run --project ../development --locked --extra cad --extra test python -B -m pytest tests/test_cad_build.py -q -p no:cacheprovider --basetemp=tmp/pytest-cad --junitxml=reports/cad-build/remote.xml
+      - name: Save explicitly synthetic geometry qualification and measurements
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: harness-v2-cad-build-${{ github.sha }}-${{ github.run_id }}
+          retention-days: 7
+          path: |
+            product/testing/reports/cad-build/
+            product/testing/tmp/cad-build/
+
   core:
     if: inputs.task == 'core' && github.ref == 'refs/heads/harness-v2'
     runs-on: ubuntu-24.04
@@ -217,7 +246,7 @@ jobs:
           path: product/testing/runs/capability/
 
   requested:
-    if: inputs.task != 'capability' && inputs.task != 'history-windows' && inputs.task != 'history-ui' && inputs.task != 'core'
+    if: inputs.task != 'capability' && inputs.task != 'cad-build' && inputs.task != 'history-windows' && inputs.task != 'history-ui' && inputs.task != 'core'
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:

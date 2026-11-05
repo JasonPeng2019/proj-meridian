@@ -20,12 +20,14 @@ from backend.app.chat import Chat, MODEL, api_key
 from backend.app.store import Store, read_json, settings
 from backend.app.tools import KnowledgeTools
 from backend.app.review_sources import source_record
+from backend.app.review_parser import ReviewParser, ParserUnavailable
 
 _store: Store | None = None
 _snapshot_signature = None
 _snapshot_store = None
 _store_lock = threading.RLock()
 chat = Chat()
+review_parser = ReviewParser()
 
 def get_store() -> Store:
     global _store, _snapshot_signature, _snapshot_store
@@ -61,6 +63,11 @@ class ReviewInput(BaseModel):
     action: str
     value: Any = None
     note: str = ""
+    parser_token: str | None = None
+
+class ReviewParseInput(BaseModel):
+    item_id: str
+    input: str
 
 @app.exception_handler(KeyError)
 async def key_error(request, exc):
@@ -197,9 +204,27 @@ def review_source(name: str):
         raise HTTPException(404, "Source is not in the indexed evidence")
     return source
 
+@app.post("/api/review-parse")
+async def review_parse(body: ReviewParseInput):
+    try:
+        return await review_parser.parse(get_store(), body.item_id, body.input)
+    except ParserUnavailable as exc:
+        raise HTTPException(502, str(exc)) from None
+
+
 @app.post("/api/review/{item_id:path}")
 def review_action(item_id: str, body: ReviewInput):
-    return get_store().act(unquote(item_id), body.action, body.value, body.note)
+    item_id = unquote(item_id)
+    with _store_lock:
+        store = get_store()
+        if body.parser_token:
+            if body.action != "set_value":
+                raise ValueError("An input preview can only save a reviewed value")
+            value, provenance = review_parser.resolve(store, item_id, body.parser_token, body.value)
+            result = store.act(item_id, body.action, value, body.note, parser_provenance=provenance)
+            review_parser.discard(body.parser_token)
+            return result
+        return store.act(item_id, body.action, body.value, body.note)
 
 @app.get("/api/accuracy")
 def accuracy():

@@ -366,11 +366,12 @@ class Store:
             return {}
         return {"part_key": part["key"], "drawing": part.get("drawing"), "bom": part.get("bom", []), "page": field.get("page", 1), "box": field.get("box"), "says": field.get("original", field.get("value"))}
 
-    def act(self, item_id: str, action: str, value: Any = None, note: str = "") -> dict:
+    def act(self, item_id: str, action: str, value: Any = None, note: str = "", *, parser_provenance: dict | None = None) -> dict:
         found = next((i for i in self.review_items() if i["id"] == item_id), None)
         if not found:
             raise KeyError("Review item not found")
         target, kind = found["target"], found["type"]
+        parser_metadata = {"input_parser": parser_provenance} if parser_provenance and action == "set_value" else {}
         if kind == "correction":
             if action not in {"accept", "reject"}:
                 raise ValueError("A correction must be accepted or rejected")
@@ -384,7 +385,7 @@ class Store:
                 chosen = validate_review_value(target, chosen, self.fields.get(target, {}), self.templates.get(target.split("/")[0]))
             if previous["type"] == "approve_design":
                 self.validate_design(self.owners[target], note)
-            event = self.append(target, previous["type"], chosen, note=note or "Re-approved against changed source evidence", previous_decision_id=previous["decision_id"])
+            event = self.append(target, previous["type"], chosen, note=note or "Re-approved against changed source evidence", previous_decision_id=previous["decision_id"], **parser_metadata)
             if "/template/" in target:
                 self.rebuild_models()
         elif kind == "name_mapping" and action == "reject":
@@ -417,7 +418,7 @@ class Store:
                     raise ValueError("Value is not one of the printed options")
             else:
                 value = validate_review_value(target, value, self.fields.get(target, {}), self.templates.get(target.split("/")[0]))
-            event = self.append(target, action, value, note=note)
+            event = self.append(target, action, value, note=note, **parser_metadata)
             if "/template/" in target:
                 self.rebuild_models()
         else:

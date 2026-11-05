@@ -1,26 +1,25 @@
 {
-  "live_url": "http://127.0.0.1:8000",
-  "process_name": "python.exe",
-  "pid": 34448,
-  "debug_ui": true,
-  "revision": "c45b1c973caef7a1",
-  "same_decision_revision": true,
-  "queue_counts": {
+  "status": {
+    "chat_available": true,
+    "chat_model": "gpt-6-luna",
+    "debug_ui": true,
+    "revision": "c45b1c973caef7a1",
+    "parts": 204,
+    "drawings": 30,
+    "models": 9,
+    "reviewer_name": "Jason Peng"
+  },
+  "frontend_run": "42046334769",
+  "frontend_commit": "9d066dc9e5db34d92b1a1218d16b9eb0ce55babb",
+  "served_asset": "/assets/index-MCo2pw2I.js",
+  "served_asset_sha256": "b271ddcd10d14de70697fdfd9ef07dd4a19741b6a2032d020a0380d592bbdb25",
+  "typed_editor_present": true,
+  "queue": {
     "resolved": 29,
     "human_review": 173,
     "human_input": 42
   },
-  "same_queue_counts": true,
-  "D-001_thickness": 3,
-  "display_reviewer": "Jason Peng - delegated review",
-  "D-001_link": [
-    "BOM:box/front-door"
-  ],
-  "D-020_printed_limits": [
-    9.8,
-    10.2
-  ],
-  "D-020_selected": null,
-  "matching_frontend_source": true,
-  "frontend_hashes_match": true
+  "d013_prior_human_correction_preserved": true,
+  "runtime_process": "python.exe",
+  "pid": 60972
 }

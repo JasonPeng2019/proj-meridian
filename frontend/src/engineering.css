@@ -171,3 +171,13 @@
 .review-format-fields { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 9px 12px; line-height: 1.6; padding: 12px 0; }
 .review-format-fields dt { font-weight: 550; }
 .review-format-fields dd { margin: 0; overflow-wrap: anywhere; }
+
+.review-entry-modes { display: flex; gap: 6px; margin: 10px 0 16px; }
+.review-entry-modes button { border: 1px solid #d7e2ea; border-radius: 5px; padding: 7px 10px; font-size: 12px; color: #58768b; background: #fff; cursor: pointer; }
+.review-entry-modes button[aria-pressed="true"] { color: #284e69; border-color: #a3c7df; background: #edf5fb; }
+.review-value-entry > textarea { width: 100%; padding: 10px; border: 1px solid #cad8e2; border-radius: 5px; font: inherit; font-size: 13px; box-sizing: border-box; resize: vertical; }
+.review-parsed-preview { margin-top: 16px; padding: 14px 0; border-top: 1px solid #e2e9ef; color: #526e83; line-height: 1.6; font-size: 12px; }
+.review-parsed-preview h4 { margin-bottom: 7px; }
+.review-parsed-value { font-weight: 600; color: #2f526c; font-size: 13px; }
+.review-parsed-preview ul { padding-left: 20px; margin-top: 8px; }
+.review-save-value { margin-top: 14px; }

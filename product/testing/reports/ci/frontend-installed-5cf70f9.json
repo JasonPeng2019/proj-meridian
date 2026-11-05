@@ -1,0 +1,16 @@
+{
+  "commit": "5cf70f978f8c4b7d7f2828b1d21377969637ea0f",
+  "run_id": "42067541491",
+  "schema": "meridian-frontend-build/v1",
+  "source_sha256": "3598cb7c1cbd5eb8cf22289903f94d25351d0a085b5bed4e9caf74d601003159",
+  "files": {
+    "assets/index-BunLZdTu.js": "446a7c267de1edd22997714eb5ad3bfdf401ac527b5bb3d05bcacee7b309b0d3",
+    "assets/index-D-ZRIbew.css": "cf2c9e15c94c03819b2d3093c4dd6fa9b3dc14645d5da9e744496492418b7daa",
+    "index.html": "9754dab1dcc2359aef56beaa78d655d0e92f04d7b6f8dd272f2ffbd9132348c1"
+  },
+  "installed_at": "2026-11-05T16:56:40.670520+00:00",
+  "artifact_manifest": "testing\\runs\\viewer3d-42067541491\\harness-v2-viewer3d-5cf70f978f8c4b7d7f2828b1d21377969637ea0f-42067541491\\testing\\reports\\ci\\frontend-build.json",
+  "target": "development\\frontend\\dist",
+  "verification": "Every shipped asset SHA256 matches downloaded remote manifest; no local build.",
+  "current_source_sha256_verified": "3598cb7c1cbd5eb8cf22289903f94d25351d0a085b5bed4e9caf74d601003159"
+}

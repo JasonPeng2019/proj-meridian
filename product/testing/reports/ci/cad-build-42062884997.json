@@ -1,0 +1,18 @@
+{
+  "schema": "meridian-qualification/v1",
+  "at": "2026-11-05T16:49:54.493036+00:00",
+  "run_id": "42062884997",
+  "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42062884997",
+  "branch": "harness-v2",
+  "publication_sha": "09643ca6b4c8500ad8728c8102e8507187693486",
+  "outcome": "PASS",
+  "junit": "testing/runs/cad-build-42062884997/harness-v2-cad-build-09643ca6b4c8500ad8728c8102e8507187693486-42062884997/reports/cad-build/remote.xml",
+  "counts": {
+    "tests": 80,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "scope": "CAD generation and source-identity boundary regression checks; controlled fixtures",
+  "real_source_fidelity_credit": false
+}

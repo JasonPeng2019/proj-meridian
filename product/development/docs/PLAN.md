@@ -1,3 +1,7 @@
+# Latest user instruction - app closed until MVP complete
+
+The user rejected the incomplete app because real 3D reconstructions were absent. Keep owned port8010 closed until the full MVP is implemented and verified, including source-derived 3D assets integrated into the product. Do not present the thin core flow as the finished MVP. On explicit request the app ran briefly as PID50148; ROOT stopped it after matching creation2026-11-05T16:56:40.8906910Z, and confirmed no8010 listener at2026-11-05T16:58:19Z. Port8000 remains unrelated and untouched. Continue implementation through the native harness and queued remote verification.
+
 # Project Meridian implementation plan
 
 **Immediate execution priority (latest user instruction):** Finish the actual app's real-part question → grounded Luna answer → drawing/details → saved-conversation reopening flow before unrelated work. M12/M14/M15/M03 and M19/M20/M04 integrate as one vertical slice; this does not narrow the original 27-module/M1–M3 completion requirements. Source-only deterministic records may power initial app use with unknown scan/AI fields left unresolved; they do not count as the required full determine/verify prep run or a passed product gate.

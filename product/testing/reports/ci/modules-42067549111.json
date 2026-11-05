@@ -1,0 +1,29 @@
+{
+  "schema": "meridian-qualification/v1",
+  "at": "2026-11-05T16:59:17.946315+00:00",
+  "run_id": "42067549111",
+  "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42067549111",
+  "branch": "harness-v2",
+  "publication_sha": "5cf70f978f8c4b7d7f2828b1d21377969637ea0f",
+  "native_candidate": "f2f823f4d3e4af14f896f369af19dfd1ba1fe3c3",
+  "outcome": "PASS",
+  "junit": "testing/runs/modules-42067549111/harness-v2-modules-42067549111/reports/ci/modules.xml",
+  "counts": {
+    "tests": 457,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 49
+  },
+  "production_blob_sha256_normalized_lf": {
+    "development/backend/app/review.py": "b37b2bbf9794e82e8474733e2f6f39744283424827e61337afd6f830a15c80df",
+    "development/backend/loader/records.py": "7d4df671a8a78b92f1dda5586d6fe87bf6da66f2c722e25178d90baafab1a638",
+    "development/backend/loader/decisions.py": "e2b5c7cd0b584327803ecb94c41ea8445ad17f9e309c8d80cf89ae8541219529",
+    "development/frontend/src/review/Review.tsx": "6a0a9a615ac29d9521649f9126525e776d03d5ce7171a7b213a6853408afcb66"
+  },
+  "scope": "M1 governed review/action/effective projection and module regression tests; remote frontend typecheck/build separately passed42067542734",
+  "limitations": [
+    "49 optional/source/CAD-dependent cases skipped in modules; separate CAD42062884997 passed80/80; real-source core42046317058 passed73 cases. Not formal V1-V5 gate credit.",
+    "Original run42062879293 had four failing authored tests; ROOT corrected ambiguous fixture selection and an unsupported scan-template scenario while retaining all required supported behaviors. Production four blobs unchanged.",
+    "No genuine human decisions, real-part reconstruction fidelity or full MVP completion inferred."
+  ]
+}

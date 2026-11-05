@@ -1,0 +1,48 @@
+{
+  "schema": "meridian-qualification/v1",
+  "at": "2026-11-05T16:49:54.488031+00:00",
+  "run_id": "42067541491",
+  "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42067541491",
+  "branch": "harness-v2",
+  "publication_sha": "5cf70f978f8c4b7d7f2828b1d21377969637ea0f",
+  "native_candidate": "a3ee758f0c51444cc87654b4dd0643ada7c27cb4",
+  "outcome": "PASS",
+  "report": "testing/runs/viewer3d-42067541491/harness-v2-viewer3d-5cf70f978f8c4b7d7f2828b1d21377969637ea0f-42067541491/testing/runs/C04-viewer/report.json",
+  "checks": [
+    {
+      "name": "Actual GLB pixels, off-origin Fit, evidence-bound synthetic reviewer B, neutral material, unavailable choices and source/STEP actions",
+      "outcome": "PASS"
+    },
+    {
+      "name": "Real OrbitControls drag changes camera and pixels; zoom and Fit restore bounds-based camera",
+      "outcome": "PASS"
+    },
+    {
+      "name": "A/B switch loads corresponding binary and releases GPU resources; real clipping, responsive Fit and tab-unmount listener/renderer cleanup",
+      "outcome": "PASS"
+    },
+    {
+      "name": "Changed/missing review evidence never inherits reviewer default or review label; stale model remains viewable; engineering details only in Debug",
+      "outcome": "PASS"
+    },
+    {
+      "name": "Malformed GLB, HTTP failure and actual WebGL context loss release resources; explicit retry recovers",
+      "outcome": "PASS"
+    },
+    {
+      "name": "In-flight model switch cannot resurrect cancelled asset; unavailable model hides shared PartPage 3D tab and cleans all canvas resources",
+      "outcome": "PASS"
+    }
+  ],
+  "production_blob_sha256_normalized_lf": {
+    "development/frontend/package.json": "5bfa518532c1b1eacf39a05ee773192f1c7dc6a4e8e3a2081a77aca71a2133a7",
+    "development/frontend/package-lock.json": "c15fe35d65cb617f17c7ee2b94f047074a5cc311fd9422462950e82d7093e655",
+    "development/frontend/src/part/PartPage.tsx": "0f7e12d418768a746339c078f06ffd944fdc30bb7f0bc15db5b97f0f76d4df5f",
+    "development/frontend/src/viewer3d/Viewer3D.tsx": "6df114f437dfe3cf830241ef54521ea0f3f13c65d8b5869b0a97838394eee925"
+  },
+  "scope": "M21 viewer code and synthetic WebGL behavior only; remote typecheck/build passed",
+  "limitations": [
+    "Synthetic GLBs are explicitly not real-part source fidelity or full-product gate evidence.",
+    "ROOT repaired test CSS/routing/asynchronous metadata waits, preserving all required assertions; production four blobs match native candidate."
+  ]
+}

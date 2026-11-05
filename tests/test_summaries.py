@@ -130,6 +130,9 @@ def test_grade_tokens_preserve_exact_grade_and_do_not_infer_family(summary_store
     assert match["grade_token_match"]["derivation"]["source_fact_ids"] == ["D-001/drawing/material"]
     assert not tools.recorded_grade_match("Aluminium", "7075")
     assert tools.recorded_grade_match("3.3315 (EN-AW 5005)", "5005")
+    assert tools.recorded_grade_match("3.3315 (EN-AW 5005)", "EN-AW 5005")
+    assert tools.recorded_grade_match("3.3315 (EN-AW 5005)", "EN AW 5005")
+    assert not tools.recorded_grade_match("3.3315 (EN-AW 5005)", "EN-AW 500")
     # Remove the independently recorded generic BOM material from this part:
     # only an actual approved specific-to-general mapping can now include it.
     summary_store.part("D-001")["bom"] = []
@@ -171,3 +174,55 @@ def test_shared_bom_citation_attaches_every_proven_link_only(summary_store):
     assert [p["key"] for p in answer["parts_to_show"]] == ["D-001", "D-002"]
     summary_store.part("D-002")["link"]["method"] = "unresolved"
     assert [p["key"] for p in tools.get_bom_row("BOM:optics/a")["linked_parts"]] == ["D-001"]
+
+
+def test_source_row_names_survive_linked_drawing_name_and_section(summary_store):
+    tools = KnowledgeTools(summary_store)
+    summary_store.part("D-001")["display_name"] = "Other drawing name"
+    result = tools.parts_in_section("Optics")
+    assert result["bom_row_count"] == 6
+    assert result["bom_rows"][0]["name"] == "A"
+    assert result["bom_rows"][0]["section"] == "Optics"
+    ledger = {}
+    summary = tools.machine_summary()
+    collect_evidence(summary, ledger, tools)
+    answer = validate_markers("[cite: machine/summary/bom-family/0]", ledger, summary_store)
+    assert len(answer["parts_to_show"]) == 7
+
+
+def test_specific_thread_query_uses_only_that_explicit_callout(summary_store):
+    tools = KnowledgeTools(summary_store)
+    result = tools.get_field("D-001", "M4 threaded holes")
+    assert result["facts"][0]["display"]["value"]["count"] == 3
+    assert result["facts"][0]["display"]["value"]["thread"] == "M4"
+    assert len(result["facts"]) == 2
+    assert tools.get_field("D-001", "M5 threaded holes")["facts"][0]["display"]["state"] == "undetermined"
+    assert tools.get_field("D-001", "slots")["facts"][0]["display"]["value"]["count"] == 2
+
+
+def test_unknown_dimension_exposes_boxes_without_assigning_an_edge(summary_store):
+    tools = KnowledgeTools(summary_store)
+    summary_store.fields["D-002/drawing/n/42"]["box"] = [1, 2, 3, 4]
+    result = tools.get_field("D-002", "width")
+    assert result["facts"][0]["display"]["state"] == "undetermined"
+    assert any(s["name"] == "D-002/drawing/n/42" and s["box"] for s in result["facts"][0]["sources"])
+
+
+def test_mapping_uncertainty_does_not_replace_printed_grade_fact(summary_store):
+    tools, ledger = KnowledgeTools(summary_store), {}
+    result = tools.parts_with_material("7075")
+    collect_evidence(result, ledger, tools)
+    assert ledger["D-001/drawing/material"]["display"]["state"] == "value"
+    assert ledger["D-001/resolved/material"]["display"]["state"] == "undetermined"
+
+
+def test_model_verification_is_citable_and_correction_attribution_required(summary_store):
+    part = summary_store.part("D-001")
+    part["model"] = {"weight_check": {"state":"FAILED"}, "models":{"A":{"selections":{"thickness":4},"volume_mm3":20}}, "omitted":["Unknown holes"]}
+    tools, ledger = KnowledgeTools(summary_store), {}
+    collect_evidence(tools.get_facts("D-001"), ledger, tools)
+    assert ledger["D-001/model/verification"]["display"]["value"]["weight_check"]["state"] == "FAILED"
+    fact = ledger["D-001/drawing/material"]
+    fact["correction"] = {"original":"Old", "corrected":"New", "by":"Fixture reviewer", "at":"2020-01-01T00:00:00Z"}
+    assert validate_markers("New [cite: D-001/drawing/material]", ledger, summary_store)["warnings"]
+    assert not validate_markers("New (originally Old; Fixture reviewer, 2020-01-01) [cite: D-001/drawing/material]", ledger, summary_store)["warnings"]

@@ -21,6 +21,8 @@ SYSTEM = """You are Meridian, an engineering assistant for the pinned OpenLPBF v
 Answer ONLY from returned structured tool evidence, never from memory or raw PDFs.
 Use find_part then get_facts for a particular part. You may use multiple tools.
 Use machine_summary for drawing source sections, BOM families, counts or organization, and cost_summary for recorded costs and completeness. A drawing count is a document count, not a physical quantity.
+For a requested list, give its count and every matching source name. For a parts-list section use bom_rows, not drawing display names or drawing sections. A linked drawing does not rename or move the original BOM row.
+For a cost summary state the recorded subtotal, included row count, missing-total count and missing-price/quantity breakdown. Never claim that incomplete records prove an exact actual cost.
 Use get_field for a requested width, dimension or hole count. Explicit hole callout counts and slot counts are separate; do not claim the callout subtotal is a census of every physical hole. Preserve thread sizes, slot sizes and through status as returned.
 Use mapping_status for differently named sections or materials. Only approved_relationship establishes a mapping. A pending/rejected mapping is not approval; preserve exact source names and direct pending items to Review.
 For material searches use parts_with_material; list the exact recorded grades from material_matches and their source facts, with approved kind_of mappings only in the stated direction.
@@ -34,7 +36,9 @@ Only cite stable names returned by tools this turn. Do not invent citations. Unl
 For AI facts not human-reviewed say 'AI-sourced only, not yet reviewed; may contain errors.' For reviewed facts preserve who and when.
 If review_item exists, say 'Waiting for review'; the interface supplies the link.
 For corrections, state the original value, corrected value, reviewer and date from correction metadata. The printed sheet is original evidence, not rewritten.
+Whenever a model comparison is requested, include the returned model verification state, both example selections, calculated/drawing weights and density assumptions, omitted features and required review. It cannot establish that the geometry is correct.
 Procurement/material/status/cost fields are recorded snapshot evidence. Supplier, price, order, link and availability answers must say 'as recorded in the snapshot, may be out of date.' Never claim current availability. A subtotal is not the complete machine cost.
+For missing cost explain both returned unit-price and total fields with Undetermined markers, including any recorded zero placeholder and cleanup reason. A source string is not a reliable numeric price after cleanup.
 Material lists must say 'Materials recorded', not 'made of' or 'versions'.
 README-only citations do not attach drawings. Native CAD and images mentioned but not supplied are unavailable in this corpus.
 The user can propose a correction, but only a human in the separate Review UI can accept or reject it. Call propose_correction only when explicitly requested to change a fact. Never claim you approved it.
@@ -98,6 +102,11 @@ def validate_markers(text: str, ledger: dict, store: Store, single_matches: list
     for name in cited:
         if ledger[name].get("display", {}).get("state") == "undetermined" and name not in unknown_markers:
             warnings.append("This answer cites something the sources could not determine without its Undetermined marker: " + name)
+        correction = ledger[name].get("correction")
+        if correction:
+            values = [correction.get("original"), correction.get("corrected"), correction.get("by"), str(correction.get("at", ""))[:10]]
+            if any(str(v).casefold() not in text.casefold() for v in values if v):
+                warnings.append("A corrected fact must disclose its original, corrected value, actual reviewer and date: " + name)
     backup = False
     if not parts and single_matches and len(set(single_matches)) == 1:
         parts.append(single_matches[0])
@@ -134,6 +143,7 @@ class Chat:
         tools = KnowledgeTools(store)
         token_totals = {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}
         started = time.perf_counter()
+        repairs = 0
         async with AsyncOpenAI(api_key=key, max_retries=0, timeout=90) as client:
             for _ in range(10):
                 response = await client.responses.create(model=MODEL, reasoning={"effort": "low"}, service_tier="default", store=False,
@@ -149,6 +159,10 @@ class Chat:
                     if not text:
                         raise ValueError("The model returned no final answer.")
                     result = validate_markers(text, ledger, store, single_matches)
+                    if result["warnings"] and repairs < 2:
+                        repairs += 1
+                        current.append({"role": "user", "content": "Before sending, correct the evidence formatting/provenance problems in your draft using only the tool evidence already returned. Preserve uncertainty and actual reviewer attribution. Problems: " + json.dumps(result["warnings"])})
+                        continue
                     result.update(session_id=sid, model=MODEL, usage=token_totals, latency_ms=round((time.perf_counter() - started) * 1000), tool_trace=tool_trace, revision=store.revision)
                     turns.append([{"role": "user", "content": message}, {"role": "assistant", "content": text}])
                     del turns[:-10]

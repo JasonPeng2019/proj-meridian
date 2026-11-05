@@ -10,6 +10,7 @@ import hashlib
 import json
 import re
 import unicodedata
+from decimal import Decimal
 from pathlib import Path
 from typing import Any
 
@@ -30,7 +31,8 @@ def tokens(value: Any) -> list[str]:
     text = unicodedata.normalize("NFKC", str(value)).casefold()
     text = re.sub(r"(?<=\d)[,\u202f\u00a0](?=\d{3}(?:\D|$))", "", text)
     # Number tokens have boundaries: '3' does not match 3195.5 or 30.
-    return re.findall(r"\d+(?:\.\d+)?|[^\W\d_]+", text, re.UNICODE)
+    return [format(Decimal(token).normalize(), "f") if token[0].isdigit() else token
+            for token in re.findall(r"\d+(?:\.\d+)?|[^\W\d_]+", text, re.UNICODE)]
 
 
 def contains(text: str, value: str) -> bool:
@@ -102,6 +104,10 @@ def notes(cid: str) -> list[str]:
         result.append("Four flagged drawing links require verification; unresolved links keep this case pending. Actual links/deduplication are recorded in preconditions.")
     if cid == "Q18":
         result.append("Missing recorded prices show incomplete evidence, not proof that the real cost is strictly greater; judge must not demand that unsupported draft inference.")
+    if cid == "Q09":
+        result.append("Exact printed EN-AW grade notation is a literal source match, not a general-material mapping. No family-mapping approval is needed for this exact-grade query.")
+    if cid == "Q20":
+        result.append("No Shows instruction exists in the draft; an attached supplier part is permitted, not required to be absent.")
     if cid == "Q17":
         result.append("Approximate planning weights are not literal checks; compare actual tool density table and model variants. FAILED/manual-review disclosure remains required.")
     return result
@@ -163,19 +169,20 @@ def score_rules(case: dict, response: dict, preconditions: list[dict] | None = N
         relevant = {target} if target else {n for n in facts if n.startswith("D-017/") and n != "D-017/part"}
         check("behavior", bool(relevant & found["undetermined"]), {"expected": "undetermined", "targets": sorted(relevant)})
     elif case["behavior"] == "no_evidence":
-        check("behavior", bool(re.search(r"no evidence|not (?:recorded|provided|specified|given)|(?:do(?:es)? not|doesn't|don't) (?:give|provide|specify)|cannot determine|can't determine", shown_text, re.I)) and not prohibited, "Explicit absence of torque evidence required; no inferred numeric torque")
+        check("behavior", bool(re.search(r"no evidence|not (?:recorded|provided|specified|given)|(?:do(?:es)? not|doesn't|don't) (?:give|provide|specify)|cannot determine|can't determine|(?:gives?|provides?|specifies?) no (?:tightening )?torque", shown_text.replace("’", "'"), re.I)) and not prohibited, "Explicit absence of torque evidence required; no inferred numeric torque")
     else:
         check("behavior", abstain or not any(n in found["undetermined"] for n in case["must_cite"]), "Answer targets must not be undetermined except draft alternatives")
     if case["compact_list"]:
         check("parts_shown", len({p.get("key") or p.get("id") for p in cards}) >= 4, {"compact_list_threshold": 4, "count": len(cards)})
-    else:
+    elif case["show_instruction"]:
         wanted = set(case["must_show_parts"])
         actual = {p.get("key") if str(p.get("key", "")).startswith("D-") else p.get("id") for p in cards}
         check("parts_shown", actual == wanted, {"expected": sorted(wanted), "actual": sorted(actual, key=str)})
     if case["needs_3d"]:
         check("3d_examples", bool(cards) and all(p.get("has_3d") and p.get("model_url") and len(p.get("examples", [])) >= 2 for p in cards), "Attached model URL and both A/B variants")
     if case["id"] == "Q13":
-        check("dimension_highlight_metadata", any(n.startswith("D-017/drawing/n/") and any(s.get("box") for s in facts.get(n, {}).get("sources", [])) for n in cited), "Cited unlabeled numbers must expose drawing boxes; browser rendering is verified separately")
+        check("dimension_highlight_metadata", any(str(s.get("name", "")).startswith("D-017/drawing/n/") and s.get("box")
+              for n in cited for s in facts.get(n, {}).get("sources", [])), "Cited evidence must expose unlabeled number drawing boxes; browser rendering is verified separately")
     if case["id"] == "Q17":
         check("failed_weight_review_caveat", contains(shown_text, "FAILED") and bool(re.search(r"manual (?:approval|review)|needs? (?:human )?(?:approval|review)|waiting for review", shown_text, re.I)), "FAILED and manual-review caveat")
     pending = [p for p in preconditions or [] if p.get("status") != "met"]

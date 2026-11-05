@@ -99,6 +99,8 @@ class KnowledgeTools:
             display = {"state": "value", "value": value}
         else:
             message = field.get("note") or field.get("reason")
+            if field.get("not_recorded"):
+                message = "Not recorded. Raw source: " + repr(field.get("original")) + ". Cleanup: " + ", ".join(field.get("cleanup", [])) + ". " + (message or "")
             if not message:
                 message = "Too blurry to read on the scan." if part and (part.get("drawing") or {}).get("degraded") else "Not recorded or not reliably determined from the evidence."
             display = {"state": "undetermined", "message": message}
@@ -112,10 +114,10 @@ class KnowledgeTools:
             # resolves these identities to their full source facts.
             sources = [{k: s[k] for k in ("name", "method", "badge", "source_path", "source_row") if s.get(k) is not None} for s in sources]
         review_item = target if (target.endswith("/link") and field.get("method") == "unresolved") or ("/template/" in target and state == "unknown" and field.get("method") != "human_decision") else None
-        linked = []
+        linked = list(field.get("related_part_keys", []))
         if target.startswith("BOM:"):
             row_id = next((name for name in self.store.rows if target == name or target.startswith(name + "/")), None)
-            linked = [p["key"] for p in self.linked_parts(row_id)] if row_id else []
+            linked += [p["key"] for p in self.linked_parts(row_id)] if row_id else []
         return {"fact": target, "field": target.split("/")[-1], "part_key": part.get("key") if part else None,
                 "part_keys": linked,
                 "display": display, "badge": badge(field), "review": field.get("review"), "sources": sources,
@@ -188,7 +190,13 @@ class KnowledgeTools:
         else:
             message = f"Drawing: {dv}. Parts list: {', '.join(map(str, values))}. "
             message += "These names haven't been mapped yet." if not any(self.relationship(dv, v)[0] == "different" for v in values) else "The sources disagree."
-            result["display"] = {"state": "undetermined", "message": message}
+            # A source fact and the unresolved cross-source interpretation are
+            # different facts. Never overwrite the trusted printed grade in
+            # the citation ledger with a mapping-dependent display state.
+            result = self.derived(part["key"] + "/resolved/material", None,
+                                  [f["name"] for f in [draw, *bom_fields] if f],
+                                  part=part, state="unknown", method="unresolved", note=message)
+            result["field"] = "material"
             result["review_item"] = unapproved.get("name") if unapproved else None
         return result
 
@@ -223,6 +231,15 @@ class KnowledgeTools:
 
     def get_facts(self, part_id: str) -> dict:
         part = self.store.part(part_id)
+        model = part.get("model") or {}
+        if model.get("weight_check"):
+            self.derived(part["key"] + "/model/verification", {
+                "weight_check": model["weight_check"], "omitted": model.get("omitted", []),
+                "notice": model.get("notice"), "review": model.get("review"),
+                "examples": {key: {"selections": value.get("selections"), "volume_mm3": value.get("volume_mm3")}
+                             for key, value in model.get("models", {}).items()},
+            }, [name for name in (part["key"] + "/drawing/weight_g", part["key"] + "/template/thickness") if name in self.store.fields],
+                part=part, note="Computed model verification, not a design approval. Density references are outside sources, not the dataset. Failed checks need manual review; possible readings are never selected by weight.")
         facts = []
         material = self.material(part)
         if material:
@@ -262,15 +279,18 @@ class KnowledgeTools:
             fact = self.material(part)
             if fact:
                 return {"part": self.summary(part), "facts": [fact]}
-        if key in {"holes", "holecount", "holescount", "callouts"}:
+        if key in {"holes", "holecount", "holescount", "callouts", "threadedholes", "slots", "slotcount"} or "hole" in key:
+            thread = re.search(r"\bm\d+(?:[.,]\d+)?\b", field, re.I)
+            thread = thread.group().upper().replace(",", ".") if thread else None
             callouts = []
             for original in (part.get("drawing") or {}).get("callouts", []):
                 current = self.store.fields.get(original["name"], original)
-                if current.get("feature") != "general_note":
+                if current.get("feature") != "general_note" and (not thread or str(current.get("thread", "")).upper() == thread):
                     callouts.append(self.display(current["name"], current))
-            counts = [f for f in callouts if f["display"]["state"] == "value" and not f.get("correction") and (f.get("callout") or {}).get("feature") in {"hole", "threaded_hole"}
+            features = {"slot"} if "slot" in key else {"threaded_hole"} if thread or "threaded" in key else {"hole", "threaded_hole"}
+            counts = [f for f in callouts if f["display"]["state"] == "value" and not f.get("correction") and (f.get("callout") or {}).get("feature") in features
                       and isinstance(f["callout"].get("count"), int) and f["callout"]["count"] > 0]
-            fact = self.derived(part["id"] + "/explicit-hole-callouts", {"count": sum(f["callout"]["count"] for f in counts), "scope": "Explicit counted hole callouts only; slots are separate. This is not a census of all physical holes."} if counts else None,
+            fact = self.derived(part["key"] + "/drawing/callout-summary/" + key, {"count": sum(f["callout"]["count"] for f in counts), "thread": thread, "scope": "Explicit counted callouts of the requested feature only; holes and slots are separate. This is not a census of all physical features."} if counts else None,
                                 [f["fact"] for f in callouts], part=part,
                                 note="Only explicit trusted hole counts are summed; unlabeled dimensions and unclassified callouts cannot establish a complete hole count.",
                                 state="known" if counts else "unknown")
@@ -280,8 +300,11 @@ class KnowledgeTools:
                    and "/drawing/n/" not in name and "/features/" not in name]
         if matches:
             return {"part": self.summary(part), "facts": matches}
-        fact = self.derived(part["id"] + "/unrecorded/" + (key or "field"), None, [part["id"]],
-                            method="unrecorded_field", part=part, state="unknown",
+        sources = [part["id"]]
+        if key in {"width", "length", "height", "diameter", "thickness"}:
+            sources += [n["name"] for n in (part.get("drawing") or {}).get("numbers", []) if not n.get("label")]
+        fact = self.derived(part["id"] + "/unrecorded/" + (key or "field"), None, sources,
+                            method="unrecorded_field", part=part, state="unknown", compact_sources=False,
                             note=f"No reliably labeled {field} is recorded. Unlabeled drawing numbers do not identify an edge or feature; do not infer this value.")
         return {"part": self.summary(part), "facts": [fact]}
 
@@ -295,8 +318,18 @@ class KnowledgeTools:
             names = [part.get("section")] + [r.get("section") for r in part.get("bom", [])]
             if any(self.relationship(section, n, "section")[0] == "same" for n in names if n):
                 parts.append(self.summary(part))
-        return {"parts": parts, "mapping_status": self.mapping_status(section, "section"),
-                "note": "Differently named sections are combined only after human approval of their mapping."}
+        rows = []
+        for row in self.store.rows.values():
+            family = self.row_field(row, "part_family")
+            recorded_section = family.get("value") if trusted(family) else row.get("section")
+            if self.relationship(section, recorded_section, "section")[0] == "same":
+                name = self.row_field(row, "name")
+                rows.append({"row_id": row["name"], "name": name.get("value"), "section": recorded_section,
+                             "facts": [self.display(name["name"], name), self.display(family["name"], family)],
+                             "linked_drawing_ids": [p["key"] for p in self.linked_parts(row["name"])]})
+        return {"parts": parts, "bom_row_count": len(rows), "bom_rows": rows,
+                "mapping_status": self.mapping_status(section, "section"),
+                "note": "BOM rows retain their own names and sections even when linked drawings have different names/sections. For parts-list questions use bom_rows and bom_row_count. Differently named drawing sections are combined only after human approval of their mapping."}
 
     def parts_with_material(self, material: str) -> dict:
         parts = []
@@ -334,6 +367,9 @@ class KnowledgeTools:
             return False
         tokens = re.findall(r"(?<![\w.])(?:\d\.\d{4}|\d{4}(?:-[A-Za-z]\d+)?)(?![\w.])", recorded)
         aliases = {normalized(value) for token in tokens for value in (token, token.split("-", 1)[0])}
+        # EN AW is printed grade notation, not an inferred general-material
+        # relationship. Match the complete literal notation inside a source.
+        aliases.update(normalized(value) for value in re.findall(r"\bEN[\s-]*AW[\s-]*\d{4}(?:-[A-Za-z]\d+)?\b", recorded, re.I))
         return normalized(query) in aliases
 
     def mapping_fact(self, mapping: dict) -> dict:
@@ -391,6 +427,8 @@ class KnowledgeTools:
             name_field = self.row_field(row, "name")
             value = {"row_id": row["name"], "name": name_field.get("value") if trusted(name_field) else row.get("display_name"),
                      "family": family, "linked_drawing_ids": [p["id"] for p in self.linked_parts(row["name"])]}
+            owner = self.store.owners.get(name_field.get("name"))
+            value["part_keys"] = [p["key"] for p in self.linked_parts(row["name"])] or ([owner["key"]] if owner else [])
             sources = [f["name"] for f in (name_field, family_field) if f.get("name")]
             source = self.derived(row["name"] + "/source-inventory", value, sources, method="source_inventory",
                                   source_path=row.get("source_path"), source_row=row.get("source_row"),
@@ -400,15 +438,17 @@ class KnowledgeTools:
         drawing_groups = []
         for index, (section, members) in enumerate(sorted(drawings.items())):
             value = {"section": section, "drawing_count": len(members), "parts": [v for v, _ in members]}
-            drawing_groups.append({**value, "summary_fact": self.derived(f"machine/summary/drawing-section/{index}", value, [n for _, n in members])})
+            drawing_groups.append({**value, "summary_fact": self.derived(f"machine/summary/drawing-section/{index}", value, [n for _, n in members], related_part_keys=[v["key"] for v, _ in members])})
         family_groups = []
         for index, (family, members) in enumerate(sorted(families.items())):
             value = {"family": family, "bom_row_count": len(members), "parts": [v for v, _ in members]}
-            family_groups.append({**value, "summary_fact": self.derived(f"machine/summary/bom-family/{index}", value, [n for _, n in members], snapshot_note=True)})
+            family_groups.append({**value, "summary_fact": self.derived(f"machine/summary/bom-family/{index}", value, [n for _, n in members], snapshot_note=True,
+                                related_part_keys=list(dict.fromkeys(key for v, _ in members for key in v["part_keys"])))})
         totals = {"drawing_count": len(drawing_sources), "bom_row_count": len(row_sources),
                   "drawing_section_count": len(drawings), "bom_family_count": len(families)}
         return {**totals, "drawing_sections": drawing_groups, "bom_families": family_groups,
-                "facts": [self.derived("machine/summary/inventory", totals, drawing_sources + row_sources)],
+                "facts": [self.derived("machine/summary/inventory", totals, drawing_sources + row_sources,
+                                       related_part_keys=[p["key"] for p in self.store.records if p.get("drawing")])],
                 "note": "Counts use actual source sections and canonical BOM families separately. Differently named groups are not merged without an approved mapping; drawing counts are documents, not physical quantities."}
 
     @staticmethod

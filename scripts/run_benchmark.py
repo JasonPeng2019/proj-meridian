@@ -184,14 +184,14 @@ def get_json(client, path):
 def preconditions(client, case: dict) -> list[dict]:
     cid = case["id"]
     result = []
-    if cid in {"Q03", "Q04", "Q08", "Q09"}:
+    if cid in {"Q03", "Q04", "Q08"}:
         reviews = get_json(client, "/api/review")
         mappings = [r for r in reviews if r.get("type") == "name_mapping" and
                     (r.get("target") == "names/section/optical -> optics" if cid == "Q03" else r.get("kind") == "material")]
         if cid == "Q03":
             confirmed = any(r.get("status") == "human_confirmed" and r.get("value") == "same" for r in mappings)
             result.append({"name": "approved_optical_optics_mapping", "status": "met" if confirmed else "pending", "records": mappings})
-        elif cid in {"Q08", "Q09"}:
+        elif cid == "Q08":
             # Conservatively expose pending alloy mappings instead of pretending
             # the general aluminium search has its approved full coverage.
             relevant = [r for r in mappings if any(v in (r.get("target") or "").casefold() for v in ("alumin", "en-aw", "en aw", "6061", "6063", "7075"))]

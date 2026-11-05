@@ -54,6 +54,7 @@ def test_compiler_rejects_missing_case_without_silent_partial_benchmark(tmp_path
     ("DKK 168,591.52", "168591.52", True), ("DKK 168591.52", "168,591.52", True),
     ("3195.5 g", "3", False), ("30 drawings", "3", False), ("Z-axis: 8", "Z-axis 8", True),
     ("EN-AW 5005", "en aw 5005", True), ("D-012", "D-013", False),
+    ("15.0 mm", "15", True), ("2.000", "2", True), ("2.1", "2", False),
 ])
 def test_token_normalization_preserves_numeric_boundaries(text, value, expected):
     assert contains(text, value) is expected
@@ -124,6 +125,23 @@ def test_m3_callout_citation_is_grounded_in_m3_feature(fixture):
     r = response(f"8 [cite: {name}]", [name])
     assert not check(score_rules(c, r), "citations")["passed"]
     r["facts"][name]["display"]["value"] = {"thread": "M3", "count": 8}
+    assert score_rules(c, r)["status"] == "pass"
+
+
+def test_no_attachment_instruction_does_not_mean_no_cards(fixture):
+    c = case(fixture, "Q20")
+    r = response("Max Photonics, may be out of date [cite: BOM:optics/laser-source/supplier]", c["must_cite"], "bom/optics/laser-source")
+    assert score_rules(c, r)["status"] == "pass"
+
+
+def test_unicode_abstention_and_source_box_provenance(fixture):
+    c = case(fixture, "Q15")
+    r = response("I can’t determine a torque; the drawing gives no tightening torque. [cite: D-013/part]", c["must_cite"])
+    assert score_rules(c, r)["status"] == "pass"
+    c = case(fixture, "Q13")
+    name = "D-017/unrecorded/width"
+    r = response(f"[undetermined: {name}]", [name], "D-017")
+    r["facts"][name].update(display={"state":"undetermined"}, sources=[{"name":"D-017/drawing/n/42", "box":[1,2,3,4]}])
     assert score_rules(c, r)["status"] == "pass"
 
 

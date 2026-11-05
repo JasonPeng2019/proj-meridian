@@ -64,6 +64,13 @@ def route_drawings(drawings, original):
             for did, drawing in sorted(drawings.items())}
 
 
+def verify_original_sources(drawings):
+    for did, drawing in drawings.items():
+        path = inside(drawing['source_path'])
+        if not path.is_file() or digest(path) != drawing['sha256']:
+            raise ValueError(f'{did}: original PDF changed; regenerate its pinned extraction on Actions before routing')
+
+
 def main():
     configure_environment()
     parser = argparse.ArgumentParser()
@@ -72,6 +79,7 @@ def main():
     args = parser.parse_args()
     require_settings()
     drawings = raw_drawings()
+    verify_original_sources(drawings)
     original = json.loads((GENERATED / "ai_results.json").read_text(encoding="utf-8"))
     routing = route_drawings(drawings, original)
     # D-017's fused 4x1,0 corner note is visible but absent from the
@@ -86,7 +94,8 @@ def main():
         return
     baseline = {str(p.relative_to(ROOT)): digest(p) for p in (ROOT / "decisions").glob("*.json")}
     source_hashes = {str(p.relative_to(ROOT)): digest(p) for p in
-                     [GENERATED / "drawings.json", *[inside(GENERATED / image) for d in drawings.values() for image in d["images"]]]}
+                     [GENERATED / "drawings.json", *[inside(d['source_path']) for d in drawings.values()],
+                      *[inside(GENERATED / image) for d in drawings.values() for image in d["images"]]]}
     raw_hash = digest(GENERATED / "drawings.json")
     if args.resume:
         folder = inside(args.resume)
@@ -169,11 +178,15 @@ def main():
     output["templates"] = {**output.get("templates", {}), **assembled["templates"]}
     output['template_routing'] = routing
     for did, decision in routing.items():
-        if did not in assembled['templates'] and decision.get('assessment'):
-            template = output['templates'].setdefault(did, {'part': did, 'template': 'flat_part',
-                'outline': {'state': 'unknown'}, 'thickness': {'state': 'unknown'}, 'features': [],
-                'source_sha256': drawings[did]['sha256']})
-            template['cad_eligibility'] = copy.deepcopy(decision['assessment'])
+        if did not in assembled['templates']:
+            template = output['templates'].get(did)
+            if not template or template.get('source_sha256') != drawings[did]['sha256']:
+                template = {'part': did, 'template': 'flat_part', 'outline': {'state': 'unknown'},
+                            'thickness': {'state': 'unknown'}, 'features': [], 'source_sha256': drawings[did]['sha256']}
+                output['templates'][did] = template
+            template['cad_eligibility'] = copy.deepcopy(decision.get('assessment') or {
+                'state': 'unknown', 'value': None, 'method': 'ai_unsure', 'confidence': 'unsure',
+                'fact_ids': [did + '/drawing/source'], 'note': decision['reason']})
             template['cad_ready'] = False
             template['blocking_fields'] = list(dict.fromkeys([*template.get('blocking_fields', []), 'cad_eligibility']))
     output["detail_assessments"] = assessments

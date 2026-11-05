@@ -519,7 +519,7 @@ def main():
                 render_page.on('pageerror', lambda e, view=render_page: errors.append({'url':view.url,'message':str(e),'stack':e.stack}))
                 render_page.on('response', lambda r: failures.append({'status':r.status,'url':r.url}) if r.status >= 400 else None)
                 try:
-                    expected_url = BASE+'/generated/'+exported['glb']
+                    expected_url = BASE+'/generated/'+exported['glb']+'?v='+exported['glb_sha256']
                     with render_page.expect_response(lambda r, url=expected_url: r.url == url, timeout=30000) as loaded:
                         render_page.goto(BASE+'/part/'+item['key']+'/3d?example='+variant)
                     assert loaded.value.ok, expected_url

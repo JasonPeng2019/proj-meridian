@@ -21,7 +21,8 @@ function Fit({ trigger, modelKey }) {
 }
 
 function Model({ model, section, cut, fit }) {
-  const { scene } = useGLTF(asset(model.glb));
+  const modelURL = `${asset(model.glb)}${model.glb_sha256 ? `?v=${model.glb_sha256}` : ''}`;
+  const { scene } = useGLTF(modelURL);
   const clone = useMemo(() => scene.clone(true), [scene]);
   const bounds = model.bounds_mm;
   const center = bounds.min.map((value, index) => (value + bounds.max[index]) / 2);
@@ -38,7 +39,7 @@ function Model({ model, section, cut, fit }) {
   return <>
     <Bounds fit clip observe margin={1.35}>
       <group position={center.map(value => -value)}><primitive object={clone} scale={1000} /></group>
-      <Fit trigger={fit} modelKey={model.glb} />
+      <Fit trigger={fit} modelKey={modelURL} />
     </Bounds>
     <OrbitControls makeDefault enableDamping minPolarAngle={0.01} maxPolarAngle={Math.PI - 0.01} />
   </>;
@@ -83,7 +84,7 @@ export default function Viewer3D({ part, example, onExampleChange }) {
     {examples.length > 1 && <div className="cad-options">Possible readings</div>}
     {model ? <>
       <div className="cad-canvas">
-        <ModelError key={model.glb}><Canvas camera={{ position: [350, -450, 300], near: 0.01, far: 100000, fov: 35, up: [0, 0, 1] }} gl={{ antialias: true, localClippingEnabled: true }}>
+        <ModelError key={`${model.glb}:${model.glb_sha256}`}><Canvas camera={{ position: [350, -450, 300], near: 0.01, far: 100000, fov: 35, up: [0, 0, 1] }} gl={{ antialias: true, localClippingEnabled: true }}>
           <color attach="background" args={['#edf2f7']} />
           <ambientLight intensity={1.5} />
           <directionalLight position={[100, -200, 400]} intensity={3} />

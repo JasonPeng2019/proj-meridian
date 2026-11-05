@@ -38,6 +38,21 @@ def test_cold_start_waits_for_complete_release(tmp_path, monkeypatch):
     assert exc.value.status_code == 503
 
 
+@pytest.mark.parametrize('name', ['ai_results.json', 'models/manifest.json', 'records.json'])
+def test_release_changes_revision_without_fabricating_decisions(tmp_path, name):
+    generated = tmp_path / 'generated'
+    generated.mkdir()
+    (generated / 'models').mkdir()
+    (generated / 'records.json').write_text('[]', encoding='utf-8')
+    original = Store(tmp_path).revision
+    # Even a receipt-only data refresh and a new mesh manifest need a UI refresh.
+    path = generated / name
+    path.write_text('[] ' if name == 'records.json' else '{} ', encoding='utf-8')
+    updated = Store(tmp_path)
+    assert updated.revision != original and updated.events == []
+    assert Store(tmp_path).revision == updated.revision
+
+
 def test_candidate_activation_is_remote_only_and_source_bound(tmp_path, monkeypatch):
     generated = tmp_path / 'generated'
     batch = generated / 'ai_cache/detail-reprepare/fixture'

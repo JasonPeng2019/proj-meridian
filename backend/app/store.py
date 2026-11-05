@@ -95,7 +95,17 @@ class Store:
         # available even when that projection was refreshed during replay.
         for passage in read_json(self.generated / "readme.json", []):
             self.fields[passage["name"]] = passage
-        self.revision = hashlib.sha256(json.dumps(self.events, sort_keys=True).encode()).hexdigest()[:16]
+        # Publication can change source interpretations or meshes without a new
+        # human event. The browser must observe those complete snapshot changes.
+        revision = hashlib.sha256(json.dumps(self.events, sort_keys=True).encode())
+        for name in ('records.json', 'ai_results.json', 'bom.json', 'readme.json', 'models/manifest.json'):
+            path = self.generated / name
+            revision.update(name.encode())
+            if path.is_file():
+                with path.open('rb') as handle:
+                    for chunk in iter(lambda: handle.read(1024 * 1024), b''):
+                        revision.update(chunk)
+        self.revision = revision.hexdigest()[:16]
         for part in self.records:
             drawing = part.get("drawing")
             if drawing:

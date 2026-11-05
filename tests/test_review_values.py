@@ -247,7 +247,7 @@ def test_choose_option_is_unchanged_and_unvalidated_as_a_new_value():
     store, target = isolated_store({"state": "options", "options": [2, 4]})
     appended = []
     store.append = lambda *args, **kwargs: appended.append(args) or {"fixture": True}
-    store.rebuild_models = lambda: None
+    store.rebuild_models = lambda *args, **kwargs: None
     store.act(target, "choose_option", 4)
     assert appended == [(target, "choose_option", 4)]
     assert store.fields[target]["state"] == "options"

@@ -91,8 +91,8 @@ def assemble_records(drawings: dict, rows: list, output: Path = GENERATED) -> li
         linked.update(row["name"] for row in selected)
         title = drawing["fields"].get("title", {})
         display = str(title["value"]) if title.get("confidence") == "sure" and title.get("value") else drawing["source_filename"]
-        template = None if drawing["degraded"] else ai.get("templates", {}).get(drawing_id)
-        model = manifest.get(drawing_id, {}) if not drawing["degraded"] else {}
+        template = ai.get("templates", {}).get(drawing_id)
+        model = manifest.get(drawing_id, {})
         examples = model.get("examples", [])
         records.append({"id": f"{drawing_id}/part", "key": drawing_id, "display_name": display,
                         "section": drawing.get("section"), "has_drawing": True, "has_3d": bool(model.get("models")),

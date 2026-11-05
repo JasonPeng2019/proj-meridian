@@ -115,6 +115,36 @@ def pdf():
                                     "assets": records})
 
 
+def extract():
+    """Publish deterministic producer outputs for prep, without invoking AI."""
+    sys.path.insert(0, str(ROOT / "development"))
+    from backend.loader.bom import load_bom
+    from backend.loader.drawings import load_drawings
+
+    evidence = ROOT / "development/inputs/project-meridian"
+    output = ROOT / "testing/runs/deterministic-inputs"
+    output.mkdir(parents=True, exist_ok=True)
+    drawings = load_drawings(evidence, output, dpi=144)
+    rows = load_bom(evidence / "dataset/context/openlpbf-bom.csv")
+    inventory = json.loads((evidence / "dataset/manifest.json").read_text(encoding="utf-8"))
+    expected_ids = {asset["id"] for asset in inventory["assets"] if asset["path"].lower().endswith(".pdf")}
+    assert {drawing.id for drawing in drawings} == expected_ids
+    assert len(drawings) == 30 and len(rows) == 192
+    payload = {"schema": "meridian-deterministic-inputs/v1",
+               "commit": os.environ.get("GITHUB_SHA"), "run_id": os.environ.get("GITHUB_RUN_ID"),
+               "scope": "Deterministic source extraction/normalization; no AI or human review",
+               "manifest_sha256": hashlib.sha256((evidence / "dataset/manifest.json").read_bytes()).hexdigest(),
+               "drawings": [item.model_dump(mode="json") for item in drawings],
+               "bom": [item.model_dump(mode="json") for item in rows]}
+    (output / "inputs.json").write_text(json.dumps(payload, ensure_ascii=False) + "\n", encoding="utf-8")
+    modules = {name: hashlib.sha256((ROOT / "development/backend" / name).read_bytes()).hexdigest()
+               for name in ("contracts.py", "loader/drawings.py", "loader/bom.py")}
+    write("deterministic-inputs.json", {"outcome": "PASS", "scope": payload["scope"],
+                                         "drawings": len(drawings), "bom_rows": len(rows),
+                                         "pages": sum(item.pages for item in drawings),
+                                         "manifest_sha256": payload["manifest_sha256"], "modules": modules})
+
+
 def live():
     from openai import OpenAI
     if not os.environ.get("OPENAI_API_KEY"):
@@ -140,5 +170,5 @@ def live():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("stage", choices=["foundation", "modules", "manifest", "pdf", "live"])
+    parser.add_argument("stage", choices=["foundation", "modules", "manifest", "pdf", "extract", "live"])
     globals()[parser.parse_args().stage]()

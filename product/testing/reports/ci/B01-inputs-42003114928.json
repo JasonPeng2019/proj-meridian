@@ -1,0 +1,51 @@
+{
+  "schema": "meridian-module-verification/v1",
+  "outcome": "PASS",
+  "scope": "B01 M05/M06 focused module checks, not a V1-V5 gate",
+  "run_id": 42003114928,
+  "publication_branch": "harness-v2",
+  "publication_commit": "db719c858b7096c7d4683bbcf2b6e65f269a5c29",
+  "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42003114928",
+  "tests_passed": 12,
+  "candidate_files": [
+    {
+      "path": "development/backend/loader/drawings.py",
+      "candidate": "5c8b5026579c15fa815c4ed356d5f7da49da5cad",
+      "sha256": "901b9eddf2939279ba8c96911319a3f6d9d94c7a3838acc9028686d40876dc89"
+    },
+    {
+      "path": "testing/tests/test_drawings.py",
+      "candidate": "5c8b5026579c15fa815c4ed356d5f7da49da5cad",
+      "sha256": "e6d805e26e955f0bdeefc418d1bf8a32c0cec7e247c5cf175308819ac15085e9"
+    },
+    {
+      "path": "development/backend/loader/bom.py",
+      "candidate": "12c875ae25c230722126688ceb0541327246eb4c",
+      "sha256": "53f1d2b34be187333cf77fd04e394bec56a73aabe6fd3568d00642572349127e"
+    },
+    {
+      "path": "testing/tests/test_bom_m1.py",
+      "candidate": "12c875ae25c230722126688ceb0541327246eb4c",
+      "sha256": "d1fcb5bd4eae4925b89aa2d99aa731b8d4c3e9a53c0862b64e47ce43e104a1e4"
+    }
+  ],
+  "case_names": [
+    "test_collisions_ambiguity_forward_missing_and_directed_references",
+    "test_core_cleanup_and_snapshot_without_m3_repairs",
+    "test_missing_cost_or_amount_is_unrecorded_but_explicit_zero_is_retained",
+    "test_stable_identity_and_fingerprint_survive_reordering",
+    "test_supplied_rows_headers_original_cells_and_manifest_hash",
+    "test_supplied_zero_traps_lists_and_recorded_connections",
+    "test_actual_corner_fields_keep_uncertainty_and_missing_titles",
+    "test_actual_d013_coincident_words_and_numbers_are_deduplicated",
+    "test_actual_multipage_images_geometry_and_scan_crops",
+    "test_cropped_rotated_pages_have_source_aligned_text_and_pixels",
+    "test_overlapping_text_is_unresolved_without_drawing_id_special_cases",
+    "test_manifest_validation_rejects_changed_bytes_and_source_output"
+  ],
+  "local_heavy_execution": false,
+  "notes": [
+    "Earlier BOM expectation was corrected using actual CSV rows83/105; ambiguity/missing synthetic checks remain.",
+    "Actual drawing corpus cases and rotated/cropped alignment pass; full prepared product and V1 are not yet implemented."
+  ]
+}

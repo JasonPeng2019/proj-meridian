@@ -6,7 +6,7 @@ on:
       task:
         description: Agent-triggered verification stage
         type: choice
-        options: [capability, pdf, modules, gate, live]
+        options: [capability, pdf, extract, modules, gate, live]
         default: capability
       gate:
         description: Product checkpoint (requires its implemented suite)
@@ -127,6 +127,9 @@ jobs:
         env:
           PYTHONPATH: ${{ github.workspace }}/product/development
         run: uv run --project ../development --locked --extra test --extra prep python ci/checks.py modules
+      - name: Extract complete deterministic inputs with the committed producers
+        if: inputs.task == 'extract'
+        run: uv run --project ../development --locked --extra prep python ci/checks.py extract
       - name: Run the requested implemented product checkpoint
         if: inputs.task == 'gate'
         env:
@@ -149,4 +152,5 @@ jobs:
             product/testing/reports/ci/
             product/testing/reports/verification/
             product/testing/runs/A05-drawings/
+            product/testing/runs/deterministic-inputs/
             product/testing/runs/pdf-regeneration/

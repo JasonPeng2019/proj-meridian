@@ -186,12 +186,20 @@ def test_factory_no_key_no_tool_calls_public_boundaries_and_explicit_unavailable
     assert no_key.read_context(selected, c.ConversationSendRequest(message="Synthetic question")).turns == [
         c.ChatTurn(role="user", text="Synthetic question")]
     before = disk_file(workspace, selected).read_bytes()
-    error = expect_error(c.ErrorCode.UNSUPPORTED, lambda: asyncio.run(
-        service.send(selected, c.ConversationSendRequest(message="Synthetic question"))))
-    assert error.status_code == 501 and not service.send_available
-    expect_error(c.ErrorCode.UNSUPPORTED, lambda: asyncio.run(
+    error = expect_error(c.ErrorCode.MISSING_KEY, lambda: asyncio.run(
         no_key.send(selected, c.ConversationSendRequest(message="Synthetic question"))))
+    assert error.status_code == 503 and not no_key.send_available
     assert disk_file(workspace, selected).read_bytes() == before
+    # Construction/history never probe the injected client. Sending now tries
+    # Responses and reports its actual failure rather than the old 501 stub.
+    assert service.send_available
+    provider_error = expect_error(c.ErrorCode.PROVIDER_ERROR, lambda: asyncio.run(
+        service.send(selected, c.ConversationSendRequest(message="Synthetic question"))))
+    assert provider_error.status_code == 502 and provider_error.response.error.retryable
+    saved = service.read_conversation(selected).messages
+    assert len(saved) == 1 and saved[0].role == "user" and saved[0].text == "Synthetic question"
+    assert "Early history" not in provider_error.response.model_dump_json()
+    assert str(workspace) not in provider_error.response.model_dump_json()
     unknown = c.ConversationRequest(conversation_id="synthetic-unknown")
     expect_error(c.ErrorCode.NOT_FOUND, lambda: no_key.read_conversation(unknown))
     expect_error(c.ErrorCode.NOT_FOUND, lambda: asyncio.run(

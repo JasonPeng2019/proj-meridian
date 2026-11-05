@@ -1,17 +1,15 @@
 import { useEffect, useRef, useState, type ComponentType } from "react";
 import {
   debug_context, encode_id, model_api_path, part_api_path, shell_navigation,
-  RECONSTRUCTION_LABEL,
   type ApiClient, type ChatProps, type ConversationId, type DebugPanel,
   type PartOpenRequest, type PartPageProps, type PartsProps, type ReviewLink,
   type ReviewProps, type ShellProps, type SourceTarget, type StatusResponse,
 } from "./contracts";
-import { ReviewStatus } from "./chat/Evidence";
 import Chat from "./chat/Chat";
+import PartPage from "./part/PartPage";
+import Parts from "./part/Parts";
 
-// M1 import points (producer-owned files do not exist in M0):
-// Chat: ./chat/Chat; PartPage: ./part/PartPage; Parts: ./part/Parts;
-// Review: ./review/Review. Inject these exports without changing their frozen props.
+// Screens can be injected for integration without changing their frozen props.
 export interface ShellScreens {
   Chat: ComponentType<ChatProps>;
   PartPage: ComponentType<PartPageProps>;
@@ -21,23 +19,10 @@ export interface ShellScreens {
 function Empty({ title, text }: { title: string; text: string }) {
   return <div className="ms-empty"><h2>{title}</h2><p>{text}</p></div>;
 }
-function EmptyChat({ status }: ChatProps) {
-  return <Empty title="Chat unavailable" text={status.chat_state === "missing_key"
-    ? "Configure the chat key on the server to ask questions. You can still browse Parts."
-    : "Chat is not ready yet. Browse Parts or try again later."} />;
-}
-function EmptyParts() {
-  return <Empty title="Parts unavailable" text="The parts view is not ready yet. Try again later." />;
-}
-function EmptyPart({ initial_tab }: PartPageProps) {
-  return <><Empty title="Part unavailable" text="This part view is not ready yet. Return to Parts or try again later." />
-    <p>Review status: <ReviewStatus status="Unavailable" /></p>
-    {initial_tab === "model" && <p>{RECONSTRUCTION_LABEL}</p>}</>;
-}
 function EmptyReview() {
   return <Empty title="Review unavailable" text="The engineering review screen is not connected." />;
 }
-const emptyScreens: ShellScreens = { Chat, Parts: EmptyParts, PartPage: EmptyPart, Review: EmptyReview };
+const defaultScreens: ShellScreens = { Chat, Parts, PartPage, Review: EmptyReview };
 
 // Frozen transport only: no storage, context slicing, citation ledger or provider behavior.
 export function createApiClient(fetcher: typeof fetch = (...args) => fetch(...args)): ApiClient {
@@ -111,7 +96,7 @@ function diagnostic(text: string): string {
 export interface AppShellProps extends ShellProps { screens?: Partial<ShellScreens> }
 export function Shell({ api, status, initial_page = "chat", initial_debug_panel,
   initial_conversation_id, on_open_part, on_open_source, screens }: AppShellProps) {
-  const { Chat, Parts, PartPage, Review } = { ...emptyScreens, ...screens };
+  const { Chat, Parts, PartPage, Review } = { ...defaultScreens, ...screens };
   const [page, setPage] = useState<"chat" | "parts" | "debug">(initial_page);
   const [debugPanel, setDebugPanel] = useState<DebugPanel>(initial_debug_panel ?? "diagnostics");
   const [reviewItem, setReviewItem] = useState<ReviewLink | null>(null);
@@ -215,7 +200,6 @@ export function Shell({ api, status, initial_page = "chat", initial_debug_panel,
               initial_item_id={reviewItem?.id} on_open_part={openPart} on_open_source={openSource} />
               : <div className="ms-debug"><h2>Diagnostics</h2><p>{diagnostic(status.message)}</p>
                 {(status.synthetic || status.fixture) && <p>Server responses use declared synthetic fixtures. They are not runtime evidence.</p>}
-                <p>M0 screen placeholders remain until their producer components are connected.</p>
                 {status.fixture_note && <p>{diagnostic(status.fixture_note)}</p>}
                 <p>Chat state: {status.chat_state}; available: {String(status.chat_available)}.</p>
               </div>}

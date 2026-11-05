@@ -7,7 +7,10 @@ review mutations and later milestone services remain unavailable until integrate
 from __future__ import annotations
 
 import asyncio
+from contextlib import asynccontextmanager
+import os
 from pathlib import Path
+import re
 from typing import Annotated, Literal
 
 from fastapi import FastAPI, Query, Request
@@ -18,7 +21,7 @@ from starlette.exceptions import HTTPException
 
 from .. import contracts as c
 from ..settings import Settings, load_settings
-from .chat import ChatService, ChatServiceError
+from .chat import ChatService, ChatServiceError, create_chat_service
 
 
 _DEFAULT_SERVICE = object()
@@ -55,12 +58,58 @@ def create_app(
     *,
     chat_service: c.ConversationService | None | object = _DEFAULT_SERVICE,
     fixture_dir: Path | None = None,
+    registry=None,
+    inputs_root: Path | None = None,
+    client: object | None = _DEFAULT_SERVICE,
 ) -> FastAPI:
     settings = settings if settings is not None else load_settings()
     fixtures = Path(fixture_dir) if fixture_dir is not None else _FIXTURES
-    service = ChatService(settings.chat_history_dir) if chat_service is _DEFAULT_SERVICE else chat_service
-    application = FastAPI(title="Meridian M0", docs_url=None, redoc_url=None, openapi_url=None)
+    input_location = os.environ.get("MERIDIAN_INPUTS_PATH")
+    if registry is None and input_location and fixture_dir is None:
+        from ..loader.records import RecordRegistry
+        from ..loader.decisions import DecisionStore
+        input_file = Path(input_location).resolve()
+        inputs_root = input_file.parent
+        prepared = settings.path("generated") / "prepared.json"
+        decisions = DecisionStore(settings.path("decisions"))
+        if prepared.is_file():
+            registry = RecordRegistry.from_paths(prepared_path=prepared, inputs_path=input_file,
+                records_path=settings.path("generated") / "records.json", decisions=decisions)
+        else:
+            registry = RecordRegistry.from_inputs(input_file,
+                settings.path("dataset") / "manifest.json", decisions=decisions)
+    tools = None
+    managed_client = None
+    if registry is not None:
+        from .tools import FactTools
+        tools = FactTools(registry)
+        if client is _DEFAULT_SERVICE:
+            try:
+                key_text = settings.chat_key_path.read_text(encoding="utf-8-sig")
+                key = re.search(r"sk-[A-Za-z0-9_-]+", key_text)
+            except OSError:
+                key = None
+            if key:
+                from openai import AsyncOpenAI
+                managed_client = AsyncOpenAI(api_key=key.group(), max_retries=0, timeout=45)
+            client = managed_client
+        service = (create_chat_service(history_dir=settings.chat_history_dir, tools=tools, client=client)
+                   if chat_service is _DEFAULT_SERVICE else chat_service)
+    else:
+        service = ChatService(settings.chat_history_dir) if chat_service is _DEFAULT_SERVICE else chat_service
+
+    @asynccontextmanager
+    async def lifespan(application):
+        try:
+            yield
+        finally:
+            if managed_client is not None:
+                await managed_client.close()
+
+    application = FastAPI(title="Meridian", docs_url=None, redoc_url=None, openapi_url=None, lifespan=lifespan)
     application.state.chat_service = service
+    application.state.registry = registry
+    application.state.fact_tools = tools
 
     @application.exception_handler(ChatServiceError)
     async def service_error(request: Request, error: ChatServiceError):
@@ -98,6 +147,8 @@ def create_app(
             raise ChatServiceError(c.ErrorCode.INTERNAL_ERROR, "M0 fixture bundle is unreadable or invalid.") from error
 
     def records() -> list[c.PartRecord]:
+        if registry is not None:
+            return registry.records
         return [fixture(name, c.PartRecord) for name in ("D-013.json", "D-025.json", "bom-only.json")]
 
     def part(part_id: str) -> c.PartRecord:
@@ -108,6 +159,14 @@ def create_app(
 
     @application.get("/api/status", response_model=c.StatusResponse)
     def status(query: Annotated[c.StatusRequest, Query()]):
+        if registry is not None:
+            available = client is not None
+            return c.StatusResponse(chat_available=available,
+                chat_state="configured" if available else "missing_key",
+                message="Ask about a part to see its source drawing and recorded facts." if available
+                    else "Chat unavailable: configure the server's OpenAI key. Parts and past conversations remain available.",
+                debug_enabled=settings.debug_enabled,
+                cad_available=any(record.has_3d for record in records()))
         try:
             configured = settings.chat_key_present
         except OSError:
@@ -135,11 +194,11 @@ def create_app(
     # send does synchronous disk reads, so run its coroutine there too. No storage
     # call blocks the ASGI event loop. Revisit this bridge for B06 loop-bound clients.
     @application.post("/api/conversations/{conversation_id}/messages", response_model=c.ConversationSendResponse)
-    def send_conversation(conversation_id: c.ConversationId, body: c.ConversationSendRequest):
-        return asyncio.run(history().send(c.ConversationRequest(conversation_id=conversation_id), body))
+    async def send_conversation(conversation_id: c.ConversationId, body: c.ConversationSendRequest):
+        return await history().send(c.ConversationRequest(conversation_id=conversation_id), body)
 
     @application.post("/api/chat", response_model=c.ChatResponse)
-    def compatibility_chat(body: c.ChatRequest):
+    async def compatibility_chat(body: c.ChatRequest):
         try:
             message = c.ConversationSendRequest(message=body.message)
         except ValidationError as error:
@@ -150,8 +209,7 @@ def create_app(
         else:
             history().read_conversation(c.ConversationRequest(conversation_id=selected))
         # Compatibility history is deliberately ignored, never forwarded or saved.
-        result = asyncio.run(history().send(c.ConversationRequest(conversation_id=selected),
-                                           message))
+        result = await history().send(c.ConversationRequest(conversation_id=selected), message)
         return result.messages[1].response
 
     @application.get("/api/parts", response_model=c.PartsResponse)
@@ -180,6 +238,16 @@ def create_app(
         record = part(id)
         if record.drawing is None or query.page > record.drawing.pages:
             raise ChatServiceError(c.ErrorCode.NOT_FOUND, "Drawing page is unavailable.")
+        if registry is not None:
+            if inputs_root is None:
+                _unavailable("Drawing image root is not configured.")
+            image_name = Path(record.drawing.image)
+            if query.page != 1:
+                image_name = image_name.with_name(f"{record.drawing.id}-p{query.page}.png")
+            path = _within(inputs_root, image_name.as_posix())
+            if path is None:
+                raise ChatServiceError(c.ErrorCode.NOT_FOUND, "Source drawing image is unavailable.")
+            return FileResponse(path, media_type="image/png")
         path = _within(fixtures, record.drawing.image) if query.page == 1 else None
         if path is None:
             raise ChatServiceError(c.ErrorCode.NOT_FOUND, "Synthetic drawing image is absent from the M0 fixture bundle.")
@@ -188,7 +256,8 @@ def create_app(
     @application.get("/api/parts/{id:path}", response_model=c.PartDetailResponse)
     def detail(id: str):
         record = part(id)
-        facts = fixture("tool-facts.json", c.GetFactsResult).facts if id == "D-013/part" else {}
+        facts = tools.resolve_facts(record) if tools is not None else (
+            fixture("tool-facts.json", c.GetFactsResult).facts if id == "D-013/part" else {})
         return c.PartDetailResponse(**record.model_dump(), facts=facts)
 
     @application.get("/api/models/{drawing_id}_{example}.glb")
@@ -200,6 +269,12 @@ def create_app(
         record = part(c.drawing_part_name(query.drawing_id))
         if query.example not in record.examples:
             raise ChatServiceError(c.ErrorCode.NOT_FOUND, "Model example is unavailable.")
+        if registry is not None:
+            asset = next(item for item in record.model.examples if item.id == query.example)
+            path = _within(settings.root, asset.glb)
+            if path is None:
+                raise ChatServiceError(c.ErrorCode.NOT_FOUND, "Reconstruction asset is unavailable.")
+            return FileResponse(path, media_type="model/gltf-binary")
         metadata = fixture("sample-glb.json" if example == "A" else "sample-B-glb.json", _FixtureAsset)
         path = _within(fixtures, metadata.file)
         if path is None:
@@ -208,6 +283,10 @@ def create_app(
 
     @application.get("/api/review", response_model=c.ReviewListResponse)
     def review(query: Annotated[c.ReviewListRequest, Query()]):
+        if registry is not None:
+            return [item for item in registry.review_items
+                    if (query.status == "all" or item.status == query.status)
+                    and (query.part_id is None or item.part_id == query.part_id)]
         if any(value is not None for key, value in query.model_dump().items() if key not in {"status", "part_id"}):
             _unavailable("Later review filters are unavailable in M0.")
         item = fixture("review-item.json", c.ReviewItem)

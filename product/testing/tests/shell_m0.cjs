@@ -36,7 +36,9 @@ assert.match(enabled, /Debug/);
 // Engineering Review is reached through Debug, never an ordinary tab.
 assert.doesNotMatch(enabled, />Review<|M03|private-value|needs-human|FAILED/);
 const parts = visibleMarkup(render({ initial_page: "parts" }));
-assert.match(parts, /Parts unavailable/);
+assert.match(parts, /Part inventory/);
+assert.match(parts, /Find a part/);
+assert.match(parts, /Loading parts/);
 assert.match(parts, /hidden=""/); // Chat stays mounted while Parts is selected.
 
 // Frozen integration props are passed through, without fabricating review state.

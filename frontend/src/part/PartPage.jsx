@@ -116,11 +116,11 @@ export default function PartPage({partKey: key, initialTab, factId, example:init
   useEffect(()=>{setTab(initialTab);if(initialExample)setExample(initialExample)},[key,initialTab,initialExample,factId]);
   if(error) return <ErrorMessage>{error}</ErrorMessage>; if(!part)return <Loading label="Opening part evidence…"/>;
   const facts=Array.isArray(part.facts)?part.facts:Object.values(part.facts||{}), fact=facts.find(f=>f.fact===factId)||evidenceFact(part,factId||'');
-  const has3d=Boolean(part.has_3d || part.model?.models && Object.keys(part.model.models).length || part.model?.waiting?.length);
   const hasBuilt=Boolean(part.has_3d||Object.keys(part.model?.models||{}).length);
+  const has3d=hasBuilt;
   const humanInput=facts.some(f=>f.fact?.includes('/template/')&&f.sources?.some(s=>s.method==='human_decision'));
   const reconstructionLabel=part.review_status==='source_changed'?'REVIEW NEEDS UPDATE':part.design_review?'REVIEWED':hasBuilt?(humanInput?'AI + HUMAN INPUT':'AI RECONSTRUCTION'):has3d?'3D WAITING':part.has_drawing?'2D ONLY':'PARTS LIST ONLY';
-  const requested=tab || (has3d?'3d':part.has_drawing?'2d':'detail');
+  const requested=(tab==='3d'&&!hasBuilt?null:tab) || (has3d?'3d':part.has_drawing?'2d':'detail');
   const current=['debug','evidence','history'].includes(requested)?(debug?'debug':'detail'):requested;
   const tabs=[...(has3d?[['3d','3D model',Box]]:[]),...(part.has_drawing?[['2d','2D drawing',FileText]]:[]),['detail','Detail',List],...(debug?[['debug','Debug',Fingerprint]]:[])];
   const changeTab=t=>{setTab(t);navigate(partURL(key,t,{...(factId?{fact:factId}:{}),...(t==='3d'?{example}:{})}),{replace:true,keepPanel:compact})};

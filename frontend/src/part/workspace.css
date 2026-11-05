@@ -166,3 +166,13 @@
   .part-page .summary-box { padding: 19px; }
   .part-page .viewer-toolbar { padding: 7px 10px; }
 }
+@media (max-width: 600px) {
+  .part-page .part-body:has(> .sheet-rail) { flex-direction: column; }
+  .part-page .sheet-rail { display: flex; align-items: center; gap: 8px; width: 100%; height: 80px; flex-shrink: 0; padding: 8px 12px; overflow-x: auto; border-right: 0; border-bottom: 1px solid #e1e5ea; }
+  .part-page .sheet-rail > .eyebrow { margin: 0 5px 0 0; font-size: 9px; }
+  .part-page .sheet-thumb { width: 46px; min-width: 46px; height: 62px; margin: 0; padding: 4px; }
+  .part-page .sheet-thumb img { height: 39px; width: 100%; object-fit: contain; }
+  .part-page .sheet-thumb > span { padding: 3px 0 0; font-size: 8px; }
+  .part-page .viewer-toolbar { height: auto; min-height: 48px; flex-wrap: wrap; gap: 6px; }
+  .part-page .viewer-toolbar > .row { flex-wrap: wrap; }
+}

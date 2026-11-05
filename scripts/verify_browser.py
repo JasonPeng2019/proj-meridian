@@ -264,7 +264,8 @@ def verify_redesign(context, errors):
     for width, height, label in [(1600,1000,'desktop'),(1366,768,'laptop'),(390,844,'mobile')]:
         page.set_viewport_size({'width':width,'height':height})
         for name, path, ready in [('chat','/chat','.composer'),('parts','/parts','.part-result'),
-                                  ('detail','/part/D-013/detail','.summary-box')]:
+                                  ('detail','/part/D-013/detail','.summary-box'),
+                                  ('drawing','/part/D-003/2d','.drawing-paper')]:
             page.goto(BASE+path)
             page.locator(ready).first.wait_for()
             assert not page.evaluate('document.documentElement.scrollWidth > innerWidth'), (label,name)
@@ -274,6 +275,11 @@ def verify_redesign(context, errors):
                 expect(page.get_by_role('textbox', name='Search parts')).to_be_in_viewport()
                 # A horizontally scrollable table is contained in its own region.
                 assert page.locator('.part-result').count() == len(get('/api/parts'))
+            if name == 'drawing':
+                expect(page.get_by_title('Zoom in', exact=True)).to_be_in_viewport()
+                expect(page.get_by_role('button', name='Fit', exact=True)).to_be_in_viewport()
+                page.locator('.sheet-thumb').nth(2).click()
+                expect(page.locator('.viewer-toolbar')).to_contain_text('Sheet 3 / 3')
             page.screenshot(path=str(OUT/f'redesign-{label}-{name}.png'))
             responsive.append({'viewport':label,'screen':name,'no_page_overflow':True})
     page.close()
@@ -329,7 +335,9 @@ def main():
                 assert page.locator('.cad-check-summary').count() == 0
                 assert 'FAILED' not in page.locator('.part-page').inner_text()
                 assert 'Needs manual review' not in page.locator('.part-page').inner_text()
-                assert page.locator('.part-title').get_by_text('AI reviewed',exact=True).is_visible()
+                model_record = get('/api/parts/'+model)
+                expected_review = 'Human reviewed' if model_record.get('design_review') else 'AI reviewed'
+                assert page.locator('.part-title').get_by_text(expected_review,exact=True).is_visible()
                 assert page.locator('.part-tabs').get_by_role('tab', name='Debug', exact=True).count() == 0
                 viewer = page.locator('.primary-view').bounding_box()
                 body = page.locator('.part-body').bounding_box()

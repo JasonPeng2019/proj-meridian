@@ -8,6 +8,7 @@ import {
 import Chat from "./chat/Chat";
 import PartPage from "./part/PartPage";
 import Parts from "./part/Parts";
+import Review from "./review/Review";
 
 // Screens can be injected for integration without changing their frozen props.
 export interface ShellScreens {
@@ -19,10 +20,7 @@ export interface ShellScreens {
 function Empty({ title, text }: { title: string; text: string }) {
   return <div className="ms-empty"><h2>{title}</h2><p>{text}</p></div>;
 }
-function EmptyReview() {
-  return <Empty title="Review unavailable" text="The engineering review screen is not connected." />;
-}
-const defaultScreens: ShellScreens = { Chat, Parts, PartPage, Review: EmptyReview };
+const defaultScreens: ShellScreens = { Chat, Parts, PartPage, Review };
 
 // Frozen transport only: no storage, context slicing, citation ledger or provider behavior.
 export function createApiClient(fetcher: typeof fetch = (...args) => fetch(...args)): ApiClient {

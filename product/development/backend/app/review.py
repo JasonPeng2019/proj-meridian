@@ -47,7 +47,7 @@ class ReviewService:
     def _rebuild(self, part_ids=None) -> list[c.PartRecord]:
         try:
             return self.dependencies.rebuild_records(part_ids)
-        except (RecordsError, KeyError) as error:
+        except (RecordsError, KeyError, OSError) as error:
             raise ReviewError(c.ErrorCode.STALE_CONFLICT,
                 "Current source records could not be validated. Reload valid sources before reviewing.", 409) from error
 

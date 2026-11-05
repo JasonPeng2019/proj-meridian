@@ -47,7 +47,7 @@ def review_sources(store, item: dict) -> list[dict]:
         if record:
             names.append(record)
         # A computed dimension points to its actual printed dimension/callout.
-        for cited in store.fields.get(name, {}).get("fact_ids", []):
+        for cited in store.fields.get(name, {}).get("fact_ids") or []:
             add(cited)
 
     add(item["target"])
@@ -60,7 +60,7 @@ def review_sources(store, item: dict) -> list[dict]:
             answer = round_.get("answer", round_)
             if not isinstance(answer, dict):
                 continue
-            for name in answer.get("fact_ids", []):
+            for name in answer.get("fact_ids") or []:
                 add(name)
     if not names and item.get("type") == "name_mapping":
         # Older receipts can lack citations. Expose exact name occurrences as
@@ -79,7 +79,7 @@ def review_sources(store, item: dict) -> list[dict]:
                 if store.owners.get(name) is owner and ("/template/" in name or name.endswith(("/material", "/weight"))):
                     add(name)
         add(owner["drawing"]["id"] + "/drawing/source")
-    for candidate in item.get("candidates", []):
+    for candidate in item.get("candidates") or []:
         if isinstance(candidate, str):
             add(candidate)
     for example in (item.get("weight_check") or {}).get("examples", {}).values():

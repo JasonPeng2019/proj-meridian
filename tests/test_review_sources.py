@@ -45,6 +45,13 @@ def test_cyclic_receipt_references_terminate_without_inventing_sources():
     assert len(review_sources(store, {"id": "length", "target": "D-001/template/length"})) == 2
 
 
+def test_failed_reader_without_answer_keeps_original_source_accessible():
+    store = source_store()
+    refs = review_sources(store, {"id": "length", "target": "D-001/template/length",
+                                 "readers": {"reader": {"rounds": [None, {"answer": None}, {"answer": {"fact_ids": None}}]}}})
+    assert refs[0]["name"] == "D-001/drawing/n/42@1"
+
+
 def test_empty_reader_response_keeps_original_sources_and_other_valid_receipts():
     store = source_store()
     item = {"id": "length", "target": "D-001/template/length", "readers": {

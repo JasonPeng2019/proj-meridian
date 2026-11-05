@@ -11,7 +11,11 @@ Their fixed feature slots contain semantic geometry (the same representation
 as contracts.template_candidate_value), or ``{"kind": "absent"}`` for an
 explicitly inspected empty slot. Unknown is never a substitute for absence.
 
-One additional fixed ``proofs`` field records ValueEvidence per geometry leaf,
+The mandatory fixed ``coverage`` field enumerates views and drawn machining
+features, including unsupported/unresolved details and explicit cosmetic
+omissions. Its slot mapping is checked independently of the numeric ledger;
+its descriptions are never evidence from which geometry may be derived.
+The additional fixed ``proofs`` field records ValueEvidence per geometry leaf,
 using JSON-pointer paths and an optional zero-based option index. It supplies
 machine-checkable numeric provenance without changing the frozen candidate
 contract or putting evidence wrappers inside semantic geometry. A verifier
@@ -48,7 +52,7 @@ from ..loader.drawings import page_image_path
 from .runner import EvidenceBundle, EvidenceError, EvidenceInput, JobDefinition, with_field_validation
 
 
-VISION_VERSION = "vision-determine-verify/v1"
+VISION_VERSION = "vision-determine-verify/detail-coverage-v2"
 SUPPORTED_TEMPLATES = frozenset({"D-013", "D-025", "D-026"})
 CORNER_FIELDS = ("title", "notes", "company", "material", "weight", "date", "drawn", "scale")
 _WORKSPACE = Path(__file__).resolve().parents[3]
@@ -310,6 +314,126 @@ _FEATURE = {"anyOf": [
 ]}
 
 
+def _coverage_schema(slots: list[str]) -> dict[str, Any]:
+    text = {"type": "string", "minLength": 1}
+    strings = {"type": "array", "items": text}
+    references = {**strings, "minItems": 1}
+    view = _object({"id": text, "description": text, "source_ids": references,
+                    "feature_ids": strings})
+    feature = _object({"id": text, "description": text, "source_ids": references,
+        "view_ids": references,
+        "kind": _enum("hole", "slot", "pocket", "recess", "indent", "chamfer", "fillet", "other"),
+        "disposition": _enum("supported", "unresolved", "unsupported", "cosmetic_omission"),
+        "slot_ids": {"type": "array", "items": _enum(*slots)},
+        "face_interpretation": text, "depth_interpretation": text,
+        "multiplicity_interpretation": text, "reason": text})
+    # No feature-list truncation at the geometry slot bound: unsupported and
+    # overflowing groups still have to be enumerated and explained.
+    return _object({"complete": {"type": "boolean"}, "capacity_exceeded": {"type": "boolean"},
+        "views": {"type": "array", "items": view, "minItems": 1},
+        "features": {"type": "array", "items": feature}})
+
+
+def _has_unknown(value: Any) -> bool:
+    if isinstance(value, dict):
+        return value == {"state": "unknown"} or any(_has_unknown(v) for v in value.values())
+    return isinstance(value, list) and any(_has_unknown(v) for v in value)
+
+
+def template_coverage_errors(fields: dict[str, DeterminedField], *, coverage_name: str,
+                             slot_names: list[str], source: PrepSourceIdentity,
+                             page_refs: set[str]) -> list[str]:
+    """Check representation/references only, never image-to-inventory truth.
+
+    Also used on CLI-free M11 reload. Original image completeness and physical
+    interpretation require the actual candidate-bound Opus audit. Do not turn
+    descriptions into dimension sources or repair the candidate here.
+    """
+    field = fields.get(coverage_name)
+    if (field is None or field.state != "known" or field.confidence != Confidence.SURE
+            or not _shape(field.value, _coverage_schema(slot_names))):
+        return ["Missing or malformed mandatory feature coverage inventory."]
+    value = field.value
+    errors = []
+    if not value["complete"] or value["capacity_exceeded"]:
+        errors.append("Feature coverage is incomplete or exceeds the available geometry slots.")
+
+    def unique(ids: list[str]) -> bool:
+        return len(ids) == len(set(ids))
+
+    def sourced(ids: list[str]) -> bool:
+        return unique(ids) and set(ids) <= source.source_ids.keys() and bool(set(ids) & page_refs)
+
+    views, items = value["views"], value["features"]
+    view_ids, item_ids = [v["id"] for v in views], [f["id"] for f in items]
+    if not unique(view_ids) or not unique(item_ids):
+        errors.append("Coverage view and feature group IDs must be unique.")
+    view_by_id, item_by_id = {v["id"]: v for v in views}, {f["id"]: f for f in items}
+    claimed, covered_pages, cited = [], set(), set()
+    for view in views:
+        cited.update(view["source_ids"])
+        covered_pages.update(set(view["source_ids"]) & page_refs)
+        if (not view["id"].strip() or not view["description"].strip()
+                or not sourced(view["source_ids"]) or not unique(view["feature_ids"])
+                or not set(view["feature_ids"]) <= item_by_id.keys()):
+            errors.append(f"View {view['id']} has invalid source or feature references.")
+        for identity in view["feature_ids"]:
+            if identity in item_by_id and view["id"] not in item_by_id[identity]["view_ids"]:
+                errors.append(f"View {view['id']} and feature {identity} are not reciprocally mapped.")
+    if covered_pages != page_refs:
+        errors.append("Coverage must inspect every original page, including all section/detail views.")
+    for item in items:
+        identity, slots, disposition = item["id"], item["slot_ids"], item["disposition"]
+        cited.update(item["source_ids"])
+        if any(not item[key].strip() for key in ("id", "description", "reason", "face_interpretation",
+                                                "depth_interpretation", "multiplicity_interpretation")):
+            errors.append(f"Feature {identity} needs explicit physical interpretations and a reason.")
+        if item["reason"].strip().casefold() in _PLACEHOLDERS:
+            errors.append(f"Feature {identity} needs a concrete reason, not a placeholder.")
+        if (not sourced(item["source_ids"]) or not unique(item["view_ids"])
+                or not set(item["view_ids"]) <= view_by_id.keys()):
+            errors.append(f"Feature {identity} has invalid source or view references.")
+        for view_id in item["view_ids"]:
+            view = view_by_id.get(view_id)
+            if view and (identity not in view["feature_ids"] or not (
+                    set(view["source_ids"]) & page_refs <= set(item["source_ids"]))):
+                errors.append(f"Feature {identity} is not bound to its cited view/page.")
+        if disposition in {"unsupported", "cosmetic_omission"} and slots:
+            errors.append(f"Unrepresented feature {identity} cannot claim geometry or absent slots.")
+        if disposition == "cosmetic_omission" and item["kind"] not in {"chamfer", "fillet"}:
+            errors.append(f"Significant feature {identity} cannot be classified as a cosmetic omission.")
+        if disposition == "supported" and (not slots or item["kind"] not in {"hole", "slot"}):
+            errors.append(f"Supported feature {identity} needs native hole/slot representation.")
+        if slots and item["kind"] not in {"hole", "slot"}:
+            errors.append(f"Feature {identity} cannot be represented by this native geometry subset.")
+        claimed.extend(slots)
+        for slot in slots:
+            native = fields.get(slot)
+            if (slot not in slot_names or native is None or native.state not in {"known", "unknown"}
+                    or (native.state == "known" and (not isinstance(native.value, dict)
+                        or native.value.get("kind") != item["kind"]))):
+                errors.append(f"Feature {identity} references absent, omitted or incompatible slot {slot}.")
+            elif disposition == "supported" and (native.state != "known" or _has_unknown(native.value)):
+                errors.append(f"Feature {identity} must disclose its unresolved physical details.")
+            if native is not None and not (set(native.source_ids) & page_refs) <= set(item["source_ids"]):
+                errors.append(f"Feature {identity} omits its mapped slot's original page references.")
+    if not unique(claimed):
+        errors.append("Each active feature slot must be claimed exactly once, without duplicate references.")
+    for slot in slot_names:
+        native = fields.get(slot)
+        if native is None:
+            errors.append(f"The candidate omitted feature slot {slot}.")
+        elif native.state == "known" and native.value == {"kind": "absent"}:
+            if slot in claimed or not page_refs <= set(native.source_ids):
+                errors.append(f"Absent slot {slot} is claimed or was not inspected on every page.")
+        elif slot not in claimed:
+            errors.append(f"Active or unknown feature slot {slot} is unclaimed by coverage.")
+    if (not unique(field.source_ids) or set(field.source_ids) != cited
+            or not cited <= source.source_ids.keys()):
+        errors.append("Coverage citations must exactly bind its original view/feature sources.")
+    return errors
+
+
 class _Proof(BaseModel):
     model_config = ConfigDict(extra="forbid", strict=True)
     field: str
@@ -463,6 +587,13 @@ def _semantic(value: Any) -> bool:
         inner, outer = value["inner_diameter"], value["outer_diameter"]
         if type(inner) in {int, float} and type(outer) in {int, float} and inner >= outer:
             return False
+    pattern = value.get("pattern")
+    if isinstance(pattern, dict) and pattern.get("type") == "circle":
+        angles, count = pattern["angles_deg"], pattern["count"]
+        if not pattern["evenly_spaced"] and not angles:
+            return False  # Unknown angular placement must not become an even circle.
+        if angles is not None and type(count) is int and len(angles) != count:
+            return False
     for path, leaf in _leaves(value).items():
         if type(leaf) in {int, float}:
             key = path.rsplit("/", 1)[-1]
@@ -485,8 +616,42 @@ The inventory identifies every supplied number, box, admissibility decision,
 page and corner field. Border/grid/title-block numbers are not dimensions.
 Use known only for supported sure semantic geometry; retain unknown subfields
 as {"state":"unknown"}, or the whole field as state=unknown/null/unsure.
+The mandatory coverage field is a known/sure source-bound INVENTORY, not a
+geometry field or dimension source. Before assigning slots, inspect EVERY
+original page, orthographic/side view, section and detail view. List every view
+with a distinct ID, description, original source_ids and feature_ids (empty
+only for an explicitly inspected view containing no machining features).
+List each distinct physical machining feature/group ONCE across those views:
+id, description, original source_ids, reciprocal view_ids, kind, disposition,
+slot_ids, face_interpretation, depth_interpretation,
+multiplicity_interpretation and reason. Multiple views of one physical feature
+are not extra holes; distinct holes/recesses are not one feature by default.
+Interpretations must explain actual face, through/blind depth, counterbore/
+countersink steps, and singleton or pattern count/spacing/direction; refer to
+the mapped slots and their scalar proofs for every known numeric value.
+Inventory prose is NEVER an admissible numeric source or a geometry default.
+Map each supported hole/slot or pattern to its full stable feature-slot ID(s),
+each active slot exactly once. A group's several slots must each represent
+distinct members/subgroups without duplicating their physical cuts. Known
+hole/slot values must contain every required physical detail and numeric proof.
+Unknown placement, count, face, depth, pattern or other necessary detail uses
+disposition=unresolved, a concrete reason and an unknown slot/subfield; never
+invent through=true, face=top, count=1, a depth or a position to fit the schema.
+Unsupported significant pockets, indents, recesses or side holes remain listed
+with disposition=unsupported, empty slot_ids and the exact reason. Their
+absence from native geometry will BLOCK reconstruction. Only genuinely minor
+chamfers/fillets may be cosmetic_omission, with explicit original sources and
+a reason explaining why omitting that detail does not change essential form.
+Every unused slot must be explicitly absent with every page cited; no unknown
+unclaimed slot, duplicate mapping, absent referenced slot or silent truncation.
+Set complete=true only when all drawn features/views are enumerated, including
+unsupported/unresolved entries. If slots run out, enumerate overflow groups
+as unresolved with empty slot_ids and the capacity reason, complete=false and
+capacity_exceeded=true; never discard a group or merge unrelated cuts to fit.
+Coverage source_ids must be exactly the union of its views' and features'
+original references. Do not put coverage leaves in the numeric proofs ledger.
 For every scalar leaf of a known value or option, put exactly one entry in the
-fixed proofs field: field=its stable field name, option=null for known or the
+fixed proofs field (geometry/material/weight/absence only): field=its stable field name, option=null for known or the
 zero-based option index, path=JSON pointer (empty for a scalar), evidence using
 the supplied ValueEvidence schema. Cite every proof's IDs also in that field's
 source_ids. Direct numbers require one admissible number ID equal to the value.
@@ -503,8 +668,8 @@ need their OWN directly printed number plus the supplied printed-alternatives
 group ID; independent dimensions are not options. If no group is admissible,
 do not output options. Do not use disagreement as options. Each unused feature
 slot requires known value={"kind":"absent"} supported by inspecting the full
-drawing, never by default. If the slot inventory is insufficient, leave a slot
-unknown and explain the omitted features. The proofs field is known/sure with
+drawing, never by default. If the slot inventory is insufficient, record every
+overflow feature in coverage and mark capacity_exceeded. The proofs field is known/sure with
 entries (empty only if all other fields are unknown), cites the original image
 IDs and explains its scope. During reconsideration use actual Opus criticism
 and original evidence, then submit the revised candidate for reverification.
@@ -512,7 +677,28 @@ and original evidence, then submit the revised candidate for reverification.
 
 _TEMPLATE_VERIFY = """Verify every field of THIS exact Sol candidate against the original
 images (Read every image) and deterministic inventory, including the proofs
-ledger. Do not make a second blind guess or compare duplicate answers. Check
+ledger and mandatory coverage. Independently audit IMAGE-TO-INVENTORY
+COMPLETENESS: inspect every page/view/section/detail, identify drawn machining
+features that Sol omitted, and reconcile distinct physical features across
+views. Do not limit review to Sol's listed claims or host-valid slot references.
+Check the coverage view list itself against original images. For EACH feature
+group audit physical hole/slot/pocket/indent/recess presence, actual pattern
+multiplicity/count, spacing/direction, positioning, entrance face, through/blind
+depth and countersink/counterbore steps using all views. A supported slot must
+represent that whole feature; an unsupported/unresolved significant detail
+cannot be called absent or cosmetic. Check that cosmetic omission reasons
+apply only to minor chamfers/fillets. Inventory descriptions do not establish
+dimensions: inspect every original numeric proof independently.
+An omitted visible feature, incomplete view list, lost pattern member or wrong
+physical detail requires coverage=disagrees with a specific source-backed
+reason identifying the view and missing/detail feature, PLUS disagrees on any
+affected absent/incorrect geometry field. Use the original image source IDs
+for omitted features even though Sol supplied no slot for them. A structurally
+valid inventory is not evidence of completeness. Coverage may be verified
+only after this independent original-image audit; uncertain completeness is
+unsure and blocks reconstruction. On correction, re-audit the revised inventory
+and all views, then reverify the actual revised geometry and proof ledger.
+Do not make a second blind guess or compare duplicate answers. Check
 each state, semantic value, option, numeric token's actual meaning/units/box,
 geometry relationship, supported derivation/pattern, CAD frame, feature absence
 and completeness against the drawing. Check every scalar proof for the field,
@@ -561,13 +747,17 @@ def build_template_job(drawing: DrawingEvidence, *, image_root: Path,
     group_refs = {f"{drawing.id}/drawing/printed-alternatives/{i+1}": group for i, group in enumerate(groups)}
     refs.update({name: "inventory" for name in group_refs})
     names = {k: template_fact_name(drawing.id, k) for k in
-             ("outline", "thickness", "material", "weight-on-drawing", "proofs")}
+             ("outline", "thickness", "material", "weight-on-drawing", "proofs", "coverage")}
     schemas = {names["outline"]: _OUTLINE, names["thickness"]: {"type": "number"},
                names["material"]: {"type": "string", "minLength": 1},
                names["weight-on-drawing"]: {"type": "number"}}
     for i in range(feature_slots):
         schemas[template_fact_name(drawing.id, f"feature-{i+1:02d}")] = _FEATURE
+    slot_names = [name for name in schemas if name.rsplit("/", 1)[-1].startswith("feature-")]
+    # Coverage is metadata within the same candidate/provenance and existing
+    # ordered job. Never call it feature-* or treat its prose as native cuts.
     schemas[names["proofs"]] = _proof_schema(list(schemas))
+    schemas[names["coverage"]] = _coverage_schema(slot_names)
     inputs["drawing"] = EvidenceInput(value=drawing.model_dump(mode="json"))
     inputs["inventory"] = EvidenceInput(value={"version": VISION_VERSION, "kind": "flat-template",
         "drawing_id": drawing.id, "field_names": list(schemas), "feature_slots": feature_slots,
@@ -652,7 +842,7 @@ def build_template_job(drawing: DrawingEvidence, *, image_root: Path,
                 index[key] = proof
         validity, consumed = {}, set()
         for name, field in candidate.fields.items():
-            if name == names["proofs"]:
+            if name in {names["proofs"], names["coverage"]}:
                 continue
             shape = field.state in {"known", "options", "unknown"}
             values = [(None, field.value)] if field.state == "known" else list(enumerate(field.options))
@@ -710,6 +900,12 @@ def build_template_job(drawing: DrawingEvidence, *, image_root: Path,
         # invalidate their owning field without erasing other available fields.
         if not validity[names["proofs"]][0]:
             validity = {name: (shape, False) for name, (shape, _) in validity.items()}
+        coverage_valid = not template_coverage_errors(candidate.fields, coverage_name=names["coverage"],
+            slot_names=slot_names, source=source, page_refs=page_refs)
+        # Keep independent scalar validation and the exact candidate intact.
+        # M11 consumes this mandatory completeness result as an essential gate.
+        validity[names["coverage"]] = (coverage_valid, coverage_valid and all(
+            validity[slot][0] and validity[slot][1] for slot in slot_names))
         return validity
 
     return _bind(f"vision.template.{drawing.id}", job_id, (_TEMPLATE_DETERMINE, _TEMPLATE_VERIFY),
@@ -795,12 +991,20 @@ def template_review_details(job: VisionJob, result: PrepProvenance) -> dict[str,
             candidate = round_.determination.output
             verification = round_.verification
             verdicts = verification.output if verification else None
-            rounds.append({"round": round_.round,
+            detail = {"round": round_.round,
                 "candidate_sha256": candidate.candidate_sha256 if candidate else None,
                 "candidate": candidate.fields[name].model_dump(mode="json") if candidate else None,
                 "verification_status": verification.status if verification else None,
                 "missing_opus_output": verdicts is None,
                 "failure": verification.failure.model_dump(mode="json") if verification and verification.failure else None,
-                "verdict": verdicts.fields[name].model_dump(mode="json") if verdicts else None})
+                "verdict": verdicts.fields[name].model_dump(mode="json") if verdicts else None}
+            if name == template_fact_name(job.request.job.rsplit(".", 1)[-1], "coverage"):
+                detail["coverage_diagnostics"] = template_coverage_errors(
+                    candidate.fields if candidate else {}, coverage_name=name,
+                    slot_names=[n for n in result.field_names if n.rsplit("/", 1)[-1].startswith("feature-")],
+                    source=result.source,
+                    page_refs={ref for ref in result.source.source_ids if "/drawing/page/" in ref})
+                detail["host_check_scope"] = "Representation and references only; image completeness requires Opus."
+            rounds.append(detail)
         details[name] = {**result.field_results[name].model_dump(mode="json"), "rounds": rounds}
     return details

@@ -193,7 +193,7 @@ class PreparedKnowledge(ContractModel):
             retained(template.provenance)
             if template.provenance.job != f"vision.template.{identity}":
                 raise ValueError("Template provenance belongs to another drawing.")
-            # Reproject solely from retained final candidate/proofs. No files,
+            # Reproject solely from retained final candidate/proofs/coverage. No files,
             # optional image libraries, runner or CLI are needed on reload.
             if _template(drawings[identity], template.provenance) != template:
                 raise ValueError("Saved template differs from its final candidate and proof ledger.")
@@ -287,7 +287,8 @@ def _template(drawing: DrawingEvidence, record: PrepProvenance) -> FlatTemplate 
     accepted = {name: result.accepted for name, result in record.field_results.items()}
     ledger = accepted.get(template_fact_name(drawing.id, "proofs"))
     native = [name for name, field in accepted.items() if field is not None
-              and name.rsplit("/", 1)[-1] not in {"proofs", "material", "weight-on-drawing"}
+              and (name.rsplit("/", 1)[-1] in {"outline", "thickness"}
+                   or name.rsplit("/", 1)[-1].startswith("feature-"))
               and field.value != {"kind": "absent"}]
     if ledger is None or not native:
         return None
@@ -311,17 +312,48 @@ def _template(drawing: DrawingEvidence, record: PrepProvenance) -> FlatTemplate 
         return dict(base, state="known", value=value, evidence=_template_evidence(name, None, proofs), unit=unit)
 
     features = []
-    for name in record.field_names:
-        if not name.rsplit("/", 1)[-1].startswith("feature-"):
-            continue
+    slots = [name for name in record.field_names if name.rsplit("/", 1)[-1].startswith("feature-")]
+    coverage_name = template_fact_name(drawing.id, "coverage")
+    coverage = accepted.get(coverage_name)
+    candidate = record.rounds[-1].determination.output
+    coverage_errors = vision_jobs.template_coverage_errors(candidate.fields if candidate else {},
+        coverage_name=coverage_name, slot_names=slots, source=record.source,
+        page_refs={f"{drawing.id}/drawing/page/{page.page}" for page in drawing.page_geometry})
+    for name in slots:
         field = accepted[name]
         if (field and field.value == {"kind": "absent"}
                 and record.field_results[name].status in {"first_pass_verified", "retry_verified"}):
             continue
-        # Unknown feature slots and their details remain listed with sources
-        # and rounds. They can be omitted as a whole minor feature; outline and
-        # thickness alone are unconditional essential geometry for this subset.
-        features.append(project(name.rsplit("/", 1)[-1]))
+        # Every actual hole/slot, including nested placement, blind depths,
+        # counterbores/countersinks and pattern counts, is essential. Unknown
+        # physical details cannot degrade silently to an outer extrusion.
+        absent_unverified = bool(field and field.value == {"kind": "absent"})
+        projected = project(name.rsplit("/", 1)[-1], essential=not absent_unverified)
+        if absent_unverified:
+            projected["message"] = "Unused slot is only Sol-inspected absent; Opus verification is unavailable."
+            projected["evidence"] = dict(source_ids=field.source_ids)
+        features.append(projected)
+    if coverage is None or coverage_errors:
+        # Keep accepted geometry and original rounds, but block completeness
+        # even when every scalar proof and the outer extrusion are available.
+        features.append(_unknown(coverage_name, essential=True, record=record,
+            message="Feature coverage is unresolved. " + " ".join(coverage_errors or [
+                "No accepted original-image coverage audit or authorized unverified inventory."])))
+    else:
+        for item in coverage.value["features"]:
+            disposition = item["disposition"]
+            if disposition == "supported":
+                continue
+            # Unsupported/recess/side-hole details need a top-level essential
+            # FeatureField blocker even if other slots are completely known.
+            # Explicitly sourced minor cosmetic omissions remain inspectable.
+            omitted = _unknown(coverage_name + "/" + item["id"], record=record,
+                essential=disposition != "cosmetic_omission",
+                message=f"{item['description']}: {item['reason']} "
+                        f"Face: {item['face_interpretation']}; depth: {item['depth_interpretation']}; "
+                        f"multiplicity: {item['multiplicity_interpretation']}.")
+            omitted["evidence"] = dict(source_ids=item["source_ids"])
+            features.append(omitted)
     return FlatTemplate(part=drawing.id, source_sha256=record.source.inputs["drawing"],
         filled_by=record.mode, provenance=record, outline=project("outline", essential=True),
         thickness=project("thickness", essential=True, unit="mm"), features=features,

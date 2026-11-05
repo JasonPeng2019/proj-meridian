@@ -1,0 +1,21 @@
+{
+  "run_id": 42053440670,
+  "commit": "61401e49c97e602385626de8759d6c48cdf99f49",
+  "outcome": "PASS",
+  "tests": 77,
+  "failures": 0,
+  "skipped": 0,
+  "scope": "CAD geometry/export/cache on explicitly synthetic fixtures. Actual D013/025/026 templates still pending. No product gate credit.",
+  "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42053440670",
+  "source_sha256": {
+    "development/backend/cad/build.py": "59ee636cbad95d975e20612be61f648cd101f3eb899992e3428288bd9e99b88e",
+    "testing/tests/test_cad_build.py": "d11fc912d4d0d3fa0f44b280f8944587bde9d3ca7e3d1b1c1f1fc44bcc43129d",
+    "development/backend/contracts.py": "2d613b512cd67f89e4cabadffea726239a6f77acfd8a77605753c7a821e1cb47"
+  },
+  "first_failure": {
+    "run_id": 42052492935,
+    "passed": 76,
+    "failed": 1,
+    "reason": "Invalid record identity raised ValidationError before blocked status; ROOT repaired without changing tests."
+  }
+}

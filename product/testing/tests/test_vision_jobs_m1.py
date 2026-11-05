@@ -25,7 +25,7 @@ sys.path.insert(0, str(ROOT / "development"))
 
 from backend.ai.runner import CliReservation, EvidenceError, Runner  # noqa: E402
 from backend.ai.vision_jobs import (  # noqa: E402
-    CORNER_FIELDS, build_scan_job, build_template_job, scan_readings, template_review_details,
+    CORNER_FIELDS, VISION_VERSION, build_scan_job, build_template_job, scan_readings, template_review_details,
     validate_vision_result,
 )
 from backend.contracts import (  # noqa: E402
@@ -125,7 +125,60 @@ def template_fields(job, d, *, value=7, token="7"):
     target, proofs = name(job, "thickness"), name(job, "proofs")
     fields[target] = known(value, [number(d, token)])
     fields[proofs] = known({"entries": [proof(target, [number(d, token)])]}, [page_ref(d)])
+    # Unknown fixture slots are explicitly inventoried, never implicitly empty.
+    slots = [n for n in job.request.field_names if n.rsplit("/", 1)[-1].startswith("feature-")]
+    fields[name(job, "coverage")] = known(coverage_value(d, [coverage_item(d, slot, [slot],
+        disposition="unresolved") for slot in slots]), all_pages(d))
     return fields
+
+
+def all_pages(d):
+    return [f"{d.id}/drawing/page/{p.page}" for p in d.page_geometry]
+
+
+def coverage_item(d, identity, slots=(), *, kind="hole", disposition="supported"):
+    return dict(id=identity, description="SYNTHETIC machining group " + identity,
+        source_ids=all_pages(d), view_ids=[f"page-{p.page}" for p in d.page_geometry],
+        kind=kind, disposition=disposition, slot_ids=list(slots),
+        face_interpretation="Top face, or explicitly unresolved in the mapped slot.",
+        depth_interpretation="Through/blind and any stepped depths are in the mapped slot's own proofs.",
+        multiplicity_interpretation="Mapped slot describes the singleton or the whole repeated pattern.", reason=NOTE)
+
+
+def coverage_value(d, items=()):
+    return dict(complete=True, capacity_exceeded=False,
+        views=[dict(id=f"page-{p.page}", description="SYNTHETIC full original view",
+            source_ids=[f"{d.id}/drawing/page/{p.page}"], feature_ids=[f["id"] for f in items
+                if f"page-{p.page}" in f["view_ids"]]) for p in d.page_geometry],
+        features=deepcopy(list(items)))
+
+
+def absent_template_fields(job, d):
+    fields = template_fields(job, d)
+    for slot in job.request.field_names:
+        if slot.rsplit("/", 1)[-1].startswith("feature-"):
+            fields[slot] = known({"kind": "absent"}, all_pages(d))
+            fields[name(job, "proofs")]["value"]["entries"].append(
+                proof(slot, path="/kind", source_ids=all_pages(d)))
+    fields[name(job, "coverage")] = known(coverage_value(d), all_pages(d))
+    return fields
+
+
+def add_known_hole(job, d, fields):
+    target, page = name(job, "feature-01"), page_ref(d)
+    fields[target] = known(dict(kind="hole", hole_type="plain", face="top", position={"x": 7, "y": 7},
+        diameter=5, through=True, depth=None, thread_size=None, thread_depth=None,
+        countersink_diameter=None, countersink_angle_deg=None, counterbore_diameter=None,
+        counterbore_depth=None, pattern=None), [page, number(d, "7"), number(d, "5")])
+    entries = fields[name(job, "proofs")]["value"]["entries"]
+    entries[:] = [p for p in entries if p["field"] != target]
+    entries.extend(proof(target, path=p, source_ids=[page])
+                   for p in ("/kind", "/hole_type", "/face", "/through"))
+    entries.extend([proof(target, [number(d, "7")], path="/position/x"),
+                    proof(target, [number(d, "7")], path="/position/y"),
+                    proof(target, [number(d, "5")], path="/diameter")])
+    fields[name(job, "coverage")] = known(coverage_value(d, [coverage_item(d, "mounting-hole", [target])]),
+                                         all_pages(d))
 
 
 def checked(job, fields):
@@ -226,6 +279,9 @@ def test_supported_template_inventories_are_bound_and_answers_unseeded(work, ide
     assert job.request.source.inputs == {k: v.sha256 for k, v in bundle.inputs.items()}
     assert job.request == job.definition.request(job.request.job_id, job.request.source)
     assert "candidate" in job.definition.verification_instructions
+    assert job.definition.validation_version == VISION_VERSION != "vision-determine-verify/v1"
+    assert name(job, "coverage") in job.definition.value_schemas
+    assert "IMAGE-TO-INVENTORY" in job.definition.verification_instructions
     fields = template_fields(job, d)
     output = checked(job, fields)
     assert output.fields[name(job, "thickness")].evidence_valid
@@ -306,6 +362,11 @@ def test_recorded_circle_pattern_constants_and_declared_units_are_checked(work):
                     proof(target, [radius], path="/pattern/radius"), proof(target, [token], path="/pattern/start_angle_deg",
                     derivation={"kind": "pattern", "expression": "360 / n0", "inputs": [token], "pattern_fact": page})])
     assert checked(job, fields).fields[target].evidence_valid
+    missing_angles = deepcopy(fields)
+    missing_angles[target]["value"]["pattern"]["evenly_spaced"] = False
+    assert not checked(job, missing_angles).fields[target].schema_valid
+    missing_angles[target]["value"]["pattern"]["angles_deg"] = [30]
+    assert not checked(job, missing_angles).fields[target].schema_valid  # Not all pattern members are located.
     entries[-1]["evidence"]["derivation"]["kind"] = "arithmetic"
     assert not checked(job, fields).fields[target].evidence_valid
     different_units = d.model_copy(deep=True)
@@ -503,4 +564,168 @@ def test_invalid_or_blind_verifier_output_is_unresolved_and_not_execution_fallba
     assert template_review_details(job, record)[target]["rounds"][0]["missing_opus_output"]
     with pytest.raises(EvidenceError):
         template_review_details(job, record.model_copy(update={"job_id": "ANOTHER CANDIDATE"}))
+
+
+@pytest.mark.parametrize("defect", ["missing", "unclaimed", "duplicate_slot", "duplicate_group", "duplicate_in_group",
+    "omitted_slot", "absent_reference", "unsupported_as_absent", "missing_page", "missing_view",
+    "blank_interpretation", "missing_interpretation", "placeholder_reason", "duplicate_source", "unclaimed_unknown",
+    "kind_mismatch", "wrong_page", "overflow"])
+def test_structural_coverage_defects_block_completeness_without_rewriting_values(work, defect):
+    d = drawing(work, pages=2)
+    job = build_template_job(d, image_root=work, feature_slots=1)
+    fields = absent_template_fields(job, d)
+    add_known_hole(job, d, fields)
+    target, inventory = name(job, "feature-01"), name(job, "coverage")
+    assert checked(job, fields).fields[inventory].evidence_valid
+    coverage = fields[inventory]["value"]
+    item = coverage["features"][0]
+    if defect == "missing":
+        fields[inventory] = unknown(all_pages(d))
+    elif defect == "unclaimed":
+        coverage["features"] = []
+        for view in coverage["views"]:
+            view["feature_ids"] = []
+    elif defect in {"duplicate_slot", "duplicate_group"}:
+        duplicate = deepcopy(item)
+        if defect == "duplicate_slot":
+            duplicate["id"] += "-other"
+        coverage["features"].append(duplicate)
+        for view in coverage["views"]:
+            view["feature_ids"].append(duplicate["id"])
+    elif defect == "duplicate_in_group":
+        item["slot_ids"].append(target)
+    elif defect == "omitted_slot":
+        item["slot_ids"] = [target.replace("feature-01", "feature-02")]
+    elif defect in {"absent_reference", "unsupported_as_absent"}:
+        fields[target] = known({"kind": "absent"}, all_pages(d))
+        ledger = fields[name(job, "proofs")]["value"]["entries"]
+        ledger[:] = [p for p in ledger if p["field"] != target]
+        ledger.append(proof(target, path="/kind", source_ids=all_pages(d)))
+        if defect == "unsupported_as_absent":
+            item["disposition"] = "unsupported"
+    elif defect == "missing_page":
+        coverage["views"].pop()
+        item["view_ids"].pop()
+    elif defect == "missing_view":
+        item["view_ids"].append("unlisted-section")
+    elif defect == "blank_interpretation":
+        item["depth_interpretation"] = " "
+    elif defect == "missing_interpretation":
+        item.pop("multiplicity_interpretation")
+    elif defect == "duplicate_source":
+        item["source_ids"].append(item["source_ids"][0])
+    elif defect == "placeholder_reason":
+        item["reason"] = "unknown"
+    elif defect == "kind_mismatch":
+        item["kind"] = "slot"
+    elif defect == "wrong_page":
+        item["source_ids"] = [all_pages(d)[1]]
+        item["view_ids"] = ["page-2"]
+        coverage["views"][0]["feature_ids"] = []
+    elif defect == "unclaimed_unknown":
+        fields[target] = unknown(all_pages(d))
+        entries = fields[name(job, "proofs")]["value"]["entries"]
+        entries[:] = [entry for entry in entries if entry["field"] != target]
+        coverage["features"] = []
+        for view in coverage["views"]:
+            view["feature_ids"] = []
+    elif defect == "overflow":
+        coverage.update(complete=False, capacity_exceeded=True)
+        coverage["features"].append(coverage_item(d, "overflow-recess", kind="recess", disposition="unresolved"))
+        for view in coverage["views"]:
+            view["feature_ids"].append("overflow-recess")
+    output = checked(job, fields)
+    assert not output.fields[inventory].evidence_valid
+    assert output.fields[name(job, "thickness")].evidence_valid
+    assert output.fields[inventory].value == fields[inventory]["value"]
+
+
+def test_one_feature_group_can_claim_multiple_distinct_supported_slots_once(work):
+    d = drawing(work)
+    job = build_template_job(d, image_root=work, feature_slots=2)
+    fields = absent_template_fields(job, d)
+    add_known_hole(job, d, fields)
+    first, second = name(job, "feature-01"), name(job, "feature-02")
+    fields[second] = deepcopy(fields[first])
+    fields[second]["value"]["position"]["x"] = 5
+    entries = fields[name(job, "proofs")]["value"]["entries"]
+    entries[:] = [entry for entry in entries if entry["field"] != second]
+    copied = [deepcopy(entry) for entry in entries if entry["field"] == first]
+    for entry in copied:
+        entry["field"] = second
+        if entry["path"] == "/position/x":
+            entry["evidence"]["number_ids"] = [number(d, "5")]
+    entries.extend(copied)
+    fields[name(job, "coverage")]["value"]["features"][0]["slot_ids"].append(second)
+    output = checked(job, fields)
+    assert output.fields[name(job, "coverage")].evidence_valid
+    assert output.fields[first].value["position"]["x"] == 7
+    assert output.fields[second].value["position"]["x"] == 5
+
+
+def test_significant_recess_cannot_be_a_cosmetic_omission_or_numeric_source(work):
+    d = drawing(work)
+    job = build_template_job(d, image_root=work, feature_slots=1)
+    fields = absent_template_fields(job, d)
+    coverage = name(job, "coverage")
+    recess = coverage_item(d, "recess", kind="recess", disposition="unsupported")
+    fields[coverage] = known(coverage_value(d, [recess]), all_pages(d))
+    assert checked(job, fields).fields[coverage].evidence_valid  # Enumerated, but M11 must block geometry.
+    fields[coverage]["value"]["features"][0]["disposition"] = "cosmetic_omission"
+    assert not checked(job, fields).fields[coverage].evidence_valid
+    add_known_hole(job, d, fields)
+    fields[coverage]["value"]["features"][0]["description"] = "Invented diameter 9 is NOT numeric evidence."
+    fields[name(job, "feature-01")]["value"]["diameter"] = 9
+    assert not checked(job, fields).fields[name(job, "feature-01")].evidence_valid
+
+
+def test_feature_capacity_never_truncates_the_requested_inventory(work):
+    d = drawing(work)
+    job = build_template_job(d, image_root=work, feature_slots=32)
+    assert len([n for n in job.request.field_names if "/feature-" in n]) == 32
+    with pytest.raises(EvidenceError, match="1 through 32"):
+        build_template_job(d, image_root=work, feature_slots=33)
+    fields = template_fields(job, d)
+    fields.pop(name(job, "feature-32"))
+    with pytest.raises(EvidenceError, match="fixed field inventory"):
+        checked(job, fields)
+
+
+def test_visible_feature_omission_requires_actual_opus_disagreement_then_one_revision(work):
+    """Scripted verifier feedback exercises M08, not actual model accuracy."""
+    d = drawing(work, pages=2)
+    # Both original views visibly depict the SAME fixture hole, rather than
+    # making the feature's only existence be Sol's candidate or the test oracle.
+    for page in (1, 2):
+        path = work / f"images/{d.id}-p{page}.png"
+        with Image.open(path) as image:
+            canvas = ImageDraw.Draw(image)
+            canvas.ellipse((500, 350, 580, 430), outline="black", width=4)
+            canvas.text((500, 440), "SYNTHETIC mounting hole / detail A", fill="black")
+            image.save(path)
+    job = build_template_job(d, image_root=work, feature_slots=1)
+    wrong = absent_template_fields(job, d)
+    corrected = deepcopy(wrong)
+    add_known_hole(job, d, corrected)
+    inventory, target = name(job, "coverage"), name(job, "feature-01")
+    # Host reference/representation checks cannot detect image omissions.
+    assert checked(job, wrong).fields[inventory].evidence_valid
+    critique = "Original main and detail A views show one mounting hole omitted from coverage and marked absent."
+    verifier = opus(wrong, verdicts={inventory: "disagrees", target: "disagrees"})
+    for n in (inventory, target):
+        verifier["answer"]["fields"][n]["reason"] = critique
+    instance, scenario = runner(work, job, [sol(wrong), verifier, sol(corrected), opus(corrected)])
+    record = validate_vision_result(job, instance(job.request))
+    assert len(record.rounds) == 2
+    assert record.field_results[inventory].status == record.field_results[target].status == "retry_verified"
+    assert record.rounds[0].determination.output.fields[target].value == {"kind": "absent"}
+    assert record.rounds[0].verification.output.fields[inventory].reason == critique
+    assert record.field_results[target].accepted.value == corrected[target]["value"]
+    calls = json.loads(scenario.read_text(encoding="utf-8"))["calls"]
+    assert [c["role"] for c in calls] == ["determination", "verification", "determination", "verification"]
+    assert calls[2]["prompt"]["verifier_feedback"]["fields"][inventory]["reason"] == critique
+    assert calls[3]["prompt"]["candidate"] == record.rounds[1].determination.output.model_dump(mode="json")
+    assert calls[3]["prompt"]["original_evidence"] == calls[0]["prompt"]["original_evidence"]
+    details = template_review_details(job, record)[inventory]["rounds"]
+    assert details[0]["verdict"]["verdict"] == "disagrees" and not details[1]["coverage_diagnostics"]
     assert PrepProvenance.model_validate_json(record.model_dump_json()) == record

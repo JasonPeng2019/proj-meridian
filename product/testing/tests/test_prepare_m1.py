@@ -128,6 +128,21 @@ def feature_value(kind="hole"):
         counterbore_depth=None, pattern=None)
 
 
+def coverage_item(page, identity, slots=(), *, kind="hole", disposition="supported"):
+    return dict(id=identity, description="SYNTHETIC machining group " + identity,
+        source_ids=[page], view_ids=["main"], kind=kind, disposition=disposition, slot_ids=list(slots),
+        face_interpretation="Entrance face is explicit in each mapped slot, or unresolved as stated.",
+        depth_interpretation="Through/blind and stepped depths use mapped scalar proofs, or remain unresolved.",
+        multiplicity_interpretation="Each slot preserves its singleton or complete repeated pattern.", reason=NOTE)
+
+
+def set_coverage(fields, identity, items=()):
+    page = f"{identity}/drawing/page/1"
+    fields[f"{identity}/template/coverage"] = field(dict(complete=True, capacity_exceeded=False,
+        views=[dict(id="main", description="SYNTHETIC main view and section", source_ids=[page],
+                    feature_ids=[item["id"] for item in items])], features=deepcopy(list(items))), [page])
+
+
 def template_fields(request, definition, *, feature=False):
     source = definition.evidence(request).inputs["drawing"].value
     identity = source["id"]
@@ -143,11 +158,10 @@ def template_fields(request, definition, *, feature=False):
                proof(name("outline"), "/width", number=numbers["7"]),
                proof(name("thickness"), number=numbers["5"])]
     features = [n for n in fields if n.rsplit("/", 1)[-1].startswith("feature-")]
-    if features:
-        target = features[0]
+    for target in features:
         fields[target] = field({"kind": "absent"}, [page])
         entries.append(proof(target, "/kind", refs=[page]))
-        if feature:
+        if feature and target == features[0]:
             kind = "slot" if feature == "slot" else "hole"
             value = feature_value(kind)
             fields[target] = field(value, [page, numbers["7"], numbers["5"], *([numbers["12"]] if kind == "slot" else [])])
@@ -161,6 +175,8 @@ def template_fields(request, definition, *, feature=False):
                 proof(target, "/width", number=numbers["5"]), proof(target, "/length", number=numbers["12"]),
                 proof(target, "/direction_deg", number=numbers["7"])])
     fields[name("proofs")] = field({"entries": entries}, [page])
+    set_coverage(fields, identity, [coverage_item(page, "machining", [features[0]],
+        kind="slot" if feature == "slot" else "hole")] if feature and features else [])
     return fields
 
 
@@ -228,8 +244,9 @@ class Scripted:
 
 
 def execute(work, scripted, paths, **kwargs):
+    slots = kwargs.pop("feature_slots", 2)
     return prep.prepare(paths[0], manifest=paths[1], image_root=work, output=work / "prepared.json",
-                        runner=scripted.runner, feature_slots=2, **kwargs)
+                        runner=scripted.runner, feature_slots=slots, **kwargs)
 
 
 def test_exact_boundary_atomic_save_and_cli_free_reload(work, monkeypatch):
@@ -379,7 +396,7 @@ def test_retry_bound_and_truthful_separate_counts(work, monkeypatch, failure):
                    for item in saved.review_items)
 
 
-def test_template_projection_keeps_proofs_unknown_slots_and_only_verified_absence(work, monkeypatch):
+def test_template_projection_keeps_proofs_and_only_verified_absence(work, monkeypatch):
     original = drawing(work, "D-013")
     saved = execute(work, Scripted(work, monkeypatch), inputs(work, [original]))
     template = saved.templates["D-013"]
@@ -387,9 +404,8 @@ def test_template_projection_keeps_proofs_unknown_slots_and_only_verified_absenc
     assert template.outline.value.width.value == 7
     assert template.outline.value.length.evidence.number_ids == [original.numbers[0].name]
     assert template.thickness.value == 5
-    assert len(template.features) == 1 and template.features[0].state == "unknown"
+    assert template.features == []
     assert template.outline.essential and template.thickness.essential
-    assert not template.features[0].essential and template.features[0].provenance == template.provenance
     assert template.material.state == "unknown" and template.weight_on_drawing.state == "unknown"
     assert template.source_sha256 == template.provenance.source.inputs["drawing"]
     assert prep.load_prepared(work / "prepared.json") == saved
@@ -575,7 +591,7 @@ def test_known_feature_must_survive_frozen_contract_handoff(work, monkeypatch, k
         assert feature.value.diameter.value == 5
     else:
         assert feature.value.width.value == 5 and feature.value.length.value == 12
-    assert feature.value.note is None and not feature.essential
+    assert feature.value.note is None and feature.essential
     candidate = feature.provenance.field_results[feature.name].accepted
     assert "note" not in candidate.value
     assert feature.provenance.rounds[-1].determination.output.fields[feature.name] == candidate
@@ -605,7 +621,7 @@ def test_known_feature_rejects_changed_geometry_and_non_null_note(work, monkeypa
 
 
 @pytest.mark.parametrize("unknown_essential", ["outline", "thickness"])
-def test_unknown_minor_details_remain_omittable_while_main_geometry_is_essential(work, monkeypatch, unknown_essential):
+def test_unknown_hole_details_and_main_geometry_are_essential(work, monkeypatch, unknown_essential):
     original = drawing(work, "D-013")
 
     def customize(request, definition, fields):
@@ -615,6 +631,7 @@ def test_unknown_minor_details_remain_omittable_while_main_geometry_is_essential
             required = f"{original.id}/template/{unknown_essential}"
             page = f"{original.id}/drawing/page/1"
             fields[feature]["value"]["diameter"] = {"state": "unknown"}
+            fields[f"{original.id}/template/coverage"]["value"]["features"][0]["disposition"] = "unresolved"
             fields[feature]["source_ids"] = [page, original.numbers[1].name]
             fields[required] = field(refs=[page])
             ledger = fields[f"{original.id}/template/proofs"]["value"]["entries"]
@@ -625,13 +642,229 @@ def test_unknown_minor_details_remain_omittable_while_main_geometry_is_essential
     template = saved.templates[original.id]
     major = getattr(template, unknown_essential)
     assert major.state == "unknown" and major.essential
-    minor = template.features[0]
-    assert minor.state == "known" and not minor.essential
-    assert minor.value.diameter.state == "unknown" and not minor.value.diameter.essential
-    assert minor.provenance == template.provenance == minor.value.diameter.provenance
-    assert minor.value.diameter.provenance.source.inputs
-    assert template.features[1].state == "unknown" and not template.features[1].essential
+    hole = template.features[0]
+    assert hole.state == "known" and hole.essential
+    assert hole.value.diameter.state == "unknown" and hole.value.diameter.essential
+    assert hole.provenance == template.provenance == hole.value.diameter.provenance
+    assert hole.value.diameter.provenance.source.inputs
+    assert template.features[1].state == "unknown" and template.features[1].essential
     assert prep.load_prepared(work / "prepared.json") == saved
+
+
+def detail_numbers(original):
+    """Additional invented printed tokens; no real D-series dimensions."""
+    for index, value in enumerate((0, 2, 3, 90)):
+        box = (300 + 25 * index, 200, 20, 12)
+        original.numbers.append(DrawingNumber(name=f"{original.id}/drawing/n/detail-{value}@1",
+            text=str(value), value=value, page=1, box=box))
+        original.words.append(DrawingWord(text=str(value), page=1, box=box))
+    return original
+
+
+def set_geometry(fields, identity, suffix, value, numbers):
+    """Author fixture values/proofs together; assertions below check preservation."""
+    target, page = f"{identity}/template/{suffix}", f"{identity}/drawing/page/1"
+    entries = fields[f"{identity}/template/proofs"]["value"]["entries"]
+    entries[:] = [entry for entry in entries if entry["field"] != target]
+    refs = set()
+
+    def leaves(item, path=""):
+        if item is None or item == {"state": "unknown"}:
+            return
+        if isinstance(item, dict):
+            for key, child in item.items():
+                leaves(child, path + "/" + key)
+        elif isinstance(item, list):
+            for index, child in enumerate(item):
+                leaves(child, path + f"/{index}")
+        elif type(item) in {int, float}:
+            token = numbers[str(item)]
+            entries.append(proof(target, path, number=token))
+            refs.add(token)
+        else:
+            entries.append(proof(target, path, refs=[page]))
+            refs.add(page)
+
+    leaves(value)
+    fields[target] = field(value, sorted(refs or {page}))
+
+
+def test_complete_holes_counterbores_countersinks_blind_depths_and_slot_patterns_project_intact(work, monkeypatch):
+    original = detail_numbers(drawing(work, "D-013"))
+    hole = feature_value()
+    hole.update(diameter=2, position={"x": 5, "y": 5}, hole_type="counterbored",
+        counterbore_diameter=3, counterbore_depth=2,
+        pattern=dict(type="circle", count=3, radius=3, start_angle_deg=0, evenly_spaced=True, angles_deg=None))
+    blind = feature_value()
+    blind.update(diameter=2, position={"x": 7, "y": 5}, through=False, depth=3,
+                 hole_type="countersunk", countersink_diameter=3, countersink_angle_deg=90)
+    slot = feature_value("slot")
+    slot.update(width=2, length=3, position={"x": 5, "y": 5}, direction_deg=0,
+                pattern=dict(type="row", count=2, spacing=3, direction_deg=0))
+    values = [hole, blind, slot]
+
+    def customize(request, definition, fields):
+        if definition.job.startswith("vision.template.") and isinstance(request, DeterminationRequest):
+            numbers = {n.text: n.name for n in original.numbers}
+            set_geometry(fields, original.id, "outline", dict(type="rectangle", length=12, width=12), numbers)
+            items = []
+            for index, value in enumerate(values, 1):
+                suffix = f"feature-{index:02d}"
+                set_geometry(fields, original.id, suffix, value, numbers)
+                items.append(coverage_item(f"{original.id}/drawing/page/1", f"group-{index}",
+                    [f"{original.id}/template/{suffix}"], kind=value["kind"]))
+            set_coverage(fields, original.id, items)
+
+    saved = execute(work, Scripted(work, monkeypatch, customize=customize), inputs(work, [original]), feature_slots=3)
+    template = saved.templates[original.id]
+    assert len(template.features) == 3 and all(f.state == "known" and f.essential for f in template.features)
+    assert [template_candidate_value(f.value) for f in template.features] == [dict(v, note=None) for v in values]
+    counterbore, countersink, slots = [f.value for f in template.features]
+    assert counterbore.counterbore_diameter.value == 3 and counterbore.counterbore_depth.value == 2
+    assert counterbore.pattern.count.value == 3 and counterbore.pattern.radius.value == 3
+    assert counterbore.pattern.start_angle_deg.value == 0
+    assert not countersink.through and countersink.depth.value == 3
+    assert countersink.countersink_diameter.value == 3 and countersink.countersink_angle_deg.value == 90
+    assert slots.pattern.count.value == 2 and slots.pattern.spacing.value == 3 and slots.pattern.direction_deg.value == 0
+    assert counterbore.counterbore_depth.essential and counterbore.pattern.count.essential and slots.pattern.count.essential
+    for projected, expected in zip(template.features, values):
+        candidate = template.provenance.field_results[projected.name].accepted
+        assert candidate.value == expected and "note" not in candidate.value
+    assert prep.load_prepared(work / "prepared.json") == saved
+
+
+@pytest.mark.parametrize("detail", ["placement", "depth", "count", "counterbore_depth", "entrance_face"])
+def test_unknown_significant_physical_detail_creates_essential_feature_blocker(work, monkeypatch, detail):
+    original = detail_numbers(drawing(work, "D-013"))
+
+    def customize(request, definition, fields):
+        if definition.job.startswith("vision.template.") and isinstance(request, DeterminationRequest):
+            numbers = {n.text: n.name for n in original.numbers}
+            value = feature_value()
+            if detail == "placement":
+                value["position"]["x"] = {"state": "unknown"}
+            elif detail == "depth":
+                value.update(through=False, depth={"state": "unknown"})
+            elif detail == "count":
+                value["pattern"] = dict(type="row", count={"state": "unknown"}, spacing=3, direction_deg=0)
+            elif detail == "counterbore_depth":
+                value.update(hole_type="counterbored", counterbore_diameter=7, counterbore_depth={"state": "unknown"})
+            set_geometry(fields, original.id, "feature-01", value, numbers)
+            if detail == "entrance_face":
+                target = f"{original.id}/template/feature-01"
+                fields[target] = field(refs=[f"{original.id}/drawing/page/1"])
+                entries = fields[f"{original.id}/template/proofs"]["value"]["entries"]
+                entries[:] = [entry for entry in entries if entry["field"] != target]
+            item = coverage_item(f"{original.id}/drawing/page/1", "unresolved-hole",
+                [f"{original.id}/template/feature-01"], disposition="unresolved")
+            item["reason"] = f"Original views do not establish {detail}; no geometry default is authorized."
+            item["depth_interpretation"] = "A depth written in this inventory is never a scalar proof."
+            set_coverage(fields, original.id, [item])
+
+    saved = execute(work, Scripted(work, monkeypatch, customize=customize), inputs(work, [original]))
+    template = saved.templates[original.id]
+    assert template.features[0].essential
+    blocker = next(f for f in template.features if f.name.endswith("/coverage/unresolved-hole"))
+    assert blocker.state == "unknown" and blocker.essential
+    assert detail in blocker.message and blocker.evidence.source_ids == [f"{original.id}/drawing/page/1"]
+    assert template.provenance == blocker.provenance and len(template.provenance.rounds) == 1
+    assert prep.load_prepared(work / "prepared.json") == saved
+
+
+@pytest.mark.parametrize("kind", ["pocket", "indent", "recess", "hole", "chamfer"])
+def test_unsupported_significant_features_block_and_only_explicit_minor_cosmetics_can_be_omitted(work, monkeypatch, kind):
+    original = drawing(work, "D-013")
+
+    def customize(request, definition, fields):
+        if definition.job.startswith("vision.template.") and isinstance(request, DeterminationRequest):
+            item = coverage_item(f"{original.id}/drawing/page/1", "detail", kind=kind,
+                disposition="cosmetic_omission" if kind == "chamfer" else "unsupported")
+            item.update(face_interpretation="Left side view entrance.",
+                reason="Explicit minor edge break may be omitted." if kind == "chamfer" else
+                       "Significant drawn detail cannot be represented by the supported flat geometry.")
+            set_coverage(fields, original.id, [item])
+
+    saved = execute(work, Scripted(work, monkeypatch, customize=customize), inputs(work, [original]))
+    template = saved.templates[original.id]
+    assert len(template.features) == 1
+    feature = template.features[0]
+    assert feature.state == "unknown" and feature.essential == (kind != "chamfer")
+    assert feature.evidence.source_ids == [f"{original.id}/drawing/page/1"]
+    assert "Left side" in feature.message and feature.provenance == template.provenance
+    # A saved consumer cannot remove the blocker or soften essentiality.
+    if feature.essential:
+        payload = saved.model_dump(mode="json")
+        payload["templates"][original.id]["features"] = []
+        altered = work / "omitted-blocker.json"
+        altered.write_text(json.dumps(payload), encoding="utf-8")
+        with pytest.raises(ValidationError, match="Saved template differs"):
+            prep.load_prepared(altered)
+
+
+@pytest.mark.parametrize("defect", ["missing", "duplicate", "unclaimed", "overflow"])
+def test_inventory_incompleteness_blocks_even_with_accepted_outer_geometry(work, monkeypatch, defect):
+    original = drawing(work, "D-013")
+
+    def customize(request, definition, fields):
+        if definition.job.startswith("vision.template.") and isinstance(request, DeterminationRequest):
+            fields.update(template_fields(request.job, definition, feature="hole"))
+            inventory = f"{original.id}/template/coverage"
+            value = fields[inventory]["value"]
+            if defect == "missing":
+                fields[inventory] = field(refs=[f"{original.id}/drawing/page/1"])
+            elif defect == "duplicate":
+                value["features"][0]["slot_ids"] *= 2
+            elif defect == "unclaimed":
+                value["features"] = []
+                value["views"][0]["feature_ids"] = []
+            elif defect == "overflow":
+                value.update(complete=False, capacity_exceeded=True)
+                overflow = coverage_item(f"{original.id}/drawing/page/1", "overflow", disposition="unresolved")
+                overflow["reason"] = "A further drawn pattern exceeds this job's fixed slot capacity."
+                value["features"].append(overflow)
+                value["views"][0]["feature_ids"].append("overflow")
+
+    saved = execute(work, Scripted(work, monkeypatch, customize=customize), inputs(work, [original]))
+    template = saved.templates[original.id]
+    assert template.outline.state == template.thickness.state == "known"
+    assert template.features[0].state == "known" and template.features[0].essential
+    blocker = next(f for f in template.features if f.name.endswith("/coverage"))
+    assert blocker.state == "unknown" and blocker.essential
+    inventory = f"{original.id}/template/coverage"
+    assert template.provenance.field_results[inventory].accepted is None
+    assert saved.batch.counts.unverified_fallback == 0
+    assert prep.load_prepared(work / "prepared.json") == saved
+
+
+@pytest.mark.parametrize("final_verdict", ["disagrees", "unsure", "execution_failed"])
+def test_coverage_disagreement_retains_both_rounds_and_cannot_become_fallback(work, monkeypatch, final_verdict):
+    original = drawing(work, "D-013")
+    holder = {}
+
+    def customize(request, definition, fields):
+        if not definition.job.startswith("vision.template.") or isinstance(request, DeterminationRequest):
+            return
+        inventory = f"{original.id}/template/coverage"
+        if request.round == 2 and final_verdict == "execution_failed":
+            return holder["scripted"].runner._attempt(request, status="execution_failed", failure=ReaderFailure(
+                classification="provider_error", execution_failure=True, message=NOTE,
+                troubleshooting=["Synthetic verifier execution failed after a real coverage disagreement."]))
+        fields[inventory] = FieldVerification(verdict="disagrees" if request.round == 1 else final_verdict,
+            reason="Section view shows a significant unlisted recess.",
+            source_ids=request.candidate.fields[inventory].source_ids)
+
+    scripted = holder["scripted"] = Scripted(work, monkeypatch, customize=customize)
+    saved = execute(work, scripted, inputs(work, [original]))
+    record = next(record for record in saved.batch.records if record.job == f"vision.template.{original.id}")
+    assert len(record.rounds) == 2 and record.mode == "determine_verify"
+    assert record.rounds[0].verification.output.fields[f"{original.id}/template/coverage"].verdict == "disagrees"
+    assert record.field_results[f"{original.id}/template/coverage"].accepted is None
+    assert record.rounds[1].determination.output.fields[f"{original.id}/template/coverage"].value["features"] == []
+    if final_verdict == "execution_failed":
+        assert original.id not in saved.templates  # No accepted final geometry; never resurrect round one.
+    else:
+        assert any(f.state == "unknown" and f.essential for f in saved.templates[original.id].features)
+    assert saved.batch.counts.unverified_fallback == 0
 
 
 def printed_thickness_fields(request, definition):

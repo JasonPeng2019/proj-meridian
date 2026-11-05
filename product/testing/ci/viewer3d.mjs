@@ -11,6 +11,8 @@ assert.equal(process.env.GITHUB_ACTIONS, "true", "Run only in queued remote Acti
 assert.equal(process.env.GITHUB_REF, "refs/heads/harness-v2", "Use this project's publication branch");
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const frontend = path.join(root, "development/frontend");
+// Tailwind's PostCSS plugin resolves its config from cwd, as the real build does.
+process.chdir(frontend);
 const requireFrontend = createRequire(path.join(frontend, "package.json"));
 const requireBrowser = createRequire(path.join(root, "development/.runtime/ci-browser/package.json"));
 const { chromium } = requireBrowser("playwright");

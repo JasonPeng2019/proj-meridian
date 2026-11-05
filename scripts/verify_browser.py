@@ -57,6 +57,10 @@ def verify_debug():
         page.locator('.debug-tabs').get_by_role('button',name='Model & checks',exact=True).click()
         expect(pane).to_have_js_property('scrollTop',0)
 
+        page.goto(BASE+'/review/awaiting-review')
+        unsettled=[i for i in get('/api/review') if i.get('status') not in ['accepted','rejected','human_confirmed','human_rejected','approved','reviewed']]
+        expect(page.locator('.review-item')).to_have_count(len(unsettled))
+        expect(page.get_by_role('button',name='Show all items awaiting human review',exact=True)).to_have_text(f'{len(unsettled)} awaiting human review')
         page.goto(BASE+'/review/parts')
         search=page.get_by_role('textbox',name='Search review parts',exact=True)
         search.fill('Recoater')
@@ -104,8 +108,9 @@ def verify_debug():
         page.go_back()
         expect(page.locator('.review-item-detail h2')).to_be_visible()
         assert 'part=D-014' in page.url
-        page.get_by_role('button',name='Clear part scope',exact=False).click()
+        page.get_by_role('navigation',name='Review categories').get_by_role('button',name='Full queue').click()
         expect(page.locator('.review-scope')).to_have_count(0)
+        expect(page.locator('.review-item')).to_have_count(len(unsettled))
         assert 'part=' not in page.url
         page.goto(BASE+'/review/part/D-013?part=D-013')
         expect(page.locator('.part-review-canvas .part-title h2')).to_have_text('Recoater Plate')
@@ -117,7 +122,7 @@ def verify_debug():
         page.screenshot(path=str(OUT/'engineering-design-review.png'))
         assert not errors,errors
         browser.close()
-    (OUT/'debug-browser-check.json').write_text(json.dumps({'debug_launch':True,'calculations':True,'history':True,'raw_sources':True,'laptop_scrollbars':metrics,'searchable_parts':True,'part_scoped_review_counts':True,'scope_refresh_back_navigation':True,'independent_review_scroll':True,'design_approval_controls_retained':True,'page_errors':errors},indent=2),encoding='utf-8')
+    (OUT/'debug-browser-check.json').write_text(json.dumps({'debug_launch':True,'calculations':True,'history':True,'raw_sources':True,'laptop_scrollbars':metrics,'searchable_parts':True,'global_awaiting_review_queue':len(unsettled),'part_scoped_review_counts':True,'scope_refresh_back_navigation':True,'independent_review_scroll':True,'design_approval_controls_retained':True,'page_errors':errors},indent=2),encoding='utf-8')
 
 
 def main():

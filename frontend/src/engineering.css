@@ -37,6 +37,7 @@
 .review-page > .workspace-header { height: 64px; min-height: 64px; padding-top: 12px; padding-bottom: 12px; }
 .review-page .workspace-header h1 { font-size: 22px; }
 .review-header-actions { display: flex; align-items: center; gap: 14px; }
+.review-global-count { font-size: 12px; white-space: nowrap; }
 .review-header-actions .accuracy-card { max-width: none; position: relative; padding: 8px 10px; }
 .review-header-actions .accuracy-card > .structured { position: absolute; top: 100%; right: 0; z-index: 40; width: 360px; max-height: 300px; overflow: auto; padding: 16px; border: 1px solid #dde9e3; background: #fff; box-shadow: 0 8px 28px #263e5817; }
 .review-intro { padding: 14px 28px; }

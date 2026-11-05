@@ -52,10 +52,14 @@ const report = { outcome: "FAIL", synthetic: true, real_source_credit: false,
   scope: "Real Viewer3D/PartPage, Three GLBLoader and WebGL with controlled SYNTHETIC tetrahedra and review state",
   commit: process.env.GITHUB_SHA, run_id: process.env.GITHUB_RUN_ID,
   fixture_sha256: Object.fromEntries(Object.entries(glbs).map(([id, data]) => [id, createHash("sha256").update(data).digest("hex")])) };
-const server = await createServer({ configFile: false, root: frontend, plugins: [react()],
+const server = await createServer({ configFile: false, root: frontend,
+  plugins: [react(), { name: "meridian-synthetic-viewer-routes", configureServer: installFixtureRoutes }],
   cacheDir: path.join(root, "testing/cache/C04-viewer-vite"),
   resolve: { dedupe: ["react", "react-dom", "three"] },
   server: { host: "127.0.0.1", port: 0, fs: { allow: [root] } } });
+// Install before Vite's SPA fallback; otherwise it serves the normal app for
+// /__viewer3d__ and the test never mounts its controlled viewer or mock API.
+function installFixtureRoutes(server) {
 server.middlewares.use(async (request, response, next) => {
   const url = new URL(request.url, "http://localhost");
   if (url.pathname === "/__viewer3d__") {
@@ -75,6 +79,7 @@ server.middlewares.use(async (request, response, next) => {
   const send = () => { if (!response.destroyed) { response.setHeader("Content-Length", data.length); response.end(data); } };
   if (id === "D-902") setTimeout(send, 800).unref(); else send();
 });
+}
 
 let browser, page;
 const checked = name => checks.push({ name, outcome: "PASS" });

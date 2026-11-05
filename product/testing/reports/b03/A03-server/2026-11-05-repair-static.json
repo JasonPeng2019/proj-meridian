@@ -1,0 +1,44 @@
+{
+  "completed_at": "2026-11-05T12:01:08.532634+00:00",
+  "scope": "Syntax-only repair receipt and static inspection of already downloaded historical artifacts; no application imports or local runtime execution",
+  "syntax_outcome": "PASS",
+  "runtime_outcome": "SKIPPED",
+  "runtime_reason": "Exact repair candidate awaits ROOT Actions",
+  "files": [
+    {
+      "path": "development/backend/app/main.py",
+      "sha256_utf8_lf": "954033c3cf9ad2875cd88b39642582ac49a363cb552014cc43b0b831f9618558"
+    },
+    {
+      "path": "testing/tests/test_server.py",
+      "sha256_utf8_lf": "33443e1cae31c9eca3d963adf42cf453b2a760624ebe3217eedb563a6bbd0c54"
+    },
+    {
+      "path": "development/uv.lock",
+      "sha256_utf8_lf": "dc5a8d9ac3f757bbea7524528592cbeec6da29cac94421c5b1ed6333a888e4a9"
+    }
+  ],
+  "historical_evidence": [
+    {
+      "path": "testing/reports/ci/A03-server-42021461040.json",
+      "sha256_bytes": "2b641ed4c68f3b3b57f9b0b941806d75e23e74ac5be58f6d1b1021d94d7db830"
+    },
+    {
+      "path": "testing/runs/remote-modules-42021461040/reports/ci/modules.xml",
+      "sha256_bytes": "a1ea0169b221f359a99c02e4960e2890612aa57371b43a43c673877253a804ed"
+    },
+    {
+      "path": "testing/runs/remote-modules-42021461040/reports/ci/modules-output.txt",
+      "sha256_bytes": "4096f6a22e05b4ad6c3706a7bc4d60b33edecc84ff9ad544da6d022310ca9c2f"
+    }
+  ],
+  "historical_junit": {
+    "candidate": "88b720bb138d6cad479104321311586e249780be",
+    "publication": "4ab374200f4058c5908b16ce984e34be142f81ec",
+    "run_id": 42021461040,
+    "total_cases": 107,
+    "failures": 1,
+    "server_cases": 7,
+    "server_failures": 1
+  }
+}

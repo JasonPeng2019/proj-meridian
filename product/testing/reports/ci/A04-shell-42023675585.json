@@ -1,0 +1,195 @@
+{
+  "schema": "meridian-remote-module-receipt/v1",
+  "module": "M04 shell M0 slice",
+  "candidate": "c13691c62cf958256a690078a90a346cf77ad164",
+  "run": {
+    "conclusion": "success",
+    "databaseId": 42023675585,
+    "headBranch": "harness-v2",
+    "headSha": "47e848b2466c1d601eac102425f61a8965743382",
+    "jobs": [
+      {
+        "completedAt": "2026-11-05T12:02:07Z",
+        "conclusion": "success",
+        "databaseId": 127232437157,
+        "name": "checks",
+        "startedAt": "2026-11-05T12:01:39Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-11-05T12:01:42Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-11-05T12:01:40Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:01:43Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 2,
+            "startedAt": "2026-11-05T12:01:42Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:01:43Z",
+            "conclusion": "success",
+            "name": "Run mkdir -p tmp cache/uv cache/npm reports/ci",
+            "number": 3,
+            "startedAt": "2026-11-05T12:01:43Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:01:44Z",
+            "conclusion": "success",
+            "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 4,
+            "startedAt": "2026-11-05T12:01:43Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:01:44Z",
+            "conclusion": "success",
+            "name": "Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+            "number": 5,
+            "startedAt": "2026-11-05T12:01:44Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:01:49Z",
+            "conclusion": "success",
+            "name": "Install locked Python test dependencies without CAD",
+            "number": 6,
+            "startedAt": "2026-11-05T12:01:44Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:01:53Z",
+            "conclusion": "success",
+            "name": "Lightweight foundation checks",
+            "number": 7,
+            "startedAt": "2026-11-05T12:01:49Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:01:58Z",
+            "conclusion": "success",
+            "name": "Build frontend remotely",
+            "number": 8,
+            "startedAt": "2026-11-05T12:01:53Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:01:59Z",
+            "conclusion": "success",
+            "name": "Check frozen TypeScript payloads, fixtures and Debug props",
+            "number": 9,
+            "startedAt": "2026-11-05T12:01:58Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:01:59Z",
+            "conclusion": "success",
+            "name": "Check source widgets and hidden Debug rendering",
+            "number": 10,
+            "startedAt": "2026-11-05T12:01:59Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:01:59Z",
+            "conclusion": "success",
+            "name": "Check shell navigation, history transport and clean customer copy",
+            "number": 11,
+            "startedAt": "2026-11-05T12:01:59Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:02:02Z",
+            "conclusion": "success",
+            "name": "Save frontend and its provenance",
+            "number": 12,
+            "startedAt": "2026-11-05T12:01:59Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:02:03Z",
+            "conclusion": "success",
+            "name": "Save check reports",
+            "number": 13,
+            "startedAt": "2026-11-05T12:02:02Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:02:04Z",
+            "conclusion": "success",
+            "name": "Post Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+            "number": 24,
+            "startedAt": "2026-11-05T12:02:03Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:02:04Z",
+            "conclusion": "success",
+            "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "number": 25,
+            "startedAt": "2026-11-05T12:02:04Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:02:04Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "number": 26,
+            "startedAt": "2026-11-05T12:02:04Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-05T12:02:04Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 27,
+            "startedAt": "2026-11-05T12:02:04Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42023675585/job/127232437157"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/JasonPeng2019/proj-meridian/actions/runs/42023675585"
+  },
+  "checks": [
+    {
+      "name": "Whole-source TypeScript, build, frozen contracts, M17 source widgets, M04 SSR/props/source targets/transport",
+      "outcome": "PASS",
+      "evidence": "testing/runs/remote-check-42023675585/"
+    },
+    {
+      "name": "Integrated browser transitions/layout/focus/reload/restore races",
+      "outcome": "SKIPPED",
+      "reason": "Deferred to real screen integration/V3. SSR is not browser evidence."
+    }
+  ],
+  "blob_proof": [
+    {
+      "path": "development/frontend/src/App.tsx",
+      "sha256": "790f9c77f842a5c9534a8139f784bfeb4010cf0801df2b1a4e36ebfd168e3dd8",
+      "exact_match": true
+    },
+    {
+      "path": "testing/tests/shell_m0.cjs",
+      "sha256": "c781d8b2031443827a3e7ce3ee005d73f0cf87dae9dc94552de9697524d459b5",
+      "exact_match": true
+    },
+    {
+      "path": "testing/reports/b02/A04-shell/HANDOFF.md",
+      "sha256": "44f3a1c517ebf74080206b29dbd5d680936e734f95434e20a127cf83d3c39bff",
+      "exact_match": true
+    }
+  ],
+  "limitations": [
+    "M18 history list/composer and real producer screens not connected; M0 placeholders remain.",
+    "No local test/build/provider/PDF/CAD/browser execution. No product gate credit."
+  ]
+}

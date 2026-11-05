@@ -15,6 +15,7 @@ import threading
 from unittest.mock import patch
 
 import pytest
+import httpx
 from fastapi.testclient import TestClient
 
 
@@ -204,11 +205,31 @@ def test_fixture_routes_slash_ids_assets_and_unavailable_review(settings):
         assert listing.status_code == 200 and len(listing.json()) == 3
         assert all(item["fixture"] and item["synthetic"] and item["fixture_note"] for item in listing.json())
         assert len(client.get("/api/parts?q=training%20bar").json()) == 1
-        for item in listing.json():
-            response = client.get(c.part_api_path(item["id"]))
-            assert response.status_code == 200
-            assert c.PartDetailResponse.model_validate(response.json()).id == item["id"]
-        checked_error(client.get("/api/parts/D-013%252Fpart"), 404, "not_found")  # no second unquote
+        async def check_once_decoded_boundary():
+            # Locked Starlette 1.10.0 legacy TestClient unquotes HTTPX URL.path
+            # a second time. HTTPX ASGITransport forwards it directly, matching
+            # Uvicorn's once-decoded scope. Assert both scope fields and results.
+            app = create_app(settings)
+            observed = []
+
+            async def capture_scope(scope, receive, send):
+                observed.append((scope["path"], scope["raw_path"]))
+                await app(scope, receive, send)
+
+            transport = httpx.ASGITransport(app=capture_scope)
+            async with httpx.AsyncClient(transport=transport, base_url="http://synthetic.test") as boundary_client:
+                for item in listing.json():
+                    encoded = c.part_api_path(item["id"])
+                    response = await boundary_client.get(encoded)
+                    assert observed[-1] == (f'/api/parts/{item["id"]}', encoded.encode("ascii"))
+                    assert response.status_code == 200, response.text
+                    assert c.PartDetailResponse.model_validate(response.json()).id == item["id"]
+                    twice_encoded = encoded.replace("%", "%25")
+                    response = await boundary_client.get(twice_encoded)
+                    assert observed[-1] == (encoded, twice_encoded.encode("ascii"))
+                    checked_error(response, 404, "not_found")  # application must not decode again
+
+        asyncio.run(check_once_decoded_boundary())
         checked_error(client.get(c.image_api_path("D-013/part")), 404, "not_found")  # PNG fixture absent
         checked_error(client.get(c.image_api_path("D-013/part") + "&page=0"), 422, "invalid_request")
         for example, filename in (("A", "sample.glb"), ("B", "sample-B.glb")):

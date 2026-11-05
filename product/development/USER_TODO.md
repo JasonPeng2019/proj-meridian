@@ -16,6 +16,14 @@ No dataset decisions have been generated yet. Do not prefill engineering answers
 - Current state: Preliminary, pending asynchronous human review. Coding and source-grounded automated verification continue. Isolated benchmark decisions never enter the production journal.
 - User action: Review/correct the draft when convenient. Once actual judge decisions exist, spot-check about five and record the observation; no such spot-check is claimed yet.
 
+### DRAW-019-TITLE — Review the D-019 correction demonstration
+
+- Question: What supported corrected title should be recorded for D-019 after inspecting its drawing in Debug/Review?
+- Affected modules: M05 source evidence, M16 review, M23/M24 correction demonstration.
+- Evidence: [raw PDF run 42000021167](https://github.com/JasonPeng2019/proj-meridian/actions/runs/42000021167), D-019 positioned text and page image; A05's handoff identifies the printed placeholder `Description` and separate note `1mm silicone pakning`.
+- Current state: Pending and unreviewed. The placeholder is retained as original evidence; the usable title stays unavailable. No title is inferred from its note and no human decision is fabricated.
+- User action: Inspect the source and record a supported correction through Debug/Review when convenient. Coding, preparation and isolated synthetic correction tests continue meanwhile.
+
 ## Completed
 
 None yet.

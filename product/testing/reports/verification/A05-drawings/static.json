@@ -1,0 +1,164 @@
+{
+  "scope": "AST syntax/export names and unchanged source hashes; optional observations of remotely extracted words. No product/runtime validation.",
+  "completed_at": "2026-11-05T09:23:35.995374+00:00",
+  "outcome": "PASS",
+  "runtime_tests_executed": false,
+  "checks": [
+    {
+      "path": "development/backend/loader/drawings.py",
+      "sha256": "901b9eddf2939279ba8c96911319a3f6d9d94c7a3838acc9028686d40876dc89",
+      "syntax": "PASS",
+      "frozen_contract_imports": [
+        "Box",
+        "Confidence",
+        "DrawingEvidence",
+        "DrawingField",
+        "DrawingNumber",
+        "DrawingWord",
+        "Method",
+        "PageGeometry",
+        "SourceQuality",
+        "drawing_fact_name",
+        "drawing_id",
+        "drawing_number_name",
+        "normalize_component"
+      ]
+    },
+    {
+      "path": "testing/tests/test_drawings.py",
+      "sha256": "e6d805e26e955f0bdeefc418d1bf8a32c0cec7e247c5cf175308819ac15085e9",
+      "syntax": "PASS",
+      "frozen_contract_imports": [
+        "Confidence",
+        "DrawingEvidence",
+        "SourceQuality",
+        "pixel_box_to_source",
+        "source_box_to_pixels"
+      ]
+    },
+    {
+      "path": "testing/smoke/A05-drawings/inspect_static.py",
+      "sha256": "7fa7066ffe8d86260e1f8e1cabea91a0dbb43cf76526995122a8447e14c912eb",
+      "syntax": "PASS",
+      "frozen_contract_imports": []
+    }
+  ],
+  "unchanged_manifest_asset_hashes": {
+    "D-001": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f",
+    "D-002": "6822d609aa047ddbcb9446e1215f697ec12f5764ba9aa5ef3906543b9a1887bc",
+    "D-003": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+    "D-004": "947fee0986f4799388d5bd41411b2abedcee5d6a644e909238f005fb4802f64b",
+    "D-005": "6f49feb435d02be842ac6933d726b6785cf9cb7cef70e8193976dc4ab265cf26",
+    "D-006": "b9bd89aa9449889adb5335b1f4f3550be072a37447b1c134fb703435f04fbaad",
+    "D-007": "e5d57d66cae6ca7bbb2956249e89c11db91d4ea3e258f48658af191e926870c9",
+    "D-008": "2642be4f1d3471cc440aa7830166adfa298a8e1a31cef90911662bb2b4a26448",
+    "D-009": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea",
+    "D-010": "700cc64cb7e7c31d1d7a6d6f506bac453cdcb3c7daf76dc2272ffebfe5e2d911",
+    "D-011": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67",
+    "D-012": "23ba5d97ee7a744cf12072e1338ab62fa5e49c09c5229af4f20a6ff5a455f64a",
+    "D-013": "826076b03bfbaeee961dc3e57cb642c225d41f1ea9a643d0bb1ca7d296280047",
+    "D-014": "0e6fa42e39eda320d42f45576a0825c5d0c002abd6863188b3c98774d52867f6",
+    "D-015": "0828f6fee0d3bc087524df08c8b3fbadc5201212e5f86fcfc08b984fe9e32c60",
+    "D-016": "4f9799f28352975cd39a5c52daf0e1dcb036d379fb58ecf6413f0befc67525f3",
+    "D-017": "a460ab37d94f2d8f4c9bac58da15ea9d1e93b4f48ee0825e51adac0ec81f37ae",
+    "D-018": "816b582d82ed383ad0ff5452afde74e98b74981a6e9afb3c8d1ff6dbd6fa50a0",
+    "D-019": "581fbaf7562ac75008243463af6956d6f88cd6a0a858cf6c22aa62ce39041e11",
+    "D-020": "06242966c0f3c15c3031982fa56585859ff1d64e52f6215a30fcf0e912225fa6",
+    "D-021": "c8b07157f3b40ef8d2dc18ae915d4f7244479ea6219d4fe3e8bb6ef1fedea1bc",
+    "D-022": "7f3f8efc002bc2545386c1a355341ca61ebd984084b21cb07575331c4c1cc9ee",
+    "D-023": "5d838d31ad5e803b6c421bc6867447f73756d51509259385e07caf81e453c36d",
+    "D-024": "f6da4da2e0c21231939c15f13535cf068d1c1f778774816f3cb65ddf30f96e3d",
+    "D-025": "9b61f2c688fba1b10f502658505c78c0ff99820d3f281822eacdc7283e9b7e9c",
+    "D-026": "a7ee7f4d75acaf2e8fc67ce14ca223d5cb4a2931063f37f4dfb6fadeeb70256e",
+    "D-027": "9a270f0ddf24b173b85b6879b4fbd1ba9cf67d71cff7b13f722699699a667bcc",
+    "D-028": "30fb8b6088f535c51107389aa8eb4c7420841cd0f4c6175d3deb90a154e9881f",
+    "D-029": "066ed91474bb74b652451a34c6b9f5b719d23dba56043b8ba6aa8f5b7479cf15",
+    "D-030": "849100de6d2abbbcca5c6e39cd4a1778918b17818cc88c91340612981d9220ee",
+    "OPENLPBF-BOM": "b9837f2249247e4465ae5f481f714912bba8ed33a7759cd773ab43092e1b6ae2",
+    "OPENLPBF-LICENSE": "4f6226d3b4c338f9adebbe2b56001cd6c627890e06b6601bec853bbeef09e2c3",
+    "OPENLPBF-README": "8e6f424f0c2e2607db5e48a9bd4ca005bb9b2f476d5a363b06789998dbca00d0",
+    "DIAGRAM-SYSTEMLEVELS": "6252f374edc6e21418bcab4565ceebbfb825c49a500fd7fcbccdad9ce32c6eef",
+    "DIAGRAM-SIMPLEDIAGRAM": "b277e23825ce809747104eeb4164b82c8016d4ef95b181d0c72afec6ba4e0e94",
+    "DIAGRAM-POWDERLEGEND": "cdaffdb229774ab013e4a29c16b3ef6ac1fd5bf7d6d94cb18cfe40328378e7a0",
+    "DIAGRAM-RECOATERLEGEND": "a97ffcfbb97fb0538232759c193fd1dd7bc1665c98ff038b40629f491e2f1c92",
+    "DIAGRAM-ZAXIS_LEGEND": "e38f096c858aaa88c4b61efc270884f2502e990ced69cfd5d0fdc2cda11a73ca",
+    "DIAGRAM-SAFETYOPM": "30477ff0f11e9e4d766245fcfc8bd4f527280a4a0542f28ff2ffe437fa01a006",
+    "OPENLPBF-SOURCE-METADATA": "fcde4fc582b3e806690c3879cec1f2b58672007d489794ba24a4b5de98710480"
+  },
+  "remote_raw_artifacts": "C:\\Users\\Jason\\Documents\\Jason\\Take-Home-Assignments\\active\\Avathon\\product\\testing\\runs\\remote-pdf-42000021167\\harness-v2-pdf-42000021167\\runs\\pdf-regeneration",
+  "remote_source_observations": {
+    "D-013": {
+      "raw_words": 179,
+      "coincident_duplicates": 54
+    },
+    "D-019": {
+      "verbatim_placeholder": "Description",
+      "xyxy": [
+        980.6021118164062,
+        723.1878051757812,
+        1056.4161376953125,
+        742.3258056640625
+      ]
+    },
+    "D-026": {
+      "overlapping_verbatim_words": [
+        [
+          872.240966796875,
+          772.0480346679688,
+          893.619140625,
+          782.9840087890625,
+          "Sheet"
+        ],
+        [
+          880.7171020507812,
+          772.0480346679688,
+          909.464111328125,
+          782.9840087890625,
+          "WEIGHT"
+        ]
+      ]
+    },
+    "D-001": [
+      {
+        "page": 1,
+        "width": 1190.4000244140625,
+        "height": 842.4000244140625,
+        "raw_words": 0
+      }
+    ],
+    "D-003": [
+      {
+        "page": 1,
+        "width": 1182.4000244140625,
+        "height": 834.4000244140625,
+        "raw_words": 0
+      },
+      {
+        "page": 2,
+        "width": 1182.4000244140625,
+        "height": 834.4000244140625,
+        "raw_words": 0
+      },
+      {
+        "page": 3,
+        "width": 1182.4000244140625,
+        "height": 834.4000244140625,
+        "raw_words": 0
+      }
+    ],
+    "D-021": [
+      {
+        "page": 1,
+        "width": 1190.550048828125,
+        "height": 841.8900146484375,
+        "raw_words": 178
+      },
+      {
+        "page": 2,
+        "width": 1190.550048828125,
+        "height": 841.8900146484375,
+        "raw_words": 142
+      }
+    ]
+  }
+}

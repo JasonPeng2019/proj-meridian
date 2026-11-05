@@ -147,4 +147,6 @@ jobs:
           retention-days: 7
           path: |
             product/testing/reports/ci/
+            product/testing/reports/verification/
+            product/testing/runs/A05-drawings/
             product/testing/runs/pdf-regeneration/

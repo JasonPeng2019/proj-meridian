@@ -249,6 +249,49 @@ def analytic_volume(template, cuts, thickness):
     return volume
 
 
+def counted_callout_cuts(callout, cuts):
+    kind = "slot" if callout.get("feature") == "slot" else "hole"
+    match = re.match(r"\s*\d+\s*[xX×]\s*(\d+(?:[.,]\d+)?)", callout.get("text", ""))
+    diameter = float(match.group(1).replace(",", ".")) if match else None
+    candidates = []
+    for cut in cuts:
+        if cut["kind"] != kind or (callout.get("through") is True and not cut["through"]):
+            continue
+        if kind == "slot":
+            if any(abs(cut[key] - callout[source]) > 1e-6 for key, source in (("width", "width_mm"), ("length", "length_mm")) if source in callout):
+                continue
+        elif diameter is not None and abs(cut["diameter"] - diameter) > 1e-6:
+            continue
+        if callout.get("thread"):
+            thread = re.match(r"M\d+(?:[.,]\d+)?", str(cut.get("thread") or "").strip(), re.I)
+            if not thread or thread.group().replace(",", ".").upper() != callout["thread"].replace(",", ".").upper():
+                continue
+        candidates.append(cut)
+    return candidates
+
+
+def countersink_parent(callout, callouts):
+    """Associate an uncounted step line with its counted source hole group."""
+    groups = [item for item in callouts if type(item.get("count")) is int and
+              item.get("feature") not in ("slot", "general_note") and
+              (callout.get("page") is None or item.get("page") == callout.get("page"))]
+    if len(groups) == 1:
+        return groups[0]
+    box = callout.get("box")
+    if not box:
+        return None
+    adjacent = []
+    for group in groups:
+        other = group.get("box")
+        if not other or group.get("page") != callout.get("page"):
+            continue
+        overlap = min(box[0] + box[2], other[0] + other[2]) - max(box[0], other[0])
+        gap = box[1] - (other[1] + other[3])
+        if overlap > 0 and -max(box[3], other[3]) <= gap <= max(box[3], other[3]) * 1.5:
+            adjacent.append((abs(gap), group))
+    return min(adjacent, key=lambda item: item[0])[1] if len(adjacent) == 1 else None
+
+
 def callout_coverage(drawing, template, cuts):
     omissions = value(template.get("features_omitted")) if (template.get("features_omitted") or {}).get("state") == "known" else []
     omissions = omissions if isinstance(omissions, list) else []
@@ -261,34 +304,33 @@ def callout_coverage(drawing, template, cuts):
             outer, sink_angle = (float(part.replace(",", ".")) for part in sink.groups())
             matching = [cut for cut in cuts if cut.get("hole_type") == "countersunk" and
                         abs(cut["outer"] * 2 - outer) < 1e-6 and abs(cut["sink_angle"] - sink_angle) < 1e-6]
-            variant_omissions = [cut["step_omitted"] for cut in cuts if (cut.get("requested_step") or {}).get("hole_type") == "countersunk" and
-                                abs(cut["requested_step"]["outer"] * 2 - outer) < 1e-6 and abs(cut["requested_step"]["sink_angle"] - sink_angle) < 1e-6]
+            variant_cuts = [cut for cut in cuts if (cut.get("requested_step") or {}).get("hole_type") == "countersunk" and
+                            abs(cut["requested_step"]["outer"] * 2 - outer) < 1e-6 and abs(cut["requested_step"]["sink_angle"] - sink_angle) < 1e-6]
+            parent = countersink_parent(callout, drawing.get("callouts", []))
+            expected_count = parent["count"] if parent else None
+            position = lambda cut: (round(cut["x"], 7), round(cut["y"], 7), cut["face"])
+            parent_cuts = counted_callout_cuts(parent, cuts) if parent else cuts
+            matching = [cut for cut in matching if cut in parent_cuts]
+            variant_cuts = [cut for cut in variant_cuts if cut in parent_cuts]
+            built_positions = {position(cut) for cut in matching}
+            variant_positions = {position(cut) for cut in variant_cuts}
+            parent_positions = {position(cut) for cut in parent_cuts}
+            covered = bool(matching) if parent is None else len(built_positions) == expected_count and built_positions == parent_positions
+            variant_covered = bool(variant_cuts) if parent is None else (
+                len(built_positions | variant_positions) == expected_count and built_positions | variant_positions == parent_positions)
+            variant_omissions = [cut["step_omitted"] for cut in variant_cuts]
             omitted = [item for item in omissions if callout["name"] in item.get("fact_ids", []) or
                        drawing["id"] + "/drawing/source" in item.get("fact_ids", []) or drawing["id"] in item.get("fact_ids", [])]
-            status = "covered" if matching else "documented_variant_omission" if variant_omissions else "documented_omission" if omitted and not complete else "unexplained_gap"
+            status = "covered" if covered else "documented_variant_omission" if variant_omissions and variant_covered else "documented_omission" if omitted and not complete else "unexplained_gap"
             rows.append({"source": callout["name"], "text": callout.get("text"), "kind": "countersink",
-                         "built_count": len(matching), "status": status, "omissions": omitted, "variant_step_omissions": variant_omissions})
+                         "parent_source": parent.get("name") if parent else None, "expected_count": expected_count,
+                         "count_scope": "associated_counted_hole_group" if parent else "uncounted_step_existence_only",
+                         "built_count": len(built_positions), "status": status, "omissions": omitted, "variant_step_omissions": variant_omissions})
             assert status != "unexplained_gap", f"{drawing['id']}: countersink callout omitted without explanation: {rows[-1]}"
             continue
         if type(count) is not int or callout.get("feature") == "general_note":
             continue
-        kind = "slot" if callout.get("feature") == "slot" else "hole"
-        match = re.match(r"\s*\d+\s*[xX×]\s*(\d+(?:[.,]\d+)?)", callout.get("text", ""))
-        diameter = float(match.group(1).replace(",", ".")) if match else None
-        candidates = []
-        for cut in cuts:
-            if cut["kind"] != kind or (callout.get("through") is True and not cut["through"]):
-                continue
-            if kind == "slot":
-                if any(abs(cut[key] - callout[source]) > 1e-6 for key, source in (("width", "width_mm"), ("length", "length_mm")) if source in callout):
-                    continue
-            elif diameter is not None and abs(cut["diameter"] - diameter) > 1e-6:
-                continue
-            if callout.get("thread"):
-                thread = re.match(r"M\d+(?:[.,]\d+)?", str(cut.get("thread") or "").strip(), re.I)
-                if not thread or thread.group().replace(",", ".").upper() != callout["thread"].replace(",", ".").upper():
-                    continue
-            candidates.append(cut)
+        candidates = counted_callout_cuts(callout, cuts)
         unique = {(round(cut["x"], 7), round(cut["y"], 7), cut["face"]) for cut in candidates}
         omitted = [item for item in omissions if callout["name"] in item.get("fact_ids", []) or
                    drawing["id"] + "/drawing/source" in item.get("fact_ids", []) or drawing["id"] in item.get("fact_ids", [])]
@@ -302,6 +344,17 @@ def callout_coverage(drawing, template, cuts):
         assert status != "unexplained_gap", f"{drawing['id']}: drawing callout count not covered or explicitly omitted: {rows[-1]}"
         assert len(unique) <= count, f"{drawing['id']}: model has more matching cuts than drawing callout"
     return rows
+
+
+def source_inventory_scope(cuts, coverage):
+    counterbores = sorted({cut["index"] for cut in cuts if cut.get("hole_type") == "counterbored" or
+                          (cut.get("requested_step") or {}).get("hole_type") == "counterbored"})
+    return {"scope": "parsed_callouts_only", "independently_proves_all_drawing_features": False,
+            "source_to_template_layout_verification": "proposer_verifier",
+            "counterbore_step_source_coverage": "not_parsed",
+            "counterbore_feature_indices": counterbores,
+            "unassociated_countersink_sources": [row["source"] for row in coverage if
+                                                 row.get("count_scope") == "uncounted_step_existence_only"]}
 
 
 def verify_features(template, model, step_shape, mesh, drawing):
@@ -332,9 +385,11 @@ def verify_features(template, model, step_shape, mesh, drawing):
     expected_volume = analytic_volume(selected, cuts, thickness)
     if expected_volume is not None:
         assert abs(step_shape.Volume() - expected_volume) < max(.01, expected_volume * 1e-7), "Exported STEP volume disagrees with independent base-minus-cuts calculation"
+    coverage = callout_coverage(drawing, selected, cuts)
     return {"cut_instances_checked": len(cuts), "probe_count": sum(item["probe_count"] for item in report),
             "variant_step_omissions": variant_omissions,
             "independent_volume_mm3": expected_volume,
             "volume_scope": "disjoint fully contained analytic cuts" if expected_volume is not None else "clipped/overlapping cuts: point probes and export-volume roundtrip",
-            "cuts": report, "drawing_callout_coverage": callout_coverage(drawing, selected, cuts),
+            "cuts": report, "drawing_callout_coverage": coverage,
+            "source_inventory_scope": source_inventory_scope(cuts, coverage),
             "limitation": "Checks exported geometry against verified template and parsed callout inventory; does not replace review of the original drawing"}

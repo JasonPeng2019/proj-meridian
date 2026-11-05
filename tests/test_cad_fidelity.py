@@ -77,6 +77,27 @@ def test_export_probes_catch_real_geometry_defects(defect, tmp_path):
         verification.verify_features(template, {}, step, mesh, {"id": "D-999", "callouts": []})
 
 
+@pytest.mark.parametrize("defect", ["missing_bore", "missing_countersink", "wrong_countersink_face"])
+def test_glb_only_defects_are_rejected_with_a_correct_step(defect, tmp_path):
+    cq = pytest.importorskip("cadquery")
+    trimesh = pytest.importorskip("trimesh")
+    profile = "plain" if defect == "missing_bore" else "countersunk"
+    plate, template = plate_and_template(profile)
+    bore = cq.Workplane("XY", origin=(0, 0, -.01)).circle(2).extrude(8.02)
+    correct = plate.cut(bore)
+    if profile == "countersunk":
+        correct = correct.cut(cq.Workplane(obj=cq.Solid.makeCone(2, 4, 2, cq.Vector(0, 0, 6))))
+    step, _ = exported(correct, tmp_path)
+    wrong = plate if defect == "missing_bore" else plate.cut(bore)
+    if defect == "wrong_countersink_face":
+        wrong = wrong.cut(cq.Workplane(obj=cq.Solid.makeCone(4, 2, 2, cq.Vector(0, 0, 0))))
+    builder.export_glb(wrong, tmp_path / "wrong.glb")
+    mesh = trimesh.load(tmp_path / "wrong.glb", force="mesh", process=True)
+    mesh.merge_vertices(merge_tex=True, merge_norm=True)
+    with pytest.raises(AssertionError, match="GLB feature"):
+        verification.verify_features(template, {}, step, mesh, {"id": "D-999", "callouts": []})
+
+
 def test_callout_gap_is_explicit_and_cannot_claim_complete():
     drawing = {"id": "D-999", "callouts": [{"name": "D-999/drawing/callout/holes", "text": "4 x 4,0 THRU ALL", "count": 4, "through": True}]}
     template = {"features_complete": known(True), "features_omitted": known([])}
@@ -84,6 +105,36 @@ def test_callout_gap_is_explicit_and_cannot_claim_complete():
         verification.callout_coverage(drawing, template, [])
     template.update(features_complete=known(False), features_omitted=known([{"description": "Four holes", "reason": "No positions", "fact_ids": [drawing["callouts"][0]["name"]]}]))
     assert verification.callout_coverage(drawing, template, [])[0]["status"] == "documented_omission"
+
+
+def sink_group_fixture(sink_count):
+    drawing = {"id": "D-999", "callouts": [
+        {"name": "D-999/drawing/callout/bores", "text": "8 x 3,4 THRU ALL", "count": 8, "through": True},
+        {"name": "D-999/drawing/callout/sinks", "text": "6,9 X 90°"}]}
+    template = {"features_complete": known(True), "features_omitted": known([])}
+    cuts = [{"index": index, "kind": "hole", "face": "top", "through": True, "diameter": 3.4,
+             "hole_type": "countersunk" if index < sink_count else "plain", "outer": 3.45, "sink_angle": 90,
+             "x": index * 10, "y": 0, "fact_ids": [], "coordinate_evidence": {}} for index in range(8)]
+    return drawing, template, cuts
+
+
+def test_every_hole_in_the_source_group_requires_its_countersink():
+    drawing, template, cuts = sink_group_fixture(1)
+    with pytest.raises(AssertionError, match="countersink callout omitted"):
+        verification.callout_coverage(drawing, template, cuts)
+    drawing, template, cuts = sink_group_fixture(8)
+    row = verification.callout_coverage(drawing, template, cuts)[1]
+    assert row["status"] == "covered" and row["expected_count"] == row["built_count"] == 8
+    assert row["parent_source"] == drawing["callouts"][0]["name"]
+
+
+def test_countersinks_at_other_bores_cannot_satisfy_the_source_group():
+    drawing, template, cuts = sink_group_fixture(0)
+    # Eight steps exist elsewhere, but none belongs to the source's 3.4 mm bores.
+    cuts += [{**cut, "index": cut["index"] + 8, "x": cut["x"] + 100, "diameter": 2,
+              "hole_type": "countersunk"} for cut in list(cuts)]
+    with pytest.raises(AssertionError, match="countersink callout omitted"):
+        verification.callout_coverage(drawing, template, cuts)
 
 
 def test_feature_option_selection_is_not_overwritten_by_review_array():
@@ -112,6 +163,11 @@ def test_step_fallback_requires_explicit_flag_and_sourced_reason():
     assert all(cut["requested_step"]["step_depth"] == 15.4 for cut in cuts)
     assert all(cut["hole_type"] == "counterbored" and "step_omitted" not in cut
                for cut in verification.expanded_cuts({"features": [feature]}, 25))
+    for thickness in (15, 25):
+        scope = verification.source_inventory_scope(verification.expanded_cuts({"features": [feature]}, thickness), [])
+        assert scope["independently_proves_all_drawing_features"] is False
+        assert scope["counterbore_step_source_coverage"] == "not_parsed"
+        assert scope["counterbore_feature_indices"] == [0]
 
 
 def test_two_thickness_variants_retain_bores_and_only_omit_conflicting_step(tmp_path, monkeypatch):

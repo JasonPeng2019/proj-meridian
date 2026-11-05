@@ -9,15 +9,43 @@
     "models": 9,
     "reviewer_name": "Jason Peng"
   },
-  "frontend_run": "42048378613",
-  "frontend_commit": "ac0122a8c176cca7a99048d0201dce0d4991a682",
-  "served_asset": "/assets/index-CiDHB4IO.js",
-  "natural_language_parser_ui_present": true,
-  "queue": {
-    "resolved": 29,
-    "human_review": 173,
-    "human_input": 41
+  "frontend": {
+    "schema_version": 1,
+    "commit": "f3d46fee88f48e540fb8fc9eac514bc4dde90048",
+    "source_sha256": "14f8886f94a38c091e94c9eb546959c2a7eadb2fada3012a38287535807dd8a6",
+    "run_id": "42051516150",
+    "files": {
+      "assets/index-BZ5_qiqQ.css": "3233a5d71ac84134d0c27950cdd299f4ed6b73b3d09145637165016f6504f33d",
+      "assets/index-DrDKGwca.js": "6fb6dba3183630cb7c7483a0b85a899e2818db45e74dfa74e497772b1e187420",
+      "index.html": "2e560d707ca81c7106a9a939b0c17c7e304aa61306fff0edae99e07ef4678723"
+    },
+    "role": "Port 8000 comparison baseline with updated review attribution",
+    "branch": "ui-baseline-reviews"
+  },
+  "served_asset": "/assets/index-DrDKGwca.js",
+  "authorized_reviews_attributed_to_jason": 42,
+  "resolved_items_labelled_human_reviewed": 29,
+  "accuracy": {
+    "jobs": {
+      "scans": {
+        "confirmed": 0,
+        "rejected": 0
+      },
+      "matching": {
+        "confirmed": 0,
+        "rejected": 0
+      },
+      "templates": {
+        "confirmed": 1,
+        "rejected": 0
+      }
+    },
+    "reviewed": 1,
+    "accuracy": 1.0,
+    "note": "Counts refer to original AI predictions reviewed under the configured reviewer authority, including authorized reviews on their behalf; corrected replacements are excluded."
   },
   "runtime_process": "python.exe",
-  "pid": 66676
+  "pid": 9140,
+  "port": 8000,
+  "port_8001_left_separate": true
 }

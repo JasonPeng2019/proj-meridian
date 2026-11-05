@@ -2,7 +2,7 @@
 from pathlib import Path
 import json
 import urllib.request
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright, expect
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = 'http://127.0.0.1:8000'
@@ -40,9 +40,82 @@ def verify_debug():
         assert 'Accept' in page.locator('.reader-answers').inner_text()
         assert 'Proposal' in page.locator('.reader-answers').inner_text()
         page.screenshot(path=str(OUT/'verified-mapping-readers.png'))
+        # Small laptop viewport: each engineering pane must own a usable scrollbar.
+        page.set_viewport_size({'width':1280,'height':620})
+        page.goto(BASE+'/part/D-013/debug')
+        pane=page.locator('.debug-view')
+        pane.wait_for()
+        metrics=pane.evaluate('''el => ({overflow:getComputedStyle(el).overflowY,
+            gutter:el.offsetWidth-el.clientWidth,content:el.scrollHeight,height:el.clientHeight})''')
+        assert metrics['overflow']=='scroll' and metrics['gutter']>=10,metrics
+        assert metrics['content']>metrics['height']>100,metrics
+        pane.evaluate('el => el.scrollTop=el.scrollHeight')
+        assert pane.evaluate('el => el.scrollTop')>0
+        expect(page.get_by_text('Complete original drawing & raw records',exact=True)).to_be_in_viewport()
+        expect(page.locator('.debug-tabs')).to_be_in_viewport()
+        page.screenshot(path=str(OUT/'debug-scroll-bottom.png'))
+        page.locator('.debug-tabs').get_by_role('button',name='Model & checks',exact=True).click()
+        expect(pane).to_have_js_property('scrollTop',0)
+
+        page.goto(BASE+'/review/parts')
+        search=page.get_by_role('textbox',name='Search review parts',exact=True)
+        search.fill('Recoater')
+        expect(page.locator('.review-part-row').first).to_be_visible()
+        assert page.locator('.review-part-row').count()>1
+        search.fill('D-013')
+        expect(page.locator('.review-part-row')).to_have_count(1)
+        page.locator('.review-part-row').click()
+        expect(page.locator('.review-part-focus .part-title h2')).to_have_text('Recoater Plate')
+        assert '?part=D-013' in page.url
+        expect(search).to_be_visible()
+        expect(page.locator('.review-part-focus .debug-view')).to_be_visible()
+        page.reload()
+        expect(page.locator('.review-part-focus .part-title h2')).to_have_text('Recoater Plate')
+        search.fill('D-014')
+        page.locator('.review-part-row').click()
+        expect(page.locator('.review-part-focus .part-title h2')).to_have_text('Recoater Linear Plate')
+        page.get_by_role('button',name='Clear part search',exact=True).click()
+        expect(page.locator('.review-part-row')).to_have_count(len(get('/api/parts')))
+        rail=page.locator('.review-parts-results')
+        rail.evaluate('el => el.scrollTop=el.scrollHeight')
+        assert rail.evaluate('el => el.scrollTop')>0
+        expect(search).to_be_in_viewport()
+        rail.evaluate('el => el.scrollTop=0')
+        assert not page.evaluate('document.documentElement.scrollWidth > innerWidth')
+        page.screenshot(path=str(OUT/'engineering-parts.png'))
+
+        page.locator('.review-part-focus-toolbar').get_by_role('button',name='Review items',exact=True).click()
+        expect(page.locator('.review-item').first).to_be_visible()
+        assert 'part=D-014' in page.url
+        scoped=[i for i in get('/api/review') if (i.get('part_key') or (i.get('evidence',{}).get('part_key') if isinstance(i.get('evidence'),dict) else None))=='D-014']
+        for label,kind in [('Corrections','correction'),('AI interpretations','ai_interpretation'),('Possible readings','possible_reading')]:
+            expected=sum(i['type']==kind or (kind=='ai_interpretation' and i['type']=='part') for i in scoped)
+            expect(page.get_by_role('navigation',name='Review categories').get_by_role('button',name=label).locator('span')).to_have_text(str(expected))
+        assert all('D-014' in value for value in page.locator('.review-item > small').all_text_contents())
+        page.locator('.review-item').first.click()
+        expect(page.locator('.review-item-detail h2')).to_be_visible()
+        detail=page.locator('.review-item-detail')
+        detail.evaluate('el => el.scrollTop=el.scrollHeight')
+        assert detail.evaluate('el => el.scrollTop')>0
+        page.screenshot(path=str(OUT/'engineering-scoped-reviews.png'))
+        page.get_by_role('button',name='Inspect part',exact=True).click()
+        expect(page.locator('.review-part-focus .part-title h2')).to_have_text('Recoater Linear Plate')
+        page.go_back()
+        expect(page.locator('.review-item-detail h2')).to_be_visible()
+        assert 'part=D-014' in page.url
+        page.get_by_role('button',name='Clear part scope',exact=False).click()
+        expect(page.locator('.review-scope')).to_have_count(0)
+        assert 'part=' not in page.url
+        page.goto(BASE+'/review/part/D-013?part=D-013')
+        expect(page.get_by_role('button',name='Approve whole design',exact=True)).to_be_disabled()
+        controls=page.locator('.part-review-controls')
+        controls.evaluate('el => el.scrollTop=el.scrollHeight')
+        assert controls.evaluate('el => el.scrollTop')>0
+        expect(page.locator('.part-review-items').locator('xpath=..').locator('summary')).to_be_in_viewport()
+        page.screenshot(path=str(OUT/'engineering-design-review.png'))
         assert not errors,errors
         browser.close()
-    (OUT/'debug-browser-check.json').write_text(json.dumps({'debug_launch':True,'calculations':True,'history':True,'raw_sources':True,'page_errors':errors},indent=2),encoding='utf-8')
+    (OUT/'debug-browser-check.json').write_text(json.dumps({'debug_launch':True,'calculations':True,'history':True,'raw_sources':True,'laptop_scrollbars':metrics,'searchable_parts':True,'part_scoped_review_counts':True,'scope_refresh_back_navigation':True,'independent_review_scroll':True,'design_approval_controls_retained':True,'page_errors':errors},indent=2),encoding='utf-8')
 
 
 def main():

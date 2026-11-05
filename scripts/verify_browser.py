@@ -1,6 +1,7 @@
 """Browser checks mutate only a labelled chat fixture, never engineering reviews."""
 from pathlib import Path
 import json
+import time
 import urllib.request
 from urllib.parse import quote
 from playwright.sync_api import sync_playwright, expect
@@ -13,6 +14,16 @@ def get(path):
     return json.load(urllib.request.urlopen(BASE + path))
 
 def verify_debug():
+    api_probes=[]
+    for path in ('/api/review', '/api/parts/D-013'):
+        started=time.perf_counter()
+        with urllib.request.urlopen(BASE+path, timeout=15) as response:
+            payload=response.read()
+        elapsed=time.perf_counter()-started
+        json.loads(payload)
+        api_probes.append({'path':path,'seconds':round(elapsed,3),'bytes':len(payload)})
+    (OUT/'debug-api-performance.json').write_text(json.dumps(api_probes,indent=2),encoding='utf-8')
+    assert all(probe['seconds']<5 for probe in api_probes),api_probes
     with sync_playwright() as p:
         browser=p.chromium.launch(headless=True, args=['--enable-unsafe-swiftshader'], ignore_default_args=['--hide-scrollbars'])
         page=browser.new_page(viewport={'width':1600,'height':1000})

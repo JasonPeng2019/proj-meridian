@@ -12,7 +12,7 @@ from typing import Any
 from urllib.parse import unquote
 
 from fastapi import FastAPI, HTTPException
-from fastapi.responses import FileResponse, Response
+from fastapi.responses import FileResponse, JSONResponse, Response
 from pydantic import BaseModel
 
 from backend.paths import ROOT, configure_environment, inside
@@ -184,9 +184,9 @@ def part(key: str):
     store = get_store()
     record = store.part(unquote(key))
     facts = KnowledgeTools(store).get_facts(record["key"])["facts"]
-    pending = [item for item in store.review_items() if item.get("part_key") == record["key"] and item.get("status") in {"pending", "not_reviewed"}]
-    return {**record, "facts": facts, "review_items": pending,
-            "waiting": [item["target"] for item in pending if item["type"] in {"template", "link", "source_changed"}], "revision": store.revision}
+    pending = [item for item in store.review_items(part_key=record['key']) if item.get("status") in {"pending", "not_reviewed"}]
+    return JSONResponse({**record, "facts": facts, "review_items": pending,
+            "waiting": [item["target"] for item in pending if item["type"] in {"template", "link", "source_changed"}], "revision": store.revision})
 
 @app.get("/api/models/{filename}")
 def model(filename: str):
@@ -203,7 +203,7 @@ def model(filename: str):
 
 @app.get("/api/review")
 def review():
-    return get_store().review_items()
+    return JSONResponse(get_store().review_items())
 
 
 @app.get("/api/review-source")

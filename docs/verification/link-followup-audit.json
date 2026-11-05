@@ -1,0 +1,2032 @@
+{
+  "schema_version": 1,
+  "actor": "Codex geometry_finish subagent",
+  "status": "source_audit_complete_candidate_bound",
+  "review_kind": "Source-inspection recommendations only; no delegated decisions saved",
+  "candidate": "generated/ai_cache/detail-reprepare/20261105T152759473552Z/candidate",
+  "candidate_ai_sha256": "5bc813fbfe18c5ddbbb7b8b828a6d4abf6f14523eda1ea1319cce024b555f603",
+  "scope": "All eleven currently unresolved drawing/BOM links. Original PNG titles/notes and original BOM CSV rows inspected. No benchmark expected answers consulted. No global terminology or material mapping approvals.",
+  "items": [
+    {
+      "target": "D-006/link",
+      "action": "leave",
+      "value": [],
+      "based_on": "b9bd89aa9449889adb5335b1f4f3550be072a37447b1c134fb703435f04fbaad",
+      "source_sha256": "b9bd89aa9449889adb5335b1f4f3550be072a37447b1c134fb703435f04fbaad",
+      "prediction_sha256": "0c3b80fde1e982cda930022edbf4d411b12875552cc3c53fd0b2e4eda299d78c",
+      "prediction": {
+        "state": "needs_review",
+        "value": []
+      },
+      "source_fact_ids": [
+        "D-006/drawing/source",
+        "D-006/drawing/notes",
+        "BOM:powder/powder-hopper/name",
+        "BOM:powder/powder-hopper/part_family",
+        "BOM:powder/powder-hopper/material",
+        "BOM:powder/powder-hopper/notes",
+        "BOM:powder/powder-hopper/amount",
+        "BOM:powder/powder-handling-mount-bracket/name",
+        "BOM:powder/powder-handling-mount-bracket/part_family",
+        "BOM:powder/powder-handling-mount-bracket/material",
+        "BOM:powder/powder-handling-mount-bracket/amount"
+      ],
+      "source_locations": [
+        {
+          "kind": "drawing",
+          "name": "D-006/drawing/source",
+          "part_key": "D-006",
+          "page": 1,
+          "box": null,
+          "label": "D-006 / source",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-006.pdf",
+          "source_filename": "CanisterWall_LeftAndRight.PDF"
+        },
+        {
+          "kind": "drawing",
+          "name": "D-006/drawing/notes",
+          "part_key": "D-006",
+          "page": 1,
+          "box": [
+            741.528,
+            658.943,
+            231.0,
+            111.0
+          ],
+          "label": "D-006 / notes",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-006.pdf",
+          "source_filename": "CanisterWall_LeftAndRight.PDF"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:powder/powder-hopper/name",
+          "label": "BOM-088 / Powder hopper",
+          "part_key": "bom/powder/powder-hopper",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-088"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:powder/powder-hopper/part_family",
+          "label": "BOM-088 / Powder hopper",
+          "part_key": "bom/powder/powder-hopper",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-088"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:powder/powder-hopper/material",
+          "label": "BOM-088 / Powder hopper",
+          "part_key": "bom/powder/powder-hopper",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-088"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:powder/powder-hopper/notes",
+          "label": "BOM-088 / Powder hopper",
+          "part_key": "bom/powder/powder-hopper",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-088"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:powder/powder-hopper/amount",
+          "label": "BOM-088 / Powder hopper",
+          "part_key": "bom/powder/powder-hopper",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-088"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:powder/powder-handling-mount-bracket/name",
+          "label": "BOM-090 / Powder handling mount bracket",
+          "part_key": "bom/powder/powder-handling-mount-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-090"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:powder/powder-handling-mount-bracket/part_family",
+          "label": "BOM-090 / Powder handling mount bracket",
+          "part_key": "bom/powder/powder-handling-mount-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-090"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:powder/powder-handling-mount-bracket/material",
+          "label": "BOM-090 / Powder handling mount bracket",
+          "part_key": "bom/powder/powder-handling-mount-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-090"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:powder/powder-handling-mount-bracket/amount",
+          "label": "BOM-090 / Powder handling mount bracket",
+          "part_key": "bom/powder/powder-handling-mount-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-090"
+        }
+      ],
+      "note": "The original PNG identifies Canister Wall, left and right side one of each, in non-magnetic stainless. No BOM row names these side walls or explicitly includes them in a hopper assembly. Powder hopper is plausible but its stainless material and generic weld note do not establish identity. Leave unresolved rather than treating an assembly guess as a link.",
+      "originals_inspected": [
+        "project-meridian_Avathon/project-meridian/dataset/drawings/D-006.pdf",
+        "generated/images/D-006-p1.png",
+        "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv"
+      ],
+      "original_png_sha256": {
+        "generated/images/D-006-p1.png": "37b9f976eda8c3bfe915ed3100400c64996a3bec88322ad4f6d2e0976c284c55"
+      },
+      "bom_source_sha256": "b9837f2249247e4465ae5f481f714912bba8ed33a7759cd773ab43092e1b6ae2",
+      "bom_rows_compared": [
+        {
+          "name": "BOM:powder/powder-hopper",
+          "source_row": 89,
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "row_sha256": "93cd5be707a88f3593e5a5d6defb8840cfbad9545d35ed5c39ed7121d20704cd",
+          "original": {
+            "Name": "Powder hopper",
+            "Part family": "Powder",
+            "Type": "Custom",
+            "Notes": "A few welds had to be filed down",
+            "Design Intend": "",
+            "Material": "Stainless steel",
+            "Amount": "2",
+            "Datasheet": ""
+          }
+        },
+        {
+          "name": "BOM:powder/powder-handling-mount-bracket",
+          "source_row": 91,
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "row_sha256": "29cac5a57a85be13ff7a470b31eb2f6f6383412062fe187dd75687300211f74c",
+          "original": {
+            "Name": "Powder handling mount bracket",
+            "Part family": "Powder",
+            "Type": "Custom",
+            "Notes": "",
+            "Design Intend": "",
+            "Material": "Stainless steel",
+            "Amount": "2",
+            "Datasheet": ""
+          }
+        }
+      ],
+      "inspecting_actor": "Codex geometry_finish subagent",
+      "no_decision_written": true,
+      "leave_semantics": "Preserve the unresolved link; [] is not a confirmed no-BOM-match finding."
+    },
+    {
+      "target": "D-008/link",
+      "action": "leave",
+      "value": [],
+      "based_on": "2642be4f1d3471cc440aa7830166adfa298a8e1a31cef90911662bb2b4a26448",
+      "source_sha256": "2642be4f1d3471cc440aa7830166adfa298a8e1a31cef90911662bb2b4a26448",
+      "prediction_sha256": "0c3b80fde1e982cda930022edbf4d411b12875552cc3c53fd0b2e4eda299d78c",
+      "prediction": {
+        "state": "needs_review",
+        "value": []
+      },
+      "source_fact_ids": [
+        "D-008/drawing/source",
+        "D-008/drawing/notes",
+        "D-008/drawing/title",
+        "BOM:powder/powder-handling-mount-bracket/name",
+        "BOM:powder/powder-handling-mount-bracket/part_family",
+        "BOM:powder/powder-handling-mount-bracket/material",
+        "BOM:powder/powder-handling-mount-bracket/amount",
+        "BOM:powder/powder-stepper-bracket/name",
+        "BOM:powder/powder-stepper-bracket/part_family",
+        "BOM:powder/powder-stepper-bracket/material",
+        "BOM:powder/powder-stepper-bracket/amount"
+      ],
+      "source_locations": [
+        {
+          "kind": "drawing",
+          "name": "D-008/drawing/source",
+          "part_key": "D-008",
+          "page": 1,
+          "box": null,
+          "label": "D-008 / source",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-008.pdf",
+          "source_filename": "PowderBracket.pdf"
+        },
+        {
+          "kind": "drawing",
+          "name": "D-008/drawing/notes",
+          "part_key": "D-008",
+          "page": 1,
+          "box": [
+            741.528,
+            658.943,
+            231.0,
+            111.0
+          ],
+          "label": "D-008 / notes",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-008.pdf",
+          "source_filename": "PowderBracket.pdf"
+        },
+        {
+          "kind": "drawing",
+          "name": "D-008/drawing/title",
+          "part_key": "D-008",
+          "page": 1,
+          "box": [
+            975.328,
+            710.355,
+            181.0,
+            66.0
+          ],
+          "label": "D-008 / title",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-008.pdf",
+          "source_filename": "PowderBracket.pdf"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:powder/powder-handling-mount-bracket/name",
+          "label": "BOM-090 / Powder handling mount bracket",
+          "part_key": "bom/powder/powder-handling-mount-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-090"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:powder/powder-handling-mount-bracket/part_family",
+          "label": "BOM-090 / Powder handling mount bracket",
+          "part_key": "bom/powder/powder-handling-mount-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-090"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:powder/powder-handling-mount-bracket/material",
+          "label": "BOM-090 / Powder handling mount bracket",
+          "part_key": "bom/powder/powder-handling-mount-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-090"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:powder/powder-handling-mount-bracket/amount",
+          "label": "BOM-090 / Powder handling mount bracket",
+          "part_key": "bom/powder/powder-handling-mount-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-090"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:powder/powder-stepper-bracket/name",
+          "label": "BOM-092 / Powder stepper bracket",
+          "part_key": "bom/powder/powder-stepper-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-092"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:powder/powder-stepper-bracket/part_family",
+          "label": "BOM-092 / Powder stepper bracket",
+          "part_key": "bom/powder/powder-stepper-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-092"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:powder/powder-stepper-bracket/material",
+          "label": "BOM-092 / Powder stepper bracket",
+          "part_key": "bom/powder/powder-stepper-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-092"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:powder/powder-stepper-bracket/amount",
+          "label": "BOM-092 / Powder stepper bracket",
+          "part_key": "bom/powder/powder-stepper-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-092"
+        }
+      ],
+      "note": "The original title and note say Powder Bracket and stainless, without naming a stepper or a handling mount. Both original BOM rows are stainless Powder brackets with no design-intent text or datasheet to distinguish them. The formed support shape alone does not prove either identity. Leave unresolved.",
+      "originals_inspected": [
+        "project-meridian_Avathon/project-meridian/dataset/drawings/D-008.pdf",
+        "generated/images/D-008-p1.png",
+        "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv"
+      ],
+      "original_png_sha256": {
+        "generated/images/D-008-p1.png": "1baf6ed6555c453942985abbead41b834b06d09866ff6cc21c6e26b1055823f1"
+      },
+      "bom_source_sha256": "b9837f2249247e4465ae5f481f714912bba8ed33a7759cd773ab43092e1b6ae2",
+      "bom_rows_compared": [
+        {
+          "name": "BOM:powder/powder-handling-mount-bracket",
+          "source_row": 91,
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "row_sha256": "29cac5a57a85be13ff7a470b31eb2f6f6383412062fe187dd75687300211f74c",
+          "original": {
+            "Name": "Powder handling mount bracket",
+            "Part family": "Powder",
+            "Type": "Custom",
+            "Notes": "",
+            "Design Intend": "",
+            "Material": "Stainless steel",
+            "Amount": "2",
+            "Datasheet": ""
+          }
+        },
+        {
+          "name": "BOM:powder/powder-stepper-bracket",
+          "source_row": 93,
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "row_sha256": "372c09c739ea46b89fb0808d5c97b70f566590b4183a2e692c538a86461168c0",
+          "original": {
+            "Name": "Powder stepper bracket",
+            "Part family": "Powder",
+            "Type": "Custom",
+            "Notes": "",
+            "Design Intend": "",
+            "Material": "Stainless steel",
+            "Amount": "1",
+            "Datasheet": ""
+          }
+        }
+      ],
+      "inspecting_actor": "Codex geometry_finish subagent",
+      "no_decision_written": true,
+      "leave_semantics": "Preserve the unresolved link; [] is not a confirmed no-BOM-match finding."
+    },
+    {
+      "target": "D-009/link",
+      "action": "leave",
+      "value": [],
+      "based_on": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea",
+      "source_sha256": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea",
+      "prediction_sha256": "0c3b80fde1e982cda930022edbf4d411b12875552cc3c53fd0b2e4eda299d78c",
+      "prediction": {
+        "state": "needs_review",
+        "value": []
+      },
+      "source_fact_ids": [
+        "D-009/drawing/source",
+        "D-009/drawing/notes",
+        "BOM:powder/powder-hopper/name",
+        "BOM:powder/powder-hopper/part_family",
+        "BOM:powder/powder-hopper/material",
+        "BOM:powder/powder-hopper/notes",
+        "BOM:powder/powder-hopper/amount"
+      ],
+      "source_locations": [
+        {
+          "kind": "drawing",
+          "name": "D-009/drawing/source",
+          "part_key": "D-009",
+          "page": 1,
+          "box": null,
+          "label": "D-009 / source",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-009.pdf",
+          "source_filename": "PowderCanister.pdf"
+        },
+        {
+          "kind": "drawing",
+          "name": "D-009/drawing/notes",
+          "part_key": "D-009",
+          "page": 1,
+          "box": [
+            734.907,
+            653.399,
+            242.971,
+            121.067
+          ],
+          "label": "D-009 / notes",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-009.pdf",
+          "source_filename": "PowderCanister.pdf"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:powder/powder-hopper/name",
+          "label": "BOM-088 / Powder hopper",
+          "part_key": "bom/powder/powder-hopper",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-088"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:powder/powder-hopper/part_family",
+          "label": "BOM-088 / Powder hopper",
+          "part_key": "bom/powder/powder-hopper",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-088"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:powder/powder-hopper/material",
+          "label": "BOM-088 / Powder hopper",
+          "part_key": "bom/powder/powder-hopper",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-088"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:powder/powder-hopper/notes",
+          "label": "BOM-088 / Powder hopper",
+          "part_key": "bom/powder/powder-hopper",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-088"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:powder/powder-hopper/amount",
+          "label": "BOM-088 / Powder hopper",
+          "part_key": "bom/powder/powder-hopper",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-088"
+        }
+      ],
+      "note": "The original PNG says Powder canister, non-magnetic stainless, powder-tight, and shows the welded vessel. The stainless Powder hopper row is a plausible functional match, but neither its name nor generic weld note explicitly identifies this canister. No drawing number or attachment establishes the relationship. Leave unresolved; do not assert an accepted canister/hopper equivalence.",
+      "originals_inspected": [
+        "project-meridian_Avathon/project-meridian/dataset/drawings/D-009.pdf",
+        "generated/images/D-009-p1.png",
+        "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv"
+      ],
+      "original_png_sha256": {
+        "generated/images/D-009-p1.png": "13a0d22196d7dd9b6966b62e4454421470a2d2b5b5aeb47247f9aa9c35eb1771"
+      },
+      "bom_source_sha256": "b9837f2249247e4465ae5f481f714912bba8ed33a7759cd773ab43092e1b6ae2",
+      "bom_rows_compared": [
+        {
+          "name": "BOM:powder/powder-hopper",
+          "source_row": 89,
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "row_sha256": "93cd5be707a88f3593e5a5d6defb8840cfbad9545d35ed5c39ed7121d20704cd",
+          "original": {
+            "Name": "Powder hopper",
+            "Part family": "Powder",
+            "Type": "Custom",
+            "Notes": "A few welds had to be filed down",
+            "Design Intend": "",
+            "Material": "Stainless steel",
+            "Amount": "2",
+            "Datasheet": ""
+          }
+        }
+      ],
+      "inspecting_actor": "Codex geometry_finish subagent",
+      "no_decision_written": true,
+      "leave_semantics": "Preserve the unresolved link; [] is not a confirmed no-BOM-match finding."
+    },
+    {
+      "target": "D-010/link",
+      "action": "leave",
+      "value": [],
+      "based_on": "700cc64cb7e7c31d1d7a6d6f506bac453cdcb3c7daf76dc2272ffebfe5e2d911",
+      "source_sha256": "700cc64cb7e7c31d1d7a6d6f506bac453cdcb3c7daf76dc2272ffebfe5e2d911",
+      "prediction_sha256": "0c3b80fde1e982cda930022edbf4d411b12875552cc3c53fd0b2e4eda299d78c",
+      "prediction": {
+        "state": "needs_review",
+        "value": []
+      },
+      "source_fact_ids": [
+        "D-010/drawing/source",
+        "D-010/drawing/notes",
+        "BOM:powder/powder-stepper-bracket/name",
+        "BOM:powder/powder-stepper-bracket/part_family",
+        "BOM:powder/powder-stepper-bracket/material",
+        "BOM:powder/powder-stepper-bracket/amount",
+        "BOM:build-plate/motor-plate/name",
+        "BOM:build-plate/motor-plate/part_family",
+        "BOM:build-plate/motor-plate/material",
+        "BOM:build-plate/motor-plate/design_intent",
+        "BOM:build-plate/motor-plate/amount"
+      ],
+      "source_locations": [
+        {
+          "kind": "drawing",
+          "name": "D-010/drawing/source",
+          "part_key": "D-010",
+          "page": 1,
+          "box": null,
+          "label": "D-010 / source",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-010.pdf",
+          "source_filename": "PowderMotorPlate.PDF"
+        },
+        {
+          "kind": "drawing",
+          "name": "D-010/drawing/notes",
+          "part_key": "D-010",
+          "page": 1,
+          "box": [
+            741.528,
+            658.943,
+            231.0,
+            111.0
+          ],
+          "label": "D-010 / notes",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-010.pdf",
+          "source_filename": "PowderMotorPlate.PDF"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:powder/powder-stepper-bracket/name",
+          "label": "BOM-092 / Powder stepper bracket",
+          "part_key": "bom/powder/powder-stepper-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-092"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:powder/powder-stepper-bracket/part_family",
+          "label": "BOM-092 / Powder stepper bracket",
+          "part_key": "bom/powder/powder-stepper-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-092"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:powder/powder-stepper-bracket/material",
+          "label": "BOM-092 / Powder stepper bracket",
+          "part_key": "bom/powder/powder-stepper-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-092"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:powder/powder-stepper-bracket/amount",
+          "label": "BOM-092 / Powder stepper bracket",
+          "part_key": "bom/powder/powder-stepper-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-092"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:build-plate/motor-plate/name",
+          "label": "BOM-048 / Motor plate",
+          "part_key": "bom/build-plate/motor-plate",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-048"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:build-plate/motor-plate/part_family",
+          "label": "BOM-048 / Motor plate",
+          "part_key": "bom/build-plate/motor-plate",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-048"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:build-plate/motor-plate/material",
+          "label": "BOM-048 / Motor plate",
+          "part_key": "bom/build-plate/motor-plate",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-048"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:build-plate/motor-plate/design_intent",
+          "label": "BOM-048 / Motor plate",
+          "part_key": "bom/build-plate/motor-plate",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-048"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:build-plate/motor-plate/amount",
+          "label": "BOM-048 / Motor plate",
+          "part_key": "bom/build-plate/motor-plate",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-048"
+        }
+      ],
+      "note": "The original note identifies a 2 mm stainless Motor Plate in the Powder group. The Powder stepper bracket row is plausible but has no explicit drawing or descriptive match. The BOM Motor plate belongs to the build mechanism and is Aluminium, so the generic name cannot override its conflicting identity and material. Leave unresolved.",
+      "originals_inspected": [
+        "project-meridian_Avathon/project-meridian/dataset/drawings/D-010.pdf",
+        "generated/images/D-010-p1.png",
+        "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv"
+      ],
+      "original_png_sha256": {
+        "generated/images/D-010-p1.png": "56a6f76a074a6e5fd0646a2aaee1e71496cc0b0f3ad486c3518b4b14b5c354b1"
+      },
+      "bom_source_sha256": "b9837f2249247e4465ae5f481f714912bba8ed33a7759cd773ab43092e1b6ae2",
+      "bom_rows_compared": [
+        {
+          "name": "BOM:powder/powder-stepper-bracket",
+          "source_row": 93,
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "row_sha256": "372c09c739ea46b89fb0808d5c97b70f566590b4183a2e692c538a86461168c0",
+          "original": {
+            "Name": "Powder stepper bracket",
+            "Part family": "Powder",
+            "Type": "Custom",
+            "Notes": "",
+            "Design Intend": "",
+            "Material": "Stainless steel",
+            "Amount": "1",
+            "Datasheet": ""
+          }
+        },
+        {
+          "name": "BOM:build-plate/motor-plate",
+          "source_row": 49,
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "row_sha256": "8e08e82c29f144c58d65445d10c1229f8111fa7fc4b6c427970ca4a5034078d1",
+          "original": {
+            "Name": "Motor plate",
+            "Part family": "Build-plate",
+            "Type": "Custom",
+            "Notes": "",
+            "Design Intend": "Motor plate to hold 3 non-captive stepper motors, end-stop switches",
+            "Material": "Aluminium",
+            "Amount": "1",
+            "Datasheet": ""
+          }
+        }
+      ],
+      "inspecting_actor": "Codex geometry_finish subagent",
+      "no_decision_written": true,
+      "leave_semantics": "Preserve the unresolved link; [] is not a confirmed no-BOM-match finding."
+    },
+    {
+      "target": "D-016/link",
+      "action": "leave",
+      "value": [],
+      "based_on": "4f9799f28352975cd39a5c52daf0e1dcb036d379fb58ecf6413f0befc67525f3",
+      "source_sha256": "4f9799f28352975cd39a5c52daf0e1dcb036d379fb58ecf6413f0befc67525f3",
+      "prediction_sha256": "0c3b80fde1e982cda930022edbf4d411b12875552cc3c53fd0b2e4eda299d78c",
+      "prediction": {
+        "state": "needs_review",
+        "value": []
+      },
+      "source_fact_ids": [
+        "D-016/drawing/source",
+        "D-016/drawing/notes",
+        "D-016/drawing/title",
+        "BOM:optics/galvo-box-bracket/name",
+        "BOM:optics/galvo-box-bracket/part_family",
+        "BOM:optics/galvo-box-bracket/material",
+        "BOM:optics/galvo-box-bracket/design_intent",
+        "BOM:optics/galvo-box-bracket/notes",
+        "BOM:optics/galvo-box-bracket/amount",
+        "BOM:optics/sunny-galvo-adapter-plate/name",
+        "BOM:optics/sunny-galvo-adapter-plate/part_family",
+        "BOM:optics/sunny-galvo-adapter-plate/material",
+        "BOM:optics/sunny-galvo-adapter-plate/design_intent",
+        "BOM:optics/sunny-galvo-adapter-plate/amount"
+      ],
+      "source_locations": [
+        {
+          "kind": "drawing",
+          "name": "D-016/drawing/source",
+          "part_key": "D-016",
+          "page": 1,
+          "box": null,
+          "label": "D-016 / source",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-016.pdf",
+          "source_filename": "GalvoBottomPlate.pdf"
+        },
+        {
+          "kind": "drawing",
+          "name": "D-016/drawing/notes",
+          "part_key": "D-016",
+          "page": 1,
+          "box": [
+            741.526,
+            658.942,
+            231.0,
+            111.0
+          ],
+          "label": "D-016 / notes",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-016.pdf",
+          "source_filename": "GalvoBottomPlate.pdf"
+        },
+        {
+          "kind": "drawing",
+          "name": "D-016/drawing/title",
+          "part_key": "D-016",
+          "page": 1,
+          "box": [
+            975.328,
+            710.355,
+            181.0,
+            66.0
+          ],
+          "label": "D-016 / title",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-016.pdf",
+          "source_filename": "GalvoBottomPlate.pdf"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:optics/galvo-box-bracket/name",
+          "label": "BOM-080 / Galvo box bracket",
+          "part_key": "bom/optics/galvo-box-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-080"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:optics/galvo-box-bracket/part_family",
+          "label": "BOM-080 / Galvo box bracket",
+          "part_key": "bom/optics/galvo-box-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-080"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:optics/galvo-box-bracket/material",
+          "label": "BOM-080 / Galvo box bracket",
+          "part_key": "bom/optics/galvo-box-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-080"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:optics/galvo-box-bracket/design_intent",
+          "label": "BOM-080 / Galvo box bracket",
+          "part_key": "bom/optics/galvo-box-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-080"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:optics/galvo-box-bracket/notes",
+          "label": "BOM-080 / Galvo box bracket",
+          "part_key": "bom/optics/galvo-box-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-080"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:optics/galvo-box-bracket/amount",
+          "label": "BOM-080 / Galvo box bracket",
+          "part_key": "bom/optics/galvo-box-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-080"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:optics/sunny-galvo-adapter-plate/name",
+          "label": "BOM-078 / Sunny Galvo Adapter Plate",
+          "part_key": "bom/optics/sunny-galvo-adapter-plate",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-078"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:optics/sunny-galvo-adapter-plate/part_family",
+          "label": "BOM-078 / Sunny Galvo Adapter Plate",
+          "part_key": "bom/optics/sunny-galvo-adapter-plate",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-078"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:optics/sunny-galvo-adapter-plate/material",
+          "label": "BOM-078 / Sunny Galvo Adapter Plate",
+          "part_key": "bom/optics/sunny-galvo-adapter-plate",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-078"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:optics/sunny-galvo-adapter-plate/design_intent",
+          "label": "BOM-078 / Sunny Galvo Adapter Plate",
+          "part_key": "bom/optics/sunny-galvo-adapter-plate",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-078"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:optics/sunny-galvo-adapter-plate/amount",
+          "label": "BOM-078 / Sunny Galvo Adapter Plate",
+          "part_key": "bom/optics/sunny-galvo-adapter-plate",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-078"
+        }
+      ],
+      "note": "The original title is Galvo Bundplade (bottom plate), with Aluminium in the note. The BOM distinguishes a plate attaching the galvo/collimator to the top box plate from a plate where galvo and collimator mount together. No printed drawing number or explicit attachment description on this drawing establishes which role this bottom plate has. Leave unresolved.",
+      "originals_inspected": [
+        "project-meridian_Avathon/project-meridian/dataset/drawings/D-016.pdf",
+        "generated/images/D-016-p1.png",
+        "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv"
+      ],
+      "original_png_sha256": {
+        "generated/images/D-016-p1.png": "65f4afad96b6544095e8eef0cc9ed5a07585ac4b848ab3770284262fac9e17cf"
+      },
+      "bom_source_sha256": "b9837f2249247e4465ae5f481f714912bba8ed33a7759cd773ab43092e1b6ae2",
+      "bom_rows_compared": [
+        {
+          "name": "BOM:optics/galvo-box-bracket",
+          "source_row": 81,
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "row_sha256": "94415a9eacbf2a84c5abf0393c427ce86c34c84ed5ce747fff144b55ba664131",
+          "original": {
+            "Name": "Galvo box bracket",
+            "Part family": "Optics",
+            "Type": "Custom",
+            "Notes": "Changed galvo mount completely to allow for adjustments. Tolerences are slightly too tight and it bind a bit if left assembled for a while\n\nBefore: Galvo too far down. f-theta does not screw in enough so it sticks down",
+            "Design Intend": "Plate that attach galvo/collimator to top box plate",
+            "Material": "Aluminium",
+            "Amount": "1",
+            "Datasheet": ""
+          }
+        },
+        {
+          "name": "BOM:optics/sunny-galvo-adapter-plate",
+          "source_row": 79,
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "row_sha256": "8da7a405b9d99ac8aa9250e34e4c5871dd15843c627e112fd2bf583448282126",
+          "original": {
+            "Name": "Sunny Galvo Adapter Plate",
+            "Part family": "Optics",
+            "Type": "Custom",
+            "Notes": "",
+            "Design Intend": "Plate where galvo and collimator mount together",
+            "Material": "Aluminium",
+            "Amount": "1",
+            "Datasheet": ""
+          }
+        }
+      ],
+      "inspecting_actor": "Codex geometry_finish subagent",
+      "no_decision_written": true,
+      "leave_semantics": "Preserve the unresolved link; [] is not a confirmed no-BOM-match finding."
+    },
+    {
+      "target": "D-017/link",
+      "action": "accept_link",
+      "value": [
+        "BOM:optics/sunny-galvo-adapter-plate"
+      ],
+      "based_on": "a460ab37d94f2d8f4c9bac58da15ea9d1e93b4f48ee0825e51adac0ec81f37ae",
+      "source_sha256": "a460ab37d94f2d8f4c9bac58da15ea9d1e93b4f48ee0825e51adac0ec81f37ae",
+      "prediction_sha256": "0c3b80fde1e982cda930022edbf4d411b12875552cc3c53fd0b2e4eda299d78c",
+      "prediction": {
+        "state": "needs_review",
+        "value": []
+      },
+      "source_fact_ids": [
+        "D-017/drawing/source",
+        "D-017/drawing/notes",
+        "D-017/drawing/title",
+        "BOM:optics/sunny-galvo-adapter-plate/name",
+        "BOM:optics/sunny-galvo-adapter-plate/part_family",
+        "BOM:optics/sunny-galvo-adapter-plate/material",
+        "BOM:optics/sunny-galvo-adapter-plate/design_intent",
+        "BOM:optics/sunny-galvo-adapter-plate/amount",
+        "BOM:optics/galvo-box-bracket/name",
+        "BOM:optics/galvo-box-bracket/part_family",
+        "BOM:optics/galvo-box-bracket/material",
+        "BOM:optics/galvo-box-bracket/design_intent",
+        "BOM:optics/galvo-box-bracket/notes",
+        "BOM:optics/galvo-box-bracket/amount"
+      ],
+      "source_locations": [
+        {
+          "kind": "drawing",
+          "name": "D-017/drawing/source",
+          "part_key": "D-017",
+          "page": 1,
+          "box": null,
+          "label": "D-017 / source",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-017.pdf",
+          "source_filename": "GalvoMountPlate.pdf"
+        },
+        {
+          "kind": "drawing",
+          "name": "D-017/drawing/notes",
+          "part_key": "D-017",
+          "page": 1,
+          "box": [
+            741.526,
+            658.942,
+            231.0,
+            111.0
+          ],
+          "label": "D-017 / notes",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-017.pdf",
+          "source_filename": "GalvoMountPlate.pdf"
+        },
+        {
+          "kind": "drawing",
+          "name": "D-017/drawing/title",
+          "part_key": "D-017",
+          "page": 1,
+          "box": [
+            975.328,
+            710.355,
+            181.0,
+            66.0
+          ],
+          "label": "D-017 / title",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-017.pdf",
+          "source_filename": "GalvoMountPlate.pdf"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:optics/sunny-galvo-adapter-plate/name",
+          "label": "BOM-078 / Sunny Galvo Adapter Plate",
+          "part_key": "bom/optics/sunny-galvo-adapter-plate",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-078"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:optics/sunny-galvo-adapter-plate/part_family",
+          "label": "BOM-078 / Sunny Galvo Adapter Plate",
+          "part_key": "bom/optics/sunny-galvo-adapter-plate",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-078"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:optics/sunny-galvo-adapter-plate/material",
+          "label": "BOM-078 / Sunny Galvo Adapter Plate",
+          "part_key": "bom/optics/sunny-galvo-adapter-plate",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-078"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:optics/sunny-galvo-adapter-plate/design_intent",
+          "label": "BOM-078 / Sunny Galvo Adapter Plate",
+          "part_key": "bom/optics/sunny-galvo-adapter-plate",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-078"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:optics/sunny-galvo-adapter-plate/amount",
+          "label": "BOM-078 / Sunny Galvo Adapter Plate",
+          "part_key": "bom/optics/sunny-galvo-adapter-plate",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-078"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:optics/galvo-box-bracket/name",
+          "label": "BOM-080 / Galvo box bracket",
+          "part_key": "bom/optics/galvo-box-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-080"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:optics/galvo-box-bracket/part_family",
+          "label": "BOM-080 / Galvo box bracket",
+          "part_key": "bom/optics/galvo-box-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-080"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:optics/galvo-box-bracket/material",
+          "label": "BOM-080 / Galvo box bracket",
+          "part_key": "bom/optics/galvo-box-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-080"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:optics/galvo-box-bracket/design_intent",
+          "label": "BOM-080 / Galvo box bracket",
+          "part_key": "bom/optics/galvo-box-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-080"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:optics/galvo-box-bracket/notes",
+          "label": "BOM-080 / Galvo box bracket",
+          "part_key": "bom/optics/galvo-box-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-080"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:optics/galvo-box-bracket/amount",
+          "label": "BOM-080 / Galvo box bracket",
+          "part_key": "bom/optics/galvo-box-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-080"
+        }
+      ],
+      "note": "Direct original PNG inspection reads Galvo Collimator Plade / Alu and title Galvo Montage Plade. Original BOM CSV row 79 names Sunny Galvo Adapter Plate, material Aluminium, and explicitly describes its function as the plate where galvo and collimator mount together. This matches the drawing's joint galvo/collimator plate identity. Row 81 instead describes attachment of that subsystem to the top box plate, a different function, so it is not added. Recommend this single component link; this does not approve geometry, material equivalence mappings or a whole design.",
+      "originals_inspected": [
+        "project-meridian_Avathon/project-meridian/dataset/drawings/D-017.pdf",
+        "generated/images/D-017-p1.png",
+        "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv"
+      ],
+      "original_png_sha256": {
+        "generated/images/D-017-p1.png": "3c7708fdba4531299b37d8c80533dac24bf98195ce4c2e6c3647e1741c012bd9"
+      },
+      "bom_source_sha256": "b9837f2249247e4465ae5f481f714912bba8ed33a7759cd773ab43092e1b6ae2",
+      "bom_rows_compared": [
+        {
+          "name": "BOM:optics/sunny-galvo-adapter-plate",
+          "source_row": 79,
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "row_sha256": "8da7a405b9d99ac8aa9250e34e4c5871dd15843c627e112fd2bf583448282126",
+          "original": {
+            "Name": "Sunny Galvo Adapter Plate",
+            "Part family": "Optics",
+            "Type": "Custom",
+            "Notes": "",
+            "Design Intend": "Plate where galvo and collimator mount together",
+            "Material": "Aluminium",
+            "Amount": "1",
+            "Datasheet": ""
+          }
+        },
+        {
+          "name": "BOM:optics/galvo-box-bracket",
+          "source_row": 81,
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "row_sha256": "94415a9eacbf2a84c5abf0393c427ce86c34c84ed5ce747fff144b55ba664131",
+          "original": {
+            "Name": "Galvo box bracket",
+            "Part family": "Optics",
+            "Type": "Custom",
+            "Notes": "Changed galvo mount completely to allow for adjustments. Tolerences are slightly too tight and it bind a bit if left assembled for a while\n\nBefore: Galvo too far down. f-theta does not screw in enough so it sticks down",
+            "Design Intend": "Plate that attach galvo/collimator to top box plate",
+            "Material": "Aluminium",
+            "Amount": "1",
+            "Datasheet": ""
+          }
+        }
+      ],
+      "inspecting_actor": "Codex geometry_finish subagent",
+      "no_decision_written": true,
+      "leave_semantics": null
+    },
+    {
+      "target": "D-018/link",
+      "action": "leave",
+      "value": [],
+      "based_on": "816b582d82ed383ad0ff5452afde74e98b74981a6e9afb3c8d1ff6dbd6fa50a0",
+      "source_sha256": "816b582d82ed383ad0ff5452afde74e98b74981a6e9afb3c8d1ff6dbd6fa50a0",
+      "prediction_sha256": "0c3b80fde1e982cda930022edbf4d411b12875552cc3c53fd0b2e4eda299d78c",
+      "prediction": {
+        "state": "needs_review",
+        "value": []
+      },
+      "source_fact_ids": [
+        "D-018/drawing/source",
+        "D-018/drawing/notes",
+        "D-018/drawing/title",
+        "BOM:optics/galve-support-bracket/name",
+        "BOM:optics/galve-support-bracket/part_family",
+        "BOM:optics/galve-support-bracket/material",
+        "BOM:optics/galve-support-bracket/design_intent",
+        "BOM:optics/galve-support-bracket/amount",
+        "BOM:optics/galvo-box-bracket/name",
+        "BOM:optics/galvo-box-bracket/part_family",
+        "BOM:optics/galvo-box-bracket/material",
+        "BOM:optics/galvo-box-bracket/design_intent",
+        "BOM:optics/galvo-box-bracket/notes",
+        "BOM:optics/galvo-box-bracket/amount"
+      ],
+      "source_locations": [
+        {
+          "kind": "drawing",
+          "name": "D-018/drawing/source",
+          "part_key": "D-018",
+          "page": 1,
+          "box": null,
+          "label": "D-018 / source",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-018.pdf",
+          "source_filename": "GalvoMountSide_x2.PDF"
+        },
+        {
+          "kind": "drawing",
+          "name": "D-018/drawing/notes",
+          "part_key": "D-018",
+          "page": 1,
+          "box": [
+            741.526,
+            658.942,
+            231.0,
+            111.0
+          ],
+          "label": "D-018 / notes",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-018.pdf",
+          "source_filename": "GalvoMountSide_x2.PDF"
+        },
+        {
+          "kind": "drawing",
+          "name": "D-018/drawing/title",
+          "part_key": "D-018",
+          "page": 1,
+          "box": [
+            975.328,
+            710.355,
+            181.0,
+            66.0
+          ],
+          "label": "D-018 / title",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-018.pdf",
+          "source_filename": "GalvoMountSide_x2.PDF"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:optics/galve-support-bracket/name",
+          "label": "BOM-081 / Galve support bracket",
+          "part_key": "bom/optics/galve-support-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-081"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:optics/galve-support-bracket/part_family",
+          "label": "BOM-081 / Galve support bracket",
+          "part_key": "bom/optics/galve-support-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-081"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:optics/galve-support-bracket/material",
+          "label": "BOM-081 / Galve support bracket",
+          "part_key": "bom/optics/galve-support-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-081"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:optics/galve-support-bracket/design_intent",
+          "label": "BOM-081 / Galve support bracket",
+          "part_key": "bom/optics/galve-support-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-081"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:optics/galve-support-bracket/amount",
+          "label": "BOM-081 / Galve support bracket",
+          "part_key": "bom/optics/galve-support-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-081"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:optics/galvo-box-bracket/name",
+          "label": "BOM-080 / Galvo box bracket",
+          "part_key": "bom/optics/galvo-box-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-080"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:optics/galvo-box-bracket/part_family",
+          "label": "BOM-080 / Galvo box bracket",
+          "part_key": "bom/optics/galvo-box-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-080"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:optics/galvo-box-bracket/material",
+          "label": "BOM-080 / Galvo box bracket",
+          "part_key": "bom/optics/galvo-box-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-080"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:optics/galvo-box-bracket/design_intent",
+          "label": "BOM-080 / Galvo box bracket",
+          "part_key": "bom/optics/galvo-box-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-080"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:optics/galvo-box-bracket/notes",
+          "label": "BOM-080 / Galvo box bracket",
+          "part_key": "bom/optics/galvo-box-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-080"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:optics/galvo-box-bracket/amount",
+          "label": "BOM-080 / Galvo box bracket",
+          "part_key": "bom/optics/galvo-box-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-080"
+        }
+      ],
+      "note": "The original title Galvo Mount Side x2 and note 2 stk. Alu describe two machined 10 mm aluminium side plates. The BOM Galve support bracket has quantity two but explicitly describes sheet metal and lists stainless/steel, so matching quantity does not establish identity. The Galvo box bracket could represent an assembly but has no explicit drawing reference. Leave unresolved.",
+      "originals_inspected": [
+        "project-meridian_Avathon/project-meridian/dataset/drawings/D-018.pdf",
+        "generated/images/D-018-p1.png",
+        "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv"
+      ],
+      "original_png_sha256": {
+        "generated/images/D-018-p1.png": "721bfcae3aa007eb15276121e428d02215e72e198dd8e86b5b7426eb18856eea"
+      },
+      "bom_source_sha256": "b9837f2249247e4465ae5f481f714912bba8ed33a7759cd773ab43092e1b6ae2",
+      "bom_rows_compared": [
+        {
+          "name": "BOM:optics/galve-support-bracket",
+          "source_row": 82,
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "row_sha256": "2d94edec9b262bde903b6a0e20ec65f56059c117ce8101edc95cd5b93d269da2",
+          "original": {
+            "Name": "Galve support bracket",
+            "Part family": "Optics",
+            "Type": "Custom",
+            "Notes": "",
+            "Design Intend": "Sheet metal bracket that support galvo subsystem",
+            "Material": "Stainless steel,Steel",
+            "Amount": "2",
+            "Datasheet": ""
+          }
+        },
+        {
+          "name": "BOM:optics/galvo-box-bracket",
+          "source_row": 81,
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "row_sha256": "94415a9eacbf2a84c5abf0393c427ce86c34c84ed5ce747fff144b55ba664131",
+          "original": {
+            "Name": "Galvo box bracket",
+            "Part family": "Optics",
+            "Type": "Custom",
+            "Notes": "Changed galvo mount completely to allow for adjustments. Tolerences are slightly too tight and it bind a bit if left assembled for a while\n\nBefore: Galvo too far down. f-theta does not screw in enough so it sticks down",
+            "Design Intend": "Plate that attach galvo/collimator to top box plate",
+            "Material": "Aluminium",
+            "Amount": "1",
+            "Datasheet": ""
+          }
+        }
+      ],
+      "inspecting_actor": "Codex geometry_finish subagent",
+      "no_decision_written": true,
+      "leave_semantics": "Preserve the unresolved link; [] is not a confirmed no-BOM-match finding."
+    },
+    {
+      "target": "D-021/link",
+      "action": "leave",
+      "value": [],
+      "based_on": "c8b07157f3b40ef8d2dc18ae915d4f7244479ea6219d4fe3e8bb6ef1fedea1bc",
+      "source_sha256": "c8b07157f3b40ef8d2dc18ae915d4f7244479ea6219d4fe3e8bb6ef1fedea1bc",
+      "prediction_sha256": "0c3b80fde1e982cda930022edbf4d411b12875552cc3c53fd0b2e4eda299d78c",
+      "prediction": {
+        "state": "needs_review",
+        "value": []
+      },
+      "source_fact_ids": [
+        "D-021/drawing/source",
+        "D-021/drawing/notes",
+        "BOM:gas-flow/gas-flow-end-duct/name",
+        "BOM:gas-flow/gas-flow-end-duct/part_family",
+        "BOM:gas-flow/gas-flow-end-duct/material",
+        "BOM:gas-flow/gas-flow-end-duct/amount",
+        "BOM:gas-flow/gas-flow-inlet-geometry/name",
+        "BOM:gas-flow/gas-flow-inlet-geometry/part_family",
+        "BOM:gas-flow/gas-flow-inlet-geometry/amount"
+      ],
+      "source_locations": [
+        {
+          "kind": "drawing",
+          "name": "D-021/drawing/source",
+          "part_key": "D-021",
+          "page": 1,
+          "box": null,
+          "label": "D-021 / source",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-021.pdf",
+          "source_filename": "BlowerOutlet.pdf"
+        },
+        {
+          "kind": "drawing",
+          "name": "D-021/drawing/notes",
+          "part_key": "D-021",
+          "page": 1,
+          "box": [
+            741.528,
+            658.943,
+            231.0,
+            111.0
+          ],
+          "label": "D-021 / notes",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-021.pdf",
+          "source_filename": "BlowerOutlet.pdf"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:gas-flow/gas-flow-end-duct/name",
+          "label": "BOM-060 / Gas flow end duct",
+          "part_key": "bom/gas-flow/gas-flow-end-duct",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-060"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:gas-flow/gas-flow-end-duct/part_family",
+          "label": "BOM-060 / Gas flow end duct",
+          "part_key": "bom/gas-flow/gas-flow-end-duct",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-060"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:gas-flow/gas-flow-end-duct/material",
+          "label": "BOM-060 / Gas flow end duct",
+          "part_key": "bom/gas-flow/gas-flow-end-duct",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-060"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:gas-flow/gas-flow-end-duct/amount",
+          "label": "BOM-060 / Gas flow end duct",
+          "part_key": "bom/gas-flow/gas-flow-end-duct",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-060"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:gas-flow/gas-flow-inlet-geometry/name",
+          "label": "BOM-061 / Gas flow inlet geometry",
+          "part_key": "bom/gas-flow/gas-flow-inlet-geometry",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-061"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:gas-flow/gas-flow-inlet-geometry/part_family",
+          "label": "BOM-061 / Gas flow inlet geometry",
+          "part_key": "bom/gas-flow/gas-flow-inlet-geometry",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-061"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:gas-flow/gas-flow-inlet-geometry/amount",
+          "label": "BOM-061 / Gas flow inlet geometry",
+          "part_key": "bom/gas-flow/gas-flow-inlet-geometry",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-061"
+        }
+      ],
+      "note": "Both original PNG pages inspected: page 1 says Blower Outlet/non-magnetic stainless; page 2 says Gas outlet box and illustrates welded components. Gas flow end duct is Polymer in the original BOM, while the other row names an inlet. Neither row explicitly identifies this stainless outlet. Leave unresolved.",
+      "originals_inspected": [
+        "project-meridian_Avathon/project-meridian/dataset/drawings/D-021.pdf",
+        "generated/images/D-021-p1.png",
+        "generated/images/D-021-p2.png",
+        "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv"
+      ],
+      "original_png_sha256": {
+        "generated/images/D-021-p1.png": "4c05f18560ab79c5fdc8c63f1219215f07bc99486be427af97bcae48933cbe38",
+        "generated/images/D-021-p2.png": "0c77299258b6210231f016ad231eab718c6f347ba08ead959d0fed70027cf1c9"
+      },
+      "bom_source_sha256": "b9837f2249247e4465ae5f481f714912bba8ed33a7759cd773ab43092e1b6ae2",
+      "bom_rows_compared": [
+        {
+          "name": "BOM:gas-flow/gas-flow-end-duct",
+          "source_row": 61,
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "row_sha256": "acb36205b9486dca17f0197d782ccf02536cb93c65ac40a3fbe0e80add1928bb",
+          "original": {
+            "Name": "Gas flow end duct",
+            "Part family": "Gas flow",
+            "Type": "Custom",
+            "Notes": "",
+            "Design Intend": "",
+            "Material": "Polymer",
+            "Amount": "2",
+            "Datasheet": ""
+          }
+        },
+        {
+          "name": "BOM:gas-flow/gas-flow-inlet-geometry",
+          "source_row": 62,
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "row_sha256": "2f85cc49c8c4c0ec71d23872c71cfd1e8cef5b7d3bb8649592c1159a082cd5c2",
+          "original": {
+            "Name": "Gas flow inlet geometry",
+            "Part family": "Gas flow",
+            "Type": "Custom",
+            "Notes": "",
+            "Design Intend": "",
+            "Material": "",
+            "Amount": "2",
+            "Datasheet": ""
+          }
+        }
+      ],
+      "inspecting_actor": "Codex geometry_finish subagent",
+      "no_decision_written": true,
+      "leave_semantics": "Preserve the unresolved link; [] is not a confirmed no-BOM-match finding."
+    },
+    {
+      "target": "D-022/link",
+      "action": "leave",
+      "value": [],
+      "based_on": "7f3f8efc002bc2545386c1a355341ca61ebd984084b21cb07575331c4c1cc9ee",
+      "source_sha256": "7f3f8efc002bc2545386c1a355341ca61ebd984084b21cb07575331c4c1cc9ee",
+      "prediction_sha256": "0c3b80fde1e982cda930022edbf4d411b12875552cc3c53fd0b2e4eda299d78c",
+      "prediction": {
+        "state": "needs_review",
+        "value": []
+      },
+      "source_fact_ids": [
+        "D-022/drawing/source",
+        "D-022/drawing/notes",
+        "BOM:gas-flow/gas-flow-inlet-geometry/name",
+        "BOM:gas-flow/gas-flow-inlet-geometry/part_family",
+        "BOM:gas-flow/gas-flow-inlet-geometry/amount",
+        "BOM:gas-flow/gas-flow-end-duct/name",
+        "BOM:gas-flow/gas-flow-end-duct/part_family",
+        "BOM:gas-flow/gas-flow-end-duct/material",
+        "BOM:gas-flow/gas-flow-end-duct/amount"
+      ],
+      "source_locations": [
+        {
+          "kind": "drawing",
+          "name": "D-022/drawing/source",
+          "part_key": "D-022",
+          "page": 1,
+          "box": null,
+          "label": "D-022 / source",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-022.pdf",
+          "source_filename": "InletBox.pdf"
+        },
+        {
+          "kind": "drawing",
+          "name": "D-022/drawing/notes",
+          "part_key": "D-022",
+          "page": 1,
+          "box": [
+            729.934,
+            647.146,
+            241.405,
+            120.013
+          ],
+          "label": "D-022 / notes",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-022.pdf",
+          "source_filename": "InletBox.pdf"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:gas-flow/gas-flow-inlet-geometry/name",
+          "label": "BOM-061 / Gas flow inlet geometry",
+          "part_key": "bom/gas-flow/gas-flow-inlet-geometry",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-061"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:gas-flow/gas-flow-inlet-geometry/part_family",
+          "label": "BOM-061 / Gas flow inlet geometry",
+          "part_key": "bom/gas-flow/gas-flow-inlet-geometry",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-061"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:gas-flow/gas-flow-inlet-geometry/amount",
+          "label": "BOM-061 / Gas flow inlet geometry",
+          "part_key": "bom/gas-flow/gas-flow-inlet-geometry",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-061"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:gas-flow/gas-flow-end-duct/name",
+          "label": "BOM-060 / Gas flow end duct",
+          "part_key": "bom/gas-flow/gas-flow-end-duct",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-060"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:gas-flow/gas-flow-end-duct/part_family",
+          "label": "BOM-060 / Gas flow end duct",
+          "part_key": "bom/gas-flow/gas-flow-end-duct",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-060"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:gas-flow/gas-flow-end-duct/material",
+          "label": "BOM-060 / Gas flow end duct",
+          "part_key": "bom/gas-flow/gas-flow-end-duct",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-060"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:gas-flow/gas-flow-end-duct/amount",
+          "label": "BOM-060 / Gas flow end duct",
+          "part_key": "bom/gas-flow/gas-flow-end-duct",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-060"
+        }
+      ],
+      "note": "The original PNG says Inlet Box and Stainless and shows the perforated welded inlet. Gas flow inlet geometry is a plausible functional match, but the original row has no material, design intent or attachment identifying this box. Gas flow end duct lists Polymer and is not established by this stainless drawing. Leave unresolved rather than infer identity solely from inlet terminology.",
+      "originals_inspected": [
+        "project-meridian_Avathon/project-meridian/dataset/drawings/D-022.pdf",
+        "generated/images/D-022-p1.png",
+        "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv"
+      ],
+      "original_png_sha256": {
+        "generated/images/D-022-p1.png": "a43e8b9315fca684c8bcb1f93fc44cc678104571011aba1cc9ec2873f81cab81"
+      },
+      "bom_source_sha256": "b9837f2249247e4465ae5f481f714912bba8ed33a7759cd773ab43092e1b6ae2",
+      "bom_rows_compared": [
+        {
+          "name": "BOM:gas-flow/gas-flow-inlet-geometry",
+          "source_row": 62,
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "row_sha256": "2f85cc49c8c4c0ec71d23872c71cfd1e8cef5b7d3bb8649592c1159a082cd5c2",
+          "original": {
+            "Name": "Gas flow inlet geometry",
+            "Part family": "Gas flow",
+            "Type": "Custom",
+            "Notes": "",
+            "Design Intend": "",
+            "Material": "",
+            "Amount": "2",
+            "Datasheet": ""
+          }
+        },
+        {
+          "name": "BOM:gas-flow/gas-flow-end-duct",
+          "source_row": 61,
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "row_sha256": "acb36205b9486dca17f0197d782ccf02536cb93c65ac40a3fbe0e80add1928bb",
+          "original": {
+            "Name": "Gas flow end duct",
+            "Part family": "Gas flow",
+            "Type": "Custom",
+            "Notes": "",
+            "Design Intend": "",
+            "Material": "Polymer",
+            "Amount": "2",
+            "Datasheet": ""
+          }
+        }
+      ],
+      "inspecting_actor": "Codex geometry_finish subagent",
+      "no_decision_written": true,
+      "leave_semantics": "Preserve the unresolved link; [] is not a confirmed no-BOM-match finding."
+    },
+    {
+      "target": "D-025/link",
+      "action": "leave",
+      "value": [],
+      "based_on": "9b61f2c688fba1b10f502658505c78c0ff99820d3f281822eacdc7283e9b7e9c",
+      "source_sha256": "9b61f2c688fba1b10f502658505c78c0ff99820d3f281822eacdc7283e9b7e9c",
+      "prediction_sha256": "0c3b80fde1e982cda930022edbf4d411b12875552cc3c53fd0b2e4eda299d78c",
+      "prediction": {
+        "state": "needs_review",
+        "value": []
+      },
+      "source_fact_ids": [
+        "D-025/drawing/source",
+        "D-025/drawing/notes",
+        "D-025/drawing/title",
+        "BOM:build-plate/seal-clamp-plate/name",
+        "BOM:build-plate/seal-clamp-plate/part_family",
+        "BOM:build-plate/seal-clamp-plate/material",
+        "BOM:build-plate/seal-clamp-plate/design_intent",
+        "BOM:build-plate/seal-clamp-plate/notes",
+        "BOM:build-plate/seal-clamp-plate/amount",
+        "BOM:build-plate/build-base/name",
+        "BOM:build-plate/build-base/part_family",
+        "BOM:build-plate/build-base/material",
+        "BOM:build-plate/build-base/design_intent",
+        "BOM:build-plate/build-base/notes",
+        "BOM:build-plate/build-base/amount",
+        "BOM:build-plate/build-cylinder-clamp-ring/name",
+        "BOM:build-plate/build-cylinder-clamp-ring/part_family",
+        "BOM:build-plate/build-cylinder-clamp-ring/material",
+        "BOM:build-plate/build-cylinder-clamp-ring/design_intent",
+        "BOM:build-plate/build-cylinder-clamp-ring/amount"
+      ],
+      "source_locations": [
+        {
+          "kind": "drawing",
+          "name": "D-025/drawing/source",
+          "part_key": "D-025",
+          "page": 1,
+          "box": null,
+          "label": "D-025 / source",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-025.pdf",
+          "source_filename": "ByggeBaseRing_Version2.PDF"
+        },
+        {
+          "kind": "drawing",
+          "name": "D-025/drawing/notes",
+          "part_key": "D-025",
+          "page": 1,
+          "box": [
+            741.526,
+            658.942,
+            231.0,
+            111.0
+          ],
+          "label": "D-025 / notes",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-025.pdf",
+          "source_filename": "ByggeBaseRing_Version2.PDF"
+        },
+        {
+          "kind": "drawing",
+          "name": "D-025/drawing/title",
+          "part_key": "D-025",
+          "page": 1,
+          "box": [
+            975.328,
+            710.355,
+            181.0,
+            66.0
+          ],
+          "label": "D-025 / title",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-025.pdf",
+          "source_filename": "ByggeBaseRing_Version2.PDF"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:build-plate/seal-clamp-plate/name",
+          "label": "BOM-052 / Seal clamp plate",
+          "part_key": "bom/build-plate/seal-clamp-plate",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-052"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:build-plate/seal-clamp-plate/part_family",
+          "label": "BOM-052 / Seal clamp plate",
+          "part_key": "bom/build-plate/seal-clamp-plate",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-052"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:build-plate/seal-clamp-plate/material",
+          "label": "BOM-052 / Seal clamp plate",
+          "part_key": "bom/build-plate/seal-clamp-plate",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-052"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:build-plate/seal-clamp-plate/design_intent",
+          "label": "BOM-052 / Seal clamp plate",
+          "part_key": "bom/build-plate/seal-clamp-plate",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-052"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:build-plate/seal-clamp-plate/notes",
+          "label": "BOM-052 / Seal clamp plate",
+          "part_key": "bom/build-plate/seal-clamp-plate",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-052"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:build-plate/seal-clamp-plate/amount",
+          "label": "BOM-052 / Seal clamp plate",
+          "part_key": "bom/build-plate/seal-clamp-plate",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-052"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:build-plate/build-base/name",
+          "label": "BOM-046 / Build base",
+          "part_key": "D-024",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-046"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:build-plate/build-base/part_family",
+          "label": "BOM-046 / Build base",
+          "part_key": "D-024",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-046"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:build-plate/build-base/material",
+          "label": "BOM-046 / Build base",
+          "part_key": "D-024",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-046"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:build-plate/build-base/design_intent",
+          "label": "BOM-046 / Build base",
+          "part_key": "D-024",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-046"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:build-plate/build-base/notes",
+          "label": "BOM-046 / Build base",
+          "part_key": "D-024",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-046"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:build-plate/build-base/amount",
+          "label": "BOM-046 / Build base",
+          "part_key": "D-024",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-046"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:build-plate/build-cylinder-clamp-ring/name",
+          "label": "BOM-049 / Build cylinder clamp ring",
+          "part_key": "D-027",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-049"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:build-plate/build-cylinder-clamp-ring/part_family",
+          "label": "BOM-049 / Build cylinder clamp ring",
+          "part_key": "D-027",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-049"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:build-plate/build-cylinder-clamp-ring/material",
+          "label": "BOM-049 / Build cylinder clamp ring",
+          "part_key": "D-027",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-049"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:build-plate/build-cylinder-clamp-ring/design_intent",
+          "label": "BOM-049 / Build cylinder clamp ring",
+          "part_key": "D-027",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-049"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:build-plate/build-cylinder-clamp-ring/amount",
+          "label": "BOM-049 / Build cylinder clamp ring",
+          "part_key": "D-027",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-049"
+        }
+      ],
+      "note": "Original title Bygge Base Ring and Aluminium note establish a build-base ring but do not state its assembly or sealing function. BOM Seal clamp plate describes a ring clamping ceramic seal; Build cylinder clamp ring locates and clamps the cylinder and motor assembly; Build base describes the heated moving base. No printed cross-reference identifies which row includes this thin ring. Leave unresolved; do not link several functionally different rows to eliminate the ambiguity.",
+      "originals_inspected": [
+        "project-meridian_Avathon/project-meridian/dataset/drawings/D-025.pdf",
+        "generated/images/D-025-p1.png",
+        "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv"
+      ],
+      "original_png_sha256": {
+        "generated/images/D-025-p1.png": "edae594f5e5fc3be24f7811101b71dd4166c3346197ecf942ffe3e37165ea814"
+      },
+      "bom_source_sha256": "b9837f2249247e4465ae5f481f714912bba8ed33a7759cd773ab43092e1b6ae2",
+      "bom_rows_compared": [
+        {
+          "name": "BOM:build-plate/seal-clamp-plate",
+          "source_row": 53,
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "row_sha256": "607a1de31d17a43eed61cce0dbd9b12772811ac857d1dceee90ac3803d638973",
+          "original": {
+            "Name": "Seal clamp plate",
+            "Part family": "Build-plate",
+            "Type": "Custom",
+            "Notes": "ID of clamp plate was too small. Filed to enlargen. Check specs.",
+            "Design Intend": "Ring that clamps down on ceramic seal",
+            "Material": "Aluminium",
+            "Amount": "1",
+            "Datasheet": ""
+          }
+        },
+        {
+          "name": "BOM:build-plate/build-base",
+          "source_row": 47,
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "row_sha256": "a61c2fbcb67041094a77a3c6acf77c1b4553efd739468c959becaa138542f81e",
+          "original": {
+            "Name": "Build base",
+            "Part family": "Build-plate",
+            "Type": "Custom",
+            "Notes": "The hole for thermo couple was below spec and had to be drilled bigger",
+            "Design Intend": "Smaller than Build cylinder - about 1mm in radius work well. Secure build plate concentric and flat from top. Mount to spindle and linear guide rod. Contain heating elements. Accomodate seal. A few millimeters of the ceramic paper seal seem to work.",
+            "Material": "Aluminium",
+            "Amount": "1",
+            "Datasheet": ""
+          }
+        },
+        {
+          "name": "BOM:build-plate/build-cylinder-clamp-ring",
+          "source_row": 50,
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "row_sha256": "d3c981956afa0bff573c03a65b23097f78d58c99455fe87d5580ec207ec1b013",
+          "original": {
+            "Name": "Build cylinder clamp ring",
+            "Part family": "Build-plate",
+            "Type": "Custom",
+            "Notes": "",
+            "Design Intend": "Ring that clamp buildcylinder up to build platform and which locate and hold z-axis motor assembly incl. build base linear stage",
+            "Material": "Aluminium",
+            "Amount": "1",
+            "Datasheet": ""
+          }
+        }
+      ],
+      "inspecting_actor": "Codex geometry_finish subagent",
+      "no_decision_written": true,
+      "leave_semantics": "Preserve the unresolved link; [] is not a confirmed no-BOM-match finding."
+    },
+    {
+      "target": "D-030/link",
+      "action": "accept_link",
+      "value": [
+        "BOM:build-plate/motor-plate"
+      ],
+      "based_on": "849100de6d2abbbcca5c6e39cd4a1778918b17818cc88c91340612981d9220ee",
+      "source_sha256": "849100de6d2abbbcca5c6e39cd4a1778918b17818cc88c91340612981d9220ee",
+      "prediction_sha256": "0c3b80fde1e982cda930022edbf4d411b12875552cc3c53fd0b2e4eda299d78c",
+      "prediction": {
+        "state": "needs_review",
+        "value": []
+      },
+      "source_fact_ids": [
+        "D-030/drawing/source",
+        "D-030/drawing/notes",
+        "BOM:build-plate/motor-plate/name",
+        "BOM:build-plate/motor-plate/part_family",
+        "BOM:build-plate/motor-plate/material",
+        "BOM:build-plate/motor-plate/design_intent",
+        "BOM:build-plate/motor-plate/amount",
+        "BOM:powder/powder-stepper-bracket/name",
+        "BOM:powder/powder-stepper-bracket/part_family",
+        "BOM:powder/powder-stepper-bracket/material",
+        "BOM:powder/powder-stepper-bracket/amount"
+      ],
+      "source_locations": [
+        {
+          "kind": "drawing",
+          "name": "D-030/drawing/source",
+          "part_key": "D-030",
+          "page": 1,
+          "box": null,
+          "label": "D-030 / source",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-030.pdf",
+          "source_filename": "Z-axis_MotorPlate.pdf"
+        },
+        {
+          "kind": "drawing",
+          "name": "D-030/drawing/notes",
+          "part_key": "D-030",
+          "page": 1,
+          "box": [
+            734.907,
+            653.399,
+            242.971,
+            121.067
+          ],
+          "label": "D-030 / notes",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/drawings/D-030.pdf",
+          "source_filename": "Z-axis_MotorPlate.pdf"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:build-plate/motor-plate/name",
+          "label": "BOM-048 / Motor plate",
+          "part_key": "bom/build-plate/motor-plate",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-048"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:build-plate/motor-plate/part_family",
+          "label": "BOM-048 / Motor plate",
+          "part_key": "bom/build-plate/motor-plate",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-048"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:build-plate/motor-plate/material",
+          "label": "BOM-048 / Motor plate",
+          "part_key": "bom/build-plate/motor-plate",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-048"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:build-plate/motor-plate/design_intent",
+          "label": "BOM-048 / Motor plate",
+          "part_key": "bom/build-plate/motor-plate",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-048"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:build-plate/motor-plate/amount",
+          "label": "BOM-048 / Motor plate",
+          "part_key": "bom/build-plate/motor-plate",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-048"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:powder/powder-stepper-bracket/name",
+          "label": "BOM-092 / Powder stepper bracket",
+          "part_key": "bom/powder/powder-stepper-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-092"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:powder/powder-stepper-bracket/part_family",
+          "label": "BOM-092 / Powder stepper bracket",
+          "part_key": "bom/powder/powder-stepper-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-092"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:powder/powder-stepper-bracket/material",
+          "label": "BOM-092 / Powder stepper bracket",
+          "part_key": "bom/powder/powder-stepper-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-092"
+        },
+        {
+          "kind": "bom",
+          "name": "BOM:powder/powder-stepper-bracket/amount",
+          "label": "BOM-092 / Powder stepper bracket",
+          "part_key": "bom/powder/powder-stepper-bracket",
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": "BOM-092"
+        }
+      ],
+      "note": "Direct original PNG inspection reads Z-axis MotorPlate and Aluminium. Original BOM CSV row 49 uniquely names Motor plate in the build mechanism and lists Aluminium; its design intent concerns the non-captive stepper/end-stop assembly, consistent with the Z-axis motor-plate identity. The Powder stepper bracket is a different stainless component. The specific matching component name, material note and build-axis role support this link despite the different grouping labels; no global Z-axis/Build-plate equivalence is approved. Geometry and whole-design approval remain separate.",
+      "originals_inspected": [
+        "project-meridian_Avathon/project-meridian/dataset/drawings/D-030.pdf",
+        "generated/images/D-030-p1.png",
+        "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv"
+      ],
+      "original_png_sha256": {
+        "generated/images/D-030-p1.png": "511d3815d02110c0fc5822d433e04b5f6eae4dbfd7bad39bd98c231020809fcb"
+      },
+      "bom_source_sha256": "b9837f2249247e4465ae5f481f714912bba8ed33a7759cd773ab43092e1b6ae2",
+      "bom_rows_compared": [
+        {
+          "name": "BOM:build-plate/motor-plate",
+          "source_row": 49,
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "row_sha256": "8e08e82c29f144c58d65445d10c1229f8111fa7fc4b6c427970ca4a5034078d1",
+          "original": {
+            "Name": "Motor plate",
+            "Part family": "Build-plate",
+            "Type": "Custom",
+            "Notes": "",
+            "Design Intend": "Motor plate to hold 3 non-captive stepper motors, end-stop switches",
+            "Material": "Aluminium",
+            "Amount": "1",
+            "Datasheet": ""
+          }
+        },
+        {
+          "name": "BOM:powder/powder-stepper-bracket",
+          "source_row": 93,
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "row_sha256": "372c09c739ea46b89fb0808d5c97b70f566590b4183a2e692c538a86461168c0",
+          "original": {
+            "Name": "Powder stepper bracket",
+            "Part family": "Powder",
+            "Type": "Custom",
+            "Notes": "",
+            "Design Intend": "",
+            "Material": "Stainless steel",
+            "Amount": "1",
+            "Datasheet": ""
+          }
+        }
+      ],
+      "inspecting_actor": "Codex geometry_finish subagent",
+      "no_decision_written": true,
+      "leave_semantics": null
+    }
+  ],
+  "counts": {
+    "leave": 9,
+    "accept_link": 2
+  },
+  "limitations": [
+    "Drawings contain component descriptions but no additional explicit BOM drawing-number cross-references for the unresolved alternatives.",
+    "Two source-backed single-row links recommended; no evidence supports merging multiple distinct rows for these drawings.",
+    "Existing reviewed links and all decision files remain unchanged."
+  ]
+}

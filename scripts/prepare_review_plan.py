@@ -36,7 +36,8 @@ def prepare(batch, output):
     receipt = (batch / "checkpoint.json").relative_to(ROOT / "generated").as_posix()
     if not any(run.get("receipt", '').replace('\\', '/') == receipt for run in store.ai.get("prep_runs", [])):
         raise ValueError("The finished geometry batch has not been published to the live dataset")
-    baseline = load(ROOT / ".verification/oversight-review/original-prediction-bindings.json")["fields"]
+    audit_baseline = ROOT / 'docs/verification/source-review-baseline'
+    baseline = load(audit_baseline / 'original-prediction-bindings.json')["fields"]
     pending = {item["target"] for item in store.review_items()
                if item["review_queue"] != "resolved" and not item["id"].startswith(("design:", "weight:"))}
     operations, skipped = {}, []
@@ -107,7 +108,7 @@ def prepare(batch, output):
         operations[target] = operation
 
     for name in ("audit-01-10.json", "audit-11-20.json", "audit-21-30.json"):
-        path = ROOT / ".verification/oversight-review" / name
+        path = audit_baseline / name
         for item in load(path)["items"]:
             add(item, path, old=True)
     path = ROOT / "docs/verification/detail-literal-audit.json"
@@ -120,7 +121,8 @@ def prepare(batch, output):
         add(item, path)
     path = ROOT / 'docs/verification/link-followup-audit.json'
     if path.is_file():
-        for item in load(path)['operations']:
+        link_audit = load(path)
+        for item in link_audit.get('operations', link_audit.get('items', [])):
             add(item, path)
     plan = {"status": "prepared_not_applied", "revision": store.revision,
             "batch": str(batch.relative_to(ROOT)), "operations": list(operations.values()),

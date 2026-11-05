@@ -1,0 +1,1688 @@
+{
+  "inspected_drawings": [
+    {
+      "drawing": "D-021",
+      "pages": [
+        1,
+        2
+      ],
+      "source": "existing generated/images original drawing PNGs; existing title-block crops for metadata"
+    },
+    {
+      "drawing": "D-022",
+      "pages": [
+        1
+      ],
+      "source": "existing generated/images original drawing PNGs; existing title-block crops for metadata"
+    },
+    {
+      "drawing": "D-023",
+      "pages": [
+        1
+      ],
+      "source": "existing generated/images original drawing PNGs; existing title-block crops for metadata"
+    },
+    {
+      "drawing": "D-024",
+      "pages": [
+        1
+      ],
+      "source": "existing generated/images original drawing PNGs; existing title-block crops for metadata"
+    },
+    {
+      "drawing": "D-025",
+      "pages": [
+        1
+      ],
+      "source": "existing generated/images original drawing PNGs; existing title-block crops for metadata"
+    },
+    {
+      "drawing": "D-026",
+      "pages": [
+        1
+      ],
+      "source": "existing generated/images original drawing PNGs; existing title-block crops for metadata"
+    },
+    {
+      "drawing": "D-027",
+      "pages": [
+        1
+      ],
+      "source": "existing generated/images original drawing PNGs; existing title-block crops for metadata"
+    },
+    {
+      "drawing": "D-028",
+      "pages": [
+        1
+      ],
+      "source": "existing generated/images original drawing PNGs; existing title-block crops for metadata"
+    },
+    {
+      "drawing": "D-029",
+      "pages": [
+        1
+      ],
+      "source": "existing generated/images original drawing PNGs; existing title-block crops for metadata"
+    },
+    {
+      "drawing": "D-030",
+      "pages": [
+        1
+      ],
+      "source": "existing generated/images original drawing PNGs; existing title-block crops for metadata"
+    }
+  ],
+  "items": [
+    {
+      "id": "D-021/template/features_review",
+      "target": "D-021/template/features_review",
+      "decision": "confirm",
+      "note": "Pages 1 and 2 show a welded outlet with a machine-wall flange, curved back/inside, top and bottom and G2 nipple. Page 1 prints 7 x diameter 7.00 through and 2 x diameter 10.00 through, but does not dimension the flange envelope or all opening-to-outline datums. Confirm [] as the supported positioned-cut subset only; these holes are known omissions.",
+      "source_fact_ids": [
+        "D-021/drawing/callout/p1-1",
+        "D-021/drawing/callout/p1-2",
+        "D-021/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-021",
+          "page": 1,
+          "image": "generated/images/D-021-p1.png",
+          "visual_description": "Pages 1 and 2 show a welded outlet with a machine-wall flange, curved back/inside, top and bottom and G2 nipple. Page 1 prints 7 x diameter 7.00 through and 2 x diameter 10.00 through, but does not dimension the flange envelope or all opening-to-outline datums. Confirm [] as the supported positioned-cut subset only; these holes are known omissions."
+        },
+        {
+          "drawing": "D-021",
+          "page": 2,
+          "image": "generated/images/D-021-p2.png",
+          "visual_description": "Exploded drawing labels flange for machine wall, top and bottom, curved back, curved inside with hole for nipple, and G2 threaded weld nipple50mm long."
+        }
+      ],
+      "based_on": "c8b07157f3b40ef8d2dc18ae915d4f7244479ea6219d4fe3e8bb6ef1fedea1bc"
+    },
+    {
+      "id": "D-021/template/cad_eligibility",
+      "target": "D-021/template/cad_eligibility",
+      "decision": "confirm",
+      "note": "Page 1 note explicitly says sheet thickness is free, as thin as practical, and all joints should be welded. The orthographic and page 2 exploded views show separate curved and formed sheets plus a G2 nipple. Confirm supported=false, constant_thickness=false and outline_exact=false for the current flat rectangle/circle/ring template, without claiming general CAD impossibility or a complete design approval.",
+      "source_fact_ids": [
+        "D-021/drawing/notes",
+        "D-021/drawing/general/edge_finish",
+        "D-021/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-021",
+          "page": 1,
+          "image": "generated/images/D-021-p1.png",
+          "visual_description": "Page 1 note explicitly says sheet thickness is free, as thin as practical, and all joints should be welded. The orthographic and page 2 exploded views show separate curved and formed sheets plus a G2 nipple. Confirm supported=false, constant_thickness=false and outline_exact=false for the current flat rectangle/circle/ring template, without claiming general CAD impossibility or a complete design approval."
+        },
+        {
+          "drawing": "D-021",
+          "page": 2,
+          "image": "generated/images/D-021-p2.png",
+          "visual_description": "Exploded drawing labels flange for machine wall, top and bottom, curved back, curved inside with hole for nipple, and G2 threaded weld nipple50mm long."
+        }
+      ],
+      "based_on": "c8b07157f3b40ef8d2dc18ae915d4f7244479ea6219d4fe3e8bb6ef1fedea1bc"
+    },
+    {
+      "id": "D-021/template/features_complete",
+      "target": "D-021/template/features_complete",
+      "decision": "confirm",
+      "note": "Confirm false: pages 1-2 visibly contain flange holes, outlet passage, formed/curved sheets and a nipple that the empty retained-cut subset does not represent.",
+      "source_fact_ids": [
+        "D-021/drawing/callout/p1-1",
+        "D-021/drawing/callout/p1-2",
+        "D-021/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-021",
+          "page": 1,
+          "image": "generated/images/D-021-p1.png",
+          "visual_description": "Confirm false: pages 1-2 visibly contain flange holes, outlet passage, formed/curved sheets and a nipple that the empty retained-cut subset does not represent."
+        },
+        {
+          "drawing": "D-021",
+          "page": 2,
+          "image": "generated/images/D-021-p2.png",
+          "visual_description": "Exploded drawing labels flange for machine wall, top and bottom, curved back, curved inside with hole for nipple, and G2 threaded weld nipple50mm long."
+        }
+      ],
+      "based_on": "c8b07157f3b40ef8d2dc18ae915d4f7244479ea6219d4fe3e8bb6ef1fedea1bc"
+    },
+    {
+      "id": "D-021/template/features_omitted",
+      "target": "D-021/template/features_omitted",
+      "decision": "confirm",
+      "note": "Checked both pages: page 1 prints 7 x diameter 7.00 THRU ALL with 80.50 pitches and 12.00 offset; 2 x diameter 10.00 THRU ALL with 64.50 and 46.00 offsets; duct dimensions 282.00 and 32.00; and nipple length 50.00. The drawing says G2 weld nipple, adjust hole as needed. Page 2 labels the curved inside/back, top/bottom and flange. No complete flange envelope/centered datums, numeric sheet thickness, mating bore or full formed profiles are provided. The general edge-break note has no size. Confirm these omissions, preserving unknown geometry.",
+      "source_fact_ids": [
+        "D-021/drawing/notes",
+        "D-021/drawing/callout/p1-1",
+        "D-021/drawing/callout/p1-2",
+        "D-021/drawing/general/edge_finish",
+        "D-021/drawing/n/80.5@1-1",
+        "D-021/drawing/n/80.5@1-2",
+        "D-021/drawing/n/12.0@1-1",
+        "D-021/drawing/n/64.5@1-1",
+        "D-021/drawing/n/46.0@1-1",
+        "D-021/drawing/n/282.0@1-1",
+        "D-021/drawing/n/32.0@1-1",
+        "D-021/drawing/n/50.0@1-1",
+        "D-021/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-021",
+          "page": 1,
+          "image": "generated/images/D-021-p1.png",
+          "visual_description": "Checked both pages: page 1 prints 7 x diameter 7.00 THRU ALL with 80.50 pitches and 12.00 offset; 2 x diameter 10.00 THRU ALL with 64.50 and 46.00 offsets; duct dimensions 282.00 and 32.00; and nipple length 50.00. The drawing says G2 weld nipple, adjust hole as needed. Page 2 labels the curved inside/back, top/bottom and flange. No complete flange envelope/centered datums, numeric sheet thickness, mating bore or full formed profiles are provided. The general edge-break note has no size. Confirm these omissions, preserving unknown geometry."
+        },
+        {
+          "drawing": "D-021",
+          "page": 2,
+          "image": "generated/images/D-021-p2.png",
+          "visual_description": "Exploded drawing labels flange for machine wall, top and bottom, curved back, curved inside with hole for nipple, and G2 threaded weld nipple50mm long."
+        }
+      ],
+      "based_on": "c8b07157f3b40ef8d2dc18ae915d4f7244479ea6219d4fe3e8bb6ef1fedea1bc"
+    },
+    {
+      "id": "D-022/drawing/notes",
+      "target": "D-022/drawing/notes",
+      "decision": "confirm",
+      "note": "Existing original full-page and title-block crop visibly read exactly: Inlet Box\nFour corner joints should be\nwelded.\nStainless\nFree choice of thickness\n(as thin as possible) . Confirm wording; line layout is transcribed as the provided value.",
+      "source_fact_ids": [
+        "D-022/drawing/notes",
+        "D-022/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-022",
+          "page": 1,
+          "image": "generated/images/D-022-p1.png",
+          "visual_description": "Existing original full-page and title-block crop visibly read exactly: Inlet Box\nFour corner joints should be\nwelded.\nStainless\nFree choice of thickness\n(as thin as possible) . Confirm wording; line layout is transcribed as the provided value."
+        },
+        {
+          "drawing": "D-022",
+          "page": 1,
+          "image": "generated/images/D-022-corner.png",
+          "visual_description": "Existing original title-block crop; Existing original full-page and title-block crop visibly read exactly: Inlet Box\nFour corner joints should be\nwelded.\nStainless\nFree choice of thickness\n(as thin as possible) . Confirm wording; line layout is transcribed as the provided value."
+        }
+      ],
+      "based_on": "7f3f8efc002bc2545386c1a355341ca61ebd984084b21cb07575331c4c1cc9ee"
+    },
+    {
+      "id": "D-022/drawing/company",
+      "target": "D-022/drawing/company",
+      "decision": "confirm",
+      "note": "Existing original full-page and title-block crop visibly print \"DTU MPP\" in the company field. Confirm that field only.",
+      "source_fact_ids": [
+        "D-022/drawing/company",
+        "D-022/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-022",
+          "page": 1,
+          "image": "generated/images/D-022-p1.png",
+          "visual_description": "Existing original full-page and title-block crop visibly print \"DTU MPP\" in the company field. Confirm that field only."
+        },
+        {
+          "drawing": "D-022",
+          "page": 1,
+          "image": "generated/images/D-022-corner.png",
+          "visual_description": "Existing original title-block crop; Existing original full-page and title-block crop visibly print \"DTU MPP\" in the company field. Confirm that field only."
+        }
+      ],
+      "based_on": "7f3f8efc002bc2545386c1a355341ca61ebd984084b21cb07575331c4c1cc9ee"
+    },
+    {
+      "id": "D-022/drawing/drawn",
+      "target": "D-022/drawing/drawn",
+      "decision": "confirm",
+      "note": "Existing original full-page and title-block crop visibly print \"MBOKJ\" in the drawn field. Confirm that field only.",
+      "source_fact_ids": [
+        "D-022/drawing/drawn",
+        "D-022/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-022",
+          "page": 1,
+          "image": "generated/images/D-022-p1.png",
+          "visual_description": "Existing original full-page and title-block crop visibly print \"MBOKJ\" in the drawn field. Confirm that field only."
+        },
+        {
+          "drawing": "D-022",
+          "page": 1,
+          "image": "generated/images/D-022-corner.png",
+          "visual_description": "Existing original title-block crop; Existing original full-page and title-block crop visibly print \"MBOKJ\" in the drawn field. Confirm that field only."
+        }
+      ],
+      "based_on": "7f3f8efc002bc2545386c1a355341ca61ebd984084b21cb07575331c4c1cc9ee"
+    },
+    {
+      "id": "D-022/drawing/date",
+      "target": "D-022/drawing/date",
+      "decision": "confirm",
+      "note": "Existing original full-page and title-block crop visibly print \"20/12/2023\" in the date field. Confirm that field only.",
+      "source_fact_ids": [
+        "D-022/drawing/date",
+        "D-022/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-022",
+          "page": 1,
+          "image": "generated/images/D-022-p1.png",
+          "visual_description": "Existing original full-page and title-block crop visibly print \"20/12/2023\" in the date field. Confirm that field only."
+        },
+        {
+          "drawing": "D-022",
+          "page": 1,
+          "image": "generated/images/D-022-corner.png",
+          "visual_description": "Existing original title-block crop; Existing original full-page and title-block crop visibly print \"20/12/2023\" in the date field. Confirm that field only."
+        }
+      ],
+      "based_on": "7f3f8efc002bc2545386c1a355341ca61ebd984084b21cb07575331c4c1cc9ee"
+    },
+    {
+      "id": "D-022/drawing/scale",
+      "target": "D-022/drawing/scale",
+      "decision": "confirm",
+      "note": "Existing original full-page and title-block crop visibly print \"1:2\" in the scale field. Confirm that field only.",
+      "source_fact_ids": [
+        "D-022/drawing/scale",
+        "D-022/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-022",
+          "page": 1,
+          "image": "generated/images/D-022-p1.png",
+          "visual_description": "Existing original full-page and title-block crop visibly print \"1:2\" in the scale field. Confirm that field only."
+        },
+        {
+          "drawing": "D-022",
+          "page": 1,
+          "image": "generated/images/D-022-corner.png",
+          "visual_description": "Existing original title-block crop; Existing original full-page and title-block crop visibly print \"1:2\" in the scale field. Confirm that field only."
+        }
+      ],
+      "based_on": "7f3f8efc002bc2545386c1a355341ca61ebd984084b21cb07575331c4c1cc9ee"
+    },
+    {
+      "id": "D-022/template/features_review",
+      "target": "D-022/template/features_review",
+      "decision": "confirm",
+      "note": "The original sheet shows a tapered formed enclosure with welded corners and weld nuts, not one supported flat outline. Perforations have diameter 3.00 callouts and mounting holes are 10 x diameter 7.00 for M5 weld nuts, but a complete perforation layout is absent. The supplied drawing numbers array is empty. Confirm [] as the presently encodable positioned-cut subset.",
+      "source_fact_ids": [
+        "D-022/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-022",
+          "page": 1,
+          "image": "generated/images/D-022-p1.png",
+          "visual_description": "The original sheet shows a tapered formed enclosure with welded corners and weld nuts, not one supported flat outline. Perforations have diameter 3.00 callouts and mounting holes are 10 x diameter 7.00 for M5 weld nuts, but a complete perforation layout is absent. The supplied drawing numbers array is empty. Confirm [] as the presently encodable positioned-cut subset."
+        }
+      ],
+      "based_on": "7f3f8efc002bc2545386c1a355341ca61ebd984084b21cb07575331c4c1cc9ee"
+    },
+    {
+      "id": "D-022/template/cad_eligibility",
+      "target": "D-022/template/cad_eligibility",
+      "decision": "confirm",
+      "note": "The side and isometric views visibly show tapered walls, bent flanges and welded enclosure corners. The note says Free choice of thickness (as thin as possible), with no numeric sheet thickness. Drawing numbers array is empty although dimensions are visibly printed. Confirm the current template exclusion and retained uncertainty; this does not declare the enclosure impossible to model in other CAD.",
+      "source_fact_ids": [
+        "D-022/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-022",
+          "page": 1,
+          "image": "generated/images/D-022-p1.png",
+          "visual_description": "The side and isometric views visibly show tapered walls, bent flanges and welded enclosure corners. The note says Free choice of thickness (as thin as possible), with no numeric sheet thickness. Drawing numbers array is empty although dimensions are visibly printed. Confirm the current template exclusion and retained uncertainty; this does not declare the enclosure impossible to model in other CAD."
+        }
+      ],
+      "based_on": "7f3f8efc002bc2545386c1a355341ca61ebd984084b21cb07575331c4c1cc9ee"
+    },
+    {
+      "id": "D-022/template/features_complete",
+      "target": "D-022/template/features_complete",
+      "decision": "confirm",
+      "note": "Confirm false: perforations, mounting holes/weld nuts, tapered formed walls and welded joints remain omitted from the empty supported subset.",
+      "source_fact_ids": [
+        "D-022/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-022",
+          "page": 1,
+          "image": "generated/images/D-022-p1.png",
+          "visual_description": "Confirm false: perforations, mounting holes/weld nuts, tapered formed walls and welded joints remain omitted from the empty supported subset."
+        }
+      ],
+      "based_on": "7f3f8efc002bc2545386c1a355341ca61ebd984084b21cb07575331c4c1cc9ee"
+    },
+    {
+      "id": "D-022/template/features_omitted",
+      "target": "D-022/template/features_omitted",
+      "decision": "confirm",
+      "note": "Original shows diameter 3.00 perforation arrays without fully dimensioned pitches/offsets; 10 x diameter 7.00 THRU ALL for M5 weld nut on side shown; side-view taper 100 degrees and 62.50 depth; and Four corners to be welded. Main dimensions include 200.00,184.00,120,105 and162.00, but no developed flat blank or numeric thickness. Supplied numbers array is empty. Confirm the listed omissions without inferring sheet threads from separate weld nuts.",
+      "source_fact_ids": [
+        "D-022/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-022",
+          "page": 1,
+          "image": "generated/images/D-022-p1.png",
+          "visual_description": "Original shows diameter 3.00 perforation arrays without fully dimensioned pitches/offsets; 10 x diameter 7.00 THRU ALL for M5 weld nut on side shown; side-view taper 100 degrees and 62.50 depth; and Four corners to be welded. Main dimensions include 200.00,184.00,120,105 and162.00, but no developed flat blank or numeric thickness. Supplied numbers array is empty. Confirm the listed omissions without inferring sheet threads from separate weld nuts."
+        }
+      ],
+      "based_on": "7f3f8efc002bc2545386c1a355341ca61ebd984084b21cb07575331c4c1cc9ee"
+    },
+    {
+      "id": "D-023/drawing/title",
+      "target": "D-023/drawing/title",
+      "decision": "confirm",
+      "note": "Existing original full-page and title-block crop visibly print \"ByggeCylinder\" in the title field. Confirm that field only.",
+      "source_fact_ids": [
+        "D-023/drawing/title",
+        "D-023/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-023",
+          "page": 1,
+          "image": "generated/images/D-023-p1.png",
+          "visual_description": "Existing original full-page and title-block crop visibly print \"ByggeCylinder\" in the title field. Confirm that field only."
+        },
+        {
+          "drawing": "D-023",
+          "page": 1,
+          "image": "generated/images/D-023-corner.png",
+          "visual_description": "Existing original title-block crop; Existing original full-page and title-block crop visibly print \"ByggeCylinder\" in the title field. Confirm that field only."
+        }
+      ],
+      "based_on": "5d838d31ad5e803b6c421bc6867447f73756d51509259385e07caf81e453c36d"
+    },
+    {
+      "id": "D-023/drawing/notes",
+      "target": "D-023/drawing/notes",
+      "decision": "confirm",
+      "note": "Existing original full-page and title-block crop visibly read exactly: Baseret på Ø280mm, t=15mm\nEN AW-6082 T6 rør fra Alumeco.\nIndre flade [B] skal slutte tæt med\nen dynamisk keramisk pakning.\n\n55 mm længere ift. version 1 . Confirm wording; line layout is transcribed as the provided value.",
+      "source_fact_ids": [
+        "D-023/drawing/notes",
+        "D-023/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-023",
+          "page": 1,
+          "image": "generated/images/D-023-p1.png",
+          "visual_description": "Existing original full-page and title-block crop visibly read exactly: Baseret på Ø280mm, t=15mm\nEN AW-6082 T6 rør fra Alumeco.\nIndre flade [B] skal slutte tæt med\nen dynamisk keramisk pakning.\n\n55 mm længere ift. version 1 . Confirm wording; line layout is transcribed as the provided value."
+        },
+        {
+          "drawing": "D-023",
+          "page": 1,
+          "image": "generated/images/D-023-corner.png",
+          "visual_description": "Existing original title-block crop; Existing original full-page and title-block crop visibly read exactly: Baseret på Ø280mm, t=15mm\nEN AW-6082 T6 rør fra Alumeco.\nIndre flade [B] skal slutte tæt med\nen dynamisk keramisk pakning.\n\n55 mm længere ift. version 1 . Confirm wording; line layout is transcribed as the provided value."
+        }
+      ],
+      "based_on": "5d838d31ad5e803b6c421bc6867447f73756d51509259385e07caf81e453c36d"
+    },
+    {
+      "id": "D-023/drawing/company",
+      "target": "D-023/drawing/company",
+      "decision": "confirm",
+      "note": "Existing original full-page and title-block crop visibly print \"DTU MPP\" in the company field. Confirm that field only.",
+      "source_fact_ids": [
+        "D-023/drawing/company",
+        "D-023/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-023",
+          "page": 1,
+          "image": "generated/images/D-023-p1.png",
+          "visual_description": "Existing original full-page and title-block crop visibly print \"DTU MPP\" in the company field. Confirm that field only."
+        },
+        {
+          "drawing": "D-023",
+          "page": 1,
+          "image": "generated/images/D-023-corner.png",
+          "visual_description": "Existing original title-block crop; Existing original full-page and title-block crop visibly print \"DTU MPP\" in the company field. Confirm that field only."
+        }
+      ],
+      "based_on": "5d838d31ad5e803b6c421bc6867447f73756d51509259385e07caf81e453c36d"
+    },
+    {
+      "id": "D-023/drawing/material",
+      "target": "D-023/drawing/material",
+      "decision": "confirm",
+      "note": "Existing original full-page and title-block crop visibly print \"EN AW-6082\" in the material field. Confirm that field only.",
+      "source_fact_ids": [
+        "D-023/drawing/material",
+        "D-023/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-023",
+          "page": 1,
+          "image": "generated/images/D-023-p1.png",
+          "visual_description": "Existing original full-page and title-block crop visibly print \"EN AW-6082\" in the material field. Confirm that field only."
+        },
+        {
+          "drawing": "D-023",
+          "page": 1,
+          "image": "generated/images/D-023-corner.png",
+          "visual_description": "Existing original title-block crop; Existing original full-page and title-block crop visibly print \"EN AW-6082\" in the material field. Confirm that field only."
+        }
+      ],
+      "based_on": "5d838d31ad5e803b6c421bc6867447f73756d51509259385e07caf81e453c36d"
+    },
+    {
+      "id": "D-023/drawing/weight_g",
+      "target": "D-023/drawing/weight_g",
+      "decision": "confirm",
+      "note": "Existing original full-page and title-block crop visibly print 3195.5 in the weight_g field. Confirm that field only.",
+      "source_fact_ids": [
+        "D-023/drawing/weight_g",
+        "D-023/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-023",
+          "page": 1,
+          "image": "generated/images/D-023-p1.png",
+          "visual_description": "Existing original full-page and title-block crop visibly print 3195.5 in the weight_g field. Confirm that field only."
+        },
+        {
+          "drawing": "D-023",
+          "page": 1,
+          "image": "generated/images/D-023-corner.png",
+          "visual_description": "Existing original title-block crop; Existing original full-page and title-block crop visibly print 3195.5 in the weight_g field. Confirm that field only."
+        }
+      ],
+      "based_on": "5d838d31ad5e803b6c421bc6867447f73756d51509259385e07caf81e453c36d"
+    },
+    {
+      "id": "D-023/drawing/drawn",
+      "target": "D-023/drawing/drawn",
+      "decision": "confirm",
+      "note": "Existing original full-page and title-block crop visibly print \"MBOKJ\" in the drawn field. Confirm that field only.",
+      "source_fact_ids": [
+        "D-023/drawing/drawn",
+        "D-023/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-023",
+          "page": 1,
+          "image": "generated/images/D-023-p1.png",
+          "visual_description": "Existing original full-page and title-block crop visibly print \"MBOKJ\" in the drawn field. Confirm that field only."
+        },
+        {
+          "drawing": "D-023",
+          "page": 1,
+          "image": "generated/images/D-023-corner.png",
+          "visual_description": "Existing original title-block crop; Existing original full-page and title-block crop visibly print \"MBOKJ\" in the drawn field. Confirm that field only."
+        }
+      ],
+      "based_on": "5d838d31ad5e803b6c421bc6867447f73756d51509259385e07caf81e453c36d"
+    },
+    {
+      "id": "D-023/drawing/date",
+      "target": "D-023/drawing/date",
+      "decision": "confirm",
+      "note": "Existing original full-page and title-block crop visibly print \"13-09-2023\" in the date field. Confirm that field only.",
+      "source_fact_ids": [
+        "D-023/drawing/date",
+        "D-023/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-023",
+          "page": 1,
+          "image": "generated/images/D-023-p1.png",
+          "visual_description": "Existing original full-page and title-block crop visibly print \"13-09-2023\" in the date field. Confirm that field only."
+        },
+        {
+          "drawing": "D-023",
+          "page": 1,
+          "image": "generated/images/D-023-corner.png",
+          "visual_description": "Existing original title-block crop; Existing original full-page and title-block crop visibly print \"13-09-2023\" in the date field. Confirm that field only."
+        }
+      ],
+      "based_on": "5d838d31ad5e803b6c421bc6867447f73756d51509259385e07caf81e453c36d"
+    },
+    {
+      "id": "D-023/drawing/scale",
+      "target": "D-023/drawing/scale",
+      "decision": "confirm",
+      "note": "Existing original full-page and title-block crop visibly print \"1:5\" in the scale field. Confirm that field only.",
+      "source_fact_ids": [
+        "D-023/drawing/scale",
+        "D-023/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-023",
+          "page": 1,
+          "image": "generated/images/D-023-p1.png",
+          "visual_description": "Existing original full-page and title-block crop visibly print \"1:5\" in the scale field. Confirm that field only."
+        },
+        {
+          "drawing": "D-023",
+          "page": 1,
+          "image": "generated/images/D-023-corner.png",
+          "visual_description": "Existing original title-block crop; Existing original full-page and title-block crop visibly print \"1:5\" in the scale field. Confirm that field only."
+        }
+      ],
+      "based_on": "5d838d31ad5e803b6c421bc6867447f73756d51509259385e07caf81e453c36d"
+    },
+    {
+      "id": "D-023/template/features_review",
+      "target": "D-023/template/features_review",
+      "decision": "confirm",
+      "note": "The original section A-A shows an axial bore, entrance taper and changing outer diameters along a sleeve. Supplied parsed drawing numbers array is empty. Confirm [] for current flat-template cuts, without claiming the plainly visible bore is absent.",
+      "source_fact_ids": [
+        "D-023/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-023",
+          "page": 1,
+          "image": "generated/images/D-023-p1.png",
+          "visual_description": "The original section A-A shows an axial bore, entrance taper and changing outer diameters along a sleeve. Supplied parsed drawing numbers array is empty. Confirm [] for current flat-template cuts, without claiming the plainly visible bore is absent."
+        }
+      ],
+      "based_on": "5d838d31ad5e803b6c421bc6867447f73756d51509259385e07caf81e453c36d"
+    },
+    {
+      "id": "D-023/template/cad_eligibility",
+      "target": "D-023/template/cad_eligibility",
+      "decision": "confirm",
+      "note": "Section A-A and side view show a revolved sleeve with stepped end bands and a tapered bore entrance. The sheet visibly prints axial 280.0, outer stock diameter 280.0, bore diameter 252.0 and other dimensions, but the supplied parsed numbers array is empty. Stock t=15mm is not a uniform flat extrusion thickness. Confirm supported=false for this current flat-part template and the numeric citation limitation, without approving the full sleeve design.",
+      "source_fact_ids": [
+        "D-023/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-023",
+          "page": 1,
+          "image": "generated/images/D-023-p1.png",
+          "visual_description": "Section A-A and side view show a revolved sleeve with stepped end bands and a tapered bore entrance. The sheet visibly prints axial 280.0, outer stock diameter 280.0, bore diameter 252.0 and other dimensions, but the supplied parsed numbers array is empty. Stock t=15mm is not a uniform flat extrusion thickness. Confirm supported=false for this current flat-part template and the numeric citation limitation, without approving the full sleeve design."
+        }
+      ],
+      "based_on": "5d838d31ad5e803b6c421bc6867447f73756d51509259385e07caf81e453c36d"
+    },
+    {
+      "id": "D-023/template/features_complete",
+      "target": "D-023/template/features_complete",
+      "decision": "confirm",
+      "note": "Confirm false: the central bore, end steps/bands and internal entrance taper are visibly present but omitted from the supported subset.",
+      "source_fact_ids": [
+        "D-023/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-023",
+          "page": 1,
+          "image": "generated/images/D-023-p1.png",
+          "visual_description": "Confirm false: the central bore, end steps/bands and internal entrance taper are visibly present but omitted from the supported subset."
+        }
+      ],
+      "based_on": "5d838d31ad5e803b6c421bc6867447f73756d51509259385e07caf81e453c36d"
+    },
+    {
+      "id": "D-023/template/features_omitted",
+      "target": "D-023/template/features_omitted",
+      "decision": "confirm",
+      "note": "Section A-A visibly contains the central bore, an entrance taper marked 10 degrees with 20.0 axial extent, and circumferential stepped end features. Side view has several axial/diameter dimensions. Supplied numbers array is empty, so confirm these current encoding omissions; this does not say original dimensions are wholly absent.",
+      "source_fact_ids": [
+        "D-023/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-023",
+          "page": 1,
+          "image": "generated/images/D-023-p1.png",
+          "visual_description": "Section A-A visibly contains the central bore, an entrance taper marked 10 degrees with 20.0 axial extent, and circumferential stepped end features. Side view has several axial/diameter dimensions. Supplied numbers array is empty, so confirm these current encoding omissions; this does not say original dimensions are wholly absent."
+        }
+      ],
+      "based_on": "5d838d31ad5e803b6c421bc6867447f73756d51509259385e07caf81e453c36d"
+    },
+    {
+      "id": "D-024/template/outline/outer_diameter",
+      "target": "D-024/template/outline/outer_diameter",
+      "decision": "confirm",
+      "note": "Right face-view leader explicitly dimensions the outer flange circle as diameter 250.0 (0.0/-0.3). Confirm nominal outer_diameter=250; this is an envelope dimension of a stepped body.",
+      "source_fact_ids": [
+        "D-024/drawing/n/250.0@1-1",
+        "D-024/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-024",
+          "page": 1,
+          "image": "generated/images/D-024-p1.png",
+          "visual_description": "Right face-view leader explicitly dimensions the outer flange circle as diameter 250.0 (0.0/-0.3). Confirm nominal outer_diameter=250; this is an envelope dimension of a stepped body."
+        }
+      ],
+      "based_on": "f6da4da2e0c21231939c15f13535cf068d1c1f778774816f3cb65ddf30f96e3d"
+    },
+    {
+      "id": "D-024/template/thickness",
+      "target": "D-024/template/thickness",
+      "decision": "confirm",
+      "note": "Central edge view prints overall axial 50.0, alongside 3.0,7.0 and29.0 step dimensions. Confirm thickness=50 only as the documented axial envelope, not proof of constant plate thickness.",
+      "source_fact_ids": [
+        "D-024/drawing/n/50.0@1-1",
+        "D-024/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-024",
+          "page": 1,
+          "image": "generated/images/D-024-p1.png",
+          "visual_description": "Central edge view prints overall axial 50.0, alongside 3.0,7.0 and29.0 step dimensions. Confirm thickness=50 only as the documented axial envelope, not proof of constant plate thickness."
+        }
+      ],
+      "based_on": "f6da4da2e0c21231939c15f13535cf068d1c1f778774816f3cb65ddf30f96e3d"
+    },
+    {
+      "id": "D-024/template/features_review",
+      "target": "D-024/template/features_review",
+      "decision": "confirm",
+      "note": "Main left face dimensions establish x=-70,y=0 for one diameter10 H7 bore, center x=0,y=0 for another, x=80,y=0 for the diameter22 H9 recess, and x=-20,y=-34.6 for the diameter5 H7 blind bore. Printed depths are40.5,15.5 and20.5 respectively. Opposite face dimensions diameter5 depth10 at70 right, mirrored to x=-70 in the fixed main-view frame. Section A-A places the large blind bores on the plain main face and the smaller opposite bore on the stepped face. Confirm the five retained cuts only; the other pattern members and stepped body remain omitted.",
+      "source_fact_ids": [
+        "D-024/drawing/n/70.0@1-2",
+        "D-024/drawing/n/70.0@1-1",
+        "D-024/drawing/n/20.0@1-1",
+        "D-024/drawing/n/34.6@1-1",
+        "D-024/drawing/n/80.0@1-1",
+        "D-024/drawing/n/10.0@1-3",
+        "D-024/drawing/n/40.5@1-1",
+        "D-024/drawing/n/5.0@1-2",
+        "D-024/drawing/n/10.0@1-1",
+        "D-024/drawing/n/5.0@1-3",
+        "D-024/drawing/n/20.5@1-1",
+        "D-024/drawing/n/22.0@1-1",
+        "D-024/drawing/n/15.5@1-1",
+        "D-024/drawing/n/4.0@1-1",
+        "D-024/drawing/n/40.5@1-2",
+        "D-024/drawing/n/3.0@1-2",
+        "D-024/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-024",
+          "page": 1,
+          "image": "generated/images/D-024-p1.png",
+          "visual_description": "Main left face dimensions establish x=-70,y=0 for one diameter10 H7 bore, center x=0,y=0 for another, x=80,y=0 for the diameter22 H9 recess, and x=-20,y=-34.6 for the diameter5 H7 blind bore. Printed depths are40.5,15.5 and20.5 respectively. Opposite face dimensions diameter5 depth10 at70 right, mirrored to x=-70 in the fixed main-view frame. Section A-A places the large blind bores on the plain main face and the smaller opposite bore on the stepped face. Confirm the five retained cuts only; the other pattern members and stepped body remain omitted."
+        }
+      ],
+      "based_on": "f6da4da2e0c21231939c15f13535cf068d1c1f778774816f3cb65ddf30f96e3d"
+    },
+    {
+      "id": "D-024/template/cad_eligibility",
+      "target": "D-024/template/cad_eligibility",
+      "decision": "confirm",
+      "note": "Side view and section explicitly show diameter224,diameter230,diameter250 portions and several axial shoulders within50 overall. Confirm exact circular envelope but supported=false and constant_thickness=false for a single flat-circle extrusion. Essential body steps cannot be discarded as minor features.",
+      "source_fact_ids": [
+        "D-024/drawing/n/250.0@1-1",
+        "D-024/drawing/n/224.0@1-1",
+        "D-024/drawing/n/230.0@1-1",
+        "D-024/drawing/n/50.0@1-1",
+        "D-024/drawing/n/3.0@1-3",
+        "D-024/drawing/n/7.0@1-1",
+        "D-024/drawing/n/29.0@1-1",
+        "D-024/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-024",
+          "page": 1,
+          "image": "generated/images/D-024-p1.png",
+          "visual_description": "Side view and section explicitly show diameter224,diameter230,diameter250 portions and several axial shoulders within50 overall. Confirm exact circular envelope but supported=false and constant_thickness=false for a single flat-circle extrusion. Essential body steps cannot be discarded as minor features."
+        }
+      ],
+      "based_on": "f6da4da2e0c21231939c15f13535cf068d1c1f778774816f3cb65ddf30f96e3d"
+    },
+    {
+      "id": "D-024/template/features_complete",
+      "target": "D-024/template/features_complete",
+      "decision": "confirm",
+      "note": "Confirm false: retained five individually grounded cuts omit essential concentric body steps and numerous undimensioned-position hole members/threaded insert holes.",
+      "source_fact_ids": [
+        "D-024/drawing/n/3.3@1-1",
+        "D-024/drawing/n/5.2@1-1",
+        "D-024/drawing/n/3.2@1-1",
+        "D-024/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-024",
+          "page": 1,
+          "image": "generated/images/D-024-p1.png",
+          "visual_description": "Confirm false: retained five individually grounded cuts omit essential concentric body steps and numerous undimensioned-position hole members/threaded insert holes."
+        }
+      ],
+      "based_on": "f6da4da2e0c21231939c15f13535cf068d1c1f778774816f3cb65ddf30f96e3d"
+    },
+    {
+      "id": "D-024/template/features_omitted",
+      "target": "D-024/template/features_omitted",
+      "decision": "confirm",
+      "note": "Original prints 4 x diameter10 H7 depth40.5, 3 x diameter22 H9 depth15.5, 3 x diameter5 depth10, 10 x diameter3.3 depth10.1/M4 depth8, 3 x diameter5.2 depth8.2 for M5 helicoil, and8 x diameter3.2 depth5 for M3 helicoil. Side view prints diameter224/230/250 and3/7/29/50 axial values. Confirm current omissions: retained cuts are the independently located subset; the off-axis diameter22 layout is visible at120 degrees but its count lacks the supplied numeric ID and its Cartesian encoding requires unsupported derivation. No invented small-hole radius or complete shoulder geometry is approved.",
+      "source_fact_ids": [
+        "D-024/drawing/general/edge_finish",
+        "D-024/drawing/n/224.0@1-1",
+        "D-024/drawing/n/230.0@1-1",
+        "D-024/drawing/n/3.0@1-3",
+        "D-024/drawing/n/7.0@1-1",
+        "D-024/drawing/n/29.0@1-1",
+        "D-024/drawing/n/50.0@1-1",
+        "D-024/drawing/n/60.0@1-1",
+        "D-024/drawing/n/120.0@1-1",
+        "D-024/drawing/n/10.0@1-2",
+        "D-024/drawing/n/3.3@1-1",
+        "D-024/drawing/n/10.1@1-1",
+        "D-024/drawing/n/8.0@1-2",
+        "D-024/drawing/n/3.0@1-1",
+        "D-024/drawing/n/5.2@1-1",
+        "D-024/drawing/n/8.2@1-1",
+        "D-024/drawing/n/8.0@1-1",
+        "D-024/drawing/n/3.2@1-1",
+        "D-024/drawing/n/5.0@1-1",
+        "D-024/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-024",
+          "page": 1,
+          "image": "generated/images/D-024-p1.png",
+          "visual_description": "Original prints 4 x diameter10 H7 depth40.5, 3 x diameter22 H9 depth15.5, 3 x diameter5 depth10, 10 x diameter3.3 depth10.1/M4 depth8, 3 x diameter5.2 depth8.2 for M5 helicoil, and8 x diameter3.2 depth5 for M3 helicoil. Side view prints diameter224/230/250 and3/7/29/50 axial values. Confirm current omissions: retained cuts are the independently located subset; the off-axis diameter22 layout is visible at120 degrees but its count lacks the supplied numeric ID and its Cartesian encoding requires unsupported derivation. No invented small-hole radius or complete shoulder geometry is approved."
+        }
+      ],
+      "based_on": "f6da4da2e0c21231939c15f13535cf068d1c1f778774816f3cb65ddf30f96e3d"
+    },
+    {
+      "id": "D-025/template/outline/outer_diameter",
+      "target": "D-025/template/outline/outer_diameter",
+      "decision": "confirm",
+      "note": "Face-view outer-ring leader prints diameter250.0 +/-0.2. Confirm nominal250.",
+      "source_fact_ids": [
+        "D-025/drawing/n/250.0@1-1",
+        "D-025/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-025",
+          "page": 1,
+          "image": "generated/images/D-025-p1.png",
+          "visual_description": "Face-view outer-ring leader prints diameter250.0 +/-0.2. Confirm nominal250."
+        }
+      ],
+      "based_on": "9b61f2c688fba1b10f502658505c78c0ff99820d3f281822eacdc7283e9b7e9c"
+    },
+    {
+      "id": "D-025/template/outline/inner_diameter",
+      "target": "D-025/template/outline/inner_diameter",
+      "decision": "confirm",
+      "note": "Face-view bore leader prints diameter224.0 (+0.3/0.0). Confirm nominal224.",
+      "source_fact_ids": [
+        "D-025/drawing/n/224.0@1-1",
+        "D-025/drawing/n/0.3@1-1",
+        "D-025/drawing/n/0.0@1-1",
+        "D-025/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-025",
+          "page": 1,
+          "image": "generated/images/D-025-p1.png",
+          "visual_description": "Face-view bore leader prints diameter224.0 (+0.3/0.0). Confirm nominal224."
+        }
+      ],
+      "based_on": "9b61f2c688fba1b10f502658505c78c0ff99820d3f281822eacdc7283e9b7e9c"
+    },
+    {
+      "id": "D-025/template/features_review",
+      "target": "D-025/template/features_review",
+      "decision": "confirm",
+      "note": "Face view prints8 x diameter3.4 THRU ALL with countersink diameter6.9 x90 degrees and R115.5 to a hole center. Eight centers lie on that concentric pitch circle, with cardinal-axis holes and intervening diagonal members. This supports centered pattern radius115.5,count8,start0 (45-degree increments), top countersink opening in the shown face. Confirm only this pattern.",
+      "source_fact_ids": [
+        "D-025/drawing/callout/p1-1",
+        "D-025/drawing/callout/p1-2",
+        "D-025/drawing/callout/p1-3",
+        "D-025/drawing/n/8.0@1-1",
+        "D-025/drawing/n/3.4@1-1",
+        "D-025/drawing/n/6.9@1-1",
+        "D-025/drawing/n/90.0@1-1",
+        "D-025/drawing/n/115.5@1-1",
+        "D-025/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-025",
+          "page": 1,
+          "image": "generated/images/D-025-p1.png",
+          "visual_description": "Face view prints8 x diameter3.4 THRU ALL with countersink diameter6.9 x90 degrees and R115.5 to a hole center. Eight centers lie on that concentric pitch circle, with cardinal-axis holes and intervening diagonal members. This supports centered pattern radius115.5,count8,start0 (45-degree increments), top countersink opening in the shown face. Confirm only this pattern."
+        }
+      ],
+      "based_on": "9b61f2c688fba1b10f502658505c78c0ff99820d3f281822eacdc7283e9b7e9c"
+    },
+    {
+      "id": "D-025/template/features_complete",
+      "target": "D-025/template/features_complete",
+      "decision": "confirm",
+      "note": "Confirm false: nominal ring and the8 countersunk holes do not include the undimensioned general edge finishing.",
+      "source_fact_ids": [
+        "D-025/drawing/general/edge_finish",
+        "D-025/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-025",
+          "page": 1,
+          "image": "generated/images/D-025-p1.png",
+          "visual_description": "Confirm false: nominal ring and the8 countersunk holes do not include the undimensioned general edge finishing."
+        }
+      ],
+      "based_on": "9b61f2c688fba1b10f502658505c78c0ff99820d3f281822eacdc7283e9b7e9c"
+    },
+    {
+      "id": "D-025/template/features_omitted",
+      "target": "D-025/template/features_omitted",
+      "decision": "confirm",
+      "note": "Title-block instruction DEBURR AND BREAK SHARP EDGES supplies no edge-break size or profile. Confirm omission rather than inventing a chamfer.",
+      "source_fact_ids": [
+        "D-025/drawing/general/edge_finish",
+        "D-025/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-025",
+          "page": 1,
+          "image": "generated/images/D-025-p1.png",
+          "visual_description": "Title-block instruction DEBURR AND BREAK SHARP EDGES supplies no edge-break size or profile. Confirm omission rather than inventing a chamfer."
+        }
+      ],
+      "based_on": "9b61f2c688fba1b10f502658505c78c0ff99820d3f281822eacdc7283e9b7e9c"
+    },
+    {
+      "id": "D-026/template/outline/outer_diameter",
+      "target": "D-026/template/outline/outer_diameter",
+      "decision": "confirm",
+      "note": "Face-view outer-circle leader explicitly prints diameter250.0. Confirm nominal250.",
+      "source_fact_ids": [
+        "D-026/drawing/n/250.0@1-1",
+        "D-026/drawing/general/units",
+        "D-026/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-026",
+          "page": 1,
+          "image": "generated/images/D-026-p1.png",
+          "visual_description": "Face-view outer-circle leader explicitly prints diameter250.0. Confirm nominal250."
+        }
+      ],
+      "based_on": "a7ee7f4d75acaf2e8fc67ce14ca223d5cb4a2931063f37f4dfb6fadeeb70256e"
+    },
+    {
+      "id": "D-026/template/features_review",
+      "target": "D-026/template/features_review",
+      "decision": "confirm",
+      "note": "Original prints3 x diameter5.3 THRU ALL with diameter10.0 counterbore depth15.4, R105.0 pitch circle and25.0/15.0 alternative thicknesses. The three centers lie at negative X and upper/lower right on that concentric circle, supporting start180,count3 and120-degree increments. Side hidden-line profile puts the wide counterbore opening opposite the datum-A/plain face, consistent with bottom. Arithmetic15.4>15.0 and15.4<25.0 supports retaining primary through holes while omitting the step only for the15mm variant.",
+      "source_fact_ids": [
+        "D-026/drawing/callout/p1-1",
+        "D-026/drawing/callout/p1-2",
+        "D-026/drawing/n/10.0@1-1",
+        "D-026/drawing/n/15.4@1-1",
+        "D-026/drawing/n/15.0@1-1",
+        "D-026/drawing/n/25.0@1-1",
+        "D-026/drawing/n/3.0@1-1",
+        "D-026/drawing/n/5.3@1-1",
+        "D-026/drawing/n/105.0@1-1",
+        "D-026/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-026",
+          "page": 1,
+          "image": "generated/images/D-026-p1.png",
+          "visual_description": "Original prints3 x diameter5.3 THRU ALL with diameter10.0 counterbore depth15.4, R105.0 pitch circle and25.0/15.0 alternative thicknesses. The three centers lie at negative X and upper/lower right on that concentric circle, supporting start180,count3 and120-degree increments. Side hidden-line profile puts the wide counterbore opening opposite the datum-A/plain face, consistent with bottom. Arithmetic15.4>15.0 and15.4<25.0 supports retaining primary through holes while omitting the step only for the15mm variant."
+        }
+      ],
+      "based_on": "a7ee7f4d75acaf2e8fc67ce14ca223d5cb4a2931063f37f4dfb6fadeeb70256e"
+    },
+    {
+      "id": "D-026/template/features_complete",
+      "target": "D-026/template/features_complete",
+      "decision": "confirm",
+      "note": "Confirm false: the15mm variant cannot retain a15.4mm-deep counterbore and the generic edge finishing is undimensioned. Primary diameter5.3 through holes remain independently supported.",
+      "source_fact_ids": [
+        "D-026/drawing/n/15.4@1-1",
+        "D-026/drawing/n/15.0@1-1",
+        "D-026/drawing/general/edge_finish",
+        "D-026/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-026",
+          "page": 1,
+          "image": "generated/images/D-026-p1.png",
+          "visual_description": "Confirm false: the15mm variant cannot retain a15.4mm-deep counterbore and the generic edge finishing is undimensioned. Primary diameter5.3 through holes remain independently supported."
+        }
+      ],
+      "based_on": "a7ee7f4d75acaf2e8fc67ce14ca223d5cb4a2931063f37f4dfb6fadeeb70256e"
+    },
+    {
+      "id": "D-026/template/features_omitted",
+      "target": "D-026/template/features_omitted",
+      "decision": "confirm",
+      "note": "Original counterbore depth15.4 exceeds the15.0 thickness alternative by0.4, while fitting within25.0. Confirm omission only of that step for15mm, retaining the through-hole pattern. DEBURR AND BREAK SHARP EDGES gives no numeric geometry.",
+      "source_fact_ids": [
+        "D-026/drawing/n/10.0@1-1",
+        "D-026/drawing/n/15.4@1-1",
+        "D-026/drawing/n/15.0@1-1",
+        "D-026/drawing/n/25.0@1-1",
+        "D-026/drawing/general/edge_finish",
+        "D-026/drawing/callout/p1-2",
+        "D-026/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-026",
+          "page": 1,
+          "image": "generated/images/D-026-p1.png",
+          "visual_description": "Original counterbore depth15.4 exceeds the15.0 thickness alternative by0.4, while fitting within25.0. Confirm omission only of that step for15mm, retaining the through-hole pattern. DEBURR AND BREAK SHARP EDGES gives no numeric geometry."
+        }
+      ],
+      "based_on": "a7ee7f4d75acaf2e8fc67ce14ca223d5cb4a2931063f37f4dfb6fadeeb70256e"
+    },
+    {
+      "id": "D-027/template/outline/outer_diameter",
+      "target": "D-027/template/outline/outer_diameter",
+      "decision": "confirm",
+      "note": "Left face outer-ring leader explicitly prints diameter330.0. Confirm330.",
+      "source_fact_ids": [
+        "D-027/drawing/n/330.0@1-1",
+        "D-027/drawing/general/units",
+        "D-027/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-027",
+          "page": 1,
+          "image": "generated/images/D-027-p1.png",
+          "visual_description": "Left face outer-ring leader explicitly prints diameter330.0. Confirm330."
+        }
+      ],
+      "based_on": "9a270f0ddf24b173b85b6879b4fbd1ba9cf67d71cff7b13f722699699a667bcc"
+    },
+    {
+      "id": "D-027/template/outline/inner_diameter",
+      "target": "D-027/template/outline/inner_diameter",
+      "decision": "confirm",
+      "note": "Left face inner-ring leader explicitly prints diameter264.0 H8 (+0.081/0.000). Confirm nominal264.",
+      "source_fact_ids": [
+        "D-027/drawing/n/264.0@1-1",
+        "D-027/drawing/n/0.081@1-1",
+        "D-027/drawing/n/0.0@1-2",
+        "D-027/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-027",
+          "page": 1,
+          "image": "generated/images/D-027-p1.png",
+          "visual_description": "Left face inner-ring leader explicitly prints diameter264.0 H8 (+0.081/0.000). Confirm nominal264."
+        }
+      ],
+      "based_on": "9a270f0ddf24b173b85b6879b4fbd1ba9cf67d71cff7b13f722699699a667bcc"
+    },
+    {
+      "id": "D-027/template/thickness",
+      "target": "D-027/template/thickness",
+      "decision": "confirm",
+      "note": "Central edge view dimensions the parallel ring faces15.0 apart. Confirm uniform nominal thickness15.",
+      "source_fact_ids": [
+        "D-027/drawing/n/15.0@1-1",
+        "D-027/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-027",
+          "page": 1,
+          "image": "generated/images/D-027-p1.png",
+          "visual_description": "Central edge view dimensions the parallel ring faces15.0 apart. Confirm uniform nominal thickness15."
+        }
+      ],
+      "based_on": "9a270f0ddf24b173b85b6879b4fbd1ba9cf67d71cff7b13f722699699a667bcc"
+    },
+    {
+      "id": "D-027/template/features_review",
+      "target": "D-027/template/features_review",
+      "decision": "confirm",
+      "note": "Original two face views print6 x diameter9 THRU ALL,3 x diameter11 THRU ALL with diameter24.4 x90-degree countersink, and3 x diameter20 H7 counterbores depth4.0 +/-0.05. R148.5 identifies the shared concentric pitch circle; printed60/120-degree spacings match counts6/3. Left main view anchors six plain holes at+Y (90 degrees) and stepped three-hole group at-X (180 degrees). Opposite view mirrors the stepped group to+X, confirming the same fixed-XY centers and opposite bottom counterbores. Confirm all three retained operations on these common bores.",
+      "source_fact_ids": [
+        "D-027/drawing/n/148.5@1-1",
+        "D-027/drawing/n/6.0@1-1",
+        "D-027/drawing/n/9.0@1-1",
+        "D-027/drawing/n/3.0@1-2",
+        "D-027/drawing/n/11.0@1-1",
+        "D-027/drawing/n/24.4@1-1",
+        "D-027/drawing/n/90.0@1-1",
+        "D-027/drawing/n/3.0@1-1",
+        "D-027/drawing/n/20.0@1-1",
+        "D-027/drawing/n/4.0@1-1",
+        "D-027/drawing/n/60.0@1-1",
+        "D-027/drawing/n/120.0@1-1",
+        "D-027/drawing/callout/p1-1",
+        "D-027/drawing/callout/p1-2",
+        "D-027/drawing/callout/p1-3",
+        "D-027/drawing/callout/p1-4",
+        "D-027/drawing/n/15.0@1-1",
+        "D-027/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-027",
+          "page": 1,
+          "image": "generated/images/D-027-p1.png",
+          "visual_description": "Original two face views print6 x diameter9 THRU ALL,3 x diameter11 THRU ALL with diameter24.4 x90-degree countersink, and3 x diameter20 H7 counterbores depth4.0 +/-0.05. R148.5 identifies the shared concentric pitch circle; printed60/120-degree spacings match counts6/3. Left main view anchors six plain holes at+Y (90 degrees) and stepped three-hole group at-X (180 degrees). Opposite view mirrors the stepped group to+X, confirming the same fixed-XY centers and opposite bottom counterbores. Confirm all three retained operations on these common bores."
+        }
+      ],
+      "based_on": "9a270f0ddf24b173b85b6879b4fbd1ba9cf67d71cff7b13f722699699a667bcc"
+    },
+    {
+      "id": "D-027/template/cad_eligibility",
+      "target": "D-027/template/cad_eligibility",
+      "decision": "confirm",
+      "note": "Original shows exact concentric diameter330/264 ring, uniform15 edge-view thickness, six plain through holes and three common through bores with top countersinks and opposite counterbores. These fit current ring+top/bottom-cut templates. Confirm supported=true with only undimensioned edge finishing omitted; this is template eligibility, not whole-design approval.",
+      "source_fact_ids": [
+        "D-027/drawing/n/330.0@1-1",
+        "D-027/drawing/n/264.0@1-1",
+        "D-027/drawing/n/15.0@1-1",
+        "D-027/drawing/general/edge_finish",
+        "D-027/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-027",
+          "page": 1,
+          "image": "generated/images/D-027-p1.png",
+          "visual_description": "Original shows exact concentric diameter330/264 ring, uniform15 edge-view thickness, six plain through holes and three common through bores with top countersinks and opposite counterbores. These fit current ring+top/bottom-cut templates. Confirm supported=true with only undimensioned edge finishing omitted; this is template eligibility, not whole-design approval."
+        }
+      ],
+      "based_on": "9a270f0ddf24b173b85b6879b4fbd1ba9cf67d71cff7b13f722699699a667bcc"
+    },
+    {
+      "id": "D-027/template/features_complete",
+      "target": "D-027/template/features_complete",
+      "decision": "confirm",
+      "note": "Confirm false: general edge finishing is omitted even though nominal ring and all explicitly supported hole operations are retained.",
+      "source_fact_ids": [
+        "D-027/drawing/general/edge_finish",
+        "D-027/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-027",
+          "page": 1,
+          "image": "generated/images/D-027-p1.png",
+          "visual_description": "Confirm false: general edge finishing is omitted even though nominal ring and all explicitly supported hole operations are retained."
+        }
+      ],
+      "based_on": "9a270f0ddf24b173b85b6879b4fbd1ba9cf67d71cff7b13f722699699a667bcc"
+    },
+    {
+      "id": "D-027/template/features_omitted",
+      "target": "D-027/template/features_omitted",
+      "decision": "confirm",
+      "note": "Original DEBURR AND BREAK SHARP EDGES note gives no numerical size/profile. Confirm the finishing omission while retaining the nominal ring and supported holes.",
+      "source_fact_ids": [
+        "D-027/drawing/general/edge_finish",
+        "D-027/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-027",
+          "page": 1,
+          "image": "generated/images/D-027-p1.png",
+          "visual_description": "Original DEBURR AND BREAK SHARP EDGES note gives no numerical size/profile. Confirm the finishing omission while retaining the nominal ring and supported holes."
+        }
+      ],
+      "based_on": "9a270f0ddf24b173b85b6879b4fbd1ba9cf67d71cff7b13f722699699a667bcc"
+    },
+    {
+      "id": "D-028/template/features_review",
+      "target": "D-028/template/features_review",
+      "decision": "confirm",
+      "note": "Original main view prints2 x diameter4.5 THRU ALL and one central diameter8.0 +/-0.15 THRU. The19.0 dimension spans end-hole centers on the longitudinal axis. Centering gives -19/2=-9.5 and+19/2=9.5, both y=0; central bore is at crossed outline axes(0,0). Confirm the three retained through cuts; the original diameter8 callout has no extra2x.",
+      "source_fact_ids": [
+        "D-028/drawing/callout/p1-1",
+        "D-028/drawing/n/2.0@1-1",
+        "D-028/drawing/n/4.5@1-1",
+        "D-028/drawing/n/8.0@1-1",
+        "D-028/drawing/n/19.0@1-1",
+        "D-028/drawing/n/11.0@1-1",
+        "D-028/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-028",
+          "page": 1,
+          "image": "generated/images/D-028-p1.png",
+          "visual_description": "Original main view prints2 x diameter4.5 THRU ALL and one central diameter8.0 +/-0.15 THRU. The19.0 dimension spans end-hole centers on the longitudinal axis. Centering gives -19/2=-9.5 and+19/2=9.5, both y=0; central bore is at crossed outline axes(0,0). Confirm the three retained through cuts; the original diameter8 callout has no extra2x."
+        }
+      ],
+      "based_on": "30fb8b6088f535c51107389aa8eb4c7420841cd0f4c6175d3deb90a154e9881f"
+    },
+    {
+      "id": "D-028/template/cad_eligibility",
+      "target": "D-028/template/cad_eligibility",
+      "decision": "confirm",
+      "note": "Original outer profile has R5.5 semicircular ends,19.0 between end centers and11.0 width; the full envelope is19+2*5.5=30.0 long. Side view gives constant-thickness alternatives2.0/3.0. Confirm constant_thickness=true but supported=false and outline_exact=false under rectangle/circle/ring-only outlines, preserving essential obround geometry.",
+      "source_fact_ids": [
+        "D-028/drawing/n/5.5@1-1",
+        "D-028/drawing/n/19.0@1-1",
+        "D-028/drawing/n/11.0@1-1",
+        "D-028/drawing/n/2.0@1-2",
+        "D-028/drawing/n/3.0@1-1",
+        "D-028/drawing/general/edge_finish",
+        "D-028/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-028",
+          "page": 1,
+          "image": "generated/images/D-028-p1.png",
+          "visual_description": "Original outer profile has R5.5 semicircular ends,19.0 between end centers and11.0 width; the full envelope is19+2*5.5=30.0 long. Side view gives constant-thickness alternatives2.0/3.0. Confirm constant_thickness=true but supported=false and outline_exact=false under rectangle/circle/ring-only outlines, preserving essential obround geometry."
+        }
+      ],
+      "based_on": "30fb8b6088f535c51107389aa8eb4c7420841cd0f4c6175d3deb90a154e9881f"
+    },
+    {
+      "id": "D-028/template/features_complete",
+      "target": "D-028/template/features_complete",
+      "decision": "confirm",
+      "note": "Confirm false: the retained three holes omit undimensioned edge finishing, and supported holes do not make the obround outer profile an available template.",
+      "source_fact_ids": [
+        "D-028/drawing/general/edge_finish",
+        "D-028/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-028",
+          "page": 1,
+          "image": "generated/images/D-028-p1.png",
+          "visual_description": "Confirm false: the retained three holes omit undimensioned edge finishing, and supported holes do not make the obround outer profile an available template."
+        }
+      ],
+      "based_on": "30fb8b6088f535c51107389aa8eb4c7420841cd0f4c6175d3deb90a154e9881f"
+    },
+    {
+      "id": "D-028/template/features_omitted",
+      "target": "D-028/template/features_omitted",
+      "decision": "confirm",
+      "note": "Original general instruction DEBURR AND BREAK SHARP EDGES has no numeric edge-break dimensions. Confirm omission of that finishing operation.",
+      "source_fact_ids": [
+        "D-028/drawing/general/edge_finish",
+        "D-028/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-028",
+          "page": 1,
+          "image": "generated/images/D-028-p1.png",
+          "visual_description": "Original general instruction DEBURR AND BREAK SHARP EDGES has no numeric edge-break dimensions. Confirm omission of that finishing operation."
+        }
+      ],
+      "based_on": "30fb8b6088f535c51107389aa8eb4c7420841cd0f4c6175d3deb90a154e9881f"
+    },
+    {
+      "id": "D-029/template/thickness",
+      "target": "D-029/template/thickness",
+      "decision": "confirm",
+      "note": "Section A-A explicitly dimensions parallel outer faces15.00 apart. Confirm nominal constant plate thickness15.",
+      "source_fact_ids": [
+        "D-029/drawing/n/15.0@1-1",
+        "D-029/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-029",
+          "page": 1,
+          "image": "generated/images/D-029-p1.png",
+          "visual_description": "Section A-A explicitly dimensions parallel outer faces15.00 apart. Confirm nominal constant plate thickness15."
+        }
+      ],
+      "based_on": "066ed91474bb74b652451a34c6b9f5b719d23dba56043b8ba6aa8f5b7479cf15"
+    },
+    {
+      "id": "D-029/template/features_review",
+      "target": "D-029/template/features_review",
+      "decision": "confirm",
+      "note": "Original visibly has essential three-lobed curved exterior, diameter32 upper bore,diameter34 central bore, lower-lobe bores and smaller-hole groups, but no overall exterior dimensions or complete hole-center locating dimensions. Confirm [] as supported cuts in the required centered-outline frame; visible cuts are preserved as omissions.",
+      "source_fact_ids": [
+        "D-029/drawing/callout/p1-1",
+        "D-029/drawing/callout/p1-2",
+        "D-029/drawing/callout/p1-3",
+        "D-029/drawing/callout/p1-4",
+        "D-029/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-029",
+          "page": 1,
+          "image": "generated/images/D-029-p1.png",
+          "visual_description": "Original visibly has essential three-lobed curved exterior, diameter32 upper bore,diameter34 central bore, lower-lobe bores and smaller-hole groups, but no overall exterior dimensions or complete hole-center locating dimensions. Confirm [] as supported cuts in the required centered-outline frame; visible cuts are preserved as omissions."
+        }
+      ],
+      "based_on": "066ed91474bb74b652451a34c6b9f5b719d23dba56043b8ba6aa8f5b7479cf15"
+    },
+    {
+      "id": "D-029/template/cad_eligibility",
+      "target": "D-029/template/cad_eligibility",
+      "decision": "confirm",
+      "note": "Section A-A establishes15.00 constant thickness, while main face shows essential three-lobed curved flanks lacking overall dimensions/contour radii. Diameter32 leader targets upper bore and does not independently dimension lower-lobe bores. Confirm supported=false,constant_thickness=true,outline_exact=false for current simple-outline templates, not general CAD impossibility.",
+      "source_fact_ids": [
+        "D-029/drawing/n/15.0@1-1",
+        "D-029/drawing/general/edge_finish",
+        "D-029/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-029",
+          "page": 1,
+          "image": "generated/images/D-029-p1.png",
+          "visual_description": "Section A-A establishes15.00 constant thickness, while main face shows essential three-lobed curved flanks lacking overall dimensions/contour radii. Diameter32 leader targets upper bore and does not independently dimension lower-lobe bores. Confirm supported=false,constant_thickness=true,outline_exact=false for current simple-outline templates, not general CAD impossibility."
+        }
+      ],
+      "based_on": "066ed91474bb74b652451a34c6b9f5b719d23dba56043b8ba6aa8f5b7479cf15"
+    },
+    {
+      "id": "D-029/template/features_complete",
+      "target": "D-029/template/features_complete",
+      "decision": "confirm",
+      "note": "Confirm false: essential three-lobed outer geometry, bores, recesses and threaded-hole pattern remain outside the empty supported cut subset.",
+      "source_fact_ids": [
+        "D-029/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-029",
+          "page": 1,
+          "image": "generated/images/D-029-p1.png",
+          "visual_description": "Confirm false: essential three-lobed outer geometry, bores, recesses and threaded-hole pattern remain outside the empty supported cut subset."
+        }
+      ],
+      "based_on": "066ed91474bb74b652451a34c6b9f5b719d23dba56043b8ba6aa8f5b7479cf15"
+    },
+    {
+      "id": "D-029/template/features_omitted",
+      "target": "D-029/template/features_omitted",
+      "decision": "confirm",
+      "note": "Original prints diameter32 H6 THRU at upper lug;diameter34 H6 THRU centrally;3 x diameter9 THRU ALL with3 x diameter13 H6 depth3;20 x diameter4.20 THRU ALL/M5-6H THRU ALL; and section15.00 thickness. No overall contour dimensions, locating offsets or pitch circles establish complete centered coordinates; lower large bores lack independent diameter callouts. Confirm stated omissions, including unspecified edge finishing.",
+      "source_fact_ids": [
+        "D-029/drawing/callout/p1-1",
+        "D-029/drawing/callout/p1-2",
+        "D-029/drawing/callout/p1-3",
+        "D-029/drawing/callout/p1-4",
+        "D-029/drawing/general/edge_finish",
+        "D-029/drawing/n/13.0@1-1",
+        "D-029/drawing/n/3.0@1-2",
+        "D-029/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-029",
+          "page": 1,
+          "image": "generated/images/D-029-p1.png",
+          "visual_description": "Original prints diameter32 H6 THRU at upper lug;diameter34 H6 THRU centrally;3 x diameter9 THRU ALL with3 x diameter13 H6 depth3;20 x diameter4.20 THRU ALL/M5-6H THRU ALL; and section15.00 thickness. No overall contour dimensions, locating offsets or pitch circles establish complete centered coordinates; lower large bores lack independent diameter callouts. Confirm stated omissions, including unspecified edge finishing."
+        }
+      ],
+      "based_on": "066ed91474bb74b652451a34c6b9f5b719d23dba56043b8ba6aa8f5b7479cf15"
+    },
+    {
+      "id": "D-029/link",
+      "target": "D-029/link",
+      "decision": "confirm",
+      "note": "Confirm no match[] after reading original drawing note Z-axis BottomPlate / Aluminium and original CSV records. Logical CSV row158 is Z axis stepper bracket, SensorGantry,Custom,DTU,blank material/notes/datasheet; row157 is Z axis linear rod with the same family and blank material/notes/datasheet; row155 is X axis bottom bracket,SensorGantry,Custom,DTU,blank material/notes/datasheet. Row49 is Motor plate,Build-plate,Custom,Aluminium,DTU,design intent Motor plate to hold3 non-captive stepper motors,end-stop switches,blank notes/datasheet. None establishes identity with the Z-axis bottom plate. CSV scan of names/notes/intents found no Z-axis BottomPlate identity evidence. These are logical CSV record rows including header, not physical text-line numbers.",
+      "source_fact_ids": [
+        "D-029/drawing/notes",
+        "BOM:sensorgantry/z-axis-stepper-bracket",
+        "BOM:sensorgantry/z-axis-linear-rod",
+        "BOM:sensorgantry/x-axis-bottom-bracket",
+        "BOM:build-plate/motor-plate",
+        "D-029/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-029",
+          "page": 1,
+          "image": "generated/images/D-029-p1.png",
+          "visual_description": "Confirm no match[] after reading original drawing note Z-axis BottomPlate / Aluminium and original CSV records. Logical CSV row158 is Z axis stepper bracket, SensorGantry,Custom,DTU,blank material/notes/datasheet; row157 is Z axis linear rod with the same family and blank material/notes/datasheet; row155 is X axis bottom bracket,SensorGantry,Custom,DTU,blank material/notes/datasheet. Row49 is Motor plate,Build-plate,Custom,Aluminium,DTU,design intent Motor plate to hold3 non-captive stepper motors,end-stop switches,blank notes/datasheet. None establishes identity with the Z-axis bottom plate. CSV scan of names/notes/intents found no Z-axis BottomPlate identity evidence. These are logical CSV record rows including header, not physical text-line numbers."
+        },
+        {
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": 158,
+          "row_counting": "logical CSV records including header",
+          "record": {
+            "Name": "Z axis stepper bracket",
+            "Part family": "SensorGantry",
+            "Type": "Custom",
+            "Design": "",
+            "Order": "",
+            "V&V": "",
+            "Notes": "",
+            "Design Intend": "",
+            "Image": "",
+            "Material": "",
+            "Product name": "",
+            "Supplier Order": "",
+            "Interface with": "",
+            "Link": "",
+            "Supplier": "DTU",
+            "Datasheet": "",
+            "Amount": "1",
+            "Cost": "",
+            "Total cost": "DKK0.00",
+            "Count (Interface with)": "0"
+          },
+          "visual_description": "Original BOM CSV record, read directly with CSV parsing."
+        },
+        {
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": 157,
+          "row_counting": "logical CSV records including header",
+          "record": {
+            "Name": "Z axis linear rod",
+            "Part family": "SensorGantry",
+            "Type": "Custom",
+            "Design": "",
+            "Order": "",
+            "V&V": "",
+            "Notes": "",
+            "Design Intend": "",
+            "Image": "",
+            "Material": "",
+            "Product name": "",
+            "Supplier Order": "",
+            "Interface with": "",
+            "Link": "",
+            "Supplier": "DTU",
+            "Datasheet": "",
+            "Amount": "1",
+            "Cost": "DKK37.00",
+            "Total cost": "DKK37.00",
+            "Count (Interface with)": "0"
+          },
+          "visual_description": "Original BOM CSV record, read directly with CSV parsing."
+        },
+        {
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": 155,
+          "row_counting": "logical CSV records including header",
+          "record": {
+            "Name": "X axis bottom bracket",
+            "Part family": "SensorGantry",
+            "Type": "Custom",
+            "Design": "",
+            "Order": "",
+            "V&V": "",
+            "Notes": "",
+            "Design Intend": "",
+            "Image": "",
+            "Material": "",
+            "Product name": "",
+            "Supplier Order": "",
+            "Interface with": "",
+            "Link": "",
+            "Supplier": "DTU",
+            "Datasheet": "",
+            "Amount": "1",
+            "Cost": "",
+            "Total cost": "DKK0.00",
+            "Count (Interface with)": "0"
+          },
+          "visual_description": "Original BOM CSV record, read directly with CSV parsing."
+        },
+        {
+          "source_path": "project-meridian_Avathon/project-meridian/dataset/context/openlpbf-bom.csv",
+          "source_row": 49,
+          "row_counting": "logical CSV records including header",
+          "record": {
+            "Name": "Motor plate",
+            "Part family": "Build-plate",
+            "Type": "Custom",
+            "Design": "Done",
+            "Order": "Recieved",
+            "V&V": "Good",
+            "Notes": "",
+            "Design Intend": "Motor plate to hold 3 non-captive stepper motors, end-stop switches",
+            "Image": "",
+            "Material": "Aluminium",
+            "Product name": "",
+            "Supplier Order": "",
+            "Interface with": "",
+            "Link": "",
+            "Supplier": "DTU",
+            "Datasheet": "",
+            "Amount": "1",
+            "Cost": "",
+            "Total cost": "DKK0.00",
+            "Count (Interface with)": "0"
+          },
+          "visual_description": "Original BOM CSV record, read directly with CSV parsing."
+        }
+      ],
+      "based_on": "066ed91474bb74b652451a34c6b9f5b719d23dba56043b8ba6aa8f5b7479cf15"
+    },
+    {
+      "id": "D-030/drawing/notes",
+      "target": "D-030/drawing/notes",
+      "decision": "confirm",
+      "note": "Existing original full-page and title-block crop visibly read exactly: Z-axis MotorPlate\nAluminium . Confirm wording; line layout is transcribed as the provided value.",
+      "source_fact_ids": [
+        "D-030/drawing/notes",
+        "D-030/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-030",
+          "page": 1,
+          "image": "generated/images/D-030-p1.png",
+          "visual_description": "Existing original full-page and title-block crop visibly read exactly: Z-axis MotorPlate\nAluminium . Confirm wording; line layout is transcribed as the provided value."
+        },
+        {
+          "drawing": "D-030",
+          "page": 1,
+          "image": "generated/images/D-030-corner.png",
+          "visual_description": "Existing original title-block crop; Existing original full-page and title-block crop visibly read exactly: Z-axis MotorPlate\nAluminium . Confirm wording; line layout is transcribed as the provided value."
+        }
+      ],
+      "based_on": "849100de6d2abbbcca5c6e39cd4a1778918b17818cc88c91340612981d9220ee"
+    },
+    {
+      "id": "D-030/drawing/company",
+      "target": "D-030/drawing/company",
+      "decision": "confirm",
+      "note": "Existing original full-page and title-block crop visibly print \"DTU MPP\" in the company field. Confirm that field only.",
+      "source_fact_ids": [
+        "D-030/drawing/company",
+        "D-030/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-030",
+          "page": 1,
+          "image": "generated/images/D-030-p1.png",
+          "visual_description": "Existing original full-page and title-block crop visibly print \"DTU MPP\" in the company field. Confirm that field only."
+        },
+        {
+          "drawing": "D-030",
+          "page": 1,
+          "image": "generated/images/D-030-corner.png",
+          "visual_description": "Existing original title-block crop; Existing original full-page and title-block crop visibly print \"DTU MPP\" in the company field. Confirm that field only."
+        }
+      ],
+      "based_on": "849100de6d2abbbcca5c6e39cd4a1778918b17818cc88c91340612981d9220ee"
+    },
+    {
+      "id": "D-030/drawing/drawn",
+      "target": "D-030/drawing/drawn",
+      "decision": "confirm",
+      "note": "Existing original full-page and title-block crop visibly print \"MBOKJ\" in the drawn field. Confirm that field only.",
+      "source_fact_ids": [
+        "D-030/drawing/drawn",
+        "D-030/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-030",
+          "page": 1,
+          "image": "generated/images/D-030-p1.png",
+          "visual_description": "Existing original full-page and title-block crop visibly print \"MBOKJ\" in the drawn field. Confirm that field only."
+        },
+        {
+          "drawing": "D-030",
+          "page": 1,
+          "image": "generated/images/D-030-corner.png",
+          "visual_description": "Existing original title-block crop; Existing original full-page and title-block crop visibly print \"MBOKJ\" in the drawn field. Confirm that field only."
+        }
+      ],
+      "based_on": "849100de6d2abbbcca5c6e39cd4a1778918b17818cc88c91340612981d9220ee"
+    },
+    {
+      "id": "D-030/drawing/date",
+      "target": "D-030/drawing/date",
+      "decision": "confirm",
+      "note": "Existing original full-page and title-block crop visibly print \"24-01-2024\" in the date field. Confirm that field only.",
+      "source_fact_ids": [
+        "D-030/drawing/date",
+        "D-030/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-030",
+          "page": 1,
+          "image": "generated/images/D-030-p1.png",
+          "visual_description": "Existing original full-page and title-block crop visibly print \"24-01-2024\" in the date field. Confirm that field only."
+        },
+        {
+          "drawing": "D-030",
+          "page": 1,
+          "image": "generated/images/D-030-corner.png",
+          "visual_description": "Existing original title-block crop; Existing original full-page and title-block crop visibly print \"24-01-2024\" in the date field. Confirm that field only."
+        }
+      ],
+      "based_on": "849100de6d2abbbcca5c6e39cd4a1778918b17818cc88c91340612981d9220ee"
+    },
+    {
+      "id": "D-030/drawing/scale",
+      "target": "D-030/drawing/scale",
+      "decision": "confirm",
+      "note": "Existing original full-page and title-block crop visibly print \"1:3\" in the scale field. Confirm that field only.",
+      "source_fact_ids": [
+        "D-030/drawing/scale",
+        "D-030/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-030",
+          "page": 1,
+          "image": "generated/images/D-030-p1.png",
+          "visual_description": "Existing original full-page and title-block crop visibly print \"1:3\" in the scale field. Confirm that field only."
+        },
+        {
+          "drawing": "D-030",
+          "page": 1,
+          "image": "generated/images/D-030-corner.png",
+          "visual_description": "Existing original title-block crop; Existing original full-page and title-block crop visibly print \"1:3\" in the scale field. Confirm that field only."
+        }
+      ],
+      "based_on": "849100de6d2abbbcca5c6e39cd4a1778918b17818cc88c91340612981d9220ee"
+    },
+    {
+      "id": "D-030/template/features_review",
+      "target": "D-030/template/features_review",
+      "decision": "confirm",
+      "note": "Original shows three-lobed outline, central bore, lobe stepped holes and several central threaded/plain patterns, without dimensioned contour or complete center coordinates. Supplied numbers array is empty. Confirm [] under current centered-outline/numeric-ID encoding, preserving visible geometry as omissions.",
+      "source_fact_ids": [
+        "D-030/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-030",
+          "page": 1,
+          "image": "generated/images/D-030-p1.png",
+          "visual_description": "Original shows three-lobed outline, central bore, lobe stepped holes and several central threaded/plain patterns, without dimensioned contour or complete center coordinates. Supplied numbers array is empty. Confirm [] under current centered-outline/numeric-ID encoding, preserving visible geometry as omissions."
+        }
+      ],
+      "based_on": "849100de6d2abbbcca5c6e39cd4a1778918b17818cc88c91340612981d9220ee"
+    },
+    {
+      "id": "D-030/template/cad_eligibility",
+      "target": "D-030/template/cad_eligibility",
+      "decision": "confirm",
+      "note": "Original main face has essential three-lobed curved outline with no overall X/Y or contour construction dimensions; section A-A shows parallel plate faces and stepped hole. Printed4.00 +/-0.05 section dimension belongs to the recess step, not independently a plate-thickness value. Supplied numbers array is empty despite visible cut callouts. Confirm the current template exclusion and constant-thickness classification without inventing plate thickness or declaring universal CAD impossibility.",
+      "source_fact_ids": [
+        "D-030/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-030",
+          "page": 1,
+          "image": "generated/images/D-030-p1.png",
+          "visual_description": "Original main face has essential three-lobed curved outline with no overall X/Y or contour construction dimensions; section A-A shows parallel plate faces and stepped hole. Printed4.00 +/-0.05 section dimension belongs to the recess step, not independently a plate-thickness value. Supplied numbers array is empty despite visible cut callouts. Confirm the current template exclusion and constant-thickness classification without inventing plate thickness or declaring universal CAD impossibility."
+        }
+      ],
+      "based_on": "849100de6d2abbbcca5c6e39cd4a1778918b17818cc88c91340612981d9220ee"
+    },
+    {
+      "id": "D-030/template/features_complete",
+      "target": "D-030/template/features_complete",
+      "decision": "confirm",
+      "note": "Confirm false: the empty supported subset omits central bore, lobe holes/recesses and threaded/plain patterns within an unavailable essential exterior contour.",
+      "source_fact_ids": [
+        "D-030/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-030",
+          "page": 1,
+          "image": "generated/images/D-030-p1.png",
+          "visual_description": "Confirm false: the empty supported subset omits central bore, lobe holes/recesses and threaded/plain patterns within an unavailable essential exterior contour."
+        }
+      ],
+      "based_on": "849100de6d2abbbcca5c6e39cd4a1778918b17818cc88c91340612981d9220ee"
+    },
+    {
+      "id": "D-030/template/features_omitted",
+      "target": "D-030/template/features_omitted",
+      "decision": "confirm",
+      "note": "Original shows central diameter36 H6 THRU; outer-lobe diameter13.50 THRU with diameter20 H6 depth4;4 x diameter5 THRU/M6-6H THRU;4 x diameter4.50 THRU; and below-center diameter10.20 THRU/M12-6H THRU. No locating offsets/pitches/PCDs or complete outer-contour dimensions are printed. Supplied numeric ID array is empty. Confirm listed current omissions; visible callouts are acknowledged, not erased by parser limitations.",
+      "source_fact_ids": [
+        "D-030/drawing/source"
+      ],
+      "source_locations": [
+        {
+          "drawing": "D-030",
+          "page": 1,
+          "image": "generated/images/D-030-p1.png",
+          "visual_description": "Original shows central diameter36 H6 THRU; outer-lobe diameter13.50 THRU with diameter20 H6 depth4;4 x diameter5 THRU/M6-6H THRU;4 x diameter4.50 THRU; and below-center diameter10.20 THRU/M12-6H THRU. No locating offsets/pitches/PCDs or complete outer-contour dimensions are printed. Supplied numeric ID array is empty. Confirm listed current omissions; visible callouts are acknowledged, not erased by parser limitations."
+        }
+      ],
+      "based_on": "849100de6d2abbbcca5c6e39cd4a1778918b17818cc88c91340612981d9220ee"
+    }
+  ]
+}

@@ -6,7 +6,7 @@ def source_record(store, name: str, *, detail=False):
     field = store.raw_fields.get(name, {})
     current = store.fields.get(name, field)
     owner = store.owners.get(name)
-    row = next((row for key, row in store.rows.items() if name == key or name.startswith(key + "/")), None)
+    row = next((row for key, row in store.rows.items() if name == key or name.startswith(key + "/")), None) if name.startswith("BOM:") else None
     if row:
         if name != row["name"] and name not in store.fields and not any(f.get("name") == name for f in row.get("fields", {}).values()):
             return None
@@ -37,7 +37,28 @@ def source_record(store, name: str, *, detail=False):
     return result
 
 
-def review_sources(store, item: dict) -> list[dict]:
+def review_readers(readers: dict) -> dict:
+    """Keep displayed original answers without duplicating hidden raw feedback."""
+    result = {}
+    for name, reader in (readers or {}).items():
+        if not isinstance(reader, dict):
+            continue
+        rounds = []
+        for raw in reader.get("rounds") or [reader]:
+            if not isinstance(raw, dict) or raw.get("requested") is False:
+                continue
+            answer = raw.get("answer", raw)
+            answer = ({key: answer[key] for key in (
+                "key", "state", "value", "value_json", "confidence", "fact_ids", "reason",
+                "changed_because", "decision", "repairable") if key in answer} if isinstance(answer, dict) else None)
+            rounds.append({**{key: raw[key] for key in (
+                "valid", "validation_passed", "requested", "proposal_fingerprint",
+                "response_proposal_fingerprint", "contract_error") if key in raw}, "answer": answer})
+        result[name] = {**{key: reader[key] for key in ("role", "protocol") if key in reader}, "rounds": rounds}
+    return result
+
+
+def review_sources(store, item: dict, *, cache: dict | None = None) -> list[dict]:
     names = []
     seen = set()
 
@@ -45,7 +66,12 @@ def review_sources(store, item: dict) -> list[dict]:
         if not isinstance(name, str) or name in seen:
             return
         seen.add(name)
-        record = source_record(store, name)
+        if cache is None:
+            record = source_record(store, name)
+        else:
+            if name not in cache:
+                cache[name] = source_record(store, name)
+            record = cache[name]
         if record:
             names.append(record)
         # A computed dimension points to its actual printed dimension/callout.

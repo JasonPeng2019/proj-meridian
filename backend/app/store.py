@@ -15,7 +15,7 @@ import yaml
 
 from backend.paths import ROOT, inside
 from backend.app.review_queue import classify_review
-from backend.app.review_sources import review_sources
+from backend.app.review_sources import review_readers, review_sources
 from backend.app.review_values import validate_review_value
 from backend.app.review_identity import presented_review
 
@@ -415,22 +415,30 @@ class Store:
         resolved = {e.get("proposal_id") for e in self.events if e.get("proposal_id") and e.get("status") in {"accepted", "rejected"}}
         return [e for e in self.events if e.get("type") == "correction" and e.get("status") == "pending" and e["decision_id"] not in resolved]
 
-    def review_items(self) -> list[dict]:
+    def review_items(self, part_key: str | None = None) -> list[dict]:
         items = []
+        def relevant(target: str) -> bool:
+            return part_key is None or (self.owners.get(target) or {}).get("key") == part_key
+
         def item(target: str, kind: str, field: dict, **extra: Any) -> dict:
             part = self.owners.get(target)
             return {"id": target, "target": target, "type": kind, "part_key": part.get("key") if part else None,
                     "title": target, "value": field.get("value"), "original": field.get("original"),
-                    "status": field.get("review", {}).get("status", "pending"), "readers": field.get("readers", {}),
+                    "status": field.get("review", {}).get("status", "pending"), "readers": review_readers(field.get("readers", {})),
                     "method": field.get("method"), "options": field.get("options", []),
                     "state": field.get("state"),
                     "evidence": self.evidence_for(target), **extra}
         for proposal in self.pending_corrections():
             target = proposal["applies_to"]
+            if not relevant(target):
+                continue
             items.append(item(target, "correction", self.fields.get(target, {}), id=proposal["decision_id"], value=proposal["value"], original=proposal.get("old_value"), reason=proposal.get("note"), check_result=proposal.get("check_result")))
         for mapping in self.mappings:
-            items.append({"id": mapping["name"], "target": mapping["name"], "type": "name_mapping", "title": f"{mapping.get('left')} → {mapping.get('right')}", "value": mapping.get("relationship"), "status": mapping.get("review", {}).get("status", "pending"), "readers": mapping.get("readers", {}), "evidence": mapping.get("evidence"), "kind": mapping.get("kind"), "options": ["same", "kind_of", "different", "no_equivalent"]})
+            if part_key is None:
+                items.append({"id": mapping["name"], "target": mapping["name"], "type": "name_mapping", "title": f"{mapping.get('left')} → {mapping.get('right')}", "value": mapping.get("relationship"), "status": mapping.get("review", {}).get("status", "pending"), "readers": review_readers(mapping.get("readers", {})), "evidence": mapping.get("evidence"), "kind": mapping.get("kind"), "options": ["same", "kind_of", "different", "no_equivalent"]})
         for target, original in self.raw_fields.items():
+            if not relevant(target):
+                continue
             current = self.fields[target]
             if target.endswith("/link") and current.get("method") == "unresolved":
                 candidates = original.get("candidates", original.get("readers", {}))
@@ -442,6 +450,8 @@ class Store:
             if current.get("state") == "options":
                 items.append(item(target, "possible_reading", current, id="options:" + target, selected=current.get("selected")))
         for part in self.records:
+            if part_key is not None and part.get("key") != part_key:
+                continue
             if part.get("has_3d"):
                 weight = part.get("weight_check") or {}
                 state = str(weight.get("state", weight.get("status", ""))).lower()
@@ -454,11 +464,14 @@ class Store:
                 if state in {"failed", "flagged", "flagged_for_review"}:
                     items.append(item(part["id"], "weight", {}, id="weight:" + part["id"], title=part["display_name"] + " — weight check", weight_check=weight, status="human_confirmed" if part.get("design_review") else "pending"))
         for event in self.pending_changed():
+            if not relevant(event["applies_to"]):
+                continue
             items.append(item(event["applies_to"], "source_changed", {}, id="changed:" + event["decision_id"], value=event.get("value"), reason=event.get("change_reason", "Source changed since approval"), previous_decision=event))
+        source_cache = {}
         for entry in items:
             entry["review_queue"], entry["queue_reason"] = classify_review(entry)
             entry["review_label"] = "Human reviewed" if entry["review_queue"] == "resolved" else "Needs human input" if entry["review_queue"] == "human_input" else "Needs human review"
-            entry["source_refs"] = review_sources(self, entry)
+            entry["source_refs"] = review_sources(self, entry, cache=source_cache)
         return items
 
     def evidence_for(self, target: str) -> dict:
@@ -466,7 +479,15 @@ class Store:
         field = self.fields.get(target, {})
         if not part:
             return {}
-        return {"part_key": part["key"], "drawing": part.get("drawing"), "bom": part.get("bom", []), "page": field.get("page", 1), "box": field.get("box"), "says": field.get("original", field.get("value"))}
+        drawing = part.get("drawing")
+        drawing = {key: drawing[key] for key in (
+            "id", "pages", "page_sizes", "source_path", "source_filename", "image", "images", "degraded", "sha256")
+            if key in drawing} if drawing else None
+        bom = [{**{key: row[key] for key in ("name", "display_id", "display_name", "section", "source_path", "source_row") if key in row},
+                "fields": {name: {key: cell[key] for key in ("name", "original", "value", "method", "state", "source_path", "source_row") if key in cell}
+                           for name, cell in row.get("fields", {}).items() if isinstance(cell, dict)}}
+               for row in part.get("bom", [])]
+        return {"part_key": part["key"], "drawing": drawing, "bom": bom, "page": field.get("page", 1), "box": field.get("box"), "says": field.get("original", field.get("value"))}
 
     def act(self, item_id: str, action: str, value: Any = None, note: str = "", *, parser_provenance: dict | None = None) -> dict:
         found = next((i for i in self.review_items() if i["id"] == item_id), None)

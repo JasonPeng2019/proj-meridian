@@ -118,6 +118,12 @@ try {
   await page.goto(`http://127.0.0.1:${address.port}/__viewer3d__`);
   const model = page.getByRole("region", { name: "3D reconstruction", exact: true });
   const fit = () => model.getByRole("button", { name: "Fit", exact: true });
+  const reviewStatus = async expected => {
+    // Metadata passes through PartPage's effect; wait for the rendered state,
+    // even when an already loaded model keeps the same bounds and URL.
+    await page.waitForFunction(expected => document.querySelector('.meridian-viewer [aria-label="Model review status"]')?.textContent === expected, expected);
+    assert.equal(await model.getByLabel("Model review status").innerText(), expected);
+  };
   const last = () => page.evaluate(() => window.viewerProbe.frames.at(-1));
   const ready = async expected => {
     await page.waitForFunction(() => document.querySelector('.meridian-viewer button') &&
@@ -127,7 +133,7 @@ try {
     return last();
   };
   let initial = await ready(boundsB);
-  assert.equal(await model.getByLabel("Model review status").innerText(), "Human reviewed");
+  await reviewStatus("Human reviewed");
   assert.match(await model.innerText(), /Reconstruction from 2D drawing. Not the original CAD model./);
   assert.ok(initial.changed > 100 && /WebGL/.test(initial.webgl));
   assert.ok(initial.colors.every(color => color === 0x92979c), "Loaded red fixture material must become neutral grey");
@@ -176,7 +182,7 @@ try {
   for (const scenario of ["SYNTHETIC changed evidence", "SYNTHETIC unreviewed", "SYNTHETIC fallback", "SYNTHETIC stale"]) {
     await page.getByRole("button", { name: scenario, exact: true }).click();
     await ready(boundsA);
-    assert.equal(await model.getByLabel("Model review status").innerText(), "Unavailable");
+    await reviewStatus("Unavailable");
     assert.doesNotMatch(await model.innerText(), /FAILED|SYNTHETIC source changed|Debug/);
   }
   await page.getByRole("button", { name: "SYNTHETIC toggle Debug", exact: true }).click();
@@ -185,14 +191,14 @@ try {
   assert.match(await model.innerText(), /Weight check: FAILED/);
   await page.getByRole("button", { name: "SYNTHETIC AI reviewed", exact: true }).click();
   await ready(boundsA);
-  assert.equal(await model.getByLabel("Model review status").innerText(), "AI reviewed");
+  await reviewStatus("AI reviewed");
   checked("Changed/missing review evidence never inherits reviewer default or review label; stale model remains viewable; engineering details only in Debug");
 
   for (const scenario of ["SYNTHETIC bad GLB", "SYNTHETIC network"]) {
     await page.getByRole("button", { name: scenario, exact: true }).click();
     await model.getByRole("alert").waitFor();
     assert.equal(await fit().isDisabled(), true);
-    assert.equal(await model.getByLabel("Model review status").innerText(), "Unavailable");
+    await reviewStatus("Unavailable");
     assert.equal(await page.evaluate(() => window.viewerProbe.live.size), 0);
   }
   await page.getByRole("button", { name: "SYNTHETIC reviewed B", exact: true }).click();
@@ -230,6 +236,7 @@ try {
   report.browser = browser.version();
 } catch (error) {
   report.error = String(error?.stack ?? error); process.exitCode = 1;
+  if (page) report.synthetic_input = await page.evaluate(() => window.viewerProbe?.input).catch(() => null);
   if (page) await page.screenshot({ path: path.join(output, "synthetic-failure.png") }).catch(() => {});
 } finally {
   await browser?.close();

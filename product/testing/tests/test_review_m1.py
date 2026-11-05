@@ -393,12 +393,7 @@ def prepared_runtime(workspace, monkeypatch, *, kind="options", second_part=Fals
 
         monkeypatch.setattr(fixtures.prep, "datetime", PrepClock)
         identity = "D-001" if kind in {"link", "scan"} else "D-013"
-        drawings = [fixtures.drawing(workspace, identity, scan=kind in {"scan", "scanned_template"}, alternatives=kind == "options")]
-        if kind == "scanned_template":
-            # Explicit synthetic numeric inventory exercises raw-vs-scan DTO
-            # binding; it is not a claim that a real scan was read or measured.
-            inventory = fixtures.drawing(workspace / "synthetic-inventory", identity)
-            drawings[0].numbers, drawings[0].words = inventory.numbers, inventory.words
+        drawings = [fixtures.drawing(workspace, identity, scan=kind == "scan", alternatives=kind == "options")]
         if second_part:
             drawings.append(fixtures.drawing(workspace, "D-025"))
         rows = [fixtures.row()]
@@ -437,10 +432,12 @@ def prepared_runtime(workspace, monkeypatch, *, kind="options", second_part=Fals
     return service, tools, registry, store
 
 
-def prepared_item(service, kind, suffix=None):
+def prepared_item(service, kind, suffix=None, *, prefix=None):
     declared = {item.id for item in service.registry.document.prepared.review_items}
     return next(item for item in service.list_review(c.ReviewListRequest(status="all"))
-                if item.id in declared and item.kind == kind and (suffix is None or item.applies_to.endswith(suffix)))
+                if item.id in declared and item.kind == kind
+                and (suffix is None or item.applies_to.endswith(suffix))
+                and (prefix is None or item.applies_to.startswith(prefix)))
 
 
 def submit(service, item, action, *, value=None, source_ids=(), note="Synthetic M1 action, not an actual human review."):
@@ -509,7 +506,7 @@ def test_invalid_or_unrelated_link_values_never_enter_the_journal(workspace, mon
 
 def test_printed_choice_rebuilds_only_affected_model_and_keeps_original_options(workspace, monkeypatch):
     service, tools, registry, store = prepared_runtime(workspace, monkeypatch, second_part=True)
-    item = prepared_item(service, "template_field", "/thickness")
+    item = prepared_item(service, "template_field", "D-013/template/thickness")
     assert item.applies_to == "D-013/template/thickness" and item.options == [7, 5]
     assert item.allowed_actions == [c.ReviewAction.REJECT, c.ReviewAction.CHOOSE_OPTION]
     original = registry.document.prepared.model_dump()
@@ -544,7 +541,7 @@ def test_printed_choice_rebuilds_only_affected_model_and_keeps_original_options(
     assert future_tools.get_facts("D-013/part").facts[item.applies_to].display.value == 7
     assert again.part_for("D-013/part").model.state == "available"
     assert journal.history(item.applies_to) == result.decisions
-    assert prepared_item(restarted, "template_field", "/thickness").status == "accepted"
+    assert prepared_item(restarted, "template_field", "D-013/template/thickness").status == "accepted"
 
 
 @pytest.mark.parametrize("value", [True, "7", 9, {"value": 7}])
@@ -624,7 +621,7 @@ def test_scan_actions_keep_raw_original_and_rounds_and_refresh_answers(workspace
 @pytest.mark.parametrize("action", ["approve_mapping", "reject"])
 def test_mapping_approval_or_rejection_controls_future_resolution(workspace, monkeypatch, action):
     service, tools, registry, store = prepared_runtime(workspace, monkeypatch, kind="mapping")
-    item = prepared_item(service, "name_mapping")
+    item = prepared_item(service, "name_mapping", prefix="names/material/")
     original = registry.document.prepared.model_dump()
     assert tools.get_facts("D-013/part").facts["D-013/drawing/material"].display.state == "undetermined"
     result = submit(service, item, action)
@@ -637,7 +634,7 @@ def test_mapping_approval_or_rejection_controls_future_resolution(workspace, mon
     assert result.decisions[-1].type == c.DecisionType.NAME_MAPPING
     assert registry.document.prepared.model_dump() == original
     restarted, future_tools, again, _ = prepared_runtime(workspace, monkeypatch, restart=True)
-    assert prepared_item(restarted, "name_mapping").status == result.item.status
+    assert prepared_item(restarted, "name_mapping", prefix="names/material/").status == result.item.status
     assert again.approved_mappings == registry.approved_mappings
 
 
@@ -691,7 +688,8 @@ def test_prepared_changed_source_and_append_failure_do_not_invent_approval(works
 
 def test_unresolved_mapping_accepts_only_an_explicit_recorded_relationship(workspace, monkeypatch):
     service, tools, registry, store = prepared_runtime(workspace, monkeypatch, kind="unresolved_mapping")
-    item = prepared_item(service, "name_mapping")
+    item = prepared_item(service, "name_mapping", prefix="names/material/")
+    original = registry.document.prepared.model_dump()
     assert item.mapping is None and c.ReviewAction.SET_VALUE in item.allowed_actions
     for value in [{"relationship": "same", "to_name": "Unrecorded target"},
                   {"relationship": "invented", "to_name": "Metal X"}, True]:
@@ -702,7 +700,7 @@ def test_unresolved_mapping_accepts_only_an_explicit_recorded_relationship(works
     assert result.item.status == "accepted"
     assert any(mapping.name == item.applies_to for mapping in registry.approved_mappings)
     assert tools.get_facts("D-013/part").facts["D-013/drawing/material"].display.value == "Alloy X"
-    assert registry.document.prepared.mappings == []
+    assert registry.document.prepared.model_dump() == original
     _, _, again, _ = prepared_runtime(workspace, monkeypatch, restart=True)
     assert again.approved_mappings == registry.approved_mappings
 
@@ -779,15 +777,21 @@ def test_prepared_feature_absence_can_be_reviewed_or_replaced_without_overwritin
     assert future.model_dump() == field.model_dump()
 
 
-def test_template_snapshot_binds_original_input_even_after_scan_projection(workspace, monkeypatch):
-    service, tools, registry, store = prepared_runtime(workspace, monkeypatch, kind="scanned_template")
+def test_template_snapshot_keeps_original_input_after_human_projection(workspace, monkeypatch):
+    # M1 templates use clean drawings. Exercise the supported human overlay,
+    # rather than asking M11 to reconstruct a degraded drawing it must refuse.
+    service, tools, registry, store = prepared_runtime(workspace, monkeypatch, kind="clean_template")
     raw = c.DrawingEvidence.model_validate(json.loads((workspace / "inputs.json").read_text("utf-8"))["drawings"][0])
-    effective_source = registry.document.prepared.drawings[0]
+    proposal = tools.propose_correction("D-013/drawing/title", "SYNTHETIC reviewed title",
+                                        "Synthetic explicit source-bound correction test.")
+    act(service, proposal.item)
+    effective_source = registry.part_for("D-013/part").drawing
     template = registry.load_template("D-013/part")
     assert c.contract_digest(raw) != c.contract_digest(effective_source)
     assert template.source_sha256 == c.contract_digest(raw)
     assert raw.source_sha256 == effective_source.source_sha256
-    item = prepared_item(service, "template_field", "/thickness")
+    item = prepared_item(service, "template_field", "D-013/template/thickness")
     result = submit(service, item, "accept")
     assert result.item.status == "accepted" and registry.load_template("D-013/part").thickness.value == 5
-    assert registry.document.prepared.drawings[0].fields["title"].original is None
+    assert registry.document.prepared.drawings[0].model_dump() == raw.model_dump()
+    assert effective_source.fields["title"].correction.corrected == "SYNTHETIC reviewed title"

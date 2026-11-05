@@ -510,6 +510,7 @@ def _answer(events: list[dict[str, Any]], role: Role, last_message: Path) -> dic
 def _observed(events: list[dict[str, Any]], role: Role) -> tuple[dict[str, Any] | None, dict[str, Any]]:
     """Only exposed fields. Absence is null; contradictions are retained as lists."""
     values: dict[str, list[Any]] = {}
+    cli_error = any(event.get("type") == "result" and event.get("is_error") for event in events)
 
     def add(name: str, value: Any) -> None:
         if value is None or value == "not exposed":
@@ -540,7 +541,12 @@ def _observed(events: list[dict[str, Any]], role: Role) -> tuple[dict[str, Any] 
                 add("read_only", event.get("read_only"))
                 add("cli_version", event.get("claude_code_version"))
             if kind == "assistant":
-                add("model", _mapping(event.get("message")).get("model"))
+                model = _mapping(event.get("message")).get("model")
+                # Claude labels locally generated error messages <synthetic>.
+                # It is not a second inference model. Preserve the original
+                # execution failure instead of masking it with a pin conflict.
+                if not (cli_error and model == "<synthetic>"):
+                    add("model", model)
             usage = _mapping(event.get("usage")) if kind == "result" else {}
             add("service_tier", usage.get("service_tier"))
             if usage.get("speed") in {"fast", "priority"}:

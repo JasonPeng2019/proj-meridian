@@ -92,6 +92,7 @@ function Harness() {
   const [part, setPart] = useState(base);
   const [example, setExample] = useState<ModelRequest["example"] | undefined>();
   const [debug, setDebug] = useState(false);
+  (probe as any).input = { model: part.model, drawing_hash: part.drawing?.source_sha256 };
   const choose = (next: PartDetailResponse, requested?: ModelRequest["example"]) => { setPart(next); setExample(requested); };
   return <main><h1>SYNTHETIC WebGL viewer test — no real-source credit</h1>
     <nav aria-label="Synthetic scenarios">

@@ -26,7 +26,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "development"))
 
 from backend.ai.runner import (  # noqa: E402
-    _answer,
+    _answer, _observed,
     CliReservation, EvidenceBundle, EvidenceError, EvidenceInput, JobDefinition,
     Runner, RunnerError, SerialQueue, with_field_validation,
 )
@@ -65,6 +65,28 @@ def test_codex_final_event_must_match_its_last_message_file(workspace):
     with pytest.raises(ValueError, match="differ"):
         _answer([{"type": "item.completed", "item": {"type": "agent_message", "text": json.dumps(answer)}}],
                 "determination", final)
+
+
+def test_claude_local_error_marker_is_not_an_inference_model():
+    events = [
+        {"type": "system", "subtype": "init", "model": "claude-opus-5-5", "fastMode": False},
+        {"type": "assistant", "message": {"model": "<synthetic>", "content": [
+            {"type": "text", "text": "SYNTHETIC fixture: OAuth authentication failed before inference."}]}},
+        {"type": "result", "is_error": True},
+    ]
+    effective, observed = _observed(events, "verification")
+    assert effective["model"] == observed["model"] == "claude-opus-5-5"
+    assert observed["fastMode"] is False
+    # A real, different model remains a conflict even on a failed run.
+    events[1]["message"]["model"] = "claude-sonnet-5-5"
+    effective, observed = _observed(events, "verification")
+    assert effective is None
+    assert observed["model"] == ["claude-opus-5-5", "claude-sonnet-5-5"]
+    # The sentinel is special only for an actual CLI error, never a success.
+    events[1]["message"]["model"] = "<synthetic>"
+    events[2]["is_error"] = False
+    effective, observed = _observed(events, "verification")
+    assert effective is None and "<synthetic>" in observed["model"]
 
 
 def read(path):
@@ -229,6 +251,19 @@ def test_exact_order_candidate_original_evidence_null_and_partial_observations(w
     assert all("SYNTHETIC-DO-NOT-PASS" not in path.read_text(encoding="utf-8")
                for path in case.runtime.rglob("*.json"))
     assert PrepProvenance.model_validate_json((case.runner.last_run_dir / "result.json").read_bytes()) == record
+
+
+def test_claude_synthetic_oauth_message_retains_execution_failure_and_unverified_sol(workspace):
+    case = Case(workspace, [determination(), verification(action="oauth_synthetic")])
+    record = case.runner(case.request())
+    opus = record.rounds[0].verification
+    assert opus.status == "execution_failed" and opus.failure.classification == "oauth"
+    assert opus.failure.execution_failure and opus.failure.exit_code == 1
+    assert record.mode == "single_model_unverified" and record.outcome == "unverified_fallback"
+    assert record.field_results[LENGTH].accepted.value == 7
+    assert record.field_results[LENGTH].status == "unverified_fallback"
+    assert [call["role"] for call in case.calls] == ["determination", "verification"]
+    assert record.next_launch_attempt_opus is True
 
 
 def test_one_disagreement_correction_and_reverification_with_mixed_field_counts(workspace):

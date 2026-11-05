@@ -74,7 +74,13 @@ time.sleep(step.get("sleep", 0))
 action = step.get("action", "success")
 if action == "mutate_source":
     Path(step["source_path"]).write_text("SYNTHETIC MUTATION", encoding="utf-8")
-if action in {"oauth", "rate_limit", "invocation", "network"}:
+if action == "oauth_synthetic":
+    emit({"type": "system", "subtype": "init", "model": expected_model, "fastMode": False})
+    emit({"type": "assistant", "message": {"model": "<synthetic>", "content": [
+        {"type": "text", "text": "SYNTHETIC OAuth authentication failure before inference"}]}})
+    emit({"type": "result", "is_error": True, "errors": ["SYNTHETIC OAuth authentication failure"]})
+    exit_code = 1
+elif action in {"oauth", "rate_limit", "invocation", "network"}:
     messages = {"oauth": "Synthetic OAuth authentication failure", "rate_limit": "Synthetic rate limit 429",
                 "invocation": "Synthetic unknown option", "network": "Synthetic network connection reset"}
     print(step.get("stderr", messages[action]), file=sys.stderr)

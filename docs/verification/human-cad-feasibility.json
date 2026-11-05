@@ -1,0 +1,616 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-11-05T14:21:22.272851+00:00",
+  "review_type": "AI desk review estimating human CAD feasibility; not a human trial or engineering approval",
+  "scope": "All 30 supplied engineering drawings, 33 pages. BOM-only catalog entries were not audited for supplier/library CAD availability.",
+  "definitions": {
+    "A": "Strong candidate for substantially complete nominal CAD under conventional pattern/symmetry interpretation; qualifications retained.",
+    "B": "Useful dimensioned partial body or major geometry available; local feature data incomplete.",
+    "C": "Essential principal contour or sheet-gauge choices unresolved; tracing or design choices needed."
+  },
+  "counts": {
+    "drawings": 30,
+    "pages_reviewed": 33,
+    "A": 10,
+    "B": 13,
+    "C": 7,
+    "useful_dimensioned_candidates_A_plus_B": 23,
+    "generator_available": 9,
+    "generator_candidate_coverage_fraction": 0.391304347826087,
+    "generator_variant_count": 12,
+    "generator_available_in_A": 6,
+    "generator_available_in_B": 3,
+    "generator_available_in_C": 0
+  },
+  "missing_strong_candidates": [
+    "D-011",
+    "D-020",
+    "D-023",
+    "D-028"
+  ],
+  "additional_candidates_beyond_generated": [
+    "D-001",
+    "D-002",
+    "D-003",
+    "D-004",
+    "D-005",
+    "D-007",
+    "D-010",
+    "D-011",
+    "D-016",
+    "D-018",
+    "D-020",
+    "D-023",
+    "D-024",
+    "D-028"
+  ],
+  "generator_functional_scope": {
+    "documented_dimensioned_functional_cuts_retained_in_supported_variant": [
+      "D-013",
+      "D-014",
+      "D-025",
+      "D-026",
+      "D-027"
+    ],
+    "substantial_functional_omissions": [
+      "D-012",
+      "D-015",
+      "D-017",
+      "D-019"
+    ],
+    "D-026_qualification": "Complete documented counterbore fits the 25 mm variant;15 mm variant omits the step. Existing source scope/weight limits remain."
+  },
+  "sensitivity": {
+    "D-020": "An explicit groove-centering dimension is absent. Moving A to B gives A=9, B=14, C=7 and still 23 useful candidates.",
+    "D-026": "A applies to the feasible 25 mm variant;15 mm thickness conflicts with the 15.4 mm blind counterbore depth."
+  },
+  "model_manifest_sha256": "0288dd7c7a50ae70a84ce6612767a5f30d6ef46d4ddde589ba406fd7dae8d14f",
+  "drawings_index_sha256": "d10cc1f73af4b07ecc86ba63a7fc5a70d027b4e8cfdc9dd1056cbeef57bd8a82",
+  "new_human_approvals": 0,
+  "source_templates_or_models_changed": false,
+  "drawings": [
+    {
+      "drawing": "D-001",
+      "name": "Door",
+      "category": "B",
+      "qualification": "B",
+      "basis": "492 x 515 x 3 body and 287 x 200 opening. Hole positions/pitches, opening placement and corner radii are not fixed.",
+      "source_pdf": "project-meridian_Avathon/project-meridian/dataset/drawings/D-001.pdf",
+      "source_sha256": "f89be461b615201d6aeeb7dba4925e2fca0af572e3a4c845bf8fc93025de919f",
+      "reviewed_pages": [
+        {
+          "image": "generated/images/D-001-p1.png",
+          "sha256": "c52d5946b67f97d86f69791d14829b0dc4d7edc780cb2ecb763abe9fdb4b2669"
+        }
+      ],
+      "generator_model_available": false,
+      "generator_examples": []
+    },
+    {
+      "drawing": "D-002",
+      "name": "Left Wall",
+      "category": "B",
+      "qualification": "B",
+      "basis": "775 x 578.90, 23 flange depth and 2 sheet gauge establish a useful formed body. Opening and hole/nut locations are missing.",
+      "source_pdf": "project-meridian_Avathon/project-meridian/dataset/drawings/D-002.pdf",
+      "source_sha256": "6822d609aa047ddbcb9446e1215f697ec12f5764ba9aa5ef3906543b9a1887bc",
+      "reviewed_pages": [
+        {
+          "image": "generated/images/D-002-p1.png",
+          "sha256": "7f86fd9e21f1138eb8e379fd9ac483cc2e668225bb3691f4c72a2bec2b36efdc"
+        }
+      ],
+      "generator_model_available": false,
+      "generator_examples": []
+    },
+    {
+      "drawing": "D-003",
+      "name": "Main Platform",
+      "category": "B",
+      "qualification": "B",
+      "basis": "Three sheets establish 600 x 775 x 20, R3 corners, large opening/recess and slots. Numerous threaded-hole sizes/depths are given without a complete positional definition.",
+      "source_pdf": "project-meridian_Avathon/project-meridian/dataset/drawings/D-003.pdf",
+      "source_sha256": "c0cc4e670e6c40628a15677151ffe5b78ba46067cd1f45fdca8d0975344e54b0",
+      "reviewed_pages": [
+        {
+          "image": "generated/images/D-003-p1.png",
+          "sha256": "cd09e8f3226ef443c80da5e5af534abcf766defc54b3fb8d1e5b38250dd472f3"
+        },
+        {
+          "image": "generated/images/D-003-p2.png",
+          "sha256": "a8a6e2b081d363a713f221ac11b3b77240aa822c09013f2eeadcf2cb63bd74fe"
+        },
+        {
+          "image": "generated/images/D-003-p3.png",
+          "sha256": "9c3f5524247c996d5c48930ebb70fc277decf158f205251871497e621a7debe6"
+        }
+      ],
+      "generator_model_available": false,
+      "generator_examples": []
+    },
+    {
+      "drawing": "D-004",
+      "name": "Top Plate",
+      "category": "B",
+      "qualification": "B",
+      "basis": "775 x 650 x 3 and 25 flanges support the main body. Large opening centers and hole-pattern coordinates are incomplete.",
+      "source_pdf": "project-meridian_Avathon/project-meridian/dataset/drawings/D-004.pdf",
+      "source_sha256": "947fee0986f4799388d5bd41411b2abedcee5d6a644e909238f005fb4802f64b",
+      "reviewed_pages": [
+        {
+          "image": "generated/images/D-004-p1.png",
+          "sha256": "83ce675f9e50eb2095ddeb131d907b83a8f93bffdacd0d750e2f5bd787091e98"
+        }
+      ],
+      "generator_model_available": false,
+      "generator_examples": []
+    },
+    {
+      "drawing": "D-005",
+      "name": "Window Clamp Frame",
+      "category": "B",
+      "qualification": "B",
+      "basis": "Envelope, window seat, opening and section data support a useful frame. Hole pitches, corner radii and complete local groove/relief placement are missing.",
+      "source_pdf": "project-meridian_Avathon/project-meridian/dataset/drawings/D-005.pdf",
+      "source_sha256": "6f49feb435d02be842ac6933d726b6785cf9cb7cef70e8193976dc4ab265cf26",
+      "reviewed_pages": [
+        {
+          "image": "generated/images/D-005-p1.png",
+          "sha256": "17b768b6cb8bb20639cf2cf03353b4782d192b37c8f70658244610eb3c818cf3"
+        }
+      ],
+      "generator_model_available": false,
+      "generator_examples": []
+    },
+    {
+      "drawing": "D-006",
+      "name": "Canister Wall",
+      "category": "C",
+      "qualification": "C",
+      "basis": "Envelope/gauge are given, but essential irregular lower/right contour vertices, slopes and transitions are not dimensioned. A traced contour would be an estimate.",
+      "source_pdf": "project-meridian_Avathon/project-meridian/dataset/drawings/D-006.pdf",
+      "source_sha256": "b9bd89aa9449889adb5335b1f4f3550be072a37447b1c134fb703435f04fbaad",
+      "reviewed_pages": [
+        {
+          "image": "generated/images/D-006-p1.png",
+          "sha256": "37b9f976eda8c3bfe915ed3100400c64996a3bec88322ad4f6d2e0976c284c55"
+        }
+      ],
+      "generator_model_available": false,
+      "generator_examples": []
+    },
+    {
+      "drawing": "D-007",
+      "name": "Dispenser Shaft",
+      "category": "B",
+      "qualification": "B",
+      "basis": "Stepped shaft diameters, lengths and groove section/spacing are present. Curved longitudinal groove path, axial endpoints and runout are not defined.",
+      "source_pdf": "project-meridian_Avathon/project-meridian/dataset/drawings/D-007.pdf",
+      "source_sha256": "e5d57d66cae6ca7bbb2956249e89c11db91d4ea3e258f48658af191e926870c9",
+      "reviewed_pages": [
+        {
+          "image": "generated/images/D-007-p1.png",
+          "sha256": "6b44aeecd9d71670652f9b1543008d968863c4d5056012656d2292cb0f83702c"
+        }
+      ],
+      "generator_model_available": false,
+      "generator_examples": []
+    },
+    {
+      "drawing": "D-008",
+      "name": "Powder Bracket",
+      "category": "C",
+      "qualification": "C",
+      "basis": "Overall spans and gauge alternatives exist, but essential profiled/sloping web geometry and slot definition are missing.",
+      "source_pdf": "project-meridian_Avathon/project-meridian/dataset/drawings/D-008.pdf",
+      "source_sha256": "2642be4f1d3471cc440aa7830166adfa298a8e1a31cef90911662bb2b4a26448",
+      "reviewed_pages": [
+        {
+          "image": "generated/images/D-008-p1.png",
+          "sha256": "1baf6ed6555c453942985abbead41b834b06d09866ff6cc21c6e26b1055823f1"
+        }
+      ],
+      "generator_model_available": false,
+      "generator_examples": []
+    },
+    {
+      "drawing": "D-009",
+      "name": "Powder Canister",
+      "category": "C",
+      "qualification": "C",
+      "basis": "Some envelope and interface dimensions exist. Wall gauge is free-choice; shoulder/taper/neck breakpoints and outlet slot dimensions are not fixed.",
+      "source_pdf": "project-meridian_Avathon/project-meridian/dataset/drawings/D-009.pdf",
+      "source_sha256": "9911aaadb2ab559fd083160ba59480544cb406ed866d43d1fab45d96ab839eea",
+      "reviewed_pages": [
+        {
+          "image": "generated/images/D-009-p1.png",
+          "sha256": "13a0d22196d7dd9b6966b62e4454421470a2d2b5b5aeb47247f9aa9c35eb1771"
+        }
+      ],
+      "generator_model_available": false,
+      "generator_examples": []
+    },
+    {
+      "drawing": "D-010",
+      "name": "Motor Plate",
+      "category": "B",
+      "qualification": "B",
+      "basis": "Main envelope, 2 sheet gauge and opposing flange extents support a formed body. Hole positions, local corner radii and relief details are incomplete.",
+      "source_pdf": "project-meridian_Avathon/project-meridian/dataset/drawings/D-010.pdf",
+      "source_sha256": "700cc64cb7e7c31d1d7a6d6f506bac453cdcb3c7daf76dc2272ffebfe5e2d911",
+      "reviewed_pages": [
+        {
+          "image": "generated/images/D-010-p1.png",
+          "sha256": "56a6f76a074a6e5fd0646a2aaee1e71496cc0b0f3ad486c3518b4b14b5c354b1"
+        }
+      ],
+      "generator_model_available": false,
+      "generator_examples": []
+    },
+    {
+      "drawing": "D-011",
+      "name": "Recoater Arm",
+      "category": "A",
+      "qualification": "A",
+      "basis": "348 x 195 L envelope, 25-wide legs, R35/R60 elbow and 12/15 thickness alternatives. Hole offsets/pitches are present. Four M5 holes use the clearly regular row with its single 82 pitch label.",
+      "source_pdf": "project-meridian_Avathon/project-meridian/dataset/drawings/D-011.pdf",
+      "source_sha256": "6cc7410dd722b7beb18a169b989a3dbd67fe701cf45eb8c8b6d13734f6593b67",
+      "reviewed_pages": [
+        {
+          "image": "generated/images/D-011-p1.png",
+          "sha256": "d7e712cb584d7f0d6d30e3a1b19b35d9a27bbe7af495bfd78f7752ea80c43378"
+        }
+      ],
+      "generator_model_available": false,
+      "generator_examples": []
+    },
+    {
+      "drawing": "D-012",
+      "name": "Recoater Mount Block",
+      "category": "A",
+      "qualification": "A",
+      "basis": "120 x 25 x 15 with orthogonal M6 pairs at +/-40 and +/-30 around centerlines. A human can build all four bores; the generator omitted the side pair.",
+      "source_pdf": "project-meridian_Avathon/project-meridian/dataset/drawings/D-012.pdf",
+      "source_sha256": "23ba5d97ee7a744cf12072e1338ab62fa5e49c09c5229af4f20a6ff5a455f64a",
+      "reviewed_pages": [
+        {
+          "image": "generated/images/D-012-p1.png",
+          "sha256": "d312c55b5561f7a380c94598daf510000055a7a060b172f8d24d36e30b39f6e8"
+        }
+      ],
+      "generator_model_available": true,
+      "generator_examples": [
+        "A"
+      ]
+    },
+    {
+      "drawing": "D-013",
+      "name": "Recoater Plate",
+      "category": "A",
+      "qualification": "A",
+      "basis": "Body, thickness alternatives, four slots and both threaded-hole groups are dimensioned. Uses the regular-row interpretation of the 35.7 pitch. Small corner finishing is unspecified.",
+      "source_pdf": "project-meridian_Avathon/project-meridian/dataset/drawings/D-013.pdf",
+      "source_sha256": "826076b03bfbaeee961dc3e57cb642c225d41f1ea9a643d0bb1ca7d296280047",
+      "reviewed_pages": [
+        {
+          "image": "generated/images/D-013-p1.png",
+          "sha256": "30afbd63188f29b0d47eb96b09de668226fca19f2910fc06c38ea0a98ef5e726"
+        }
+      ],
+      "generator_model_available": true,
+      "generator_examples": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "drawing": "D-014",
+      "name": "Recoater Linear Plate",
+      "category": "A",
+      "qualification": "A",
+      "basis": "Body and M5/countersink pattern sizes, positions and opening faces are specified. Only unspecified minor edge finishing remains.",
+      "source_pdf": "project-meridian_Avathon/project-meridian/dataset/drawings/D-014.pdf",
+      "source_sha256": "0e6fa42e39eda320d42f45576a0825c5d0c002abd6863188b3c98774d52867f6",
+      "reviewed_pages": [
+        {
+          "image": "generated/images/D-014-p1.png",
+          "sha256": "937b71e1f22328c3000878493cfc2f18a50d4cb6670a6148021d0880c817b437"
+        }
+      ],
+      "generator_model_available": true,
+      "generator_examples": [
+        "A"
+      ]
+    },
+    {
+      "drawing": "D-015",
+      "name": "Silicone Wiper",
+      "category": "B",
+      "qualification": "B",
+      "basis": "Exact 270 x 14 x 1 strip, eight 3.4 holes. Hole pitch, end offsets and transverse row offset are absent.",
+      "source_pdf": "project-meridian_Avathon/project-meridian/dataset/drawings/D-015.pdf",
+      "source_sha256": "0828f6fee0d3bc087524df08c8b3fbadc5201212e5f86fcfc08b984fe9e32c60",
+      "reviewed_pages": [
+        {
+          "image": "generated/images/D-015-p1.png",
+          "sha256": "3114737cf04d8398f408e54b662cb1b85a0ef3c0f79f0ca5ccf96a1e05ee0236"
+        }
+      ],
+      "generator_model_available": true,
+      "generator_examples": [
+        "A"
+      ]
+    },
+    {
+      "drawing": "D-016",
+      "name": "Galvo Bottom Plate",
+      "category": "B",
+      "qualification": "B",
+      "basis": "200 x 283.5 x 10, lower R15 corners and located 145 opening. Small mounting-hole positions are missing.",
+      "source_pdf": "project-meridian_Avathon/project-meridian/dataset/drawings/D-016.pdf",
+      "source_sha256": "4f9799f28352975cd39a5c52daf0e1dcb036d379fb58ecf6413f0befc67525f3",
+      "reviewed_pages": [
+        {
+          "image": "generated/images/D-016-p1.png",
+          "sha256": "65f4afad96b6544095e8eef0cc9ed5a07585ac4b848ab3770284262fac9e17cf"
+        }
+      ],
+      "generator_model_available": false,
+      "generator_examples": []
+    },
+    {
+      "drawing": "D-017",
+      "name": "Galvo Mounting Plate",
+      "category": "B",
+      "qualification": "B",
+      "basis": "Body and central 42 opening have dimensions. Other mounting-hole coordinates and dowel-hole horizontal locations are missing.",
+      "source_pdf": "project-meridian_Avathon/project-meridian/dataset/drawings/D-017.pdf",
+      "source_sha256": "a460ab37d94f2d8f4c9bac58da15ea9d1e93b4f48ee0825e51adac0ec81f37ae",
+      "reviewed_pages": [
+        {
+          "image": "generated/images/D-017-p1.png",
+          "sha256": "3c7708fdba4531299b37d8c80533dac24bf98195ce4c2e6c3647e1741c012bd9"
+        }
+      ],
+      "generator_model_available": true,
+      "generator_examples": [
+        "A"
+      ]
+    },
+    {
+      "drawing": "D-018",
+      "name": "Galvo Mount Side",
+      "category": "B",
+      "qualification": "B",
+      "basis": "95 x 120 x 10 sloping envelope, two 15 extents and upper R15 support most of the body. Lower fillet radius and six M4 edge-hole positions are missing.",
+      "source_pdf": "project-meridian_Avathon/project-meridian/dataset/drawings/D-018.pdf",
+      "source_sha256": "816b582d82ed383ad0ff5452afde74e98b74981a6e9afb3c8d1ff6dbd6fa50a0",
+      "reviewed_pages": [
+        {
+          "image": "generated/images/D-018-p1.png",
+          "sha256": "721bfcae3aa007eb15276121e428d02215e72e198dd8e86b5b7426eb18856eea"
+        }
+      ],
+      "generator_model_available": false,
+      "generator_examples": []
+    },
+    {
+      "drawing": "D-019",
+      "name": "Silicone Gasket",
+      "category": "B",
+      "qualification": "B",
+      "basis": "Exact 141/118 annulus, thickness 1 and six 4.5 holes. Bolt-circle radius is absent.",
+      "source_pdf": "project-meridian_Avathon/project-meridian/dataset/drawings/D-019.pdf",
+      "source_sha256": "581fbaf7562ac75008243463af6956d6f88cd6a0a858cf6c22aa62ce39041e11",
+      "reviewed_pages": [
+        {
+          "image": "generated/images/D-019-p1.png",
+          "sha256": "b8647d511903985c18d945ebd37234ea1dfd47795405e9bb44a9acfbd90a0048"
+        }
+      ],
+      "generator_model_available": true,
+      "generator_examples": [
+        "A"
+      ]
+    },
+    {
+      "drawing": "D-020",
+      "name": "Seal Ring",
+      "category": "A",
+      "qualification": "A, borderline",
+      "basis": "141/118.6 ring, 9.8-10.2 thickness limits, groove section and blind M4 bolt circle are supplied. Requires conventional equal spacing and symmetric axial groove placement; an explicit groove-center offset is not printed.",
+      "source_pdf": "project-meridian_Avathon/project-meridian/dataset/drawings/D-020.pdf",
+      "source_sha256": "06242966c0f3c15c3031982fa56585859ff1d64e52f6215a30fcf0e912225fa6",
+      "reviewed_pages": [
+        {
+          "image": "generated/images/D-020-p1.png",
+          "sha256": "d224adb41ae0689855d67c386f8c0a8ca471105b241f79c75a0b08d9ce1bad94"
+        }
+      ],
+      "generator_model_available": false,
+      "generator_examples": []
+    },
+    {
+      "drawing": "D-021",
+      "name": "Blower Outlet",
+      "category": "C",
+      "qualification": "C",
+      "basis": "Two pages explain the welded assembly, some interface dimensions and G2 nipple. Sheet gauge is free-choice and the full duct transition contour is not specified.",
+      "source_pdf": "project-meridian_Avathon/project-meridian/dataset/drawings/D-021.pdf",
+      "source_sha256": "c8b07157f3b40ef8d2dc18ae915d4f7244479ea6219d4fe3e8bb6ef1fedea1bc",
+      "reviewed_pages": [
+        {
+          "image": "generated/images/D-021-p1.png",
+          "sha256": "4c05f18560ab79c5fdc8c63f1219215f07bc99486be427af97bcae48933cbe38"
+        },
+        {
+          "image": "generated/images/D-021-p2.png",
+          "sha256": "0c77299258b6210231f016ad231eab718c6f347ba08ead959d0fed70027cf1c9"
+        }
+      ],
+      "generator_model_available": false,
+      "generator_examples": []
+    },
+    {
+      "drawing": "D-022",
+      "name": "Inlet Box",
+      "category": "C",
+      "qualification": "C",
+      "basis": "Much of the enclosure envelope is dimensioned. Gauge is explicitly free-choice; perforation pitch/offsets and some mounting positions remain unspecified.",
+      "source_pdf": "project-meridian_Avathon/project-meridian/dataset/drawings/D-022.pdf",
+      "source_sha256": "7f3f8efc002bc2545386c1a355341ca61ebd984084b21cb07575331c4c1cc9ee",
+      "reviewed_pages": [
+        {
+          "image": "generated/images/D-022-p1.png",
+          "sha256": "a43e8b9315fca684c8bcb1f93fc44cc678104571011aba1cc9ec2873f81cab81"
+        }
+      ],
+      "generator_model_available": false,
+      "generator_examples": []
+    },
+    {
+      "drawing": "D-023",
+      "name": "Build Cylinder",
+      "category": "A",
+      "qualification": "A",
+      "basis": "Axisymmetric section provides bore/fit diameters, 280 axial length, step locations and entry taper. Nominal functional geometry can be revolved. Minor exterior surfaces are labelled nonfunctional.",
+      "source_pdf": "project-meridian_Avathon/project-meridian/dataset/drawings/D-023.pdf",
+      "source_sha256": "5d838d31ad5e803b6c421bc6867447f73756d51509259385e07caf81e453c36d",
+      "reviewed_pages": [
+        {
+          "image": "generated/images/D-023-p1.png",
+          "sha256": "9dc37e4e578881a63b6cd997cf8213ec844c8fbebad1fd5d5f2539905e47b44d"
+        }
+      ],
+      "generator_model_available": false,
+      "generator_examples": []
+    },
+    {
+      "drawing": "D-024",
+      "name": "Build Base",
+      "category": "B",
+      "qualification": "B",
+      "basis": "Stepped body and major bore dimensions/locations are available. Multiple small M4/Helicoil-hole offsets and pitches are incomplete.",
+      "source_pdf": "project-meridian_Avathon/project-meridian/dataset/drawings/D-024.pdf",
+      "source_sha256": "f6da4da2e0c21231939c15f13535cf068d1c1f778774816f3cb65ddf30f96e3d",
+      "reviewed_pages": [
+        {
+          "image": "generated/images/D-024-p1.png",
+          "sha256": "9b0f37365903b566c898b0579f31b9f975d7857339ec91d5368c34cd46e8d1e1"
+        }
+      ],
+      "generator_model_available": false,
+      "generator_examples": []
+    },
+    {
+      "drawing": "D-025",
+      "name": "Build Base Ring",
+      "category": "A",
+      "qualification": "A",
+      "basis": "250/224 annulus, 2/3 thickness alternatives, R115.5 eight-hole circle and countersinks. Uses the shown regular eightfold arrangement.",
+      "source_pdf": "project-meridian_Avathon/project-meridian/dataset/drawings/D-025.pdf",
+      "source_sha256": "9b61f2c688fba1b10f502658505c78c0ff99820d3f281822eacdc7283e9b7e9c",
+      "reviewed_pages": [
+        {
+          "image": "generated/images/D-025-p1.png",
+          "sha256": "edae594f5e5fc3be24f7811101b71dd4166c3346197ecf942ffe3e37165ea814"
+        }
+      ],
+      "generator_model_available": true,
+      "generator_examples": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "drawing": "D-026",
+      "name": "Build Plate",
+      "category": "A",
+      "qualification": "A, 25 mm variant",
+      "basis": "250 disk, R105 three-hole pattern and counterbores are specified. A blind counterbore 15.4 deep fits the 25 thickness but conflicts with the printed 15 alternative.",
+      "source_pdf": "project-meridian_Avathon/project-meridian/dataset/drawings/D-026.pdf",
+      "source_sha256": "a7ee7f4d75acaf2e8fc67ce14ca223d5cb4a2931063f37f4dfb6fadeeb70256e",
+      "reviewed_pages": [
+        {
+          "image": "generated/images/D-026-p1.png",
+          "sha256": "ebf9e1387edb89799a9086b87277535e9f2f4fadaefbfd8be5305eb3a1f4f747"
+        }
+      ],
+      "generator_model_available": true,
+      "generator_examples": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "drawing": "D-027",
+      "name": "Cylinder Clamping Ring",
+      "category": "A",
+      "qualification": "A",
+      "basis": "330/264 annulus, thickness 15, R148.5 and 60/120-degree hole arrangements with opposite-face sink/bore details. Functional geometry is supplied.",
+      "source_pdf": "project-meridian_Avathon/project-meridian/dataset/drawings/D-027.pdf",
+      "source_sha256": "9a270f0ddf24b173b85b6879b4fbd1ba9cf67d71cff7b13f722699699a667bcc",
+      "reviewed_pages": [
+        {
+          "image": "generated/images/D-027-p1.png",
+          "sha256": "ea0dda057ae79db6756cb540556d91e3cfd4bb38f71237f2c157913291c8e288"
+        }
+      ],
+      "generator_model_available": true,
+      "generator_examples": [
+        "A"
+      ]
+    },
+    {
+      "drawing": "D-028",
+      "name": "Heating Element Plate",
+      "category": "A",
+      "qualification": "A",
+      "basis": "Capsule outline: height 11, R5.5 ends and 19 between end centers. End holes 4.5 and central hole 8; thickness 2/3 alternatives. Tangency and symmetry establish the remaining nominal locations.",
+      "source_pdf": "project-meridian_Avathon/project-meridian/dataset/drawings/D-028.pdf",
+      "source_sha256": "30fb8b6088f535c51107389aa8eb4c7420841cd0f4c6175d3deb90a154e9881f",
+      "reviewed_pages": [
+        {
+          "image": "generated/images/D-028-p1.png",
+          "sha256": "c550d70b059c28f2177713145a0eb0c51f2af4bacc1d7b8057d94a3c79fab629"
+        }
+      ],
+      "generator_model_available": false,
+      "generator_examples": []
+    },
+    {
+      "drawing": "D-029",
+      "name": "Z-axis Bottom Plate",
+      "category": "C",
+      "qualification": "C",
+      "basis": "Thickness and bore/thread details exist, but the three-lobed exterior has no controlling dimensions. Hole-center coordinates are also absent.",
+      "source_pdf": "project-meridian_Avathon/project-meridian/dataset/drawings/D-029.pdf",
+      "source_sha256": "066ed91474bb74b652451a34c6b9f5b719d23dba56043b8ba6aa8f5b7479cf15",
+      "reviewed_pages": [
+        {
+          "image": "generated/images/D-029-p1.png",
+          "sha256": "c562e455e4a6e8308f1e7d4a8a9a5e2931311fe82652f2cba6f884d7d7897a51"
+        }
+      ],
+      "generator_model_available": false,
+      "generator_examples": []
+    },
+    {
+      "drawing": "D-030",
+      "name": "Z-axis Motor Plate",
+      "category": "C",
+      "qualification": "C",
+      "basis": "Bore/thread/local recess details exist, but the three-lobed outline and hole positions are unspecified. Total plate gauge is also unclear; the local 4 depth is not a reliable total-thickness dimension.",
+      "source_pdf": "project-meridian_Avathon/project-meridian/dataset/drawings/D-030.pdf",
+      "source_sha256": "849100de6d2abbbcca5c6e39cd4a1778918b17818cc88c91340612981d9220ee",
+      "reviewed_pages": [
+        {
+          "image": "generated/images/D-030-p1.png",
+          "sha256": "511d3815d02110c0fc5822d433e04b5f6eae4dbfd7bad39bd98c231020809fcb"
+        }
+      ],
+      "generator_model_available": false,
+      "generator_examples": []
+    }
+  ]
+}

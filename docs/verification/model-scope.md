@@ -20,6 +20,8 @@ D-014 and D-027 therefore contain their dimensioned functional cuts. D-015 and D
 
 ## Why the other 21 drawings are blocked
 
+These are generator eligibility decisions. A separate [human CAD feasibility audit](human-cad-feasibility.md) estimates that 23 drawings support useful dimensioned CAD, including partial models, while this pack contains nine. An unsupported template or missing parsed numeric ID does not by itself mean a human lacks usable drawing data.
+
 The assessment covers all 30 drawings: three preserved primary templates, six additional ready templates and 21 blocked drawings. A missing essential contour, thickness or source-grounded dimension prevents a body from being generated. Minor edge finishing may be omitted honestly; an enclosing rectangle or guessed contour cannot replace the essential shape.
 
 | Drawings | Main blocking reasons |
